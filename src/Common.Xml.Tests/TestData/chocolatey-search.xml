@@ -1,0 +1,1869 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<feed xml:base="http://chocolatey.org/api/v2/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+      xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Search</title>
+  <id>http://chocolatey.org/api/v2/Search</id>
+  <updated>2020-05-15T17:11:50Z</updated>
+  <link rel="self" title="Search" href="Search" />
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='xml-notepad',Version='2.8.0.0')</id>
+    <title type="text">xml-notepad</title>
+    <summary type="text">A simple XML editor.</summary>
+    <updated>2020-05-15T14:45:00Z</updated>
+    <author>
+      <name>Microsoft Corporation,  Chris Lovett</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='xml-notepad',Version='2.8.0.0')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='xml-notepad',Version='2.8.0.0')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/xml-notepad/2.8.0.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2.8.0.0</d:Version>
+      <d:Title>XML Notepad</d:Title>
+      <d:Description>[XML Notepad](https://github.com/Microsoft/XmlNotepad/wiki) provides a simple intuitive User Interface for browsing and editing XML documents. According to the author's site, the current version requires .NET Framework 4.0 (which should already be installed with Chocolatey). Please let the maintainer know if you encounter any issues. This package supersedes the older [XmlNotepad](https://chocolatey.org/packages/XmlNotepad) package which is now deprecated.</d:Description>
+      <d:Tags xml:space="preserve"> xml-notepad xml notepad editor </d:Tags>
+      <d:Copyright>2006 Microsoft Corporation, 2016 Chris Lovett</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2019-07-19T19:51:50</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">3414</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1075</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/xml-notepad/2.8.0.0</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/xml-notepad/2.8.0.0</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.jsdelivr.net/gh/pgalbraith/chocolatey-packages@8dc2642d1b4bf80c0c116b26bada117176ab07d7/icons/xml-notepad.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2019-07-19T19:51:50</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/Microsoft/XmlNotepad/master/LICENSE</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>lHMOUHxo/vXPL42fmysUUHJ5ErPGBHwvQdpDzc/I/46dTk9F4Exr12N4uCHeJ0qPdZDwF8lvw7xieMuPq/493g==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">2548970</d:PackageSize>
+      <d:ProjectUrl>https://github.com/microsoft/xmlnotepad/wiki</d:ProjectUrl>
+      <d:ReleaseNotes>http://www.lovettsoftware.com/downloads/xmlnotepad/Updates.xml</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/Microsoft/XmlNotepad</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/pgalbraith/chocolatey-packages</d:PackageSourceUrl>
+      <d:DocsUrl>https://github.com/Microsoft/XmlNotepad/wiki</d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/Microsoft/XmlNotepad/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/d041b177513ce29a5b0cc70c19cc307b</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2019-11-09T09:38:16</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2019-07-19T20:27:05</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2019-07-24T09:39:12</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2019-07-24T09:39:12</d:PackageApprovedDate>
+      <d:PackageReviewer>Pauby</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2019-07-24T10:43:15</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2019-07-19T21:27:48</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='xml-notepad',Version='2.7.1.21')</id>
+    <title type="text">xml-notepad</title>
+    <summary type="text">A simple XML editor.</summary>
+    <updated>2020-05-15T14:45:00Z</updated>
+    <author>
+      <name>Microsoft Corporation,  Chris Lovett</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='xml-notepad',Version='2.7.1.21')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='xml-notepad',Version='2.7.1.21')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/xml-notepad/2.7.1.21" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2.7.1.21</d:Version>
+      <d:Title>XML Notepad</d:Title>
+      <d:Description>[XML Notepad](https://github.com/Microsoft/XmlNotepad/wiki) provides a simple intuitive User Interface for browsing and editing XML documents. According to the author's site, the current version requires .NET Framework 4.0 (which should already be installed with Chocolatey). Please let the maintainer know if you encounter any issues. This package supersedes the older [XmlNotepad](https://chocolatey.org/packages/XmlNotepad) package which is now deprecated.</d:Description>
+      <d:Tags xml:space="preserve"> xml-notepad xml notepad editor </d:Tags>
+      <d:Copyright>2006 Microsoft Corporation, 2016 Chris Lovett</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2019-02-22T06:05:56</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">3414</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1145</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/xml-notepad/2.7.1.21</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/xml-notepad/2.7.1.21</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.jsdelivr.net/gh/pgalbraith/chocolatey-packages@8dc2642d1b4bf80c0c116b26bada117176ab07d7/icons/xml-notepad.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2019-02-22T06:05:56</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/Microsoft/XmlNotepad/master/LICENSE</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>EOT9yJFo233Mz0kh9FfSAycJ0fQuw0kgp42dN9z2BNCiWaCuP93bG17GmDQeIOMeYyVJcbj/EL8pHVZzprAcxA==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">2519362</d:PackageSize>
+      <d:ProjectUrl>https://github.com/microsoft/xmlnotepad/wiki</d:ProjectUrl>
+      <d:ReleaseNotes>http://www.lovettsoftware.com/downloads/xmlnotepad/Updates.xml</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/Microsoft/XmlNotepad</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/pgalbraith/chocolatey-packages</d:PackageSourceUrl>
+      <d:DocsUrl>https://github.com/Microsoft/XmlNotepad/wiki</d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/Microsoft/XmlNotepad/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/578a4c07249573f4d3628d7b3caf82de</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2019-07-02T00:21:02</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2019-02-22T06:37:21</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2019-02-22T10:25:35</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2019-02-22T10:25:35</d:PackageApprovedDate>
+      <d:PackageReviewer>Pauby</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2019-02-22T11:27:52</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2019-02-22T12:02:27</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='xml-notepad',Version='2.8.0.7')</id>
+    <title type="text">xml-notepad</title>
+    <summary type="text">A simple XML editor.</summary>
+    <updated>2020-05-15T15:15:00Z</updated>
+    <author>
+      <name>Microsoft Corporation,  Chris Lovett</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='xml-notepad',Version='2.8.0.7')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='xml-notepad',Version='2.8.0.7')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/xml-notepad/2.8.0.7" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2.8.0.7</d:Version>
+      <d:Title>XML Notepad</d:Title>
+      <d:Description>[XML Notepad](https://github.com/Microsoft/XmlNotepad/wiki) provides a simple intuitive User Interface for browsing and editing XML documents. According to the author's site, the current version requires .NET Framework 4.0 (which should already be installed with Chocolatey). Please let the maintainer know if you encounter any issues. This package supersedes the older [XmlNotepad](https://chocolatey.org/packages/XmlNotepad) package which is now deprecated.</d:Description>
+      <d:Tags xml:space="preserve"> xml-notepad xml notepad editor </d:Tags>
+      <d:Copyright>2006 Microsoft Corporation, 2016 Chris Lovett</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2019-12-26T05:54:48</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">3414</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1194</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/xml-notepad/2.8.0.7</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/xml-notepad/2.8.0.7</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.jsdelivr.net/gh/pgalbraith/chocolatey-packages@8dc2642d1b4bf80c0c116b26bada117176ab07d7/icons/xml-notepad.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2019-12-26T05:54:48</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/Microsoft/XmlNotepad/master/LICENSE</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>YyRoE3m+cqXVWcqAwZMpedaaSYPre0Q6Nn0wbdQ9DYWuV6BuZ6+D3gRWPDX8UnHngsGikY/9yRknReZvkjbJmw==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">2689708</d:PackageSize>
+      <d:ProjectUrl>https://github.com/microsoft/XmlNotepad</d:ProjectUrl>
+      <d:ReleaseNotes>http://www.lovettsoftware.com/downloads/xmlnotepad/Updates.xml</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/Microsoft/XmlNotepad</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/pgalbraith/chocolatey-packages</d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/Microsoft/XmlNotepad/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/6d685fe107bcd5b94578cbd2db3d566e</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2019-12-26T06:32:47</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2019-12-26T06:27:42</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2020-01-05T11:33:00</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2020-01-05T11:33:00</d:PackageApprovedDate>
+      <d:PackageReviewer>mwallner</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2020-01-05T12:39:56</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2019-12-26T06:37:03</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='crypto-notepad',Version='1.5.1')</id>
+    <title type="text">crypto-notepad</title>
+    <summary type="text">Crypto Notepad allows you to create secure notes using AES algorithms.</summary>
+    <updated>2020-05-14T20:15:00Z</updated>
+    <author>
+      <name>Alexander Sigmanor</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='crypto-notepad',Version='1.5.1')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='crypto-notepad',Version='1.5.1')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/crypto-notepad/1.5.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>1.5.1</d:Version>
+      <d:Title>Crypto Notepad</d:Title>
+      <d:Description>## About It is often necessary to protect important notes in order to prevent them from being accessed by others, but text editors that offer encryption features are sometimes too complex for users who just want a secure Notepad alternative. Crypto Notepad stands out through its relatively simple design, as it looks very similar to the standard Windows Notepad. It offers a few extra features, such as encryption and a customizable UI, but it remains lightweight and very easy to use. ## Features ### Secure Crypto Notepad allows you to create secure notes using AES algorithms, able to customize different parameters of the encryption, such as: hash algorithm, key size, password iterations. ### Multifunctional Crypto Notepad, besides the main features of the default Windows Notepad, also supports drag and drop, url detection, associate own file type with application, integrate with windows context menu. ### Free Crypto Notepad is an open source project. It will always remain free and ad-free. If you're asked to pay for "full version" or "ad removal", most probably it's a scam. ### Portable Crypto Notepad can be run from any location without being installed on your PC beforehand. For example, you can place it on a portable storage device and use it to create secure notes on the go. ## Support the project If you are a developer, and want to help improve Crypto Notepad, please visit [the contributing guide](https://github.com/Sigmanor/Crypto-Notepad/blob/master/CONTRIBUTING.md). Also you can donate any amount for the development of the project. Any support is greatly appreciated. Thank you! [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=AK9FYCBAHV4U8&amp;source=url) | [Ko-fi](https://ko-fi.com/sigmanor) | [Liberapay](https://liberapay.com/sigmanor) ![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/crypto-notepad/screenshot.png)</d:Description>
+      <d:Tags xml:space="preserve"> crypto-notepad crypto encryption notepad security </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2019-10-19T22:52:26</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">127</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">77</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/crypto-notepad/1.5.1</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/crypto-notepad/1.5.1</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/crypto-notepad/crypto-notepad.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2019-10-19T22:52:26</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/Crypto-Notepad/Crypto-Notepad/master/LICENSE</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>237duTVQw05wlpc3V1Oei5lme7cQ3a9cwWdgc9ob7TxBxAjTWt/rIhf5peU1AcSm6cL5fB8YM6l7AmJHfwEIrw==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">348501</d:PackageSize>
+      <d:ProjectUrl>https://crypto-notepad.info/</d:ProjectUrl>
+      <d:ReleaseNotes>https://github.com/Crypto-Notepad/Crypto-Notepad/releases</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/Crypto-Notepad/Crypto-Notepad</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/crypto-notepad</d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl>https://www.fb.com/SlGMANOR</d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/Crypto-Notepad/Crypto-Notepad/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/95bb371a746342fb91d269452b8ec561</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-02-06T06:46:48</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2019-10-19T23:27:32</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2019-11-10T09:02:36</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2019-11-10T09:02:36</d:PackageApprovedDate>
+      <d:PackageReviewer>flcdrg</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2019-11-10T10:02:59</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2019-10-20T00:15:57</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='crypto-notepad',Version='1.6.6')</id>
+    <title type="text">crypto-notepad</title>
+    <summary type="text">Crypto Notepad allows you to create secure notes using AES algorithms.</summary>
+    <updated>2020-05-14T02:15:00Z</updated>
+    <author>
+      <name>Alexander Sigmanor</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='crypto-notepad',Version='1.6.6')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='crypto-notepad',Version='1.6.6')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/crypto-notepad/1.6.6" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>1.6.6</d:Version>
+      <d:Title>Crypto Notepad</d:Title>
+      <d:Description>## About It is often necessary to protect important notes in order to prevent them from being accessed by others, but text editors that offer encryption features are sometimes too complex for users who just want a secure Notepad alternative. Crypto Notepad stands out through its relatively simple design, as it looks very similar to the standard Windows Notepad. It offers a few extra features, such as encryption and a customizable UI, but it remains lightweight and very easy to use. ## Features ### Secure Crypto Notepad allows you to create secure notes using AES algorithms, able to customize different parameters of the encryption, such as: hash algorithm, key size, password iterations. ### Multifunctional Crypto Notepad, besides the main features of the default Windows Notepad, also supports drag and drop, url detection, associate own file type with application, integrate with windows context menu. ### Free Crypto Notepad is an open source project. It will always remain free and ad-free. If you're asked to pay for "full version" or "ad removal", most probably it's a scam. ### Portable Crypto Notepad can be run from any location without being installed on your PC beforehand. For example, you can place it on a portable storage device and use it to create secure notes on the go. ## Support the project If you are a developer, and want to help improve Crypto Notepad, please visit [the contributing guide](https://github.com/Sigmanor/Crypto-Notepad/blob/master/CONTRIBUTING.md). Also you can donate any amount for the development of the project. Any support is greatly appreciated. Thank you! [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=AK9FYCBAHV4U8&amp;source=url) | [Ko-fi](https://ko-fi.com/sigmanor) | [Liberapay](https://liberapay.com/sigmanor) ![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/crypto-notepad/screenshot.png)</d:Description>
+      <d:Tags xml:space="preserve"> crypto-notepad crypto encryption notepad security </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2020-02-25T20:25:17</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">127</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">50</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/crypto-notepad/1.6.6</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/crypto-notepad/1.6.6</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/crypto-notepad/crypto-notepad.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2020-02-25T20:25:17</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/Crypto-Notepad/Crypto-Notepad/master/LICENSE</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>Zbg1UFRSInCwf2y4QQsfG5nvdtXnjmVnEo4gCWojBm3yiLxm9VaI3TV3jvliTab9/u73DVLN8/SqqfykOX2TsA==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">1975342</d:PackageSize>
+      <d:ProjectUrl>https://crypto-notepad.info/</d:ProjectUrl>
+      <d:ReleaseNotes>https://github.com/Crypto-Notepad/Crypto-Notepad/releases</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/Crypto-Notepad/Crypto-Notepad</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/crypto-notepad</d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl>https://www.fb.com/SlGMANOR</d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/Crypto-Notepad/Crypto-Notepad/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/226e9a2c82d066536c6cedf9ba2fe761</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-02-25T21:46:53</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2020-02-25T20:57:12</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2020-03-07T10:31:19</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2020-03-07T10:31:19</d:PackageApprovedDate>
+      <d:PackageReviewer>flcdrg</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2020-03-07T12:09:25</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>Flagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2020-02-26T04:47:09</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='ProgrammersNotepad',Version='2.3')</id>
+    <title type="text">ProgrammersNotepad</title>
+    <summary type="text">Programmers Notepad - Windows programming editor with an integrated Hex viewer/editor.</summary>
+    <updated>2020-05-15T10:15:00Z</updated>
+    <author>
+      <name>Simon Steele</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='ProgrammersNotepad',Version='2.3')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='ProgrammersNotepad',Version='2.3')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/ProgrammersNotepad/2.3" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2.3</d:Version>
+      <d:Title>Programmers Notepad</d:Title>
+      <d:Description>Programmers Notepad - Windows programming editor with an integrated Hex viewer/editor. | Please install with chocolatey (http://nuget.org/List/Packages/chocolatey).</d:Description>
+      <d:Tags xml:space="preserve"> editor programmers notepad chocolatey </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2012-02-03T23:32:44</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">3505</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">2714</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/ProgrammersNotepad/2.3</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/ProgrammersNotepad/2.3</d:ReportAbuseUrl>
+      <d:IconUrl>http://fc03.deviantart.net/fs51/i/2009/302/4/7/Programmer__s_Notepad_Hi_Res_by_brainwipe.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2012-02-03T23:32:44</d:Published>
+      <d:LicenseUrl>http://www.pnotepad.org/licensing/</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>D7rhFcRmokFkJbgzHmz6aI4Nqj1AM9DhHONOSbK7UjA5gQsBsFYEGAWq3jXrv2+VTSKojInl+nC/twt1oc2wDw==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3276</d:PackageSize>
+      <d:ProjectUrl>http://www.pnotepad.org/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">false</d:IsApproved>
+      <d:PackageStatus>Unknown</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/f5c23796375dc04449b495a23c51d864</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Failing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2018-06-26T23:03:13</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime" m:null="true"></d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime" m:null="true"></d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>Flagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-02-29T09:51:31</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='ProgrammersNotepad',Version='2.4.2')</id>
+    <title type="text">ProgrammersNotepad</title>
+    <summary type="text">Programmer's Notepad is a fast, lightweight text editor for Windows.</summary>
+    <updated>2020-05-15T03:45:00Z</updated>
+    <author>
+      <name>Simon Steele</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='ProgrammersNotepad',Version='2.4.2')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='ProgrammersNotepad',Version='2.4.2')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/ProgrammersNotepad/2.4.2" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2.4.2</d:Version>
+      <d:Title>Programmer's Notepad</d:Title>
+      <d:Description>Programmer's Notepad - a Windows programming editor with an integrated hex viewer/editor.</d:Description>
+      <d:Tags xml:space="preserve"> editor programmer programmers notepad text </d:Tags>
+      <d:Copyright>2002-2016 Simon Steele</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2018-06-18T11:43:24</d:Created>
+      <d:Dependencies>programmersnotepad.install:[2.4.2]:</d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">3505</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">791</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/ProgrammersNotepad/2.4.2</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/ProgrammersNotepad/2.4.2</d:ReportAbuseUrl>
+      <d:IconUrl>http://fc03.deviantart.net/fs51/i/2009/302/4/7/Programmer__s_Notepad_Hi_Res_by_brainwipe.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2018-06-18T11:43:24</d:Published>
+      <d:LicenseUrl>http://www.pnotepad.org/pn-license/</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>3gEJSQzflX143xHrc75A4josybFdBjKzKzzB5c7bOg1MQg/g0pJpNcI9zq29pWWr1WibIGPwEyeTEZPhQsHmcg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">2943</d:PackageSize>
+      <d:ProjectUrl>http://www.pnotepad.org/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/simonsteele/pn</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/Reyhn3/chocolatey-programmersnotepad</d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/f0717a5ae529ed3de540bc81cd48c6ca</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-01-28T22:25:05</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2018-06-18T12:15:28</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2018-07-13T09:43:02</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2018-07-13T09:43:02</d:PackageApprovedDate>
+      <d:PackageReviewer>Pauby</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2018-07-13T10:48:04</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2018-06-18T12:33:41</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='programmersnotepad.install',Version='2.4.2')</id>
+    <title type="text">programmersnotepad.install</title>
+    <summary type="text">Programmer's Notepad is a fast, lightweight text editor for Windows.</summary>
+    <updated>2020-05-15T09:30:00Z</updated>
+    <author>
+      <name>Simon Steele</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='programmersnotepad.install',Version='2.4.2')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='programmersnotepad.install',Version='2.4.2')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/programmersnotepad.install/2.4.2" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2.4.2</d:Version>
+      <d:Title>Programmer's Notepad</d:Title>
+      <d:Description>Programmer's Notepad - a Windows programming editor with an integrated hex viewer/editor.</d:Description>
+      <d:Tags xml:space="preserve"> editor programmer programmers notepad text </d:Tags>
+      <d:Copyright>2002-2016 Simon Steele</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2018-06-18T11:44:01</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">812</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">812</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/programmersnotepad.install/2.4.2</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/programmersnotepad.install/2.4.2</d:ReportAbuseUrl>
+      <d:IconUrl>http://fc03.deviantart.net/fs51/i/2009/302/4/7/Programmer__s_Notepad_Hi_Res_by_brainwipe.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2018-06-18T11:44:01</d:Published>
+      <d:LicenseUrl>http://www.pnotepad.org/pn-license/</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>ZVPmO6LCyzh85l5+VQZqxQfVd99Ey+ooqdZ3cA6L9Iybk6E6apS+BzOlNK09rSAknp0RXT1DjDau+0BDBgdCcg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3616</d:PackageSize>
+      <d:ProjectUrl>http://www.pnotepad.org/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/simonsteele/pn</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/Reyhn3/chocolatey-programmersnotepad</d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/cccd0741074497f9bd0dc749c7f92207</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-01-28T22:27:20</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2018-06-18T12:15:30</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2018-07-13T09:41:22</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2018-07-13T09:41:22</d:PackageApprovedDate>
+      <d:PackageReviewer>Pauby</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2018-07-13T10:43:01</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/simonsteele/pn/releases/download/v2.4.2/pn2421440_multilang.exe^x86/pn2421440_multilang.exe^64E7AEAF2B1146B42E055A773F3B666AD8A300D028E0A3DAE846DADEAE1C34BF00F1358964D5862F574FEDEBD22DF86A60A9BD4170E680C4ADCD755637127A25</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2018-06-18T12:33:42</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.720')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-14T22:00:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.720')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.720')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.720" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.720</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2012-03-20T14:59:52</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">372</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.720</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.720</d:ReportAbuseUrl>
+      <d:IconUrl>https://github.com/AnthonyMastrean/nugetpackages/raw/notepad2-mod/notepad2-mod/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2012-03-20T14:59:52</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>7F1xR3dxNSJ8i4y7clz3e2AU0vjZpfzbL8fAMfpQHPNaOzYznOp9SQ+cYfPZ99J8mfZy7IHxH5rPXeXb53gXfQ==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3753</d:PackageSize>
+      <d:ProjectUrl>http://code.google.com/p/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-14T08:20:13</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='XmlNotepad',Version='2007.0.0.0')</id>
+    <title type="text">XmlNotepad</title>
+    <summary type="text">XmlNotepad</summary>
+    <updated>2020-05-10T18:45:00Z</updated>
+    <author>
+      <name>Microsoft</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='XmlNotepad',Version='2007.0.0.0')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='XmlNotepad',Version='2007.0.0.0')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/XmlNotepad/2007.0.0.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2007.0.0.0</d:Version>
+      <d:Title>Xml Notepad</d:Title>
+      <d:Description>XmlNotepad</d:Description>
+      <d:Tags xml:space="preserve"> XmlNotepad xml editor </d:Tags>
+      <d:Copyright>Microsoft</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2013-07-23T22:18:56</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">10411</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">8581</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/XmlNotepad/2007.0.0.0</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/XmlNotepad/2007.0.0.0</d:ReportAbuseUrl>
+      <d:IconUrl>http://i.microsoft.com/global/ImageStore/PublishingImages/logos/56x56/microsoft_logo_56x56.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">1900-01-01T00:00:00</d:Published>
+      <d:LicenseUrl></d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>I5K+FdrNG665B2+AHhqYq6KJ0XZqt7A/fl/Hmwajhnc0ueoSYrcDYErxD3suiGylQNvB6BB/dcp/GjLVyUGpdg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">1079130</d:PackageSize>
+      <d:ProjectUrl>http://www.microsoft.com/en-us/download/details.aspx?id=7973</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">false</d:IsApproved>
+      <d:PackageStatus>Unknown</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/c0404ed55d8f30012d4c94317d83fc09</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2019-02-06T22:37:09</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime" m:null="true"></d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime" m:null="true"></d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-01T16:23:38</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2',Version='4.2.25.3')</id>
+    <title type="text">notepad2</title>
+    <summary type="text">A fast and light-weight Notepad-like text editor with syntax highlighting.</summary>
+    <updated>2020-05-15T08:00:00Z</updated>
+    <author>
+      <name>Florian Balmer</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2',Version='4.2.25.3')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2',Version='4.2.25.3')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2/4.2.25.3" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.3</d:Version>
+      <d:Title>Notepad2</d:Title>
+      <d:Description>A fast and light-weight Notepad-like text editor with syntax highlighting.</d:Description>
+      <d:Tags xml:space="preserve"> notepad </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2014-01-26T21:48:58</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">46168</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">11126</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2/4.2.25.3</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2/4.2.25.3</d:ReportAbuseUrl>
+      <d:IconUrl>http://anthonymastrean.github.io/chocolateypackages/icons/notepad2.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2014-01-26T21:48:58</d:Published>
+      <d:LicenseUrl></d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>jy4iNU2aw0qMInYuYGHMbls31eg+/DRl/Ugx+wgcKx2ryhbm5bLOnqWmJlyuZwwXBDt1VkdOaz2MpCKuWLpoDQ==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">2871</d:PackageSize>
+      <d:ProjectUrl>http://www.flos-freeware.ch/notepad2.html</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">false</d:IsApproved>
+      <d:PackageStatus>Unknown</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/27c1b0989fe51498b8e12d6ce98fa5c0</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-04-02T14:19:13</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime" m:null="true"></d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime" m:null="true"></d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>Flagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-02T08:38:01</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2',Version='4.2.25.20160422')</id>
+    <title type="text">notepad2</title>
+    <summary type="text">A fast and light-weight Notepad-like text editor with syntax highlighting.</summary>
+    <updated>2020-05-15T15:00:00Z</updated>
+    <author>
+      <name>Florian Balmer</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2',Version='4.2.25.20160422')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2',Version='4.2.25.20160422')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2/4.2.25.20160422" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.20160422</d:Version>
+      <d:Title>Notepad2</d:Title>
+      <d:Description>A few years ago, I found myself writing my first PHP projects using metapad. When I was looking around for text editors with syntax highlighting, I have come across the Scintilla source code editing component. I was very much impressed by this project, so I decided to create my own Scintilla-based text editor. The result is Notepad2, a fast and light-weight Notepad-like text editor with syntax highlighting. This program can be run out of the box without installation, and does not touch your system's registry.</d:Description>
+      <d:Tags xml:space="preserve"> notepad </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-04-22T21:13:17</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">46168</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">31641</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2/4.2.25.20160422</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2/4.2.25.20160422</d:ReportAbuseUrl>
+      <d:IconUrl>http://anthonymastrean.github.io/chocolateypackages/icons/notepad2.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-04-22T21:13:17</d:Published>
+      <d:LicenseUrl></d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>DoOqXuIYWW/JFLSWVkMTDyfYPuHs8D+qxEejWBBFpp445M5HTmth4WnynChYXZhr/3/+e+RflCRI0bSQgydJLw==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5102</d:PackageSize>
+      <d:ProjectUrl>http://www.flos-freeware.ch/notepad2.html</d:ProjectUrl>
+      <d:ReleaseNotes>http://www.flos-freeware.ch/doc/Notepad2.txt</d:ReleaseNotes>
+      <d:ProjectSourceUrl>http://www.flos-freeware.ch/zip/notepad2_4.2.25_src.zip</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/AnthonyMastrean/chocolateypackages/</d:PackageSourceUrl>
+      <d:DocsUrl>http://www.flos-freeware.ch/doc/notepad2-FAQs.html</d:DocsUrl>
+      <d:MailingListUrl>http://www.flos-freeware.ch/doc/MailingList.txt</d:MailingListUrl>
+      <d:BugTrackerUrl>mailto:florian.balmer@gmail.com</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/6030862d2abb8f82eb8ce01d4e334887</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-05-08T10:36:52</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-04-22T21:45:33</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-25T21:20:17</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-25T21:20:17</d:PackageApprovedDate>
+      <d:PackageReviewer>doc</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-04-25T22:25:41</d:DownloadCacheDate>
+      <d:DownloadCache>http://www.flos-freeware.ch/zip/Notepad2_4.2.25_x64.exe^x64/Notepad2_4.2.25_x64.exe^D77F8F3C85E5413FDFA6D0668FD54A0F3C142DA93143A9ED833ACA08D788DB34F6266C116E10EC475AD7543935D9DEB7F7FA27BB098776701BB0B44E13E1F61F|http://www.flos-freeware.ch/zip/Notepad2_4.2.25_x86.exe^x86/Notepad2_4.2.25_x86.exe^DE4629CE720C14007F76EAD570A721BE0C5F1AE4328E936B88933FA88C8F7D093C7CC96D9E07750C436FC3459CB95A3C13016F81073B3CDE1BE2CA66E67F2EED</d:DownloadCache>
+      <d:PackageScanStatus>Flagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-04-22T23:27:52</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.721')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-14T22:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.721')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.721')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.721" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.721</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2012-03-20T15:03:02</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">648</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.721</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.721</d:ReportAbuseUrl>
+      <d:IconUrl>https://github.com/AnthonyMastrean/nugetpackages/raw/notepad2-mod/notepad2-mod/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2012-03-20T15:03:02</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>duY2R3H2mhvVnHFxAojXSGfte6PwpMowwey3zUCmIEl59oVgtA6RniqVAFHbu+Mc8RPWr64TDhowFvGGgBDISQ==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3765</d:PackageSize>
+      <d:ProjectUrl>http://code.google.com/p/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-14T08:20:15</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.856')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-14T22:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.856')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.856')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.856" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.856</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2013-06-27T20:53:06</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">527</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.856</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.856</d:ReportAbuseUrl>
+      <d:IconUrl>https://github.com/AnthonyMastrean/nugetpackages/raw/notepad2-mod/notepad2-mod/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2013-06-27T20:53:08</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>gdshUlsLkJ2szIsxtlNWo3abSWMDIoYPjoTLqtsNmIzVO0YgeCkWSn0467e7HuG78gyDTbtcB7DhKQw87FWUcw==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3541</d:PackageSize>
+      <d:ProjectUrl>http://code.google.com/p/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-24T10:47:20</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.870')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-10T14:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.870')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.870')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.870" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.870</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2013-10-16T21:23:20</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">500</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.870</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.870</d:ReportAbuseUrl>
+      <d:IconUrl>https://github.com/AnthonyMastrean/nugetpackages/raw/notepad2-mod/notepad2-mod/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2013-10-16T21:23:21</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>5d4IktEcpm8ZnILyKSQJfR6JCmFqTTUGt70zC2VmslwzeLjilqCdPvuQpil5mS+0Cxy8vU6Yb780kmbOFU4Ptg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3558</d:PackageSize>
+      <d:ProjectUrl>http://code.google.com/p/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-27T17:17:54</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.897')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-14T11:30:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.897')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.897')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.897" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.897</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2014-01-09T21:02:03</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">345</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.897</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.897</d:ReportAbuseUrl>
+      <d:IconUrl>https://github.com/AnthonyMastrean/nugetpackages/raw/notepad2-mod/notepad2-mod/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2014-01-09T21:02:05</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>8NznIK0Ko3o4deZfTHXEU4wPmZm6saRAnDoNc8jWc7+Ez9YyJe2lko/QjV3l6601pmXQbj9h4iWVFi6avov1WQ==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3558</d:PackageSize>
+      <d:ProjectUrl>http://code.google.com/p/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-31T07:52:31</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.898')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-14T22:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.898')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.898')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.898" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.898</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2014-01-26T21:58:48</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">589</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.898</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.898</d:ReportAbuseUrl>
+      <d:IconUrl>http://anthonymastrean.github.io/chocolateypackages/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2014-01-26T21:58:48</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>UO/IEG+B+fF6hFVxFbfIiIS1FbZjkp6uHkvXD4zk8az4muufUzhOioP5aPk1nIU8SnSSMFMSN9eeKvWCeMKBUA==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3566</d:PackageSize>
+      <d:ProjectUrl>http://code.google.com/p/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-04-01T00:39:23</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.906')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-15T00:00:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.906')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.906')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.906" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.906</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2014-05-21T23:47:58</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1439</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.906</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.906</d:ReportAbuseUrl>
+      <d:IconUrl>http://anthonymastrean.github.io/chocolateypackages/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2014-05-21T23:47:58</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>L7Vi0A0af+3X5qPxKiRv79lNTrZ4jEmf04ky6WYGg9R5d2saNCfYDMJaTCzcrjDxHGFrfxPPot/3+VuvJyyf9g==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3560</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl></d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Unknown</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime" m:null="true"></d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-04-06T14:08:06</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.940')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-04-10T16:15:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.940')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.940')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.940" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.940</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2015-03-03T21:22:53</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">3763</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.940</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.940</d:ReportAbuseUrl>
+      <d:IconUrl>http://anthonymastrean.github.io/chocolateypackages/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2015-03-03T21:22:53</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>PXL+CKkWD8VxbQB1lNpvMwt0UpTy7vwSqcqDc66eKHNAtQlJOLVan/j1jXB7vKgi5oB8DD5SqBQofaDk6sbeSg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">3709</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/b98800ee35374990e250</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2015-12-04T17:17:38</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2015-03-19T12:52:32</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2015-03-19T12:52:32</d:PackageApprovedDate>
+      <d:PackageReviewer>ferventcoder</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-04-30T04:01:51</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.955')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-15T00:00:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.955')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.955')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.955" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.955</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2015-08-24T15:49:47</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">735</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.955</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.955</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2015-08-24T15:49:47</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>58Q/KMZwfhS3UtCwdR8GEXCgYweRPkgFF/miAA6s0qqoB6lNbjeVteSnbHjiAkqVwKvqX+TgYUSM/zmyzfOP8Q==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5023</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/fc97e71afc46dffddbaa</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2015-11-29T23:29:10</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2015-12-20T10:31:24</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2015-12-28T15:04:30</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2015-12-28T15:04:30</d:PackageApprovedDate>
+      <d:PackageReviewer>ferventcoder</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-05-12T05:07:08</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='XmlNotepad',Version='2007.0.0.1')</id>
+    <title type="text">XmlNotepad</title>
+    <summary type="text">XmlNotepad</summary>
+    <updated>2020-05-15T15:15:00Z</updated>
+    <author>
+      <name>Microsoft</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='XmlNotepad',Version='2007.0.0.1')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='XmlNotepad',Version='2007.0.0.1')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/XmlNotepad/2007.0.0.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>2007.0.0.1</d:Version>
+      <d:Title>[Deprecated] XML Notepad 2007</d:Title>
+      <d:Description>This package is deprecated and now superseded by an updated version in the newer package [XML Notepad](https://chocolatey.org/packages/xml-notepad)</d:Description>
+      <d:Tags xml:space="preserve"> XmlNotepad xml editor </d:Tags>
+      <d:Copyright>Microsoft</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2019-02-22T18:37:24</d:Created>
+      <d:Dependencies>xml-notepad::</d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">10411</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1830</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/XmlNotepad/2007.0.0.1</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/XmlNotepad/2007.0.0.1</d:ReportAbuseUrl>
+      <d:IconUrl></d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2019-02-22T18:37:24</d:Published>
+      <d:LicenseUrl></d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>PdWOvbZYL9/7PiO1zUnj2+dfRVRLcc2HfS8LUovqI9f8WwDrucW0dsBOFA3LKVElV2I0I5Dvbpk79l4pcy+plg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">2838</d:PackageSize>
+      <d:ProjectUrl>http://www.microsoft.com/en-us/download/details.aspx?id=7973</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/02125bb929f7b5dadb6a902166b00ac5</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-01-31T05:16:28</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2019-02-22T19:09:19</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2019-02-24T08:58:47</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2019-02-24T08:58:47</d:PackageApprovedDate>
+      <d:PackageReviewer>mkevenaar</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Checked</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2019-02-24T10:03:27</d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2019-02-22T21:23:22</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepadreplacer',Version='1.1.6')</id>
+    <title type="text">notepadreplacer</title>
+    <summary type="text">Replace notepad.exe with your favorite editor instead.</summary>
+    <updated>2020-05-15T04:30:00Z</updated>
+    <author>
+      <name>Binary Fortress Software</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepadreplacer',Version='1.1.6')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepadreplacer',Version='1.1.6')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepadreplacer/1.1.6" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>1.1.6</d:Version>
+      <d:Title>notepadreplacer</d:Title>
+      <d:Description>Do you use a Notepad alternative, like Notepad++ or Notepad2? Notepad Replacer will allow you to replace the default Windows version of Notepad with whatever alternative you would like to use. NOTE: Not a silent install</d:Description>
+      <d:Tags xml:space="preserve"> notepadreplacer notepad replace </d:Tags>
+      <d:Copyright>Binary Fortress Software</d:Copyright>
+      <d:Created m:type="Edm.DateTime">2013-10-12T16:17:03</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">5471</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">5310</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepadreplacer/1.1.6</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepadreplacer/1.1.6</d:ReportAbuseUrl>
+      <d:IconUrl></d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2013-10-12T16:17:03</d:Published>
+      <d:LicenseUrl></d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>rqoTpJKbLZD/P9lyK4EGtSI9P9bwbpS+68849pLwwq0fNz8VdzRWTnaBDxUzQtTRbxCNUtZ58Mzxm5hoi5oHNg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">4347</d:PackageSize>
+      <d:ProjectUrl>http://www.binaryfortress.com/NotepadReplacer/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">false</d:IsApproved>
+      <d:PackageStatus>Unknown</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/30bc887af9b589ec5982c06f2ee6876c</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Failing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2020-05-01T22:06:20</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Unknown</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime" m:null="true"></d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime" m:null="true"></d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime" m:null="true"></d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">false</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Unknown</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime" m:null="true"></d:DownloadCacheDate>
+      <d:DownloadCache></d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-01T22:48:10</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.964')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-15T00:00:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.964')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.964')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.964" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.964</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-01-21T23:26:22</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1083</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.964</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.964</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-01-21T23:26:22</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>v77XAZrJlmGhluyorCzTKRKZkN+wAELIqsjyqM4lN12crblUaaDgXpNv1QRvETTNG36W8gHlyTzToaNGshQUuA==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5072</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/123295f5e7f8c706e0b5</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-01-22T00:37:53</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-01-22T00:08:33</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-01-22T01:29:32</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-01-22T01:29:32</d:PackageApprovedDate>
+      <d:PackageReviewer>doc</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-02-01T15:44:52</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.964/Notepad2-mod.4.2.25.964.exe^x86/Notepad2-mod.4.2.25.964.exe^8974A5EEA2660BB02E6724A704640E3A00BB31A765F2A1CD1EB55CCA2A61425245E0BDF0DA4D7A4B68FDFDD5AF60E371C38943D5D901D7C8DF3E4BB520849B2B</d:DownloadCache>
+      <d:PackageScanStatus>Flagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-05-25T01:10:11</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.971')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-15T00:00:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.971')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.971')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.971" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.971</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-03-19T21:38:19</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1714</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.971</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.971</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-03-19T21:38:19</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>SEb+vjlGmmAWWdnYKjsfGx56dH1N9kqVX8/BhmNCZplUwTgtWWMFo3QXegAvSZ2Ia4Bucgpfx6UXhCWIsfNfSA==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5451</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes>4.2.25.971: Fixes a bug in the uninstallation logic. This is still Notepad2-mod 4.2.25.970.</d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/679a21e95b001646cccd</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-03-19T22:17:36</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-03-19T22:11:42</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-03-22T19:19:19</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-03-22T19:19:19</d:PackageApprovedDate>
+      <d:PackageReviewer>ferventcoder</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-03-22T20:26:30</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.970/Notepad2-mod.4.2.25.970.exe^x86/Notepad2-mod.4.2.25.970.exe^41A344AFB94670A320E5ADFF927D6DFBE746425693EC6C92547E4607D095D5097CD25D7AC38CC3431A082FF59542C76CD103C7678171C29662A17C54181FF340</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-19T23:05:31</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.970')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-15T00:00:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.970')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.970')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.970" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.970</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-02-27T14:19:27</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1248</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.970</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.970</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-02-27T14:19:27</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>g0eAUrzC2TyKdXTV/LkB3wC7hPovlBzkaReaTrcqd2XGmjixeiLrHSFrqJYPGTCULdrVfx0pzmnmzREEy8RJ+A==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5167</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/61246989e4540585eadb</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-02-27T15:02:50</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-02-27T14:53:06</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-02-29T22:16:50</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-02-29T22:16:50</d:PackageApprovedDate>
+      <d:PackageReviewer>ferventcoder</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-02-29T23:29:24</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.970/Notepad2-mod.4.2.25.970.exe^x86/Notepad2-mod.4.2.25.970.exe^41A344AFB94670A320E5ADFF927D6DFBE746425693EC6C92547E4607D095D5097CD25D7AC38CC3431A082FF59542C76CD103C7678171C29662A17C54181FF340</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-03-09T20:01:42</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.972')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches.</summary>
+    <updated>2020-05-15T01:30:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.972')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.972')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.972" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.972</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2: Code folding, Support for bookmarks, Option to mark all occurrences of a word, Word auto-completion, Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, NSIS, Ruby and Tcl scripts, Improved support for NFO ANSI art, Support for replacing Windows Notepad using a clean, unintrusive registry-based method, Other various minor changes and tweaks</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-04-16T21:48:23</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">344</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.972</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.972</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-04-16T21:48:23</d:Published>
+      <d:LicenseUrl>http://www.opensource.org/licenses/bsd-license.php</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>XruOP8PB5T4oUd22Pu6bOKpiAhHTc02fQt15rcEFFOns4akXrbBTNZG16ocPCiCT0VTSL8AkNcpf69nWxaZ6dA==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5393</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes></d:ReleaseNotes>
+      <d:ProjectSourceUrl></d:ProjectSourceUrl>
+      <d:PackageSourceUrl></d:PackageSourceUrl>
+      <d:DocsUrl></d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl></d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Waiting</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/938e1623f6ab7ecd07bb651c250194a7</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-04-16T22:24:53</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-04-16T22:20:44</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-21T05:41:55</d:PackageApprovedDate>
+      <d:PackageReviewer>ferventcoder</d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-04-21T06:56:55</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.972/Notepad2-mod.4.2.25.972.exe^x86/Notepad2-mod.4.2.25.972.exe^3F2BC782675E5767BFFC9C20081E110B4CF9A33F22350BFAEBEEDBCF7FF03D5A02F076A002D2C092D43CFCB6BD123B726CE835A636CE22FF47EB25B3C5ED74DF</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-04-17T00:03:00</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.98500')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">Notepad2-mod, a Notepad2 fork, a fast and light-weight Notepad-like text editor with syntax highlighting.</summary>
+    <updated>2020-05-01T03:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.98500')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.98500')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.98500" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.98500</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2 * Code folding * Support for bookmarks * Option to mark all occurrences of a word * Word auto-completion * Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, Markdown, NSIS, Ruby, Tcl and YAML scripts * Improved support for NFO ANSI art * Support for replacing Windows Notepad using a clean, unintrusive registry-based method * Other various minor changes and tweaks Changed keyboard shortcuts compared to Notepad2: * `Ctrl+Alt+F2` Expand selection to next match. * `Ctrl+Alt+Shift+F2` Expand selection to previous match. * `Ctrl+Shift+Enter` New line with toggled auto indent option.</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-09-15T23:06:49</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">2535</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.98500</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.98500</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-09-15T23:06:49</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/XhmikosR/notepad2-mod/68b11903fc662cd538ed2324585e50c508cd4014/License.txt</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>itqV75jGC+P8Ya2WXsl4IPN9SoGS9N25qRUFBzFc6xYraXIMMC6Nzb5PjSZTkXehjRTQqPkXPgJdh8QPl9HwNg==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">6047</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes>https://github.com/XhmikosR/notepad2-mod/releases</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/XhmikosR/notepad2-mod</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/AnthonyMastrean/chocolateypackages/</d:PackageSourceUrl>
+      <d:DocsUrl>https://github.com/XhmikosR/notepad2-mod/wiki</d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/XhmikosR/notepad2-mod/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/c91d9ac8462ec21f1236ee05547c3c1c</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2017-05-25T18:11:56</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-09-15T23:41:48</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2017-05-25T18:11:56</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2017-05-25T18:11:56</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-09-16T00:51:14</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.985/Notepad2-mod.4.2.25.985.exe^x86/Notepad2-mod.4.2.25.985.exe^1E5F31F8458A9BE0F5C807F7006EFA69AED77F334A03271F443D1D7776D369DCD6FFE9D9E3A920D080F49CF36AD66E2DFC575AB93294B1C3AFFC8D9383982A5D</d:DownloadCache>
+      <d:PackageScanStatus>Flagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-09-15T23:47:53</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.20160422')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">Notepad2-mod, a Notepad2 fork, a fast and light-weight Notepad-like text editor with syntax highlighting.</summary>
+    <updated>2019-05-22T13:51:12Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.20160422')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.20160422')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.20160422" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.20160422</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2 * Code folding * Support for bookmarks * Option to mark all occurrences of a word * Word auto-completion * Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, Markdown, NSIS, Ruby, Tcl and YAML scripts * Improved support for NFO ANSI art * Support for replacing Windows Notepad using a clean, unintrusive registry-based method * Other various minor changes and tweaks Changed keyboard shortcuts compared to Notepad2: * `Ctrl+Alt+F2` Expand selection to next match. * `Ctrl+Alt+Shift+F2` Expand selection to previous match. * `Ctrl+Shift+Enter` New line with toggled auto indent option.</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-04-22T20:52:15</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">308</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.20160422</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.20160422</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">1900-01-01T00:00:00</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/XhmikosR/notepad2-mod/68b11903fc662cd538ed2324585e50c508cd4014/License.txt</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>auydtXm38JgzYl7XvRsXhCKpH3Xoarul+r6Mg7PoKm73DkKVwMnVtkpuMotgT2tnAvfBrPwkbjTSJarokpHysQ==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5909</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes>https://github.com/XhmikosR/notepad2-mod/releases</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/XhmikosR/notepad2-mod</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/AnthonyMastrean/chocolateypackages/</d:PackageSourceUrl>
+      <d:DocsUrl>https://github.com/XhmikosR/notepad2-mod/wiki</d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/XhmikosR/notepad2-mod/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/3f0dcb9f31f5eef36a78d7e9275d4a06</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-04-22T21:32:38</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-04-22T21:25:26</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-04-22T21:32:39</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-04-22T21:32:39</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-04-22T22:33:59</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.972/Notepad2-mod.4.2.25.972.exe^x86/Notepad2-mod.4.2.25.972.exe^3F2BC782675E5767BFFC9C20081E110B4CF9A33F22350BFAEBEEDBCF7FF03D5A02F076A002D2C092D43CFCB6BD123B726CE835A636CE22FF47EB25B3C5ED74DF</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-04-22T23:07:44</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.98000')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">Notepad2-mod, a Notepad2 fork, a fast and light-weight Notepad-like text editor with syntax highlighting.</summary>
+    <updated>2020-05-15T02:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.98000')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.98000')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.98000" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.98000</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2 * Code folding * Support for bookmarks * Option to mark all occurrences of a word * Word auto-completion * Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, Markdown, NSIS, Ruby, Tcl and YAML scripts * Improved support for NFO ANSI art * Support for replacing Windows Notepad using a clean, unintrusive registry-based method * Other various minor changes and tweaks Changed keyboard shortcuts compared to Notepad2: * `Ctrl+Alt+F2` Expand selection to next match. * `Ctrl+Alt+Shift+F2` Expand selection to previous match. * `Ctrl+Shift+Enter` New line with toggled auto indent option.</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2016-06-22T18:53:10</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">298</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.98000</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.98000</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2016-06-22T18:53:10</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/XhmikosR/notepad2-mod/68b11903fc662cd538ed2324585e50c508cd4014/License.txt</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>QBtebofCCiyb+3QwcXE3CliBfbbDHV4MxWqGeyXAtIrgeGr/H7zbKdeJLl8ImNJjzQkyXdbFNtu3UHCAbYV78A==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5987</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes>https://github.com/XhmikosR/notepad2-mod/releases</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/XhmikosR/notepad2-mod</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/AnthonyMastrean/chocolateypackages/</d:PackageSourceUrl>
+      <d:DocsUrl>https://github.com/XhmikosR/notepad2-mod/wiki</d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/XhmikosR/notepad2-mod/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/2d6356292a00db200acbb101d7a711b3</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2016-06-22T19:36:22</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2016-06-22T19:28:00</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2016-06-22T19:36:23</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2016-06-22T19:36:23</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2016-06-22T20:36:48</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.980/Notepad2-mod.4.2.25.980.exe^x86/Notepad2-mod.4.2.25.980.exe^4C0E97DBD474E5BC09EE0E1D77C56C0FB73361A7086C3CC7B3B9798465C267CAB0019422D426B720FA987CE3D0E2608959565548D3C433DCD92BB4F3D86702EE</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2016-06-22T20:38:15</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://chocolatey.org/api/v2/Packages(Id='notepad2-mod',Version='4.2.25.99100')</id>
+    <title type="text">notepad2-mod</title>
+    <summary type="text">Notepad2-mod, a Notepad2 fork, a fast and light-weight Notepad-like text editor with syntax highlighting.</summary>
+    <updated>2020-05-15T02:45:00Z</updated>
+    <author>
+      <name>XhmikosR</name>
+    </author>
+    <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.99100')/$value" />
+    <link rel="edit" title="V2FeedPackage" href="Packages(Id='notepad2-mod',Version='4.2.25.99100')" />
+    <category term="NuGetGallery.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="https://chocolatey.org/api/v2/package/notepad2-mod/4.2.25.99100" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Version>4.2.25.99100</d:Version>
+      <d:Title>Notepad2-mod</d:Title>
+      <d:Description>A modified version (fork) of Notepad2 based on Kai Liu's and other people's patches. Changes compared to the official Notepad2 * Code folding * Support for bookmarks * Option to mark all occurrences of a word * Word auto-completion * Syntax highlighting support for AutoHotkey, AutoIt3, AviSynth, Bash, CMake, Inno Setup, LaTeX, Lua, Markdown, NSIS, Ruby, Tcl and YAML scripts * Improved support for NFO ANSI art * Support for replacing Windows Notepad using a clean, unintrusive registry-based method * Other various minor changes and tweaks Changed keyboard shortcuts compared to Notepad2: * `Ctrl+Alt+F2` Expand selection to next match. * `Ctrl+Alt+Shift+F2` Expand selection to previous match. * `Ctrl+Shift+Enter` New line with toggled auto indent option.</d:Description>
+      <d:Tags xml:space="preserve"> notepad notepad2 admin </d:Tags>
+      <d:Copyright></d:Copyright>
+      <d:Created m:type="Edm.DateTime">2017-06-02T14:50:42</d:Created>
+      <d:Dependencies></d:Dependencies>
+      <d:DownloadCount m:type="Edm.Int32">32430</d:DownloadCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">2253</d:VersionDownloadCount>
+      <d:GalleryDetailsUrl>https://chocolatey.org/packages/notepad2-mod/4.2.25.99100</d:GalleryDetailsUrl>
+      <d:ReportAbuseUrl>https://chocolatey.org/package/ReportAbuse/notepad2-mod/4.2.25.99100</d:ReportAbuseUrl>
+      <d:IconUrl>https://cdn.rawgit.com/AnthonyMastrean/chocolateypackages/666691f5d6d18e8dc23a1d92f79ced3afe1f8f75/public/icons/notepad2-mod.png</d:IconUrl>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">false</d:IsAbsoluteLatestVersion>
+      <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+      <d:Language></d:Language>
+      <d:Published m:type="Edm.DateTime">2017-06-02T14:50:42</d:Published>
+      <d:LicenseUrl>https://raw.githubusercontent.com/XhmikosR/notepad2-mod/68b11903fc662cd538ed2324585e50c508cd4014/License.txt</d:LicenseUrl>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:PackageHash>tLafLfAaffcDuV/HIg7DVYqbXjqZ6UeOjvRtnbbDsQg+oFF6x44INmv8VqzorqnKTxa1OdXAAtmMvt7CFNoMaw==</d:PackageHash>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageSize m:type="Edm.Int64">5279</d:PackageSize>
+      <d:ProjectUrl>http://xhmikosr.github.io/notepad2-mod/</d:ProjectUrl>
+      <d:ReleaseNotes>https://github.com/XhmikosR/notepad2-mod/releases</d:ReleaseNotes>
+      <d:ProjectSourceUrl>https://github.com/XhmikosR/notepad2-mod</d:ProjectSourceUrl>
+      <d:PackageSourceUrl>https://github.com/AnthonyMastrean/chocolateypackages/</d:PackageSourceUrl>
+      <d:DocsUrl>https://github.com/XhmikosR/notepad2-mod/wiki</d:DocsUrl>
+      <d:MailingListUrl></d:MailingListUrl>
+      <d:BugTrackerUrl>https://github.com/XhmikosR/notepad2-mod/issues</d:BugTrackerUrl>
+      <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+      <d:PackageStatus>Approved</d:PackageStatus>
+      <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+      <d:PackageTestResultUrl>https://gist.github.com/64026c3dd1bb94756429c5634cfbccca</d:PackageTestResultUrl>
+      <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+      <d:PackageTestResultStatusDate m:type="Edm.DateTime">2017-07-20T11:26:17</d:PackageTestResultStatusDate>
+      <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+      <d:PackageValidationResultDate m:type="Edm.DateTime">2017-06-02T15:26:45</d:PackageValidationResultDate>
+      <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+      <d:PackageReviewedDate m:type="Edm.DateTime">2017-07-20T11:26:17</d:PackageReviewedDate>
+      <d:PackageApprovedDate m:type="Edm.DateTime">2017-07-20T11:26:17</d:PackageApprovedDate>
+      <d:PackageReviewer></d:PackageReviewer>
+      <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+      <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+      <d:DownloadCacheDate m:type="Edm.DateTime">2017-06-02T16:44:01</d:DownloadCacheDate>
+      <d:DownloadCache>https://github.com/XhmikosR/notepad2-mod/releases/download/4.2.25.991/Notepad2-mod.4.2.25.991.exe^x86/Notepad2-mod.4.2.25.991.exe^39ED32C2F1D091D1E787AC5C3333A0789190AE7B4CBE3AA7D1BEA2E9C1D4B0AF7B1B9676F13921E1F71B0A2B6F8DF5DC8A893B01F3D986564575415912DB8E50</d:DownloadCache>
+      <d:PackageScanStatus>NotFlagged</d:PackageScanStatus>
+      <d:PackageScanResultDate m:type="Edm.DateTime">2017-06-02T15:31:57</d:PackageScanResultDate>
+    </m:properties>
+  </entry>
+</feed>

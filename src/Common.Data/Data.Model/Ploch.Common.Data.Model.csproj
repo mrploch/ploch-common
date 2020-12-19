@@ -9,37 +9,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <PackageId>Ploch.Common</PackageId>
-    <AssemblyName>Ploch.Common</AssemblyName>
-    <RootNamespace>Ploch.Common</RootNamespace>
+    <AssemblyName>Ploch.Common.Data.Model</AssemblyName>
+    <RootNamespace>Ploch.Common.Data.Model</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PreBuildEvent></PreBuildEvent>
-    <PostBuildEvent></PostBuildEvent>
-    <Description>Library with shared utilities which don't fall under a specific category.</Description>
+    <Description>Library with common data model interfaces.</Description>
     <Authors>Krzysztof Ploch</Authors>
     <Company>Ploch</Company>
-    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <PackageTags>1</PackageTags>
-    <IsPackable>true</IsPackable>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
-    <Product>Ploch.Common</Product>
+    <Product>Ploch.Common.Data.Model</Product>
+    <PackageId>Ploch.Common.Data.Model</PackageId>
     <PackageReleaseNotes>None</PackageReleaseNotes>
-    <PackageProjectUrl>https://dev.azure.com/ploch/</PackageProjectUrl>
+    <Version>1.0.0</Version>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <UpdatePackageVersion>False</UpdatePackageVersion>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -54,18 +35,34 @@
     <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <PackageVersionSettings>AssemblyVersion.IncrementWithAutoReset.None</PackageVersionSettings>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Ardalis.GuardClauses" Version="3.0.1" />
-    <PackageReference Include="NuGet.CommandLine" Version="5.8.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Validation" Version="2.4.22" />
-  </ItemGroup>
-
-
+  <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
+  <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
+  <!--     <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" /> -->
+  <!--   </GetAssemblyIdentity> -->
+  <!--   <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
+  <!--   <Exec Command="nuget add $(TargetName).%(AssemblyVersion.Version).nupkg -Source C:\devnet\.nuget"></Exec> -->
+  <!-- </Target> -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+    </GetAssemblyIdentity>
+    <!-- <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
+    <!-- <Exec Command="nuget add $(TargetName).1.0.0.nupkg -Source C:\devnet\.nuget"></Exec> -->
+  </Target>
 </Project>
