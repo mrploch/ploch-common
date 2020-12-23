@@ -73,21 +73,19 @@ namespace Ploch.Common.ConsoleApplication.Runner
 
             var serviceProvider = InitializeServiceProvider();
             var parser = new Parser(settings =>
-                                    {
-                                        settings.CaseSensitive = false;
-                                        settings.HelpWriter = null;
-                                    });
-
-            var parserResult = parser.ParseArguments(args, appArgumentsMapping.Keys.ToArray());
-            
+                                          {
+                                              settings.CaseSensitive = false;
+                                              settings.HelpWriter = null;
+                                          });
+            ParserResult<object> parserResult = parser.ParseArguments(args, appArgumentsMapping.Keys.ToArray());
             parserResult.WithParsed(parsedArgs =>
                                     {
                                         var commandType = appArgumentsMapping[parsedArgs.GetType()];
                                         var command = serviceProvider.GetService(commandType);
                                         var executeMethod = commandType.GetMethod("Execute");
-                                        
+
                                         if (executeMethod != null)
-                                            executeMethod.Invoke(command, new[] {parsedArgs});
+                                            executeMethod.Invoke(command, new[] { parsedArgs });
                                         else
                                             throw new ArgumentException("One of the supplied application types is invalid.", nameof(commands));
                                     })

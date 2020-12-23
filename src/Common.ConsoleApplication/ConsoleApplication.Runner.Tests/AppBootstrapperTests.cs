@@ -10,6 +10,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
         [Fact(DisplayName = "ExecuteApp should resolve argument types, choose correct app based on a verb and parse correct arguments")]
         public void ExecuteApps_resolves_argument_classes_and_executes_app_selected_by_verb_with_parsed_options()
         {
+            var t2 = typeof(App2SimpleArgs);
             var bootstrapper = new AppBootstrapper();
             var apps = new[] {typeof(App1SimpleArgs), typeof(App2SimpleArgs)};
             var commandLine = "app2 -a val1 -b -s val2";

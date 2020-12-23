@@ -26,7 +26,6 @@ namespace Ploch.TestingSupport.TestData
             {
                 var testDataAttribute = parameter.GetCustomAttribute<TestDataAttribute>();
                 if (testDataAttribute != null) return TestData.ReadText(testDataAttribute.DataFileName);
-                //return "dupa jest blada";
             }
 
             return new NoSpecimen();
@@ -56,13 +55,6 @@ namespace Ploch.TestingSupport.TestData
         }
 
         public string DataFileName { get; }
-
-        //public override IEnumerable GetData(ParameterInfo parameter)
-        //{
-        //    Ploeh.AutoFixture.NUnit2.CustomizeAttribute
-        //    Debug.WriteLine(parameter.Name);
-        //    yield break;
-        //}
 
         public override ICustomization GetCustomization(ParameterInfo parameter)
         {

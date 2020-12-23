@@ -18,10 +18,5 @@ namespace Ploch.TestingSupport.Xunit.AutoFixture
             Debug.WriteLine(testMethod);
             return base.GetData(testMethod);
         }
-
-        //public override IEnumerable<object[]> GetData(MethodInfo method)
-        //{
-        //    return base.GetData(method);
-        //}
     }
 }
