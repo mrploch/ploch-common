@@ -36,14 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common.ConsoleApplication\ConsoleAppication.Runner\Ploch.Common.ConsoleApplication.Runner.csproj" />
-    <ProjectReference Include="..\Common.ConsoleApplication\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="xunit.runner.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\ConsoleAppication.Runner\Ploch.Common.ConsoleApplication.Runner.csproj" />
+    <ProjectReference Include="..\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
