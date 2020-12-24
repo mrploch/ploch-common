@@ -6,8 +6,8 @@ namespace Ploch.Common.ConsoleApplication.Runner
 {
     public class ConsoleOutput : IOutput
     {
-        private readonly TextWriter _writer;
         private readonly TextWriter _errorWriter;
+        private readonly TextWriter _writer;
 
         public ConsoleOutput() : this(Console.Out, Console.Error)
         { }
@@ -21,7 +21,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// <inheritdoc />
         public IOutput WriteLine<TContent>(TContent content, params object[] args)
         {
-            return WriteOutput(_writer, content + Environment.NewLine, args);
+            return WriteLine(_writer, content, args);
         }
 
         /// <inheritdoc />
@@ -34,13 +34,13 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// <inheritdoc />
         public IOutput Write<TContent>(TContent content, params object[] args)
         {
-            return WriteOutput(_writer, content, args);
+            return Write(_writer, content, args);
         }
 
         /// <inheritdoc />
         public IOutput WriteErrorLine<TContent>(TContent content, params object[] args)
         {
-            return WriteOutput(_errorWriter, content + Environment.NewLine, args);
+            return Write(_errorWriter, content + Environment.NewLine, args);
         }
 
         /// <inheritdoc />
@@ -53,13 +53,27 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// <inheritdoc />
         public IOutput WriteError<TContent>(TContent content, params object[] args)
         {
-            return WriteOutput(_writer, content + Environment.NewLine, args);
+            return Write(_writer, content + Environment.NewLine, args);
         }
 
-        private IOutput WriteOutput(TextWriter writer, object? contents, params object[]? args)
+        private IOutput WriteLine(TextWriter writer, object content, params object[] args)
         {
-            string strContents = contents == null ? "<null>" : contents.ToString();
-            
+            var stringContents = GetStringContents(content);
+            if (args?.Length > 0)
+            {
+                writer.WriteLine(stringContents, args);
+            }
+            else
+            {
+                writer.WriteLine(stringContents);
+            }
+            return this;
+        }
+
+        private IOutput Write(TextWriter writer, object? contents, params object[]? args)
+        {
+            string strContents = GetStringContents(contents);
+
             if (args != null && args.Length > 0)
             {
                 writer.Write(strContents, args);
@@ -72,5 +86,9 @@ namespace Ploch.Common.ConsoleApplication.Runner
             return this;
         }
 
+        private static string GetStringContents(object? contents)
+        {
+            return contents == null ? "<null>" : contents.ToString();
+        }
     }
 }

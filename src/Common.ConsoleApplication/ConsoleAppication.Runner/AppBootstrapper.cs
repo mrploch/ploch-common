@@ -37,13 +37,13 @@ namespace Ploch.Common.ConsoleApplication.Runner
     {
         private readonly Func<IServiceCollection, IServiceProvider> _serviceProviderFunc;
 
-        public AppBootstrapper() : this(services => services.BuildServiceProvider())
+        public AppBootstrapper() : this(services => Unity.Microsoft.DependencyInjection.ServiceProviderExtensions.BuildServiceProvider(services))
         { }
 
         public AppBootstrapper(Func<IServiceCollection, IServiceProvider> serviceProviderFunc)
         {
             _serviceProviderFunc = Guard.Against.Default(serviceProviderFunc, nameof(serviceProviderFunc));
-            //_serviceProviderFunc = serviceProviderFunc ?? throw new ArgumentNullException(nameof(serviceProviderFunc));
+           // _serviceProviderFunc = serviceProviderFunc ?? throw new ArgumentNullException(nameof(serviceProviderFunc));
         }
 
         /// <summary>
@@ -85,6 +85,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
                                         var executeMethod = commandType.GetMethod("Execute");
 
                                         if (executeMethod != null)
+                                            
                                             executeMethod.Invoke(command, new[] { parsedArgs });
                                         else
                                             throw new ArgumentException("One of the supplied application types is invalid.", nameof(commands));

@@ -20,7 +20,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
             var exceptions = new List<Exception>();
             var eventfulWriter = new EventfulTextWriter();
             var writeEvents = Observable.FromEventPattern<EventHandler<TextWriterEventArgs>, TextWriterEventArgs>(h => eventfulWriter.WriteExecuted += h,
-                h => { eventfulWriter.WriteExecuted -= h; }).Select(ev => ev.EventArgs);
+                h => eventfulWriter.WriteExecuted -= h).Select(ev => ev.EventArgs);
             using var subscription = writeEvents.Subscribe(nextArgs => collectedActions.Add(nextArgs), exception => exceptions.Add(exception));
 
             var collectedErrorActions = new List<TextWriterEventArgs>();

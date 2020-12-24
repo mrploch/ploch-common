@@ -14,6 +14,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
             var bootstrapper = new AppBootstrapper();
             var apps = new[] {typeof(App1SimpleArgs), typeof(App2SimpleArgs)};
             var commandLine = "app2 -a val1 -b -s val2";
+            
             bootstrapper.ExecuteApp(commandLine.Split(" "), apps);
 
             App1SimpleArgs.ExecuteCallCount.Should().Be(0);
