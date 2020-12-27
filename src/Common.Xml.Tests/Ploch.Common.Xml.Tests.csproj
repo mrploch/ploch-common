@@ -46,10 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common.Xml\Ploch.Common.Xml.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="TestData\simple-2-level.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
