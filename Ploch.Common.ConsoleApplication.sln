@@ -5,15 +5,11 @@ VisualStudioVersion = 16.0.30803.129
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common", "src\Common\Ploch.Common.csproj", "{2B936120-F5A3-4955-8F63-925B8BC82F6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Tests", "src\Common.Tests\Ploch.Common.Tests.csproj", "{0BAE0808-2372-4B4D-8438-B07D8803D5B2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport", "src\TestingSupport\Ploch.TestingSupport.csproj", "{BBCDE715-D632-4B5A-AE24-4D0C00781220}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport.UnityContainer", "src\TestingSupport.UnityContainer\Ploch.TestingSupport.UnityContainer.csproj", "{AE82D00B-9802-43EA-B182-17C2711B8276}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport.Xunit", "src\TestingSupport.Xunit\Ploch.TestingSupport.Xunit.csproj", "{503C1A9B-845A-41FD-9BF8-ED732AF3F7F6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.TestingSupport.Xunit.Tests", "src\TestingSupport.Xunit.Tests\Ploch.Common.TestingSupport.Xunit.Tests.csproj", "{89590B6C-1DDB-4E08-9E94-D4B7628A62A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleApplication", "ConsoleApplication", "{0C2791BD-57C5-4A13-BB60-A736E1621020}"
 EndProject
@@ -25,6 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.ConsoleApplica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.ConsoleApplication.Runner.Tests", "src\Common.ConsoleApplication\ConsoleApplication.Runner.Tests\Ploch.Common.ConsoleApplication.Runner.Tests.csproj", "{904663EA-6C91-48DC-B96B-0F0AA4F18A7F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424C8A1B-0D42-46ED-A5A1-1C6331DE938D}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines-1.yml = azure-pipelines-1.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +36,6 @@ Global
 		{2B936120-F5A3-4955-8F63-925B8BC82F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B936120-F5A3-4955-8F63-925B8BC82F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B936120-F5A3-4955-8F63-925B8BC82F6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BAE0808-2372-4B4D-8438-B07D8803D5B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BAE0808-2372-4B4D-8438-B07D8803D5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BAE0808-2372-4B4D-8438-B07D8803D5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BAE0808-2372-4B4D-8438-B07D8803D5B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BBCDE715-D632-4B5A-AE24-4D0C00781220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BBCDE715-D632-4B5A-AE24-4D0C00781220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBCDE715-D632-4B5A-AE24-4D0C00781220}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,10 +48,6 @@ Global
 		{503C1A9B-845A-41FD-9BF8-ED732AF3F7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{503C1A9B-845A-41FD-9BF8-ED732AF3F7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{503C1A9B-845A-41FD-9BF8-ED732AF3F7F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89590B6C-1DDB-4E08-9E94-D4B7628A62A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89590B6C-1DDB-4E08-9E94-D4B7628A62A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89590B6C-1DDB-4E08-9E94-D4B7628A62A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89590B6C-1DDB-4E08-9E94-D4B7628A62A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B189272-0EF0-4597-82E6-D7746AEDE21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B189272-0EF0-4597-82E6-D7746AEDE21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B189272-0EF0-4597-82E6-D7746AEDE21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
