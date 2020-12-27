@@ -16,8 +16,20 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: Ploch.Common.ConsoleApplication.sln
+    projects: './Ploch.Common.ConsoleApplication.sln'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: Ploch.Common.ConsoleApplication.sln
+    projects: './Ploch.Common.ConsoleApplication.sln'
+    arguments: '--configuration $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: './Ploch.Common.ConsoleApplication.sln'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    publishTestResults: true
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
