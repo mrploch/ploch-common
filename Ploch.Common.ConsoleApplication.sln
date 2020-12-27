@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.ConsoleApplica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424C8A1B-0D42-46ED-A5A1-1C6331DE938D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Tests", "src\Common.Tests\Ploch.Common.Tests.csproj", "{9D168B5D-3EDB-44AA-8B95-2793CC83DDBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{904663EA-6C91-48DC-B96B-0F0AA4F18A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{904663EA-6C91-48DC-B96B-0F0AA4F18A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{904663EA-6C91-48DC-B96B-0F0AA4F18A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D168B5D-3EDB-44AA-8B95-2793CC83DDBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D168B5D-3EDB-44AA-8B95-2793CC83DDBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D168B5D-3EDB-44AA-8B95-2793CC83DDBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D168B5D-3EDB-44AA-8B95-2793CC83DDBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

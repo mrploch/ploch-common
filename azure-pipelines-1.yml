@@ -26,7 +26,7 @@ steps:
   inputs:
     command: test
     projects: './Ploch.Common.ConsoleApplication.sln'
-    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/'
     publishTestResults: true
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
