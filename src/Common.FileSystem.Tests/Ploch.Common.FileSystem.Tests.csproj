@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common.FileSystem\Ploch.Common.FileSystem.csproj" />
     <ProjectReference Include="..\TestingSupport\Ploch.TestingSupport.csproj" />
   </ItemGroup>
 

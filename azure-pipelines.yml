@@ -14,41 +14,22 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
-  displayName: Build
   inputs:
-    command: build
-    projects: '**/*.csproj'
+    command: 'restore'
+    projects: './Ploch.Common.sln'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
 - task: DotNetCoreCLI@2
-  displayName: 'Install ReportGenerator'
   inputs:
-    command: custom
-    custom: tool
-    arguments: 'install --global dotnet-reportgenerator-globaltool'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Run unit tests - $(buildConfiguration)'
-  inputs:
-    command: 'test'
-    arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    command: test
+    projects: './Ploch.Common.sln'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/'
     publishTestResults: true
-    projects: '**/*.Tests.csproj'
-- task: reportgenerator@4
-  displayName: 'Create code coverage report'
-  inputs:
-    reports: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml' # REQUIRED # The coverage reports that should be parsed (separated by semicolon). Globbing is supported.
-    targetdir: '$(Build.SourcesDirectory)/CodeCoverage' # REQUIRED # The directory where the generated report should be saved.
-    reporttypes: 'HtmlInline_AzurePipelines'
-    assemblyfilters: '+*' # Optional list of assemblies that should be included or excluded in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed.
-    classfilters: '+*' # Optional list of classes that should be included or excluded in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed.
-    filefilters: '+*' # Optional list of files that should be included or excluded in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed.
-    verbosity: 'Verbose' # The verbosity level of the log messages. Values: Verbose, Info, Warning, Error, Off
-    title: '' # Optional title.
-#  tag: '${{ github.run_number }}_${{ github.run_id }}' # Optional tag or build version.
-    customSettings: ''
-
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
-    codeCoverageTool: 'cobertura'
+    codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
