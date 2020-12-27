@@ -37,10 +37,11 @@ steps:
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'Nuget Pack'
   inputs:
     command: pack
+    projects: './Ploch.Common.sln'
     versioningScheme: byPrereleaseNumber
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
