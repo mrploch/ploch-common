@@ -52,5 +52,6 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: push    
-    publishVstsFeed: 'ploch/ploch-artifacts'
+    nuGetFeedType: internal    
+    publishVstsFeed: 'ploch-artifacts'
     allowPackageConflicts: true    
