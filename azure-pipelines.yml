@@ -24,13 +24,16 @@ steps:
     vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
     projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
+    configuration: $(buildConfiguration)
     
 - task: DotNetCoreCLI@2
-  displayName: 'Build Projects'
+  displayName: 'Build Projects'  
   inputs:
     command: 'build'    
     projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
+    configuration: $(buildConfiguration)
+
 
 - task: DotNetCoreCLI@2
   name: 'RunTests'
@@ -70,6 +73,7 @@ steps:
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
     arguments: '--configuration $(buildConfiguration)'
+    configuration: $(buildConfiguration)
     
 - task: DotNetCoreCLI@2
   displayName: 'DotNet Push'
@@ -78,6 +82,9 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
+    arguments: '--configuration $(buildConfiguration)'
+    configuration: $(buildConfiguration)
+      
     
 # - task: NuGetCommand@2
 #   displayName: 'NuGet push'
