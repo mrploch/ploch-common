@@ -13,6 +13,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: NuGetAuthenticate@0
+  displayName: 'NuGet Authenticate'
+  
 - task: DotNetCoreCLI@2
   displayName: 'Restore Projects'
   inputs:
@@ -20,6 +23,7 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
     projects: './Ploch.Common.sln'
+    arguments: '--configuration $(buildConfiguration)'
     
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'
@@ -63,14 +67,14 @@ steps:
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '0'
+    arguments: '--configuration $(buildConfiguration)'
     
-- task: NuGetAuthenticate@0
-  displayName: 'NuGet Authenticate'
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'push'
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-#     nuGetFeedType: 'internal'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
     
 - task: NuGetCommand@2
   displayName: 'NuGet push'
