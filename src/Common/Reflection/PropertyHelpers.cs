@@ -31,7 +31,10 @@ namespace Ploch.Common.Reflection
         /// </returns>
         public static IEnumerable<PropertyInfo> GetProperties<TPropertyType>(this object obj, bool includeSubTypes = true)
         {
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
 
             var type = obj.GetType();
 
@@ -40,14 +43,14 @@ namespace Ploch.Common.Reflection
             return type.GetTypeInfo()
                        .GetProperties()
                        .Where(
-                           pi =>
-                           {
-                               Debug.WriteLine(pi.Name);
+                              pi =>
+                              {
+                                  Debug.WriteLine(pi.Name);
 
-                               return includeSubTypes
-                                   ? propertyType.GetTypeInfo().IsAssignableFrom(pi.PropertyType)
-                                   : pi.PropertyType == propertyType;
-                           });
+                                  return includeSubTypes
+                                             ? propertyType.GetTypeInfo().IsAssignableFrom(pi.PropertyType)
+                                             : pi.PropertyType == propertyType;
+                              });
         }
 
         /// <summary>
@@ -149,7 +152,10 @@ namespace Ploch.Common.Reflection
         {
             var propertyInfo = type.GetTypeInfo().GetProperty(propertyName);
 
-            if (propertyInfo == null && throwIfNotFound) throw new PropertyNotFoundException(propertyName);
+            if (propertyInfo == null && throwIfNotFound)
+            {
+                throw new PropertyNotFoundException(propertyName);
+            }
 
             return propertyInfo;
         }

@@ -56,6 +56,10 @@
 
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" Version="3.0.1" />
+    <PackageReference Include="codecracker.CSharp" Version="1.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="NuGet.CommandLine" Version="5.8.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

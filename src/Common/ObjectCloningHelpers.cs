@@ -29,11 +29,22 @@ namespace Ploch.Common
 
             foreach (var property in properties)
             {
-                if (includedPropertiesSet != null && !includedPropertiesSet.Contains(property.Name)) continue;
-
-                if (excludedPropertiesSet.Contains(property.Name)) continue;
-                if (!property.CanRead) continue;
-                if (!property.CanWrite) continue;
+                if (includedPropertiesSet != null && !includedPropertiesSet.Contains(property.Name))
+                {
+                    continue;
+                }
+                if (excludedPropertiesSet.Contains(property.Name))
+                {
+                    continue;
+                }
+                if (!property.CanRead)
+                {
+                    continue;
+                }
+                if (!property.CanWrite)
+                {
+                    continue;
+                }
 
                 var value = property.GetValue(source);
                 property.SetValue(target, value);

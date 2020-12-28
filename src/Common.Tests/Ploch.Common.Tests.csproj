@@ -57,6 +57,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Ploch.Common.csproj" />
+    <ProjectReference Include="..\TestingSupport.Xunit\Ploch.TestingSupport.Xunit.csproj" />
   </ItemGroup>
 
 </Project>

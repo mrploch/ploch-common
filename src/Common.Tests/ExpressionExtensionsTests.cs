@@ -34,5 +34,15 @@ namespace Ploch.Common.Tests
             var name = expression.GetMemberName();
             name.Should().Be("MyProperty");
         }
+
+        [Fact]
+        public void GetMemberName_should_return_variable_name()
+        {
+            string str = "test";
+            Expression<Func<string>> expression = () => str;
+
+            expression.GetMemberName().Should().Be("str");
+            
+        }
     }
 }
