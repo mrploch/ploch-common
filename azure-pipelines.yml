@@ -20,6 +20,7 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
     projects: './Ploch.Common.sln'
+    
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'
   inputs:
@@ -42,13 +43,13 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'Nuget Pack'
   inputs:
+    command: pack
     nuGetFeedType: internal
     includeNuGetOrg: true   
     feedsToUse: select
-    vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
-    command: pack
+    vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'      
     projects: './Ploch.Common.sln'
-    arguments: '--no-build --configuration $(buildConfiguration)'
+    arguments: '--no-restore --no-build --configuration $(buildConfiguration)'
     versioningScheme: byPrereleaseNumber
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
