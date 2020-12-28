@@ -44,11 +44,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D89DED28-8B6B-46D3-AAE0-2764D1DF0094}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{861A9732-0DD2-43BF-9DA9-6529961C58D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApps.ConsoleApp", "TestApps\TestApps.ConsoleApp\TestApps.ConsoleApp.csproj", "{0B5AFF89-D023-4110-9461-982A176B9012}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApps.ConsoleApp", "TestApps\TestApps.ConsoleApp\TestApps.ConsoleApp.csproj", "{0B5AFF89-D023-4110-9461-982A176B9012}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
