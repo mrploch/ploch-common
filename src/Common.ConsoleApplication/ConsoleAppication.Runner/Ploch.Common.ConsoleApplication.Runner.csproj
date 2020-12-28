@@ -10,7 +10,7 @@
     <PackageReference Include="Ardalis.GuardClauses" Version="3.0.1" />
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -24,13 +24,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Ploch.Common" Version="1.0.0-CI-20201228-031255" />
+    <PackageReference Include="Ploch.Common.ConsoleApplication.Core" Version="1.0.0-CI-20201228-031255" />
     <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
     <PackageReference Include="Validation" Version="2.4.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Ploch.Common.csproj" />
-    <ProjectReference Include="..\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
   </ItemGroup>
 
 </Project>

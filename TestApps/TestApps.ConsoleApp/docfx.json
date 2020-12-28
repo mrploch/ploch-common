@@ -1,0 +1,110 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+       "files": [
+        "**.csproj"
+      ],
+      "src": "..\\TestApps.ConsoleApp"
+    }
+  ],
+  "dest": "api"
+    }
+  ],
+  "build": {
+    "template": [
+      "default",
+      "templates/custom"
+    ],
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/cover.md",
+          "api/**.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/cover.md",
+          "articles/Intro.md",
+          "articles/toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false
+  },
+  "pdf": {
+    "content": [
+      {
+        "files": [
+          "api/cover.md",
+          "api/**.yml"
+        ],
+        "exclude": [
+          "**/toc.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/cover.md",
+          "articles/Intro.md",
+          "articles/toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          "articles/images/**"
+        ],
+        "exclude": [
+          "**/bin/**",
+          "**/obj/**",
+          "_site_pdf/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "api/**.md"
+        ],
+        "exclude": [
+          "**/bin/**",
+          "**/obj/**",
+          "_site_pdf/**"
+        ]
+      }
+    ],
+    "wkhtmltopdf": {
+      "additionalArguments": "--enable-local-file-access --images --outline --header-line --footer-line --footer-left [subsection] --footer-center [page]-of-[toPage] --footer-right [date] --footer-font-name Raleway"
+    },
+    "dest": "_site_pdf"
+  }
+}

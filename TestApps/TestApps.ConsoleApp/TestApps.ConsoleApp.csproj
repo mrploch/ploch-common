@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+	<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+	<AssemblyName>TestApps.ConsoleApp</AssemblyName>
+	<RootNamespace>TestApps.ConsoleApp</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DocumentationFile>bin\x64\Release\net5.0-windows\win10-x64\TestApps.ConsoleApp.xml</DocumentationFile>
+    <BuildDocFx>true</BuildDocFx>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DocumentationFile>bin\x64\Debug\net5.0-windows\win10-x64\TestApps.ConsoleApp.xml</DocumentationFile>
+    <BuildDocFx>false</BuildDocFx>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.56.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Ploch.Common.ConsoleApplication.Runner" Version="1.0.0-CI-20201228-031255" />
+  </ItemGroup>
+
+</Project>

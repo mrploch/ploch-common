@@ -17,7 +17,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Utils
     public class TextWriterEventArgs : EventArgs
     {
         /// <inheritdoc />
-        public TextWriterEventArgs(WriteOperationType operationType, object value, object[] args = null)
+        public TextWriterEventArgs(WriteOperationType operationType, object value, object[]? args = null)
         {
             OperationType = operationType;
             Value = value;

@@ -19,10 +19,7 @@ namespace Ploch.TestingSupport.TestData
         /// </returns>
         public object Create(object request, ISpecimenContext context)
         {
-            //if (!typeof(string).Equals(request))
-            //    return new NoSpecimen(request);
-            var parameter = request as ParameterInfo;
-            if (parameter != null)
+            if (request is ParameterInfo parameter)
             {
                 var testDataAttribute = parameter.GetCustomAttribute<TestDataAttribute>();
                 if (testDataAttribute != null) return TestData.ReadText(testDataAttribute.DataFileName);

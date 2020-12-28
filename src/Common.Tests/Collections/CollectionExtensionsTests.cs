@@ -53,7 +53,7 @@ namespace Ploch.Common.Tests.Collections
             target.Should().Contain(new[] {"itme1", "item2"}, items);
         }
 
-        [Theory, AutoDataMoq]
+        [Fact]
         public void AddMany_should_extend_collection_with__coll_items()
         {
             var target = new Collection<string>() { "itme1", "item2" };

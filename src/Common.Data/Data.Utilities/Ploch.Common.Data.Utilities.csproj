@@ -34,4 +34,11 @@
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
     <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>

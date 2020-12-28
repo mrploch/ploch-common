@@ -53,6 +53,13 @@
     <EmbeddedResource Remove="Properties\**" />
     <None Remove="Properties\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
   <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
   <!--     <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" /> -->

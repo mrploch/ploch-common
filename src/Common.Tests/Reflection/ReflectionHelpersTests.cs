@@ -35,14 +35,6 @@ namespace Ploch.Common.Tests.Reflection
         }
 
         [Fact]
-        public void GetMemberNameAndValueTest()
-        {
-            /* var testObj = new MyTestClass() {IntProp = 1, StringProp = "abc"};
-             * PropertyHelpers.GetMemberNameAndValue()
-             */
-        }
-
-        [Fact]
         public void GetPropertiesOfTypeExcludingSubclassTest()
         {
             var testObject = new TestTypes.MyTestClass();

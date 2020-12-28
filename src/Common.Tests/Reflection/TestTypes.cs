@@ -19,7 +19,9 @@ namespace Ploch.Common.Tests.Reflection
 
             public string StringPropNoSetter => _stringPropNoSetter;
 
+#pragma warning disable S2376 // Write-only properties should not be used
             public string StringPropNoGetter
+#pragma warning restore S2376 // Write-only properties should not be used
             {
                 set => _stringPropNoGetter = value;
             }
@@ -51,7 +53,7 @@ namespace Ploch.Common.Tests.Reflection
             public string MyProperty { get; set; }
         }
 
-        [Attribute2(nameof(Attribute2))]
+        [Attribute2(nameof(Attribute2Attribute))]
         public class ClassWith_Attribute2
         {
             public string MyProperty { get; set; }
@@ -59,20 +61,20 @@ namespace Ploch.Common.Tests.Reflection
 
         [Attribute1_1(PropInt = 100, PropInt2 = 200)]
         [Attribute2("Test2")]
-        public class ClassWith_Attribute1_1_and_Attribute2
+        public class ClassWith_Attribute1_1_And_Attribute2
         {
             public string MyProperty { get; set; }
         }
 
         [Attribute1("blah", PropInt = 111)]
-        public class ClassWithInherited_Attribute1_1_and_Attribute2 : ClassWith_Attribute1_1_and_Attribute2
+        public class ClassWithInherited_Attribute1_1_And_Attribute2 : ClassWith_Attribute1_1_And_Attribute2
         {
             public string MyProperty2 { get; set; }
         }
 
-        public class Attribute1 : Attribute
+        public class Attribute1Attribute : Attribute
         {
-            public Attribute1(string name)
+            public Attribute1Attribute(string name)
             {
                 Name = name;
             }
@@ -82,18 +84,18 @@ namespace Ploch.Common.Tests.Reflection
             public int PropInt { get; set; }
         }
 
-        public sealed class Attribute1_1 : Attribute1
+        public sealed class Attribute1_1Attribute : Attribute1Attribute
         {
             /// <inheritdoc />
-            public Attribute1_1() : base(nameof(Attribute1_1))
+            public Attribute1_1Attribute() : base(nameof(Attribute1_1Attribute))
             { }
 
             public int PropInt2 { get; set; }
         }
 
-        public class Attribute2 : Attribute
+        public class Attribute2Attribute : Attribute
         {
-            public Attribute2(string name)
+            public Attribute2Attribute(string name)
             {
                 Name = name;
             }

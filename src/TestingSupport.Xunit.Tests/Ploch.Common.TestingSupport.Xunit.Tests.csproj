@@ -34,7 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestingSupport.Xunit\Ploch.TestingSupport.Xunit.csproj" />
-    <ProjectReference Include="..\TestingSupport\Ploch.TestingSupport.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,6 @@
 
 using FluentAssertions;
 using Moq;
-using Ploch.TestingSupport.AutoFixture;
 using Ploch.TestingSupport.TestTypes;
 using Ploch.TestingSupport.Xunit.AutoFixture;
 using Xunit;
