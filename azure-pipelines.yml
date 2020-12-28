@@ -13,11 +13,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# - task: DotNetCoreCLI@2
-#   displayName: 'Restore Projects'
-#   inputs:
-#     command: 'restore'
-#     projects: './Ploch.Common.sln'
+- task: DotNetCoreCLI@2
+  displayName: 'Restore Projects'
+  inputs:
+    command: 'restore'
+    feedsToUse: 'select'
+    vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
+    projects: './Ploch.Common.sln'
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'
   inputs:
@@ -55,4 +57,7 @@ steps:
     command: push    
     nuGetFeedType: internal    
     publishVstsFeed: 'ploch-artifacts'
-    allowPackageConflicts: true    
+    allowPackageConflicts: true
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
