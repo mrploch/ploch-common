@@ -15,7 +15,7 @@ variables:
 steps:
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
-  
+
 - task: DotNetCoreCLI@2
   displayName: 'Restore Projects'
   inputs:
@@ -69,18 +69,18 @@ steps:
     patchVersion: '0'
     arguments: '--configuration $(buildConfiguration)'
     
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
+    publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
     
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: push    
-    nuGetFeedType: internal    
-    publishVstsFeed: 'ploch-artifacts'
-    allowPackageConflicts: true
+# - task: NuGetCommand@2
+#   displayName: 'NuGet push'
+#   inputs:
+#     command: push    
+#     nuGetFeedType: internal    
+#     publishVstsFeed: 'ploch-artifacts'
+#     allowPackageConflicts: true
 
