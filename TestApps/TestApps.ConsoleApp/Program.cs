@@ -34,8 +34,7 @@ namespace TestApps.ConsoleApp
             Console.WriteLine("Hello World!");
             string logFileName = AppName();
             string currentLogDirValue = AppPath();
-            Factory = new LoggerFactory()
-            .AddFile(logFileName, currentLogDirValue);
+            Factory = new LoggerFactory().AddFile(logFileName, currentLogDirValue);
             Logger = Factory.CreateLogger($"{logFileName}_{nameof(ConsoleApp)}");
             Logger.LogInformation(message: $"Information; Created Log File for {logFileName}.",
                 includeLineInfo: true);
