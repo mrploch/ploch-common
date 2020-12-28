@@ -28,9 +28,6 @@ namespace TestApps.ConsoleApp
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-#if !DEBUG
-            DumpExtensions.DisableDumping();
-#endif
             Console.WriteLine("Hello World!");
             string logFileName = AppName();
             string currentLogDirValue = AppPath();

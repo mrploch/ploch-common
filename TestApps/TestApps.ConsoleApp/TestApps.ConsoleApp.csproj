@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0-windows7.0</TargetFramework>
-    <Platforms>x64</Platforms>
+    <Platforms>x64;AnyCPU</Platforms>
 	<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
 	<AssemblyName>TestConsoleApp</AssemblyName>
 	<RootNamespace>TestApps.ConsoleApp</RootNamespace>
@@ -12,11 +12,25 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DocumentationFile>bin\x64\Release\net5.0-windows\win10-x64\TestApps.ConsoleApp.xml</DocumentationFile>
     <BuildDocFx>true</BuildDocFx>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\x64\Release\net5.0-windows\win10-x64\TestApps.ConsoleApp.xml</DocumentationFile>
+    <BuildDocFx>true</BuildDocFx>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DocumentationFile>bin\x64\Debug\net5.0-windows\win10-x64\TestApps.ConsoleApp.xml</DocumentationFile>
     <BuildDocFx>false</BuildDocFx>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\x64\Debug\net5.0-windows\win10-x64\TestApps.ConsoleApp.xml</DocumentationFile>
+    <BuildDocFx>false</BuildDocFx>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
