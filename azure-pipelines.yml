@@ -13,11 +13,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: 'Restore Projects'
-  inputs:
-    command: 'restore'
-    projects: './Ploch.Common.sln'
+# - task: DotNetCoreCLI@2
+#   displayName: 'Restore Projects'
+#   inputs:
+#     command: 'restore'
+#     projects: './Ploch.Common.sln'
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'
   inputs:
