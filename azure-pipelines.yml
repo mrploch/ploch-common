@@ -40,20 +40,29 @@ steps:
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+# - task: DotNetCoreCLI@2
+#   displayName: 'Nuget Pack'
+#   inputs:
+#     command: pack
+#     nuGetFeedType: internal
+#     includeNuGetOrg: true   
+#     feedsToUse: select
+#     vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'      
+#     projects: './Ploch.Common.sln'
+#     arguments: '--no-restore --no-build --configuration $(buildConfiguration)'
+#     versioningScheme: byPrereleaseNumber
+#     majorVersion: '$(Major)'
+#     minorVersion: '$(Minor)'
+#     patchVersion: '$(Patch)'
 - task: DotNetCoreCLI@2
-  displayName: 'Nuget Pack'
   inputs:
-    command: pack
-    nuGetFeedType: internal
-    includeNuGetOrg: true   
-    feedsToUse: select
-    vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'      
-    projects: './Ploch.Common.sln'
-    arguments: '--no-restore --no-build --configuration $(buildConfiguration)'
-    versioningScheme: byPrereleaseNumber
-    majorVersion: '$(Major)'
-    minorVersion: '$(Minor)'
-    patchVersion: '$(Patch)'
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    nobuild: true    
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
     
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
@@ -70,3 +79,4 @@ steps:
     nuGetFeedType: internal    
     publishVstsFeed: 'ploch-artifacts'
     allowPackageConflicts: true
+
