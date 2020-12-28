@@ -42,6 +42,10 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'Nuget Pack'
   inputs:
+    nuGetFeedType: internal
+    includeNuGetOrg: true   
+    feedsToUse: select
+    vstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
     command: pack
     projects: './Ploch.Common.sln'
     arguments: '--no-build --configuration $(buildConfiguration)'
@@ -49,15 +53,19 @@ steps:
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
+    
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: push    
-    nuGetFeedType: internal    
-    publishVstsFeed: 'ploch-artifacts'
-    allowPackageConflicts: true
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'restore'
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    
+# - task: NuGetCommand@2
+#   displayName: 'NuGet push'
+#   inputs:
+#     command: push    
+#     nuGetFeedType: internal    
+#     publishVstsFeed: 'ploch-artifacts'
+#     allowPackageConflicts: true
