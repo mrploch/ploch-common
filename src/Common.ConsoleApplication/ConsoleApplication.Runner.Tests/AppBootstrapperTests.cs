@@ -76,10 +76,6 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
             args.StringProperty1.Should().Be("val2");
         }
 
-        [Fact]
-        public void FactMethodName()
-        {
-            Assert.True(1 == 1);
-        }
+        
     }
 }
