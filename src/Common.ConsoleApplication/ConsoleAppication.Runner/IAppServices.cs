@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.ConsoleApplication.Core;
 
 namespace Ploch.Common.ConsoleApplication.Runner
 {
@@ -7,4 +8,6 @@ namespace Ploch.Common.ConsoleApplication.Runner
         void Configure(IServiceCollection serviceCollection);
 
     }
+
+    
 }

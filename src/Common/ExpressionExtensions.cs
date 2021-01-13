@@ -37,6 +37,7 @@ namespace Ploch.Common
         /// <exception cref="InvalidOperationException">Not a member expression and not unary expression for member.</exception>
         public static string GetMemberName<TType, TMember>(this Expression<Func<TType, TMember>> expression)
         {
+            
             if (!(expression.Body is MemberExpression memberExpressionBody))
             {
                 // Might be an implicit cast

@@ -5,13 +5,26 @@
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>$(Description)</Description>
+    <Copyright>$(Copyright)</Copyright>
+    <PackageProjectUrl>$(ProjectUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;JETBRAINS_ANNOTATIONS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;JETBRAINS_ANNOTATIONS</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" Version="3.0.1" />
+    <PackageReference Include="CG.Reflection" Version="2021.1.1" />
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.1">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -21,14 +34,21 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Moq.Analyzers" Version="0.0.8" />
     <PackageReference Include="NuGet.CommandLine" Version="5.8.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ploch.Common" Version="1.0.0-CI-20201228-031255" />
-    <PackageReference Include="Ploch.Common.ConsoleApplication.Core" Version="1.0.0-CI-20201228-031255" />
+    <PackageReference Include="Roslynator.Analyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
-    <PackageReference Include="Validation" Version="2.4.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Ploch.Common.csproj" />
+    <ProjectReference Include="..\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
   </ItemGroup>
 
 </Project>

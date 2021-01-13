@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CG.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Ploch.Common.ConsoleApplication.Core;
 
@@ -10,6 +11,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
         public void Configure(IServiceCollection serviceCollection)
         {
             serviceCollection.AddLogging(cfg => cfg.AddConsole());
+            
             serviceCollection.AddSingleton<IOutput, ConsoleOutput>();
         }
     }

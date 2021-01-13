@@ -1,17 +1,25 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
-using Ploch.Common.ConsoleApplication.Core;
 
-namespace Ploch.Common.ConsoleApplication.Runner
+namespace Ploch.Common.ConsoleApplication.Core
 {
     public class ConsoleOutput : IOutput
     {
         private readonly TextWriter _errorWriter;
         private readonly TextWriter _writer;
 
+        /// <summary>
+        /// Creates a new instance of <c>ConsoleOutput</c> using default <see cref="Console.Out"/> and <see cref="Console.Error"/> writers.
+        /// </summary>
         public ConsoleOutput() : this(Console.Out, Console.Error)
         { }
 
+        /// <summary>
+        /// Creates a new instance of <c>ConsoleOutput</c> using specified <c>TextWriter</c> instances.
+        /// </summary>
+        /// <param name="writer"><c>TextWriter</c> for standard output</param>
+        /// <param name="errorWriter"><c>TextWriter</c> for error ouput</param>
         public ConsoleOutput(TextWriter writer, TextWriter errorWriter)
         {
             _writer = writer;
@@ -56,39 +64,29 @@ namespace Ploch.Common.ConsoleApplication.Runner
             return Write(_writer, content + Environment.NewLine, args);
         }
 
-        private IOutput WriteLine(TextWriter writer, object content, params object[] args)
+        private IOutput WriteLine(TextWriter writer, object? content, params object[] args)
         {
-            var stringContents = GetStringContents(content);
-            if (args?.Length > 0)
-            {
-                writer.WriteLine(stringContents, args);
-            }
-            else
-            {
-                writer.WriteLine(stringContents);
-            }
+            var stringContents = GetStringContents(content, args);
+            writer.WriteLine(stringContents);
+
             return this;
         }
 
         private IOutput Write(TextWriter writer, object? contents, params object[]? args)
         {
-            string strContents = GetStringContents(contents);
-
-            if (args != null && args.Length > 0)
-            {
-                writer.Write(strContents, args);
-            }
-            else
-            {
-                writer.Write(strContents);
-            }
-
+            string strContents = GetStringContents(contents, args);
+            writer.Write(strContents);
             return this;
         }
 
-        private static string GetStringContents(object? contents)
+        private static string GetStringContents(object? contents, params object[]? args)
         {
-            return contents == null ? "<null>" : contents.ToString();
+            string strContents = contents == null ? "<null>" : contents.ToString();
+            if (args != null)
+            {
+                return string.Format(strContents, args);
+            }
+            return strContents;
         }
     }
 }

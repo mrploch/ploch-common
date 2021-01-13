@@ -1,7 +1,7 @@
 ﻿namespace Ploch.Common.ConsoleApplication.ExtendedOutput
 {
-    public class BannerBuilder
+    public interface IAppInfoProvider
     {
-        
+        AppInfo GetAppInfo();
     }
 }

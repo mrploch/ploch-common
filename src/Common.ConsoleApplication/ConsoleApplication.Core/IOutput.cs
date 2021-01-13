@@ -1,5 +1,8 @@
 ﻿namespace Ploch.Common.ConsoleApplication.Core
 {
+    /// <summary>
+    /// Represents the application text output.
+    /// </summary>
     public interface IOutput
     {
         IOutput WriteLine<TContent>(TContent content, params object[] args);

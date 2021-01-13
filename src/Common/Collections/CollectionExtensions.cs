@@ -54,6 +54,16 @@ namespace Ploch.Common.Collections
             AddManyInternal(collection, items);
         }
 
+        /// <summary>
+        /// Adds items to a collection
+        /// </summary>
+        /// <typeparam name="TItem"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="items"></param>
+        /// <exception cref="T:System.ArgumentNullException">
+        ///     <paramref name="collection" /> or <paramref name="items" /> is
+        ///     <see langword="null" />
+        /// </exception>
         private static void AddManyInternal<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
         {
             if (collection is null)

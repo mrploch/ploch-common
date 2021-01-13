@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 namespace Ploch.Common.ConsoleApplication.Runner.Utils
 {
@@ -17,7 +16,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Utils
     public class TextWriterEventArgs : EventArgs
     {
         /// <inheritdoc />
-        public TextWriterEventArgs(WriteOperationType operationType, object value, object[]? args = null)
+        public TextWriterEventArgs(WriteOperationType operationType, object? value, object[]? args = null)
         {
             OperationType = operationType;
             Value = value;
@@ -25,37 +24,36 @@ namespace Ploch.Common.ConsoleApplication.Runner.Utils
         }
 
         public WriteOperationType OperationType { get; }
-        public object Value { get; }
+        public object? Value { get; }
 
-        public object[] Args { get; }
+        public object[]? Args { get; }
     }
 
     public class EventfulTextWriter : TextWriter
     {
         public override Encoding Encoding { get; } = Encoding.UTF8;
 
-        public event EventHandler<TextWriterEventArgs> WriteExecuted;
+        public event EventHandler<TextWriterEventArgs>? WriteExecuted;
 
         /// <inheritdoc />
-        public override void Write(string format, [ItemCanBeNull] params object[] args)
+        public override void Write(string format, params object[]? arg)
         {
-            OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.Write, format, args));
-        }
-
-        /// <inheritdoc />
-        public override void WriteLine(string format, [ItemCanBeNull] params object[] args)
-        {
-            OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.Write, format, args));
+            OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.Write, format, arg));
         }
 
         public override void Write(char value)
         {
             OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.Write, value));
         }
-
-        public override void Write(string value)
+        public override void Write(string? value)
         {
             OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.Write, value));
+        }
+
+        /// <inheritdoc />
+        public override void WriteLine(string format, params object[]? arg)
+        {
+            OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.Write, format, arg));
         }
 
         public override void WriteLine()
@@ -63,7 +61,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Utils
             OnWriteExecuted(new TextWriterEventArgs(WriteOperationType.WriteLine, null));
         }
 
-        public override void WriteLine(string value)
+        public override void WriteLine(string? value)
         {
             if (value == null)
                 WriteLine();
@@ -89,6 +87,12 @@ namespace Ploch.Common.ConsoleApplication.Runner.Utils
             return Task.CompletedTask;
         }
 
+
+        /// <summary>
+        /// Event executed when write operation occurs in a writer.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <exception cref="T:System.Exception">A delegate callback throws an exception.</exception>
         protected virtual void OnWriteExecuted(TextWriterEventArgs e)
         {
             WriteExecuted?.Invoke(this, e);
