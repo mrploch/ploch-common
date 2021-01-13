@@ -45,13 +45,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-<<<<<<< HEAD
 		Directory.Build.props = Directory.Build.props
 		NuGet.Config = NuGet.Config
 		Ploch.Common.nuspec = Ploch.Common.nuspec
-=======
-		nuget.config = nuget.config
->>>>>>> 58c9a87b1db4188e86a52507a710a9912e252d55
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{861A9732-0DD2-43BF-9DA9-6529961C58D5}"
