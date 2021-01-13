@@ -1,5 +1,6 @@
 ﻿using System;
 
+// ReSharper disable once CheckNamespace
 namespace Ardalis.GuardClauses
 {
     public static class NullArgGuard
@@ -8,7 +9,7 @@ namespace Ardalis.GuardClauses
         {
             if (input == null)
             {
-                throw new ArgumentNullException("Should not be null!", parameterName);
+                throw new ArgumentNullException(parameterName);
             }
         }
     }

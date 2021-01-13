@@ -40,10 +40,6 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
 
         }
 
-        [Fact]
-        public void FactMethodName()
-        {
-            Assert.True(1 == 1);
-        }
+        
     }
 }
