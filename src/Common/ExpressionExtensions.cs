@@ -37,22 +37,20 @@ namespace Ploch.Common
         /// <exception cref="InvalidOperationException">Not a member expression and not unary expression for member.</exception>
         public static string GetMemberName<TType, TMember>(this Expression<Func<TType, TMember>> expression)
         {
-            
-            if (!(expression.Body is MemberExpression memberExpressionBody))
+
+            if (expression.Body is MemberExpression memberExpressionBody)
             {
-                // Might be an implicit cast
-                if (!(expression.Body is UnaryExpression unaryExpression))
+                return memberExpressionBody.Member.Name;
+            }
+            // Might be an implicit cast
+            if (expression.Body is UnaryExpression unaryExpression)
+            {
+                if (unaryExpression.Operand is MemberExpression memberExpression)
                 {
-                    throw new InvalidOperationException("Not a member expression and not unary expression for member.");
-                }
-                memberExpressionBody = unaryExpression.Operand as MemberExpression;
-                if (memberExpressionBody == null)
-                {
-                    throw new InvalidOperationException("Not a member expression.");
+                    return memberExpression.Member.Name;
                 }
             }
-
-            return memberExpressionBody.Member.Name;
+            throw new InvalidOperationException("Not a member expression and not unary expression for member.");
         }
     }
 }

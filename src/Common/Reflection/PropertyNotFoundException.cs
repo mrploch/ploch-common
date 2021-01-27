@@ -16,9 +16,6 @@ namespace Ploch.Common.Reflection
             PropertyName = propertyName;
         }
 
-        protected PropertyNotFoundException(SerializationInfo info, StreamingContext context): base(info, context)
-        { }
-
         public string PropertyName { get; }
 
         private static string GetDefaultMessage(string propertyName)
