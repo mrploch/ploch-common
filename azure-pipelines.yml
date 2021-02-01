@@ -75,15 +75,15 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
     
-- task: DotNetCoreCLI@2
-  displayName: 'DotNet Push'
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
-    arguments: '--configuration $(buildConfiguration)'
-    configuration: $(buildConfiguration)
+# - task: DotNetCoreCLI@2
+#   displayName: 'DotNet Push'
+#   inputs:
+#     command: 'push'
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+#     nuGetFeedType: 'internal'
+#     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
+#     arguments: '--configuration $(buildConfiguration)'
+#     configuration: $(buildConfiguration)
 
 - task: NuGetCommand@2
   inputs:
