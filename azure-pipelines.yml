@@ -84,18 +84,12 @@ steps:
     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
-      
-- task: DotNetCoreCLI@2
+
+- task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'nuget-org'
-# - task: NuGetCommand@2
-#   displayName: 'NuGet push'
-#   inputs:
-#     command: push    
-#     nuGetFeedType: internal    
-#     publishVstsFeed: 'ploch-artifacts'
-#     allowPackageConflicts: true
+
 
