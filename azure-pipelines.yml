@@ -90,7 +90,9 @@ steps:
     command: 'push'
     feedsToUse: 'config'
     includeNugetOrg: true
-
+    nuGetFeedType: external
+    arguments: '-ApiKey $(NUGET-ORG-API-KEY)'
+    publishFeedCredentials: 'nuget-org'
 # - task: NuGetCommand@2
 #   inputs:
 #     command: 'push'
