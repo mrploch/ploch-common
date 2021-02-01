@@ -90,7 +90,7 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'nuget-org'
-    arguments: -k oy2dw4b233ftvrpxcgfq3h4tka3uyfxubmzihqfdwyeik4
+    arguments: '-k oy2dw4b233ftvrpxcgfq3h4tka3uyfxubmzihqfdwyeik4'
 
 # - task: NuGetCommand@2
 #   inputs:
