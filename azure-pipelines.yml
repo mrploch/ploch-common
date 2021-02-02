@@ -79,20 +79,20 @@ steps:
 #   displayName: 'DotNet Push'
 #   inputs:
 #     command: 'push'
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+#     packagesToPush: '
 #     nuGetFeedType: 'internal'
 #     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
 #     arguments: '--configuration $(buildConfiguration)'
 #     configuration: $(buildConfiguration)
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    feedsToUse: 'config'
-    includeNugetOrg: true
-    nuGetFeedType: external
-    arguments: '-ApiKey $(NUGET-ORG-API-KEY)'
-    publishFeedCredentials: 'nuget-org'
+# - task: NuGetCommand@2
+#   inputs:
+#     command: 'push'
+#     feedsToUse: 'config'
+#     includeNugetOrg: true
+#     nuGetFeedType: external
+#     arguments: '-ApiKey $(NUGET-ORG-API-KEY)'
+#     publishFeedCredentials: 'nuget-org'
 # - task: NuGetCommand@2
 #   inputs:
 #     command: 'push'
@@ -100,5 +100,8 @@ steps:
 #     nuGetFeedType: 'external'
 #     publishFeedCredentials: 'nuget-org'
 
-
-
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'nuget push'
+    arguments: '$(Build.ArtifactStagingDirectory)/*.nupkg --api-key $(nuget-org-api-key) --source https://api.nuget.org/v3/index.json'
