@@ -104,4 +104,5 @@ steps:
   inputs:
     command: 'custom'
     custom: 'nuget push'
-    arguments: '$(Build.ArtifactStagingDirectory)/*.nupkg --api-key $(nuget-org-api-key) --source https://api.nuget.org/v3/index.json'
+    packagesToPack: "$(Build.ArtifactStagingDirectory)/*.nupkg"
+    arguments: '--api-key "$(nuget-org-api-key)"" --source "https://api.nuget.org/v3/index.json"'
