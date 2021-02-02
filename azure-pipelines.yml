@@ -66,6 +66,7 @@ steps:
   displayName: 'DotNet Pack'
   inputs:
     command: 'pack'
+    nobuild: true
     packagesToPack: './Ploch.Common.sln'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'PackageVersion'  
@@ -79,6 +80,7 @@ steps:
     # arguments: '--configuration $(buildConfiguration)'
     # configuration: $(buildConfiguration)
 - task: DotNetCoreCLI@2
+  displayName: 'DotNet Push - Internal'
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
