@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Ardalis.GuardClauses;
@@ -7,8 +8,8 @@ using CommandLine;
 using CommandLine.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.ConsoleApplication.Core;
+using Ploch.Common.Reflection;
 using Unity.Microsoft.DependencyInjection;
-using Validation;
 
 namespace Ploch.Common.ConsoleApplication.Runner
 {
@@ -33,27 +34,63 @@ namespace Ploch.Common.ConsoleApplication.Runner
     ///         is supported.
     ///     </para>
     /// </remarks>
-    public class AppBootstrapper
+    public class AppBootstrapper: IAppBootstrapper
     {
+        private readonly IAppServices _appServices;
         private readonly Func<IServiceCollection, IServiceProvider> _serviceProviderFunc;
 
-        public AppBootstrapper() : this(services => Unity.Microsoft.DependencyInjection.ServiceProviderExtensions.BuildServiceProvider(services))
+        /// <summary>
+        /// Constructs <c>AppBootstrapper</c> using default options.
+        /// </summary>
+        public AppBootstrapper() : this(new DefaultServices())
         { }
 
-        public AppBootstrapper(Func<IServiceCollection, IServiceProvider> serviceProviderFunc)
+        /// <summary>
+        /// Constructs <c>AppBootstrapper</c>
+        /// </summary>
+        /// <remarks>
+        ///     Use this constructor to supply a custom <see cref="IServiceProvider"/>.
+        ///     <para>
+        ///         The delegate will be called with a default and pre-configured <see cref="IServiceCollection"/> which should be added
+        ///         to the custom <c>IServiceProvider.</c>
+        ///     </para>
+        /// </remarks>
+        /// <param name="serviceProviderFunc">Delegate for a custom service provider.</param>
+        /// <param name="appServices"></param>
+        public AppBootstrapper(IAppServices appServices): this(services => ServiceProviderExtensions.BuildServiceProvider(services), appServices)
+        { }
+
+        /// <summary>
+        /// Constructs <c>AppBootstrapper</c>
+        /// </summary>
+        /// <remarks>
+        ///     Use this constructor to supply a custom <see cref="IServiceProvider"/>.
+        ///     <para>
+        ///         The delegate will be called with a default and pre-configured <see cref="IServiceCollection"/> which should be added
+        ///         to the custom <c>IServiceProvider.</c>
+        ///     </para>
+        /// </remarks>
+        /// <param name="serviceProviderFunc">Delegate for a custom service provider.</param>
+        /// <param name="appServices"></param>
+        public AppBootstrapper(Func<IServiceCollection, IServiceProvider> serviceProviderFunc, IAppServices appServices)
         {
-            _serviceProviderFunc = Guard.Against.Default(serviceProviderFunc, nameof(serviceProviderFunc));
-           // _serviceProviderFunc = serviceProviderFunc ?? throw new ArgumentNullException(nameof(serviceProviderFunc));
+            _serviceProviderFunc = serviceProviderFunc;  // Guard.Against.Default(serviceProviderFunc, nameof(serviceProviderFunc));
+            _appServices = appServices;
         }
 
         /// <summary>
         ///     Executes the app.
         /// </summary>
         /// <param name="args">The args.</param>
+        /// <exception cref="InvalidOperationException">Thrown when command of type <typeparamref name="TApp"/> could not be resolved.</exception>
         public void ExecuteApp<TApp>(string[] args) where TApp : ICommand
         {
             var serviceProvider = InitializeServiceProvider();
             var application = serviceProvider.GetService<TApp>();
+            if (application == null)
+            {
+                throw new InvalidOperationException($"Command of type {typeof(TApp)} could not be resolved!.");
+            }
             application.Execute(args);
         }
 
@@ -62,12 +99,13 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// </summary>
         /// <param name="args">The args.</param>
         /// <param name="commands">The commands.</param>
+        /// <exception cref="ArgumentException">Thrown when provided commands do not implement <see cref="ICommand{TOptions}" interface./></exception>
         [SuppressMessage("ReSharper", "PossibleMultipleEnumeration",
-            Justification = "Does not have any performance implications in this case and would make code less readable.")]
+                         Justification = "Does not have any performance implications in this case and would make code less readable.")]
         public void ExecuteApp(IEnumerable<string> args, IEnumerable<Type> commands)
         {
-            Requires.NotNull(args, nameof(args));
-            Requires.NotNull(commands, nameof(commands));
+            Guard.Against.Null(args, nameof(args));
+            Guard.Against.Null(commands, nameof(commands));
 
             var appArgumentsMapping = commands.ToDictionary(AppCommandsResolver.GetArgumentsType, app => app);
 
@@ -77,20 +115,24 @@ namespace Ploch.Common.ConsoleApplication.Runner
                                               settings.CaseSensitive = false;
                                               settings.HelpWriter = null;
                                           });
-            ParserResult<object> parserResult = parser.ParseArguments(args, appArgumentsMapping.Keys.ToArray());
-            parserResult.WithParsed(parsedArgs =>
-                                    {
-                                        var commandType = appArgumentsMapping[parsedArgs.GetType()];
-                                        var command = serviceProvider.GetService(commandType);
-                                        var executeMethod = commandType.GetMethod("Execute");
+            ParserResult<object> parserResult = parser.ParseArguments(args, appArgumentsMapping.Keys.ToArray())
+                                                      .WithParsed(parsedArgs =>
+                                                                  {
+                                                                      var commandType = appArgumentsMapping[parsedArgs.GetType()];
+                                                                      if (!commandType.IsImplementing(typeof(ICommand<>)))
+                                                                      {
+                                                                          throw new ArgumentException("One of the supplied application types is invalid.",
+                                                                                                      nameof(commands));
+                                                                      }
 
-                                        if (executeMethod != null)
-                                            
-                                            executeMethod.Invoke(command, new[] { parsedArgs });
-                                        else
-                                            throw new ArgumentException("One of the supplied application types is invalid.", nameof(commands));
-                                    })
-                        .WithNotParsed(errors => DisplayHelp(parserResult, errors));
+                                                                      var command = serviceProvider.GetService(commandType);
+                                                                      var executeMethod = commandType.GetMethod("Execute");
+                                                                      Guard.Against.Null(executeMethod, nameof(executeMethod));
+                                                                      executeMethod.Invoke(command, new[] {parsedArgs});
+                                                                  });
+                                                      
+            parserResult.WithNotParsed(errors => DisplayHelp(parserResult, errors, serviceProvider));
+
         }
 
         /// <summary>
@@ -100,11 +142,25 @@ namespace Ploch.Common.ConsoleApplication.Runner
         public void ExecuteApp<TApp, TArgs>(string[] args) where TApp : ICommand<TArgs>
         {
             var serviceProvider = InitializeServiceProvider();
-            var application = serviceProvider.GetService<TApp>();
-            var parser = new Parser(with => with.HelpWriter = null);
+            var application = serviceProvider.GetRequiredService<TApp>();
+            var appEvents = serviceProvider.GetServices<IAppEvents>();
+            appEvents = appEvents.OrderBy(ae => ae.Order);
+            foreach (var appEvent in appEvents)
+            {
+                appEvent.OnStartup(serviceProvider);
+            }
+
+            var parser = new Parser(settings =>
+                                    {
+                                        settings.HelpWriter = null;
+                                        settings.CaseSensitive = false;
+                                    });
+            
             var parserResult = parser.ParseArguments<TArgs>(args);
-            parserResult.WithParsed(parsed => application.Execute(parsed)).WithNotParsed(errors => DisplayHelp(parserResult, errors));
+            
+            parserResult.WithParsed(parsed => application.Execute(parsed)).WithNotParsed(errors => DisplayHelp(parserResult, errors, serviceProvider));
         }
+
 
         /// <summary>
         ///     Initializes the service provider.
@@ -116,26 +172,21 @@ namespace Ploch.Common.ConsoleApplication.Runner
             var serviceConfig = new DefaultServices();
             serviceConfig.Configure(services);
             var provider = _serviceProviderFunc(services);
-            if (provider == null) throw new InvalidOperationException("Could not initialize service provider.");
-
-            return provider;
+            return provider ?? throw new InvalidOperationException("Could not initialize Service Provider!");
         }
 
         /// <summary>
         ///     Displays the help.
         /// </summary>
         /// <param name="result">The result.</param>
-        /// <param name="errs">The errs.</param>
-        private static void DisplayHelp<T>(ParserResult<T> result, IEnumerable<Error> errs)
+        /// <param name="errors"></param>
+        /// <param name="serviceProvider"></param>
+        private static void DisplayHelp<T>(ParserResult<T> result, IEnumerable<Error> errors, IServiceProvider serviceProvider)
         {
-            var helpText = HelpText.AutoBuild(result, h =>
-                                                      {
-                                                          //   h.AdditionalNewLineAfterOption = false;
-                                                          //   h.Heading = "Myapp 2.240.0-beta"; //change header
-                                                          //   h.Copyright = "Copyright (c) 2019 Global.com"; //change copyright text
-                                                          return HelpText.DefaultParsingErrorsHandler(result, h);
-                                                      }, e => e);
-            Console.WriteLine(helpText);
+            var helpText = HelpText.AutoBuild(result/*, h => HelpText.DefaultParsingErrorsHandler(result, h), e => e*/);
+            var output = serviceProvider.GetRequiredService<IOutput>();
+
+            output.WriteErrorLine(helpText);
         }
     }
 }

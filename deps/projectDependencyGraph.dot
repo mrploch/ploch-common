@@ -1,0 +1,11 @@
+digraph "Ploch.Common.ConsoleApplication" {
+splines=ortho;
+"Ploch.Common.Tests" -> "Ploch.Common"
+"Ploch.Common.Tests" -> "Ploch.TestingSupport.Xunit"
+"Ploch.Common.ConsoleApplication.ExtendedOutput" -> "Ploch.Common"
+"Ploch.Common.ConsoleApplication.ExtendedOutput" -> "Ploch.Common.ConsoleApplication.Core"
+"Ploch.Common.ConsoleApplication.Runner" -> "Ploch.Common"
+"Ploch.Common.ConsoleApplication.Runner" -> "Ploch.Common.ConsoleApplication.Core"
+"Ploch.Common.ConsoleApplication.Runner.Tests" -> "Ploch.TestingSupport.Xunit"
+"Ploch.Common.ConsoleApplication.Runner.Tests" -> "Ploch.Common.ConsoleApplication.Runner"
+}

@@ -40,14 +40,14 @@ namespace Ploch.Common.Windows
             var scope = SetScope(machineName, options);
             using (var cls = new ManagementClass(scope, new ManagementPath("StdRegProv"), null))
             {
-                // ReSharper disable once InconsistentNaming
-                const uint HKEY_LOCAL_MACHINE = 0x80000002;
-                object[] args = {HKEY_LOCAL_MACHINE, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall", null};
+               
+                const uint localMachineRegistryKey = 0x80000002; // HKEY_LOCAL_MACHINE registry key code
+                object[] args = {localMachineRegistryKey, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall", null};
                 cls.InvokeMethod("EnumKey", args);
                 var keys = args[2] as string[];
                 using (var methodParams = cls.GetMethodParameters("GetStringValue"))
                 {
-                    methodParams["hDefKey"] = HKEY_LOCAL_MACHINE;
+                    methodParams["hDefKey"] = localMachineRegistryKey;
                     if (keys != null)
                         foreach (var subKey in keys)
                         {

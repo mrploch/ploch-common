@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <Authors>Kris Ploch</Authors>
+    <Company>Kris Ploch</Company>
+    <ProjectUrl>https://github.com/mrploch/ploch-common</ProjectUrl>
+    <RepositoryUrl>https://github.com/mrploch/ploch-common.git</RepositoryUrl>
+    <Description>Common utility libraries.</Description>
+    <Copyright>Kris Ploch $([System.DateTime]::Now.Year)</Copyright>
+  </PropertyGroup>
+</Project>

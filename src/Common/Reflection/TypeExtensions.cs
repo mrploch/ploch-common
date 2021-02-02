@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Validation;
+using Ardalis.GuardClauses;
 
 namespace Ploch.Common.Reflection
 {
@@ -8,8 +8,8 @@ namespace Ploch.Common.Reflection
     {
         public static bool IsImplementing(this Type type, Type interfaceType)
         {
-            Requires.NotNull(interfaceType, nameof(interfaceType));
-            Requires.NotNull(type, nameof(type));
+            Guard.Against.Null(interfaceType, nameof(interfaceType));
+            Guard.Against.Null(type, nameof(type));
 
             return type.GetInterfaces()
                        .Any(i => i == interfaceType

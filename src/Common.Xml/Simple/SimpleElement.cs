@@ -7,7 +7,7 @@ namespace Ploch.Common.Xml.Simple
     /// <summary>
     ///     <para>Simplified representation of an XML Element.</para>
     /// </summary>
-    public class SimpleElement : IList<SimpleElement>, ISimpleElement
+    public class SimpleElement : ISimpleElement
     {
         private readonly IList<SimpleElement> _elements;
 
