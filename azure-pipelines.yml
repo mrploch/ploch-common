@@ -85,24 +85,11 @@ steps:
 #     arguments: '--configuration $(buildConfiguration)'
 #     configuration: $(buildConfiguration)
 
-# - task: NuGetCommand@2
-#   inputs:
-#     command: 'push'
-#     feedsToUse: 'config'
-#     includeNugetOrg: true
-#     nuGetFeedType: external
-#     arguments: '-ApiKey $(NUGET-ORG-API-KEY)'
-#     publishFeedCredentials: 'nuget-org'
-# - task: NuGetCommand@2
-#   inputs:
-#     command: 'push'
-#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-#     nuGetFeedType: 'external'
-#     publishFeedCredentials: 'nuget-org'
-
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   inputs:
-    command: 'custom'
-    custom: 'nuget push'
-    packagesToPack: "$(Build.ArtifactStagingDirectory)/*.nupkg"
-    arguments: '--api-key "$(nuget-org-api-key)"" --source "https://api.nuget.org/v3/index.json"'
+    command: 'push'
+    feedsToUse: 'config'
+    includeNugetOrg: true
+    nuGetFeedType: external
+    publishFeedCredentials: 'nuget-org'
+
