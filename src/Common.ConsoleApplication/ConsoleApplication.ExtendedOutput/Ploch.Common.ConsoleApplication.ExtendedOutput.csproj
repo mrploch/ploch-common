@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CG.Reflection" Version="2021.1.1" />
+    <PackageReference Include="CG.Reflection" Version="2021.1.2" />
     <PackageReference Include="Figgle" Version="0.4.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Ploch.Common.csproj" />
-    <ProjectReference Include="..\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
   </ItemGroup>
 
 </Project>

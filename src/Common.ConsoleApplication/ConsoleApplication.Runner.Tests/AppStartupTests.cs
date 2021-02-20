@@ -50,7 +50,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
         [Theory, AutoData]
         public void Execute_ShouldStartTheAppProvided_AndPassArgs(string[] args)
         {
-            AppStartup.ExecuteApp<TestApp>(args);
+            AppStartup.Default().ExecuteApp<TestApp>(args);
             TestApp.Args.Should().BeSameAs(args);
             TestApp.Dependency.Should().NotBeNull();
 
@@ -59,7 +59,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
         [Theory, AutoData]
         public void Execute_ShouldStartTheApp_And_PassParsedArgs(int count, string subject)
         {
-            AppStartup.ExecuteApp<TestApp1, TestArgs>(new []{ "--count", count.ToString(), "--subject", subject});
+            AppStartup.Default().ExecuteApp<TestApp1, TestArgs>(new []{ "--count", count.ToString(), "--subject", subject});
 
             TestApp1.Args.Count.Should().Be(count);
             TestApp1.Args.Subject.Should().Be(subject);

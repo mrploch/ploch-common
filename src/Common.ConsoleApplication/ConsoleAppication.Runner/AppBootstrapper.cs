@@ -8,6 +8,7 @@ using CommandLine;
 using CommandLine.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.ConsoleApplication.Core;
+using Ploch.Common.DependencyInjection;
 using Ploch.Common.Reflection;
 using Unity.Microsoft.DependencyInjection;
 
@@ -36,7 +37,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
     /// </remarks>
     public class AppBootstrapper: IAppBootstrapper
     {
-        private readonly IAppServices _appServices;
+        private readonly IServicesBundle _appServices;
         private readonly Func<IServiceCollection, IServiceProvider> _serviceProviderFunc;
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// </remarks>
         /// <param name="serviceProviderFunc">Delegate for a custom service provider.</param>
         /// <param name="appServices"></param>
-        public AppBootstrapper(IAppServices appServices): this(services => ServiceProviderExtensions.BuildServiceProvider(services), appServices)
+        public AppBootstrapper(IServicesBundle appServices): this(services => ServiceProviderExtensions.BuildServiceProvider(services), appServices)
         { }
 
         /// <summary>
@@ -72,7 +73,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// </remarks>
         /// <param name="serviceProviderFunc">Delegate for a custom service provider.</param>
         /// <param name="appServices"></param>
-        public AppBootstrapper(Func<IServiceCollection, IServiceProvider> serviceProviderFunc, IAppServices appServices)
+        public AppBootstrapper(Func<IServiceCollection, IServiceProvider> serviceProviderFunc, IServicesBundle appServices)
         {
             _serviceProviderFunc = serviceProviderFunc;  // Guard.Against.Default(serviceProviderFunc, nameof(serviceProviderFunc));
             _appServices = appServices;
@@ -99,7 +100,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// </summary>
         /// <param name="args">The args.</param>
         /// <param name="commands">The commands.</param>
-        /// <exception cref="ArgumentException">Thrown when provided commands do not implement <see cref="ICommand{TOptions}" interface./></exception>
+        /// <exception cref="ArgumentException">Thrown when provided commands do not implement <see cref="ICommand{TOptions}"/> interface.</exception>
         [SuppressMessage("ReSharper", "PossibleMultipleEnumeration",
                          Justification = "Does not have any performance implications in this case and would make code less readable.")]
         public void ExecuteApp(IEnumerable<string> args, IEnumerable<Type> commands)
@@ -115,21 +116,21 @@ namespace Ploch.Common.ConsoleApplication.Runner
                                               settings.CaseSensitive = false;
                                               settings.HelpWriter = null;
                                           });
-            ParserResult<object> parserResult = parser.ParseArguments(args, appArgumentsMapping.Keys.ToArray())
-                                                      .WithParsed(parsedArgs =>
-                                                                  {
-                                                                      var commandType = appArgumentsMapping[parsedArgs.GetType()];
-                                                                      if (!commandType.IsImplementing(typeof(ICommand<>)))
-                                                                      {
-                                                                          throw new ArgumentException("One of the supplied application types is invalid.",
-                                                                                                      nameof(commands));
-                                                                      }
+            var parserResult = parser.ParseArguments(args, appArgumentsMapping.Keys.ToArray())
+                                     .WithParsed(parsedArgs =>
+                                                 {
+                                                     var commandType = appArgumentsMapping[parsedArgs.GetType()];
+                                                     if (!commandType.IsImplementing(typeof(ICommand<>)))
+                                                     {
+                                                         throw new ArgumentException("One of the supplied application types is invalid.",
+                                                                                     nameof(commands));
+                                                     }
 
-                                                                      var command = serviceProvider.GetService(commandType);
-                                                                      var executeMethod = commandType.GetMethod("Execute");
-                                                                      Guard.Against.Null(executeMethod, nameof(executeMethod));
-                                                                      executeMethod.Invoke(command, new[] {parsedArgs});
-                                                                  });
+                                                     var command = serviceProvider.GetService(commandType);
+                                                     var executeMethod = commandType.GetMethod("Execute");
+                                                     Guard.Against.Null(executeMethod, nameof(executeMethod));
+                                                     executeMethod.Invoke(command, new[] {parsedArgs});
+                                                 });
                                                       
             parserResult.WithNotParsed(errors => DisplayHelp(parserResult, errors, serviceProvider));
 
@@ -169,8 +170,7 @@ namespace Ploch.Common.ConsoleApplication.Runner
         private IServiceProvider InitializeServiceProvider()
         {
             var services = new ServiceCollection();
-            var serviceConfig = new DefaultServices();
-            serviceConfig.Configure(services);
+            _appServices.Configure(services);
             var provider = _serviceProviderFunc(services);
             return provider ?? throw new InvalidOperationException("Could not initialize Service Provider!");
         }

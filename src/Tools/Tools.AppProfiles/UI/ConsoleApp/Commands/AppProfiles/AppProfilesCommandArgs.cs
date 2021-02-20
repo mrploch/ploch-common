@@ -14,7 +14,7 @@ namespace Ploch.Tools.SystemUtils.UI.ConsoleApp.Commands.AppProfiles
         public AppProfilesAction Action { get; set; }
 
         [Option('f', "filename")]
-        public string FileName { get; set; }
+        public string? FileName { get; set; }
         
         
     }
