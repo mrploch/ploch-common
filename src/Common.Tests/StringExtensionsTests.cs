@@ -22,5 +22,15 @@ namespace Ploch.Common.Tests
             "".IsNullOrEmpty().Should().BeTrue();
             
         }
+
+        [Theory, AutoDataMoq]
+        public void ToBase64String_should_correctly_encode(string str)
+        {
+            var base64String = str.ToBase64String(Encoding.UTF8);
+
+            string decoded = Encoding.UTF8.GetString(Convert.FromBase64String(base64String));
+
+            decoded.Should().Be(str);
+        }
     }
 }

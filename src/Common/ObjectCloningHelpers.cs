@@ -1,7 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using Dawn;
+using JetBrains.Annotations;
+using System;
+using System.Collections.Generic;
+using Guard = Dawn.Guard;
 
 namespace Ploch.Common
 {
+    /// <summary>
+    /// Class ObjectCloningHelpers.
+    /// </summary>
+    /// <remarks>
+    /// Contains various static methods useful when copying properties / cloning objects.
+    /// </remarks>
     public static class ObjectCloningHelpers
     {
         public static void CopyProperties<T>(this T source, T target)
@@ -19,8 +29,9 @@ namespace Ploch.Common
             CopyProperties(source, target, null, excludedProperties);
         }
 
-        private static void CopyProperties<T>(this T source, T target, IEnumerable<string>? includedProperties, params string[]? excludedProperties)
+        private static void CopyProperties<T>([NotNull] this T source, [NotNull] T target, IEnumerable<string>? includedProperties, params string[]? excludedProperties)
         {
+
             var properties = typeof(T).GetProperties();
             var includedPropertiesSet = includedProperties != null ? new HashSet<string>(includedProperties) : null;
 

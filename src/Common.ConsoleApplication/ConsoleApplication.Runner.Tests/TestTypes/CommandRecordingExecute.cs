@@ -10,6 +10,11 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests.TestTypes
 
         public static int ExecuteCallCount => _executeCallCount;
 
+        public CommandRecordingExecute()
+        {
+            _executeCallCount = 0;
+        }
+
         /// <inheritdoc />
         public void Execute(TArgs options)
         {

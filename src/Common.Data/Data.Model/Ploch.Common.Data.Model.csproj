@@ -14,8 +14,6 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PreBuildEvent></PreBuildEvent>
     <Description>Library with common data model interfaces.</Description>
-    <Authors>Krzysztof Ploch</Authors>
-    <Company>Ploch</Company>
     <Product>Ploch.Common.Data.Model</Product>
     <PackageId>Ploch.Common.Data.Model</PackageId>
     <PackageReleaseNotes>None</PackageReleaseNotes>

@@ -11,12 +11,5 @@ namespace Ploch.TestingSupport.Xunit.AutoFixture
         public AutoDataMoqAttribute()
             : base(FixtureFactory.CreateFixture)
         { }
-
-        /// <inheritdoc />
-        public override IEnumerable<object[]> GetData(MethodInfo testMethod)
-        {
-            Debug.WriteLine(testMethod);
-            return base.GetData(testMethod);
-        }
     }
 }

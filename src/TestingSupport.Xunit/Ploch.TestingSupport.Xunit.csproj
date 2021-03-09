@@ -14,8 +14,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Moq" Version="4.15.2" />
-    <PackageReference Include="Ploch.TestingSupport" Version="1.0.0-CI-20201228-031255" />
+    <PackageReference Include="Moq" Version="4.16.0" />
+    <PackageReference Include="Ploch.TestingSupport" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

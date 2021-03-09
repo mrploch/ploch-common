@@ -13,6 +13,7 @@
     <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleAppication.Runner\Ploch.Common.ConsoleApplication.Runner.csproj" />
     <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
     <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleApplication.ExtendedOutput\Ploch.Common.ConsoleApplication.ExtendedOutput.csproj" />
+    <ProjectReference Include="..\..\..\..\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\..\..\Common.Windows\Ploch.Common.Windows.csproj" />
     <ProjectReference Include="..\..\..\..\Common\Ploch.Common.csproj" />
     <ProjectReference Include="..\..\Model\Ploch.Tools.AppProfiles.Model.csproj" />
