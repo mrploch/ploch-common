@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Dawn;
+using System;
 using System.Linq;
-using Ardalis.GuardClauses;
 
 namespace Ploch.Common.Reflection
 {
@@ -8,8 +8,8 @@ namespace Ploch.Common.Reflection
     {
         public static bool IsImplementing(this Type type, Type interfaceType)
         {
-            Guard.Against.Null(interfaceType, nameof(interfaceType));
-            Guard.Against.Null(type, nameof(type));
+            Guard.Argument(interfaceType, nameof(interfaceType)).NotNull();
+            Guard.Argument(type, nameof(type)).NotNull();
 
             return type.GetInterfaces()
                        .Any(i => i == interfaceType
