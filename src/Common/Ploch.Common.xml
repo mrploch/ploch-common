@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ploch.Common</name>
+    </assembly>
+    <members>
+        <member name="M:Ploch.Common.Collections.CollectionExtensions.Add``3(``0,``1,``2)">
+            <summary>
+                Adds a pair of key / value to a collection based on <see cref="T:System.Collections.Generic.KeyValuePair`2" /> items.
+            </summary>
+            <typeparam name="TCollection">The collection type.</typeparam>
+            <typeparam name="TKey">First parameter type (key).</typeparam>
+            <typeparam name="TValue">Second parameter type (value)</typeparam>
+            <param name="collection">The collection instance to add key and value to.</param>
+            <param name="key">First parameter (key) value.</param>
+            <param name="value">Second parameter (value) value.</param>
+            <returns>Same instance of collection that values were added to, providing fluent interface.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="collection" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:Ploch.Common.Collections.CollectionExtensions.AddMany``1(System.Collections.Generic.ICollection{``0},``0[])">
+            <summary>Adds all items to the collection.</summary>
+            <typeparam name="TItem">Item type</typeparam>
+            <param name="collection">The collection instance</param>
+            <param name="items">Items to add to the collection</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="collection" /> or <paramref name="items" /> is
+                <see langword="null" />
+            </exception>
+        </member>
+        <member name="M:Ploch.Common.Collections.CollectionExtensions.AddMany``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>Adds all items to the collection.</summary>
+            <typeparam name="TItem">Item type</typeparam>
+            <param name="collection">The collection instance</param>
+            <param name="items">Items to add to the collection</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="collection" /> or <paramref name="items" /> is
+                <see langword="null" />
+            </exception>
+        </member>
+        <member name="M:Ploch.Common.Collections.CollectionExtensions.AddManyInternal``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds items to a collection
+            </summary>
+            <typeparam name="TItem"></typeparam>
+            <param name="collection"></param>
+            <param name="items"></param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="collection" /> or <paramref name="items" /> is
+                <see langword="null" />
+            </exception>
+        </member>
+        <member name="T:Ploch.Common.DateTimeExtensions">
+            <summary>
+                Extension methods for <see cref="T:System.DateTime" /> and related.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.DateTimeExtensions.ToEpochSeconds(System.DateTime)">
+            <summary>
+                Converts a <see cref="T:System.DateTime" /> to Epoch Seconds (Unix Timestamp - seconds since 00:00:00 UTC on 1 January
+                1970).
+            </summary>
+            <remarks>
+                <para>
+                    Helper method which simply casts <c>DateTime</c> to <see cref="T:System.DateTimeOffset" /> and calls
+                    <see cref="M:System.DateTimeOffset.ToUnixTimeSeconds" />.
+                </para>
+                <para>
+                    This class doesn't do any manipulations of time-zones, so the time zone of the provided instance of
+                    <c>DateTime</c> will be used.
+                </para>
+            </remarks>
+            <param name="dateTime">The date time.</param>
+            <returns>Epoch seconds value.</returns>
+        </member>
+        <member name="M:Ploch.Common.DateTimeExtensions.FromEpochSeconds(System.Int64)">
+            <summary>
+            Converts Epoch Seconds value to <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="epochSeconds">The epoch seconds.</param>
+            <returns>DateTime.</returns>
+        </member>
+        <member name="T:Ploch.Common.ExpressionExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Linq.Expressions.Expression"/>.
+            </summary>
+            <remarks>
+            Contains various utility extension methods for working with <see cref="T:System.Linq.Expressions.Expression"/> objects.
+            </remarks>
+            <seealso cref="T:System.Linq.Expressions.Expression"/>
+        </member>
+        <member name="M:Ploch.Common.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Gets the member name from an expression
+            </summary>
+            <typeparam name="TMember">Member</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Member name</returns>
+            <exception cref="T:System.InvalidOperationException">Not a member expression!</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
+        </member>
+        <member name="M:Ploch.Common.ExpressionExtensions.GetMemberName``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+                Gets the member name from an expression
+            </summary>
+            <typeparam name="TType">Member parent type</typeparam>
+            <typeparam name="TMember">Member type</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Member name</returns>
+            <exception cref="T:System.InvalidOperationException">Not a member expression and not unary expression for member.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="argument" /> value is <c>null</c> and the argument is not modified
+                            since it is initialized.</exception>
+        </member>
+        <member name="T:Ploch.Common.ObjectCloningHelpers">
+            <summary>
+            Class ObjectCloningHelpers.
+            </summary>
+            <remarks>
+            Contains various static methods useful when copying properties / cloning objects.
+            </remarks>
+        </member>
+        <member name="T:Ploch.Common.Reflection.PropertyHelpers">
+            <summary>
+                Common reflection tasks convenience object extensions.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.Reflection.PropertyHelpers.GetProperties``1(System.Object,System.Boolean)">
+            <summary>
+                Gets the <see langword="public" /> properties of specific type.
+            </summary>
+            <typeparam name="TPropertyType">
+                The type of the properties to return.
+            </typeparam>
+            <param name="obj">The object.</param>
+            <param name="includeSubTypes">
+                Include sub types of <typeparamref name="TPropertyType" /> in
+                results.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="obj" /> is <see langword="null" />
+            </exception>
+            <returns>
+                List of <see langword="public" /> properties of specific type.(
+                <see cref="T:System.Reflection.PropertyInfo" /> s).
+            </returns>
+        </member>
+        <member name="M:Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue``1(``0,System.String,System.Object)">
+            <summary>
+                Sets the property.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object type.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="value">The value to set.</param>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">
+                More than one property is found with the specified name. See
+                Remarks.
+            </exception>
+            <exception cref="T:System.Reflection.TargetException">
+                In the .NET for Windows Store apps or the Portable Class Library,
+                <see langword="catch" /> <see cref="T:System.Exception" /> instead. The type
+                of <paramref name="obj" /> does not match the target type, or a
+                property is an instance property but <paramref name="obj" /> is
+                null.
+            </exception>
+            <exception cref="T:System.MethodAccessException">
+                In the .NET for Windows Store apps or the Portable Class Library,
+                <see langword="catch" /> the base class exception,
+                <see cref="T:System.MemberAccessException" /> , instead. There was an illegal
+                attempt to access a <see langword="private" /> or
+                <see langword="protected" /> method inside a class.
+            </exception>
+            <exception cref="T:System.Reflection.TargetInvocationException">
+                An error occurred while setting the property value. The
+                <see cref="P:System.Exception.InnerException" /> property indicates
+                the reason for the error.
+            </exception>
+            <exception cref="T:Ploch.Common.Reflection.PropertyNotFoundException">
+                If <paramref name="propertyName" /> property is not found.
+            </exception>
+        </member>
+        <member name="M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.String)">
+            <summary>
+                Gets the property value.
+            </summary>
+            <typeparam name="T">Object type.</typeparam>
+            <param name="obj">The object.</param>
+            <param name="propertyName">Name of the property.</param>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">
+                More than one property is found with the specified name. See
+                Remarks.
+            </exception>
+            <exception cref="T:Ploch.Common.Reflection.PropertyNotFoundException">
+                If <paramref name="propertyName" /> property is not found.
+            </exception>
+            <returns>
+                Property value.
+            </returns>
+        </member>
+        <member name="M:Ploch.Common.Reflection.PropertyHelpers.HasProperty(System.Object,System.String)">
+            <summary>
+                Determines whether the specified property name has property.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="propertyName">Name of the property.</param>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">
+                More than one property is found with the specified name. See
+                Remarks.
+            </exception>
+            <returns>
+                <c>true</c> if the specified property name has property; otherwise,
+                <c>false</c> .
+            </returns>
+        </member>
+        <member name="M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo(System.Type,System.String,System.Boolean)">
+            <summary>
+                Gets the property information.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="throwIfNotFound">
+                if set to <c>true</c> throws
+                <see cref="T:Ploch.Common.Reflection.PropertyNotFoundException" /> if property is not found.
+            </param>
+            <exception cref="T:Ploch.Common.Reflection.PropertyNotFoundException">
+                if <paramref name="throwIfNotFound" /> is <c>true</c> and property
+                is not found.
+            </exception>
+            <returns>
+                Property information
+            </returns>
+        </member>
+        <member name="T:Ploch.Common.StringExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.String"/> and related.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            Extension method version of <see cref="M:System.String.IsNullOrEmpty(System.String)"/>.
+            </summary>
+            <param name="str">The string.</param>
+            <returns><c>true</c> if string is <c>null</c> or empty; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Ploch.Common.StringExtensions.ToBase64String(System.String)">
+            <summary>
+            Encodes a string as base64 string using <see cref="P:System.Text.Encoding.UTF8"/>.
+            </summary>
+            <param name="str">The string.</param>
+            <returns>Encoded version of supplied string.</returns>
+        </member>
+        <member name="M:Ploch.Common.StringExtensions.ToBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Encodes a string as base64 string.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="encoding">The encoding to use.</param>
+            <returns>Encoded version of supplied string.</returns>
+        </member>
+    </members>
+</doc>

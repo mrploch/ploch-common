@@ -148,9 +148,10 @@ namespace Ploch.TestingSupport.FileSystem
         /// <inheritdoc />
         public void Create(IFileInfo fileInfo)
         {
-            using var writer = fileInfo.CreateText();
-
-            writer.Write(Fixture.Create(GetType().Name));
+            using (var writer = fileInfo.CreateText())
+            {
+                writer.Write(Fixture.Create(GetType().Name));
+            }
         }
     }
 
@@ -179,8 +180,8 @@ namespace Ploch.TestingSupport.FileSystem
                                                       Func<IDirectoryInfo, string, string, IFileInfo> createFileFunc = null,
                                                       DirectoryStructureInfo parentInfo = null)
         {
-            parentInfo ??= new DirectoryStructureInfo(directory);
-            createFileFunc ??= CreateFile;
+            parentInfo = parentInfo ?? new DirectoryStructureInfo(directory);
+            createFileFunc = createFileFunc ?? CreateFile;
             for (var i = 0; i < fileCount; i++)
             {
                 //var file = createFileFunc(directory, )
@@ -194,14 +195,16 @@ namespace Ploch.TestingSupport.FileSystem
                                     string extension = null)
         {
             var fixture = new Fixture();
-            name ??= _configuration.FileNamePrefix + fixture.Create<string>();
-            extension ??= _configuration.FileExtensions.First();
+            name = name ?? _configuration.FileNamePrefix + fixture.Create<string>();
+            extension = extension ?? _configuration.FileExtensions.First();
 
             var file = _fileSystem.FileInfo.FromFileName(Path.Combine(directory.FullName, $"{name}.{extension}"));
             
-            using var writer = file.CreateText();
-            writer.WriteLine(fixture.Create<string>());
-            return file;
+            using (var writer = file.CreateText())
+            {
+                writer.WriteLine(fixture.Create<string>());
+                return file;
+            }
         }
 
         public DirectoryStructureInfo CreateDirectoryStructure(IDirectoryInfo rootDir,
@@ -219,7 +222,7 @@ namespace Ploch.TestingSupport.FileSystem
             parentInfo?.Directories.Add(rootDirInfo);
 
             directoryCreatedAction?.Invoke(rootDir, rootDirInfo);
-            directoryNamePrefix ??= _configuration.DirectoryNamePrefix;
+            directoryNamePrefix = directoryNamePrefix ?? _configuration.DirectoryNamePrefix;
             for (var i = 0; i < foldersPerLevel; i++)
             {
                 var subdirectoryName = _configuration.GetDirectoryName(directoryNamePrefix, i);
