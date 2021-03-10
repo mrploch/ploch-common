@@ -2,5 +2,6 @@
     "[azure-pipelines].customSchemaFile": "./my-schema.json",
     "vscode-pull-requests-azure-devops.collection": "https://dev.azure.com/ploch",
     "vscode-pull-requests-azure-devops.access-token": "nhmcfuphfgqsulcvamclcarz2vl5djvdljegtuvk56zwsownxbza",
-    "vscode-pull-requests-azure-devops.project": "ploch-common"
+    "vscode-pull-requests-azure-devops.project": "ploch-common",
+    "gitdoc.enabled": false
 }

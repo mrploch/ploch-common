@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Ploch.Common.Data.Model</AssemblyName>
     <RootNamespace>Ploch.Common.Data.Model</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
