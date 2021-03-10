@@ -5,11 +5,12 @@ using System.Linq.Expressions;
 namespace Ploch.Common
 {
     /// <summary>
-    /// Class ExpressionExtensions.
+    /// Extension methods for <see cref="Expression"/>.
     /// </summary>
     /// <remarks>
     /// Contains various utility extension methods for working with <see cref="Expression"/> objects.
     /// </remarks>
+    /// <seealso cref="Expression"/>
     public static class ExpressionExtensions
     {
         /// <summary>
@@ -23,7 +24,7 @@ namespace Ploch.Common
         public static string GetMemberName<TMember>(this Expression<Func<TMember>> expression)
         {
             Guard.Argument(expression, nameof(expression)).NotNull();
-            
+
             if (expression.Body is MemberExpression memberExpressionBody)
             {
                 return memberExpressionBody.Member.Name;
@@ -33,7 +34,7 @@ namespace Ploch.Common
             {
                 return methodCallExpression.Method.Name;
             }
-
+            
             throw new InvalidOperationException("Not a member expression!");
         }
 
