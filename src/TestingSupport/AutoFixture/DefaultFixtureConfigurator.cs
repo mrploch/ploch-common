@@ -16,7 +16,7 @@ namespace Ploch.TestingSupport.AutoFixture
         /// <returns></returns>
         public static IFixtureConfigurator AutoMoqConfiguredDefault()
         {
-            return new DefaultFixtureConfigurator();
+            return new CompositeFixtureConfigurator(new DefaultFixtureConfigurator(), new AutoMoqFixtureConfigurator());
         }
     }
 
@@ -42,20 +42,20 @@ namespace Ploch.TestingSupport.AutoFixture
 
         public virtual void Configure(IFixture fixture)
         {
-            foreach (var customization in _customizations) fixture.Customize(customization);
-            //fixture.Customize(new AutoMoqCustomization());            
+            foreach (var customization in _customizations)
+            {
+                fixture.Customize(customization);
+            }
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
         }
     }
 
-    public class DefaultFixtureConfigurator2 : IFixtureConfigurator
+    public class AutoMoqFixtureConfigurator : IFixtureConfigurator
     {
         public void Configure(IFixture fixture)
         {
             fixture.Customize(new AutoMoqCustomization());
-            fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
         }
     }
 }

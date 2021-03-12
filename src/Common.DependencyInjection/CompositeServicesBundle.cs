@@ -7,10 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Ploch.Common.DependencyInjection
 {
     /// <summary>
-    /// Class CompositeServicesBundle.
+    /// Represents a collection of services bundles to register.
+    /// </summary>
+    /// <remarks>
     /// Implementation of the <see cref="Ploch.Common.DependencyInjection.IServicesBundle" /> which contains
     /// a collection of other bundles.
-    /// </summary>
+    /// </remarks>
     /// <seealso cref="Ploch.Common.DependencyInjection.IServicesBundle" />
     public class CompositeServicesBundle : IServicesBundle
     {

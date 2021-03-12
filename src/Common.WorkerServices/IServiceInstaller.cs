@@ -1,6 +1,4 @@
-﻿// unset
-
-namespace Ploch.Common.WorkerServices
+﻿namespace Ploch.Common.WorkerServices
 {
     public interface IServiceInstaller
     {
