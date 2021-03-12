@@ -5,6 +5,12 @@ namespace Ploch.Common.DependencyInjection
     /// <summary>
     /// Represents a collection of services that should be added to <see cref="IServiceCollection"/>
     /// </summary>
+    /// <remarks>
+    /// Helps grouping service registrations together.
+    /// <para>
+    /// Same concept as <see href="https://autofaccn.readthedocs.io/en/latest/configuration/modules.html">Autofac Modules</see>.
+    /// </para>
+    /// </remarks>
     public interface IServicesBundle
     {
         /// <summary>

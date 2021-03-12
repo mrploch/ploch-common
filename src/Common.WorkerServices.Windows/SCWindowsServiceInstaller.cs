@@ -1,6 +1,4 @@
-﻿// unset
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Ploch.Common.WorkerServices.Windows

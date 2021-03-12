@@ -1,4 +1,5 @@
 ﻿using Dawn;
+using JetBrains.Annotations;
 using System;
 using System.Text;
 
@@ -40,6 +41,18 @@ namespace Ploch.Common
             Guard.Argument(str, nameof(str)).NotNull();
 
             return Convert.ToBase64String(encoding.GetBytes(str));
+        }
+
+        public static string FromBase64String([NotNull] this string str)
+        {
+            return FromBase64String(str, Encoding.UTF8);
+        }
+
+        public static string FromBase64String([NotNull] this string str, Encoding encoding)
+        {
+            Guard.Argument(str, nameof(str)).NotNull();
+
+            return encoding.GetString(Convert.FromBase64String(str));
         }
     }
 }

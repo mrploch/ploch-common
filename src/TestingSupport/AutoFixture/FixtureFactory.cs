@@ -4,23 +4,26 @@ namespace Ploch.TestingSupport.AutoFixture
 {
     public static class FixtureFactory
     {
-        private static IFixtureConfigurator _configurator = FixtureConfiguratorFactory.AutoMoqConfiguredDefault();
+        private static readonly IFixtureConfigurator DefaultConfigurator =
+            new CompositeFixtureConfigurator(new DefaultFixtureConfigurator(), new AutoMoqFixtureConfigurator());
+
+        public static IFixtureConfigurator Configurator { get; set; } = DefaultConfigurator;
 
         public static void SetConfigurator(IFixtureConfigurator configurator)
         {
-            _configurator = configurator;
+            Configurator = configurator;
         }
 
         public static void ResetConfigurator()
         {
-            _configurator = FixtureConfiguratorFactory.AutoMoqConfiguredDefault();
+            Configurator = DefaultConfigurator;
         }
 
         public static IFixture CreateFixture()
         {
             var fixture = new Fixture();
 
-            _configurator.Configure(fixture);
+            Configurator.Configure(fixture);
             return fixture;
         }
     }

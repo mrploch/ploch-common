@@ -28,14 +28,34 @@ namespace Ploch.Common
             return ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
         }
 
+        public static long? ToEpochSeconds(this DateTime? dateTime)
+        {
+            if (!dateTime.HasValue)
+            {
+                return null;
+            }
+
+            return ToEpochSeconds(dateTime.Value);
+        }
+
         /// <summary>
         /// Converts Epoch Seconds value to <see cref="DateTime"/>.
         /// </summary>
         /// <param name="epochSeconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
-        public static DateTime FromEpochSeconds(this long epochSeconds)
+        public static DateTime ToDateTime(this long epochSeconds)
         {
             return DateTimeOffset.FromUnixTimeSeconds(epochSeconds).DateTime;
+        }
+
+        public static DateTime? ToDateTime(this long? epochSeconds)
+        {
+            if (!epochSeconds.HasValue)
+            {
+                return null;
+            }
+
+            return ToDateTime(epochSeconds.Value);
         }
     }
 }
