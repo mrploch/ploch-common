@@ -72,9 +72,16 @@
             <param name="dateTime">The date time.</param>
             <returns>Epoch seconds value.</returns>
         </member>
-        <member name="M:Ploch.Common.DateTimeExtensions.FromEpochSeconds(System.Int64)">
+        <member name="M:Ploch.Common.DateTimeExtensions.ToDateTime(System.Int64)">
             <summary>
-            Converts Epoch Seconds value to <see cref="T:System.DateTime"/>.
+                Converts Epoch Seconds value to <see cref="T:System.DateTime" />.
+            </summary>
+            <param name="epochSeconds">The epoch seconds.</param>
+            <returns>DateTime.</returns>
+        </member>
+        <member name="M:Ploch.Common.DateTimeExtensions.ToDateTime``1(``0)">
+            <summary>
+                Converts Epoch Seconds value to <see cref="T:System.DateTime" />.
             </summary>
             <param name="epochSeconds">The epoch seconds.</param>
             <returns>DateTime.</returns>

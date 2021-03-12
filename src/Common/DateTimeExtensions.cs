@@ -7,6 +7,7 @@ namespace Ploch.Common
     /// </summary>
     public static class DateTimeExtensions
     {
+        private static readonly TimeZoneInfo UtcTimeZone = TimeZoneInfo.FindSystemTimeZoneById("UTC");
         /// <summary>
         ///     Converts a <see cref="DateTime" /> to Epoch Seconds (Unix Timestamp - seconds since 00:00:00 UTC on 1 January
         ///     1970).
@@ -39,13 +40,30 @@ namespace Ploch.Common
         }
 
         /// <summary>
-        /// Converts Epoch Seconds value to <see cref="DateTime"/>.
+        ///     Converts Epoch Seconds value to <see cref="DateTime" />.
         /// </summary>
         /// <param name="epochSeconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
         public static DateTime ToDateTime(this long epochSeconds)
         {
-            return DateTimeOffset.FromUnixTimeSeconds(epochSeconds).DateTime;
+            var dateTime = DateTimeOffset.FromUnixTimeSeconds(epochSeconds).DateTime;
+            return TimeZoneInfo.ConvertTimeToUtc(dateTime, UtcTimeZone);
+        }
+
+        /// <summary>
+        ///     Converts Epoch Seconds value to <see cref="DateTime" />.
+        /// </summary>
+        /// <param name="epochSeconds">The epoch seconds.</param>
+        /// <returns>DateTime.</returns>
+        public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct,
+                                                                            IComparable,
+                                                                            IComparable<T>,
+                                                                            IConvertible,
+                                                                            IEquatable<T>,
+                                                                            IFormattable
+        {
+            var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
+            return epochSecondsAsLong.ToDateTime();
         }
 
         public static DateTime? ToDateTime(this long? epochSeconds)
