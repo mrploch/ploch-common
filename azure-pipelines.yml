@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -33,7 +33,6 @@ steps:
     projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
-
 
 - task: DotNetCoreCLI@2
   name: 'RunTests'
@@ -80,7 +79,7 @@ steps:
     # arguments: '--configuration $(buildConfiguration)'
     # configuration: $(buildConfiguration)
 - task: DotNetCoreCLI@2
-  displayName: 'DotNet Push - Internal'
+  displayName: 'NuGet Push Azure Devop - Internal'
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
@@ -88,6 +87,7 @@ steps:
     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
 
 - task: NuGetCommand@2
+  displayName: 'NuGet Push to nuget.org'
   inputs:
     command: 'push'
     feedsToUse: 'config'
