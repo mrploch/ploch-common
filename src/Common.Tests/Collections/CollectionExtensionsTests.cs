@@ -1,12 +1,12 @@
 ﻿using System;
+using Ploch.Common.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Metadata.Ecma335;
 using FluentAssertions;
-using Ploch.Common.Collections;
 using Ploch.TestingSupport.Xunit.AutoFixture;
 using Xunit;
-
 
 namespace Ploch.Common.Tests.Collections
 {
@@ -17,7 +17,7 @@ namespace Ploch.Common.Tests.Collections
         [Fact]
         public void KeyValuePairAdd()
         {
-            var list = new List<KeyValuePair<string, int>>();
+            var list = new Collection<KeyValuePair<string, int>>();
 
             list.Add("test1", 1);
             list.Add("test2", 2).Add("test3", 3);

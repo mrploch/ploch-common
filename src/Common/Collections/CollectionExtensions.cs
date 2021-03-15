@@ -5,6 +5,22 @@ namespace Ploch.Common.Collections
 {
     public static class CollectionExtensions
     {
+        /// <summary>Adds a value if value not null.</summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The type of the value.</typeparam>
+        /// <param name="collection">The collection.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>the value of <param name="collection"></param>.</returns>
+        public static ICollection<KeyValuePair<TKey, TValue>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value) where TValue : class
+        {
+            if (value != null)
+            {
+                collection.Add(key, value);
+            }
+            return collection;
+        }
+
         /// <summary>
         ///     Adds a pair of key / value to a collection based on <see cref="KeyValuePair{TKey,TValue}" /> items.
         /// </summary>
@@ -16,14 +32,12 @@ namespace Ploch.Common.Collections
         /// <param name="value">Second parameter (value) value.</param>
         /// <returns>Same instance of collection that values were added to, providing fluent interface.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="collection" /> is <see langword="null" />.</exception>
-        public static TCollection Add<TCollection, TKey, TValue>(this TCollection collection, TKey key, TValue value)
-            where TCollection: ICollection<KeyValuePair<TKey, TValue>>
+        public static ICollection<KeyValuePair<TKey, TValue>> Add<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value)
         {
             if (collection == null)
             {
                 throw new ArgumentNullException(nameof(collection));
             }
-
             collection.Add(new KeyValuePair<TKey, TValue>(key, value));
             return collection;
         }
