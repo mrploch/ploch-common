@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport.Fluent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DependencyInjection", "src\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj", "{38871480-2261-4529-A44C-1061C6EA80B7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Windows.SystemTools", "src\Common.Windows.SystemTools\Ploch.Common.Windows.SystemTools.csproj", "{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +229,26 @@ Global
 		{38871480-2261-4529-A44C-1061C6EA80B7}.Release|x64.Build.0 = Release|Any CPU
 		{38871480-2261-4529-A44C-1061C6EA80B7}.Release|x86.ActiveCfg = Release|Any CPU
 		{38871480-2261-4529-A44C-1061C6EA80B7}.Release|x86.Build.0 = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|x64.Build.0 = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Debug|x86.Build.0 = Debug|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|ARM.Build.0 = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|ARM64.Build.0 = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|x64.ActiveCfg = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|x64.Build.0 = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|x86.ActiveCfg = Release|Any CPU
+		{665EA9BD-BBD9-4FAE-AAC8-3005AC4B062E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

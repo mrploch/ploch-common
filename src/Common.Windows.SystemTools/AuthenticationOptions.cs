@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-namespace Ploch.Common.Windows
+namespace Ploch.Common.Windows.SystemTools
 {
     /// <summary>
     ///     Authentication options

@@ -20,7 +20,7 @@ using System.Linq;
 using System.Management;
 using Microsoft.Win32;
 
-namespace Ploch.Common.Windows
+namespace Ploch.Common.Windows.SystemTools
 {
     /// <summary>
     ///     Applications helpers
@@ -35,7 +35,7 @@ namespace Ploch.Common.Windows
         /// <returns>The installed applications.</returns>
         public static IEnumerable<string> GetUsingManagementClass(string machineName = "localhost", AuthenticationOptions options = null)
         {
-            options ??= new AuthenticationOptions();
+            options = options ?? new AuthenticationOptions();
             var returnValues = new List<string>();
             var scope = SetScope(machineName, options);
             using (var cls = new ManagementClass(scope, new ManagementPath("StdRegProv"), null))
