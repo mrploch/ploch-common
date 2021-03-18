@@ -21,6 +21,31 @@ namespace Ploch.Common
         /// <returns>Member name</returns>
         /// <exception cref="InvalidOperationException">Not a member expression!</exception>
         /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
+        public static string GetMemberName<TType>(this Expression<Action<TType>> expression)
+        {
+            Guard.Argument(expression, nameof(expression)).NotNull();
+
+            if (expression.Body is MemberExpression memberExpressionBody)
+            {
+                return memberExpressionBody.Member.Name;
+            }
+
+            if (expression.Body is MethodCallExpression methodCallExpression)
+            {
+                return methodCallExpression.Method.Name;
+            }
+
+            throw new InvalidOperationException("Not a member expression!");
+        }
+
+        /// <summary>
+        ///     Gets the member name from an expression
+        /// </summary>
+        /// <typeparam name="TMember">Member</typeparam>
+        /// <param name="expression">Expression</param>
+        /// <returns>Member name</returns>
+        /// <exception cref="InvalidOperationException">Not a member expression!</exception>
+        /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
         public static string GetMemberName<TMember>(this Expression<Func<TMember>> expression)
         {
             Guard.Argument(expression, nameof(expression)).NotNull();

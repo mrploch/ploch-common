@@ -104,6 +104,16 @@
             </remarks>
             <seealso cref="T:System.Linq.Expressions.Expression"/>
         </member>
+        <member name="M:Ploch.Common.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+                Gets the member name from an expression
+            </summary>
+            <typeparam name="TMember">Member</typeparam>
+            <param name="expression">Expression</param>
+            <returns>Member name</returns>
+            <exception cref="T:System.InvalidOperationException">Not a member expression!</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
+        </member>
         <member name="M:Ploch.Common.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
             <summary>
                 Gets the member name from an expression
