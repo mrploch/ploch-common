@@ -81,6 +81,12 @@ namespace Ploch.Common
             {
                 return memberExpressionBody.Member.Name;
             }
+
+            if (expression.Body is MethodCallExpression methodCallExpression)
+            {
+                return methodCallExpression.Method.Name;
+            }
+
             // Might be an implicit cast
             if (expression.Body is UnaryExpression unaryExpression)
             {
