@@ -38,16 +38,16 @@
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.15.0" />
     <PackageReference Include="AutoFixture.Xunit2" Version="4.15.0" />
-    <PackageReference Include="coverlet.msbuild" Version="3.0.2">
+    <PackageReference Include="coverlet.msbuild" Version="3.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="FluentAssertions.Analyzers" Version="0.11.4" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
-    <PackageReference Include="Moq" Version="4.16.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+    <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="Moq.Analyzers" Version="0.0.8" />
-    <PackageReference Include="ReportGenerator" Version="4.8.5" />
+    <PackageReference Include="ReportGenerator" Version="4.8.7" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <PrivateAssets>all</PrivateAssets>

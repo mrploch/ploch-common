@@ -15,6 +15,12 @@ namespace Ploch.TestingSupport.Tests
         {
             OperationRecorder.Record(this, c => c.MyOp1(param1, param2));
         }
+
+        public string MyOp2(MyType1 param1, string param2)
+        {
+            OperationRecorder.Record(this, c => c.MyOp2(param1, param2));
+            return "test";
+        }
     }
 
     public class MyType1
@@ -31,12 +37,12 @@ namespace Ploch.TestingSupport.Tests
         [Theory, AutoData]
         public void Record_should_write_all_parameters_to_json(MyTestClass sut, MyType1 param1, string param2)
         {
-            sut.MyOp1(param1, param2);
-            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(File.ReadAllText("MyTestClass.MyOp1-0.json"), new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.Auto});
+            sut.MyOp2(param1, param2);
+            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(File.ReadAllText("MyTestClass.MyOp2-0.json"), new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.Auto});
             dictionary["param1"].Should().BeEquivalentTo(param1);
             dictionary["param2"].Should().BeEquivalentTo(param2);
         }
 
-        
+       
     }
 }
