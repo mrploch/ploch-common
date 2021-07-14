@@ -41,6 +41,7 @@ steps:
     projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
+- task: SonarCloudAnalyze@1
 
 - task: DotNetCoreCLI@2
   name: 'RunTests'
