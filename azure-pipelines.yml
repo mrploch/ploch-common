@@ -34,6 +34,9 @@ steps:
     projectKey: 'ploch_common'
     projectName: 'common'
 
+sonar.cs.xunit.reportsPaths=${Agent.TempDirectory}/**/XUnit.TestResults.xml 
+sonar.cs.opencover.reportsPaths=${Agent.TempDirectory}/**/opencoverCoverage.xml
+
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'  
   inputs:
@@ -41,16 +44,27 @@ steps:
     projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
-- task: SonarCloudAnalyze@1
 
-- task: DotNetCoreCLI@2
-  name: 'RunTests'
-  displayName: 'Run Tests'
-  inputs:
-    command: test
-    projects: './Ploch.Common.sln'
-    arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/'
-    publishTestResults: true
+
+
+# - task: DotNetCoreCLI@2
+#   name: 'RunTests'
+#   displayName: 'Run Tests'
+#   inputs:
+#     command: test
+#     # projects: './Ploch.Common.sln'
+#     projects: '**/*.Tests.csproj'
+#     # arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/'
+#     arguments: '--configuration $(BuildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Agent.TempDirectory)/coverage/ /p:MergeWith=$(Agent.TempDirectory)/coverage/ --collect "Code coverage"'
+#     publishTestResults: true
+
+- task: PublishTestResults@2
+    displayName: "Publish Test Results"
+    inputs:
+      testResultsFormat: VSTest
+      testResultsFiles: "$(Agent.TempDirectory)/**.*trx"
+      mergeTestResults: true
+      condition: succeededOrFailed()    
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
@@ -70,6 +84,13 @@ steps:
 #     majorVersion: '$(Major)'
 #     minorVersion: '$(Minor)'
 #     patchVersion: '$(Patch)'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
 - task: DotNetCoreCLI@2
   displayName: 'DotNet Pack'
   inputs:
