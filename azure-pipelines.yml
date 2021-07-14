@@ -59,12 +59,12 @@ steps:
 #     publishTestResults: true
 
 - task: PublishTestResults@2
-    displayName: "Publish Test Results"
-    inputs:
+  displayName: "Publish Test Results"
+  inputs:
       testResultsFormat: VSTest
       testResultsFiles: "$(Agent.TempDirectory)/**.*trx"
       mergeTestResults: true
-      condition: succeededOrFailed()    
+      failTaskOnFailedTests: true
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
