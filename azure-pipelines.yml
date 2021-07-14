@@ -25,7 +25,15 @@ steps:
     projects: './Ploch.Common.sln'
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
-    
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonar-cloud'
+    organization: 'ploch'
+    scannerMode: 'MSBuild'
+    projectKey: 'ploch_common'
+    projectName: 'common'
+
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'  
   inputs:
