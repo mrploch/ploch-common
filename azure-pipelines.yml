@@ -33,9 +33,9 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'ploch_common'
     projectName: 'common'
-
-sonar.cs.xunit.reportsPaths=${Agent.TempDirectory}/**/XUnit.TestResults.xml 
-sonar.cs.opencover.reportsPaths=${Agent.TempDirectory}/**/opencoverCoverage.xml
+    extraProperties: |
+     sonar.cs.xunit.reportsPaths=${Agent.TempDirectory}/**/XUnit.TestResults.xml
+     sonar.cs.opencover.reportsPaths=${Agent.TempDirectory}/**/opencoverCoverage.xml
 
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'  
