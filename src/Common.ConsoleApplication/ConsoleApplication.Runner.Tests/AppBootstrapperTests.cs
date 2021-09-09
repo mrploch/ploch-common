@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ardalis.GuardClauses;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
@@ -14,15 +13,13 @@ using Xunit;
 
 namespace Ploch.Common.ConsoleApplication.Runner.Tests
 {
-    
-
     public class AppBootstrapperTests
     {
         [Theory]
         [AutoDataMoq]
         public void ExecuteApp_should_resolve_AppEvents_and_execute_OnStartup(IAppEvents appEventsMock)
         {
-            var bootstrapper = new AppBootstrapper();
+            var bootstrapper = new AppBootstrapper(new DefaultServiceProviderInitializer());
             var commandLine = "--Prop1Str str1";
 
             bootstrapper.ExecuteApp<ImmutableArgsApp1, ImmutableArgs1>(commandLine.Split(" "));
@@ -46,7 +43,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
         [Fact]
         public void ExecuteApp_should_report_meaningfull_error_if_custom_service_provider_is_null()
         {
-            var bootstrapper = new AppBootstrapper(services => null, new DefaultServices());
+            var bootstrapper = new AppBootstrapper(new DefaultServiceProviderInitializer(new DefaultLoggingServices()));
 
             var commandLine = "--Prop1Str str1";
 
@@ -60,7 +57,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
         [Fact(DisplayName = "ExecuteApp should resolve argument types, choose correct app based on a verb and parse correct arguments")]
         public void ExecuteApps_resolves_argument_classes_and_executes_app_selected_by_verb_with_parsed_options()
         {
-            var bootstrapper = new AppBootstrapper();
+            var bootstrapper = new AppBootstrapper(new DefaultServiceProviderInitializer(null));
             var apps = new[] {typeof(App1SimpleArgs), typeof(App2SimpleArgs)};
             var commandLine = "app2 -a val1 -b -s val2";
 

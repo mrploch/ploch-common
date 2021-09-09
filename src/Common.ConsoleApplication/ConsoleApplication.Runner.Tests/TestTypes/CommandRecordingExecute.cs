@@ -3,7 +3,7 @@ using Ploch.Common.ConsoleApplication.Core;
 
 namespace Ploch.Common.ConsoleApplication.Runner.Tests.TestTypes
 {
-    public class CommandRecordingExecute<TArgs> : ICommand<TArgs>
+    public class CommandRecordingExecute<TArgs> : AppCommand<TArgs>
     {
         private static int _executeCallCount;
         public static TArgs Args { get; private set; }
@@ -16,7 +16,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests.TestTypes
         }
 
         /// <inheritdoc />
-        public void Execute(TArgs options)
+        public override void Execute(TArgs options)
         {
             Interlocked.Increment(ref _executeCallCount);
             Args = options;

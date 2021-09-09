@@ -6,15 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleAppication.Runner\Ploch.Common.ConsoleApplication.Runner.csproj" />
     <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleApplication.Core\Ploch.Common.ConsoleApplication.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleApplication.DependencyInjection.Unity\Ploch.Common.ConsoleApplication.DependencyInjection.Unity.csproj" />
     <ProjectReference Include="..\..\..\..\Common.ConsoleApplication\ConsoleApplication.ExtendedOutput\Ploch.Common.ConsoleApplication.ExtendedOutput.csproj" />
     <ProjectReference Include="..\..\..\..\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj" />
-    <ProjectReference Include="..\..\..\..\Common.Windows\Ploch.Common.Windows.csproj" />
+    <ProjectReference Include="..\..\..\..\Common.Windows.SystemTools\Ploch.Common.Windows.SystemTools.csproj" />
     <ProjectReference Include="..\..\..\..\Common\Ploch.Common.csproj" />
     <ProjectReference Include="..\..\Model\Ploch.Tools.AppProfiles.Model.csproj" />
   </ItemGroup>

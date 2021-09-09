@@ -8,6 +8,7 @@ namespace Ploch.Common
     public static class DateTimeExtensions
     {
         private static readonly TimeZoneInfo UtcTimeZone = TimeZoneInfo.FindSystemTimeZoneById("UTC");
+
         /// <summary>
         ///     Converts a <see cref="DateTime" /> to Epoch Seconds (Unix Timestamp - seconds since 00:00:00 UTC on 1 January
         ///     1970).
@@ -56,11 +57,11 @@ namespace Ploch.Common
         /// <param name="epochSeconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
         public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct,
-                                                                            IComparable,
-                                                                            IComparable<T>,
-                                                                            IConvertible,
-                                                                            IEquatable<T>,
-                                                                            IFormattable
+            IComparable,
+            IComparable<T>,
+            IConvertible,
+            IEquatable<T>,
+            IFormattable
         {
             var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
             return epochSecondsAsLong.ToDateTime();

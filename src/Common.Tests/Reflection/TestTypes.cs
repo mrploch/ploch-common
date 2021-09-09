@@ -7,7 +7,10 @@ namespace Ploch.Common.Tests.Reflection
         public class TestTypeWithMixedSettersAndGetter
         {
             public string _stringPropNoGetter;
+
+#pragma warning disable 649 //  [CS0649] Field 'TestTypes.TestTypeWithMixedSettersAndGetter._stringPropNoSetter' is never assigned to, and will always have its default value null
             public string _stringPropNoSetter;
+#pragma warning restore 649
 
             public int IntProp { get; set; }
 

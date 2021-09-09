@@ -1,7 +1,7 @@
 ﻿namespace Ploch.Common.ConsoleApplication.Core
 {
     /// <summary>
-    /// Represents the application text output.
+    ///     Represents the application text output.
     /// </summary>
     public interface IOutput
     {

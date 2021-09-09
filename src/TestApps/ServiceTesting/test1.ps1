@@ -12,3 +12,4 @@ $params = @{
     Credential     = $serviceCredential
 }
 
+New-Service -Name Test -StartupType "A"

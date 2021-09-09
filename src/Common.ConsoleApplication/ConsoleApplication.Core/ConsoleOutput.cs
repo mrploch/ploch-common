@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace Ploch.Common.ConsoleApplication.Core
@@ -10,13 +9,13 @@ namespace Ploch.Common.ConsoleApplication.Core
         private readonly TextWriter _writer;
 
         /// <summary>
-        /// Creates a new instance of <c>ConsoleOutput</c> using default <see cref="Console.Out"/> and <see cref="Console.Error"/> writers.
+        ///     Creates a new instance of <c>ConsoleOutput</c> using default <see cref="Console.Out" /> and <see cref="Console.Error" /> writers.
         /// </summary>
         public ConsoleOutput() : this(Console.Out, Console.Error)
         { }
 
         /// <summary>
-        /// Creates a new instance of <c>ConsoleOutput</c> using specified <c>TextWriter</c> instances.
+        ///     Creates a new instance of <c>ConsoleOutput</c> using specified <c>TextWriter</c> instances.
         /// </summary>
         /// <param name="writer"><c>TextWriter</c> for standard output</param>
         /// <param name="errorWriter"><c>TextWriter</c> for error ouput</param>
@@ -86,6 +85,7 @@ namespace Ploch.Common.ConsoleApplication.Core
             {
                 return string.Format(strContents, args);
             }
+
             return strContents;
         }
     }

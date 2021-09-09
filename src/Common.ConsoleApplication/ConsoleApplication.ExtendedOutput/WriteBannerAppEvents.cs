@@ -12,6 +12,8 @@ namespace Ploch.Common.ConsoleApplication.ExtendedOutput
             _bannerCreator = bannerCreator;
         }
 
+        public int Order { get; } = -1;
+
         /// <inheritdoc />
         public void OnStartup(IServiceProvider serviceProvider)
         {

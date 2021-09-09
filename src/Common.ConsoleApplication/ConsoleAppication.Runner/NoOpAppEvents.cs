@@ -8,6 +8,8 @@ namespace Ploch.Common.ConsoleApplication.Runner
     /// </summary>
     public class NoOpAppEvents : IAppEvents
     {
+        public int Order { get; } = -1;
+
         /// <inheritdoc />
         public void OnStartup(IServiceProvider serviceProvider)
         {

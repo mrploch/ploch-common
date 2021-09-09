@@ -1,6 +1,6 @@
-﻿using Dawn;
-using System;
+﻿using System;
 using System.Linq;
+using Dawn;
 
 namespace Ploch.Common.Reflection
 {
@@ -13,8 +13,8 @@ namespace Ploch.Common.Reflection
 
             return type.GetInterfaces()
                        .Any(i => i == interfaceType
-                                 || i.IsGenericType
-                                 && i.GetGenericTypeDefinition() == interfaceType);
+                                 || (i.IsGenericType
+                                     && i.GetGenericTypeDefinition() == interfaceType));
         }
     }
 }

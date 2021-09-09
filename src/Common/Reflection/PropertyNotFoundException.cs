@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Ploch.Common.Reflection
 {
-    public class PropertyNotFoundException: Exception
+    public class PropertyNotFoundException : Exception
     {
-
-        public PropertyNotFoundException(string propertyName): base(GetDefaultMessage(propertyName))
+        public PropertyNotFoundException(string propertyName) : base(GetDefaultMessage(propertyName))
         {
             PropertyName = propertyName;
         }
 
-        public PropertyNotFoundException(string propertyName, string message, Exception innerException): base(message, innerException)
+        public PropertyNotFoundException(string propertyName, string message, Exception innerException) : base(message, innerException)
         {
             PropertyName = propertyName;
         }

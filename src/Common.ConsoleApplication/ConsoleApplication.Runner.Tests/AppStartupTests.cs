@@ -10,25 +10,7 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
         public class MyDependency
         { }
 
-        public class TestApp : ICommand
-        {
-            public static MyDependency Dependency { get; private set; } = null;
-
-            public TestApp(MyDependency testDep)
-            {
-                Dependency = testDep;
-            }
-
-            public static string[] Args { get; private set; } = null;
-
-            /// <inheritdoc />
-            public void Execute(string[] args)
-            {
-                Args = args;
-            }
-        }
-
-        public class TestApp1 : ICommand<TestArgs>
+        public class TestApp1 : AppCommand<TestArgs>
         {
             public static MyDependency Dependency { get; private set; } = null;
 
@@ -41,19 +23,10 @@ namespace Ploch.Common.ConsoleApplication.Runner.Tests
 
           
 
-            public void Execute(TestArgs options)
+            public override void Execute(TestArgs options)
             {
                 Args = options;
             }
-        }
-
-        [Theory, AutoData]
-        public void Execute_ShouldStartTheAppProvided_AndPassArgs(string[] args)
-        {
-            AppStartup.Default().ExecuteApp<TestApp>(args);
-            TestApp.Args.Should().BeSameAs(args);
-            TestApp.Dependency.Should().NotBeNull();
-
         }
 
         [Theory, AutoData]

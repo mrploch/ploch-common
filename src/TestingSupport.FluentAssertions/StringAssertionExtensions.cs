@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ardalis.GuardClauses;
+using Dawn;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
@@ -21,7 +21,7 @@ namespace Ploch.TestingSupport.FluentAssertions
                                                                              string because = "",
                                                                              params object[] becauseArgs)
         {
-            Guard.Against.Null(values, nameof(values));
+            Guard.Argument(values, nameof(values)).NotNull();
             var array = values.Where(v => !Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)).ToArray();
             Execute.Assertion.ForCondition(values.All(v => Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)))
                    .BecauseOf(because, becauseArgs)

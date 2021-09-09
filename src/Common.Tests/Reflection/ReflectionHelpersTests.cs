@@ -18,8 +18,8 @@ namespace Ploch.Common.Tests.Reflection
         public void GetPropertyValueTest(int intProp, string stringProp)
         {
             var testObject = new TestTypes.MyTestClass {IntProp = intProp, StringProp = stringProp};
-            PropertyHelpers.GetPropertyValue(testObject, nameof(TestTypes.MyTestClass.IntProp)).Should().Be(intProp);
-            PropertyHelpers.GetPropertyValue(testObject, nameof(TestTypes.MyTestClass.StringProp)).Should().Be(stringProp);
+            testObject.GetPropertyValue(nameof(TestTypes.MyTestClass.IntProp)).Should().Be(intProp);
+            testObject.GetPropertyValue(nameof(TestTypes.MyTestClass.StringProp)).Should().Be(stringProp);
         }
 
         [Theory]
@@ -27,8 +27,8 @@ namespace Ploch.Common.Tests.Reflection
         public void SetPropertyValueTest(int intProp, string stringProp)
         {
             var testObject = new TestTypes.MyTestClass();
-            PropertyHelpers.SetPropertyValue(testObject, "IntProp", intProp);
-            PropertyHelpers.SetPropertyValue(testObject, "StringProp", stringProp);
+            testObject.SetPropertyValue("IntProp", intProp);
+            testObject.SetPropertyValue("StringProp", stringProp);
 
             testObject.IntProp.Should().Be(intProp);
             testObject.StringProp.Should().Be(stringProp);
@@ -38,7 +38,7 @@ namespace Ploch.Common.Tests.Reflection
         public void GetPropertiesOfTypeExcludingSubclassTest()
         {
             var testObject = new TestTypes.MyTestClass();
-            var propertyInfos = PropertyHelpers.GetProperties<TestTypes.TestTypeBase>(testObject, false);
+            var propertyInfos = testObject.GetProperties<TestTypes.TestTypeBase>(false);
 
             propertyInfos.Should()
                          .HaveCount(1)
@@ -49,7 +49,7 @@ namespace Ploch.Common.Tests.Reflection
         public void GetPropertiesOfTypeIncludingSubclassTest()
         {
             var testObject = new TestTypes.MyTestClass();
-            var propertyInfos = PropertyHelpers.GetProperties<TestTypes.TestTypeBase>(testObject);
+            var propertyInfos = testObject.GetProperties<TestTypes.TestTypeBase>();
 
             propertyInfos.Should()
                          .HaveCount(2)
@@ -61,7 +61,7 @@ namespace Ploch.Common.Tests.Reflection
         public void GetPropertiesOfTypeTest()
         {
             var testObject = new TestTypes.MyTestClass();
-            var propertyInfos = PropertyHelpers.GetProperties<string>(testObject);
+            var propertyInfos = testObject.GetProperties<string>();
 
             propertyInfos.Should()
                          .HaveCount(2)
@@ -83,8 +83,8 @@ namespace Ploch.Common.Tests.Reflection
         public void HasPropertyTest()
         {
             var testObject = new TestTypes.MyTestClass();
-            PropertyHelpers.HasProperty(testObject, nameof(TestTypes.MyTestClass.IntProp)).Should().BeTrue();
-            PropertyHelpers.HasProperty(testObject, "NoPropertyLikeThis").Should().BeFalse();
+            testObject.HasProperty(nameof(TestTypes.MyTestClass.IntProp)).Should().BeTrue();
+            testObject.HasProperty("NoPropertyLikeThis").Should().BeFalse();
         }
     }
 }

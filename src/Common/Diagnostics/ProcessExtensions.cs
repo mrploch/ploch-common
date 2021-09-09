@@ -1,12 +1,4 @@
-﻿using Dawn;
-using JetBrains.Annotations;
-using Ploch.Common.Collections;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-
-namespace Ploch.Common.Diagnostics
+﻿namespace Ploch.Common.Diagnostics
 {
     // TODO: This needs to be downgraded to support .NET Standard 2.0
 
@@ -30,7 +22,6 @@ namespace Ploch.Common.Diagnostics
     //         return process;
     //     }
     // }
-
 
     // public class ProcessBuilder
     // {

@@ -11,16 +11,16 @@ namespace Ploch.Common.Output
         Encoding Encoding { get; }
 
         /// <summary>
-        /// Returns the line terminator string used by this TextWriter. The default line
-        /// terminator string is Environment.NewLine, which is platform specific.
-        /// On Windows this is a carriage return followed by a line feed ("\r\n").
-        /// On OSX and Linux this is a line feed ("\n").
+        ///     Returns the line terminator string used by this TextWriter. The default line
+        ///     terminator string is Environment.NewLine, which is platform specific.
+        ///     On Windows this is a carriage return followed by a line feed ("\r\n").
+        ///     On OSX and Linux this is a line feed ("\n").
         /// </summary>
         /// <remarks>
-        /// The line terminator string is written to the text stream whenever one of the
-        /// WriteLine methods are called. In order for text written by
-        /// the TextWriter to be readable by a TextReader, only one of the following line
-        /// terminator strings should be used: "\r", "\n", or "\r\n".
+        ///     The line terminator string is written to the text stream whenever one of the
+        ///     WriteLine methods are called. In order for text written by
+        ///     the TextWriter to be readable by a TextReader, only one of the following line
+        ///     terminator strings should be used: "\r", "\n", or "\r\n".
         /// </remarks>
         string NewLine { get; set; }
 
@@ -44,8 +44,8 @@ namespace Ploch.Common.Output
         void Write(object? value);
 
         /// <summary>
-        /// Equivalent to Write(stringBuilder.ToString()) however it uses the
-        /// StringBuilder.GetChunks() method to avoid creating the intermediate string
+        ///     Equivalent to Write(stringBuilder.ToString()) however it uses the
+        ///     StringBuilder.GetChunks() method to avoid creating the intermediate string
         /// </summary>
         /// <param name="value">The string (as a StringBuilder) to write to the stream</param>
         void Write(StringBuilder? value);
@@ -70,8 +70,8 @@ namespace Ploch.Common.Output
         void WriteLine(string? value);
 
         /// <summary>
-        /// Equivalent to WriteLine(stringBuilder.ToString()) however it uses the
-        /// StringBuilder.GetChunks() method to avoid creating the intermediate string
+        ///     Equivalent to WriteLine(stringBuilder.ToString()) however it uses the
+        ///     StringBuilder.GetChunks() method to avoid creating the intermediate string
         /// </summary>
         void WriteLine(StringBuilder? value);
 
@@ -84,8 +84,8 @@ namespace Ploch.Common.Output
         Task WriteAsync(string? value);
 
         /// <summary>
-        /// Equivalent to WriteAsync(stringBuilder.ToString()) however it uses the
-        /// StringBuilder.GetChunks() method to avoid creating the intermediate string
+        ///     Equivalent to WriteAsync(stringBuilder.ToString()) however it uses the
+        ///     StringBuilder.GetChunks() method to avoid creating the intermediate string
         /// </summary>
         /// <param name="value">The string (as a StringBuilder) to write to the stream</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
@@ -98,8 +98,8 @@ namespace Ploch.Common.Output
         Task WriteLineAsync(string? value);
 
         /// <summary>
-        /// Equivalent to WriteLineAsync(stringBuilder.ToString()) however it uses the
-        /// StringBuilder.GetChunks() method to avoid creating the intermediate string
+        ///     Equivalent to WriteLineAsync(stringBuilder.ToString()) however it uses the
+        ///     StringBuilder.GetChunks() method to avoid creating the intermediate string
         /// </summary>
         /// <param name="value">The string (as a StringBuilder) to write to the stream</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>

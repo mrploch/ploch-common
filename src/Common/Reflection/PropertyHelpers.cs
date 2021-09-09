@@ -42,8 +42,7 @@ namespace Ploch.Common.Reflection
 
             return type.GetTypeInfo()
                        .GetProperties()
-                       .Where(
-                              pi =>
+                       .Where(pi =>
                               {
                                   Debug.WriteLine(pi.Name);
 

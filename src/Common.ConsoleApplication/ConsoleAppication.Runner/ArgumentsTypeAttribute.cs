@@ -1,5 +1,5 @@
 ﻿using System;
-using Ardalis.GuardClauses;
+using Dawn;
 using JetBrains.Annotations;
 using Ploch.Common.ConsoleApplication.Core;
 
@@ -14,7 +14,6 @@ namespace Ploch.Common.ConsoleApplication.Runner
         /// <inheritdoc />
         public ArgumentsTypeAttribute([NotNull] Type argumentsType)
         {
-            Guard.Against.Null(argumentsType, nameof(argumentsType));
             ArgumentsType = argumentsType;
         }
 

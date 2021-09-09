@@ -4,6 +4,18 @@
         <name>Ploch.Common</name>
     </assembly>
     <members>
+        <member name="M:Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>Adds a value if value not null.</summary>
+            <typeparam name="TKey">The key type.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>the value of
+                <param name="collection"></param>
+                .
+            </returns>
+        </member>
         <member name="M:Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)">
             <summary>Adds a value if value not null.</summary>
             <typeparam name="TKey">The key type.</typeparam>
@@ -11,7 +23,10 @@
             <param name="collection">The collection.</param>
             <param name="key">The key.</param>
             <param name="value">The value.</param>
-            <returns>the value of <param name="collection"></param>.</returns>
+            <returns>the value of
+                <param name="collection"></param>
+                .
+            </returns>
         </member>
         <member name="M:Ploch.Common.Collections.CollectionExtensions.Add``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)">
             <summary>
@@ -48,7 +63,7 @@
         </member>
         <member name="M:Ploch.Common.Collections.CollectionExtensions.AddManyInternal``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            Adds items to a collection
+                Adds items to a collection
             </summary>
             <typeparam name="TItem"></typeparam>
             <param name="collection"></param>
@@ -57,6 +72,40 @@
                 <paramref name="collection" /> or <paramref name="items" /> is
                 <see langword="null" />
             </exception>
+        </member>
+        <member name="T:Ploch.Common.Collections.EnumerableExtensions">
+            <summary>
+                IEnumerable (and related) extensions.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])">
+            <summary>
+                Checks if a set of values the value using provided comparer.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="value">The value.</param>
+            <param name="comparer">The comparer.</param>
+            <param name="values">The set of values.</param>
+            <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,``0[])">
+            <summary>
+                Checks if a set of values the value using default comparer.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="value">The value.</param>
+            <param name="values">The set of values.</param>
+            <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+                Checks if a set of values the value using provided comparer (or default comparer if null).
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="value">The value.</param>
+            <param name="comparer">The comparer or null to use the default comparer.</param>
+            <param name="values">The set of values.</param>
+            <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
         </member>
         <member name="T:Ploch.Common.DateTimeExtensions">
             <summary>
@@ -97,12 +146,12 @@
         </member>
         <member name="T:Ploch.Common.ExpressionExtensions">
             <summary>
-            Extension methods for <see cref="T:System.Linq.Expressions.Expression"/>.
+                Extension methods for <see cref="T:System.Linq.Expressions.Expression" />.
             </summary>
             <remarks>
-            Contains various utility extension methods for working with <see cref="T:System.Linq.Expressions.Expression"/> objects.
+                Contains various utility extension methods for working with <see cref="T:System.Linq.Expressions.Expression" /> objects.
             </remarks>
-            <seealso cref="T:System.Linq.Expressions.Expression"/>
+            <seealso cref="T:System.Linq.Expressions.Expression" />
         </member>
         <member name="M:Ploch.Common.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Action{``0}})">
             <summary>
@@ -133,16 +182,36 @@
             <param name="expression">Expression</param>
             <returns>Member name</returns>
             <exception cref="T:System.InvalidOperationException">Not a member expression and not unary expression for member.</exception>
-            <exception cref="T:System.ArgumentNullException"><paramref name="argument" /> value is <c>null</c> and the argument is not modified
-                            since it is initialized.</exception>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="argument" /> value is <c>null</c> and the argument is not modified
+                since it is initialized.
+            </exception>
+        </member>
+        <member name="M:Ploch.Common.IO.PathUtils.GetDirectoryName(System.String)">
+            <summary>
+            Gets the (short) name of the directory.
+            </summary>
+            <param name="directoryPath">Directory path.</param>
         </member>
         <member name="T:Ploch.Common.ObjectCloningHelpers">
             <summary>
-            Class ObjectCloningHelpers.
+                Class ObjectCloningHelpers.
             </summary>
             <remarks>
-            Contains various static methods useful when copying properties / cloning objects.
+                Contains various static methods useful when copying properties / cloning objects.
             </remarks>
+        </member>
+        <member name="T:Ploch.Common.Reflection.AssemblyExtensions">
+            <summary>
+            Extension utility methods for an <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.Reflection.AssemblyExtensions.GetAssemblyDirectory(System.Reflection.Assembly)">
+            <summary>
+            Gets the directory name where assembly is located
+            </summary>
+            <param name="assembly">The assembly</param>
+            <returns>The directory name where assembly is located.</returns>
         </member>
         <member name="T:Ploch.Common.Reflection.PropertyHelpers">
             <summary>
@@ -257,26 +326,26 @@
         </member>
         <member name="T:Ploch.Common.StringExtensions">
             <summary>
-            Extension methods for <see cref="T:System.String"/> and related.
+                Extension methods for <see cref="T:System.String" /> and related.
             </summary>
         </member>
         <member name="M:Ploch.Common.StringExtensions.IsNullOrEmpty(System.String)">
             <summary>
-            Extension method version of <see cref="M:System.String.IsNullOrEmpty(System.String)"/>.
+                Extension method version of <see cref="M:System.String.IsNullOrEmpty(System.String)" />.
             </summary>
             <param name="str">The string.</param>
             <returns><c>true</c> if string is <c>null</c> or empty; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Ploch.Common.StringExtensions.ToBase64String(System.String)">
             <summary>
-            Encodes a string as base64 string using <see cref="P:System.Text.Encoding.UTF8"/>.
+                Encodes a string as base64 string using <see cref="P:System.Text.Encoding.UTF8" />.
             </summary>
             <param name="str">The string.</param>
             <returns>Encoded version of supplied string.</returns>
         </member>
         <member name="M:Ploch.Common.StringExtensions.ToBase64String(System.String,System.Text.Encoding)">
             <summary>
-            Encodes a string as base64 string.
+                Encodes a string as base64 string.
             </summary>
             <param name="str">The string.</param>
             <param name="encoding">The encoding to use.</param>

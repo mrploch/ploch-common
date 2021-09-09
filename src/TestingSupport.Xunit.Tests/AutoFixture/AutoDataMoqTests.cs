@@ -6,8 +6,8 @@
 
 using FluentAssertions;
 using Moq;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.TestingSupport.TestTypes;
-using Ploch.TestingSupport.Xunit.AutoFixture;
 using Xunit;
 
 namespace Ploch.TestinngSupport.Tests.AutoFixture
@@ -22,7 +22,7 @@ namespace Ploch.TestinngSupport.Tests.AutoFixture
     
     public class AutoDataMoqTests
     {
-        [Theory, AutoDataMoq]
+        [Theory, AutoMockData]
         public void Should_Create_Simple_types_Test(string str, SimpleTestTypes.Type1 testType, ITestInterface testInterface)
         {
             str.Should().NotBeEmpty();

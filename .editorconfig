@@ -241,6 +241,7 @@ dotnet_diagnostic.sa1127.severity = none
 dotnet_diagnostic.sa1200.severity = none
 
 # ReSharper properties
+resharper_csharp_empty_block_style = together
 resharper_csharp_max_line_length = 170
 resharper_csharp_wrap_parameters_style = chop_if_long
 resharper_keep_existing_declaration_block_arrangement = false
@@ -253,46 +254,46 @@ resharper_keep_existing_property_patterns_arrangement = false
 
 # Checks
 
-dotnet_diagnostic.CA1001.severity = warning
+dotnet_diagnostic.ca1001.severity = warning
 
-dotnet_diagnostic.CA1009.severity = warning
+dotnet_diagnostic.ca1009.severity = warning
 
-dotnet_diagnostic.CC0108.severity = warning
+dotnet_diagnostic.cc0108.severity = warning
 
-dotnet_diagnostic.CS8600.severity = error
+dotnet_diagnostic.cs8600.severity = error
 
-dotnet_diagnostic.CS8608.severity = error
+dotnet_diagnostic.cs8608.severity = error
 
-dotnet_diagnostic.CS8609.severity = error
+dotnet_diagnostic.cs8609.severity = error
 
-dotnet_diagnostic.CS8610.severity = error
+dotnet_diagnostic.cs8610.severity = error
 
-dotnet_diagnostic.CS8611.severity = error
+dotnet_diagnostic.cs8611.severity = error
 
-dotnet_diagnostic.CS8612.severity = error
+dotnet_diagnostic.cs8612.severity = error
 
-dotnet_diagnostic.CS8613.severity = error
+dotnet_diagnostic.cs8613.severity = error
 
-dotnet_diagnostic.CS8614.severity = error
+dotnet_diagnostic.cs8614.severity = error
 
-dotnet_diagnostic.CS8615.severity = error
+dotnet_diagnostic.cs8615.severity = error
 
-dotnet_diagnostic.CS8616.severity = error
+dotnet_diagnostic.cs8616.severity = error
 
-dotnet_diagnostic.CS8617.severity = error
+dotnet_diagnostic.cs8617.severity = error
 
-dotnet_diagnostic.CS8618.severity = error
+dotnet_diagnostic.cs8618.severity = error
 
-dotnet_diagnostic.CS8619.severity = error
+dotnet_diagnostic.cs8619.severity = error
 
-dotnet_diagnostic.CS8620.severity = error
+dotnet_diagnostic.cs8620.severity = error
 
-dotnet_diagnostic.CS8624.severity = error
+dotnet_diagnostic.cs8624.severity = error
 
-dotnet_diagnostic.CS8625.severity = error
+dotnet_diagnostic.cs8625.severity = error
 
-dotnet_diagnostic.CS8629.severity = error
+dotnet_diagnostic.cs8629.severity = error
 
-dotnet_diagnostic.CS8643.severity = error
+dotnet_diagnostic.cs8643.severity = error
 
-dotnet_diagnostic.CS8644.severity = error
+dotnet_diagnostic.cs8644.severity = error

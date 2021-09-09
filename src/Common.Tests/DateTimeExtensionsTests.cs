@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using Xunit;
@@ -21,7 +20,7 @@ namespace Ploch.Common.Tests
             long longSeconds = 0;
             longSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
 
-            int intSeconds = 0;
+            var intSeconds = 0;
             intSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
 
             float floatSeconds = 0;
@@ -30,17 +29,16 @@ namespace Ploch.Common.Tests
             sbyte sbyteSeconds = 0;
             sbyteSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
 
-             sbyteSeconds.ToDateTime().ToEpochSeconds().Should().Be(0);
-
+            sbyteSeconds.ToDateTime().ToEpochSeconds().Should().Be(0);
         }
 
-        [Theory, AutoData]
+        [Theory]
+        [AutoData]
         public void ToDateTime_should_parse_a_number_to_DateTime_with_UTC_time_zone(int epochSeconds)
         {
             epochSeconds.ToDateTime().Kind.Should().Be(DateTimeKind.Utc);
 
             epochSeconds.ToDateTime().ToEpochSeconds().Should().Be(epochSeconds);
         }
-
     }
 }

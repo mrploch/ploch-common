@@ -1,8 +1,9 @@
-﻿using Dawn;
-using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Dawn;
+using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.Collections;
 
 namespace Ploch.Common.DependencyInjection
 {
@@ -17,6 +18,7 @@ namespace Ploch.Common.DependencyInjection
     public class CompositeServicesBundle : IServicesBundle
     {
         private readonly ICollection<IServicesBundle> _servicesBundles = new List<IServicesBundle>();
+        private readonly ICollection<Action<IServiceCollection>> _serviceCollectionActions = new List<Action<IServiceCollection>>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositeServicesBundle"/> class.
@@ -30,6 +32,12 @@ namespace Ploch.Common.DependencyInjection
             {
                 AddServices(servicesBundle);
             }
+        }
+
+        public CompositeServicesBundle AddActions(params Action<IServiceCollection>[] serviceCollectionActions)
+        {
+            _serviceCollectionActions.AddMany(serviceCollectionActions);
+            return this;
         }
 
         /// <exception cref="T:System.ArgumentNullException"><paramref name="services" /> value is <c>null</c>.</exception>

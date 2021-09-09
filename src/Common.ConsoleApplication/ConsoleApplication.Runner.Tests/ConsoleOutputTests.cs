@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using Ploch.Common.ConsoleApplication.Core;
 using Ploch.Common.ConsoleApplication.Runner.Utils;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Ploch.Common.ConsoleApplication.Runner.Tests
 {

@@ -6,6 +6,6 @@
     /// <typeparam name="TId">The type of the identifier.</typeparam>
     public interface IHasId<TId>
     {
-        TId Id { get; set; }
+        TId Id { get; }
     }
 }
