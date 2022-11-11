@@ -16,23 +16,22 @@ namespace Ploch.Common
             CopyPropertiesIncludeOnly(source, target, null);
         }
 
-        public static void CopyPropertiesIncludeOnly<T>(this T source, T target, params string[] includedProperties)
+        public static void CopyPropertiesIncludeOnly<T>(this T source, T target, params string[]? includedProperties)
         {
             CopyProperties(source, target, includedProperties, null);
         }
 
-        public static void CopyPropertiesExcluding<T>(this T source, T target, params string[] excludedProperties)
+        public static void CopyPropertiesExcluding<T>(this T source, T target, params string[]? excludedProperties)
         {
             CopyProperties(source, target, null, excludedProperties);
         }
 
-        private static void CopyProperties<T>([NotNull] this T source, [NotNull] T target, IEnumerable<string> includedProperties, params string[] excludedProperties)
+        private static void CopyProperties<T>([NotNull] this T source, [NotNull] T target, IEnumerable<string>? includedProperties, params string[]? excludedProperties)
         {
             var properties = typeof(T).GetProperties();
             var includedPropertiesSet = includedProperties != null ? new HashSet<string>(includedProperties) : null;
 
-            var excludedPropertiesSet =
-                excludedProperties != null ? new HashSet<string>(excludedProperties) : new HashSet<string>();
+            var excludedPropertiesSet = excludedProperties != null ? new HashSet<string>(excludedProperties) : new HashSet<string>();
 
             foreach (var property in properties)
             {

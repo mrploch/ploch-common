@@ -7,7 +7,7 @@ namespace Ploch.Common.IO
     public static class PathUtils
     {
         /// <summary>
-        /// Gets the (short) name of the directory.
+        ///     Gets the (short) name of the directory.
         /// </summary>
         /// <param name="directoryPath">Directory path.</param>
         public static string GetDirectoryName([NotNull] string directoryPath)
@@ -16,8 +16,5 @@ namespace Ploch.Common.IO
 
             return new DirectoryInfo(directoryPath).Name;
         }
-
-
     }
-
 }

@@ -6,8 +6,8 @@
     /// <typeparam name="TId">The type of the identifier.</typeparam>
     /// <seealso cref="IHasId{TId}" />
     /// <seealso cref="IHierarchicalWithParent{T}" />
-    public interface IHasParentId<TId>
+    public interface IHasParentId<out TId>
     {
-        TId ParentId { get; set; }
+        TId ParentId { get; }
     }
 }

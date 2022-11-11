@@ -11,7 +11,8 @@
             <param name="collection">The collection.</param>
             <param name="key">The key.</param>
             <param name="value">The value.</param>
-            <returns>the value of
+            <returns>
+                the value of
                 <param name="collection"></param>
                 .
             </returns>
@@ -23,7 +24,8 @@
             <param name="collection">The collection.</param>
             <param name="key">The key.</param>
             <param name="value">The value.</param>
-            <returns>the value of
+            <returns>
+                the value of
                 <param name="collection"></param>
                 .
             </returns>
@@ -134,7 +136,7 @@
             <summary>
                 Converts Epoch Seconds value to <see cref="T:System.DateTime" />.
             </summary>
-            <param name="epochSeconds">The epoch seconds.</param>
+            <param name="epochSecondsOrMilliseconds">The epoch seconds.</param>
             <returns>DateTime.</returns>
         </member>
         <member name="M:Ploch.Common.DateTimeExtensions.ToDateTime``1(``0)">
@@ -189,7 +191,7 @@
         </member>
         <member name="M:Ploch.Common.IO.PathUtils.GetDirectoryName(System.String)">
             <summary>
-            Gets the (short) name of the directory.
+                Gets the (short) name of the directory.
             </summary>
             <param name="directoryPath">Directory path.</param>
         </member>
@@ -203,12 +205,12 @@
         </member>
         <member name="T:Ploch.Common.Reflection.AssemblyExtensions">
             <summary>
-            Extension utility methods for an <see cref="T:System.Reflection.Assembly"/>.
+                Extension utility methods for an <see cref="T:System.Reflection.Assembly" />.
             </summary>
         </member>
         <member name="M:Ploch.Common.Reflection.AssemblyExtensions.GetAssemblyDirectory(System.Reflection.Assembly)">
             <summary>
-            Gets the directory name where assembly is located
+                Gets the directory name where assembly is located
             </summary>
             <param name="assembly">The assembly</param>
             <returns>The directory name where assembly is located.</returns>

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reactive.Linq;
 using AutoFixture.Xunit2;
 using FluentAssertions;
-using JetBrains.Annotations;
 using Ploch.Common.ConsoleApplication.Core;
 using Ploch.Common.ConsoleApplication.Runner.Utils;
 using Xunit;

@@ -43,11 +43,22 @@ namespace Ploch.Common
         /// <summary>
         ///     Converts Epoch Seconds value to <see cref="DateTime" />.
         /// </summary>
-        /// <param name="epochSeconds">The epoch seconds.</param>
+        /// <param name="epochSecondsOrMilliseconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
-        public static DateTime ToDateTime(this long epochSeconds)
+        public static DateTime ToDateTime(this long epochSecondsOrMilliseconds)
         {
-            var dateTime = DateTimeOffset.FromUnixTimeSeconds(epochSeconds).DateTime;
+            // -62135596800 and 253402300799
+            // Guard.Argument(epochSecondsOrMilliseconds, nameof(epochSecondsOrMilliseconds))
+            //      .InRange(-62135596800,
+            //               253402300799,
+            //               (minValue, maxValue, actualValue) =>
+            //                   $"Epoch seconds provided cannot be lower than {minValue} and greater than {maxValue}. Value provided was {actualValue}");
+            if (epochSecondsOrMilliseconds < -62135596800 || epochSecondsOrMilliseconds > 253402300799)
+            {
+                epochSecondsOrMilliseconds /= 1000;
+            }
+
+            var dateTime = DateTimeOffset.FromUnixTimeSeconds(epochSecondsOrMilliseconds).DateTime;
             return TimeZoneInfo.ConvertTimeToUtc(dateTime, UtcTimeZone);
         }
 
@@ -56,12 +67,7 @@ namespace Ploch.Common
         /// </summary>
         /// <param name="epochSeconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
-        public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct,
-            IComparable,
-            IComparable<T>,
-            IConvertible,
-            IEquatable<T>,
-            IFormattable
+        public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
         {
             var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
             return epochSecondsAsLong.ToDateTime();

@@ -17,7 +17,7 @@ namespace Ploch.Common.Collections
         /// <param name="comparer">The comparer.</param>
         /// <param name="values">The set of values.</param>
         /// <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
-        public static bool ValueIn<TValue>(this TValue value, IEqualityComparer<TValue> comparer, [NotNull] params TValue[] values)
+        public static bool ValueIn<TValue>(this TValue value, IEqualityComparer<TValue>? comparer, params TValue[] values)
         {
             return ValueIn(value, values, comparer);
         }
@@ -29,7 +29,7 @@ namespace Ploch.Common.Collections
         /// <param name="value">The value.</param>
         /// <param name="values">The set of values.</param>
         /// <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
-        public static bool ValueIn<TValue>(this TValue value, [NotNull] params TValue[] values)
+        public static bool ValueIn<TValue>(this TValue value, params TValue[] values)
         {
             return ValueIn(value, (IEnumerable<TValue>)values);
         }
@@ -42,7 +42,7 @@ namespace Ploch.Common.Collections
         /// <param name="comparer">The comparer or null to use the default comparer.</param>
         /// <param name="values">The set of values.</param>
         /// <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
-        public static bool ValueIn<TValue>(this TValue value, [NotNull] IEnumerable<TValue> values, IEqualityComparer<TValue> comparer = null)
+        public static bool ValueIn<TValue>(this TValue value, IEnumerable<TValue> values, IEqualityComparer<TValue>? comparer = null)
         {
             Guard.Argument(values, nameof(values)).NotNull();
 

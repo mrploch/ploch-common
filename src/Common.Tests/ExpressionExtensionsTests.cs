@@ -8,7 +8,7 @@ namespace Ploch.Common.Tests
 {
     public class ExpressionExtensionsTests
     {
-        public string MySelfProperty { get; set; }
+        public string? MySelfProperty { get; set; }
 
         [Fact]
         public void GetMemberName_NoType_Method()

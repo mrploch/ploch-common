@@ -70,12 +70,15 @@ namespace Ploch.Common
             return str.Equals(other, comparison);
         }
 
-        public static string ReplaceStart([NotNull] this string str, [NotNull] string oldValue, [NotNull] string newValue, StringComparison stringComparison = StringComparison.InvariantCulture)
+        public static string ReplaceStart([NotNull] this string str,
+                                          [NotNull] string oldValue,
+                                          [NotNull] string newValue,
+                                          StringComparison stringComparison = StringComparison.InvariantCulture)
         {
             Guard.Argument(str, nameof(str)).NotNull();
             Guard.Argument(newValue, nameof(newValue)).NotNull();
             Guard.Argument(oldValue, nameof(oldValue)).NotNull();
-            
+
             if (!str.StartsWith(oldValue, stringComparison))
             {
                 return str;

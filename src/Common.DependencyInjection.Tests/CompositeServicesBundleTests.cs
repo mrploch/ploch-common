@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.TestingSupport.Moq;
-using Ploch.TestingSupport.Xunit.AutoFixture;
 using SparkyTestHelpers.Moq;
 using Xunit;
 

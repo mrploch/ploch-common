@@ -31,7 +31,7 @@ namespace Ploch.TestingSupport.FluentAssertions.Tests
         public void ContainAllEquivalentOf_should_pass_no_strings_are_provided()
         {
             "a message".Should().ContainAllEquivalentOf();
-            string str = null;
+            string? str = null;
             str.Should().ContainAllEquivalentOf();
         }
     }

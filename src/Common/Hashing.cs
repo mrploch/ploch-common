@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace Ploch.Common
 {
@@ -12,7 +11,7 @@ namespace Ploch.Common
             var hashBytes = algorithm.ComputeHash(stream);
             return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
         }
-        
+
         public static string ToMD5HashString(this Stream stream)
         {
             var hashBytes = MD5.Create().ComputeHash(stream);

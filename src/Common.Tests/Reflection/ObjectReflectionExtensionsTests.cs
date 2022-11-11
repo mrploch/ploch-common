@@ -11,7 +11,7 @@ namespace Ploch.Common.Tests.Reflection
         class TestType
         {
             private readonly string _privateField;
-            private static string PrivateStaticField;
+            private static string? PrivateStaticField;
 
             protected int ProtectedField;
             public readonly Guid PublicField;

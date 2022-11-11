@@ -13,7 +13,8 @@ namespace Ploch.Common.Collections
         /// <param name="collection">The collection.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <returns>the value of
+        /// <returns>
+        ///     the value of
         ///     <param name="collection"></param>
         ///     .
         /// </returns>
@@ -38,7 +39,8 @@ namespace Ploch.Common.Collections
         /// <param name="collection">The collection.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <returns>the value of
+        /// <returns>
+        ///     the value of
         ///     <param name="collection"></param>
         ///     .
         /// </returns>

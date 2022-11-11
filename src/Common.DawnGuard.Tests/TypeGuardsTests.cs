@@ -55,9 +55,9 @@ namespace Ploch.Common.DawnGuard.Tests
         [Fact]
         public void AssignableTo_guard_should_throw_ArgumentNullException_if_argument_is_null()
         {
-            Type nullArg = null;
+            Type? nullArg = null;
 
-            Action act = () => Guard.Argument(nullArg, nameof(nullArg)).AssignableTo(typeof(ITestService1));
+            Action act = () => Guard.Argument(nullArg, nameof(nullArg))!.AssignableTo(typeof(ITestService1));
 
             act.Should().Throw<ArgumentNullException>().Which.Message.Should().Contain(nameof(nullArg));
         }
@@ -67,7 +67,7 @@ namespace Ploch.Common.DawnGuard.Tests
         {
             Type nullArg = null;
 
-            Action act = () => Guard.Argument(nullArg, nameof(nullArg)).AssignableToOrNull(typeof(ITestService1));
+            Action act = () => Guard.Argument(nullArg, nameof(nullArg))!.AssignableToOrNull(typeof(ITestService1));
 
             act.Should().NotThrow();
         }
@@ -77,7 +77,9 @@ namespace Ploch.Common.DawnGuard.Tests
         {
             Type nullArg = null;
 
+#pragma warning disable CS8620
             Action act = () => Guard.Argument(nullArg, nameof(nullArg)).AssignableToOrNull<ITestService1>();
+#pragma warning restore CS8620
 
             act.Should().NotThrow();
         }

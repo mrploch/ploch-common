@@ -4,7 +4,6 @@ namespace Ploch.Common.Reflection
 {
     public static class ObjectReflectionExtensions
     {
-        
         public static object GetFieldValue(this object obj, string fieldName)
         {
             var fieldInfo = obj.GetType().GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
