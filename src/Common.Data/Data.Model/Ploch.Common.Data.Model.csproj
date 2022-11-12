@@ -59,12 +59,12 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.10" />
-        <PackageReference Include="Roslynator.Analyzers" Version="4.1.1">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.0" />
+        <PackageReference Include="Roslynator.Analyzers" Version="4.1.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.47.0.55603">
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.48.0.56517">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -73,6 +73,10 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Types\" />
     </ItemGroup>
     <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
     <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
