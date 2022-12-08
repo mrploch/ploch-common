@@ -51,7 +51,7 @@ namespace Ploch.TestingSupport.Tests
 
     public class OperationRecorderTests
     {
-        private MyTestClass _myTestClass;
+        private MyTestClass? _myTestClass;
 
         [Theory, AutoData]
         public void Record_should_write_all_parameters_to_json(MyTestClass sut, MyType1 param1, string param2)

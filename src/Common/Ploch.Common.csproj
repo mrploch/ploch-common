@@ -3,8 +3,6 @@
 
 		<PropertyGroup>
 			<TargetFramework>netstandard2.0</TargetFramework>
-			<Nullable>enable</Nullable>
-			<LangVersion>9</LangVersion>
 			<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		</PropertyGroup>
 
@@ -28,11 +26,11 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Roslynator.Analyzers" Version="4.1.2">
+        <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.48.0.56517">
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.50.0.58025">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

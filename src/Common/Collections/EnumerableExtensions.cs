@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Dawn;
 using JetBrains.Annotations;
 
@@ -61,6 +63,49 @@ namespace Ploch.Common.Collections
             }
 
             return false;
+        }
+
+        public static bool None<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+        {
+            Guard.Argument(source, nameof(source)).NotNull();
+            Guard.Argument(predicate, nameof(predicate)).NotNull();
+            
+            foreach (TSource element in source)
+            {
+                if (predicate(element))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static string Join<TValue>(this IEnumerable<TValue> source, string separator)
+        {
+            return Join(source, separator, v => v.ToString());
+        }
+
+        public static string Join<TValue, TResult>(this IEnumerable<TValue> source, string separator, Func<TValue, TResult> valueSelector)
+        {
+            return string.Join(separator, source.Select(valueSelector));
+        }
+
+        public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source,
+                                                                     string separator,
+                                                                     string finalSeparator)
+        {
+            return JoinWithFinalSeparator(source, separator, finalSeparator, v => v.ToString());
+        }
+
+        public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
+                                                                     string separator,
+                                                                     string finalSeparator,
+                                                                     Func<TValue, TResult> valueSelector)
+        {
+            var arraySource = source as TValue[] ?? source.ToArray();
+            var count = arraySource.Length;
+            return Join(arraySource.Take(count - 1), separator, valueSelector ) + finalSeparator + valueSelector(arraySource.Last());
         }
     }
 }

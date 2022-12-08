@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kris Ploch</Authors>
+    <Nullable>warnings</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
