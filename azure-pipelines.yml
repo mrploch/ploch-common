@@ -117,12 +117,4 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
 
-- task: NuGetCommand@2
-  displayName: 'NuGet Push to nuget.org'
-  inputs:
-    command: 'push'
-    feedsToUse: 'config'
-    includeNugetOrg: true
-    nuGetFeedType: external
-    publishFeedCredentials: 'nuget-org'
 
