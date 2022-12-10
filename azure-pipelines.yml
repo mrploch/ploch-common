@@ -45,18 +45,16 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     configuration: $(buildConfiguration)
 
-
-
-# - task: DotNetCoreCLI@2
-#   name: 'RunTests'
-#   displayName: 'Run Tests'
-#   inputs:
-#     command: test
-#     # projects: './Ploch.Common.sln'
-#     projects: '**/*.Tests.csproj'
-#     # arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/'
-#     arguments: '--configuration $(BuildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Agent.TempDirectory)/coverage/ /p:MergeWith=$(Agent.TempDirectory)/coverage/ --collect "Code coverage"'
-#     publishTestResults: true
+- task: DotNetCoreCLI@2
+  name: 'RunTests'
+  displayName: 'Run Tests'
+  inputs:
+    command: test
+    # projects: './Ploch.Common.sln'
+    projects: '**/*.Tests.csproj'
+    # arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/'
+    arguments: '--configuration $(BuildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=$(Agent.TempDirectory)/coverage/ /p:MergeWith=$(Agent.TempDirectory)/coverage/ --collect "Code coverage"'
+    publishTestResults: true
 
 - task: PublishTestResults@2
   displayName: "Publish Test Results"
@@ -108,13 +106,21 @@ steps:
     # minorVersion: '$(Minor)'
     # patchVersion: '$(Patch)'
     # arguments: '--configuration $(buildConfiguration)'
-    # configuration: $(buildConfiguration)
-- task: DotNetCoreCLI@2
-  displayName: 'NuGet Push Azure Devop - Internal'
+#     # configuration: $(buildConfiguration)
+
+# - task: DotNetCoreCLI@2
+#   displayName: 'NuGet Push Azure Devop - Internal'
+#   inputs:
+#     command: 'push'
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+#     nuGetFeedType: 'internal'
+#     publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
+
+
+- task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'b78351fb-acc3-4d97-a67c-2998c989189e'
-
-
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'nuget-org'
+    verbosityPush: 'Normal'
