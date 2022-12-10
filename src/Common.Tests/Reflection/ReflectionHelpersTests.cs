@@ -17,7 +17,7 @@ namespace Ploch.Common.Tests.Reflection
         [AutoData]
         public void GetPropertyValueTest(int intProp, string stringProp)
         {
-            var testObject = new TestTypes.MyTestClass {IntProp = intProp, StringProp = stringProp};
+            var testObject = new TestTypes.MyTestClass { IntProp = intProp, StringProp = stringProp };
             testObject.GetPropertyValue(nameof(TestTypes.MyTestClass.IntProp)).Should().Be(intProp);
             testObject.GetPropertyValue(nameof(TestTypes.MyTestClass.StringProp)).Should().Be(stringProp);
         }

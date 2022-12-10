@@ -10,8 +10,7 @@ namespace Ploch.TestingSupport.FluentAssertions
 {
     public static class StringAssertionExtensions
     {
-        public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions,
-                                                                             params string[] values)
+        public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions, params string[] values)
         {
             return ContainAllEquivalentOf(assertions, values, string.Empty);
         }
@@ -25,9 +24,8 @@ namespace Ploch.TestingSupport.FluentAssertions
             var array = values.Where(v => !Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)).ToArray();
             Execute.Assertion.ForCondition(values.All(v => Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)))
                    .BecauseOf(because, becauseArgs)
-                   .FailWith("Expected {context:string} {0} to contain the strings ignoring case: {1}{reason}.",
-                             assertions.Subject,
-                             array);
+                   .FailWith("Expected {context:string} {0} to contain the strings ignoring case: {1}{reason}.", assertions.Subject, array);
+
             return new AndConstraint<StringAssertions>(assertions);
         }
 

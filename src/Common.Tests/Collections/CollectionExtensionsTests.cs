@@ -23,8 +23,7 @@ namespace Ploch.Common.Tests.Collections
             list.Add("test2", 2).Add("test3", 3);
             list.Should().HaveCount(3);
 
-            list.Should()
-                .Contain(new List<KeyValuePair<string, int>> {new("test1", 1), new("test2", 2), new("test3", 3)});
+            list.Should().Contain(new List<KeyValuePair<string, int>> { new("test1", 1), new("test2", 2), new("test3", 3) });
         }
 
         [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
@@ -42,11 +41,11 @@ namespace Ploch.Common.Tests.Collections
         [AutoDataMoq]
         public void AddMany_should_extend_collection_with_items(string[] items)
         {
-            var target = new Collection<string> {"itme1", "item2"};
+            var target = new Collection<string> { "itme1", "item2" };
 
             target.AddMany(items);
             target.Should().HaveCount(items.Length + 2);
-            var expected = new List<string> {"itme1", "item2"};
+            var expected = new List<string> { "itme1", "item2" };
             expected.AddRange(items);
             target.Should().Contain(expected);
         }
@@ -54,12 +53,12 @@ namespace Ploch.Common.Tests.Collections
         [Fact]
         public void AddMany_should_extend_collection_with__coll_items()
         {
-            var target = new Collection<string> {"itme1", "item2"};
-            var items = new Collection<string> {"item3", "item4"};
+            var target = new Collection<string> { "itme1", "item2" };
+            var items = new Collection<string> { "item3", "item4" };
 
             target.AddMany(items);
             target.Should().HaveCount(4);
-            target.Should().Contain(new[] {"itme1", "item2"}, "item3", "item4");
+            target.Should().Contain(new[] { "itme1", "item2" }, "item3", "item4");
         }
 
         [Theory]

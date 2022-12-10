@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using FluentAssertions;
@@ -42,11 +41,11 @@ namespace Ploch.Common.Tests
             var memoryStream = new MemoryStream();
             var writer = new StreamWriter(memoryStream);
             var sb = new StringBuilder();
-            for (int i = 0; i < 1000; i++)
+            for (var i = 0; i < 1000; i++)
             {
                 sb.Append($"Test string {i}");
             }
-            
+
             writer.Write(sb);
 
             memoryStream.Position = 0;

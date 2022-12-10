@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using Dawn;
-using JetBrains.Annotations;
 
 namespace Ploch.Common.IO
 {
@@ -10,7 +9,7 @@ namespace Ploch.Common.IO
         ///     Gets the (short) name of the directory.
         /// </summary>
         /// <param name="directoryPath">Directory path.</param>
-        public static string GetDirectoryName([NotNull] string directoryPath)
+        public static string GetDirectoryName(string directoryPath)
         {
             Guard.Argument(directoryPath, nameof(directoryPath)).NotNull().NotEmpty();
 

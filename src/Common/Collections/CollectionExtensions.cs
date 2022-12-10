@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dawn;
-using JetBrains.Annotations;
 
 namespace Ploch.Common.Collections
 {
@@ -18,10 +17,7 @@ namespace Ploch.Common.Collections
         ///     <param name="collection"></param>
         ///     .
         /// </returns>
-        [NotNull]
-        public static IDictionary<TKey, TValue> AddIfNotNull<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> collection,
-                                                                           [NotNull] TKey key,
-                                                                           [CanBeNull] TValue value) where TValue : class
+        public static IDictionary<TKey, TValue> AddIfNotNull<TKey, TValue>(this IDictionary<TKey, TValue> collection, TKey key, TValue value) where TValue : class
         {
             Guard.Argument(collection, nameof(collection)).NotNull();
 
@@ -44,10 +40,8 @@ namespace Ploch.Common.Collections
         ///     <param name="collection"></param>
         ///     .
         /// </returns>
-        [NotNull]
-        public static ICollection<KeyValuePair<TKey, TValue>> AddIfNotNull<TKey, TValue>([NotNull] this ICollection<KeyValuePair<TKey, TValue>> collection,
-                                                                                         TKey key,
-                                                                                         TValue value) where TValue : class
+        public static ICollection<KeyValuePair<TKey, TValue>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value)
+            where TValue : class
         {
             Guard.Argument(collection, nameof(collection)).NotNull();
 
@@ -70,12 +64,12 @@ namespace Ploch.Common.Collections
         /// <param name="value">Second parameter (value) value.</param>
         /// <returns>Same instance of collection that values were added to, providing fluent interface.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="collection" /> is <see langword="null" />.</exception>
-        [NotNull]
-        public static ICollection<KeyValuePair<TKey, TValue>> Add<TKey, TValue>([NotNull] this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value)
+        public static ICollection<KeyValuePair<TKey, TValue>> Add<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value)
         {
             Guard.Argument(collection, nameof(collection)).NotNull();
 
             collection.Add(new KeyValuePair<TKey, TValue>(key, value));
+
             return collection;
         }
 
@@ -87,7 +81,7 @@ namespace Ploch.Common.Collections
         ///     <paramref name="collection" /> or <paramref name="items" /> is
         ///     <see langword="null" />
         /// </exception>
-        public static void AddMany<TItem>([NotNull] this ICollection<TItem> collection, params TItem[] items)
+        public static void AddMany<TItem>(this ICollection<TItem> collection, params TItem[] items)
         {
             Guard.Argument(collection, nameof(collection)).NotNull();
 
@@ -102,7 +96,7 @@ namespace Ploch.Common.Collections
         ///     <paramref name="collection" /> or <paramref name="items" /> is
         ///     <see langword="null" />
         /// </exception>
-        public static void AddMany<TItem>([NotNull] this ICollection<TItem> collection, IEnumerable<TItem> items)
+        public static void AddMany<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
         {
             Guard.Argument(collection, nameof(collection)).NotNull();
 
@@ -119,7 +113,7 @@ namespace Ploch.Common.Collections
         ///     <paramref name="collection" /> or <paramref name="items" /> is
         ///     <see langword="null" />
         /// </exception>
-        private static void AddManyInternal<TItem>([NotNull] this ICollection<TItem> collection, [NotNull] IEnumerable<TItem> items)
+        private static void AddManyInternal<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
         {
             Guard.Argument(items, nameof(items)).NotNull();
             Guard.Argument(collection, nameof(collection)).NotNull();

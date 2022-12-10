@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Reflection;
 using Dawn;
-using JetBrains.Annotations;
 
 namespace Ploch.Common.Reflection
 {
@@ -15,12 +14,12 @@ namespace Ploch.Common.Reflection
         /// </summary>
         /// <param name="assembly">The assembly</param>
         /// <returns>The directory name where assembly is located.</returns>
-        [NotNull]
-        public static string GetAssemblyDirectory([NotNull] this Assembly assembly)
+        public static string GetAssemblyDirectory(this Assembly assembly)
         {
             Guard.Argument(assembly, nameof(assembly)).NotNull();
 
             var agentAssemblyPath = assembly.Location;
+
             return Path.GetDirectoryName(agentAssemblyPath);
         }
     }

@@ -4,7 +4,8 @@ namespace Ploch.Common.WebUI.TagUtilities
 {
     public static class SelectListHelper
     {
-        public static IList<SelectListItem> CreateFor<TModel>(IEnumerable<TModel> items, Func<TModel, object> textFunc,
+        public static IList<SelectListItem> CreateFor<TModel>(IEnumerable<TModel> items,
+                                                              Func<TModel, object> textFunc,
                                                               Func<TModel, object> valueFunc,
                                                               bool includeNull = false,
                                                               string nullText = "--- Select ---")

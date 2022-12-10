@@ -10,6 +10,7 @@ namespace Ploch.Common.IO
             {
                 stream.Position = 0;
                 stream.CopyTo(ms);
+
                 return ms.ToArray();
             }
         }

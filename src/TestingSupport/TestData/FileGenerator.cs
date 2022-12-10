@@ -7,11 +7,14 @@ namespace Ploch.TestingSupport.TestData
     public class FileGenerator
     {
         private readonly IContentGenerator _contentGenerator;
-        private readonly string _targetFoler;
         private readonly IFileNamingConvention _fileNamingConvention;
         private readonly IFileNamingConvention _folderNamingConvention;
+        private readonly string _targetFoler;
 
-        public FileGenerator(IContentGenerator contentGenerator, string targetFoler, IFileNamingConvention fileNamingConvention, IFileNamingConvention folderNamingConvention)
+        public FileGenerator(IContentGenerator contentGenerator,
+                             string targetFoler,
+                             IFileNamingConvention fileNamingConvention,
+                             IFileNamingConvention folderNamingConvention)
         {
             _contentGenerator = contentGenerator;
             _targetFoler = targetFoler;
@@ -22,15 +25,16 @@ namespace Ploch.TestingSupport.TestData
         public void Generate(int filesPerFolder, int folders)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 sb.AppendLine(Guid.NewGuid().ToString());
             }
-            
+
             if (!Directory.Exists(_targetFoler))
             {
                 Directory.CreateDirectory(_targetFoler);
             }
+
             for (var folderNum = 1; folderNum <= folders; folderNum++)
             {
                 var directoryName = _folderNamingConvention.GetName(folderNum);

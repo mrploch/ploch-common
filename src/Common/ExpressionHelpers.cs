@@ -25,6 +25,7 @@ namespace Ploch.Common
             var bodyNodeType = lambdaExpression.Body.NodeType;
 
             var dele = lambdaExpression.Compile();
+
             return dele.DynamicInvoke();
         }
 
@@ -38,18 +39,21 @@ namespace Ploch.Common
             if (expression is ConstantExpression)
             {
                 var constantExpression = (ConstantExpression)expression;
+
                 return getValue(constantExpression);
             }
 
             if (expression is MemberExpression)
             {
                 var memberExpression = (MemberExpression)expression;
+
                 return getValue(memberExpression, allowCompile);
             }
 
             if (expression is MethodCallExpression)
             {
                 var methodCallExpression = (MethodCallExpression)expression;
+
                 return getValue(methodCallExpression, allowCompile);
             }
 
@@ -74,6 +78,7 @@ namespace Ploch.Common
             if (member is FieldInfo)
             {
                 var fieldInfo = (FieldInfo)member;
+
                 return fieldInfo.GetValue(value);
             }
 

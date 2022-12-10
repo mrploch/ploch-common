@@ -17,12 +17,12 @@ namespace Ploch.TestinngSupport.Tests.AutoFixture
         string Name { get; set; }
 
         void DoSomething();
-
     }
-    
+
     public class AutoDataMoqTests
     {
-        [Theory, AutoMockData]
+        [Theory]
+        [AutoMockData]
         public void Should_Create_Simple_types_Test(string str, SimpleTestTypes.Type1 testType, ITestInterface testInterface)
         {
             str.Should().NotBeEmpty();
@@ -32,7 +32,6 @@ namespace Ploch.TestinngSupport.Tests.AutoFixture
             testInterface.Should().NotBeNull();
             testInterface.Name.Should().NotBeEmpty();
             testInterface.Should().BeAssignableTo<IMocked>();
-
         }
     }
 }

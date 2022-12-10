@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dawn;
-using JetBrains.Annotations;
 
 namespace Ploch.Common.Collections
 {
@@ -69,8 +68,8 @@ namespace Ploch.Common.Collections
         {
             Guard.Argument(source, nameof(source)).NotNull();
             Guard.Argument(predicate, nameof(predicate)).NotNull();
-            
-            foreach (TSource element in source)
+
+            foreach (var element in source)
             {
                 if (predicate(element))
                 {
@@ -91,9 +90,7 @@ namespace Ploch.Common.Collections
             return string.Join(separator, source.Select(valueSelector));
         }
 
-        public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source,
-                                                                     string separator,
-                                                                     string finalSeparator)
+        public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source, string separator, string finalSeparator)
         {
             return JoinWithFinalSeparator(source, separator, finalSeparator, v => v.ToString());
         }
@@ -105,7 +102,8 @@ namespace Ploch.Common.Collections
         {
             var arraySource = source as TValue[] ?? source.ToArray();
             var count = arraySource.Length;
-            return Join(arraySource.Take(count - 1), separator, valueSelector ) + finalSeparator + valueSelector(arraySource.Last());
+
+            return Join(arraySource.Take(count - 1), separator, valueSelector) + finalSeparator + valueSelector(arraySource.Last());
         }
     }
 }

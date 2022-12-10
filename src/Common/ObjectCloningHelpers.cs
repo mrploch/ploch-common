@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 
 namespace Ploch.Common
 {
@@ -26,7 +25,7 @@ namespace Ploch.Common
             CopyProperties(source, target, null, excludedProperties);
         }
 
-        private static void CopyProperties<T>([NotNull] this T source, [NotNull] T target, IEnumerable<string>? includedProperties, params string[]? excludedProperties)
+        private static void CopyProperties<T>(this T source, T target, IEnumerable<string>? includedProperties, params string[]? excludedProperties)
         {
             var properties = typeof(T).GetProperties();
             var includedPropertiesSet = includedProperties != null ? new HashSet<string>(includedProperties) : null;

@@ -37,9 +37,11 @@ namespace Ploch.Common.Tests
 
             str.ReplaceStart(@"c:\my\awesome", @"d:\new").Should().Be(@"d:\new\path");
             "MY test string...".ReplaceStart("my Test", "My awesome", StringComparison.OrdinalIgnoreCase).Should().Be("My awesome string...");
-            "MY test string...".ReplaceStart("my Test", "My very long replacement awesome", StringComparison.OrdinalIgnoreCase).Should().Be("My very long replacement awesome string...");
+            "MY test string...".ReplaceStart("my Test", "My very long replacement awesome", StringComparison.OrdinalIgnoreCase)
+                               .Should()
+                               .Be("My very long replacement awesome string...");
             "test string where result should be the same".ReplaceStart("est string", "not important").Should().Be("test string where result should be the same");
-            
+
             "".ReplaceStart("", "My awesome", StringComparison.OrdinalIgnoreCase).Should().Be("My awesome");
         }
     }

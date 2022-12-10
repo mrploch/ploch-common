@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using Dawn;
-using JetBrains.Annotations;
 
 namespace Ploch.Common
 {
@@ -43,12 +42,12 @@ namespace Ploch.Common
             return Convert.ToBase64String(encoding.GetBytes(str));
         }
 
-        public static string FromBase64String([NotNull] this string str)
+        public static string FromBase64String(this string str)
         {
             return FromBase64String(str, Encoding.UTF8);
         }
 
-        public static string FromBase64String([NotNull] this string str, Encoding encoding)
+        public static string FromBase64String(this string str, Encoding encoding)
         {
             Guard.Argument(str, nameof(str)).NotNull();
 
@@ -70,10 +69,7 @@ namespace Ploch.Common
             return str.Equals(other, comparison);
         }
 
-        public static string ReplaceStart([NotNull] this string str,
-                                          [NotNull] string oldValue,
-                                          [NotNull] string newValue,
-                                          StringComparison stringComparison = StringComparison.InvariantCulture)
+        public static string ReplaceStart(this string str, string oldValue, string newValue, StringComparison stringComparison = StringComparison.InvariantCulture)
         {
             Guard.Argument(str, nameof(str)).NotNull();
             Guard.Argument(newValue, nameof(newValue)).NotNull();

@@ -4,9 +4,9 @@ namespace Ploch.TestingSupport.TestData
 {
     public class NewGuidNamingConvention : IFileNamingConvention
     {
+        private readonly string _extension;
         private readonly string _prefix;
         private readonly string _suffix;
-        private readonly string _extension;
 
         public NewGuidNamingConvention(string prefix, string suffix, string extension)
         {
@@ -16,6 +16,7 @@ namespace Ploch.TestingSupport.TestData
             {
                 extension = "." + extension;
             }
+
             _extension = extension;
         }
 

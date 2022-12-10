@@ -1,93 +1,92 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup Label="Globals">
-        <SccProjectName>SAK</SccProjectName>
-        <SccProvider>SAK</SccProvider>
-        <SccAuxPath>SAK</SccAuxPath>
-        <SccLocalPath>SAK</SccLocalPath>
-    </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Ploch.Common.Data.Model</AssemblyName>
-        <RootNamespace>Ploch.Common.Data.Model</RootNamespace>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-        <PreBuildEvent></PreBuildEvent>
-        <Description>Library with common data model interfaces.</Description>
-        <Product>Ploch.Common.Data.Model</Product>
-        <PackageId>Ploch.Common.Data.Model</PackageId>
-        <PackageReleaseNotes>None</PackageReleaseNotes>
-        <Version>1.0.0</Version>
-        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Ploch.Common.Data.Model</AssemblyName>
+    <RootNamespace>Ploch.Common.Data.Model</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PreBuildEvent></PreBuildEvent>
+    <Description>Library with common data model interfaces.</Description>
+    <Product>Ploch.Common.Data.Model</Product>
+    <PackageId>Ploch.Common.Data.Model</PackageId>
+    <PackageReleaseNotes>None</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <ShouldCreateLogs>True</ShouldCreateLogs>
-        <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
-        <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-        <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-        <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-        <UpdatePackageVersion>False</UpdatePackageVersion>
-        <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-        <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-        <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+  </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <ShouldCreateLogs>True</ShouldCreateLogs>
-        <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
-        <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-        <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-        <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-        <UpdatePackageVersion>False</UpdatePackageVersion>
-        <PackageVersionSettings>AssemblyVersion.IncrementWithAutoReset.None</PackageVersionSettings>
-        <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-        <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-        <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <PackageVersionSettings>AssemblyVersion.IncrementWithAutoReset.None</PackageVersionSettings>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <Compile Remove="Properties\**" />
-        <EmbeddedResource Remove="Properties\**" />
-        <None Remove="Properties\**" />
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**"/>
+    <EmbeddedResource Remove="Properties\**"/>
+    <None Remove="Properties\**"/>
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.0" />
-        <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.50.0.58025">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.0"/>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.50.0.58025">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Types\" />
-    </ItemGroup>
-    <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
-    <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
-    <!--     <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" /> -->
-    <!--   </GetAssemblyIdentity> -->
-    <!--   <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
-    <!--   <Exec Command="nuget add $(TargetName).%(AssemblyVersion.Version).nupkg -Source C:\devnet\.nuget"></Exec> -->
-    <!-- </Target> -->
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-            <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
-        </GetAssemblyIdentity>
-        <!-- <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
-        <!-- <Exec Command="nuget add $(TargetName).1.0.0.nupkg -Source C:\devnet\.nuget"></Exec> -->
-    </Target>
+  <ItemGroup>
+    <Folder Include="Types\"/>
+  </ItemGroup>
+  <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
+  <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
+  <!--     <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" /> -->
+  <!--   </GetAssemblyIdentity> -->
+  <!--   <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
+  <!--   <Exec Command="nuget add $(TargetName).%(AssemblyVersion.Version).nupkg -Source C:\devnet\.nuget"></Exec> -->
+  <!-- </Target> -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion"/>
+    </GetAssemblyIdentity>
+    <!-- <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
+    <!-- <Exec Command="nuget add $(TargetName).1.0.0.nupkg -Source C:\devnet\.nuget"></Exec> -->
+  </Target>
 </Project>

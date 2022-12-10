@@ -22,7 +22,10 @@ namespace Ploch.TestingSupport.TestData
             if (request is ParameterInfo parameter)
             {
                 var testDataAttribute = parameter.GetCustomAttribute<TestDataAttribute>();
-                if (testDataAttribute != null) return TestData.ReadText(testDataAttribute.DataFileName);
+                if (testDataAttribute != null)
+                {
+                    return TestData.ReadText(testDataAttribute.DataFileName);
+                }
             }
 
             return new NoSpecimen();
@@ -39,7 +42,10 @@ namespace Ploch.TestingSupport.TestData
         public void Customize(IFixture fixture)
         {
             if (fixture == null)
+            {
                 throw new ArgumentNullException(nameof(fixture));
+            }
+
             fixture.Customizations.Add(new TestDataProvider());
         }
     }

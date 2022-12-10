@@ -8,12 +8,6 @@ namespace Ploch.Common.DependencyInjection
     {
         private readonly ICollection<Action<IServiceCollection>> _serviceCollectionActions = new List<Action<IServiceCollection>>();
 
-        public DelegatingServicesBundle Configure(Action<IServiceCollection> serviceCollectionAction)
-        {
-            _serviceCollectionActions.Add(serviceCollectionAction);
-            return this;
-        }
-
         /// <inheritdoc />
         /// <exception cref="T:System.Exception">A delegate callback throws an exception.</exception>
         public void Configure(IServiceCollection serviceCollection)
@@ -22,6 +16,13 @@ namespace Ploch.Common.DependencyInjection
             {
                 serviceCollectionAction(serviceCollection);
             }
+        }
+
+        public DelegatingServicesBundle Configure(Action<IServiceCollection> serviceCollectionAction)
+        {
+            _serviceCollectionActions.Add(serviceCollectionAction);
+
+            return this;
         }
     }
 }

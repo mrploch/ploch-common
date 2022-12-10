@@ -24,6 +24,7 @@ namespace Ploch.TestingSupport.AutoFixture
             var fixture = new Fixture();
 
             Configurator.Configure(fixture);
+
             return fixture;
         }
     }

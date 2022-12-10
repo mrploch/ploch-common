@@ -1,12 +1,11 @@
 ﻿using AutoFixture;
 using AutoFixture.AutoMoq;
 
-
 namespace Ploch.TestingSupport.AutoFixture
 {
     /// <summary>
-    /// Fixture configuration with AutoMock customization.
-    /// Fixture factory using <see cref="DefaultFixtureConfigurator">Default Fixture Configurator</see>
+    ///     Fixture configuration with AutoMock customization.
+    ///     Fixture factory using <see cref="DefaultFixtureConfigurator">Default Fixture Configurator</see>
     /// </summary>
     public static class FixtureConfiguratorFactory
     {
@@ -46,6 +45,7 @@ namespace Ploch.TestingSupport.AutoFixture
             {
                 fixture.Customize(customization);
             }
+
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
         }

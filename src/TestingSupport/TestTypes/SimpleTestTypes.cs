@@ -5,6 +5,7 @@
         public class Type1
         {
             public int IntProperty1 { get; set; }
+
             public string StringProperty1 { get; set; }
 
             public bool BoolProperty1 { get; set; }

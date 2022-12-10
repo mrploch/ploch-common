@@ -6,7 +6,6 @@
     <Authors>Krzysztof Ploch</Authors>
     <Company>Ploch</Company>
     <Product>Ploch.Common.Data.Utilities</Product>
-    <Version>1.0.0</Version>
     <Description>Misc data access helpers</Description>
   </PropertyGroup>
 
@@ -36,7 +35,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

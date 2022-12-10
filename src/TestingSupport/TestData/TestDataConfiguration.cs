@@ -36,8 +36,15 @@ namespace Ploch.TestingSupport.TestData
 
         public void SetTestDataFolder(string folder)
         {
-            if (folder == null) throw new ArgumentNullException("folder");
-            if (string.IsNullOrEmpty(folder)) throw new ArgumentException("Folder cannot be empty", "folder");
+            if (folder == null)
+            {
+                throw new ArgumentNullException("folder");
+            }
+
+            if (string.IsNullOrEmpty(folder))
+            {
+                throw new ArgumentException("Folder cannot be empty", "folder");
+            }
 
             BasePath = Path.Combine(BasePath, folder);
         }

@@ -14,7 +14,6 @@ namespace Ploch.TestingSupport.Tests.TestData
                                               new DelegatedNamingConvention(folderNum => $"folder-{folderNum}"));
 
             generator.Generate(100, 100);
-
         }
     }
 }
