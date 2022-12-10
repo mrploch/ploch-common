@@ -4,10 +4,6 @@
 
 This repository is a collection of miscellaneous utility libraries.
 
-There're similar libraries out there, but his one has a huge advantage: it's mine ;)
-
-Anyway, those utilities have proven to be very useful to me. I use them every day.
-
 ## Projects and Packages
 
 Repository consists of the following main projects:
