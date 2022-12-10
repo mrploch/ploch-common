@@ -36,6 +36,7 @@ steps:
     extraProperties: |
      sonar.cs.xunit.reportsPaths=${Agent.TempDirectory}/**/XUnit.TestResults.xml
      sonar.cs.opencover.reportsPaths=${Agent.TempDirectory}/**/opencoverCoverage.xml
+     sonar.verbose=true
 
 - task: DotNetCoreCLI@2
   displayName: 'Build Projects'  
