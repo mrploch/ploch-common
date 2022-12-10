@@ -1,10 +1,10 @@
 ﻿using System;
-using Ploch.Common.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection.Metadata.Ecma335;
+using AutoFixture.Xunit2;
 using FluentAssertions;
+using Ploch.Common.Collections;
 using Ploch.TestingSupport.Xunit.AutoFixture;
 using Xunit;
 
@@ -23,11 +23,7 @@ namespace Ploch.Common.Tests.Collections
             list.Add("test2", 2).Add("test3", 3);
             list.Should().HaveCount(3);
 
-            list.Should()
-                .Contain(new List<KeyValuePair<string, int>>
-                {
-                    new KeyValuePair<string, int>("test1", 1), new KeyValuePair<string, int>("test2", 2), new KeyValuePair<string, int>("test3", 3)
-                });
+            list.Should().Contain(new List<KeyValuePair<string, int>> { new("test1", 1), new("test2", 2), new("test3", 3) });
         }
 
         [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
@@ -35,34 +31,47 @@ namespace Ploch.Common.Tests.Collections
         public void KeyValuePairThrowsOnNullCollection()
         {
             Assert.Throws<ArgumentNullException>(() =>
-            {
-                List<KeyValuePair<string, string>> list = null;
-                list.Add("a", "b");
-            });
+                                                 {
+                                                     List<KeyValuePair<string, string>> list = null;
+                                                     list.Add("a", "b");
+                                                 });
         }
 
-
-
-        [Theory, AutoDataMoq]
+        [Theory]
+        [AutoDataMoq]
         public void AddMany_should_extend_collection_with_items(string[] items)
         {
-            var target = new Collection<string>() {"itme1", "item2"};
-            
+            var target = new Collection<string> { "itme1", "item2" };
+
             target.AddMany(items);
             target.Should().HaveCount(items.Length + 2);
-            target.Should().Contain(new[] {"itme1", "item2"}, items);
+            var expected = new List<string> { "itme1", "item2" };
+            expected.AddRange(items);
+            target.Should().Contain(expected);
         }
 
         [Fact]
         public void AddMany_should_extend_collection_with__coll_items()
         {
-            var target = new Collection<string>() { "itme1", "item2" };
-            var items = new Collection<string>() { "item3", "item4"};
+            var target = new Collection<string> { "itme1", "item2" };
+            var items = new Collection<string> { "item3", "item4" };
 
             target.AddMany(items);
             target.Should().HaveCount(4);
             target.Should().Contain(new[] { "itme1", "item2" }, "item3", "item4");
         }
 
+        [Theory]
+        [AutoData]
+        public void AddIfNotNull_adds_item_to_dictionary_if_value_is_not_null(Dictionary<string, string> dict)
+        {
+            var notNullkey = "notNullKey";
+            var nullKey = "nullKey";
+            var notNullValue = "notNullValue";
+            dict.AddIfNotNull(notNullkey, notNullValue).AddIfNotNull(nullKey, null);
+
+            dict.Should().Contain(notNullkey, notNullValue);
+            dict.Should().NotContainKey(nullKey);
+        }
     }
 }

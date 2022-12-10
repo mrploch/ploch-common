@@ -6,16 +6,19 @@ namespace Ploch.Common.Tests.Reflection
     {
         public class TestTypeWithMixedSettersAndGetter
         {
-            public string _stringPropNoGetter;
-            public string _stringPropNoSetter;
+            public string? _stringPropNoGetter;
+
+#pragma warning disable 649 //  [CS0649] Field 'TestTypes.TestTypeWithMixedSettersAndGetter._stringPropNoSetter' is never assigned to, and will always have its default value null
+            public string? _stringPropNoSetter;
+#pragma warning restore 649
 
             public int IntProp { get; set; }
 
-            public string StringProp { get; set; }
+            public string? StringProp { get; set; }
 
             public int IntProp2 { get; set; }
 
-            public string StringProp2 { get; set; }
+            public string? StringProp2 { get; set; }
 
             public string StringPropNoSetter => _stringPropNoSetter;
 
@@ -31,15 +34,15 @@ namespace Ploch.Common.Tests.Reflection
         {
             public int IntProp { get; set; }
 
-            public string StringProp { get; set; }
+            public string? StringProp { get; set; }
 
-            public string StringProp2 { get; set; }
+            public string? StringProp2 { get; set; }
 
-            public TestTypeBase TestTypeBaseProp { get; set; }
+            public TestTypeBase? TestTypeBaseProp { get; set; }
 
-            public TestType2 TestType2Prop { get; set; }
+            public TestType2? TestType2Prop { get; set; }
 
-            protected string MyProtectedStringProp { get; set; }
+            protected string? MyProtectedStringProp { get; set; }
         }
 
         public class TestTypeBase
@@ -50,26 +53,26 @@ namespace Ploch.Common.Tests.Reflection
 
         public class Class1
         {
-            public string MyProperty { get; set; }
+            public string? MyProperty { get; set; }
         }
 
         [Attribute2(nameof(Attribute2Attribute))]
         public class ClassWith_Attribute2
         {
-            public string MyProperty { get; set; }
+            public string? MyProperty { get; set; }
         }
 
         [Attribute1_1(PropInt = 100, PropInt2 = 200)]
         [Attribute2("Test2")]
         public class ClassWith_Attribute1_1_And_Attribute2
         {
-            public string MyProperty { get; set; }
+            public string? MyProperty { get; set; }
         }
 
         [Attribute1("blah", PropInt = 111)]
         public class ClassWithInherited_Attribute1_1_And_Attribute2 : ClassWith_Attribute1_1_And_Attribute2
         {
-            public string MyProperty2 { get; set; }
+            public string? MyProperty2 { get; set; }
         }
 
         public class Attribute1Attribute : Attribute

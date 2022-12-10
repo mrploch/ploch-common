@@ -1,16 +1,16 @@
-﻿using Dawn;
-using System;
+﻿using System;
 using System.Linq.Expressions;
+using Dawn;
 
 namespace Ploch.Common
 {
     /// <summary>
-    /// Extension methods for <see cref="Expression"/>.
+    ///     Extension methods for <see cref="Expression" />.
     /// </summary>
     /// <remarks>
-    /// Contains various utility extension methods for working with <see cref="Expression"/> objects.
+    ///     Contains various utility extension methods for working with <see cref="Expression" /> objects.
     /// </remarks>
-    /// <seealso cref="Expression"/>
+    /// <seealso cref="Expression" />
     public static class ExpressionExtensions
     {
         /// <summary>
@@ -59,7 +59,7 @@ namespace Ploch.Common
             {
                 return methodCallExpression.Method.Name;
             }
-            
+
             throw new InvalidOperationException("Not a member expression!");
         }
 
@@ -71,8 +71,10 @@ namespace Ploch.Common
         /// <param name="expression">Expression</param>
         /// <returns>Member name</returns>
         /// <exception cref="InvalidOperationException">Not a member expression and not unary expression for member.</exception>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="argument" /> value is <c>null</c> and the argument is not modified
-        ///                 since it is initialized.</exception>
+        /// <exception cref="T:System.ArgumentNullException">
+        ///     <paramref name="argument" /> value is <c>null</c> and the argument is not modified
+        ///     since it is initialized.
+        /// </exception>
         public static string GetMemberName<TType, TMember>(this Expression<Func<TType, TMember>> expression)
         {
             Guard.Argument(expression, nameof(expression)).NotNull();
@@ -95,6 +97,7 @@ namespace Ploch.Common
                     return memberExpression.Member.Name;
                 }
             }
+
             throw new InvalidOperationException("Not a member expression and not unary expression for member.");
         }
     }

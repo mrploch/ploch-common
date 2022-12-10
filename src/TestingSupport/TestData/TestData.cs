@@ -4,18 +4,7 @@ namespace Ploch.TestingSupport.TestData
 {
     public static class TestData
     {
-        public static TestDataConfiguration Configuration { get; } = new TestDataConfiguration();
-
-        private static string GetPathToData(string location)
-        {
-            return Path.Combine(Configuration.BasePath, location);
-        }
-
-        private static FileInfo GetFile(string location)
-        {
-            var file = new FileInfo(GetPathToData(location));
-            return file;
-        }
+        public static TestDataConfiguration Configuration { get; } = new();
 
         public static Stream OpenStream(string location)
         {
@@ -35,6 +24,18 @@ namespace Ploch.TestingSupport.TestData
         public static string ReadText(string location)
         {
             return OpenText(location).ReadToEnd();
+        }
+
+        private static string GetPathToData(string location)
+        {
+            return Path.Combine(Configuration.BasePath, location);
+        }
+
+        private static FileInfo GetFile(string location)
+        {
+            var file = new FileInfo(GetPathToData(location));
+
+            return file;
         }
     }
 }

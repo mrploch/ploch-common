@@ -1,25 +1,17 @@
-﻿using Dawn;
-using JetBrains.Annotations;
-using Ploch.Common.Collections;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-
-namespace Ploch.Common.Diagnostics
+﻿namespace Ploch.Common.Diagnostics
 {
     // TODO: This needs to be downgraded to support .NET Standard 2.0
 
     // public static class ProcessHelper
     // {
-    //     public static Process Start([NotNull] string fileName, Action<string> outputDataReceivedAction, params string[] arguments)
+    //     public static Process Start( string fileName, Action<string> outputDataReceivedAction, params string[] arguments)
     //     {
     //         Guard.Argument(fileName, nameof(fileName)).NotNull().NotWhiteSpace();
     //         return Start(fileName, (_, args) => outputDataReceivedAction?.Invoke(args.Data), arguments);
     //     }
     //
     //
-    //     public static Process Start([NotNull] string fileName, DataReceivedEventHandler outputDataReceived, params string[] arguments)
+    //     public static Process Start( string fileName, DataReceivedEventHandler outputDataReceived, params string[] arguments)
     //     {
     //         Guard.Argument(fileName, nameof(fileName)).NotNull().NotWhiteSpace();
     //         var process = new Process { StartInfo = new ProcessStartInfo(fileName)};
@@ -31,7 +23,6 @@ namespace Ploch.Common.Diagnostics
     //     }
     // }
 
-
     // public class ProcessBuilder
     // {
     //     private readonly Process _process;
@@ -39,18 +30,18 @@ namespace Ploch.Common.Diagnostics
     //     public ProcessBuilder() : this(new Process())
     //     { }
     //
-    //     public ProcessBuilder([NotNull] Process process) 
+    //     public ProcessBuilder( Process process) 
     //     {
     //         _process = Guard.Argument(process, nameof(process)).NotNull();
     //     }
     //
-    //     public ProcessBuilder WithFileName([NotNull] string fileName)
+    //     public ProcessBuilder WithFileName( string fileName)
     //     {
     //         _process.StartInfo.FileName = Guard.Argument(fileName, nameof(fileName)).NotNull().NotWhiteSpace();
     //         return this;
     //     }
     //
-    //     public ProcessBuilder WithArguments([NotNull] params string[] arguments)
+    //     public ProcessBuilder WithArguments( params string[] arguments)
     //     {
     //         Guard.Argument(arguments, nameof(arguments)).NotNull();
     //
@@ -58,7 +49,7 @@ namespace Ploch.Common.Diagnostics
     //         return this;
     //     }
     //
-    //     public ProcessBuilder WithArguments([NotNull] IEnumerable<string> arguments)
+    //     public ProcessBuilder WithArguments( IEnumerable<string> arguments)
     //     {
     //         Guard.Argument(arguments, nameof(arguments)).NotNull();
     //
@@ -66,7 +57,7 @@ namespace Ploch.Common.Diagnostics
     //         return this;
     //     }
     //
-    //     public ProcessBuilder CaptureOutput([NotNull] Action<string?> outputAction)
+    //     public ProcessBuilder CaptureOutput( Action<string?> outputAction)
     //     {
     //         Guard.Argument(outputAction, nameof(outputAction)).NotNull();
     //

@@ -8,7 +8,7 @@ namespace Ploch.Common.Tests
 {
     public class ExpressionExtensionsTests
     {
-        public string MySelfProperty { get; set; }
+        public string? MySelfProperty { get; set; }
 
         [Fact]
         public void GetMemberName_NoType_Method()
@@ -38,11 +38,10 @@ namespace Ploch.Common.Tests
         [Fact]
         public void GetMemberName_should_return_variable_name()
         {
-            string str = "test";
+            var str = "test";
             Expression<Func<string>> expression = () => str;
 
             expression.GetMemberName().Should().Be("str");
-            
         }
     }
 }

@@ -42,14 +42,11 @@ namespace Ploch.Common.Reflection
 
             return type.GetTypeInfo()
                        .GetProperties()
-                       .Where(
-                              pi =>
+                       .Where(pi =>
                               {
                                   Debug.WriteLine(pi.Name);
 
-                                  return includeSubTypes
-                                             ? propertyType.GetTypeInfo().IsAssignableFrom(pi.PropertyType)
-                                             : pi.PropertyType == propertyType;
+                                  return includeSubTypes ? propertyType.GetTypeInfo().IsAssignableFrom(pi.PropertyType) : pi.PropertyType == propertyType;
                               });
         }
 

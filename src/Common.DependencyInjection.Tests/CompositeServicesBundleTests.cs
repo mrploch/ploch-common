@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.TestingSupport.Moq;
-using Ploch.TestingSupport.Xunit.AutoFixture;
 using SparkyTestHelpers.Moq;
 using Xunit;
 
@@ -18,7 +18,7 @@ namespace Ploch.Common.DependencyInjection.Tests
             public void Configure(IServiceCollection serviceCollection)
             { }
         }
-        [Theory, AutoDataMoq]
+        [Theory, AutoMockData]
         public void Configure_should_process_all_added_bundles(IServicesBundle[] servicesBundles)
         {
             var sut = new CompositeServicesBundle();

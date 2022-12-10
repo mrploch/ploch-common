@@ -8,6 +8,7 @@ namespace Ploch.Common
     public static class DateTimeExtensions
     {
         private static readonly TimeZoneInfo UtcTimeZone = TimeZoneInfo.FindSystemTimeZoneById("UTC");
+
         /// <summary>
         ///     Converts a <see cref="DateTime" /> to Epoch Seconds (Unix Timestamp - seconds since 00:00:00 UTC on 1 January
         ///     1970).
@@ -42,11 +43,17 @@ namespace Ploch.Common
         /// <summary>
         ///     Converts Epoch Seconds value to <see cref="DateTime" />.
         /// </summary>
-        /// <param name="epochSeconds">The epoch seconds.</param>
+        /// <param name="epochSecondsOrMilliseconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
-        public static DateTime ToDateTime(this long epochSeconds)
+        public static DateTime ToDateTime(this long epochSecondsOrMilliseconds)
         {
-            var dateTime = DateTimeOffset.FromUnixTimeSeconds(epochSeconds).DateTime;
+            if (epochSecondsOrMilliseconds < -62135596800 || epochSecondsOrMilliseconds > 253402300799)
+            {
+                epochSecondsOrMilliseconds /= 1000;
+            }
+
+            var dateTime = DateTimeOffset.FromUnixTimeSeconds(epochSecondsOrMilliseconds).DateTime;
+
             return TimeZoneInfo.ConvertTimeToUtc(dateTime, UtcTimeZone);
         }
 
@@ -55,14 +62,10 @@ namespace Ploch.Common
         /// </summary>
         /// <param name="epochSeconds">The epoch seconds.</param>
         /// <returns>DateTime.</returns>
-        public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct,
-                                                                            IComparable,
-                                                                            IComparable<T>,
-                                                                            IConvertible,
-                                                                            IEquatable<T>,
-                                                                            IFormattable
+        public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
         {
             var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
+
             return epochSecondsAsLong.ToDateTime();
         }
 

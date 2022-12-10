@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dawn;
 
 namespace Ploch.Common.Collections
 {
@@ -11,13 +12,44 @@ namespace Ploch.Common.Collections
         /// <param name="collection">The collection.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <returns>the value of <param name="collection"></param>.</returns>
-        public static ICollection<KeyValuePair<TKey, TValue>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value) where TValue : class
+        /// <returns>
+        ///     the value of
+        ///     <param name="collection"></param>
+        ///     .
+        /// </returns>
+        public static IDictionary<TKey, TValue> AddIfNotNull<TKey, TValue>(this IDictionary<TKey, TValue> collection, TKey key, TValue value) where TValue : class
         {
+            Guard.Argument(collection, nameof(collection)).NotNull();
+
             if (value != null)
             {
                 collection.Add(key, value);
             }
+
+            return collection;
+        }
+
+        /// <summary>Adds a value if value not null.</summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The type of the value.</typeparam>
+        /// <param name="collection">The collection.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>
+        ///     the value of
+        ///     <param name="collection"></param>
+        ///     .
+        /// </returns>
+        public static ICollection<KeyValuePair<TKey, TValue>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value)
+            where TValue : class
+        {
+            Guard.Argument(collection, nameof(collection)).NotNull();
+
+            if (value != null)
+            {
+                collection.Add(key, value);
+            }
+
             return collection;
         }
 
@@ -34,11 +66,10 @@ namespace Ploch.Common.Collections
         /// <exception cref="ArgumentNullException"><paramref name="collection" /> is <see langword="null" />.</exception>
         public static ICollection<KeyValuePair<TKey, TValue>> Add<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue>> collection, TKey key, TValue value)
         {
-            if (collection == null)
-            {
-                throw new ArgumentNullException(nameof(collection));
-            }
+            Guard.Argument(collection, nameof(collection)).NotNull();
+
             collection.Add(new KeyValuePair<TKey, TValue>(key, value));
+
             return collection;
         }
 
@@ -52,6 +83,8 @@ namespace Ploch.Common.Collections
         /// </exception>
         public static void AddMany<TItem>(this ICollection<TItem> collection, params TItem[] items)
         {
+            Guard.Argument(collection, nameof(collection)).NotNull();
+
             AddManyInternal(collection, items);
         }
 
@@ -65,11 +98,13 @@ namespace Ploch.Common.Collections
         /// </exception>
         public static void AddMany<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
         {
+            Guard.Argument(collection, nameof(collection)).NotNull();
+
             AddManyInternal(collection, items);
         }
 
         /// <summary>
-        /// Adds items to a collection
+        ///     Adds items to a collection
         /// </summary>
         /// <typeparam name="TItem"></typeparam>
         /// <param name="collection"></param>
@@ -80,14 +115,8 @@ namespace Ploch.Common.Collections
         /// </exception>
         private static void AddManyInternal<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
         {
-            if (collection is null)
-            {
-                throw new ArgumentNullException(nameof(collection));
-            }
-            if (items is null)
-            {
-                throw new ArgumentNullException(nameof(items));
-            }
+            Guard.Argument(items, nameof(items)).NotNull();
+            Guard.Argument(collection, nameof(collection)).NotNull();
 
             foreach (var item in items)
             {

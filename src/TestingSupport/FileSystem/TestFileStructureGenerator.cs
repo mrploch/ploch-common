@@ -15,6 +15,7 @@ namespace Ploch.TestingSupport.FileSystem
         }
 
         public IDirectoryInfo Directory { get; }
+
         public IList<IFileInfo> Files { get; } = new List<IFileInfo>();
 
         public IList<DirectoryStructureInfo> Directories { get; } = new List<DirectoryStructureInfo>();
@@ -91,29 +92,30 @@ namespace Ploch.TestingSupport.FileSystem
     public interface IFileTypeCreator
     {
         /// <summary>
-        /// If an out-of-the box file type, this property will contain the type from <see cref="FileType"/> enumeration.
-        /// When implementing a custom <see cref="IFileTypeCreator"/> using this library and no <see cref="FileType"/>
-        /// exists, use <c>FileType.Custom</c>
+        ///     If an out-of-the box file type, this property will contain the type from <see cref="FileType" /> enumeration.
+        ///     When implementing a custom <see cref="IFileTypeCreator" /> using this library and no <see cref="FileType" />
+        ///     exists, use <c>FileType.Custom</c>
         /// </summary>
         FileType FileType { get; }
 
         /// <summary>
-        /// Default extension for this file type.
+        ///     Default extension for this file type.
         /// </summary>
         string Extension { get; }
 
         /// <summary>
-        /// Creates a file and writes the content using information from <paramref name="fileInfo"/>.
-        /// Usually, a file represented by <paramref name="fileInfo"/> will not exist and this method will create it.
-        /// If a file exists, then behaviour will depend on the implementation.
+        ///     Creates a file and writes the content using information from <paramref name="fileInfo" />.
+        ///     Usually, a file represented by <paramref name="fileInfo" /> will not exist and this method will create it.
+        ///     If a file exists, then behaviour will depend on the implementation.
         /// </summary>
         /// <param name="fileInfo">Represents the information about a file that will be created.</param>
         void Create(IFileInfo fileInfo);
     }
 
     /// <summary>
-    /// Interface identifying types that use <see href="https://github.com/AutoFixture/AutoFixture">AutoFixture</see> library to create
-    /// anonymous types and values. Such types can then be configured in a common way.
+    ///     Interface identifying types that use <see href="https://github.com/AutoFixture/AutoFixture">AutoFixture</see>
+    ///     library to create
+    ///     anonymous types and values. Such types can then be configured in a common way.
     /// </summary>
     public interface IUsingFixture
     {
@@ -121,22 +123,13 @@ namespace Ploch.TestingSupport.FileSystem
     }
 
     /// <summary>
-    /// Implementation of <see cref="IFileTypeCreator"/> that creates text files.
+    ///     Implementation of <see cref="IFileTypeCreator" /> that creates text files.
     /// </summary>
     public class TextFileTypeCreator : IFileTypeCreator, IUsingFixture
     {
-        private readonly bool _randomContent;
         private readonly int _contentLength;
         private readonly Func<string> _contentProvider;
-
-        /// <inheritdoc />
-        public FileType FileType => FileType.PlainText;
-
-        public IFixture Fixture { get; set; } = new Fixture();
-
-
-        /// <inheritdoc />
-        public string Extension => "txt";
+        private readonly bool _randomContent;
 
         public TextFileTypeCreator(bool randomContent = true, int contentLength = -1, Func<string> contentProvider = null)
         {
@@ -146,6 +139,12 @@ namespace Ploch.TestingSupport.FileSystem
         }
 
         /// <inheritdoc />
+        public FileType FileType => FileType.PlainText;
+
+        /// <inheritdoc />
+        public string Extension => "txt";
+
+        /// <inheritdoc />
         public void Create(IFileInfo fileInfo)
         {
             using (var writer = fileInfo.CreateText())
@@ -153,12 +152,14 @@ namespace Ploch.TestingSupport.FileSystem
                 writer.Write(Fixture.Create(GetType().Name));
             }
         }
+
+        public IFixture Fixture { get; set; } = new Fixture();
     }
 
     public class TestFileStructureGenerator
     {
-        private readonly IFileSystem _fileSystem;
         private readonly FileStructureGeneratorConfiguration _configuration;
+        private readonly IFileSystem _fileSystem;
 
         public TestFileStructureGenerator(IFileSystem fileSystem, FileStructureGeneratorConfiguration configuration)
         {
@@ -166,11 +167,7 @@ namespace Ploch.TestingSupport.FileSystem
             _configuration = configuration;
         }
 
-        public void CreateDirectoryStructure(string rootPath,
-                                             string namePrefix,
-                                             int levels = 3,
-                                             int foldersPerLevel = 3,
-                                             int filesPerFolder = 3)
+        public void CreateDirectoryStructure(string rootPath, string namePrefix, int levels = 3, int foldersPerLevel = 3, int filesPerFolder = 3)
         {
             var rootDir = _fileSystem.DirectoryInfo.FromDirectoryName(rootPath);
         }
@@ -190,19 +187,18 @@ namespace Ploch.TestingSupport.FileSystem
             return parentInfo;
         }
 
-        public IFileInfo CreateFile(IDirectoryInfo directory,
-                                    string name = null,
-                                    string extension = null)
+        public IFileInfo CreateFile(IDirectoryInfo directory, string name = null, string extension = null)
         {
             var fixture = new Fixture();
             name = name ?? _configuration.FileNamePrefix + fixture.Create<string>();
             extension = extension ?? _configuration.FileExtensions.First();
 
             var file = _fileSystem.FileInfo.FromFileName(Path.Combine(directory.FullName, $"{name}.{extension}"));
-            
+
             using (var writer = file.CreateText())
             {
                 writer.WriteLine(fixture.Create<string>());
+
                 return file;
             }
         }
@@ -214,9 +210,15 @@ namespace Ploch.TestingSupport.FileSystem
                                                                Action<IDirectoryInfo, DirectoryStructureInfo> directoryCreatedAction = null,
                                                                DirectoryStructureInfo parentInfo = null)
         {
-            if (levels < 0) return null;
+            if (levels < 0)
+            {
+                return null;
+            }
 
-            if (!rootDir.Exists) rootDir.Create();
+            if (!rootDir.Exists)
+            {
+                rootDir.Create();
+            }
 
             var rootDirInfo = new DirectoryStructureInfo(rootDir);
             parentInfo?.Directories.Add(rootDirInfo);

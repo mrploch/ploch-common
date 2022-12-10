@@ -6,7 +6,7 @@ namespace Ploch.Common.Tests.Reflection
 {
     public class ObjectCloningHelperTests
     {
-        private static readonly Fixture _fixture = new Fixture();
+        private static readonly Fixture _fixture = new();
 
         [Fact]
         public void CopyPropertiesExcludedTest()
@@ -15,8 +15,8 @@ namespace Ploch.Common.Tests.Reflection
             var testTargetObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
 
             testSourceObj.CopyPropertiesExcluding(testTargetObj,
-                nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
-                nameof(TestTypes.TestTypeWithMixedSettersAndGetter.StringProp2));
+                                                  nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
+                                                  nameof(TestTypes.TestTypeWithMixedSettersAndGetter.StringProp2));
 
             testTargetObj.IntProp.Should().Be(testSourceObj.IntProp);
             testTargetObj.IntProp2.Should().NotBe(testSourceObj.IntProp2);
@@ -33,8 +33,8 @@ namespace Ploch.Common.Tests.Reflection
             var testTargetObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
 
             testSourceObj.CopyPropertiesIncludeOnly(testTargetObj,
-                nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
-                nameof(TestTypes.TestTypeWithMixedSettersAndGetter.StringProp2));
+                                                    nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
+                                                    nameof(TestTypes.TestTypeWithMixedSettersAndGetter.StringProp2));
 
             testTargetObj.IntProp2.Should().Be(testSourceObj.IntProp2);
             testTargetObj.StringProp2.Should().Be(testSourceObj.StringProp2);

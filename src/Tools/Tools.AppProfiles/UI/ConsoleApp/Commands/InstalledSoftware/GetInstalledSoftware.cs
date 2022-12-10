@@ -8,11 +8,12 @@ using Newtonsoft.Json;
 using Ploch.Common;
 using Ploch.Common.ConsoleApplication.Core;
 using Ploch.Common.Windows;
+using Ploch.Common.Windows.SystemTools;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Ploch.Tools.SystemUtils.UI.ConsoleApp.Commands.InstalledSoftware
 {
-    public class GetInstalledSoftware : ICommand<GetInstalledSoftwareArgs>
+    public class GetInstalledSoftware : AppCommand<GetInstalledSoftwareArgs>
     {
         private readonly IOutput _output;
         private readonly ILogger<GetInstalledSoftware> _logger;
@@ -24,7 +25,7 @@ namespace Ploch.Tools.SystemUtils.UI.ConsoleApp.Commands.InstalledSoftware
         }
 
         /// <inheritdoc />
-        public void Execute(GetInstalledSoftwareArgs options)
+        public override void Execute(GetInstalledSoftwareArgs options)
         {
 
             var data = InstalledApplications.GetUsingRegistry();
