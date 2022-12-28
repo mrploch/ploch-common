@@ -46,9 +46,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Properties\**"/>
-    <EmbeddedResource Remove="Properties\**"/>
-    <None Remove="Properties\**"/>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,7 +56,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.0"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.0" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -69,11 +69,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Types\"/>
+    <Folder Include="Types\" />
   </ItemGroup>
   <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
   <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
@@ -84,7 +84,7 @@
   <!-- </Target> -->
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion"/>
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
     </GetAssemblyIdentity>
     <!-- <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
     <!-- <Exec Command="nuget add $(TargetName).1.0.0.nupkg -Source C:\devnet\.nuget"></Exec> -->

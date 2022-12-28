@@ -36,7 +36,7 @@ namespace Ploch.Common.CommandLine
                     InvalidOperationException($"{nameof(CommandAttribute)} on type {commandType.Name} has to have a non-null or empty {nameof(CommandAttribute.Name)} property");
             }
 
-            return application.Command(commandAttribute.Name!, configuration);
+            return application.Command(commandAttribute.Name!, configuration!);
         }
     }
 }

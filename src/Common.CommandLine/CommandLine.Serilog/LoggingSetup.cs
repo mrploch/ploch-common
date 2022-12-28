@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Events;
 
@@ -6,7 +7,14 @@ namespace Ploch.Common.CommandLine.Serilog
 {
     public static class LoggingSetup
     {
-        public static IServiceCollection SetupSerilog(this IServiceCollection serviceCollection, string? logName = null, string? logPath = null)
+        public static AppBuilder UseSerilog(this AppBuilder appBuilder, string? logName = null, string? logPath = null)
+        {
+            appBuilder.Configure(container => ConfigureServices(container.ServiceCollection, logName, logPath));
+
+            return appBuilder;
+        }
+
+        private static void ConfigureServices(IServiceCollection serviceCollection, string? logName = null, string? logPath = null)
         {
             var loggerConfiguration = new LoggerConfiguration().Enrich.FromLogContext()
                                                                .Enrich.WithThreadId()
@@ -31,13 +39,11 @@ namespace Ploch.Common.CommandLine.Serilog
                                                                .WriteTo.Console();
             
             serviceCollection.AddLogging(builder => builder.AddSerilog(loggerConfiguration.CreateLogger()));
-
-            return serviceCollection;
         }
 
         private static string BuildFullLogPath(string? logName, string? logPath, string? suffix = null)
         {
-            logName = logName ?? EnvironmentUtilities.GetCurrentAppPath();
+            logName = logName ?? Process.GetCurrentProcess().ProcessName;
             logPath = logPath ?? AppDomain.CurrentDomain.BaseDirectory;
             suffix = suffix != null ? $"-{suffix}" : null;
 
