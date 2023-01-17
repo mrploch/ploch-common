@@ -54,7 +54,7 @@ namespace Ploch.Common
             return encoding.GetString(Convert.FromBase64String(str));
         }
 
-        public static bool EqualsIgnoreCase(this string str, string other, StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+        public static bool EqualsIgnoreCase(this string? str, string? other, StringComparison comparison = StringComparison.OrdinalIgnoreCase)
         {
             if (str == null && other == null)
             {

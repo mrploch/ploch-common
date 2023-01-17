@@ -11,6 +11,7 @@ namespace Ploch.Common.Data.Model
         [Key]
         public int Id { get; set; }
 
+        [MaxLength(128)]
         public string? Name { get; set; }
 
         public virtual TCategory? Parent { get; set; }
