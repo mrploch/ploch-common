@@ -11,7 +11,7 @@ namespace Ploch.Data.StandardDataSets.Tests
         {
             var regionInfos = Regions.GetRegions();
             regionInfos.Count().Should().BeGreaterThan(500);
-            regionInfos.Should().Contain(ri => ri.EnglishName == "Poland").And.Contain(ri => ri.EnglishName == "France");
+            regionInfos.Should().Contain(ri => ri.Item2.EnglishName == "Poland").And.Contain(ri => ri.Item2.EnglishName == "France");
         }
 
         [Fact]
