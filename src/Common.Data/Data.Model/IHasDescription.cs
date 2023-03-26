@@ -2,6 +2,6 @@
 {
     public interface IHasDescription
     {
-        string Description { get; set; }
+        string? Description { get; set; }
     }
 }
