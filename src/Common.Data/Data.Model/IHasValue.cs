@@ -1,8 +1,12 @@
 ﻿namespace Ploch.Common.Data.Model
 {
-    public interface IHasValue<TValue>
+    public interface IHasValue
     {
-        TValue Value { get; set; }
+        object Value { get; set; }
+    }
+    public interface IHasValue<TValue> : IHasValue
+    {
+        new TValue Value { get; set; }
     }
 
     public interface IHasOptionalValue<TValue> : IHasValue<TValue?>
