@@ -56,20 +56,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-<<<<<<< HEAD
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.1" />
-=======
+
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.2" />
->>>>>>> 0916fd9e7383abdefb92804f75e2ef25fdbfc8b8
     <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-<<<<<<< HEAD
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.51.0.59060">
-=======
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.52.0.60960">
->>>>>>> 0916fd9e7383abdefb92804f75e2ef25fdbfc8b8
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -81,7 +74,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Types\" />
+    <Folder Include="CommonTypes\"/>
   </ItemGroup>
   <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
   <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->
@@ -92,14 +85,6 @@
   <!-- </Target> -->
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
-    <Compile Remove="Properties\**" />
-    <EmbeddedResource Remove="Properties\**" />
-    <None Remove="Properties\**" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.2" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.52.0.60960">
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <Folder Include="Types\" />
       <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
     </GetAssemblyIdentity>
     <!-- <Exec Command="nuget pack $(ProjectFileName) -IncludeReferencedProjects -Prop Configuration=Release"></Exec> -->
