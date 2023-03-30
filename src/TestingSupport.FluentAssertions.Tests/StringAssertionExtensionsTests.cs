@@ -9,7 +9,7 @@ namespace Ploch.TestingSupport.FluentAssertions.Tests
     {
         [Theory]
         [AutoData]
-        public void ContainAllEquivalentOf_should_pass_if_all_of_the_strings_are_found(string str1, string str2)
+        public void ContainAllEquivalentOf_should_pass_if_all_of_the_strings_are_found(string? str1, string str2)
         {
             $"message with {str1} and {str2}".Should().ContainAllEquivalentOf(str1, str2);
         }
@@ -23,7 +23,7 @@ namespace Ploch.TestingSupport.FluentAssertions.Tests
 
         [Theory]
         [AutoData]
-        public void ContainAllEquivalentOf_should_throw_if_one_of_the_strings_is_not_found(string str1, string str2, string notFound)
+        public void ContainAllEquivalentOf_should_throw_if_one_of_the_strings_is_not_found(string? str1, string str2, string notFound)
         {
             $"message with {str1} and {str2}".Should().Invoking(assertions => assertions.ContainAllEquivalentOf(str1, str2, notFound)).Should().Throw<XunitException>();
         }

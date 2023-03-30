@@ -10,13 +10,13 @@ namespace Ploch.TestingSupport.FluentAssertions
 {
     public static class StringAssertionExtensions
     {
-        public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions, params string[] values)
+        public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions, params string?[] values)
         {
             return ContainAllEquivalentOf(assertions, values, string.Empty);
         }
 
         public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions,
-                                                                             IEnumerable<string> values,
+                                                                             IEnumerable<string?> values,
                                                                              string because = "",
                                                                              params object[] becauseArgs)
         {
@@ -29,9 +29,9 @@ namespace Ploch.TestingSupport.FluentAssertions
             return new AndConstraint<StringAssertions>(assertions);
         }
 
-        private static bool Contains(string actual, string expected, StringComparison comparison)
+        private static bool Contains(string? actual, string? expected, StringComparison comparison)
         {
-            return (actual ?? "").IndexOf(expected ?? "", comparison) >= 0;
+            return (actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0;
         }
     }
 }
