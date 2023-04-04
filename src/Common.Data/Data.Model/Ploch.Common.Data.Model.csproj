@@ -56,6 +56,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.2" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
       <PrivateAssets>all</PrivateAssets>
@@ -73,7 +74,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Types\" />
+    <Folder Include="CommonTypes\"/>
   </ItemGroup>
   <!-- <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'"> -->
   <!--   <GetAssemblyIdentity AssemblyFiles="$(TargetPath)"> -->

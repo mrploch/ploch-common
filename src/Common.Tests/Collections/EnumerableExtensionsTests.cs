@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoFixture;
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
@@ -63,6 +64,43 @@ namespace Ploch.Common.Tests.Collections
             var join = testObjects.JoinWithFinalSeparator(", ", " and ", o => o.IntProp);
 
             join.Should().Be("1, 2 and 3");
+        }
+
+        [Theory]
+        [AutoMockData]
+        public void TakeRandom_should_pick_count_number_of_random_items_from_source(Fixture fixture)
+        {
+            var list = new List<string>();
+            for (var i = 0; i < 1000; i++)
+            {
+                list.Add($"Item {i}");
+            }
+
+            var result = list.TakeRandom(200);
+
+            result.Should().HaveCount(200);
+        }
+
+        [Theory]
+        [AutoMockData]
+        public void FirstOrProvided_should_return_provided_value_if_item_is_not_found(IEnumerable<string> strings)
+        {
+            var expected = "MyValue";
+
+            var result = strings.FirstOrProvided(s => s == Guid.NewGuid().ToString(), () => expected);
+
+            result.Should().Be(expected);
+        }
+
+        [Theory]
+        [AutoMockData]
+        public void FirstOrProvided_should_return_item_if_found(List<string> strings)
+        {
+            var expected = "MyValue";
+            strings.Add(expected);
+            var result = strings.FirstOrProvided(s => s == expected, () => "NotExpectedValue");
+
+            result.Should().Be(expected);
         }
     }
 }

@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0"/>
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.2"/>
-  </ItemGroup>
-
 </Project>

@@ -105,5 +105,55 @@ namespace Ploch.Common.Collections
 
             return Join(arraySource.Take(count - 1), separator, valueSelector) + finalSeparator + valueSelector(arraySource.Last());
         }
+
+        public static IEnumerable<TValue> Shuffle<TValue>(this IEnumerable<TValue> source)
+        {
+            var list = source.ToList();
+            var n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                var k = RandomUtils.SharedRandom.Next(n + 1);
+                (list[k], list[n]) = (list[n], list[k]);
+            }
+
+            return list;
+        }
+
+        public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> source, int count)
+        {
+            var list = source.ToList();
+
+            var result = new List<TValue>();
+            var previousRandoms = new List<int>();
+
+            for (int i = 0; i < count; i++)
+            {
+                int num;
+                do
+                {
+                    num = RandomUtils.SharedRandom.Next(0, list.Count - 1);
+                } while (previousRandoms.Contains(num));
+
+                previousRandoms.Add(num);
+
+                result.Add(list[num]);
+            }
+
+            return result;
+        }
+
+        public static TValue FirstOrProvided<TValue>(this IEnumerable<TValue> source, Func<TValue> defaultValueFactory)
+        {
+            return FirstOrProvided(source, null, defaultValueFactory);
+        }
+
+        public static TValue FirstOrProvided<TValue>(this IEnumerable<TValue> source, Func<TValue, bool>? predicate, Func<TValue> defaultValueFactory)
+        {
+            Guard.Argument(source, nameof(source)).NotNull();
+            Guard.Argument(defaultValueFactory, nameof(defaultValueFactory)).NotNull();
+
+            return predicate == null ? source.FirstOrDefault() : source.FirstOrDefault(predicate) ?? defaultValueFactory();
+        }
     }
 }
