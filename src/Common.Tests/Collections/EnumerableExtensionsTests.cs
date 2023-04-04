@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
 using Ploch.Common.Tests.Reflection;
-using Ploch.TestingSupport.Xunit.AutoFixture;
 using Xunit;
 
 namespace Ploch.Common.Tests.Collections
@@ -37,14 +37,14 @@ namespace Ploch.Common.Tests.Collections
         }
 
         [Theory]
-        [AutoDataMoq]
+        [AutoMockData]
         public void Join_should_string_join_int_enumerable(IEnumerable<int> ints, string separator)
         {
             ints.Join(separator).Should().Be(string.Join(separator, ints));
         }
 
         [Theory]
-        [AutoDataMoq]
+        [AutoMockData]
         public void Join_should_string_join_datetime_enumerable(IEnumerable<DateTime> dateTimes, string separator)
         {
             var join = dateTimes.Join(separator);
@@ -55,7 +55,7 @@ namespace Ploch.Common.Tests.Collections
         }
 
         [Theory]
-        [AutoDataMoq]
+        [AutoMockData]
         public void Join_should_string_join_objects_enumerable_with_different_final_separator()
         {
             var testObjects = new TestTypes.MyTestClass[] { new() { IntProp = 1 }, new() { IntProp = 2 }, new() { IntProp = 3 } };
