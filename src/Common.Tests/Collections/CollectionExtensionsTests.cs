@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using AutoFixture.Xunit2;
 using FluentAssertions;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
-using Ploch.TestingSupport.Xunit.AutoFixture;
 using Xunit;
 
 namespace Ploch.Common.Tests.Collections
@@ -38,7 +38,7 @@ namespace Ploch.Common.Tests.Collections
         }
 
         [Theory]
-        [AutoDataMoq]
+        [AutoMockData]
         public void AddMany_should_extend_collection_with_items(string[] items)
         {
             var target = new Collection<string> { "itme1", "item2" };

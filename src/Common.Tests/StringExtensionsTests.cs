@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using FluentAssertions;
-using Ploch.TestingSupport.Xunit.AutoFixture;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Xunit;
 
 namespace Ploch.Common.Tests
@@ -9,7 +9,7 @@ namespace Ploch.Common.Tests
     public class StringExtensionsTests
     {
         [Theory]
-        [AutoDataMoq]
+        [AutoMockData]
         public void IsNullOrEmptyTest(string str)
         {
             str.IsNullOrEmpty().Should().BeFalse();
@@ -20,7 +20,7 @@ namespace Ploch.Common.Tests
         }
 
         [Theory]
-        [AutoDataMoq]
+        [AutoMockData]
         public void ToBase64String_should_correctly_encode(string str)
         {
             var base64String = str.ToBase64String(Encoding.UTF8);
