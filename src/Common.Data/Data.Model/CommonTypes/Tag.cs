@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ploch.Common.Data.Model
+namespace Ploch.Common.Data.Model.CommonTypes
 {
     public class Tag : IHasId<int>, INamed, IHasDescription
     {
