@@ -1,8 +1,8 @@
 ---
-uid: Ploch.Common
+uid: Ploch.Common.Data.Model
 summary: *content
 ---
 
 ### Overview
 
-Ploch.Common namespace contains extension methods and utility classes for classes in the System namespace.
+**Ploch.Common.Data.Model** namespace contains base types for common data model classes.
