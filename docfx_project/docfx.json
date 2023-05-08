@@ -5,7 +5,7 @@
         {
           "src": "../src",
           "files": [
-            "**/**/Ploch*.dll"
+            "Common/Ploch*.dll"
           ],
           "exclude": [
             "**/**Tests/**",

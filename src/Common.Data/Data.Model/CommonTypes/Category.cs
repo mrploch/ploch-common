@@ -3,11 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ploch.Common.Data.Model.CommonTypes
 {
-    public class Category<TCategory> : IHasId<int>, INamed, IHierarchicalWithParentComposite<TCategory>, IHierarchicalWithChildrenComposite<TCategory>
-        where TCategory : Category<TCategory>
+    public class Category<TCategory> : Category<TCategory, int> where TCategory : Category<TCategory, int>
+    { }
+
+    public class Category<TCategory, TId> : IHasId<TId>, INamed, IHierarchicalWithParentComposite<TCategory>, IHierarchicalWithChildrenComposite<TCategory>
+        where TCategory : Category<TCategory, TId>
     {
         [Key]
-        public int Id { get; set; }
+        public TId Id { get; set; } = default!;
 
         public virtual ICollection<TCategory>? Children { get; set; }
 
