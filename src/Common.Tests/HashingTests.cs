@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using FluentAssertions;
+using Ploch.Common.Cryptography;
 using Xunit;
 using Xunit.Abstractions;
 
