@@ -1,7 +1,9 @@
 cd $PSScriptRoot
-Remove-Item _site -Force
-Remove-Item api/*.yml -Exclude toc.yml -Force
-Remove-Item api/.manifest -Force
+Remove-Item bin, obj, _site -Recurse -Force -Confirm:$false
+Remove-Item api/*.yml -Exclude toc.yml -Confirm:$false -Force
+Remove-Item api/.manifest -Force -Confirm:$false
+
+dotnet restore
 
 if ($error)
 {

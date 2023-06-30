@@ -20,7 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
-		NuGet.Config = NuGet.Config
 		Ploch.Common.nuspec = Ploch.Common.nuspec
 		README.md = README.md
 		Clean-DocFx.ps1 = Clean-DocFx.ps1
@@ -49,6 +48,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.StandardDataSets.Tests", "src\Common.Data\Ploch.Data.StandardDataSets.Tests\Ploch.Data.StandardDataSets.Tests.csproj", "{33F944EB-8BF2-4264-B887-DEFE2F00CD03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentationSite", "DocumentationSite\DocumentationSite.csproj", "{C87EB534-C0F5-47B2-886C-76DA955CA131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Web.WebApi.Configuration", "src\Common.Web\Web.WebApi.Configuration\Ploch.Common.Web.WebApi.Configuration.csproj", "{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -404,6 +405,26 @@ Global
 		{C87EB534-C0F5-47B2-886C-76DA955CA131}.Release|x64.Build.0 = Release|Any CPU
 		{C87EB534-C0F5-47B2-886C-76DA955CA131}.Release|x86.ActiveCfg = Release|Any CPU
 		{C87EB534-C0F5-47B2-886C-76DA955CA131}.Release|x86.Build.0 = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|x64.Build.0 = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|ARM.Build.0 = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|ARM64.Build.0 = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|x64.ActiveCfg = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|x64.Build.0 = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D04A604-D7A7-4EC9-A50B-E4C442258EDA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
