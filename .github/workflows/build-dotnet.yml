@@ -32,4 +32,5 @@ jobs:
         with:
           files: |
             TestResults/**/*.xml
+            **/TestResults/*.xml
             TestResults/**/*.trx
