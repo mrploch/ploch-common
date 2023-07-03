@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo "The branch name is ${{ github.repository }}"
       - uses: actions/checkout@v3
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -31,6 +32,10 @@ jobs:
         if: always()
         with:
           files: |
-            TestResults/**/*.xml
             **/TestResults/*.xml
-            TestResults/**/*.trx
+            **/TestResults/*.trx
+      # - name: 'Qodana Scan'
+      #   uses: JetBrains/qodana-action@main
+      #   env:
+      #     QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+  
