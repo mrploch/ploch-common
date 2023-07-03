@@ -34,6 +34,16 @@ jobs:
           files: |
             **/TestResults/*.xml
             **/TestResults/*.trx
+      - name: SonarCloud Analysis
+        uses: SonarSource/sonarcloud-github-action@v1.9.1
+        with:
+          args: >
+            -Dsonar.organization=mrploch
+            -Dsonar.projectKey=mrploch_ploch-common
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    
       # - name: 'Qodana Scan'
       #   uses: JetBrains/qodana-action@main
       #   env:
