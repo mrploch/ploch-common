@@ -22,12 +22,14 @@
     "content": [
       {
         "files": [
+          "../README.md",
           "api/**.yml",
           "api/index.md"
         ]
       },
       {
         "files": [
+          "../**.md",
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
