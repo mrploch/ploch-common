@@ -354,3 +354,4 @@ MigrationBackup/
 /TestApps/TestApps.ConsoleApp/_site_pdf
 /TestApps/TestApps.ConsoleApp/log.txt
 /NDependOut1
+.sonarqube/**
