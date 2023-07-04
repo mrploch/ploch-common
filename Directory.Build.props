@@ -15,7 +15,7 @@
     <VersionPrefix>1.1.0</VersionPrefix>
     <VersionSuffix>-prerelease</VersionSuffix>
     <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
-    <Version>$(VersionPrefix)-$(BuildNumber)$(VersionSuffix)</Version>
+    <Version>$(VersionPrefix)$(VersionSuffix)-$(BuildNumber)</Version>
     <FileVersion>$(InformationalVersion)</FileVersion>
     <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
   </PropertyGroup>
