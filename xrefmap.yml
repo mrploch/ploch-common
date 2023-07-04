@@ -2708,51 +2708,6 @@ references:
   isSpec: "True"
   fullName: Ploch.TestingSupport.TestData.TestData.ReadText
   nameWithType: TestData.ReadText
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute
-  name: TestDataAttribute
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html
-  commentId: T:Ploch.TestingSupport.TestData.TestDataAttribute
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute
-  nameWithType: TestDataAttribute
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute.#ctor(System.String)
-  name: TestDataAttribute(String)
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html#Ploch_TestingSupport_TestData_TestDataAttribute__ctor_System_String_
-  commentId: M:Ploch.TestingSupport.TestData.TestDataAttribute.#ctor(System.String)
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute.TestDataAttribute(System.String)
-  nameWithType: TestDataAttribute.TestDataAttribute(String)
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute.#ctor*
-  name: TestDataAttribute
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html#Ploch_TestingSupport_TestData_TestDataAttribute__ctor_
-  commentId: Overload:Ploch.TestingSupport.TestData.TestDataAttribute.#ctor
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute.TestDataAttribute
-  nameWithType: TestDataAttribute.TestDataAttribute
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute.DataFileName
-  name: DataFileName
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html#Ploch_TestingSupport_TestData_TestDataAttribute_DataFileName
-  commentId: P:Ploch.TestingSupport.TestData.TestDataAttribute.DataFileName
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute.DataFileName
-  nameWithType: TestDataAttribute.DataFileName
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute.DataFileName*
-  name: DataFileName
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html#Ploch_TestingSupport_TestData_TestDataAttribute_DataFileName_
-  commentId: Overload:Ploch.TestingSupport.TestData.TestDataAttribute.DataFileName
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute.DataFileName
-  nameWithType: TestDataAttribute.DataFileName
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute.GetCustomization(ParameterInfo)
-  name: GetCustomization(ParameterInfo)
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html#Ploch_TestingSupport_TestData_TestDataAttribute_GetCustomization_ParameterInfo_
-  commentId: M:Ploch.TestingSupport.TestData.TestDataAttribute.GetCustomization(ParameterInfo)
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute.GetCustomization(ParameterInfo)
-  nameWithType: TestDataAttribute.GetCustomization(ParameterInfo)
-- uid: Ploch.TestingSupport.TestData.TestDataAttribute.GetCustomization*
-  name: GetCustomization
-  href: api/Ploch.TestingSupport.TestData.TestDataAttribute.html#Ploch_TestingSupport_TestData_TestDataAttribute_GetCustomization_
-  commentId: Overload:Ploch.TestingSupport.TestData.TestDataAttribute.GetCustomization
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.TestData.TestDataAttribute.GetCustomization
-  nameWithType: TestDataAttribute.GetCustomization
 - uid: Ploch.TestingSupport.TestData.TestDataConfiguration
   name: TestDataConfiguration
   href: api/Ploch.TestingSupport.TestData.TestDataConfiguration.html
@@ -2824,44 +2779,6 @@ references:
   isSpec: "True"
   fullName: Ploch.TestingSupport.TestData.TestDataConfiguration.SetupBasePathDataNotCopiedToOutput
   nameWithType: TestDataConfiguration.SetupBasePathDataNotCopiedToOutput
-- uid: Ploch.TestingSupport.TestData.TestDataCustomization
-  name: TestDataCustomization
-  href: api/Ploch.TestingSupport.TestData.TestDataCustomization.html
-  commentId: T:Ploch.TestingSupport.TestData.TestDataCustomization
-  fullName: Ploch.TestingSupport.TestData.TestDataCustomization
-  nameWithType: TestDataCustomization
-- uid: Ploch.TestingSupport.TestData.TestDataCustomization.Customize(IFixture)
-  name: Customize(IFixture)
-  href: api/Ploch.TestingSupport.TestData.TestDataCustomization.html#Ploch_TestingSupport_TestData_TestDataCustomization_Customize_IFixture_
-  commentId: M:Ploch.TestingSupport.TestData.TestDataCustomization.Customize(IFixture)
-  fullName: Ploch.TestingSupport.TestData.TestDataCustomization.Customize(IFixture)
-  nameWithType: TestDataCustomization.Customize(IFixture)
-- uid: Ploch.TestingSupport.TestData.TestDataCustomization.Customize*
-  name: Customize
-  href: api/Ploch.TestingSupport.TestData.TestDataCustomization.html#Ploch_TestingSupport_TestData_TestDataCustomization_Customize_
-  commentId: Overload:Ploch.TestingSupport.TestData.TestDataCustomization.Customize
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.TestData.TestDataCustomization.Customize
-  nameWithType: TestDataCustomization.Customize
-- uid: Ploch.TestingSupport.TestData.TestDataProvider
-  name: TestDataProvider
-  href: api/Ploch.TestingSupport.TestData.TestDataProvider.html
-  commentId: T:Ploch.TestingSupport.TestData.TestDataProvider
-  fullName: Ploch.TestingSupport.TestData.TestDataProvider
-  nameWithType: TestDataProvider
-- uid: Ploch.TestingSupport.TestData.TestDataProvider.Create(System.Object,ISpecimenContext)
-  name: Create(Object, ISpecimenContext)
-  href: api/Ploch.TestingSupport.TestData.TestDataProvider.html#Ploch_TestingSupport_TestData_TestDataProvider_Create_System_Object_ISpecimenContext_
-  commentId: M:Ploch.TestingSupport.TestData.TestDataProvider.Create(System.Object,ISpecimenContext)
-  fullName: Ploch.TestingSupport.TestData.TestDataProvider.Create(System.Object, ISpecimenContext)
-  nameWithType: TestDataProvider.Create(Object, ISpecimenContext)
-- uid: Ploch.TestingSupport.TestData.TestDataProvider.Create*
-  name: Create
-  href: api/Ploch.TestingSupport.TestData.TestDataProvider.html#Ploch_TestingSupport_TestData_TestDataProvider_Create_
-  commentId: Overload:Ploch.TestingSupport.TestData.TestDataProvider.Create
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.TestData.TestDataProvider.Create
-  nameWithType: TestDataProvider.Create
 - uid: Ploch.TestingSupport.TestTypes
   name: Ploch.TestingSupport.TestTypes
   href: api/Ploch.TestingSupport.TestTypes.html
@@ -2932,31 +2849,6 @@ references:
   isSpec: "True"
   fullName: Ploch.TestingSupport.TestTypes.SimpleTestTypes.Type1.ToString
   nameWithType: SimpleTestTypes.Type1.ToString
-- uid: Ploch.TestingSupport.Xunit.AutoFixture
-  name: Ploch.TestingSupport.Xunit.AutoFixture
-  href: api/Ploch.TestingSupport.Xunit.AutoFixture.html
-  commentId: N:Ploch.TestingSupport.Xunit.AutoFixture
-  fullName: Ploch.TestingSupport.Xunit.AutoFixture
-  nameWithType: Ploch.TestingSupport.Xunit.AutoFixture
-- uid: Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute
-  name: AutoDataMoqAttribute
-  href: api/Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.html
-  commentId: T:Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute
-  fullName: Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute
-  nameWithType: AutoDataMoqAttribute
-- uid: Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.#ctor
-  name: AutoDataMoqAttribute()
-  href: api/Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.html#Ploch_TestingSupport_Xunit_AutoFixture_AutoDataMoqAttribute__ctor
-  commentId: M:Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.#ctor
-  fullName: Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.AutoDataMoqAttribute()
-  nameWithType: AutoDataMoqAttribute.AutoDataMoqAttribute()
-- uid: Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.#ctor*
-  name: AutoDataMoqAttribute
-  href: api/Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.html#Ploch_TestingSupport_Xunit_AutoFixture_AutoDataMoqAttribute__ctor_
-  commentId: Overload:Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.#ctor
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.Xunit.AutoFixture.AutoDataMoqAttribute.AutoDataMoqAttribute
-  nameWithType: AutoDataMoqAttribute.AutoDataMoqAttribute
 - uid: TestingSupport.FluentAssertions.IOAbstractions
   name: TestingSupport.FluentAssertions.IOAbstractions
   href: api/TestingSupport.FluentAssertions.IOAbstractions.html
