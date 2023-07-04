@@ -2,7 +2,6 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: Build .NET
-run-name: Build .NET on ${{ matrix.os }} with ${{ matrix.dotnet-version }}, branch ${{ github.ref }}
 on:
   push:
     branches: [ "master" ]
@@ -44,3 +43,8 @@ jobs:
           files: |
             **/TestResults/*.xml
             **/TestResults/*.trx
+      - name: Deploy GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./DocumentationSite/_site
