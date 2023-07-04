@@ -239,6 +239,8 @@ dotnet_diagnostic.sa1623.severity = none
 dotnet_diagnostic.sa1640.severity = none
 dotnet_diagnostic.sa1127.severity = none
 dotnet_diagnostic.sa1200.severity = none
+dotnet_diagnostic.sa1502.severity = none
+dotnet_diagnostic.sa1128.severity = none
 
 # ReSharper properties
 resharper_csharp_empty_block_style = together
@@ -297,3 +299,4 @@ dotnet_diagnostic.cs8629.severity = error
 dotnet_diagnostic.cs8643.severity = error
 
 dotnet_diagnostic.cs8644.severity = error
+
