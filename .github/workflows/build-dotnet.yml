@@ -54,4 +54,4 @@ jobs:
       - name: Add GitHub Packages source
         run: dotnet nuget add source --username kploch --password ${{secrets.NUGET_APIKEY}} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
       - name: Publish NuGet package
-        run: dotnet nuget push **/*.nupkg --source github -ApiKey ${{secrets.NUGET_APIKEY}}
+        run: dotnet nuget push **/*.nupkg --source github -k ${{secrets.NUGET_APIKEY}}
