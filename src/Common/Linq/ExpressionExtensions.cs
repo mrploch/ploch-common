@@ -16,10 +16,10 @@ namespace Ploch.Common.Linq
         /// <summary>
         ///     Gets the member name from an expression
         /// </summary>
-        /// <typeparam name="TMember">Member</typeparam>
-        /// <param name="expression">Expression</param>
+        /// <typeparam name="TType">The type.</typeparam>
+        /// <param name="expression">The expression.</param>
         /// <returns>Member name</returns>
-        /// <exception cref="InvalidOperationException">Not a member expression!</exception>
+        /// <exception cref="InvalidOperationException">Not a member expression.</exception>
         /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
         public static string GetMemberName<TType>(this Expression<Action<TType>> expression)
         {
@@ -39,12 +39,12 @@ namespace Ploch.Common.Linq
         }
 
         /// <summary>
-        ///     Gets the member name from an expression
+        ///     Gets the member name from an expression.
         /// </summary>
-        /// <typeparam name="TMember">Member</typeparam>
-        /// <param name="expression">Expression</param>
+        /// <typeparam name="TMember">The member.</typeparam>
+        /// <param name="expression">The expression.</param>
         /// <returns>Member name</returns>
-        /// <exception cref="InvalidOperationException">Not a member expression!</exception>
+        /// <exception cref="InvalidOperationException">Not a member expression.</exception>
         /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
         public static string GetMemberName<TMember>(this Expression<Func<TMember>> expression)
         {
@@ -90,12 +90,9 @@ namespace Ploch.Common.Linq
             }
 
             // Might be an implicit cast
-            if (expression.Body is UnaryExpression unaryExpression)
+            if (expression.Body is UnaryExpression { Operand: MemberExpression memberExpression })
             {
-                if (unaryExpression.Operand is MemberExpression memberExpression)
-                {
-                    return memberExpression.Member.Name;
-                }
+                return memberExpression.Member.Name;
             }
 
             throw new InvalidOperationException("Not a member expression and not unary expression for member.");

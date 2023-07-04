@@ -1,10 +1,11 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace Ploch.Common.IO
 {
     public static class StreamExtensions
     {
-        public static byte[] ToBytes(this Stream stream)
+        public static IEnumerable<byte> ToBytes(this Stream stream)
         {
             using (var ms = new MemoryStream())
             {

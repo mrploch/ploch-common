@@ -145,7 +145,7 @@ namespace Ploch.Common.Reflection
         /// <returns>
         ///     Property information
         /// </returns>
-        public static PropertyInfo GetPropertyInfo(this Type type, string propertyName, bool throwIfNotFound)
+        public static PropertyInfo? GetPropertyInfo(this Type type, string propertyName, bool throwIfNotFound)
         {
             var propertyInfo = type.GetTypeInfo().GetProperty(propertyName);
 

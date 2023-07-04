@@ -4,29 +4,31 @@ using Microsoft.OpenApi.Models;
 
 namespace Ploch.Common.Web.WebApi.Configuration
 {
-    // TODO: Either make it generic for the public or remove this class entirely
+    /// <summary>
+    ///     Methods for configuring Swagger API documentation.
+    /// </summary>
     public static class ApiSwaggerConfig
     {
-        public static void ConfigureOpenApiContractGeneratorServices(this IServiceCollection services)
+        /// <summary>
+        ///     Configures the OpenApi contract generator services.
+        /// </summary>
+        /// <param name="services">The service collection.</param>
+        /// <param name="name">The name of the api.</param>
+        /// <param name="apiInfo">The API info.</param>
+        public static void ConfigureOpenApiContractGeneratorServices(this IServiceCollection services, string name, OpenApiInfo apiInfo)
         {
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(setup =>
                                    {
-                                       setup.SwaggerDoc("v1",
-                                                        new OpenApiInfo
-                                                        {
-                                                            Title = "Ploch Lists Api",
-                                                            Version = "1",
-                                                            Description = "Ploch Lists Api",
-                                                            Contact = new OpenApiContact
-                                                                      {
-                                                                          Email = "kris@ploch.dev", Name = "Kris Ploch", Url = new Uri("http://www.ploch.dev")
-                                                                      }
-                                                        });
+                                       setup.SwaggerDoc(name, apiInfo);
                                        setup.EnableAnnotations();
                                    });
         }
 
+        /// <summary>
+        ///     Configures the OpenApi contract generator for a <c>WebApplication</c>.
+        /// </summary>
+        /// <param name="app">The web app.</param>
         public static void ConfigureOpenApiContractGeneratorApp(this WebApplication app)
         {
             app.UseSwagger();

@@ -30,6 +30,11 @@ namespace Ploch.Common
             return ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
         }
 
+        /// <summary>
+        ///     Converts a <see cref="DateTime" /> to Epoch Seconds handling nullable values.
+        /// </summary>
+        /// <param name="dateTime">The date time.</param>
+        /// <returns>Epoch seconds value or null if date time was null.</returns>
         public static long? ToEpochSeconds(this DateTime? dateTime)
         {
             if (!dateTime.HasValue)
@@ -69,6 +74,11 @@ namespace Ploch.Common
             return epochSecondsAsLong.ToDateTime();
         }
 
+        /// <summary>
+        ///     Converts Epoch Seconds value to <see cref="DateTime" /> handling nullable values.
+        /// </summary>
+        /// <param name="epochSeconds">Epoch seconds.</param>
+        /// <returns>Date time object or null if epoch seconds provided were null.</returns>
         public static DateTime? ToDateTime(this long? epochSeconds)
         {
             if (!epochSeconds.HasValue)
