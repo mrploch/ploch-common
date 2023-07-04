@@ -18,6 +18,7 @@
     <Version>$(VersionPrefix)$(VersionSuffix)-$(BuildNumber)</Version>
     <FileVersion>$(InformationalVersion)</FileVersion>
     <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup>
     <Nullable>enable</Nullable>
