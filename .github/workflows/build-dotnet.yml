@@ -2,7 +2,7 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: Build .NET
-
+run-name: Build .NET on ${{ matrix.os }} with ${{ matrix.dotnet-version }}, branch ${{ github.ref }}
 on:
   push:
     branches: [ "master" ]
@@ -17,6 +17,8 @@ jobs:
     steps:
       - run: echo "The branch name is ${{ github.repository }}"
       - uses: actions/checkout@v3
+      - name: Copy documentation files
+        run: cp ./README.md ./DocumentationSite/index.md
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
