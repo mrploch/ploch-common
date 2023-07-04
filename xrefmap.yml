@@ -2378,50 +2378,6 @@ references:
   commentId: N:Ploch.TestingSupport.FluentAssertions
   fullName: Ploch.TestingSupport.FluentAssertions
   nameWithType: Ploch.TestingSupport.FluentAssertions
-- uid: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1
-  name: EnumerableAssertions<T>
-  href: api/Ploch.TestingSupport.FluentAssertions.EnumerableAssertions-1.html
-  commentId: T:Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1
-  name.vb: EnumerableAssertions(Of T)
-  fullName: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions<T>
-  fullName.vb: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions(Of T)
-  nameWithType: EnumerableAssertions<T>
-  nameWithType.vb: EnumerableAssertions(Of T)
-- uid: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.#ctor(System.Collections.Generic.IEnumerable{`0})
-  name: EnumerableAssertions(IEnumerable<T>)
-  href: api/Ploch.TestingSupport.FluentAssertions.EnumerableAssertions-1.html#Ploch_TestingSupport_FluentAssertions_EnumerableAssertions_1__ctor_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.#ctor(System.Collections.Generic.IEnumerable{`0})
-  name.vb: EnumerableAssertions(IEnumerable(Of T))
-  fullName: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions<T>.EnumerableAssertions(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions(Of T).EnumerableAssertions(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: EnumerableAssertions<T>.EnumerableAssertions(IEnumerable<T>)
-  nameWithType.vb: EnumerableAssertions(Of T).EnumerableAssertions(IEnumerable(Of T))
-- uid: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.#ctor*
-  name: EnumerableAssertions
-  href: api/Ploch.TestingSupport.FluentAssertions.EnumerableAssertions-1.html#Ploch_TestingSupport_FluentAssertions_EnumerableAssertions_1__ctor_
-  commentId: Overload:Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.#ctor
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions<T>.EnumerableAssertions
-  fullName.vb: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions(Of T).EnumerableAssertions
-  nameWithType: EnumerableAssertions<T>.EnumerableAssertions
-  nameWithType.vb: EnumerableAssertions(Of T).EnumerableAssertions
-- uid: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.Identifier
-  name: Identifier
-  href: api/Ploch.TestingSupport.FluentAssertions.EnumerableAssertions-1.html#Ploch_TestingSupport_FluentAssertions_EnumerableAssertions_1_Identifier
-  commentId: P:Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.Identifier
-  fullName: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions<T>.Identifier
-  fullName.vb: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions(Of T).Identifier
-  nameWithType: EnumerableAssertions<T>.Identifier
-  nameWithType.vb: EnumerableAssertions(Of T).Identifier
-- uid: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.Identifier*
-  name: Identifier
-  href: api/Ploch.TestingSupport.FluentAssertions.EnumerableAssertions-1.html#Ploch_TestingSupport_FluentAssertions_EnumerableAssertions_1_Identifier_
-  commentId: Overload:Ploch.TestingSupport.FluentAssertions.EnumerableAssertions`1.Identifier
-  isSpec: "True"
-  fullName: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions<T>.Identifier
-  fullName.vb: Ploch.TestingSupport.FluentAssertions.EnumerableAssertions(Of T).Identifier
-  nameWithType: EnumerableAssertions<T>.Identifier
-  nameWithType.vb: EnumerableAssertions(Of T).Identifier
 - uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
   name: StringAssertionExtensions
   href: api/Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.html
