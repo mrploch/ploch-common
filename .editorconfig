@@ -300,3 +300,9 @@ dotnet_diagnostic.cs8643.severity = error
 
 dotnet_diagnostic.cs8644.severity = error
 
+# Test projects overrides
+[**/*Tests.cs]
+
+dotnet_diagnostic.ca1707.severity = none # Identifiers should not contain underscores
+dotnet_diagnostic.ca1851.severity = none # Possible multiple enumerations of IEnumerable collection
+resharper_possible_multiple_enumeration = none
