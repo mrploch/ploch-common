@@ -19,9 +19,9 @@ namespace Ploch.Common.Tests.Reflection
             var testType = new TestType(privateFieldValue, protectedFieldValue, publicFieldValue, privateStaticFieldValue);
 
             testType.GetFieldValue<string>("_privateField").Should().Be(privateFieldValue);
-            testType.GetFieldValue<int>("ProtectedField").Should().Be(protectedFieldValue);
+            testType.GetFieldValue<int>("_protectedField").Should().Be(protectedFieldValue);
             testType.GetFieldValue<Guid>("PublicField").Should().Be(publicFieldValue);
-            testType.GetFieldValue<string>("privateStaticField").Should().Be(privateStaticFieldValue);
+            testType.GetFieldValue<string>("PrivateStaticField").Should().Be(privateStaticFieldValue);
         }
 
         [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
