@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoFixture;
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
@@ -37,6 +36,14 @@ namespace Ploch.Common.Tests.Collections
             "test".ValueIn(StringComparer.InvariantCultureIgnoreCase, "val1", "val2", "val3").Should().BeFalse();
         }
 
+        [Fact]
+        public void None_should_return_true_if_no_item_matches_predicate()
+        {
+            var items = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            items.None(i => i > 10).Should().BeTrue();
+            items.None(i => i > 5).Should().BeFalse();
+        }
+
         [Theory]
         [AutoMockData]
         public void Join_should_string_join_int_enumerable(IEnumerable<int> ints, string separator)
@@ -55,8 +62,7 @@ namespace Ploch.Common.Tests.Collections
             join.Should().Be(string.Join(" ", dateTimes.Select(dt => dt.Year)));
         }
 
-        [Theory]
-        [AutoMockData]
+        [Fact]
         public void Join_should_string_join_objects_enumerable_with_different_final_separator()
         {
             var testObjects = new TestTypes.MyTestClass[] { new() { IntProp = 1 }, new() { IntProp = 2 }, new() { IntProp = 3 } };
@@ -66,9 +72,8 @@ namespace Ploch.Common.Tests.Collections
             join.Should().Be("1, 2 and 3");
         }
 
-        [Theory]
-        [AutoMockData]
-        public void TakeRandom_should_pick_count_number_of_random_items_from_source(Fixture fixture)
+        [Fact]
+        public void TakeRandom_should_pick_count_number_of_random_items_from_source()
         {
             var list = new List<string>();
             for (var i = 0; i < 1000; i++)
@@ -101,6 +106,32 @@ namespace Ploch.Common.Tests.Collections
             var result = strings.FirstOrProvided(s => s == expected, () => "NotExpectedValue");
 
             result.Should().Be(expected);
+        }
+
+        [Theory]
+        [AutoMockData]
+        public void Shuffle_should_randomly_shuffle_items_in_collection(List<string> strings)
+        {
+            var result = strings.Shuffle();
+
+            // ReSharper disable once PossibleMultipleEnumeration
+            result.Should().BeEquivalentTo(strings);
+
+            var arrayStrings = strings.ToArray();
+            var arrayResult = result.ToArray();
+
+            var sameOrder = true;
+            for (var i = 0; i < arrayResult.Length; i++)
+            {
+                if (arrayResult[i] != arrayStrings[i])
+                {
+                    sameOrder = false;
+
+                    break;
+                }
+            }
+
+            sameOrder.Should().BeFalse();
         }
     }
 }

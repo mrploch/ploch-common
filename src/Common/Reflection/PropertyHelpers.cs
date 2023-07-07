@@ -23,7 +23,7 @@ namespace Ploch.Common.Reflection
         ///     results.
         /// </param>
         /// <exception cref="ArgumentNullException">
-        ///     <paramref name="obj" /> is <see langword="null" />
+        ///     <paramref name="obj" /> is <see langword="null" />.
         /// </exception>
         /// <returns>
         ///     List of <see langword="public" /> properties of specific type.(
@@ -53,7 +53,7 @@ namespace Ploch.Common.Reflection
         /// <summary>
         ///     Sets the property.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The type of a property.</typeparam>
         /// <param name="obj">The object type.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="value">The value to set.</param>
@@ -85,7 +85,14 @@ namespace Ploch.Common.Reflection
         /// </exception>
         public static void SetPropertyValue<T>(this T obj, string propertyName, object value)
         {
-            typeof(T).GetPropertyInfo(propertyName, true).SetValue(obj, value);
+            var propertyInfo = typeof(T).GetPropertyInfo(propertyName, true);
+
+            if (propertyInfo == null)
+            {
+                throw new PropertyNotFoundException(propertyName);
+            }
+
+            propertyInfo.SetValue(obj, value);
         }
 
         /// <summary>
@@ -107,6 +114,11 @@ namespace Ploch.Common.Reflection
         public static object GetPropertyValue<T>(this T obj, string propertyName)
         {
             var propertyInfo = typeof(T).GetPropertyInfo(propertyName, true);
+
+            if (propertyInfo == null)
+            {
+                throw new PropertyNotFoundException(propertyName);
+            }
 
             return propertyInfo.GetValue(obj);
         }
@@ -143,7 +155,7 @@ namespace Ploch.Common.Reflection
         ///     is not found.
         /// </exception>
         /// <returns>
-        ///     Property information
+        ///     Property information.
         /// </returns>
         public static PropertyInfo? GetPropertyInfo(this Type type, string propertyName, bool throwIfNotFound)
         {

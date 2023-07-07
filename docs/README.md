@@ -16,4 +16,8 @@ Hopefully, you'll find something useful there :)
 [Ploch.Common](../src/Common/README.md) contains extensions methods and utility classes for various core classes of
 .NET.
 
+### Ploch.Common.Data.Model
 
+[Ploch.Common.Data.Model](../src/Common.Data/Data.Model/README.md) contains a set of interfaces and base classes for
+building
+model classes.

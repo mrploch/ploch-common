@@ -4,7 +4,7 @@
     <Authors>Kris Ploch</Authors>
     <Company>Ploch</Company>
     <Product>Ploch.Common</Product>
-    <PackageProjectUrl>https://dev.azure.com/ploch/</PackageProjectUrl>
+    <PackageProjectUrl>https://common.github.ploch.dev/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mrploch/ploch-common.git</RepositoryUrl>
     <Description>Common utility libraries.</Description>
     <Copyright>Kris Ploch $([System.DateTime]::Now.Year)</Copyright>
@@ -12,6 +12,8 @@
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-Recommended</AnalysisLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <VersionPrefix>1.1.0</VersionPrefix>
     <VersionSuffix>-prerelease</VersionSuffix>
     <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>

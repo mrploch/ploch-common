@@ -6,13 +6,13 @@ namespace Ploch.Common.Tests.Reflection
 {
     public class ObjectCloningHelperTests
     {
-        private static readonly Fixture _fixture = new();
+        private static readonly Fixture Fixture = new();
 
         [Fact]
         public void CopyPropertiesExcludedTest()
         {
-            var testSourceObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
-            var testTargetObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+            var testSourceObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+            var testTargetObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
 
             testSourceObj.CopyPropertiesExcluding(testTargetObj,
                                                   nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
@@ -29,8 +29,8 @@ namespace Ploch.Common.Tests.Reflection
         [Fact]
         public void CopyPropertiesIncludedTest()
         {
-            var testSourceObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
-            var testTargetObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+            var testSourceObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+            var testTargetObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
 
             testSourceObj.CopyPropertiesIncludeOnly(testTargetObj,
                                                     nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
@@ -48,8 +48,8 @@ namespace Ploch.Common.Tests.Reflection
         [Fact]
         public void CopyPropertiesTest()
         {
-            var testSourceObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
-            var testTargetObj = _fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+            var testSourceObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+            var testTargetObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
 
             testSourceObj.CopyProperties(testTargetObj);
 

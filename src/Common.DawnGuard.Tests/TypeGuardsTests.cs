@@ -5,27 +5,6 @@ using Xunit;
 
 namespace Ploch.Common.DawnGuard.Tests
 {
-    public interface ITestService1
-    { }
-
-    public interface ITestService2
-    { }
-
-    public class TestService1 : ITestService1
-    { }
-
-    public class TestService1A : TestService1
-    { }
-
-    public abstract class TestService2 : ITestService2
-    { }
-
-    public class TestService2A : TestService2
-    { }
-
-    public class TestService12 : TestService2, ITestService1
-    { }
-
     public class TypeGuardsTests
     {
         [Fact]
@@ -65,7 +44,7 @@ namespace Ploch.Common.DawnGuard.Tests
         [Fact]
         public void AssignableToOrNull_guard_should_not_throw_if_argument_is_null()
         {
-            Type nullArg = null;
+            Type? nullArg = null;
 
             Action act = () => Guard.Argument(nullArg, nameof(nullArg))!.AssignableToOrNull(typeof(ITestService1));
 
@@ -75,7 +54,7 @@ namespace Ploch.Common.DawnGuard.Tests
         [Fact]
         public void AssignableToOrNull_generic_guard_should_not_throw_if_argument_is_null()
         {
-            Type nullArg = null;
+            Type? nullArg = null;
 
 #pragma warning disable CS8620
             Action act = () => Guard.Argument(nullArg, nameof(nullArg)).AssignableToOrNull<ITestService1>();
@@ -83,5 +62,22 @@ namespace Ploch.Common.DawnGuard.Tests
 
             act.Should().NotThrow();
         }
+
+#pragma warning disable SA1201 // Elements should appear in the correct order - this is a test class and order doesn't matter.
+        private interface ITestService1
+#pragma warning restore SA1201
+        { }
+
+        private interface ITestService2
+        { }
+
+        private class TestService1 : ITestService1
+        { }
+
+        private abstract class TestService2 : ITestService2
+        { }
+
+        private class TestService12 : TestService2, ITestService1
+        { }
     }
 }

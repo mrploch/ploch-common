@@ -3,14 +3,14 @@
     {
       "src": [
         {
-          "src": "../src",
           "files": [
-            "Common/Ploch*.dll"
+            "**/**.csproj"
           ],
           "exclude": [
             "**/**Tests/**",
             "**/obj/**"
-          ]
+          ],
+          "src": "../src"
         }
       ],
       "dest": "api",
@@ -22,12 +22,14 @@
     "content": [
       {
         "files": [
+          "../README.md",
           "api/**.yml",
           "api/index.md"
         ]
       },
       {
         "files": [
+          "../**.md",
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
@@ -45,7 +47,8 @@
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md"
+          "apidoc/**.md",
+          "namespaces/**.md"
         ],
         "exclude": [
           "obj/**",
