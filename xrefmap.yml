@@ -51,15 +51,6 @@ references:
   fullName.vb: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull(Of TKey, TValue)(System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)), TKey, TValue)
   nameWithType: CollectionExtensions.AddIfNotNull<TKey, TValue>(ICollection<KeyValuePair<TKey, TValue>>, TKey, TValue)
   nameWithType.vb: CollectionExtensions.AddIfNotNull(Of TKey, TValue)(ICollection(Of KeyValuePair(Of TKey, TValue)), TKey, TValue)
-- uid: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
-  name: AddIfNotNull<TKey, TValue>(IDictionary<TKey, TValue>, TKey, TValue)
-  href: api/Ploch.Common.Collections.CollectionExtensions.html#Ploch_Common_Collections_CollectionExtensions_AddIfNotNull__2_System_Collections_Generic_IDictionary___0___1____0___1_
-  commentId: M:Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
-  name.vb: AddIfNotNull(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, TValue)
-  fullName: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue>, TKey, TValue)
-  fullName.vb: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TKey, TValue)
-  nameWithType: CollectionExtensions.AddIfNotNull<TKey, TValue>(IDictionary<TKey, TValue>, TKey, TValue)
-  nameWithType.vb: CollectionExtensions.AddIfNotNull(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, TValue)
 - uid: Ploch.Common.Collections.CollectionExtensions.AddMany*
   name: AddMany
   href: api/Ploch.Common.Collections.CollectionExtensions.html#Ploch_Common_Collections_CollectionExtensions_AddMany_
@@ -736,25 +727,6 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Data.Model.IHasTitle.Title
   nameWithType: IHasTitle.Title
-- uid: Ploch.Common.Data.Model.IHasValue
-  name: IHasValue
-  href: api/Ploch.Common.Data.Model.IHasValue.html
-  commentId: T:Ploch.Common.Data.Model.IHasValue
-  fullName: Ploch.Common.Data.Model.IHasValue
-  nameWithType: IHasValue
-- uid: Ploch.Common.Data.Model.IHasValue.Value
-  name: Value
-  href: api/Ploch.Common.Data.Model.IHasValue.html#Ploch_Common_Data_Model_IHasValue_Value
-  commentId: P:Ploch.Common.Data.Model.IHasValue.Value
-  fullName: Ploch.Common.Data.Model.IHasValue.Value
-  nameWithType: IHasValue.Value
-- uid: Ploch.Common.Data.Model.IHasValue.Value*
-  name: Value
-  href: api/Ploch.Common.Data.Model.IHasValue.html#Ploch_Common_Data_Model_IHasValue_Value_
-  commentId: Overload:Ploch.Common.Data.Model.IHasValue.Value
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasValue.Value
-  nameWithType: IHasValue.Value
 - uid: Ploch.Common.Data.Model.IHasValue`1
   name: IHasValue<TValue>
   href: api/Ploch.Common.Data.Model.IHasValue-1.html
@@ -1082,22 +1054,6 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.DependencyInjection.CompositeServicesBundle.CompositeServicesBundle
   nameWithType: CompositeServicesBundle.CompositeServicesBundle
-- uid: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions(Action{IServiceCollection}[])
-  name: AddActions(Action<IServiceCollection>[])
-  href: api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html#Ploch_Common_DependencyInjection_CompositeServicesBundle_AddActions_Action_IServiceCollection____
-  commentId: M:Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions(Action{IServiceCollection}[])
-  name.vb: AddActions(Action(Of IServiceCollection)())
-  fullName: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions(Action<IServiceCollection>[])
-  fullName.vb: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions(Action(Of IServiceCollection)())
-  nameWithType: CompositeServicesBundle.AddActions(Action<IServiceCollection>[])
-  nameWithType.vb: CompositeServicesBundle.AddActions(Action(Of IServiceCollection)())
-- uid: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions*
-  name: AddActions
-  href: api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html#Ploch_Common_DependencyInjection_CompositeServicesBundle_AddActions_
-  commentId: Overload:Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions
-  isSpec: "True"
-  fullName: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddActions
-  nameWithType: CompositeServicesBundle.AddActions
 - uid: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddServices(Ploch.Common.DependencyInjection.IServicesBundle)
   name: AddServices(IServicesBundle)
   href: api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html#Ploch_Common_DependencyInjection_CompositeServicesBundle_AddServices_Ploch_Common_DependencyInjection_IServicesBundle_
