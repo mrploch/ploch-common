@@ -97,7 +97,7 @@ namespace Ploch.Common.Collections
         /// <returns>String from joined elements.</returns>
         public static string Join<TValue>(this IEnumerable<TValue> source, string separator)
         {
-            return Join(source, separator, v => v.ToString());
+            return Join(source, separator, v => v?.ToString());
         }
 
         /// <summary>
@@ -121,12 +121,12 @@ namespace Ploch.Common.Collections
         /// </summary>
         /// <param name="source">The source collection.</param>
         /// <param name="separator">The separator.</param>
-        /// <param name="finalSeparator"></param>
+        /// <param name="finalSeparator">The final separator.</param>
         /// <typeparam name="TValue">The type of the collection element.</typeparam>
         /// <returns>String from joined elements.</returns>
         public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source, string separator, string finalSeparator)
         {
-            return JoinWithFinalSeparator(source, separator, finalSeparator, v => v.ToString());
+            return JoinWithFinalSeparator(source, separator, finalSeparator, v => v?.ToString());
         }
 
         public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
@@ -134,10 +134,14 @@ namespace Ploch.Common.Collections
                                                                      string finalSeparator,
                                                                      Func<TValue, TResult> valueSelector)
         {
+            Guard.Argument(source, nameof(source)).NotNull();
+            Guard.Argument(valueSelector, nameof(valueSelector)).NotNull();
             var arraySource = source as TValue[] ?? source.ToArray();
             var count = arraySource.Length;
 
-            return Join(arraySource.Take(count - 1), separator, valueSelector) + finalSeparator + valueSelector(arraySource.Last());
+#pragma warning disable CC0031
+            return Join(arraySource.Take(count - 1), separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]);
+#pragma warning restore CC0031
         }
 
         /// <summary>

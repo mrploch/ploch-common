@@ -1,3 +1,4 @@
+[![.NET Core](https://github.com/mrploch/ploch-common/workflows/.NET%20Core/badge.svg)](https://github.com/ardalis/CleanArchitecture/actions)
 # Ploch Common Utilities
 
 ## Overview
@@ -18,4 +19,3 @@ The repository consists of the following main projects:
 - Ploch.TestingSupport
 - Ploch.TestingSupport.FluentAssertions
 - Ploch.TestingSupport.Xunit
-
