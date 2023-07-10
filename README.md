@@ -1,4 +1,7 @@
-[![.NET Core](https://github.com/mrploch/ploch-common/workflows/.NET%20Core/badge.svg)](https://github.com/ardalis/CleanArchitecture/actions)
+[![Build, Test and Analyze .NET](https://github.com/mrploch/ploch-common/actions/workflows/build-dotnet.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/build-dotnet.yml)
+[![pages-build-deployment](https://github.com/mrploch/ploch-common/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/pages/pages-build-deployment)
+[![Qodana](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml)
+
 # Ploch Common Utilities
 
 ## Overview
