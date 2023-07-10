@@ -10,6 +10,8 @@ namespace Ploch.Common.Collections
     /// </summary>
     public static class EnumerableExtensions
     {
+        private static readonly Random Random = new();
+
         /// <summary>
         ///     Checks if a set of values the value using provided comparer.
         /// </summary>
@@ -157,7 +159,7 @@ namespace Ploch.Common.Collections
             while (n > 1)
             {
                 n--;
-                var k = RandomUtils.SharedRandom.Next(n + 1);
+                var k = Random.Next(n + 1);
                 (list[k], list[n]) = (list[n], list[k]);
             }
 
@@ -176,7 +178,7 @@ namespace Ploch.Common.Collections
                 int num;
                 do
                 {
-                    num = RandomUtils.SharedRandom.Next(0, list.Count - 1);
+                    num = Random.Next(0, list.Count - 1);
                 } while (previousRandoms.Contains(num));
 
                 previousRandoms.Add(num);
