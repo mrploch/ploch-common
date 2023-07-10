@@ -12,5 +12,6 @@ jobs:
         with:
           artifact: test-results
           name: 'Test Results'
-          path: '*.xml'
+          path: '**/TestResults/TestOutputResults.xml'
           reporter: dotnet-trx
+          token: ${{ secrets.GITHUB_TOKEN }}
