@@ -36,13 +36,13 @@ jobs:
         run: dotnet-coverage collect 'dotnet test Ploch.Common.sln --verbosity normal --logger "trx;LogFileName=TestOutputResults.xml"' -f xml  -o 'coverage.xml'
       - name: SonarScanner End
         run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: |
-            **/TestResults/*.xml
-            **/TestResults/*.trx
+      # - name: Publish Test Results
+      #   uses: EnricoMi/publish-unit-test-result-action@v2
+      #   if: always()
+      #   with:
+      #     files: |
+      #       **/TestResults/*.xml
+      #       **/TestResults/*.trx
       - name: Upload Test Results
         uses: actions/upload-artifact@v3  # upload test results
         if: success() || failure()        # run this step even if previous step failed
@@ -59,10 +59,15 @@ jobs:
           name: Dotnet Tests
           path: '**/TestResults/TestOutputResults.xml'
           reporter: dotnet-trx
-
-      - name: Read output variables
-        run: |
-          echo "url is ${{ steps.test-report.outputs.runHtmlUrl }}"
+      - uses: LouisBrunner/checks-action@v1.6.1
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Test XYZ
+          conclusion: ${{ job.status }}
+          details_url: ${{ steps.test-report.outputs.runHtmlUrl }}
+          output: |
+            {"summary":"${{ steps.test-report.outputs.conclusion }}"}
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
