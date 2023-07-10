@@ -60,6 +60,7 @@ dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggesti
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
 
+
 # Field preferences
 dotnet_style_readonly_field = true:suggestion
 
@@ -239,6 +240,12 @@ dotnet_diagnostic.sa1623.severity = none
 dotnet_diagnostic.sa1640.severity = none
 dotnet_diagnostic.sa1127.severity = none
 dotnet_diagnostic.sa1200.severity = none
+dotnet_diagnostic.sa1502.severity = none
+dotnet_diagnostic.sa1128.severity = none
+dotnet_diagnostic.sa1133.severity = none
+dotnet_diagnostic.sa1009.severity = none
+dotnet_diagnostic.sa1000.severity = none
+dotnet_diagnostic.sa1633.severity = none
 
 # ReSharper properties
 resharper_csharp_empty_block_style = together
@@ -297,3 +304,18 @@ dotnet_diagnostic.cs8629.severity = error
 dotnet_diagnostic.cs8643.severity = error
 
 dotnet_diagnostic.cs8644.severity = error
+
+dotnet_diagnostic.ca1851.severity = none # Possible multiple enumerations of IEnumerable collection
+resharper_possible_multiple_enumeration = none
+
+# Test projects overrides
+[**/*Tests.cs]
+
+dotnet_diagnostic.ca1707.severity = none # Identifiers should not contain underscores
+dotnet_diagnostic.ca1851.severity = none # Possible multiple enumerations of IEnumerable collection
+dotnet_diagnostic.sa1402.severity = none # File may only contain a single type
+
+resharper_possible_multiple_enumeration.severity = none
+
+dotnet_diagnostic.s4487.severity = none
+resharper_lambda_expression_can_be_made_static.severity = none

@@ -7,6 +7,7 @@ using Xunit;
 
 namespace Ploch.Common.Tests
 {
+    //   [SuppressMessage("ReSharper", "LambdaExpressionCanBeMadeStatic")]
     public class ExpressionExtensionsTests
     {
         public string? MySelfProperty { get; set; }
@@ -16,21 +17,21 @@ namespace Ploch.Common.Tests
         {
             Expression<Func<int>> expression = () => GetHashCode();
             var name = expression.GetMemberName();
-            name.Should().Be("GetHashCode");
+            name.Should().Be(nameof(GetHashCode));
         }
 
         [Fact]
         public void GetMemberName_NoType_Property()
         {
-            Expression<Func<string>> expression = () => MySelfProperty;
+            Expression<Func<string?>> expression = () => MySelfProperty;
             var name = expression.GetMemberName();
-            name.Should().Be("MySelfProperty");
+            name.Should().Be(nameof(MySelfProperty));
         }
 
         [Fact]
         public void GetMemberNameTest_FromType_Property()
         {
-            Expression<Func<TestTypes.Class1, string>> expression = mc => mc.MyProperty;
+            Expression<Func<TestTypes.Class1, string?>> expression = mc => mc.MyProperty;
 
             var name = expression.GetMemberName();
             name.Should().Be("MyProperty");
@@ -42,7 +43,7 @@ namespace Ploch.Common.Tests
             var str = "test";
             Expression<Func<string>> expression = () => str;
 
-            expression.GetMemberName().Should().Be("str");
+            expression.GetMemberName().Should().Be(nameof(str));
         }
     }
 }

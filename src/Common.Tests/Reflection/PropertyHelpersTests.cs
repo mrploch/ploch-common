@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using Ploch.Common.Reflection;
 using Xunit;
-
-// ReSharper disable ExceptionNotDocumented
-// ReSharper disable ExceptionNotDocumentedOptional
-// ReSharper disable ExceptionNotDocumentedOptional
 
 namespace Ploch.Common.Tests.Reflection
 {
@@ -42,7 +37,7 @@ namespace Ploch.Common.Tests.Reflection
 
             propertyInfos.Should()
                          .HaveCount(1)
-                         .And.Contain(pi => pi.PropertyType == typeof(TestTypes.TestTypeBase) && pi.Name == nameof(TestTypes.MyTestClass.TestTypeBaseProp));
+                         .And.Contain(static pi => pi.PropertyType == typeof(TestTypes.TestTypeBase) && pi.Name == nameof(TestTypes.MyTestClass.TestTypeBaseProp));
         }
 
         [Fact]
@@ -53,7 +48,7 @@ namespace Ploch.Common.Tests.Reflection
 
             propertyInfos.Should()
                          .HaveCount(2)
-                         .And.Contain(pi => pi.PropertyType == typeof(TestTypes.TestTypeBase) && pi.Name == nameof(TestTypes.MyTestClass.TestTypeBaseProp))
+                         .And.Contain(static pi => pi.PropertyType == typeof(TestTypes.TestTypeBase) && pi.Name == nameof(TestTypes.MyTestClass.TestTypeBaseProp))
                          .And.Contain(pi => pi.PropertyType == typeof(TestTypes.TestType2) && pi.Name == nameof(TestTypes.MyTestClass.TestType2Prop));
         }
 
@@ -70,7 +65,6 @@ namespace Ploch.Common.Tests.Reflection
         }
 
         [Fact]
-        [SuppressMessage("ReSharper", "EventExceptionNotDocumented")]
         public void GetPropertyInfoThrowsIfNotFound()
         {
             var propertyName = "NonExistent";

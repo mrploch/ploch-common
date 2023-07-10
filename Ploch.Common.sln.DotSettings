@@ -1,2 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue">ExternalToolData|Custom T4 template executor||tt|t4|</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=CSharpWarnings_003A_003ACS1957/@EntryIndexedValue">SUGGESTION</s:String>
+	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue">ExternalToolData|Custom T4 template executor||tt|t4|</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=8C7F12686EEFBF47890FD04B131FF552/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=8C7F12686EEFBF47890FD04B131FF552/AbsolutePath/@EntryValue">C:\DevNet\my\github\mrploch\ploch-common\Ploch.Common.Shared.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=8C7F12686EEFBF47890FD04B131FF552/RelativePath/@EntryValue">..\Ploch.Common.Shared.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File8C7F12686EEFBF47890FD04B131FF552/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File8C7F12686EEFBF47890FD04B131FF552/RelativePriority/@EntryValue">1</s:Double></wpf:ResourceDictionary>

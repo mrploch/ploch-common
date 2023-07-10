@@ -17,9 +17,9 @@ namespace Ploch.Common
         /// <param name="value">The value.</param>
         /// <typeparam name="TValue">The type of the value.</typeparam>
         /// <returns>
-        ///     <c>true<c> if the value is default or null, otherwise <c>false</c>
+        ///     <c>true</c> if the value is default or null, otherwise <c>false</c>
         /// </returns>
-        public static bool IsNotDefault<TValue>(this TValue value)
+        public static bool IsNotDefault<TValue>(this TValue? value)
         {
             return !EqualityComparer<TValue>.Default.Equals(value, default);
         }

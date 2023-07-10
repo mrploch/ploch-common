@@ -42,11 +42,22 @@ namespace Ploch.Common
             return Convert.ToBase64String(encoding.GetBytes(str));
         }
 
+        /// <summary>
+        ///     Decodes a base64 string using <see cref="Encoding.UTF8" /> encoding.
+        /// </summary>
+        /// <param name="str">The base64 encoded string.</param>
+        /// <returns>The decoded base64 string.</returns>
         public static string FromBase64String(this string str)
         {
             return FromBase64String(str, Encoding.UTF8);
         }
 
+        /// <summary>
+        ///     Decodes a base64 string using provided encoding.
+        /// </summary>
+        /// <param name="str">The base64 encoded string.</param>
+        /// <param name="encoding">The <paramref name="str" /> encoding.</param>
+        /// <returns>The decoded base64 string.</returns>
         public static string FromBase64String(this string str, Encoding encoding)
         {
             Guard.Argument(str, nameof(str)).NotNull();
@@ -54,7 +65,13 @@ namespace Ploch.Common
             return encoding.GetString(Convert.FromBase64String(str));
         }
 
-        public static bool EqualsIgnoreCase(this string? str, string? other, StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+        /// <summary>
+        ///     Compare two strings ignoring case.
+        /// </summary>
+        /// <param name="str">The first string to compare.</param>
+        /// <param name="other">The second string to compare.</param>
+        /// <returns><c>true</c> if strings are equal ignoring case, <c>false</c> otherwise.</returns>
+        public static bool EqualsIgnoreCase(this string? str, string? other)
         {
             if (str == null && other == null)
             {
@@ -66,9 +83,28 @@ namespace Ploch.Common
                 return false;
             }
 
-            return str.Equals(other, comparison);
+            return str.Equals(other, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        ///     Replaces the
+        ///     <param name="oldValue"></param>
+        ///     with
+        ///     <param name="newValue"></param>
+        ///     in the string
+        ///     <param name="str"></param>
+        ///     if the string starts with
+        ///     <param name="oldValue"></param>
+        ///     .
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <param name="oldValue">The old value to replace.</param>
+        /// <param name="newValue">The new value to replace the old value with.</param>
+        /// <param name="stringComparison">
+        ///     The string comparison to use when checking if the <paramref name="str" /> starts with
+        ///     <paramref name="oldValue" />. If not provided, then <see cref="StringComparison.InvariantCulture" /> will be used.
+        /// </param>
+        /// <returns>The provided string with a new value at the beginning or the original <paramref name="str" />.</returns>
         public static string ReplaceStart(this string str, string oldValue, string newValue, StringComparison stringComparison = StringComparison.InvariantCulture)
         {
             Guard.Argument(str, nameof(str)).NotNull();

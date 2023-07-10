@@ -18,6 +18,4 @@ Standardization of those types brings a few benefits:
 
 - It makes it possible to re-use components and UI elements between projects
 - Common styling can be implemented, especially in strongly typed UIs like XAML or Blazor
-
-And surely I could add more here.
-
+- UI components can be created that can be used to edit any entity that implements a common interface
