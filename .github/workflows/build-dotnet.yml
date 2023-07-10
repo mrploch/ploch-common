@@ -51,21 +51,14 @@ jobs:
           path: |
             **/TestResults/*.xml
             **/TestResults/*.trx
-      - name: Test Report
-        uses: phoenix-actions/test-reporting@v8
-        id: test-report               # Set ID reference for step
-        if: success() || failure()    # run this step even if previous step failed
-        with:
-          name: Dotnet Tests
-          path: '**/TestResults/TestOutputResults.xml'
-          reporter: dotnet-trx
-      - uses: LouisBrunner/checks-action@v1.6.1
-        if: always()
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: Test Report Details
-          conclusion: ${{ job.status }}
-          details_url: ${{ steps.test-report.outputs.runHtmlUrl }}
+      # - name: Test Report
+      #   uses: phoenix-actions/test-reporting@v8
+      #   id: test-report               # Set ID reference for step
+      #   if: success() || failure()    # run this step even if previous step failed
+      #   with:
+      #     name: Dotnet Tests
+      #     path: '**/TestResults/TestOutputResults.xml'
+      #     reporter: dotnet-trx
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
