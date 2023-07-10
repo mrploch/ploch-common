@@ -59,6 +59,16 @@ jobs:
       #     name: Dotnet Tests
       #     path: '**/TestResults/TestOutputResults.xml'
       #     reporter: dotnet-trx
+      - name: Create Test Coverage Badge
+        uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+        id: create_coverage_badge
+        with:
+          label: Unit Test Coverage
+          color: brightgreen
+          path: ./coverage.xml
+          gist-filename: code-coverage.json
+          gist-id: 1234567890abcdef1234567890abcdef
+          gist-auth-token: ${{ secrets.GH_GIST_TOKEN }}
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
