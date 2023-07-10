@@ -14,3 +14,4 @@ jobs:
           name: 'Test Results'
           path: '**/TestResults/TestOutputResults.xml'
           reporter: dotnet-trx
+          token: ${{secrets.GH_TOKEN}}
