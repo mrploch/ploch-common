@@ -8,10 +8,15 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - uses: dorny/test-reporter@v1
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        id: test-report
         with:
           artifact: test-results
           name: 'Test Results'
           path: '**/TestResults/TestOutputResults.xml'
           reporter: dotnet-trx
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Read output variables
+        run: |
+          echo "url is ${{ steps.test-report.outputs.runHtmlUrl }}"
