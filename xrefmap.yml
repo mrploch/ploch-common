@@ -1359,18 +1359,6 @@ references:
   fullName.vb: Ploch.Common.ObjectCloningHelpers.CopyPropertiesIncludeOnly(Of T)(T, T, System.String())
   nameWithType: ObjectCloningHelpers.CopyPropertiesIncludeOnly<T>(T, T, String[])
   nameWithType.vb: ObjectCloningHelpers.CopyPropertiesIncludeOnly(Of T)(T, T, String())
-- uid: Ploch.Common.RandomUtils
-  name: RandomUtils
-  href: api/Ploch.Common.RandomUtils.html
-  commentId: T:Ploch.Common.RandomUtils
-  fullName: Ploch.Common.RandomUtils
-  nameWithType: RandomUtils
-- uid: Ploch.Common.RandomUtils.SharedRandom
-  name: SharedRandom
-  href: api/Ploch.Common.RandomUtils.html#Ploch_Common_RandomUtils_SharedRandom
-  commentId: F:Ploch.Common.RandomUtils.SharedRandom
-  fullName: Ploch.Common.RandomUtils.SharedRandom
-  nameWithType: RandomUtils.SharedRandom
 - uid: Ploch.Common.Reflection
   name: Ploch.Common.Reflection
   href: api/Ploch.Common.Reflection.html
@@ -1605,12 +1593,12 @@ references:
   commentId: T:Ploch.Common.StringExtensions
   fullName: Ploch.Common.StringExtensions
   nameWithType: StringExtensions
-- uid: Ploch.Common.StringExtensions.EqualsIgnoreCase(System.String,System.String,System.StringComparison)
-  name: EqualsIgnoreCase(String, String, StringComparison)
-  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_EqualsIgnoreCase_System_String_System_String_System_StringComparison_
-  commentId: M:Ploch.Common.StringExtensions.EqualsIgnoreCase(System.String,System.String,System.StringComparison)
-  fullName: Ploch.Common.StringExtensions.EqualsIgnoreCase(System.String, System.String, System.StringComparison)
-  nameWithType: StringExtensions.EqualsIgnoreCase(String, String, StringComparison)
+- uid: Ploch.Common.StringExtensions.EqualsIgnoreCase(System.String,System.String)
+  name: EqualsIgnoreCase(String, String)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_EqualsIgnoreCase_System_String_System_String_
+  commentId: M:Ploch.Common.StringExtensions.EqualsIgnoreCase(System.String,System.String)
+  fullName: Ploch.Common.StringExtensions.EqualsIgnoreCase(System.String, System.String)
+  nameWithType: StringExtensions.EqualsIgnoreCase(String, String)
 - uid: Ploch.Common.StringExtensions.EqualsIgnoreCase*
   name: EqualsIgnoreCase
   href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_EqualsIgnoreCase_
