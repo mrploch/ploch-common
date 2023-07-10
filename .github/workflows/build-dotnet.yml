@@ -49,7 +49,7 @@ jobs:
         with:
           name: Dotnet Tests            # Name of the check run which will be created
           path: '**/TestResults/TestOutputResults.xml'
-          reporter: jest-junit        # Format of test results
+          reporter: dotnet-trx         # Format of test results
       - name: Upload Test Results
         uses: actions/upload-artifact@v3  # upload test results
         if: success() || failure()        # run this step even if previous step failed
