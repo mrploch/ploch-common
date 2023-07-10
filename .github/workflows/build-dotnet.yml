@@ -63,11 +63,9 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Test XYZ
+          name: Test Report Details
           conclusion: ${{ job.status }}
           details_url: ${{ steps.test-report.outputs.runHtmlUrl }}
-          output: |
-            {"summary":"${{ steps.test-report.outputs.conclusion }}"}
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
