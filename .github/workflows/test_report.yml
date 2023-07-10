@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Set branch output
         run: echo ::set-output name=branch::${{ github.repository }}
+      - run: echo "The branch name is ${{ github.repository }}"
       - name: Test Report
         uses: dorny/test-reporter@v1
         id: test-report
