@@ -8,6 +8,8 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
+      - name: Set branch output
+        run: echo ::set-output name=branch::${{ github.repository }}
       - name: Test Report
         uses: dorny/test-reporter@v1
         id: test-report
