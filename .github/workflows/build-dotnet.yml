@@ -43,6 +43,13 @@ jobs:
           files: |
             **/TestResults/*.xml
             **/TestResults/*.trx
+      - uses: actions/upload-artifact@v3  # upload test results
+        if: success() || failure()        # run this step even if previous step failed
+        with:
+          name: test-results
+          path: |
+            **/TestResults/*.xml
+            **/TestResults/*.trx
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
