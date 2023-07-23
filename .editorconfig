@@ -317,7 +317,8 @@ dotnet_diagnostic.ca1851.severity = none # Possible multiple enumerations of IEn
 dotnet_diagnostic.sa1402.severity = none # File may only contain a single type
 dotnet_diagnostic.sa0001.severity = none # XML comment analysis is disabled due to project configuration
 
-resharper_possible_multiple_enumeration.severity = none
+resharper_possible_multiple_enumeration_highlighting = none
 
 dotnet_diagnostic.s4487.severity = none
-resharper_lambda_expression_can_be_made_static.severity = none
+
+resharper_lambda_expression_can_be_made_static_highlighting = none
