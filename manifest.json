@@ -29,23 +29,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Ploch.Common.Collections.KeyValuePairExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Ploch.Common.Collections.KeyValuePairExtensions.html",
-          "hash": "QjFHRTnE4YZqCOE6B8tcspI+smXhc47FLNo90WqrbQ0="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.yml",
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.Collections.html",
-          "hash": "ReuaO/P/4Com96nhYrD5EhqbQKUQg7zzAnugYzJ17R4="
+          "hash": "z7a0rggjrwehidlbGi6XtVGaAcncTZquzpxw0mFNmRs="
         }
       },
       "is_incremental": false,
@@ -813,7 +801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "0iuIG9dnXoFjqr/2wn+y+4A5SAhz+zhlVqyA8GPz4ds="
+          "hash": "ReAHbiNYxNGIqrCDTOXATeugIbYPETsocl/RklmoM1I="
         }
       },
       "is_incremental": false,
@@ -888,7 +876,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 68,
+          "total_file_count": 67,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
