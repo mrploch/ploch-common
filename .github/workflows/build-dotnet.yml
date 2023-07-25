@@ -29,11 +29,11 @@ jobs:
       - name: Install dotnet-coverage
         run: dotnet tool install --global dotnet-coverage
       - name: SonarScanner Begin
-        run: dotnet sonarscanner begin /k:"mrploch_ploch-common" /o:"mrploch" /d:sonar.login="${{secrets.SONAR_TOKEN}}" /d:sonar.cs.opencover.reportsPaths=**/TestResults/coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io"
+        run: dotnet sonarscanner begin /k:"mrploch_ploch-common" /o:"mrploch" /d:sonar.login="${{secrets.SONAR_TOKEN}}" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml /d:sonar.host.url="https://sonarcloud.io"
       - name: Build
         run: dotnet build Ploch.Common.sln --no-restore
       - name: Test Coverage
-        run: dotnet test Ploch.Common.sln -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover --verbosity normal --logger "trx;LogFileName=TestOutputResults.xml"
+        run: dotnet-coverage collect 'dotnet test Ploch.Common.sln --verbosity normal --logger "trx;LogFileName=TestOutputResults.xml"' -f xml -o "coverage.xml"
       - name: SonarScanner End
         run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
       # - name: Publish Test Results
@@ -61,6 +61,7 @@ jobs:
           reporter: dotnet-trx
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./DocumentationSite/_site

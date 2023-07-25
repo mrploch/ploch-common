@@ -4,10 +4,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <LangVersion>preview</LangVersion>
-    <OutputType>Library</OutputType>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,14 +19,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0"/>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3"/>
     <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.3.3"/>
     <PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.39.0.47922">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="9.6.0.74858">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -37,7 +36,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="xunit.analyzers" Version="1.2.0" />
+    <PackageReference Include="xunit" Version="2.5.0"/>
+    <PackageReference Include="xunit.analyzers" Version="1.2.0"/>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <!--<ItemGroup>
