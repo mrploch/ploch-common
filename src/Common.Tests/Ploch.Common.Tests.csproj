@@ -56,7 +56,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.4.1"/>
-      <PackageReference Include="ReportGenerator" Version="5.1.22"/>
+      <PackageReference Include="ReportGenerator" Version="5.1.23"/>
       <PackageReference Include="Roslynator.Analyzers" Version="4.3.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
