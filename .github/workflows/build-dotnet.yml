@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: dotnet build Ploch.Common.sln --no-restore
       - name: Test Coverage
-        run: dotnet-coverage collect 'dotnet test Ploch.Common.sln --verbosity normal --logger "trx;LogFileName=TestOutputResults.xml"' -f xml  -o 'coverage.xml'
+        run: dotnet-coverage collect 'dotnet test Ploch.Common.sln --verbosity normal --logger "trx;LogFileName=TestOutputResults.xml"' -f xml -o "coverage.xml"
       - name: SonarScanner End
         run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
       # - name: Publish Test Results
@@ -51,26 +51,17 @@ jobs:
           path: |
             **/TestResults/*.xml
             **/TestResults/*.trx
-      # - name: Test Report
-      #   uses: phoenix-actions/test-reporting@v8
-      #   id: test-report               # Set ID reference for step
-      #   if: success() || failure()    # run this step even if previous step failed
-      #   with:
-      #     name: Dotnet Tests
-      #     path: '**/TestResults/TestOutputResults.xml'
-      #     reporter: dotnet-trx
-      - name: Create Test Coverage Badge
-        uses: simon-k/dotnet-code-coverage-badge@v1.0.0
-        id: create_coverage_badge
+      - name: Test Report
+        uses: phoenix-actions/test-reporting@v8
+        id: test-report               # Set ID reference for step
+        if: success() || failure()    # run this step even if previous step failed
         with:
-          label: Unit Test Coverage
-          color: brightgreen
-          path: ./coverage.xml
-          gist-filename: code-coverage.json
-          gist-id: 1234567890abcdef1234567890abcdef
-          gist-auth-token: ${{ secrets.GH_GIST_TOKEN }}
+          name: Dotnet Tests
+          path: '**/TestResults/TestOutputResults.xml'
+          reporter: dotnet-trx
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./DocumentationSite/_site
