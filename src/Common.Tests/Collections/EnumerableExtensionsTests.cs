@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoFixture;
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
@@ -108,10 +109,10 @@ namespace Ploch.Common.Tests.Collections
             result.Should().Be(expected);
         }
 
-        [Theory]
-        [AutoMockData]
-        public void Shuffle_should_randomly_shuffle_items_in_collection(List<string> strings)
+        [Fact]
+        public void Shuffle_should_randomly_shuffle_items_in_collection()
         {
+            var strings = new Fixture().CreateMany<string>(20);
             var result = strings.Shuffle();
 
             // ReSharper disable once PossibleMultipleEnumeration
