@@ -82,31 +82,6 @@ references:
   commentId: T:Ploch.Common.Collections.EnumerableExtensions
   fullName: Ploch.Common.Collections.EnumerableExtensions
   nameWithType: EnumerableExtensions
-- uid: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided*
-  name: FirstOrProvided
-  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_FirstOrProvided_
-  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided
-  isSpec: "True"
-  fullName: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided
-  nameWithType: EnumerableExtensions.FirstOrProvided
-- uid: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0})
-  name: FirstOrProvided<TValue>(IEnumerable<TValue>, Func<TValue, Boolean>, Func<TValue>)
-  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_FirstOrProvided__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__System_Func___0__
-  commentId: M:Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0})
-  name.vb: FirstOrProvided(Of TValue)(IEnumerable(Of TValue), Func(Of TValue, Boolean), Func(Of TValue))
-  fullName: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided<TValue>(System.Collections.Generic.IEnumerable<TValue>, System.Func<TValue, System.Boolean>, System.Func<TValue>)
-  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided(Of TValue)(System.Collections.Generic.IEnumerable(Of TValue), System.Func(Of TValue, System.Boolean), System.Func(Of TValue))
-  nameWithType: EnumerableExtensions.FirstOrProvided<TValue>(IEnumerable<TValue>, Func<TValue, Boolean>, Func<TValue>)
-  nameWithType.vb: EnumerableExtensions.FirstOrProvided(Of TValue)(IEnumerable(Of TValue), Func(Of TValue, Boolean), Func(Of TValue))
-- uid: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0})
-  name: FirstOrProvided<TValue>(IEnumerable<TValue>, Func<TValue>)
-  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_FirstOrProvided__1_System_Collections_Generic_IEnumerable___0__System_Func___0__
-  commentId: M:Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0})
-  name.vb: FirstOrProvided(Of TValue)(IEnumerable(Of TValue), Func(Of TValue))
-  fullName: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided<TValue>(System.Collections.Generic.IEnumerable<TValue>, System.Func<TValue>)
-  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.FirstOrProvided(Of TValue)(System.Collections.Generic.IEnumerable(Of TValue), System.Func(Of TValue))
-  nameWithType: EnumerableExtensions.FirstOrProvided<TValue>(IEnumerable<TValue>, Func<TValue>)
-  nameWithType.vb: EnumerableExtensions.FirstOrProvided(Of TValue)(IEnumerable(Of TValue), Func(Of TValue))
 - uid: Ploch.Common.Collections.EnumerableExtensions.Join*
   name: Join
   href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_Join_
@@ -245,6 +220,22 @@ references:
   commentId: T:Ploch.Common.ComparisonUtils
   fullName: Ploch.Common.ComparisonUtils
   nameWithType: ComparisonUtils
+- uid: Ploch.Common.ComparisonUtils.IsDefault*
+  name: IsDefault
+  href: api/Ploch.Common.ComparisonUtils.html#Ploch_Common_ComparisonUtils_IsDefault_
+  commentId: Overload:Ploch.Common.ComparisonUtils.IsDefault
+  isSpec: "True"
+  fullName: Ploch.Common.ComparisonUtils.IsDefault
+  nameWithType: ComparisonUtils.IsDefault
+- uid: Ploch.Common.ComparisonUtils.IsDefault``1(``0)
+  name: IsDefault<TValue>(TValue)
+  href: api/Ploch.Common.ComparisonUtils.html#Ploch_Common_ComparisonUtils_IsDefault__1___0_
+  commentId: M:Ploch.Common.ComparisonUtils.IsDefault``1(``0)
+  name.vb: IsDefault(Of TValue)(TValue)
+  fullName: Ploch.Common.ComparisonUtils.IsDefault<TValue>(TValue)
+  fullName.vb: Ploch.Common.ComparisonUtils.IsDefault(Of TValue)(TValue)
+  nameWithType: ComparisonUtils.IsDefault<TValue>(TValue)
+  nameWithType.vb: ComparisonUtils.IsDefault(Of TValue)(TValue)
 - uid: Ploch.Common.ComparisonUtils.IsNotDefault*
   name: IsNotDefault
   href: api/Ploch.Common.ComparisonUtils.html#Ploch_Common_ComparisonUtils_IsNotDefault_
