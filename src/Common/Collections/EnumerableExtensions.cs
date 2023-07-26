@@ -188,18 +188,5 @@ namespace Ploch.Common.Collections
 
             return result;
         }
-
-        public static TValue FirstOrProvided<TValue>(this IEnumerable<TValue> source, Func<TValue> defaultValueFactory)
-        {
-            return FirstOrProvided(source, null, defaultValueFactory);
-        }
-
-        public static TValue FirstOrProvided<TValue>(this IEnumerable<TValue> source, Func<TValue, bool>? predicate, Func<TValue> defaultValueFactory)
-        {
-            Guard.Argument(source, nameof(source)).NotNull();
-            Guard.Argument(defaultValueFactory, nameof(defaultValueFactory)).NotNull();
-
-            return predicate == null ? source.FirstOrDefault() : source.FirstOrDefault(predicate) ?? defaultValueFactory();
-        }
     }
 }

@@ -21,7 +21,12 @@ namespace Ploch.Common
         /// </returns>
         public static bool IsNotDefault<TValue>(this TValue? value)
         {
-            return !EqualityComparer<TValue>.Default.Equals(value, default);
+            return !value.IsDefault();
+        }
+
+        public static bool IsDefault<TValue>(this TValue? value)
+        {
+            return EqualityComparer<TValue>.Default.Equals(value, default);
         }
     }
 }

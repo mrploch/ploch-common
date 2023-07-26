@@ -30,6 +30,25 @@ namespace Ploch.Common.Tests.Reflection
         }
 
         [Fact]
+        public void GetProperties_should_throw_if_obj_is_null()
+        {
+            TestTypes.MyTestClass? testObject = null;
+            var exceptionWasThrown = false;
+            try
+            {
+                testObject.GetProperties<string>();
+            }
+            catch (ArgumentNullException ex)
+            {
+                exceptionWasThrown = true;
+
+                ex.ParamName.Should().Be("obj");
+            }
+
+            exceptionWasThrown.Should().BeTrue();
+        }
+
+        [Fact]
         public void GetPropertiesOfTypeExcludingSubclassTest()
         {
             var testObject = new TestTypes.MyTestClass();

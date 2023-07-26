@@ -15,6 +15,13 @@ namespace Ploch.Common.Tests
         }
 
         [Fact]
+        public void ToEpochSeconds_with_null_should_convert_non_nullable_DateTime()
+        {
+            DateTime? sut = null;
+            sut.ToEpochSeconds().Should().BeNull();
+        }
+
+        [Fact]
         public void ToDateTime_should_convert_any_number_to_DateTime()
         {
             long longSeconds = 0;
@@ -39,6 +46,13 @@ namespace Ploch.Common.Tests
             epochSeconds.ToDateTime().Kind.Should().Be(DateTimeKind.Utc);
 
             epochSeconds.ToDateTime().ToEpochSeconds().Should().Be(epochSeconds);
+        }
+
+        [Fact]
+        public void ToDateTime_with_null_should_result_in_null()
+        {
+            long? epochSeconds = null;
+            epochSeconds.ToDateTime().Should().BeNull();
         }
     }
 }
