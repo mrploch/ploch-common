@@ -18,7 +18,7 @@ jobs:
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.1.0
         with:
-          pr-mode: false
+          args: --baseline,qodana.sarif.json
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
       - uses: github/codeql-action/upload-sarif@v2
