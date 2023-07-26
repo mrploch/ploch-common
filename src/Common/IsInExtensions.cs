@@ -63,18 +63,18 @@ namespace Ploch.Common
         ///     <c>true</c> if the <paramref name="value" /> is equal to one of the <paramref name="values" />, <c>false</c>
         ///     otherwise.
         /// </returns>
-        public static bool In<TValue>(this TValue value, IEnumerable<TValue> values)
+        public static bool In<TValue>(this TValue? value, IEnumerable<TValue> values)
         {
             Guard.Argument(values).NotNull();
 
-            if (value == null)
+            if (value.IsDefault())
             {
                 return false;
             }
 
             foreach (var v in values)
             {
-                if (value.Equals(v))
+                if (value.IsNotDefault() && value!.Equals(v))
                 {
                     return true;
                 }

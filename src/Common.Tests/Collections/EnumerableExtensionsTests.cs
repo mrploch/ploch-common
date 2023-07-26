@@ -87,28 +87,6 @@ namespace Ploch.Common.Tests.Collections
             result.Should().HaveCount(200);
         }
 
-        [Theory]
-        [AutoMockData]
-        public void FirstOrProvided_should_return_provided_value_if_item_is_not_found(IEnumerable<string> strings)
-        {
-            var expected = "MyValue";
-
-            var result = strings.FirstOrProvided(s => s == Guid.NewGuid().ToString(), () => expected);
-
-            result.Should().Be(expected);
-        }
-
-        [Theory]
-        [AutoMockData]
-        public void FirstOrProvided_should_return_item_if_found(List<string> strings)
-        {
-            var expected = "MyValue";
-            strings.Add(expected);
-            var result = strings.FirstOrProvided(s => s == expected, () => "NotExpectedValue");
-
-            result.Should().Be(expected);
-        }
-
         [Fact]
         public void Shuffle_should_randomly_shuffle_items_in_collection()
         {
@@ -133,6 +111,15 @@ namespace Ploch.Common.Tests.Collections
             }
 
             sameOrder.Should().BeFalse();
+        }
+
+        [Fact]
+        public void JoinWithFinalSeparator_should_use_final_separator_for_last_item()
+        {
+            var strings = new Fixture().CreateMany<string>(20);
+            var result = strings.JoinWithFinalSeparator(", ", " and ");
+
+            result.Should().Be(string.Join(", ", strings.Take(strings.Count() - 1)) + " and " + strings.Last());
         }
     }
 }

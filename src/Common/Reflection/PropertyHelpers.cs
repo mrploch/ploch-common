@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using Dawn;
 
 namespace Ploch.Common.Reflection
 {
@@ -31,10 +32,7 @@ namespace Ploch.Common.Reflection
         /// </returns>
         public static IEnumerable<PropertyInfo> GetProperties<TPropertyType>(this object obj, bool includeSubTypes = true)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException(nameof(obj));
-            }
+            Guard.Argument(obj, nameof(obj)).NotNull();
 
             var type = obj.GetType();
 
