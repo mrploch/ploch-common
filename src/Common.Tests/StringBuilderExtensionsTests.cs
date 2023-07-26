@@ -27,8 +27,8 @@ namespace Ploch.Common.Tests
         [AutoMockData]
         public void AppendIfNotNullOrEmpty_should_append_if_string_is_not_null(StringBuilder sb)
         {
-            sb.AppendIfNotNullOrEmpty("test");
-            sb.ToString().Should().EndWith("test");
+            sb.AppendIfNotNullOrEmpty(1, i => i + "1");
+            sb.ToString().Should().EndWith("11");
         }
 
         [Theory]

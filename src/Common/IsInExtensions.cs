@@ -74,7 +74,7 @@ namespace Ploch.Common
 
             foreach (var v in values)
             {
-                if (value.Equals(v))
+                if (value.IsNotDefault() && value!.Equals(v))
                 {
                     return true;
                 }

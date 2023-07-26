@@ -4,16 +4,37 @@ using Dawn;
 
 namespace Ploch.Common
 {
+    /// <summary>
+    ///     Extension methods for <see cref="StringBuilder" />
+    /// </summary>
     public static class StringBuilderExtensions
     {
-        public static StringBuilder AppendIfNotNull<TValue>(this StringBuilder builder, TValue? value, Func<TValue, string>? formatFunc = null)
+        /// <summary>
+        ///     Appends the <paramref name="value" /> to the <paramref name="builder" /> if the <paramref name="value" /> is not
+        ///     null.
+        /// </summary>
+        /// <param name="builder">The <c>StringBuilder</c></param>
+        /// <param name="value">The value to append.</param>
+        /// <param name="formatFunc">Optional formatting function.</param>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <returns>The source <c>StringBuilder</c>.</returns>
+        public static StringBuilder AppendIfNotNull<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, string>? formatFunc = null)
         {
-            return AppendIf(builder, value, static v => !Equals(v, default), formatFunc!);
+            return AppendIf(builder, value, static v => !Equals(v, default), formatFunc);
         }
 
-        public static StringBuilder AppendIfNotNullOrEmpty<TValue>(this StringBuilder builder, TValue? value, Func<TValue, string>? formatFunc = null)
+        /// <summary>
+        ///     Appends the <paramref name="value" /> to the <paramref name="builder" /> if the <paramref name="value" /> is not
+        ///     null or empty string.
+        /// </summary>
+        /// <param name="builder">The <c>StringBuilder</c></param>
+        /// <param name="value">The value to append.</param>
+        /// <param name="formatFunc">Optional formatting function.</param>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <returns>The source <c>StringBuilder</c>.</returns>
+        public static StringBuilder AppendIfNotNullOrEmpty<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, string>? formatFunc = null)
         {
-            return AppendIf(builder, value, static v => !Equals(v, default) && !v.ToString().IsNullOrEmpty(), formatFunc!);
+            return AppendIf(builder, value, static v => !Equals(v, default) && !v.ToString().IsNullOrEmpty(), formatFunc);
         }
 
         private static StringBuilder AppendIf<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, bool> test, Func<TValue?, string>? formatFunc = null)
