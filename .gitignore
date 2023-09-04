@@ -356,3 +356,6 @@ MigrationBackup/
 /NDependOut1
 .sonarqube/**
 **/TestResults/coverage.opencover.xml
+**/log.txt
+*.bak
+coverage.xml
