@@ -6,10 +6,6 @@
 
   <ItemGroup>
       <PackageReference Include="Dawn.Guard" Version="1.12.0"/>
-      <PackageReference Update="SonarAnalyzer.CSharp" Version="9.6.0.74858">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
   </ItemGroup>
 
 </Project>

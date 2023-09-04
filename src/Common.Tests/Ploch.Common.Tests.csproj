@@ -40,34 +40,18 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="FluentAssertions" Version="6.11.0"/>
-      <PackageReference Include="FluentAssertions.Analyzers" Version="0.21.0">
+      <PackageReference Include="FluentAssertions" Version="6.12.0"/>
+      <PackageReference Include="FluentAssertions.Analyzers" Version="0.24.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.3">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3"/>
-      <PackageReference Include="Moq" Version="4.18.4"/>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2"/>
+      <PackageReference Include="Moq" Version="4.20.69"/>
       <PackageReference Include="Moq.Analyzers" Version="0.0.9">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.4.1"/>
-      <PackageReference Include="Roslynator.Analyzers" Version="4.3.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="SonarAnalyzer.CSharp" Version="9.6.0.74858">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
+      <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.5.0"/>
       <PackageReference Include="xunit" Version="2.5.0"/>
       <PackageReference Include="xunit.analyzers" Version="1.2.0"/>
       <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
