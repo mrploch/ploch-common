@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <IsPackable>false</IsPackable>
+      <UserSecretsId>d1ee1f5a-5a4c-4fd4-b88f-c97cd227427d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,23 +12,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.3">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3"/>
-      <PackageReference Include="Roslynator.Analyzers" Version="4.3.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="SonarAnalyzer.CSharp" Version="9.6.0.74858">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2"/>
       <PackageReference Include="xunit" Version="2.5.0"/>
       <PackageReference Include="xunit.analyzers" Version="1.2.0"/>
       <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
