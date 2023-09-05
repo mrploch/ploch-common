@@ -38,11 +38,15 @@ namespace Ploch.Common.WebUI.TagUtilities
                                                               bool includeNull = false,
                                                               string nullText = "--- Select ---")
         {
+            // ReSharper disable once PossibleMultipleEnumeration - false-positive
             Guard.Argument(items, nameof(items)).NotNull();
             Guard.Argument(textFunc, nameof(textFunc)).NotNull();
             Guard.Argument(valueFunc, nameof(valueFunc)).NotNull();
 
+            // ReSharper disable once PossibleMultipleEnumeration - false-positive
+#pragma warning disable CC0031 // Check for null before calling a delegate - false-positive
             var result = items.Select(item => new SelectListItem(textFunc(item).ToString(), valueFunc(item).ToString())).ToList();
+#pragma warning restore CC0031
             if (includeNull)
             {
                 result.Insert(0, new SelectListItem(nullText, string.Empty));
