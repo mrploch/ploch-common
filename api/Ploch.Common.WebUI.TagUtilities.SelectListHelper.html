@@ -73,7 +73,8 @@
   
   <h1 id="Ploch_Common_WebUI_TagUtilities_SelectListHelper" data-uid="Ploch.Common.WebUI.TagUtilities.SelectListHelper" class="text-break">Class SelectListHelper
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Helper class for creating <see cref="!:SelectListItem"></see> collections.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -93,11 +94,12 @@
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_WebUI_TagUtilities_SelectListHelper_CreateFor__1_IEnumerable___0__Func___0_System_Object__Func___0_System_Object__System_Boolean_System_String_.md&amp;value=---%0Auid%3A%20Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor%60%601(IEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Object%7D%2CFunc%7B%60%600%2CSystem.Object%7D%2CSystem.Boolean%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.WebUI/TagUtilities/SelectListHelper.cs/#L7">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.WebUI/TagUtilities/SelectListHelper.cs/#L35">View Source</a>
   </span>
   <a id="Ploch_Common_WebUI_TagUtilities_SelectListHelper_CreateFor_" data-uid="Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor*"></a>
   <h4 id="Ploch_Common_WebUI_TagUtilities_SelectListHelper_CreateFor__1_IEnumerable___0__Func___0_System_Object__Func___0_System_Object__System_Boolean_System_String_" data-uid="Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor``1(IEnumerable{``0},Func{``0,System.Object},Func{``0,System.Object},System.Boolean,System.String)">CreateFor&lt;TModel&gt;(IEnumerable&lt;TModel&gt;, Func&lt;TModel, Object&gt;, Func&lt;TModel, Object&gt;, Boolean, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a list of <see cref="!:SelectListItem"></see> from the <code data-dev-comment-type="paramref" class="paramref">items</code> collection.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -116,27 +118,35 @@
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;TModel&gt;</td>
         <td><span class="parametername">items</span></td>
-        <td></td>
+        <td><p>The source collection.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Func</span>&lt;TModel, <span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">textFunc</span></td>
-        <td></td>
+        <td><p>Function mapping an item to the <see cref="!:SelectListItem.Text"></see> property of a
+<see cref="!:SelectListItem"></see>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Func</span>&lt;TModel, <span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">valueFunc</span></td>
-        <td></td>
+        <td><p>Function mapping an item to the <see cref="!:SelectListItem.Value"></see> property of a
+<see cref="!:SelectListItem"></see>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">includeNull</span></td>
-        <td></td>
+        <td><p>If <code>True</code> then <code>string.Empty</code> value entry will be added to the result
+collection. Optional, defaults to <code>False</code>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">nullText</span></td>
-        <td></td>
+        <td><p>The <code>string.Empty</code> item text.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -151,7 +161,8 @@
     <tbody>
       <tr>
         <td><span class="xref">IList</span>&lt;<span class="xref">SelectListItem</span>&gt;</td>
-        <td></td>
+        <td><p>a list of <see cref="!:SelectListItem"></see> from the <code data-dev-comment-type="paramref" class="paramref">items</code> collection.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -166,10 +177,16 @@
     <tbody>
       <tr>
         <td><span class="parametername">TModel</span></td>
-        <td></td>
+        <td><p>The <code data-dev-comment-type="paramref" class="paramref">items</code> collection item type.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Ploch_Common_WebUI_TagUtilities_SelectListHelper_CreateFor__1_IEnumerable___0__Func___0_System_Object__Func___0_System_Object__System_Boolean_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Maps items from the <code data-dev-comment-type="paramref" class="paramref">items</code> to <see cref="!:SelectListItem"></see> using the
+<code data-dev-comment-type="paramref" class="paramref">textFunc</code> and
+<code data-dev-comment-type="paramref" class="paramref">valueFunc</code> functions.</p>
+</div>
 </article>
           </div>
           
@@ -181,7 +198,7 @@
                     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_WebUI_TagUtilities_SelectListHelper.md&amp;value=---%0Auid%3A%20Ploch.Common.WebUI.TagUtilities.SelectListHelper%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.WebUI/TagUtilities/SelectListHelper.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.WebUI/TagUtilities/SelectListHelper.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
