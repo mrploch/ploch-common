@@ -15,5 +15,5 @@ public interface IHierarchicalWithParent<TParent>
     /// <summary>
     ///     The <c>Parent</c> property is used to store a reference to the parent entity.
     /// </summary>
-    TParent Parent { get; set; }
+    TParent? Parent { get; set; }
 }
