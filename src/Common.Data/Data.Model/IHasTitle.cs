@@ -1,7 +1,12 @@
-namespace Ploch.Common.Data.Model
+namespace Ploch.Common.Data.Model;
+
+/// <summary>
+///     An entity with a <c>Title</c> property.
+/// </summary>
+public interface IHasTitle
 {
-    public interface IHasTitle
-    {
-        string Title { get; set; }
-    }
+    /// <summary>
+    ///     The title property.
+    /// </summary>
+    string Title { get; set; }
 }

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>Ploch.Common.Data.Repositories.Interfaces</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Data.Model\Ploch.Common.Data.Model.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Data.Model\Ploch.Common.Data.Model.csproj"/>
+    </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
-﻿namespace BlazorHero.CleanArchitecture.Domain.Contracts;
+﻿namespace Ploch.Common.Data.Model;
 
-public abstract class AuditableEntityExtendedAttribute<TId, TEntityId, TEntity> : AuditableEntity<TId>, IEntityAuditableExtendedAttribute<TId, TEntityId, TEntity>
-    where TEntity : IEntity<TEntityId>
+public abstract class AuditableEntityExtendedAttribute<TId, TEntityId, TEntity> : AuditableEntity<TId>, IEntityAuditableExtendedAttribute<TId, TEntityId>
+    where TEntity : IHasId<TEntityId> where TEntityId : IHasId<TId>
 {
     /// <summary>
     ///     Extended attribute's related entity
@@ -26,7 +26,7 @@ public abstract class AuditableEntityExtendedAttribute<TId, TEntityId, TEntity> 
     public string? Text { get; set; }
 
     /// <inheritdoc />
-    public decimal? Decimal { get; set; }
+    public decimal? Number { get; set; }
 
     /// <inheritdoc />
     public DateTime? DateTime { get; set; }

@@ -1,8 +1,8 @@
-﻿namespace BlazorHero.CleanArchitecture.Domain.Contracts;
+﻿namespace Ploch.Common.Data.Model;
 
 public abstract class AuditableEntityWithExtendedAttributes<TId, TEntityId, TEntity, TExtendedAttribute> : AuditableEntity<TEntityId>,
                                                                                                            IEntityWithExtendedAttributes<TExtendedAttribute>
-    where TEntity : IEntity<TEntityId>
+    where TEntity : IHasId<TEntityId>
 {
     public AuditableEntityWithExtendedAttributes()
     {

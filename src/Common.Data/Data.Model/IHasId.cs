@@ -1,20 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ploch.Common.Data.Model
+namespace Ploch.Common.Data.Model;
+
+/// <summary>
+///     Defines an entity that has an <c>Id</c> property.
+/// </summary>
+/// <remarks>
+///     Defines an entity with an <c>Id</c> property which is usually used as a primary key.
+/// </remarks>
+/// <typeparam name="TId">The type of the identifier.</typeparam>
+public interface IHasId<out TId> : IEntity
 {
     /// <summary>
-    ///     Defines a type that has an identifier.
+    ///     The entity identifier.
     /// </summary>
-    /// <typeparam name="TId">The type of the identifier.</typeparam>
-    public interface IHasId<out TId>
-    {
-        [Key]
-        TId Id { get; }
-    }
-
-    public interface IHasIdSettable<TId> : IHasId<TId>
-    {
-        [Key]
-        new TId Id { get; set; }
-    }
+    [Key]
+    TId Id { get; }
 }

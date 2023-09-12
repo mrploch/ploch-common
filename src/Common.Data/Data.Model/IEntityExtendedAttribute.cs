@@ -1,9 +1,9 @@
-﻿namespace BlazorHero.CleanArchitecture.Domain.Contracts;
+﻿namespace Ploch.Common.Data.Model;
 
-public interface IEntityExtendedAttribute<TId, TEntityId, TEntity> : IEntityExtendedAttribute<TEntityId, TEntity>, IEntity<TId> where TEntity : IEntity<TEntityId>
+public interface IEntityExtendedAttribute<TId, TEntityId> : IEntityExtendedAttribute<TEntityId>, IHasId<TId>
 { }
 
-public interface IEntityExtendedAttribute<TEntityId, TEntity> : IEntityExtendedAttribute where TEntity : IEntity<TEntityId>
+public interface IEntityExtendedAttribute<TEntityId> : IEntityExtendedAttribute
 {
     /// <summary>
     ///     External attribute's entity id
@@ -11,7 +11,7 @@ public interface IEntityExtendedAttribute<TEntityId, TEntity> : IEntityExtendedA
     public TEntityId EntityId { get; set; }
 }
 
-public interface IEntityExtendedAttribute : IEntity
+public interface IEntityExtendedAttribute
 {
     /// <summary>
     ///     Extended attribute value type
@@ -26,7 +26,7 @@ public interface IEntityExtendedAttribute : IEntity
     /// <summary>
     ///     Value for extended attribute with type 1
     /// </summary>
-    public decimal? Decimal { get; set; }
+    public decimal? Number { get; set; }
 
     /// <summary>
     ///     Value for extended attribute with type 2

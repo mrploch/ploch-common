@@ -1,25 +1,14 @@
-﻿namespace BlazorHero.CleanArchitecture.Domain.Contracts;
+﻿namespace Ploch.Common.Data.Model;
 
-public interface IHasCreatedBy
-{
-    string CreatedBy { get; set; }
-}
-
-public interface IHasModifiedBy
-{
-    string LastModifiedBy { get; set; }
-}
-
-public interface IAuditableEntity<TId> : IAuditableEntity, IEntity<TId>
+/// <inheritdoc cref="IAuditableEntity" />
+public interface IAuditableEntity<TId> : IAuditableEntity, IHasIdSettable<TId>
 { }
 
-public interface IAuditableEntity : IEntity
-{
-    string CreatedBy { get; set; }
-
-    DateTime CreatedOn { get; set; }
-
-    string LastModifiedBy { get; set; }
-
-    DateTime? LastModifiedOn { get; set; }
-}
+/// <summary>
+///     An entity with audit properties.
+/// </summary>
+/// <remarks>
+///     An entity with properties used in auditing like created or modified time and user.
+/// </remarks>
+public interface IAuditableEntity : IHasCreatedTime, IHasCreatedBy, IHasModifiedTime, IHasModifiedBy, IHasAccessedTime, IHasAccessedBy
+{ }

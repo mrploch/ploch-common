@@ -1,4 +1,4 @@
-﻿namespace BlazorHero.CleanArchitecture.Domain.Contracts;
+﻿namespace Ploch.Common.Data.Model;
 
 public interface IEntityWithExtendedAttributes<TExtendedAttribute>
 {

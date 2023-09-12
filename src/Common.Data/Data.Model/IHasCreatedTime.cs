@@ -1,9 +1,17 @@
-﻿using System;
+﻿namespace Ploch.Common.Data.Model;
 
-namespace Ploch.Common.Data.Model
+/// <summary>
+///     An entity with a <c>CreatedTime</c> property.
+/// </summary>
+/// <seealso cref="IHasCreatedBy" />
+public interface IHasCreatedTime
 {
-    public interface IHasCreatedTime
-    {
-        DateTime? CreatedTime { get; set; }
-    }
+    /// <summary>
+    ///     The created time.
+    /// </summary>
+    /// <remarks>
+    ///     The created time property is used to store the time when the entity was created.
+    ///     It is commonly used with the <see cref="IHasCreatedBy" /> interface.
+    /// </remarks>
+    DateTime? CreatedTime { get; set; }
 }
