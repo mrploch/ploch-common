@@ -1,6 +1,4 @@
-﻿using Ploch.Common.Data.Repositories.EFCore;
-
-namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
+﻿namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
 
 public class TestUnitOfWork : UnitOfWork<TestDbContext>
 {

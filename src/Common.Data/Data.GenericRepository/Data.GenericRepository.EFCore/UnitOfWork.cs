@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.Data.Model;
 using Ploch.Common.Data.Repositories.Interfaces;
 
-namespace Ploch.Common.Data.Repositories.EFCore;
+namespace Ploch.Common.Data.GenericRepository.EFCore;
 
 public abstract class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
 {
