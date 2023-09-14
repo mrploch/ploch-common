@@ -17,7 +17,9 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
     [Fact]
     public async Task RepositoryAsync_and_UnitOfWorkAsync_add_and_query_by_id_should_create_entities_and_find_them()
     {
-        var unitOfWork = _serviceProvider.GetRequiredService<IUnitOfWork>();
+        using var scope = _serviceProvider.CreateScope();
+
+        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
         var (blog, blogPost1, blogPost2) = await AddTestBlogEntitiesAsync(unitOfWork);
 
@@ -25,22 +27,20 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
 
         await unitOfWork.CommitAsync();
 
-        unitOfWork.Dispose();
+        var unitOfWork2 = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
-        unitOfWork = _serviceProvider.GetRequiredService<IUnitOfWork>();
-
-        var blogRepository = _serviceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
+        var blogRepository = scope.ServiceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         actualBlog.Should().BeEquivalentTo(blog);
 
-        var actualBlogPost1 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost1.Id);
+        var actualBlogPost1 = await unitOfWork2.Repository<BlogPost, int>().GetByIdAsync(blogPost1.Id);
         actualBlogPost1.Should().BeEquivalentTo(blogPost1);
 
-        var actualBlogPost2 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost2.Id);
+        var actualBlogPost2 = await unitOfWork2.Repository<BlogPost, int>().GetByIdAsync(blogPost2.Id);
         actualBlogPost2.Should().BeEquivalentTo(blogPost2);
 
-        var testUnitOfWork = _serviceProvider.GetRequiredService<IUnitOfWork>();
+        var testUnitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
         var actualIdeas = await testUnitOfWork.Repository<UserIdea, int>().GetAllAsync();
 
