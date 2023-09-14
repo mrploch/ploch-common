@@ -29,17 +29,6 @@ public abstract class UnitOfWork<TContext> : IUnitOfWork where TContext : DbCont
 
         // ReSharper disable once HeapView.CanAvoidClosure - false positive
         return (IRepositoryAsync<TEntity, TId>)_repositories.GetOrAdd(type, _ => _serviceProvider.GetRequiredService<IRepositoryAsync<TEntity, TId>>());
-
-        /*if (!_repositories.ContainsKey(type))
-        {
-            // var repositoryType = typeof(RepositoryAsync<,,>);
-            // var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TContext), typeof(TEntity), typeof(TId)), _dbContext);
-            var repositoryInstance = _serviceProvider.GetRequiredService<IRepositoryAsync<TEntity, TId>>();
-
-            _repositories.Add(type, repositoryInstance);
-        }
-
-        return (IRepositoryAsync<TEntity, TId>)_repositories[type]!;*/
     }
 
     public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
