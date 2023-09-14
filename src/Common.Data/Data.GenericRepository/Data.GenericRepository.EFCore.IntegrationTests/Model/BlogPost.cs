@@ -2,7 +2,7 @@
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Model;
 
-public class BlogPost : IHasId<int>, INamed
+public class BlogPost : IHasIdSettable<int>, INamed
 {
     public string? Contents { get; set; }
 

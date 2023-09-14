@@ -9,7 +9,7 @@ namespace Ploch.Common.Data.Model;
 ///     Defines an entity with an <c>Id</c> property which is usually used as a primary key.
 /// </remarks>
 /// <typeparam name="TId">The type of the identifier.</typeparam>
-public interface IHasId<out TId> : IEntity
+public interface IHasId<out TId>
 {
     /// <summary>
     ///     The entity identifier.
