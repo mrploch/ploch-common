@@ -7,7 +7,7 @@ function Get-FolderName( [Parameter(Mandatory=$true)] [string] $path ) {
 
 function Clear-Solution( [Parameter(Mandatory=$true)] [string] $solutionDirectory, [string[]] $excludeWildcards = @() ) {
     $solutionDirectory = Get-FolderName -path $solutionDirectory    
-    Remove-Folders -path $solutionDirectory -folderNames obj,bin -excludeWildcards $excludeWildcards
+    Remove-Folders -path $solutionDirectory -folderNames obj,bin,CoverageResults -excludeWildcards $excludeWildcards
 }
 
 function Remove-Folders( [Parameter(Mandatory=$true)] [string] $path, [Parameter(Mandatory=$true)] [string[]] $folderNames, [string[]] $excludeWildcards = @())
@@ -34,7 +34,8 @@ function Clear-Solution( [Parameter(Mandatory=$true)] [string] $solutionDirector
     if ((Get-Item -Path $solutionDirectory) -isnot [System.IO.DirectoryInfo]) {
         $solutionDirectory = [System.IO.Path]::GetDirectoryName($solutionDirectory)
     }
-    Remove-Folders -path $solutionDirectory -folderNames obj,bin -excludeWildcards $excludeWildcards
+    Remove-Folders -path $solutionDirectory -folderNames obj,bin,CoverageResults -excludeWildcards $excludeWildcards
 }
 
 Clear-Solution -solutionDirectory $PSScriptRoot -excludeWildcards "*\data-mgmt-agent\Install\Installers\*"
+
