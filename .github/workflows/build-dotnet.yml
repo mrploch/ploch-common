@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: dotnet build Ploch.Common.sln --no-restore
       - name: Test Coverage
-        run: dotnet test Ploch.Common.sln --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.xml" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copenconver"
+        run: dotnet test Ploch.Common.sln --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.xml" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
       - name: SonarScanner End
         run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
       # - name: Publish Test Results
