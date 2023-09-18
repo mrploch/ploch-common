@@ -61,8 +61,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.GenericRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests", "src\Common.Data\Data.GenericRepository\Data.GenericRepository.EFCore.IntegrationTests\Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.csproj", "{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.GenericRepository.EFCore.Tests", "src\Common.Data\Data.GenericRepository\Data.GnericRepository.EFCore.Tests\Ploch.Common.Data.GenericRepository.EFCore.Tests.csproj", "{E975F9C1-D9C2-416F-9CE1-355396D72B27}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.GenericRepository.EFCore", "src\Common.Data\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Common.Data.GenericRepository.EFCore.csproj", "{3584EAC0-FAF3-4F3B-8279-1694BAC5137F}"
 EndProject
 Global
@@ -441,26 +439,6 @@ Global
 		{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9}.Release|x64.Build.0 = Release|Any CPU
 		{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9}.Release|x86.ActiveCfg = Release|Any CPU
 		{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9}.Release|x86.Build.0 = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|ARM.Build.0 = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|x64.Build.0 = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Debug|x86.Build.0 = Debug|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|ARM.ActiveCfg = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|ARM.Build.0 = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|ARM64.Build.0 = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|x64.ActiveCfg = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|x64.Build.0 = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|x86.ActiveCfg = Release|Any CPU
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27}.Release|x86.Build.0 = Release|Any CPU
 		{3584EAC0-FAF3-4F3B-8279-1694BAC5137F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3584EAC0-FAF3-4F3B-8279-1694BAC5137F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3584EAC0-FAF3-4F3B-8279-1694BAC5137F}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -493,7 +471,6 @@ Global
 		{8260D6D9-5320-40E8-9CA0-9DCCD83E63ED} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 		{0640327D-A084-4B84-88EB-7747CD9FB6F7} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 		{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
-		{E975F9C1-D9C2-416F-9CE1-355396D72B27} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A84E1AF7-BEBB-47F9-A917-8373C7F0D39E}
