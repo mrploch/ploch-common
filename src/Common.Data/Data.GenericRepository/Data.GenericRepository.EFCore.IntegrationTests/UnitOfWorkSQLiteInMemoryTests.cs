@@ -21,9 +21,9 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
-        var (blog, blogPost1, blogPost2) = await AddTestBlogEntitiesAsync(unitOfWork);
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
 
-        var userIdeas = await AddTestUserIdeasEntitiesAsync(unitOfWork);
+        var userIdeas = await RepositoryHelper.AddAsyncTestUserIdeasEntitiesAsync(unitOfWork.Repository<UserIdea, int>());
 
         await unitOfWork.CommitAsync();
 
@@ -49,26 +49,92 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
         actualIdeas.Should().BeEquivalentTo(userIdeas);
     }
 
-    private static async Task<(Blog, BlogPost, BlogPost)> AddTestBlogEntitiesAsync(IUnitOfWork unitOfWork)
+    [Fact]
+    public async Task UpdateAsync_entity()
     {
-        var blogRepository = unitOfWork.Repository<Blog, int>();
+        using var scope = _serviceProvider.CreateScope();
 
-        var (blog, blogPost1, blogPost2) = EntitiesBuilder.BuildBlogEntity();
+        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
-        await blogRepository.AddAsync(blog);
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
 
-        return (blog, blogPost1, blogPost2);
+        await unitOfWork.CommitAsync();
+
+        var blogUpdated = new Blog { Id = blog.Id, Name = "Updated Blog" };
+
+        await unitOfWork.Repository<Blog, int>().UpdateAsync(blogUpdated);
+
+        var blogRepository = scope.ServiceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
+
+        var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
+        blog.Name = "Updated Blog";
+        actualBlog.Should().BeEquivalentTo(blog);
     }
 
-    private static async Task<IEnumerable<UserIdea>> AddTestUserIdeasEntitiesAsync(IUnitOfWork unitOfWork)
+    [Fact]
+    public async Task AddAsync_entity()
     {
-        var userIdeasRepository = unitOfWork.Repository<UserIdea, int>();
+        using var scope = _serviceProvider.CreateScope();
 
-        var (userIdea1, userIdea2) = EntitiesBuilder.BuildUserIdeaEntities();
+        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
-        await userIdeasRepository.AddAsync(userIdea1);
-        await userIdeasRepository.AddAsync(userIdea2);
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
 
-        return new[] { userIdea1, userIdea2 };
+        await unitOfWork.CommitAsync();
+
+        var blogRepository = scope.ServiceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
+
+        var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
+        actualBlog.Should().BeEquivalentTo(blog);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_entity()
+    {
+        using var scope = _serviceProvider.CreateScope();
+
+        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
+
+        await unitOfWork.CommitAsync();
+
+        var actualBlog = await unitOfWork.Repository<Blog, int>().GetByIdAsync(blog.Id);
+        await unitOfWork.Repository<Blog, int>().DeleteAsync(actualBlog);
+        await unitOfWork.CommitAsync();
+
+        var deletedBlog = await unitOfWork.Repository<Blog, int>().GetByIdAsync(blog.Id);
+        deletedBlog.Should().BeNull();
+
+        var deletedBloPost1 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost1.Id);
+        deletedBloPost1.Should().BeNull();
+
+        var deletedBloPost2 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost2.Id);
+        deletedBloPost2.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task Delete_entity()
+    {
+        using var scope = _serviceProvider.CreateScope();
+
+        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
+
+        await unitOfWork.CommitAsync();
+
+        var actualBlog = await unitOfWork.Repository<Blog, int>().GetByIdAsync(blog.Id);
+        unitOfWork.Repository<Blog, int>().Delete(actualBlog);
+        await unitOfWork.CommitAsync();
+
+        var deletedBlog = await unitOfWork.Repository<Blog, int>().GetByIdAsync(blog.Id);
+        deletedBlog.Should().BeNull();
+
+        var deletedBloPost1 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost1.Id);
+        deletedBloPost1.Should().BeNull();
+
+        var deletedBloPost2 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost2.Id);
+        deletedBloPost2.Should().BeNull();
     }
 }
