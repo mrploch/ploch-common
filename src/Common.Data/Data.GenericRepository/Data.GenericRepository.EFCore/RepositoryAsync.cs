@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 using Dawn;
 using Microsoft.EntityFrameworkCore;
 using Ploch.Common.Data.Model;
-using Ploch.Common.Data.Repositories.Interfaces;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore;
 
-public abstract class RepositoryAsync<TContext, TEntity, TId> : Repository<TContext, TEntity, TId>, IRepositoryAsync<TEntity, TId>
-    where TEntity : class, IHasId<TId> where TContext : DbContext
+public class RepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, IRepositoryAsync<TEntity, TId> where TEntity : class, IHasId<TId>
 {
-    protected RepositoryAsync(TContext dbContext) : base(dbContext)
+    public RepositoryAsync(DbContext dbContext) : base(dbContext)
     { }
 
     public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
@@ -24,26 +22,22 @@ public abstract class RepositoryAsync<TContext, TEntity, TId> : Repository<TCont
         return entity;
     }
 
+    public async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+    {
+        Guard.Argument(entities, nameof(entities)).NotNull();
+
+        await DbContext.AddRangeAsync(entities, cancellationToken);
+
+        return entities;
+    }
+
     public Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        Delete(entity);
+        Guard.Argument(entity, nameof(entity)).NotNull();
+
+        DbContext.Set<TEntity>().Remove(entity);
 
         return Task.CompletedTask;
-    }
-
-    public async Task<IList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
-    {
-        return await Entities.ToListAsync(cancellationToken);
-    }
-
-    public async Task<TEntity?> GetByIdAsync(TId id, CancellationToken cancellationToken = default)
-    {
-        return await DbContext.Set<TEntity>().FindAsync(new object?[] { id }, cancellationToken);
-    }
-
-    public async Task<IList<TEntity>> GetPagedResponseAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
-    {
-        return await GetPageQuery(pageNumber, pageSize).ToListAsync(cancellationToken);
     }
 
     public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)

@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.Data.Model;
-using Ploch.Common.Data.Repositories.Interfaces;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore;
 
-public abstract class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
+public class UnitOfWork : IUnitOfWork
 {
-    private readonly TContext _dbContext;
+    private readonly DbContext _dbContext;
     private readonly ConcurrentDictionary<string, object> _repositories = new();
     private readonly IServiceProvider _serviceProvider;
     private bool _disposed;
 
-    protected UnitOfWork(IServiceProvider serviceProvider, TContext dbContext)
+    public UnitOfWork(IServiceProvider serviceProvider, DbContext dbContext)
     {
         _serviceProvider = serviceProvider;
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));

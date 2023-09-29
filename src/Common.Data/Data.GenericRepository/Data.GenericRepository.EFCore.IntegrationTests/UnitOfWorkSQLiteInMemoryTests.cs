@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
+using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Model;
-using Ploch.Common.Data.Repositories.Interfaces;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 
 public class UnitOfWorkSQLiteInMemoryTests : IDisposable
 {
-    private readonly ServiceProvider _serviceProvider = ServiceProviderBuilder.BuildServiceProviderWithInMemorySqlite();
+    private readonly ServiceProvider _serviceProvider =
+        ServiceProviderBuilder.BuildServiceProviderWithInMemorySqlite<TestDbContext, TestUnitOfWork>(typeof(TestRepository<,>));
 
     public void Dispose()
     {
@@ -120,15 +122,17 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
-        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
+        var repositoryAsync = unitOfWork.Repository<Blog, int>();
+
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(repositoryAsync);
 
         await unitOfWork.CommitAsync();
 
-        var actualBlog = await unitOfWork.Repository<Blog, int>().GetByIdAsync(blog.Id);
-        unitOfWork.Repository<Blog, int>().Delete(actualBlog);
+        var actualBlog = await repositoryAsync.GetByIdAsync(blog.Id);
+        await repositoryAsync.DeleteAsync(actualBlog);
         await unitOfWork.CommitAsync();
 
-        var deletedBlog = await unitOfWork.Repository<Blog, int>().GetByIdAsync(blog.Id);
+        var deletedBlog = await repositoryAsync.GetByIdAsync(blog.Id);
         deletedBlog.Should().BeNull();
 
         var deletedBloPost1 = await unitOfWork.Repository<BlogPost, int>().GetByIdAsync(blogPost1.Id);

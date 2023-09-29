@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ploch.Common.Data.Model;
 
-namespace Ploch.Common.Data.Repositories.Interfaces;
+namespace Ploch.Common.Data.GenericRepository;
 
 public interface IUnitOfWork : IDisposable
 {

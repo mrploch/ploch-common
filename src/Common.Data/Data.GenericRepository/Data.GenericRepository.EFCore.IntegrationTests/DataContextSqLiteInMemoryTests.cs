@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
@@ -6,7 +7,9 @@ namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 public class DataContextSqLiteInMemoryTests : IDisposable
 {
     private readonly TestDbContext _dbContext;
-    private readonly ServiceProvider _serviceProvider = ServiceProviderBuilder.BuildServiceProviderWithInMemorySqlite();
+
+    private readonly ServiceProvider _serviceProvider =
+        ServiceProviderBuilder.BuildServiceProviderWithInMemorySqlite<TestDbContext, TestUnitOfWork>(typeof(TestRepository<,>));
 
     public DataContextSqLiteInMemoryTests()
     {
