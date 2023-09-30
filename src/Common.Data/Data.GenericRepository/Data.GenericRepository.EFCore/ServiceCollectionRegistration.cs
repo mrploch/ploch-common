@@ -7,8 +7,12 @@ public static class ServiceCollectionRegistration
 {
     public static IServiceCollection AddRepositories<TDbContext>(this IServiceCollection serviceCollection) where TDbContext : DbContext
     {
-        serviceCollection.AddScoped<DbContext>(provider => provider.GetRequiredService<TDbContext>());
+        serviceCollection.AddTransient<DbContext>(provider => provider.GetRequiredService<TDbContext>());
+        serviceCollection.AddScoped(typeof(IReadRepository<,>), typeof(ReadRepository<,>));
+        serviceCollection.AddScoped(typeof(IReadRepositoryAsync<,>), typeof(ReadRepositoryAsync<,>));
+        serviceCollection.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
         serviceCollection.AddScoped(typeof(IRepositoryAsync<,>), typeof(RepositoryAsync<,>));
+
         serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return serviceCollection;

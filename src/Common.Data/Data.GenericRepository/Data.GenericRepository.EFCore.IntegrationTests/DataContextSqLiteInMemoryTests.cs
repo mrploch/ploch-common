@@ -1,53 +1,36 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
+﻿using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 
-public class DataContextSqLiteInMemoryTests : IDisposable
+public class DataContextSqLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 {
-    private readonly TestDbContext _dbContext;
-
-    private readonly ServiceProvider _serviceProvider =
-        ServiceProviderBuilder.BuildServiceProviderWithInMemorySqlite<TestDbContext, TestUnitOfWork>(typeof(TestRepository<,>));
-
-    public DataContextSqLiteInMemoryTests()
-    {
-        _dbContext = _serviceProvider.GetRequiredService<TestDbContext>();
-    }
-
-    public void Dispose()
-    {
-        _serviceProvider.Dispose();
-        GC.SuppressFinalize(this);
-    }
-
     [Fact]
-    public void DataContext_add_and_query_by_id_should_create_entities_and_find_them()
+    public void DataContext_add_and_query_by_id_should_create_entities_and_find_them2()
     {
         var (blog, blogPost1, blogPost2) = EntitiesBuilder.BuildBlogEntity();
 
-        _dbContext.Blogs.Add(blog);
+        DbContext.Blogs.Add(blog);
 
         var (userIdea1, userIdea2) = EntitiesBuilder.BuildUserIdeaEntities();
 
-        _dbContext.UserIdeas.AddRange(userIdea1, userIdea2);
+        DbContext.UserIdeas.AddRange(userIdea1, userIdea2);
 
-        _dbContext.SaveChanges();
+        DbContext.SaveChanges();
 
-        var actualBlog1 = _dbContext.Blogs.Find(1);
+        var actualBlog1 = DbContext.Blogs.Find(1);
         actualBlog1.Should().BeEquivalentTo(blog);
 
-        var actualBlogPost1 = _dbContext.BlogPosts.Find(1);
+        var actualBlogPost1 = DbContext.BlogPosts.Find(1);
         actualBlogPost1.Should().BeEquivalentTo(blogPost1);
 
-        var actualBlogPost2 = _dbContext.BlogPosts.First(bp => bp.Name == "Blog post 2");
+        var actualBlogPost2 = DbContext.BlogPosts.First(bp => bp.Name == "Blog post 2");
         actualBlogPost2.Should().BeEquivalentTo(blogPost2);
 
-        var actualUserIdea1 = _dbContext.UserIdeas.First(ui => ui.Id == userIdea1.Id);
+        var actualUserIdea1 = DbContext.UserIdeas.First(ui => ui.Id == userIdea1.Id);
         actualUserIdea1.Should().BeEquivalentTo(userIdea1);
 
-        var actualUserIdea2 = _dbContext.UserIdeas.First(ui => ui.Id == userIdea2.Id);
+        var actualUserIdea2 = DbContext.UserIdeas.First(ui => ui.Id == userIdea2.Id);
         actualUserIdea2.Should().BeEquivalentTo(userIdea2);
     }
 }

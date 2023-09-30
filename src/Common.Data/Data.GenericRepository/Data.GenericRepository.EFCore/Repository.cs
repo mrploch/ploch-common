@@ -6,7 +6,7 @@ using Ploch.Common.Data.Model;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore;
 
-public class Repository<TEntity, TId> : ReadRepository<TEntity, TId> where TEntity : class, IHasId<TId>
+public class Repository<TEntity, TId> : ReadRepository<TEntity, TId>, IRepository<TEntity, TId> where TEntity : class, IHasId<TId>
 {
     public Repository(DbContext dbContext) : base(dbContext)
     { }

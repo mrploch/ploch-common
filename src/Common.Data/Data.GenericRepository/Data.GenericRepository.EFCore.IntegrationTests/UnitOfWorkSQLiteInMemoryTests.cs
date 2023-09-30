@@ -1,27 +1,25 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoFixture.Xunit2;
+using Microsoft.Extensions.DependencyInjection;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Model;
+using Ploch.Common.Data.Model;
+using Ploch.Common.Reflection;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 
-public class UnitOfWorkSQLiteInMemoryTests : IDisposable
+public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 {
-    private readonly ServiceProvider _serviceProvider =
-        ServiceProviderBuilder.BuildServiceProviderWithInMemorySqlite<TestDbContext, TestUnitOfWork>(typeof(TestRepository<,>));
-
-    public void Dispose()
+    [Theory]
+    [AutoMockData]
+    public async Task RepositoryAsync_and_UnitOfWorkAsync_add_and_query_by_id_should_create_entities_and_find_them([Frozen] Blog testBlog)
     {
-        _serviceProvider.Dispose();
-        GC.SuppressFinalize(this);
-    }
-
-    [Fact]
-    public async Task RepositoryAsync_and_UnitOfWorkAsync_add_and_query_by_id_should_create_entities_and_find_them()
-    {
-        using var scope = _serviceProvider.CreateScope();
+        using var scope = ServiceProvider.CreateScope();
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        testBlog.ExecuteOnProperties<IHasIdSettable<int>>(o => o.Id = 0);
+        await unitOfWork.Repository<Blog, int>().AddAsync(testBlog);
 
         var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
 
@@ -54,7 +52,7 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
     [Fact]
     public async Task UpdateAsync_entity()
     {
-        using var scope = _serviceProvider.CreateScope();
+        using var scope = ServiceProvider.CreateScope();
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
@@ -76,11 +74,12 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
     [Fact]
     public async Task AddAsync_entity()
     {
-        using var scope = _serviceProvider.CreateScope();
+        using var scope = ServiceProvider.CreateScope();
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
-        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
+        var repository = unitOfWork.Repository<Blog, int>();
+        var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(repository);
 
         await unitOfWork.CommitAsync();
 
@@ -93,7 +92,7 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
     [Fact]
     public async Task DeleteAsync_entity()
     {
-        using var scope = _serviceProvider.CreateScope();
+        using var scope = ServiceProvider.CreateScope();
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 
@@ -118,7 +117,7 @@ public class UnitOfWorkSQLiteInMemoryTests : IDisposable
     [Fact]
     public async Task Delete_entity()
     {
-        using var scope = _serviceProvider.CreateScope();
+        using var scope = ServiceProvider.CreateScope();
 
         using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
 

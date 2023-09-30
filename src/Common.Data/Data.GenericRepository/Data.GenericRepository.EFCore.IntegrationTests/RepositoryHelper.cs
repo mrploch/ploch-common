@@ -1,5 +1,4 @@
 ﻿using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Model;
-using Ploch.Common.Data.Repositories.Interfaces;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 
@@ -37,8 +36,8 @@ public class RepositoryHelper
     {
         var (userIdea1, userIdea2) = EntitiesBuilder.BuildUserIdeaEntities();
 
-        userIdeasRepository.Add(userIdea1);
-        userIdeasRepository.Add(userIdea2);
+        await userIdeasRepository.AddAsync(userIdea1);
+        await userIdeasRepository.AddAsync(userIdea2);
 
         return new[] { userIdea1, userIdea2 };
     }

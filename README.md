@@ -15,6 +15,8 @@ The repository consists of the following main projects:
 
 - Ploch.Common
 - Ploch.Common.Data.Model
+- Ploch.Common.Data.GenericRepository
+  - Ploch.Common.Data.GenericRepository.EFCore
 - Ploch.Common.Data.StandardDataSets
 - Ploch.Common.Data.Utilities
 - Ploch.Common.DawnGuard
