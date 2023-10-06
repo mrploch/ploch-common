@@ -1,5 +1,4 @@
 ﻿using AutoFixture.Xunit2;
-using Microsoft.Extensions.DependencyInjection;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
 using Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Data;
@@ -15,9 +14,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
     [AutoMockData]
     public async Task RepositoryAsync_and_UnitOfWorkAsync_add_and_query_by_id_should_create_entities_and_find_them([Frozen] Blog testBlog)
     {
-        using var scope = ServiceProvider.CreateScope();
-
-        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        using var unitOfWork = CreateUnitOfWork();
         testBlog.ExecuteOnProperties<IHasIdSettable<int>>(o => o.Id = 0);
         await unitOfWork.Repository<Blog, int>().AddAsync(testBlog);
 
@@ -27,9 +24,9 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 
         await unitOfWork.CommitAsync();
 
-        var unitOfWork2 = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        var unitOfWork2 = CreateUnitOfWork();
 
-        var blogRepository = scope.ServiceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
+        var blogRepository = CreateReadRepository<Blog, int>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         actualBlog.Should().BeEquivalentTo(blog);
@@ -40,7 +37,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
         var actualBlogPost2 = await unitOfWork2.Repository<BlogPost, int>().GetByIdAsync(blogPost2.Id);
         actualBlogPost2.Should().BeEquivalentTo(blogPost2);
 
-        var testUnitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        var testUnitOfWork = CreateUnitOfWork();
 
         var actualIdeas = await testUnitOfWork.Repository<UserIdea, int>().GetAllAsync();
 
@@ -52,9 +49,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
     [Fact]
     public async Task UpdateAsync_entity()
     {
-        using var scope = ServiceProvider.CreateScope();
-
-        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        using var unitOfWork = CreateUnitOfWork();
 
         var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
 
@@ -64,7 +59,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 
         await unitOfWork.Repository<Blog, int>().UpdateAsync(blogUpdated);
 
-        var blogRepository = scope.ServiceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
+        var blogRepository = CreateReadRepository<Blog, int>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         blog.Name = "Updated Blog";
@@ -74,16 +69,14 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
     [Fact]
     public async Task AddAsync_entity()
     {
-        using var scope = ServiceProvider.CreateScope();
-
-        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        using var unitOfWork = CreateUnitOfWork();
 
         var repository = unitOfWork.Repository<Blog, int>();
         var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(repository);
 
         await unitOfWork.CommitAsync();
 
-        var blogRepository = scope.ServiceProvider.GetRequiredService<IRepositoryAsync<Blog, int>>();
+        var blogRepository = CreateReadRepository<Blog, int>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         actualBlog.Should().BeEquivalentTo(blog);
@@ -92,9 +85,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
     [Fact]
     public async Task DeleteAsync_entity()
     {
-        using var scope = ServiceProvider.CreateScope();
-
-        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        using var unitOfWork = CreateUnitOfWork();
 
         var (blog, blogPost1, blogPost2) = await RepositoryHelper.AddAsyncTestBlogEntitiesAsync(unitOfWork.Repository<Blog, int>());
 
@@ -117,9 +108,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
     [Fact]
     public async Task Delete_entity()
     {
-        using var scope = ServiceProvider.CreateScope();
-
-        using var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
+        using var unitOfWork = CreateUnitOfWork();
 
         var repositoryAsync = unitOfWork.Repository<Blog, int>();
 

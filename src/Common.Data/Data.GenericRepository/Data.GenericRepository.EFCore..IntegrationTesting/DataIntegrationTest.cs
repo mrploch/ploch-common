@@ -1,14 +1,19 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.Data.Model;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting;
 
+/// <summary>
+///     Base class for integration tests that use EF Core in-memory SQLite database.
+/// </summary>
+/// <typeparam name="TDbContext">The data context type.</typeparam>
 public abstract class DataIntegrationTest<TDbContext> : IDisposable where TDbContext : DbContext
 {
-    protected DataIntegrationTest()
+    protected DataIntegrationTest(string connectionString = "Filename=:memory:")
     {
-        var connection = new SqliteConnection("Filename=:memory:");
+        var connection = new SqliteConnection(connectionString);
         connection.Open();
         var serviceCollection = new ServiceCollection();
 
@@ -29,9 +34,29 @@ public abstract class DataIntegrationTest<TDbContext> : IDisposable where TDbCon
     protected virtual void ConfigureServices(IServiceCollection services)
     { }
 
-    public virtual void Dispose()
+    protected IUnitOfWork CreateUnitOfWork()
+    {
+        return ServiceProvider.GetRequiredService<IUnitOfWork>();
+    }
+
+    protected IReadRepositoryAsync<TEntity, TId> CreateReadRepository<TEntity, TId>() where TEntity : class, IHasId<TId>
+    {
+        return ServiceProvider.GetRequiredService<IReadRepositoryAsync<TEntity, TId>>();
+    }
+
+    protected IRepositoryAsync<TEntity, TId> CreateRepository<TEntity, TId>() where TEntity : class, IHasId<TId>
+    {
+        return ServiceProvider.GetRequiredService<IRepositoryAsync<TEntity, TId>>();
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
     {
         ServiceProvider.Dispose();
-        GC.SuppressFinalize(this);
     }
 }

@@ -17,6 +17,10 @@ public interface IRepositoryAsync<TEntity, in TId> : IReadRepositoryAsync<TEntit
 
     Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
 
+    Task<IEnumerable<TEntity>> AddRangeAsync(params TEntity[] entities);
+
+    Task<IEnumerable<TEntity>> AddRangeAsync(CancellationToken cancellationToken, params TEntity[] entities);
+
     Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default);

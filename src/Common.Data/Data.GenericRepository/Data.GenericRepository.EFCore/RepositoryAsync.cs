@@ -31,6 +31,20 @@ public class RepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, 
         return entities;
     }
 
+    public async Task<IEnumerable<TEntity>> AddRangeAsync(params TEntity[] entities)
+    {
+        Guard.Argument(entities, nameof(entities)).NotNull();
+
+        return await AddRangeAsync(entities, CancellationToken.None);
+    }
+
+    public async Task<IEnumerable<TEntity>> AddRangeAsync(CancellationToken cancellationToken, params TEntity[] entities)
+    {
+        Guard.Argument(entities, nameof(entities)).NotNull();
+
+        return await AddRangeAsync(entities, cancellationToken);
+    }
+
     public Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         Guard.Argument(entity, nameof(entity)).NotNull();
