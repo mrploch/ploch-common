@@ -14,10 +14,11 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest-Recommended</AnalysisLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <VersionPrefix>1.1.0</VersionPrefix>
+    <VersionPrefix>1.2.0</VersionPrefix>
     <VersionSuffix>-prerelease</VersionSuffix>
     <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
-    <Version>$(VersionPrefix)$(VersionSuffix)-$(BuildNumber)</Version>
+    <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
+    <Version>$(VersionPrefix)$(FullVersionSuffix)</Version>
     <FileVersion>$(InformationalVersion)</FileVersion>
     <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

@@ -9,3 +9,4 @@ exclude:
       - src/Common.DependencyInjection.Tests
       - src/Common.DawnGuard.Tests
       - src/TestingSupport.FluentAssertions.Tests
+      - src/**/*Tests
