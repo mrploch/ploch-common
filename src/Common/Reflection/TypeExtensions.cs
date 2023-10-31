@@ -27,6 +27,11 @@ public static class TypeExtensions
         return type.GetInterfaces().Exists(i => i == interfaceType || (i.IsGenericType && i.GetGenericTypeDefinition() == interfaceType));
     }
 
+    /// <summary>
+    ///     Checks if the type provided is an <see cref="IEnumerable" />.
+    /// </summary>
+    /// <param name="type">The type to check.</param>
+    /// <returns><c>true</c> if the provided type is <see cref="IEnumerable" />, otherwise false.</returns>
     public static bool IsEnumerable(this Type type)
     {
         Guard.Argument(type, nameof(type)).NotNull();
