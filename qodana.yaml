@@ -5,8 +5,4 @@ dotnet:
 exclude:
   - name: All
     paths:
-      - src/Common.Tests
-      - src/Common.DependencyInjection.Tests
-      - src/Common.DawnGuard.Tests
-      - src/TestingSupport.FluentAssertions.Tests
-      - src/**/*Tests
+      - src/**/*Tests/**

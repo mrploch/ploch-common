@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Linq;
+using System.Collections;
 using Dawn;
+using Ploch.Common.Collections;
 
 namespace Ploch.Common.Reflection
 {
@@ -23,7 +24,14 @@ namespace Ploch.Common.Reflection
             Guard.Argument(interfaceType, nameof(interfaceType)).NotNull();
             Guard.Argument(type, nameof(type)).NotNull();
 
-            return type.GetInterfaces().Any(i => i == interfaceType || (i.IsGenericType && i.GetGenericTypeDefinition() == interfaceType));
+            return type.GetInterfaces().Exists(i => i == interfaceType || (i.IsGenericType && i.GetGenericTypeDefinition() == interfaceType));
+        }
+
+        public static bool IsEnumerable(this Type type)
+        {
+            Guard.Argument(type, nameof(type)).NotNull();
+
+            return typeof(IEnumerable).IsAssignableFrom(type);
         }
     }
 }
