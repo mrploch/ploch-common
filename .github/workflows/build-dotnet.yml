@@ -23,20 +23,25 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
-      - name: Restore dependencies
-        run: dotnet restore Ploch.Common.sln
-      - name: Install SonarCloud Scanner
-        run: dotnet tool install --global dotnet-sonarscanner
-      - name: Install dotnet-coverage
-        run: dotnet tool install --global dotnet-coverage
-      - name: SonarScanner Begin
-        run: dotnet sonarscanner begin /k:"mrploch_ploch-common" /o:"mrploch" /d:sonar.login="${{secrets.SONAR_TOKEN}}" /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io"
-      - name: Build
-        run: dotnet build Ploch.Common.sln --no-restore
-      - name: Test Coverage
-        run: dotnet test Ploch.Common.sln --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.xml" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
-      - name: SonarScanner End
-        run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
+      - name: Build, test and run Sonar analysis
+        uses: ./.github/actions/build-test-sonar-dotnet
+        with:
+          solution-path: Ploch.Common.sln
+          sonar-project-key: mrploch_ploch-common
+          sonar-organization: mrploch
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
+#      - name: Install SonarCloud Scanner
+#        run: dotnet tool install --global dotnet-sonarscanner
+#      - name: Install dotnet-coverage
+#        run: dotnet tool install --global dotnet-coverage
+#      - name: SonarScanner Begin
+#        run: dotnet sonarscanner begin /k:"mrploch_ploch-common" /o:"mrploch" /d:sonar.login="${{secrets.SONAR_TOKEN}}" /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io"
+#      - name: Build
+#        run: dotnet build Ploch.Common.sln --no-restore
+#      - name: Test Coverage
+#        run: dotnet test Ploch.Common.sln --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.xml" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
+#      - name: SonarScanner End
+#        run: dotnet sonarscanner end /d:sonar.login="${{secrets.SONAR_TOKEN}}"
       # - name: Publish Test Results
       #   uses: EnricoMi/publish-unit-test-result-action@v2
       #   if: always()

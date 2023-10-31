@@ -23,7 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		directory.build.targets = directory.build.targets
 		global.json = global.json
 		qodana.sarif.json = qodana.sarif.json
-		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
+		build-test-scan-solution.ps1 = build-test-scan-solution.ps1
+		build-test-scan-solution-local.ps1 = build-test-scan-solution-local.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{861A9732-0DD2-43BF-9DA9-6529961C58D5}"
