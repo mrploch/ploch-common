@@ -1,4 +1,5 @@
 .\Clean-Repository.ps1
+write-host "Running SonarCloud analysis"
 $sonarToken = $env:SONAR_TOKEN
 dotnet tool install --global dotnet-sonarscanner
 dotnet tool install --global dotnet-coverage
