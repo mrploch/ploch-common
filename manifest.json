@@ -5,6 +5,18 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Collections.ArrayExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Collections.ArrayExtensions.html",
+          "hash": "BIOYkOPfqTqp2U5si+O3gEktmdLgoqu6Ih7Nijz+sGI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.CollectionExtensions.yml",
       "output": {
         ".html": {
@@ -33,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.Collections.html",
-          "hash": "z7a0rggjrwehidlbGi6XtVGaAcncTZquzpxw0mFNmRs="
+          "hash": "8sPCm/QJtZ+NLTGbI2tDQ4UEH7g6Afoxf/vDrtREcOg="
         }
       },
       "is_incremental": false,
@@ -621,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.Reflection.TypeExtensions.html",
-          "hash": "FdGNVLayH1PRCBR53oe4Or5o4C0ED9AcMGLLJHnCfWA="
+          "hash": "aL3tTmc8ZdPWbqFzHYw9kxv16Tp6IOLR0PMn7iK2tGc="
         }
       },
       "is_incremental": false,
@@ -801,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "ReAHbiNYxNGIqrCDTOXATeugIbYPETsocl/RklmoM1I="
+          "hash": "0VQRG3tzhq+GIsvagimpF/giFpmM5ZK0S2QoSwYlBK0="
         }
       },
       "is_incremental": false,
@@ -876,7 +888,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 67,
+          "total_file_count": 68,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

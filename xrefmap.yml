@@ -13,6 +13,28 @@ references:
   commentId: N:Ploch.Common.Collections
   fullName: Ploch.Common.Collections
   nameWithType: Ploch.Common.Collections
+- uid: Ploch.Common.Collections.ArrayExtensions
+  name: ArrayExtensions
+  href: api/Ploch.Common.Collections.ArrayExtensions.html
+  commentId: T:Ploch.Common.Collections.ArrayExtensions
+  fullName: Ploch.Common.Collections.ArrayExtensions
+  nameWithType: ArrayExtensions
+- uid: Ploch.Common.Collections.ArrayExtensions.Exists*
+  name: Exists
+  href: api/Ploch.Common.Collections.ArrayExtensions.html#Ploch_Common_Collections_ArrayExtensions_Exists_
+  commentId: Overload:Ploch.Common.Collections.ArrayExtensions.Exists
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.ArrayExtensions.Exists
+  nameWithType: ArrayExtensions.Exists
+- uid: Ploch.Common.Collections.ArrayExtensions.Exists``1(``0[],System.Predicate{``0})
+  name: Exists<TItem>(TItem[], Predicate<TItem>)
+  href: api/Ploch.Common.Collections.ArrayExtensions.html#Ploch_Common_Collections_ArrayExtensions_Exists__1___0___System_Predicate___0__
+  commentId: M:Ploch.Common.Collections.ArrayExtensions.Exists``1(``0[],System.Predicate{``0})
+  name.vb: Exists(Of TItem)(TItem(), Predicate(Of TItem))
+  fullName: Ploch.Common.Collections.ArrayExtensions.Exists<TItem>(TItem[], System.Predicate<TItem>)
+  fullName.vb: Ploch.Common.Collections.ArrayExtensions.Exists(Of TItem)(TItem(), System.Predicate(Of TItem))
+  nameWithType: ArrayExtensions.Exists<TItem>(TItem[], Predicate<TItem>)
+  nameWithType.vb: ArrayExtensions.Exists(Of TItem)(TItem(), Predicate(Of TItem))
 - uid: Ploch.Common.Collections.CollectionExtensions
   name: CollectionExtensions
   href: api/Ploch.Common.Collections.CollectionExtensions.html
@@ -1505,6 +1527,19 @@ references:
   commentId: T:Ploch.Common.Reflection.TypeExtensions
   fullName: Ploch.Common.Reflection.TypeExtensions
   nameWithType: TypeExtensions
+- uid: Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  name: IsEnumerable(Type)
+  href: api/Ploch.Common.Reflection.TypeExtensions.html#Ploch_Common_Reflection_TypeExtensions_IsEnumerable_System_Type_
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  nameWithType: TypeExtensions.IsEnumerable(Type)
+- uid: Ploch.Common.Reflection.TypeExtensions.IsEnumerable*
+  name: IsEnumerable
+  href: api/Ploch.Common.Reflection.TypeExtensions.html#Ploch_Common_Reflection_TypeExtensions_IsEnumerable_
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.IsEnumerable
+  isSpec: "True"
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsEnumerable
+  nameWithType: TypeExtensions.IsEnumerable
 - uid: Ploch.Common.Reflection.TypeExtensions.IsImplementing(System.Type,System.Type)
   name: IsImplementing(Type, Type)
   href: api/Ploch.Common.Reflection.TypeExtensions.html#Ploch_Common_Reflection_TypeExtensions_IsImplementing_System_Type_System_Type_
