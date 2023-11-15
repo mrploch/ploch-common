@@ -1,71 +1,75 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-      <ImplicitUsings>enable</ImplicitUsings>
-      <Nullable>enable</Nullable>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
 
-      <IsPackable>false</IsPackable>
-      <IsTestProject>true</IsTestProject>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
 
-    <AssemblyName>Ploch.Common.Tests</AssemblyName>
+        <AssemblyName>Ploch.Common.Tests</AssemblyName>
 
-    <RootNamespace>Ploch.Common.Tests</RootNamespace>
-  </PropertyGroup>
+        <RootNamespace>Ploch.Common.Tests</RootNamespace>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <UpdatePackageVersion>False</UpdatePackageVersion>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <ShouldCreateLogs>True</ShouldCreateLogs>
+        <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+        <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+        <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+        <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+        <UpdatePackageVersion>False</UpdatePackageVersion>
+        <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+        <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+        <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <UpdatePackageVersion>False</UpdatePackageVersion>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <ShouldCreateLogs>True</ShouldCreateLogs>
+        <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+        <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+        <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+        <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+        <UpdatePackageVersion>False</UpdatePackageVersion>
+        <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+        <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+        <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    </PropertyGroup>
 
-  <ItemGroup>
-      <PackageReference Include="AutoFixture" Version="4.18.0"/>
-      <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0"/>
-      <PackageReference Include="coverlet.msbuild" Version="6.0.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="FluentAssertions" Version="6.12.0"/>
-      <PackageReference Include="FluentAssertions.Analyzers" Version="0.24.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2"/>
-      <PackageReference Include="Moq" Version="4.20.69"/>
-      <PackageReference Include="Moq.Analyzers" Version="0.0.9">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.5.0"/>
-      <PackageReference Include="xunit" Version="2.5.0"/>
-      <PackageReference Include="xunit.analyzers" Version="1.2.0"/>
-      <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoFixture" Version="4.18.0" />
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0" />
+        <PackageReference Include="coverlet.msbuild" Version="6.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
+        <PackageReference Include="FluentAssertions.Analyzers" Version="0.26.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+        <PackageReference Include="Moq" Version="4.20.69" />
+        <PackageReference Include="Moq.Analyzers" Version="0.0.9">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.5.1" />
+        <PackageReference Include="xunit" Version="2.6.1" />
+        <PackageReference Include="xunit.analyzers" Version="1.5.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.12.0.78982">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Ploch.Common.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Common\Ploch.Common.csproj" />
+    </ItemGroup>
 
 </Project>
