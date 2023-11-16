@@ -1,32 +1,36 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <IsPackable>false</IsPackable>
-      <UserSecretsId>d1ee1f5a-5a4c-4fd4-b88f-c97cd227427d</UserSecretsId>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <UserSecretsId>d1ee1f5a-5a4c-4fd4-b88f-c97cd227427d</UserSecretsId>
+    </PropertyGroup>
 
-  <ItemGroup>
-      <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0"/>
-      <PackageReference Include="coverlet.msbuild" Version="6.0.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2"/>
-      <PackageReference Include="xunit" Version="2.5.0"/>
-      <PackageReference Include="xunit.analyzers" Version="1.2.0"/>
-      <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-          <PrivateAssets>all</PrivateAssets>
-      </PackageReference>
-      <PackageReference Include="coverlet.collector" Version="6.0.0">
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-          <PrivateAssets>all</PrivateAssets>
-      </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0" />
+        <PackageReference Include="coverlet.msbuild" Version="6.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+        <PackageReference Include="xunit" Version="2.6.1" />
+        <PackageReference Include="xunit.analyzers" Version="1.5.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="6.0.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.12.0.78982">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
-  <ItemGroup>
-      <ProjectReference Include="..\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj"/>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj" />
+    </ItemGroup>
 
 </Project>
