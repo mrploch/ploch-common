@@ -19,10 +19,8 @@ that was not previously supported.
 
 At the moment, the following serializers support is implemented:
 
-- [Newtonsoft Json.NET](https://www.newtonsoft.com/json) in the
-  [Ploch.Common.Serialization.NewtonsoftJson](../Common.Serialization.NewtonsoftJson/README.md) package,
-- [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) in the
-  [Ploch.Common.Serialization.SystemTextJson](../Common.Serialization.SystemTextJson/README.md) package,
+- [Newtonsoft Json.NET](https://www.newtonsoft.com/json) in the [Ploch.Common.Serialization.NewtonsoftJson](../Common.Serialization.NewtonsoftJson/README.md) package,
+- [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) in the [Ploch.Common.Serialization.SystemTextJson](../Common.Serialization.SystemTextJson/README.md) package
 
 ## Usage
 
