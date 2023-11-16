@@ -40,5 +40,10 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
+        <ProjectReference Include="..\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
+    </ItemGroup>
+
 
 </Project>

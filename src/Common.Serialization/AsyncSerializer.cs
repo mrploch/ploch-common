@@ -1,63 +1,72 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Dawn;
 
 namespace Ploch.Common.Serialization;
 
-public abstract class AsyncSerializer<TSettings, TDataJsonObject> : IAsyncSerializer<TSettings>
+/// <summary>
+/// Base class for async serializers.
+/// </summary>
+/// <typeparam name="TSettings">The type of the serializer settings.</typeparam>
+/// <typeparam name="TDataJsonObject">The type that the serializer uses for unknown types.</typeparam>
+public abstract class AsyncSerializer<TSettings, TDataJsonObject> : Serializer<TSettings, TDataJsonObject>, IAsyncSerializer<TSettings>
 {
-    public abstract string Serialize(object obj);
-
-    public abstract object? Deserialize(string serializedObj, Type type);
-
-    public abstract TTargetType? Deserialize<TTargetType>(string serializedObj);
-
+    /// <inheritdoc />
     public abstract Task SerializeAsync(Stream stream, object obj, CancellationToken cancellationToken = default);
 
+    /// <inheritdoc />
     public abstract ValueTask<object?> DeserializeAsync(Stream stream, Type type, CancellationToken cancellationToken = default);
 
-    public abstract Task<TTargetType?> DeserializeAsync<TTargetType>(string serializedObj, CancellationToken cancellationToken = default);
+    /// <inheritdoc />
+    public abstract ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, CancellationToken cancellationToken = default);
 
-    public abstract string Serialize(object obj, Action<TSettings> configuration);
-
-    public abstract object Deserialize(string serializedObj, Type type, Action<TSettings> configuration);
-
-    public abstract TTargetType? Deserialize<TTargetType>(string serializedObj, Action<TSettings> configuration);
-
-    public abstract Task SerializeAsync(Stream stream, object obj, Action<TSettings> configuration, CancellationToken cancellationToken = default);
-
-    public abstract Task<object> DeserializeAsync(string serializedObj, Type type, Action<TSettings> configuration, CancellationToken cancellationToken = default);
-
-    public abstract Task<TTargetType> DeserializeAsync<TTargetType>(string serializedObj, Action<TSettings> configuration, CancellationToken cancellationToken = default);
-
-    public TTargetType? Convert<TTargetType>(object jsonObject)
+    /// <inheritdoc />
+    public async Task SerializeAsync(Stream stream, object obj, Action<TSettings>? configuration, CancellationToken cancellationToken = default)
     {
-        return (TTargetType?)Convert(typeof(TTargetType), jsonObject);
+        await SerializeAsync(stream, obj, GetSettings(configuration), cancellationToken).ConfigureAwait(false);
     }
 
-    protected abstract object? DeserializeObject(TDataJsonObject jsonObject, Type targetType);
-
-    private object? Convert(Type targetType, object jsonObject)
+    /// <inheritdoc />
+    public ValueTask<object?> DeserializeAsync(Stream stream, Type type, Action<TSettings> configuration, CancellationToken cancellationToken = default)
     {
-        if (jsonObject is TDataJsonObject dataJsonObject)
-        {
-            return Convert(targetType, dataJsonObject);
-        }
-
-        return null;
+        return DeserializeAsync(stream, type, GetSettings(configuration), cancellationToken);
     }
 
-    private object? Convert(Type targetType, TDataJsonObject jsonObject)
+    /// <inheritdoc />
+    public ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, Action<TSettings> configuration, CancellationToken cancellationToken = default)
     {
-        Guard.Argument(targetType, nameof(targetType)).NotNull();
-
-        if (jsonObject is null)
-        {
-            return null;
-        }
-
-        return DeserializeObject(jsonObject, targetType);
+        return DeserializeAsync<TTargetType>(stream, GetSettings(configuration), cancellationToken);
     }
+    
+    /// <summary>
+    /// The method that serializes the object to the stream using concrete <typeparamref name="TSettings"/>.
+    /// </summary>
+    /// <param name="stream">The stream to serialize the object to.</param>
+    /// <param name="obj">The object to serialize.</param>
+    /// <param name="settings">The serializer settings.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The async task representing he serialization.</returns>
+    protected abstract Task SerializeAsync(Stream stream, object obj, TSettings settings, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Asynchronously deserializes the specified serialized object using concrete &lt;typeparamref name="TSettings"/&gt;
+    /// </summary>
+    /// <param name="stream">The stream for the serialized object.</param>
+    /// <param name="type">The type of the object to deserialize to.</param>
+    /// <param name="settings">The serializer settings.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The async task representing he serialization.</returns>
+    protected abstract ValueTask<object?> DeserializeAsync(Stream stream, Type type, TSettings settings, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Asynchronously deserializes the specified serialized object.
+    /// </summary>
+    /// <param name="stream">The stream for the serialized object.</param>
+    /// <param name="settings">The serializer settings.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <typeparam name="TTargetType">The type of the object to deserialize to.</typeparam>
+    /// <returns>The deserialization task with a deserialized object result.</returns>
+    protected abstract ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, TSettings settings, CancellationToken cancellationToken = default);
 }

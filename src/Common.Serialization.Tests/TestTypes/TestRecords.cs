@@ -1,4 +1,5 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global - these type is used in serialization
+
 namespace Ploch.Common.Serialization.Tests.TestTypes;
 
 public static class TestRecords
@@ -13,7 +14,7 @@ public static class TestRecords
     }
 
     public record TestComplexType(string ClientId, string DataType, object? Data, IEnumerable<string>? TestType3s);
-    
+
     public record TestDataComplexType(IEnumerable<TestType2> TestType2);
 
     public record TestType2(string TestType2StrProperty, IEnumerable<TestType4>? TestType4s);
