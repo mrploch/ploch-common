@@ -13,7 +13,7 @@ public class NewtonsoftJsonSerializerRegistrationTests
     public void AddNewtonsoftJsonSerializer_should_register_the_serializer()
     {
         var services = new ServiceCollection();
-        services.AddNewtonsoftJsonSerializer(new JsonSerializerSettings() { Formatting = Formatting.Indented });
+        services.AddNewtonsoftJsonSerializer(new JsonSerializerSettings { Formatting = Formatting.Indented });
         var provider = services.BuildServiceProvider();
 
         var serializer = provider.GetRequiredService<ISerializer>();
