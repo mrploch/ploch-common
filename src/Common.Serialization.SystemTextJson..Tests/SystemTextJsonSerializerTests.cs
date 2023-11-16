@@ -11,7 +11,7 @@ public class SystemTextJsonSerializerTests : JsonSerializerTests
     {
         var defaultSerializer = new SystemTextJsonSerializer();
 
-        var serializer = new SystemTextJsonSerializer(new JsonSerializerOptions() { WriteIndented = true });
+        var serializer = new SystemTextJsonSerializer(new JsonSerializerOptions { WriteIndented = true });
 
         serializer.Serialize(new { Foo = "Bar" }, settings => settings.WriteIndented.Should().Be(true));
         defaultSerializer.Serialize(new { Foo = "Bar" }, settings => settings.WriteIndented.Should().Be(false));
