@@ -29,7 +29,7 @@
         </PackageReference>
         <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.5.1" />
         <PackageReference Include="xunit" Version="2.6.1" />
-        <PackageReference Include="xunit.analyzers" Version="1.5.0" />
+        <PackageReference Include="xunit.analyzers" Version="1.6.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
