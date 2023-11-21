@@ -1,10 +1,7 @@
-﻿using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
-using Ploch.Common.Serialization;
-using Ploch.Common.Serialization.SystemTextJson;
 
-namespace Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection;
+namespace Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection;
 
 public static class SystemTextJsonSerializerRegistration
 {

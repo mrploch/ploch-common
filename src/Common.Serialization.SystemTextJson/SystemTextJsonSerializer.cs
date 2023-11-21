@@ -9,7 +9,7 @@ using Dawn;
 namespace Ploch.Common.Serialization.SystemTextJson;
 
 /// <summary>
-/// The System.Text.Json impementation of <see cref="ISerializer"/>.
+/// The System.Text.Json implementation of <see cref="ISerializer"/>.
 /// </summary>
 public class SystemTextJsonSerializer : AsyncSerializer<JsonSerializerOptions, JsonElement>
 {
@@ -64,7 +64,7 @@ public class SystemTextJsonSerializer : AsyncSerializer<JsonSerializerOptions, J
     /// <inheritdoc />
     public override ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, CancellationToken cancellationToken = default) where TTargetType : default
     {
-        return default;
+        return JsonSerializer.DeserializeAsync<TTargetType>(stream, _options, cancellationToken);
     }
 
     /// <inheritdoc />

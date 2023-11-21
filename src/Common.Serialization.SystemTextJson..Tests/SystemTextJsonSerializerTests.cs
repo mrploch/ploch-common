@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
+using Ploch.Common.Serialization.Tests;
 using Ploch.Common.Serialization.Tests.TestTypes;
 
 namespace Ploch.Common.Serialization.SystemTextJson.Tests;

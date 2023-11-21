@@ -12,7 +12,7 @@ namespace Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjectio
 public static class NewtonsoftJsonSerializerRegistration
 {
     /// <summary>
-    /// Registers <see cref="NewtonsoftJsonObjectSerializer"/> serializer as `<see cref="ISerializer"/> and <see cref="ISerializer{TSettings}"/>.
+    /// Registers <see cref="NewtonsoftJsonObjectSerializer"/> serializer as <see cref="ISerializer{TSettings}" /> and <see cref="ISerializer"/>/>.
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="settings">Optional settings.</param>

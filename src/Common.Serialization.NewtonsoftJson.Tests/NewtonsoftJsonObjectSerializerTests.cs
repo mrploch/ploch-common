@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Serialiation.NewtonsoftJson;
-using Ploch.Common.Serialization.Tests.TestTypes;
+using Ploch.Common.Serialization.Tests;
 
-namespace Ploch.Common.Serialization.SystemTextJson.Tests;
+namespace Ploch.Common.Serialization.NewtonsoftJson.Tests;
 
 public class NewtonsoftJsonObjectSerializerTests : JsonSerializerTests
 {

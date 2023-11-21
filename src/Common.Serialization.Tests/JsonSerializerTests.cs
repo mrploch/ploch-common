@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Serialization.Tests.TestTypes;
 
-namespace Ploch.Common.Serialization.SystemTextJson.Tests;
+namespace Ploch.Common.Serialization.Tests;
 
 public abstract class JsonSerializerTests
 {
@@ -50,7 +50,7 @@ public abstract class JsonSerializerTests
         deserialized.Should().NotBeNull();
         deserialized!.Data.Should().NotBeNull();
 
-        var deserializedData = sut.Convert<TestRecords.TestDataComplexType>(deserialized.Data);
+        var deserializedData = sut.Convert<TestRecords.TestDataComplexType>(deserialized!.Data!);
 
         deserializedData.Should().BeEquivalentTo(complexTypeWithData);
     }

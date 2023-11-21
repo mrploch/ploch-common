@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 
