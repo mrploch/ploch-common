@@ -28,13 +28,13 @@ public abstract class AsyncSerializer<TSettings, TDataJsonObject> : Serializer<T
     }
 
     /// <inheritdoc />
-    public ValueTask<object?> DeserializeAsync(Stream stream, Type type, Action<TSettings> configuration, CancellationToken cancellationToken = default)
+    public ValueTask<object?> DeserializeAsync(Stream stream, Type type, Action<TSettings>? configuration, CancellationToken cancellationToken = default)
     {
         return DeserializeAsync(stream, type, GetSettings(configuration), cancellationToken);
     }
 
     /// <inheritdoc />
-    public ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, Action<TSettings> configuration, CancellationToken cancellationToken = default)
+    public ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, Action<TSettings>? configuration, CancellationToken cancellationToken = default)
     {
         return DeserializeAsync<TTargetType>(stream, GetSettings(configuration), cancellationToken);
     }

@@ -38,6 +38,7 @@ public interface IAsyncSerializer : ISerializer
     ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, CancellationToken cancellationToken = default);
 }
 
+/// <inheritdoc cref="IAsyncSerializer"/>
 public interface IAsyncSerializer<TSettings> : IAsyncSerializer, ISerializer<TSettings>
 {
     /// <summary>
@@ -45,6 +46,7 @@ public interface IAsyncSerializer<TSettings> : IAsyncSerializer, ISerializer<TSe
     /// </summary>
     /// <param name="stream">The stream to write the serialized object to.</param>
     /// <param name="obj">The object to serialize.</param>
+    /// <param name="configuration">Action to configure the serializer settings.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>The task representing an asynchronous operation.</returns>
     Task SerializeAsync(Stream stream, object obj, Action<TSettings>? configuration, CancellationToken cancellationToken = default);
@@ -54,16 +56,18 @@ public interface IAsyncSerializer<TSettings> : IAsyncSerializer, ISerializer<TSe
     /// </summary>
     /// <param name="stream">The stream for the serialized object.</param>
     /// <param name="type">The type of the object to deserialize to.</param>
+    /// <param name="configuration">Action to configure the serializer settings.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>The deserialization task with a deserialized object result.</returns>
-    ValueTask<object?> DeserializeAsync(Stream stream, Type type, Action<TSettings> configuration, CancellationToken cancellationToken = default);
+    ValueTask<object?> DeserializeAsync(Stream stream, Type type, Action<TSettings>? configuration, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Asynchronously deserializes the specified serialized object.
     /// </summary>
     /// <param name="stream">The stream for the serialized object.</param>
+    /// <param name="configuration">Action to configure the serializer settings.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <typeparam name="TTargetType">The type of the object to deserialize to.</typeparam>
     /// <returns>The deserialization task with a deserialized object result.</returns>
-    ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, Action<TSettings> configuration, CancellationToken cancellationToken = default);
+    ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, Action<TSettings>? configuration, CancellationToken cancellationToken = default);
 }

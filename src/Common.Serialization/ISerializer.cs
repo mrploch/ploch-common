@@ -39,6 +39,7 @@ public interface ISerializer
     TTargetType? Convert<TTargetType>(object jsonObject);
 }
 
+/// <inheritdoc />
 public interface ISerializer<out TSettings> : ISerializer
 {
     /// <summary>
@@ -47,16 +48,16 @@ public interface ISerializer<out TSettings> : ISerializer
     /// <param name="obj">The object to serialize.</param>
     /// <param name="configuration">The configuration action for the serializer settings.</param>
     /// <returns>The serialized object.</returns>
-    string Serialize(object obj, Action<TSettings> configuration);
+    string Serialize(object obj, Action<TSettings>? configuration);
 
     /// <summary>
     /// Deserializes the specified serialized object.
     /// </summary>
     /// <param name="serializedObj">The serialized object.</param>
-    /// <param name="type">The type of the object.</par
+    /// <param name="type">The type of the object.</param>
     /// <param name="configuration">The configuration action for the serializer settings.</param>
     /// <returns>The deserialized object.</returns>
-    object? Deserialize(string serializedObj, Type type, Action<TSettings> configuration);
+    object? Deserialize(string serializedObj, Type type, Action<TSettings>? configuration);
 
     /// <summary>
     /// Deserializes the specified serialized object.
@@ -65,5 +66,5 @@ public interface ISerializer<out TSettings> : ISerializer
     /// <typeparam name="TTargetType">The type to deserialize object to.</typeparam>
     /// <param name="configuration">The configuration action for the serializer settings.</param>
     /// <returns>The deserialized object.</returns>
-    TTargetType? Deserialize<TTargetType>(string serializedObj, Action<TSettings> configuration);
+    TTargetType? Deserialize<TTargetType>(string serializedObj, Action<TSettings>? configuration);
 }

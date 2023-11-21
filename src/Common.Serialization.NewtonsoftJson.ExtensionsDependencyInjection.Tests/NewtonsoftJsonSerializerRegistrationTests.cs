@@ -23,7 +23,7 @@ public class NewtonsoftJsonSerializerRegistrationTests
 
         var serialize = serializerWithSettings.Serialize(new { Foo = "Bar" }, settings => settings.Formatting.Should().Be(Formatting.Indented));
 
-        var expected = JToken.Parse(@"{""Foo"": ""Bar""}");
+        var expected = JToken.Parse("""{"Foo": "Bar"}""");
         var actual = JToken.Parse(serialize);
 
         actual.Should().BeEquivalentTo(expected);
