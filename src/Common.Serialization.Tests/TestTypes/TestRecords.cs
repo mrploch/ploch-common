@@ -5,7 +5,9 @@ namespace Ploch.Common.Serialization.Tests.TestTypes;
 public static class TestRecords
 {
 #pragma warning disable S2344 // Enumeration type names should not have "Flags" or "Enum" suffixes - this is a test ype
+#pragma warning disable CA1711 // Identifiers should not have incorrect suffix    
     public enum TestEnum
+#pragma warning restore CA1711
 #pragma warning restore S2344
     {
         Entry1,
