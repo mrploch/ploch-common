@@ -43,7 +43,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\Common\Ploch.Common.csproj" />
-        <ProjectReference Include="..\Data.GenericRepository.EFCore..IntegrationTesting\Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting.csproj" />
+        <ProjectReference Include="..\Data.GenericRepository.EFCore.IntegrationTesting\Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting.csproj" />
         <ProjectReference Include="..\Data.GenericRepository.EFCore\Ploch.Common.Data.GenericRepository.EFCore.csproj"/>
     </ItemGroup>
 </Project>

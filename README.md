@@ -11,7 +11,7 @@ This repository is a collection of miscellaneous utility libraries for .NET.
 
 ## Projects and Packages
 
-The repository consists of the following main projects:
+The repository consists of the following main prsojects:
 
 - Ploch.Common
 - Ploch.Common.Data.Model
