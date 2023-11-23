@@ -56,7 +56,7 @@ public class SystemTextJsonSerializer : AsyncSerializer<JsonSerializerOptions, J
     }
 
     /// <inheritdoc />
-    public override ValueTask<object?> DeserializeAsync(Stream stream, Type type, CancellationToken cancellationToken = default)
+    public override ValueTask<object?> DeserializeAsync(Stream stream, Type type, CancellationToken cancellationToken = default(CancellationToken))
     {
         return JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken);
     }
