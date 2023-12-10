@@ -17,5 +17,8 @@
     <ItemGroup>
         <ProjectReference Include="..\Common\Ploch.Common.csproj"/>
     </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Common\Ploch.Common.csproj" />
+    </ItemGroup>
 
 </Project>

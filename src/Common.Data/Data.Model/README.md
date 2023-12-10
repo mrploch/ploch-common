@@ -2,11 +2,11 @@
 
 ## Overview
 
-This library contains interfaces and classes for common data entities.
+Library provides a set of interfaces and classes that can be used to standardize the entity model.
 
 ## Motivation
 
-In most database-driven apps, we need similar or even the same types of common objects in our database.
+In many database-driven apps, we need similar or even the same model types.
 
 Entities usually have an `Id` property.
 Lots of them have audit properties like `CreatedTime`, `ModifiedTime` or `AccessedTime`.
@@ -42,10 +42,5 @@ a centralized logic for handling of them.
 - [`IHasAccessedBy`](./IHasAccessedBy.cs) - an entity that has a `AccessedBy` property
 - [`IHasAudit`](./IHasAudit.cs) - an entity that has all of the above properties
 
-## Entities
-
-In many projects, I had to create a `Category` or a `Tag` class.
-
-Also, I find myself using the same properties on many entity types.
-
-Things like `Name`, `Title`, `Description` and so on.
+The full list of interfaces is available in the
+[API documentation](https://github.ploch.dev/ploch-common/api/Ploch.Common.Data.Model.html).

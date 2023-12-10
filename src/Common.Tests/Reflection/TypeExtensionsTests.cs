@@ -1,9 +1,11 @@
-﻿using FluentAssertions;
-using Ploch.Common.Reflection;
+using System.Diagnostics.CodeAnalysis;
+using FluentAssertions;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Xunit;
 
-namespace Ploch.Common.Tests.Reflection;
+namespace Ploch.Common.Reflection.Tests;
 
+[SuppressMessage("Minor Code Smell", "S2094:Classes should not be empty", Justification = "Classes here are used for testing purposes and are intentionally empty.")]
 public class TypeExtensionsTests
 {
     [Fact]
@@ -23,6 +25,27 @@ public class TypeExtensionsTests
     {
         typeof(TestClass1).IsImplementing(typeof(ITestInterface3)).Should().BeFalse();
         typeof(ITestInterface4).IsImplementing(typeof(ITestInterface3)).Should().BeFalse();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void IsEnumerable_should_return_true_if_type_is_array(int[] array)
+    {
+        array.GetType().IsEnumerable().Should().BeTrue();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void IsEnumerable_should_return_true_if_type_is_list(List<string> list)
+    {
+        list.GetType().IsEnumerable().Should().BeTrue();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void IsEnumerable_should_return_true_if_type_is_enumerable(IEnumerable<string> list)
+    {
+        list.GetType().IsEnumerable().Should().BeTrue();
     }
 
     private interface ITestInterface1

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Data.StandardDataSets\Ploch.Common.Data.StandardDataSets.csproj"/>
+        <ProjectReference Include="..\Data.StandardDataSets\Ploch.Common.Data.StandardDataSets.csproj" />
     </ItemGroup>
 
 </Project>
