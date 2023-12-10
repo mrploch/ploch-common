@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Ploch.Common.Data.Model;
 
 namespace Ploch.Common.Data.GenericRepository;
 
-public interface IRepository<TEntity, in TId> : IReadRepository<TEntity, TId> where TEntity : class, IHasId<TId>
+public interface IWriteRepository<TEntity, in TId>
+    where TEntity : class, IHasId<TId>
 {
     TEntity Add(TEntity entity);
 

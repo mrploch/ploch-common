@@ -22,12 +22,22 @@ public class UnitOfWork : IUnitOfWork
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
-    public IRepositoryAsync<TEntity, TId> Repository<TEntity, TId>() where TEntity : class, IHasId<TId>
+    public TRepository Repository<TRepository, TEntity, TId>()
+        where TRepository : IReadWriteRepositoryAsync<TEntity, TId> where TEntity : class, IHasId<TId>
     {
         var type = typeof(TEntity).Name;
 
         // ReSharper disable once HeapView.CanAvoidClosure - false positive
-        return (IRepositoryAsync<TEntity, TId>)_repositories.GetOrAdd(type, _ => _serviceProvider.GetRequiredService<IRepositoryAsync<TEntity, TId>>());
+        return (TRepository)_repositories.GetOrAdd(type, _ => _serviceProvider.GetRequiredService<TRepository>());
+    }
+
+    public IReadWriteRepositoryAsync<TEntity, TId> Repository<TEntity, TId>()
+        where TEntity : class, IHasId<TId>
+    {
+        var type = typeof(TEntity).Name;
+
+        // ReSharper disable once HeapView.CanAvoidClosure - false positive
+        return (IReadWriteRepositoryAsync<TEntity, TId>)_repositories.GetOrAdd(type, _ => _serviceProvider.GetRequiredService<IReadWriteRepositoryAsync<TEntity, TId>>());
     }
 
     public async Task<int> CommitAsync(CancellationToken cancellationToken = default)

@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Ploch.Common.Tests.Reflection
+﻿namespace Ploch.Common.Tests.Reflection
 {
-    internal static class TestTypes
+    public static class TestTypes
     {
         public class TestTypeWithMixedSettersAndGetter
         {

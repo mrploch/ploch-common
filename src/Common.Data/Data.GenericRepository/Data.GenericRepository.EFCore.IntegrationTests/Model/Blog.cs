@@ -2,7 +2,7 @@
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests.Model;
 
-public class Blog : IHasIdSettable<int>, INamed
+public class Blog : IHasId<int>, INamed
 {
     public virtual ICollection<BlogPost> BlogPosts { get; set; } = new List<BlogPost>();
 

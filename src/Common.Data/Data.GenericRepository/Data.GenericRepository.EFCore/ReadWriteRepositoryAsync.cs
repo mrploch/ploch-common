@@ -8,12 +8,13 @@ using Ploch.Common.Data.Model;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore;
 
-public class RepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, IRepositoryAsync<TEntity, TId> where TEntity : class, IHasId<TId>
+public class ReadWriteRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, IReadWriteRepositoryAsync<TEntity, TId>
+    where TEntity : class, IHasId<TId>
 {
-    public RepositoryAsync(DbContext dbContext) : base(dbContext)
+    public ReadWriteRepositoryAsync(DbContext dbContext) : base(dbContext)
     { }
 
-    public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         Guard.Argument(entity, nameof(entity)).NotNull();
 
@@ -22,7 +23,7 @@ public class RepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, 
         return entity;
     }
 
-    public async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+    public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
         Guard.Argument(entities, nameof(entities)).NotNull();
 
@@ -31,21 +32,21 @@ public class RepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, 
         return entities;
     }
 
-    public async Task<IEnumerable<TEntity>> AddRangeAsync(params TEntity[] entities)
+    public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(params TEntity[] entities)
     {
         Guard.Argument(entities, nameof(entities)).NotNull();
 
         return await AddRangeAsync(entities, CancellationToken.None);
     }
 
-    public async Task<IEnumerable<TEntity>> AddRangeAsync(CancellationToken cancellationToken, params TEntity[] entities)
+    public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(CancellationToken cancellationToken, params TEntity[] entities)
     {
         Guard.Argument(entities, nameof(entities)).NotNull();
 
         return await AddRangeAsync(entities, cancellationToken);
     }
 
-    public Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public virtual Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         Guard.Argument(entity, nameof(entity)).NotNull();
 
@@ -54,7 +55,7 @@ public class RepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, 
         return Task.CompletedTask;
     }
 
-    public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
+    public virtual async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         Guard.Argument(entity, nameof(entity)).NotNull();
 

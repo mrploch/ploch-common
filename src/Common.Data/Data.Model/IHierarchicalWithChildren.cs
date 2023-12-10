@@ -12,5 +12,5 @@ public interface IHierarchicalWithChildren<TChildren>
     /// <summary>
     ///     The children of this entity.
     /// </summary>
-    ICollection<TChildren> Children { get; set; }
+    ICollection<TChildren>? Children { get; set; }
 }

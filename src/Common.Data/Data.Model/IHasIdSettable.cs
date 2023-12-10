@@ -9,6 +9,8 @@ namespace Ploch.Common.Data.Model;
 /// <inheritdoc />
 public interface IHasIdSettable<TId> : IHasId<TId>
 {
+    /// <inheritdoc cref="IHasId{TId}.Id" />
+    /// />
     [Key]
     new TId Id { get; set; }
 }

@@ -8,7 +8,7 @@ using Ploch.Common.Reflection;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 
-public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
+public class UnitOfWorkRepositoryAsyncSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 {
     [Theory]
     [AutoMockData]
@@ -26,7 +26,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 
         var unitOfWork2 = CreateUnitOfWork();
 
-        var blogRepository = CreateReadRepository<Blog, int>();
+        var blogRepository = CreateReadRepositoryAsync<Blog, int>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         actualBlog.Should().BeEquivalentTo(blog);
@@ -59,7 +59,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 
         await unitOfWork.Repository<Blog, int>().UpdateAsync(blogUpdated);
 
-        var blogRepository = CreateReadRepository<Blog, int>();
+        var blogRepository = CreateReadRepositoryAsync<Blog, int>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         blog.Name = "Updated Blog";
@@ -76,7 +76,7 @@ public class UnitOfWorkSQLiteInMemoryTests : DataIntegrationTest<TestDbContext>
 
         await unitOfWork.CommitAsync();
 
-        var blogRepository = CreateReadRepository<Blog, int>();
+        var blogRepository = CreateReadRepositoryAsync<Blog, int>();
 
         var actualBlog = await blogRepository.GetByIdAsync(blog.Id);
         actualBlog.Should().BeEquivalentTo(blog);

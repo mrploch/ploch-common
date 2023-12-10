@@ -250,6 +250,7 @@ dotnet_diagnostic.sa1633.severity = none
 # ReSharper properties
 resharper_csharp_empty_block_style = together
 resharper_csharp_max_line_length = 170
+resharper_csharp_place_type_constraints_on_same_line = false
 resharper_csharp_wrap_parameters_style = chop_if_long
 resharper_keep_existing_declaration_block_arrangement = false
 resharper_keep_existing_declaration_parens_arrangement = false

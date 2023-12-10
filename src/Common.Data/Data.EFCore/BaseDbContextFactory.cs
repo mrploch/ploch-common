@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Ploch.Common.Data.EFCore;
 
-public abstract class BaseDbContextFactory<TDbContext> : IDesignTimeDbContextFactory<TDbContext> where TDbContext : DbContext
+public abstract class BaseDbContextFactory<TDbContext> : IDesignTimeDbContextFactory<TDbContext>
+    where TDbContext : DbContext
 {
     private readonly Func<string> _connectionStringFunc;
     private readonly Func<DbContextOptions<TDbContext>, TDbContext> _dbContextCreator;
@@ -29,6 +30,7 @@ public abstract class BaseDbContextFactory<TDbContext> : IDesignTimeDbContextFac
     protected void ApplyMigrationsAssembly<TBuilder, TExtension>(RelationalDbContextOptionsBuilder<TBuilder, TExtension> builder)
         where TBuilder : RelationalDbContextOptionsBuilder<TBuilder, TExtension> where TExtension : RelationalOptionsExtension, new()
     {
+        Console.WriteLine("Applying migrations assembly: " + GetType().Assembly.GetName().Name);
         builder.MigrationsAssembly(GetType().Assembly.GetName().Name);
     }
 

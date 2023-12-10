@@ -69,6 +69,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GenericRepository", "Generi
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{970E85D2-FEF0-43F8-8672-43891D57D9E6}"
+	ProjectSection(SolutionItems) = preProject
+		src\Common.Data\README.md = src\Common.Data\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.EFCore", "src\Common.Data\Data.EFCore\Ploch.Common.Data.EFCore.csproj", "{AA9CC66F-215B-4412-86A8-CA29B8F8F20B}"
 EndProject
