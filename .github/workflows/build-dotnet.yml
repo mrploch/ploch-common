@@ -29,7 +29,7 @@ jobs:
         uses: highbyte/sonarscan-dotnet@v2.3.0
         with:
           # The key of the SonarQube project
-          sonarProjectKey: ${{ env.SONAR_PROJECT_KEY }}
+          sonarProjectKey: $ {{ env.SONAR_PROJECT_KEY }}
           # The name of the SonarQube project
           sonarProjectName:  'ploch-common'
           # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
