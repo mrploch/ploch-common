@@ -350,7 +350,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/.idea
 
 # My Additions
 .history/
@@ -362,3 +361,22 @@ MigrationBackup/
 **/log.txt
 *.bak
 coverage.xml
+
+# Rider specific files
+
+# Default ignored files
+**/.idea*/shelf/
+**/.idea*/workspace.xml
+# Rider ignored files
+**/.idea*/projectSettingsUpdater.xml
+**/.idea*/contentModel.xml
+**/.idea*/modules.xml
+**/.idea*/*.iml
+# Editor-based HTTP Client requests
+**/.idea*/httpRequests/
+# Datasource local storage ignored files
+**/.idea*/dataSources/
+**/.idea*/dataSources.local.xml
+**/.idea/**/sonarlint/
+**/.idea*/**/dbnavigator.xml
+**/.idea/**/codestream.xml
