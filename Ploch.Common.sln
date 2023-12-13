@@ -13,17 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D89DED28-8B6B-46D3-AAE0-2764D1DF0094}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		.gitignore = .gitignore
-		Directory.Build.props = Directory.Build.props
-		Ploch.Common.nuspec = Ploch.Common.nuspec
 		README.md = README.md
-		Clean-DocFx.ps1 = Clean-DocFx.ps1
 		qodana.yaml = qodana.yaml
-		directory.build.targets = directory.build.targets
-		global.json = global.json
 		qodana.sarif.json = qodana.sarif.json
-		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{861A9732-0DD2-43BF-9DA9-6529961C58D5}"
@@ -51,6 +43,24 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DependencyInjection.Tests", "src\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj", "{8260D6D9-5320-40E8-9CA0-9DCCD83E63ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.WebUI.Tests", "src\Common.WebUI.Tests\Ploch.Common.WebUI.Tests.csproj", "{0640327D-A084-4B84-88EB-7747CD9FB6F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{87F93313-FCDE-4545-A30B-03D05077F647}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
+	ProjectSection(SolutionItems) = preProject
+		directory.build.targets = directory.build.targets
+		.editorconfig = .editorconfig
+		global.json = global.json
+		Directory.Build.props = Directory.Build.props
+		.gitignore = .gitignore
+		Ploch.Common.nuspec = Ploch.Common.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{73418E3A-0260-462E-A269-0540040A06A3}"
+	ProjectSection(SolutionItems) = preProject
+		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
+		Clean-DocFx.ps1 = Clean-DocFx.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -397,6 +407,8 @@ Global
 		{A3BB69C2-4CFB-4172-BC7A-ED7413B1CB0F} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 		{8260D6D9-5320-40E8-9CA0-9DCCD83E63ED} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 		{0640327D-A084-4B84-88EB-7747CD9FB6F7} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
+		{57622815-4765-4DAD-A0F8-DBC204A6E84E} = {87F93313-FCDE-4545-A30B-03D05077F647}
+		{73418E3A-0260-462E-A269-0540040A06A3} = {87F93313-FCDE-4545-A30B-03D05077F647}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A84E1AF7-BEBB-47F9-A917-8373C7F0D39E}

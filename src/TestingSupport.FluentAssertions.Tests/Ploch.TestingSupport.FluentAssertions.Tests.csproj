@@ -2,8 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <IsPackable>false</IsPackable>
-        <UserSecretsId>d1ee1f5a-5a4c-4fd4-b88f-c97cd227427d</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
