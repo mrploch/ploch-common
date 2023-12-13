@@ -45,14 +45,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.WebUI.Tests", "src\Common.WebUI.Tests\Ploch.Common.WebUI.Tests.csproj", "{0640327D-A084-4B84-88EB-7747CD9FB6F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{87F93313-FCDE-4545-A30B-03D05077F647}"
-	ProjectSection(SolutionItems) = preProject
-		.github\actions\build-test-sonar-dotnet\action.yml = .github\actions\build-test-sonar-dotnet\action.yml
-		.github\dependabot.yml = .github\dependabot.yml
-		.github\pull_request_template.md = .github\pull_request_template.md
-		.github\workflows\build-dotnet.yml = .github\workflows\build-dotnet.yml
-		.github\workflows\code_quality.yml = .github\workflows\code_quality.yml
-		.github\workflows\test_report.yml = .github\workflows\test_report.yml
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
 	ProjectSection(SolutionItems) = preProject
