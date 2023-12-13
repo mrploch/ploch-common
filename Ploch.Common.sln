@@ -12,11 +12,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport", "src\TestingSupport\Ploch.TestingSupport.csproj", "{BBCDE715-D632-4B5A-AE24-4D0C00781220}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D89DED28-8B6B-46D3-AAE0-2764D1DF0094}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-		qodana.yaml = qodana.yaml
-		qodana.sarif.json = qodana.sarif.json
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{861A9732-0DD2-43BF-9DA9-6529961C58D5}"
 EndProject
@@ -65,6 +60,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests", "src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj", "{30CDF196-FE69-4CFA-91B3-091D6AE0B0D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{87F93313-FCDE-4545-A30B-03D05077F647}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
 	ProjectSection(SolutionItems) = preProject
@@ -74,6 +72,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{576228
 		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
 		Ploch.Common.nuspec = Ploch.Common.nuspec
+		qodana.yaml = qodana.yaml
+		qodana.sarif.json = qodana.sarif.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{73418E3A-0260-462E-A269-0540040A06A3}"
