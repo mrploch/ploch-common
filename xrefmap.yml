@@ -1553,6 +1553,823 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Reflection.TypeExtensions.IsImplementing
   nameWithType: TypeExtensions.IsImplementing
+- uid: Ploch.Common.Serialiation.NewtonsoftJson
+  name: Ploch.Common.Serialiation.NewtonsoftJson
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.html
+  commentId: N:Ploch.Common.Serialiation.NewtonsoftJson
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson
+  nameWithType: Ploch.Common.Serialiation.NewtonsoftJson
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+  name: NewtonsoftJsonObjectSerializer
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html
+  commentId: T:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+  nameWithType: NewtonsoftJsonObjectSerializer
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor
+  name: NewtonsoftJsonObjectSerializer()
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer__ctor
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer()
+  nameWithType: NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer()
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor(System.Nullable{JsonSerializerSettings})
+  name: NewtonsoftJsonObjectSerializer(Nullable<JsonSerializerSettings>)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer__ctor_System_Nullable_JsonSerializerSettings__
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor(System.Nullable{JsonSerializerSettings})
+  name.vb: NewtonsoftJsonObjectSerializer(Nullable(Of JsonSerializerSettings))
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer(System.Nullable<JsonSerializerSettings>)
+  fullName.vb: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer(System.Nullable(Of JsonSerializerSettings))
+  nameWithType: NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer(Nullable<JsonSerializerSettings>)
+  nameWithType.vb: NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer(Nullable(Of JsonSerializerSettings))
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor*
+  name: NewtonsoftJsonObjectSerializer
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer__ctor_
+  commentId: Overload:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor
+  isSpec: "True"
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer
+  nameWithType: NewtonsoftJsonObjectSerializer.NewtonsoftJsonObjectSerializer
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String,Type)
+  name: Deserialize(String, Type)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Deserialize_System_String_Type_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String,Type)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String, Type)
+  nameWithType: NewtonsoftJsonObjectSerializer.Deserialize(String, Type)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String,Type,JsonSerializerSettings)
+  name: Deserialize(String, Type, JsonSerializerSettings)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Deserialize_System_String_Type_JsonSerializerSettings_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String,Type,JsonSerializerSettings)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String, Type, JsonSerializerSettings)
+  nameWithType: NewtonsoftJsonObjectSerializer.Deserialize(String, Type, JsonSerializerSettings)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize*
+  name: Deserialize
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Deserialize_
+  commentId: Overload:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize
+  nameWithType: NewtonsoftJsonObjectSerializer.Deserialize
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize``1(System.String)
+  name: Deserialize<TTargetType>(String)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Deserialize__1_System_String_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize``1(System.String)
+  name.vb: Deserialize(Of TTargetType)(String)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize<TTargetType>(System.String)
+  fullName.vb: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(Of TTargetType)(System.String)
+  nameWithType: NewtonsoftJsonObjectSerializer.Deserialize<TTargetType>(String)
+  nameWithType.vb: NewtonsoftJsonObjectSerializer.Deserialize(Of TTargetType)(String)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize``1(System.String,JsonSerializerSettings)
+  name: Deserialize<TTargetType>(String, JsonSerializerSettings)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Deserialize__1_System_String_JsonSerializerSettings_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize``1(System.String,JsonSerializerSettings)
+  name.vb: Deserialize(Of TTargetType)(String, JsonSerializerSettings)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize<TTargetType>(System.String, JsonSerializerSettings)
+  fullName.vb: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(Of TTargetType)(System.String, JsonSerializerSettings)
+  nameWithType: NewtonsoftJsonObjectSerializer.Deserialize<TTargetType>(String, JsonSerializerSettings)
+  nameWithType.vb: NewtonsoftJsonObjectSerializer.Deserialize(Of TTargetType)(String, JsonSerializerSettings)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject(JObject,Type)
+  name: DeserializeObject(JObject, Type)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_DeserializeObject_JObject_Type_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject(JObject,Type)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject(JObject, Type)
+  nameWithType: NewtonsoftJsonObjectSerializer.DeserializeObject(JObject, Type)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject*
+  name: DeserializeObject
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_DeserializeObject_
+  commentId: Overload:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject
+  isSpec: "True"
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject
+  nameWithType: NewtonsoftJsonObjectSerializer.DeserializeObject
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings(System.Nullable{Action{JsonSerializerSettings}})
+  name: GetSettings(Nullable<Action<JsonSerializerSettings>>)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_GetSettings_System_Nullable_Action_JsonSerializerSettings___
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings(System.Nullable{Action{JsonSerializerSettings}})
+  name.vb: GetSettings(Nullable(Of Action(Of JsonSerializerSettings)))
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings(System.Nullable<Action<JsonSerializerSettings>>)
+  fullName.vb: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings(System.Nullable(Of Action(Of JsonSerializerSettings)))
+  nameWithType: NewtonsoftJsonObjectSerializer.GetSettings(Nullable<Action<JsonSerializerSettings>>)
+  nameWithType.vb: NewtonsoftJsonObjectSerializer.GetSettings(Nullable(Of Action(Of JsonSerializerSettings)))
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings*
+  name: GetSettings
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_GetSettings_
+  commentId: Overload:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings
+  isSpec: "True"
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings
+  nameWithType: NewtonsoftJsonObjectSerializer.GetSettings
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object)
+  name: Serialize(Object)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Serialize_System_Object_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object)
+  nameWithType: NewtonsoftJsonObjectSerializer.Serialize(Object)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object,JsonSerializerSettings)
+  name: Serialize(Object, JsonSerializerSettings)
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Serialize_System_Object_JsonSerializerSettings_
+  commentId: M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object,JsonSerializerSettings)
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object, JsonSerializerSettings)
+  nameWithType: NewtonsoftJsonObjectSerializer.Serialize(Object, JsonSerializerSettings)
+- uid: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize*
+  name: Serialize
+  href: api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html#Ploch_Common_Serialiation_NewtonsoftJson_NewtonsoftJsonObjectSerializer_Serialize_
+  commentId: Overload:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize
+  nameWithType: NewtonsoftJsonObjectSerializer.Serialize
+- uid: Ploch.Common.Serialization
+  name: Ploch.Common.Serialization
+  href: api/Ploch.Common.Serialization.html
+  commentId: N:Ploch.Common.Serialization
+  fullName: Ploch.Common.Serialization
+  nameWithType: Ploch.Common.Serialization
+- uid: Ploch.Common.Serialization.AsyncSerializer`2
+  name: AsyncSerializer<TSettings, TDataJsonObject>
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html
+  commentId: T:Ploch.Common.Serialization.AsyncSerializer`2
+  name.vb: AsyncSerializer(Of TSettings, TDataJsonObject)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync(System.IO.Stream,System.Type,`0,System.Threading.CancellationToken)
+  name: DeserializeAsync(Stream, Type, TSettings, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync_System_IO_Stream_System_Type__0_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync(System.IO.Stream,System.Type,`0,System.Threading.CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync(System.IO.Stream, System.Type, TSettings, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(System.IO.Stream, System.Type, TSettings, System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync(Stream, Type, TSettings, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Stream, Type, TSettings, CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync(System.IO.Stream,System.Type,System.Action{`0},System.Threading.CancellationToken)
+  name: DeserializeAsync(Stream, Type, Action<TSettings>, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync_System_IO_Stream_System_Type_System_Action__0__System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync(System.IO.Stream,System.Type,System.Action{`0},System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Stream, Type, Action(Of TSettings), CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync(System.IO.Stream, System.Type, System.Action<TSettings>, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(System.IO.Stream, System.Type, System.Action(Of TSettings), System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync(Stream, Type, Action<TSettings>, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Stream, Type, Action(Of TSettings), CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync(System.IO.Stream,System.Type,System.Threading.CancellationToken)
+  name: DeserializeAsync(Stream, Type, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync_System_IO_Stream_System_Type_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync(System.IO.Stream,System.Type,System.Threading.CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync(System.IO.Stream, System.Type, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(System.IO.Stream, System.Type, System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync(Stream, Type, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Stream, Type, CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync``1(System.IO.Stream,`0,System.Threading.CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, TSettings, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync__1_System_IO_Stream__0_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync``1(System.IO.Stream,`0,System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, TSettings, CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync<TTargetType>(System.IO.Stream, TSettings, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Of TTargetType)(System.IO.Stream, TSettings, System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync<TTargetType>(Stream, TSettings, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Of TTargetType)(Stream, TSettings, CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync``1(System.IO.Stream,System.Action{`0},System.Threading.CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, Action<TSettings>, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync__1_System_IO_Stream_System_Action__0__System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync``1(System.IO.Stream,System.Action{`0},System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, Action(Of TSettings), CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync<TTargetType>(System.IO.Stream, System.Action<TSettings>, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Of TTargetType)(System.IO.Stream, System.Action(Of TSettings), System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync<TTargetType>(Stream, Action<TSettings>, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Of TTargetType)(Stream, Action(Of TSettings), CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync``1(System.IO.Stream,System.Threading.CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_DeserializeAsync__1_System_IO_Stream_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.DeserializeAsync``1(System.IO.Stream,System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync<TTargetType>(System.IO.Stream, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Of TTargetType)(System.IO.Stream, System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync(System.IO.Stream,System.Object,`0,System.Threading.CancellationToken)
+  name: SerializeAsync(Stream, Object, TSettings, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_SerializeAsync_System_IO_Stream_System_Object__0_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync(System.IO.Stream,System.Object,`0,System.Threading.CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync(System.IO.Stream, System.Object, TSettings, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync(System.IO.Stream, System.Object, TSettings, System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync(Stream, Object, TSettings, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync(Stream, Object, TSettings, CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync(System.IO.Stream,System.Object,System.Action{`0},System.Threading.CancellationToken)
+  name: SerializeAsync(Stream, Object, Action<TSettings>, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_SerializeAsync_System_IO_Stream_System_Object_System_Action__0__System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync(System.IO.Stream,System.Object,System.Action{`0},System.Threading.CancellationToken)
+  name.vb: SerializeAsync(Stream, Object, Action(Of TSettings), CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync(System.IO.Stream, System.Object, System.Action<TSettings>, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync(System.IO.Stream, System.Object, System.Action(Of TSettings), System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync(Stream, Object, Action<TSettings>, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync(Stream, Object, Action(Of TSettings), CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync(System.IO.Stream,System.Object,System.Threading.CancellationToken)
+  name: SerializeAsync(Stream, Object, CancellationToken)
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_SerializeAsync_System_IO_Stream_System_Object_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync(System.IO.Stream,System.Object,System.Threading.CancellationToken)
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync(System.IO.Stream, System.Object, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync(System.IO.Stream, System.Object, System.Threading.CancellationToken)
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync(Stream, Object, CancellationToken)
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync(Stream, Object, CancellationToken)
+- uid: Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync*
+  name: SerializeAsync
+  href: api/Ploch.Common.Serialization.AsyncSerializer-2.html#Ploch_Common_Serialization_AsyncSerializer_2_SerializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.AsyncSerializer`2.SerializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>.SerializeAsync
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject).SerializeAsync
+- uid: Ploch.Common.Serialization.IAsyncSerializer
+  name: IAsyncSerializer
+  href: api/Ploch.Common.Serialization.IAsyncSerializer.html
+  commentId: T:Ploch.Common.Serialization.IAsyncSerializer
+  fullName: Ploch.Common.Serialization.IAsyncSerializer
+  nameWithType: IAsyncSerializer
+- uid: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync(System.IO.Stream,System.Type,System.Threading.CancellationToken)
+  name: DeserializeAsync(Stream, Type, CancellationToken)
+  href: api/Ploch.Common.Serialization.IAsyncSerializer.html#Ploch_Common_Serialization_IAsyncSerializer_DeserializeAsync_System_IO_Stream_System_Type_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync(System.IO.Stream,System.Type,System.Threading.CancellationToken)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync(System.IO.Stream, System.Type, System.Threading.CancellationToken)
+  nameWithType: IAsyncSerializer.DeserializeAsync(Stream, Type, CancellationToken)
+- uid: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/Ploch.Common.Serialization.IAsyncSerializer.html#Ploch_Common_Serialization_IAsyncSerializer_DeserializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync
+  nameWithType: IAsyncSerializer.DeserializeAsync
+- uid: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync``1(System.IO.Stream,System.Threading.CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  href: api/Ploch.Common.Serialization.IAsyncSerializer.html#Ploch_Common_Serialization_IAsyncSerializer_DeserializeAsync__1_System_IO_Stream_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync``1(System.IO.Stream,System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync<TTargetType>(System.IO.Stream, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer.DeserializeAsync(Of TTargetType)(System.IO.Stream, System.Threading.CancellationToken)
+  nameWithType: IAsyncSerializer.DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  nameWithType.vb: IAsyncSerializer.DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+- uid: Ploch.Common.Serialization.IAsyncSerializer.SerializeAsync(System.IO.Stream,System.Object,System.Threading.CancellationToken)
+  name: SerializeAsync(Stream, Object, CancellationToken)
+  href: api/Ploch.Common.Serialization.IAsyncSerializer.html#Ploch_Common_Serialization_IAsyncSerializer_SerializeAsync_System_IO_Stream_System_Object_System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.IAsyncSerializer.SerializeAsync(System.IO.Stream,System.Object,System.Threading.CancellationToken)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer.SerializeAsync(System.IO.Stream, System.Object, System.Threading.CancellationToken)
+  nameWithType: IAsyncSerializer.SerializeAsync(Stream, Object, CancellationToken)
+- uid: Ploch.Common.Serialization.IAsyncSerializer.SerializeAsync*
+  name: SerializeAsync
+  href: api/Ploch.Common.Serialization.IAsyncSerializer.html#Ploch_Common_Serialization_IAsyncSerializer_SerializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.IAsyncSerializer.SerializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.IAsyncSerializer.SerializeAsync
+  nameWithType: IAsyncSerializer.SerializeAsync
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1
+  name: IAsyncSerializer<TSettings>
+  href: api/Ploch.Common.Serialization.IAsyncSerializer-1.html
+  commentId: T:Ploch.Common.Serialization.IAsyncSerializer`1
+  name.vb: IAsyncSerializer(Of TSettings)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings)
+  nameWithType: IAsyncSerializer<TSettings>
+  nameWithType.vb: IAsyncSerializer(Of TSettings)
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1.DeserializeAsync(System.IO.Stream,System.Type,System.Action{`0},System.Threading.CancellationToken)
+  name: DeserializeAsync(Stream, Type, Action<TSettings>, CancellationToken)
+  href: api/Ploch.Common.Serialization.IAsyncSerializer-1.html#Ploch_Common_Serialization_IAsyncSerializer_1_DeserializeAsync_System_IO_Stream_System_Type_System_Action__0__System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.IAsyncSerializer`1.DeserializeAsync(System.IO.Stream,System.Type,System.Action{`0},System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Stream, Type, Action(Of TSettings), CancellationToken)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>.DeserializeAsync(System.IO.Stream, System.Type, System.Action<TSettings>, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings).DeserializeAsync(System.IO.Stream, System.Type, System.Action(Of TSettings), System.Threading.CancellationToken)
+  nameWithType: IAsyncSerializer<TSettings>.DeserializeAsync(Stream, Type, Action<TSettings>, CancellationToken)
+  nameWithType.vb: IAsyncSerializer(Of TSettings).DeserializeAsync(Stream, Type, Action(Of TSettings), CancellationToken)
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/Ploch.Common.Serialization.IAsyncSerializer-1.html#Ploch_Common_Serialization_IAsyncSerializer_1_DeserializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.IAsyncSerializer`1.DeserializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>.DeserializeAsync
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings).DeserializeAsync
+  nameWithType: IAsyncSerializer<TSettings>.DeserializeAsync
+  nameWithType.vb: IAsyncSerializer(Of TSettings).DeserializeAsync
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1.DeserializeAsync``1(System.IO.Stream,System.Action{`0},System.Threading.CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, Action<TSettings>, CancellationToken)
+  href: api/Ploch.Common.Serialization.IAsyncSerializer-1.html#Ploch_Common_Serialization_IAsyncSerializer_1_DeserializeAsync__1_System_IO_Stream_System_Action__0__System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.IAsyncSerializer`1.DeserializeAsync``1(System.IO.Stream,System.Action{`0},System.Threading.CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, Action(Of TSettings), CancellationToken)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>.DeserializeAsync<TTargetType>(System.IO.Stream, System.Action<TSettings>, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings).DeserializeAsync(Of TTargetType)(System.IO.Stream, System.Action(Of TSettings), System.Threading.CancellationToken)
+  nameWithType: IAsyncSerializer<TSettings>.DeserializeAsync<TTargetType>(Stream, Action<TSettings>, CancellationToken)
+  nameWithType.vb: IAsyncSerializer(Of TSettings).DeserializeAsync(Of TTargetType)(Stream, Action(Of TSettings), CancellationToken)
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1.SerializeAsync(System.IO.Stream,System.Object,System.Action{`0},System.Threading.CancellationToken)
+  name: SerializeAsync(Stream, Object, Action<TSettings>, CancellationToken)
+  href: api/Ploch.Common.Serialization.IAsyncSerializer-1.html#Ploch_Common_Serialization_IAsyncSerializer_1_SerializeAsync_System_IO_Stream_System_Object_System_Action__0__System_Threading_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.IAsyncSerializer`1.SerializeAsync(System.IO.Stream,System.Object,System.Action{`0},System.Threading.CancellationToken)
+  name.vb: SerializeAsync(Stream, Object, Action(Of TSettings), CancellationToken)
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>.SerializeAsync(System.IO.Stream, System.Object, System.Action<TSettings>, System.Threading.CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings).SerializeAsync(System.IO.Stream, System.Object, System.Action(Of TSettings), System.Threading.CancellationToken)
+  nameWithType: IAsyncSerializer<TSettings>.SerializeAsync(Stream, Object, Action<TSettings>, CancellationToken)
+  nameWithType.vb: IAsyncSerializer(Of TSettings).SerializeAsync(Stream, Object, Action(Of TSettings), CancellationToken)
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1.SerializeAsync*
+  name: SerializeAsync
+  href: api/Ploch.Common.Serialization.IAsyncSerializer-1.html#Ploch_Common_Serialization_IAsyncSerializer_1_SerializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.IAsyncSerializer`1.SerializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>.SerializeAsync
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings).SerializeAsync
+  nameWithType: IAsyncSerializer<TSettings>.SerializeAsync
+  nameWithType.vb: IAsyncSerializer(Of TSettings).SerializeAsync
+- uid: Ploch.Common.Serialization.ISerializer
+  name: ISerializer
+  href: api/Ploch.Common.Serialization.ISerializer.html
+  commentId: T:Ploch.Common.Serialization.ISerializer
+  fullName: Ploch.Common.Serialization.ISerializer
+  nameWithType: ISerializer
+- uid: Ploch.Common.Serialization.ISerializer.Convert*
+  name: Convert
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Convert_
+  commentId: Overload:Ploch.Common.Serialization.ISerializer.Convert
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.ISerializer.Convert
+  nameWithType: ISerializer.Convert
+- uid: Ploch.Common.Serialization.ISerializer.Convert``1(System.Object)
+  name: Convert<TTargetType>(Object)
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Convert__1_System_Object_
+  commentId: M:Ploch.Common.Serialization.ISerializer.Convert``1(System.Object)
+  name.vb: Convert(Of TTargetType)(Object)
+  fullName: Ploch.Common.Serialization.ISerializer.Convert<TTargetType>(System.Object)
+  fullName.vb: Ploch.Common.Serialization.ISerializer.Convert(Of TTargetType)(System.Object)
+  nameWithType: ISerializer.Convert<TTargetType>(Object)
+  nameWithType.vb: ISerializer.Convert(Of TTargetType)(Object)
+- uid: Ploch.Common.Serialization.ISerializer.Deserialize(System.String,System.Type)
+  name: Deserialize(String, Type)
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Deserialize_System_String_System_Type_
+  commentId: M:Ploch.Common.Serialization.ISerializer.Deserialize(System.String,System.Type)
+  fullName: Ploch.Common.Serialization.ISerializer.Deserialize(System.String, System.Type)
+  nameWithType: ISerializer.Deserialize(String, Type)
+- uid: Ploch.Common.Serialization.ISerializer.Deserialize*
+  name: Deserialize
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Deserialize_
+  commentId: Overload:Ploch.Common.Serialization.ISerializer.Deserialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.ISerializer.Deserialize
+  nameWithType: ISerializer.Deserialize
+- uid: Ploch.Common.Serialization.ISerializer.Deserialize``1(System.String)
+  name: Deserialize<TTargetType>(String)
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Deserialize__1_System_String_
+  commentId: M:Ploch.Common.Serialization.ISerializer.Deserialize``1(System.String)
+  name.vb: Deserialize(Of TTargetType)(String)
+  fullName: Ploch.Common.Serialization.ISerializer.Deserialize<TTargetType>(System.String)
+  fullName.vb: Ploch.Common.Serialization.ISerializer.Deserialize(Of TTargetType)(System.String)
+  nameWithType: ISerializer.Deserialize<TTargetType>(String)
+  nameWithType.vb: ISerializer.Deserialize(Of TTargetType)(String)
+- uid: Ploch.Common.Serialization.ISerializer.Serialize(System.Object)
+  name: Serialize(Object)
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Serialize_System_Object_
+  commentId: M:Ploch.Common.Serialization.ISerializer.Serialize(System.Object)
+  fullName: Ploch.Common.Serialization.ISerializer.Serialize(System.Object)
+  nameWithType: ISerializer.Serialize(Object)
+- uid: Ploch.Common.Serialization.ISerializer.Serialize*
+  name: Serialize
+  href: api/Ploch.Common.Serialization.ISerializer.html#Ploch_Common_Serialization_ISerializer_Serialize_
+  commentId: Overload:Ploch.Common.Serialization.ISerializer.Serialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.ISerializer.Serialize
+  nameWithType: ISerializer.Serialize
+- uid: Ploch.Common.Serialization.ISerializer`1
+  name: ISerializer<TSettings>
+  href: api/Ploch.Common.Serialization.ISerializer-1.html
+  commentId: T:Ploch.Common.Serialization.ISerializer`1
+  name.vb: ISerializer(Of TSettings)
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings)
+  nameWithType: ISerializer<TSettings>
+  nameWithType.vb: ISerializer(Of TSettings)
+- uid: Ploch.Common.Serialization.ISerializer`1.Deserialize(System.String,System.Type,System.Action{`0})
+  name: Deserialize(String, Type, Action<TSettings>)
+  href: api/Ploch.Common.Serialization.ISerializer-1.html#Ploch_Common_Serialization_ISerializer_1_Deserialize_System_String_System_Type_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.ISerializer`1.Deserialize(System.String,System.Type,System.Action{`0})
+  name.vb: Deserialize(String, Type, Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>.Deserialize(System.String, System.Type, System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings).Deserialize(System.String, System.Type, System.Action(Of TSettings))
+  nameWithType: ISerializer<TSettings>.Deserialize(String, Type, Action<TSettings>)
+  nameWithType.vb: ISerializer(Of TSettings).Deserialize(String, Type, Action(Of TSettings))
+- uid: Ploch.Common.Serialization.ISerializer`1.Deserialize*
+  name: Deserialize
+  href: api/Ploch.Common.Serialization.ISerializer-1.html#Ploch_Common_Serialization_ISerializer_1_Deserialize_
+  commentId: Overload:Ploch.Common.Serialization.ISerializer`1.Deserialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>.Deserialize
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings).Deserialize
+  nameWithType: ISerializer<TSettings>.Deserialize
+  nameWithType.vb: ISerializer(Of TSettings).Deserialize
+- uid: Ploch.Common.Serialization.ISerializer`1.Deserialize``1(System.String,System.Action{`0})
+  name: Deserialize<TTargetType>(String, Action<TSettings>)
+  href: api/Ploch.Common.Serialization.ISerializer-1.html#Ploch_Common_Serialization_ISerializer_1_Deserialize__1_System_String_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.ISerializer`1.Deserialize``1(System.String,System.Action{`0})
+  name.vb: Deserialize(Of TTargetType)(String, Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>.Deserialize<TTargetType>(System.String, System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings).Deserialize(Of TTargetType)(System.String, System.Action(Of TSettings))
+  nameWithType: ISerializer<TSettings>.Deserialize<TTargetType>(String, Action<TSettings>)
+  nameWithType.vb: ISerializer(Of TSettings).Deserialize(Of TTargetType)(String, Action(Of TSettings))
+- uid: Ploch.Common.Serialization.ISerializer`1.Serialize(System.Object,System.Action{`0})
+  name: Serialize(Object, Action<TSettings>)
+  href: api/Ploch.Common.Serialization.ISerializer-1.html#Ploch_Common_Serialization_ISerializer_1_Serialize_System_Object_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.ISerializer`1.Serialize(System.Object,System.Action{`0})
+  name.vb: Serialize(Object, Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>.Serialize(System.Object, System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings).Serialize(System.Object, System.Action(Of TSettings))
+  nameWithType: ISerializer<TSettings>.Serialize(Object, Action<TSettings>)
+  nameWithType.vb: ISerializer(Of TSettings).Serialize(Object, Action(Of TSettings))
+- uid: Ploch.Common.Serialization.ISerializer`1.Serialize*
+  name: Serialize
+  href: api/Ploch.Common.Serialization.ISerializer-1.html#Ploch_Common_Serialization_ISerializer_1_Serialize_
+  commentId: Overload:Ploch.Common.Serialization.ISerializer`1.Serialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>.Serialize
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings).Serialize
+  nameWithType: ISerializer<TSettings>.Serialize
+  nameWithType.vb: ISerializer(Of TSettings).Serialize
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  name: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  href: api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.html
+  commentId: N:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  nameWithType: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+  name: NewtonsoftJsonSerializerRegistration
+  href: api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.html
+  commentId: T:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+  nameWithType: NewtonsoftJsonSerializerRegistration
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer(IServiceCollection,System.Nullable{JsonSerializerSettings})
+  name: AddNewtonsoftJsonSerializer(IServiceCollection, Nullable<JsonSerializerSettings>)
+  href: api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.html#Ploch_Common_Serialization_NewtonsoftJson_ExtensionsDependencyInjection_NewtonsoftJsonSerializerRegistration_AddNewtonsoftJsonSerializer_IServiceCollection_System_Nullable_JsonSerializerSettings__
+  commentId: M:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer(IServiceCollection,System.Nullable{JsonSerializerSettings})
+  name.vb: AddNewtonsoftJsonSerializer(IServiceCollection, Nullable(Of JsonSerializerSettings))
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer(IServiceCollection, System.Nullable<JsonSerializerSettings>)
+  fullName.vb: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer(IServiceCollection, System.Nullable(Of JsonSerializerSettings))
+  nameWithType: NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer(IServiceCollection, Nullable<JsonSerializerSettings>)
+  nameWithType.vb: NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer(IServiceCollection, Nullable(Of JsonSerializerSettings))
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer*
+  name: AddNewtonsoftJsonSerializer
+  href: api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.html#Ploch_Common_Serialization_NewtonsoftJson_ExtensionsDependencyInjection_NewtonsoftJsonSerializerRegistration_AddNewtonsoftJsonSerializer_
+  commentId: Overload:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer
+  nameWithType: NewtonsoftJsonSerializerRegistration.AddNewtonsoftJsonSerializer
+- uid: Ploch.Common.Serialization.Serializer`2
+  name: Serializer<TSettings, TDataJsonObject>
+  href: api/Ploch.Common.Serialization.Serializer-2.html
+  commentId: T:Ploch.Common.Serialization.Serializer`2
+  name.vb: Serializer(Of TSettings, TDataJsonObject)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject)
+  nameWithType: Serializer<TSettings, TDataJsonObject>
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject)
+- uid: Ploch.Common.Serialization.Serializer`2.Convert*
+  name: Convert
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Convert_
+  commentId: Overload:Ploch.Common.Serialization.Serializer`2.Convert
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Convert
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Convert
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Convert
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Convert
+- uid: Ploch.Common.Serialization.Serializer`2.Convert``1(System.Object)
+  name: Convert<TTargetType>(Object)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Convert__1_System_Object_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Convert``1(System.Object)
+  name.vb: Convert(Of TTargetType)(Object)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Convert<TTargetType>(System.Object)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Convert(Of TTargetType)(System.Object)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Convert<TTargetType>(Object)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Convert(Of TTargetType)(Object)
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize(System.String,System.Type)
+  name: Deserialize(String, Type)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize_System_String_System_Type_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Deserialize(System.String,System.Type)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize(System.String, System.Type)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize(System.String, System.Type)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize(String, Type)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize(String, Type)
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize(System.String,System.Type,`0)
+  name: Deserialize(String, Type, TSettings)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize_System_String_System_Type__0_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Deserialize(System.String,System.Type,`0)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize(System.String, System.Type, TSettings)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize(System.String, System.Type, TSettings)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize(String, Type, TSettings)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize(String, Type, TSettings)
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize(System.String,System.Type,System.Action{`0})
+  name: Deserialize(String, Type, Action<TSettings>)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize_System_String_System_Type_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Deserialize(System.String,System.Type,System.Action{`0})
+  name.vb: Deserialize(String, Type, Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize(System.String, System.Type, System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize(System.String, System.Type, System.Action(Of TSettings))
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize(String, Type, Action<TSettings>)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize(String, Type, Action(Of TSettings))
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize*
+  name: Deserialize
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize_
+  commentId: Overload:Ploch.Common.Serialization.Serializer`2.Deserialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize``1(System.String)
+  name: Deserialize<TTargetType>(String)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize__1_System_String_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Deserialize``1(System.String)
+  name.vb: Deserialize(Of TTargetType)(String)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize<TTargetType>(System.String)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize(Of TTargetType)(System.String)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize<TTargetType>(String)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize(Of TTargetType)(String)
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize``1(System.String,`0)
+  name: Deserialize<TTargetType>(String, TSettings)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize__1_System_String__0_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Deserialize``1(System.String,`0)
+  name.vb: Deserialize(Of TTargetType)(String, TSettings)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize<TTargetType>(System.String, TSettings)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize(Of TTargetType)(System.String, TSettings)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize<TTargetType>(String, TSettings)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize(Of TTargetType)(String, TSettings)
+- uid: Ploch.Common.Serialization.Serializer`2.Deserialize``1(System.String,System.Action{`0})
+  name: Deserialize<TTargetType>(String, Action<TSettings>)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Deserialize__1_System_String_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Deserialize``1(System.String,System.Action{`0})
+  name.vb: Deserialize(Of TTargetType)(String, Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Deserialize<TTargetType>(System.String, System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Deserialize(Of TTargetType)(System.String, System.Action(Of TSettings))
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Deserialize<TTargetType>(String, Action<TSettings>)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Deserialize(Of TTargetType)(String, Action(Of TSettings))
+- uid: Ploch.Common.Serialization.Serializer`2.DeserializeObject(`1,System.Type)
+  name: DeserializeObject(TDataJsonObject, Type)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_DeserializeObject__1_System_Type_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.DeserializeObject(`1,System.Type)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.DeserializeObject(TDataJsonObject, System.Type)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).DeserializeObject(TDataJsonObject, System.Type)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.DeserializeObject(TDataJsonObject, Type)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).DeserializeObject(TDataJsonObject, Type)
+- uid: Ploch.Common.Serialization.Serializer`2.DeserializeObject*
+  name: DeserializeObject
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_DeserializeObject_
+  commentId: Overload:Ploch.Common.Serialization.Serializer`2.DeserializeObject
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.DeserializeObject
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).DeserializeObject
+  nameWithType: Serializer<TSettings, TDataJsonObject>.DeserializeObject
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).DeserializeObject
+- uid: Ploch.Common.Serialization.Serializer`2.GetSettings(System.Action{`0})
+  name: GetSettings(Action<TSettings>)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_GetSettings_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.Serializer`2.GetSettings(System.Action{`0})
+  name.vb: GetSettings(Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.GetSettings(System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).GetSettings(System.Action(Of TSettings))
+  nameWithType: Serializer<TSettings, TDataJsonObject>.GetSettings(Action<TSettings>)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).GetSettings(Action(Of TSettings))
+- uid: Ploch.Common.Serialization.Serializer`2.GetSettings*
+  name: GetSettings
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_GetSettings_
+  commentId: Overload:Ploch.Common.Serialization.Serializer`2.GetSettings
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.GetSettings
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).GetSettings
+  nameWithType: Serializer<TSettings, TDataJsonObject>.GetSettings
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).GetSettings
+- uid: Ploch.Common.Serialization.Serializer`2.Serialize(System.Object)
+  name: Serialize(Object)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Serialize_System_Object_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Serialize(System.Object)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Serialize(System.Object)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Serialize(System.Object)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Serialize(Object)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Serialize(Object)
+- uid: Ploch.Common.Serialization.Serializer`2.Serialize(System.Object,`0)
+  name: Serialize(Object, TSettings)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Serialize_System_Object__0_
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Serialize(System.Object,`0)
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Serialize(System.Object, TSettings)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Serialize(System.Object, TSettings)
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Serialize(Object, TSettings)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Serialize(Object, TSettings)
+- uid: Ploch.Common.Serialization.Serializer`2.Serialize(System.Object,System.Action{`0})
+  name: Serialize(Object, Action<TSettings>)
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Serialize_System_Object_System_Action__0__
+  commentId: M:Ploch.Common.Serialization.Serializer`2.Serialize(System.Object,System.Action{`0})
+  name.vb: Serialize(Object, Action(Of TSettings))
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Serialize(System.Object, System.Action<TSettings>)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Serialize(System.Object, System.Action(Of TSettings))
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Serialize(Object, Action<TSettings>)
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Serialize(Object, Action(Of TSettings))
+- uid: Ploch.Common.Serialization.Serializer`2.Serialize*
+  name: Serialize
+  href: api/Ploch.Common.Serialization.Serializer-2.html#Ploch_Common_Serialization_Serializer_2_Serialize_
+  commentId: Overload:Ploch.Common.Serialization.Serializer`2.Serialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>.Serialize
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject).Serialize
+  nameWithType: Serializer<TSettings, TDataJsonObject>.Serialize
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject).Serialize
+- uid: Ploch.Common.Serialization.SystemTextJson
+  name: Ploch.Common.Serialization.SystemTextJson
+  href: api/Ploch.Common.Serialization.SystemTextJson.html
+  commentId: N:Ploch.Common.Serialization.SystemTextJson
+  fullName: Ploch.Common.Serialization.SystemTextJson
+  nameWithType: Ploch.Common.Serialization.SystemTextJson
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  name: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  href: api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.html
+  commentId: N:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  nameWithType: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+  name: SystemTextJsonSerializerRegistration
+  href: api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.html
+  commentId: T:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+  nameWithType: SystemTextJsonSerializerRegistration
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer(IServiceCollection)
+  name: AddSystemTextJsonSerializer(IServiceCollection)
+  href: api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.html#Ploch_Common_Serialization_SystemTextJson_ExtensionsDependencyInjection_SystemTextJsonSerializerRegistration_AddSystemTextJsonSerializer_IServiceCollection_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer(IServiceCollection)
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer(IServiceCollection)
+  nameWithType: SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer(IServiceCollection)
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer*
+  name: AddSystemTextJsonSerializer
+  href: api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.html#Ploch_Common_Serialization_SystemTextJson_ExtensionsDependencyInjection_SystemTextJsonSerializerRegistration_AddSystemTextJsonSerializer_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer
+  nameWithType: SystemTextJsonSerializerRegistration.AddSystemTextJsonSerializer
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+  name: SystemTextJsonSerializer
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html
+  commentId: T:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+  nameWithType: SystemTextJsonSerializer
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.#ctor
+  name: SystemTextJsonSerializer()
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer__ctor
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.#ctor
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SystemTextJsonSerializer()
+  nameWithType: SystemTextJsonSerializer.SystemTextJsonSerializer()
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.#ctor(JsonSerializerOptions)
+  name: SystemTextJsonSerializer(JsonSerializerOptions)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer__ctor_JsonSerializerOptions_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.#ctor(JsonSerializerOptions)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SystemTextJsonSerializer(JsonSerializerOptions)
+  nameWithType: SystemTextJsonSerializer.SystemTextJsonSerializer(JsonSerializerOptions)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.#ctor*
+  name: SystemTextJsonSerializer
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer__ctor_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.#ctor
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SystemTextJsonSerializer
+  nameWithType: SystemTextJsonSerializer.SystemTextJsonSerializer
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(System.String,Type)
+  name: Deserialize(String, Type)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Deserialize_System_String_Type_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(System.String,Type)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(System.String, Type)
+  nameWithType: SystemTextJsonSerializer.Deserialize(String, Type)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(System.String,Type,JsonSerializerOptions)
+  name: Deserialize(String, Type, JsonSerializerOptions)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Deserialize_System_String_Type_JsonSerializerOptions_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(System.String,Type,JsonSerializerOptions)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(System.String, Type, JsonSerializerOptions)
+  nameWithType: SystemTextJsonSerializer.Deserialize(String, Type, JsonSerializerOptions)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize*
+  name: Deserialize
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Deserialize_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize
+  nameWithType: SystemTextJsonSerializer.Deserialize
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize``1(System.String)
+  name: Deserialize<TTargetType>(String)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Deserialize__1_System_String_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize``1(System.String)
+  name.vb: Deserialize(Of TTargetType)(String)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize<TTargetType>(System.String)
+  fullName.vb: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(Of TTargetType)(System.String)
+  nameWithType: SystemTextJsonSerializer.Deserialize<TTargetType>(String)
+  nameWithType.vb: SystemTextJsonSerializer.Deserialize(Of TTargetType)(String)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize``1(System.String,JsonSerializerOptions)
+  name: Deserialize<TTargetType>(String, JsonSerializerOptions)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Deserialize__1_System_String_JsonSerializerOptions_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize``1(System.String,JsonSerializerOptions)
+  name.vb: Deserialize(Of TTargetType)(String, JsonSerializerOptions)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize<TTargetType>(System.String, JsonSerializerOptions)
+  fullName.vb: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Deserialize(Of TTargetType)(System.String, JsonSerializerOptions)
+  nameWithType: SystemTextJsonSerializer.Deserialize<TTargetType>(String, JsonSerializerOptions)
+  nameWithType.vb: SystemTextJsonSerializer.Deserialize(Of TTargetType)(String, JsonSerializerOptions)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Stream,Type,CancellationToken)
+  name: DeserializeAsync(Stream, Type, CancellationToken)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeAsync_Stream_Type_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Stream,Type,CancellationToken)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Stream, Type, CancellationToken)
+  nameWithType: SystemTextJsonSerializer.DeserializeAsync(Stream, Type, CancellationToken)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Stream,Type,JsonSerializerOptions,CancellationToken)
+  name: DeserializeAsync(Stream, Type, JsonSerializerOptions, CancellationToken)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeAsync_Stream_Type_JsonSerializerOptions_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Stream,Type,JsonSerializerOptions,CancellationToken)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Stream, Type, JsonSerializerOptions, CancellationToken)
+  nameWithType: SystemTextJsonSerializer.DeserializeAsync(Stream, Type, JsonSerializerOptions, CancellationToken)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync
+  nameWithType: SystemTextJsonSerializer.DeserializeAsync
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync``1(Stream,CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeAsync__1_Stream_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync``1(Stream,CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+  nameWithType: SystemTextJsonSerializer.DeserializeAsync<TTargetType>(Stream, CancellationToken)
+  nameWithType.vb: SystemTextJsonSerializer.DeserializeAsync(Of TTargetType)(Stream, CancellationToken)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync``1(Stream,JsonSerializerOptions,CancellationToken)
+  name: DeserializeAsync<TTargetType>(Stream, JsonSerializerOptions, CancellationToken)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeAsync__1_Stream_JsonSerializerOptions_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync``1(Stream,JsonSerializerOptions,CancellationToken)
+  name.vb: DeserializeAsync(Of TTargetType)(Stream, JsonSerializerOptions, CancellationToken)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync<TTargetType>(Stream, JsonSerializerOptions, CancellationToken)
+  fullName.vb: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeAsync(Of TTargetType)(Stream, JsonSerializerOptions, CancellationToken)
+  nameWithType: SystemTextJsonSerializer.DeserializeAsync<TTargetType>(Stream, JsonSerializerOptions, CancellationToken)
+  nameWithType.vb: SystemTextJsonSerializer.DeserializeAsync(Of TTargetType)(Stream, JsonSerializerOptions, CancellationToken)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeObject(JsonElement,Type)
+  name: DeserializeObject(JsonElement, Type)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeObject_JsonElement_Type_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeObject(JsonElement,Type)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeObject(JsonElement, Type)
+  nameWithType: SystemTextJsonSerializer.DeserializeObject(JsonElement, Type)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeObject*
+  name: DeserializeObject
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_DeserializeObject_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeObject
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.DeserializeObject
+  nameWithType: SystemTextJsonSerializer.DeserializeObject
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings(System.Nullable{Action{JsonSerializerOptions}})
+  name: GetSettings(Nullable<Action<JsonSerializerOptions>>)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_GetSettings_System_Nullable_Action_JsonSerializerOptions___
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings(System.Nullable{Action{JsonSerializerOptions}})
+  name.vb: GetSettings(Nullable(Of Action(Of JsonSerializerOptions)))
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings(System.Nullable<Action<JsonSerializerOptions>>)
+  fullName.vb: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings(System.Nullable(Of Action(Of JsonSerializerOptions)))
+  nameWithType: SystemTextJsonSerializer.GetSettings(Nullable<Action<JsonSerializerOptions>>)
+  nameWithType.vb: SystemTextJsonSerializer.GetSettings(Nullable(Of Action(Of JsonSerializerOptions)))
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings*
+  name: GetSettings
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_GetSettings_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.GetSettings
+  nameWithType: SystemTextJsonSerializer.GetSettings
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize(System.Object)
+  name: Serialize(Object)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Serialize_System_Object_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize(System.Object)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize(System.Object)
+  nameWithType: SystemTextJsonSerializer.Serialize(Object)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize(System.Object,JsonSerializerOptions)
+  name: Serialize(Object, JsonSerializerOptions)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Serialize_System_Object_JsonSerializerOptions_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize(System.Object,JsonSerializerOptions)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize(System.Object, JsonSerializerOptions)
+  nameWithType: SystemTextJsonSerializer.Serialize(Object, JsonSerializerOptions)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize*
+  name: Serialize
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_Serialize_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.Serialize
+  nameWithType: SystemTextJsonSerializer.Serialize
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync(Stream,System.Object,CancellationToken)
+  name: SerializeAsync(Stream, Object, CancellationToken)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_SerializeAsync_Stream_System_Object_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync(Stream,System.Object,CancellationToken)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync(Stream, System.Object, CancellationToken)
+  nameWithType: SystemTextJsonSerializer.SerializeAsync(Stream, Object, CancellationToken)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync(Stream,System.Object,JsonSerializerOptions,CancellationToken)
+  name: SerializeAsync(Stream, Object, JsonSerializerOptions, CancellationToken)
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_SerializeAsync_Stream_System_Object_JsonSerializerOptions_CancellationToken_
+  commentId: M:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync(Stream,System.Object,JsonSerializerOptions,CancellationToken)
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync(Stream, System.Object, JsonSerializerOptions, CancellationToken)
+  nameWithType: SystemTextJsonSerializer.SerializeAsync(Stream, Object, JsonSerializerOptions, CancellationToken)
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync*
+  name: SerializeAsync
+  href: api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html#Ploch_Common_Serialization_SystemTextJson_SystemTextJsonSerializer_SerializeAsync_
+  commentId: Overload:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync
+  isSpec: "True"
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync
+  nameWithType: SystemTextJsonSerializer.SerializeAsync
 - uid: Ploch.Common.StringBuilderExtensions
   name: StringBuilderExtensions
   href: api/Ploch.Common.StringBuilderExtensions.html
