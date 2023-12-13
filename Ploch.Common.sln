@@ -52,7 +52,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", 
 		.github\workflows\build-dotnet.yml = .github\workflows\build-dotnet.yml
 		.github\workflows\code_quality.yml = .github\workflows\code_quality.yml
 		.github\workflows\test_report.yml = .github\workflows\test_report.yml
-		SonarQube.Analysis.xml = SonarQube.Analysis.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
