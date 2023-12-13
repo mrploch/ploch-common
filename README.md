@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b90652990e6d49049965d72a6fad1297)](https://app.codacy.com/gh/mrploch/ploch-common?utm_source=github.com&utm_medium=referral&utm_content=mrploch/ploch-common&utm_campaign=Badge_Grade)
 [![Build, Test and Analyze .NET](https://github.com/mrploch/ploch-common/actions/workflows/build-dotnet.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/build-dotnet.yml)
 [![pages-build-deployment](https://github.com/mrploch/ploch-common/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/pages/pages-build-deployment)
 [![Qodana](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml)
