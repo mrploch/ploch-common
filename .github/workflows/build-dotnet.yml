@@ -11,9 +11,6 @@ on:
 env: 
   SONAR_PROJECT_KEY: mrploch_ploch-common
   SONAR_ORGANIZATION: ${{ vars.SONAR_ORGANIZATION }}
-  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  SOLUTION_PATH: ./Ploch.Common.sln
 jobs:
   build:
 
@@ -24,31 +21,13 @@ jobs:
       - uses: actions/checkout@v3
       - name: Copy documentation files
         run: cp ./README.md ./DocumentationSite/index.md
-
-      - name: SonarScanner for .NET 8 with pull request decoration support
-        uses: highbyte/sonarscan-dotnet@v2.3.0
+      - name: Build, test and scan
+        uses: mrploch/ploch-github-actions/build-test-sonar@main            
         with:
-          # The key of the SonarQube project
-          sonarProjectKey: $ {{ env.SONAR_PROJECT_KEY }}
-          # The name of the SonarQube project
-          sonarProjectName:  'ploch-common'
-          # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
-          sonarOrganization: ${{ env.SONAR_ORGANIZATION }}
-          # Optional command arguments to dotnet build
-          dotnetBuildArguments: ${{ env.SOLUTION_PATH }}
-          # Optional command arguments to dotnet test
-          dotnetTestArguments: ${{ env.SOLUTION_PATH }} --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.xml" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
-          # Optional extra command arguments the the SonarScanner 'begin' command
-          sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/CoverageResults/coverage.opencover.xml"
-
-
-#      - name: Build, test and scan
-#        uses: mrploch/ploch-github-actions/build-test-sonar@main            
-#        with:
-#          solution-path: './Ploch.Common.sln'
-#          sonar-project-key: ${{ env.SONAR_PROJECT_KEY }}
-#          sonar-organization: ${{ env.SONAR_ORGANIZATION }}
-#          sonar-token: ${{ secrets.SONAR_TOKEN }}
+          solution-path: './Ploch.Common.sln'
+          sonar-project-key: ${{ env.SONAR_PROJECT_KEY }}
+          sonar-organization: ${{ env.SONAR_ORGANIZATION }}
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
       # - name: Publish Test Results
       #   uses: EnricoMi/publish-unit-test-result-action@v2
       #   if: always()
