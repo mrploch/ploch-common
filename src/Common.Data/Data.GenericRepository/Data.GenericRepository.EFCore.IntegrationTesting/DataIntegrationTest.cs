@@ -18,22 +18,16 @@ public abstract class DataIntegrationTest<TDbContext> : IDisposable
 
         ConfigureServices(serviceCollection);
 
-        serviceCollection.AddDbContext<TDbContext>(builder =>
-                                                   {
-                                                       var connection = new SqliteConnection(connectionString);
-                                                       connection.Open();
-                                                       builder.UseSqlite(connection);
-                                                   });
-        serviceCollection.AddRepositories<TDbContext>();
-        ServiceProvider = serviceCollection.BuildServiceProvider();
-        var testDbContext = ServiceProvider.GetRequiredService<TDbContext>();
-        testDbContext.Database.EnsureCreated();
-        DbContext = testDbContext;
+        (ServiceProvider, DbContext) = RepositoryServicesRegistrationHelper.RegisterRepositoryServices<TDbContext>(serviceCollection, connectionString);
+        // ServiceProvider = serviceCollection.BuildServiceProvider();
+        // var testDbContext = ServiceProvider.GetRequiredService<TDbContext>();
+        // testDbContext.Database.EnsureCreated();
+        // DbContext = testDbContext;
     }
 
     protected TDbContext DbContext { get; }
 
-    protected ServiceProvider ServiceProvider { get; }
+    protected IServiceProvider ServiceProvider { get; }
 
     protected virtual void ConfigureServices(IServiceCollection services)
     { }
@@ -55,7 +49,7 @@ public abstract class DataIntegrationTest<TDbContext> : IDisposable
         return ServiceProvider.GetRequiredService<IReadRepository<TEntity, TId>>();
     }
 
-    protected IReadWriteRepositoryAsync<TEntity, TId> CreateRepositoryAsync<TEntity, TId>()
+    protected IReadWriteRepositoryAsync<TEntity, TId> CreateReadWriteRepositoryAsync<TEntity, TId>()
         where TEntity : class, IHasId<TId>
     {
         return ServiceProvider.GetRequiredService<IReadWriteRepositoryAsync<TEntity, TId>>();
@@ -75,6 +69,9 @@ public abstract class DataIntegrationTest<TDbContext> : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        ServiceProvider.Dispose();
+        if (ServiceProvider is ServiceProvider sp)
+        {
+            sp.Dispose();
+        }
     }
 }

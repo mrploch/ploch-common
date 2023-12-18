@@ -380,3 +380,13 @@ coverage.xml
 **/.idea/**/sonarlint/
 **/.idea*/**/dbnavigator.xml
 **/.idea/**/codestream.xml
+**/codestream.xml
+codestream.xml
+/.idea/**/aws.xml
+/.idea/**/encodings.xml
+/.idea/**/GitLink.xml
+/.idea/**/misc.xml
+/.idea/**/vcs.xml
+/.idea/**/.idea/dataSources.xml
+/.idea/**/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.idea.Ploch.Common.Data/.idea/vcs.xml

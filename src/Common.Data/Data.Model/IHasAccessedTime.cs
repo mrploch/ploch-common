@@ -1,4 +1,6 @@
-﻿namespace Ploch.Common.Data.Model;
+﻿using System;
+
+namespace Ploch.Common.Data.Model;
 
 /// <summary>
 ///     An entity with a <c>AccessedTime</c> property.
@@ -16,5 +18,5 @@ public interface IHasAccessedTime
     ///     The accessed time property is used to store the time when the entity was last accessed.
     ///     It is commonly used with the <see cref="IHasAccessedBy" /> interface.
     /// </remarks>
-    DateTime? AccessedTime { get; set; }
+    DateTimeOffset? AccessedTime { get; set; }
 }

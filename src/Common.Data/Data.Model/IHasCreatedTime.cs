@@ -1,4 +1,6 @@
-﻿namespace Ploch.Common.Data.Model;
+﻿using System;
+
+namespace Ploch.Common.Data.Model;
 
 /// <summary>
 ///     An entity with a <c>CreatedTime</c> property.
@@ -13,5 +15,5 @@ public interface IHasCreatedTime
     ///     The created time property is used to store the time when the entity was created.
     ///     It is commonly used with the <see cref="IHasCreatedBy" /> interface.
     /// </remarks>
-    DateTime? CreatedTime { get; set; }
+    DateTimeOffset? CreatedTime { get; set; }
 }

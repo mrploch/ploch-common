@@ -4,18 +4,15 @@ using Ploch.Common.Data.Model;
 
 namespace Ploch.Common.Data.GenericRepository;
 
-public interface IReadRepository<TEntity>
+
+public interface IReadRepository<TEntity> : IQueryableRepository<TEntity>
     where TEntity : class
 {
-    IQueryable<TEntity> Entities { get; }
-
-    TEntity? GetById(object id);
-
+    TEntity? GetById(object[] keyValues);
+    
     IList<TEntity> GetAll();
 
-    IQueryable<TEntity> GetPageQuery(int pageNumber, int pageSize);
-
-    IList<TEntity> GetPagedResponse(int pageNumber, int pageSize);
+    IList<TEntity> GetPage(int pageNumber, int pageSize);
 
     int Count();
 }

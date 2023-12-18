@@ -1,19 +1,19 @@
 classDiagram
-    class IReadRepository`1
-	IReadRepository`1 : +IQueryable~TEntity~ Entities
+    class IReadRepository~TEntity~
+	IReadRepository~TEntity~ : +IQueryable~TEntity~ Entities
 
-class IReadRepository`2
-	IReadRepository`2: +IQueryable~TEntity~ Entities
+class IReadRepository~TEntity;TId~
+	IReadRepository~TEntity;TId~: +IQueryable~TEntity~ Entities
 
-class IReadRepositoryAsync`2
-	IReadRepositoryAsync`2 : +IQueryable~TEntity~ Entities
+class IReadRepositoryAsync~TEntity;TId~
+	IReadRepositoryAsync~TEntity;TId~ : +IQueryable~TEntity~ Entities
 
-class IRepository`2
+class IRepository~TEntity;TId~
 
-	class IWriteRepository`2
+	class IWriteRepository~TEntity;TId~
 
-class IRepositoryAsync`2
+class IRepositoryAsync~TEntity;TId~
 
-	class IWriteRepositoryAsync`2
+	class IWriteRepositoryAsync~TEntity;TId~
 
 class IUnitOfWork

@@ -1,4 +1,6 @@
-﻿namespace Ploch.Common.Data.Model;
+﻿using System;
+
+namespace Ploch.Common.Data.Model;
 
 /// <summary>
 ///     An entity with a <c>IHasModifiedTime</c> property.
@@ -17,5 +19,5 @@ public interface IHasModifiedTime
     ///     The last modified time property is used to store the time of the last modification of the entity.
     ///     It is commonly used with the <see cref="IHasModifiedBy" /> interface.
     /// </remarks>
-    DateTime? ModifiedTime { get; set; }
+    DateTimeOffset? ModifiedTime { get; set; }
 }

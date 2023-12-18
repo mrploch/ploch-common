@@ -15,10 +15,10 @@ public class ReadWriteRepositoryAsyncTests : DataIntegrationTest<TestDbContext>
 
         await unitOfWork.CommitAsync();
 
-        var repository = CreateReadRepositoryAsync<Blog, int>();
+        var repository = CreateReadRepositoryAsync<BlogPost, int>();
         var count = await repository.GetCountAsync();
 
-        count.Should().Be(3);
+        count.Should().Be(2);
     }
 
     [Fact]
@@ -30,9 +30,20 @@ public class ReadWriteRepositoryAsyncTests : DataIntegrationTest<TestDbContext>
 
         await unitOfWork.CommitAsync();
 
-        var repository = CreateReadRepository<Blog, int>();
+        var repository = CreateReadRepository<BlogPost, int>();
         var count = repository.Count();
 
-        count.Should().Be(3);
+        count.Should().Be(2);
+    }
+    
+    [Fact]
+    public async Task Count_should_return_zero_when_repository_is_empty()
+    {
+        using var unitOfWork = CreateUnitOfWork();
+
+        var repository = CreateReadRepository<BlogPost, int>();
+        var count = repository.Count();
+
+        count.Should().Be(0);
     }
 }

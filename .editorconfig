@@ -246,6 +246,7 @@ dotnet_diagnostic.sa1133.severity = none
 dotnet_diagnostic.sa1009.severity = none
 dotnet_diagnostic.sa1000.severity = none
 dotnet_diagnostic.sa1633.severity = none
+dotnet_diagnostic.SA1649.severity = warning  # File name should match first type name.
 
 # ReSharper properties
 resharper_csharp_empty_block_style = together
@@ -259,54 +260,39 @@ resharper_keep_existing_expr_member_arrangement = false
 resharper_keep_existing_invocation_parens_arrangement = false
 resharper_keep_existing_property_patterns_arrangement = false
 
-
 # Checks
 
 dotnet_diagnostic.ca1001.severity = warning
-
 dotnet_diagnostic.ca1009.severity = warning
-
 dotnet_diagnostic.cc0108.severity = warning
-
-dotnet_diagnostic.cs8600.severity = warning
-
-dotnet_diagnostic.cs8608.severity = error
-
-dotnet_diagnostic.cs8609.severity = error
-
-dotnet_diagnostic.cs8610.severity = error
-
-dotnet_diagnostic.cs8611.severity = error
-
-dotnet_diagnostic.cs8612.severity = error
-
-dotnet_diagnostic.cs8613.severity = error
-
-dotnet_diagnostic.cs8614.severity = error
-
-dotnet_diagnostic.cs8615.severity = error
-
-dotnet_diagnostic.cs8616.severity = error
-
-dotnet_diagnostic.cs8617.severity = error
-
-dotnet_diagnostic.cs8618.severity = error
-
-dotnet_diagnostic.cs8619.severity = error
-
-dotnet_diagnostic.cs8620.severity = warning
-
-dotnet_diagnostic.cs8624.severity = error
-
-dotnet_diagnostic.cs8625.severity = error
-
-dotnet_diagnostic.cs8629.severity = error
-
-dotnet_diagnostic.cs8643.severity = error
-
-dotnet_diagnostic.cs8644.severity = error
-
 dotnet_diagnostic.ca1851.severity = none # Possible multiple enumerations of IEnumerable collection
+
+dotnet_diagnostic.cs1591.severity = warning # Missing XML comment for publicly visible type or member 'Type_or_Member'
+
+# Nullable Reference Types
+
+dotnet_diagnostic.cs8600.severity = warning # Converting null literal or possible null value to non-nullable type.
+dotnet_diagnostic.cs8608.severity = error # Possible null reference argument.
+dotnet_diagnostic.cs8609.severity = error # Possible null reference return.
+dotnet_diagnostic.cs8610.severity = error # Nullability of reference types in type parameter doesn't match overridden member.
+dotnet_diagnostic.cs8611.severity = error # Nullability of reference types in type parameter doesn't match partial method declaration.
+dotnet_diagnostic.cs8612.severity = error # Nullability of reference types in type doesn't match implicitly implemented member.
+dotnet_diagnostic.cs8613.severity = error # Nullability of reference types in return type doesn't match implicitly implemented member.
+dotnet_diagnostic.cs8614.severity = error # Nullability of reference types in type of parameter doesn't match implicitly implemented member.
+dotnet_diagnostic.cs8615.severity = error # Nullability of reference types in type doesn't match implemented member.
+dotnet_diagnostic.cs8616.severity = error # Nullability of reference types in return type doesn't match implemented member.
+dotnet_diagnostic.cs8617.severity = error # Nullability of reference types in type of parameter doesn't match implemented member.
+dotnet_diagnostic.cs8618.severity = error # Non-nullable field is uninitialized. Consider declaring as nullable.
+dotnet_diagnostic.cs8619.severity = error # Nullability of reference types in value doesn't match target type.
+dotnet_diagnostic.cs8620.severity = warning # Argument cannot be null.
+dotnet_diagnostic.cs8621.severity = error # Nullability of reference types in return type doesn't match delegate type parameter.
+dotnet_diagnostic.cs8622.severity = error # Nullability of reference types in type of parameter doesn't match delegate type parameter.
+dotnet_diagnostic.cs8624.severity = error # Argument cannot be used for parameter due to differences in the nullability of reference types.
+dotnet_diagnostic.cs8625.severity = error # Cannot convert null literal to non-nullable reference type.
+dotnet_diagnostic.cs8629.severity = error # Nullable value type may be null.
+dotnet_diagnostic.cs8643.severity = error # Nullability of reference types in explicit interface specifier doesn't match interface implemented by the type.
+dotnet_diagnostic.cs8644.severity = error # Type does not implement interface member. Nullability of reference types in interface implemented by the base type doesn't match.
+
 resharper_possible_multiple_enumeration = none
 
 # Test projects overrides

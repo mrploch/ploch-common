@@ -22,6 +22,7 @@ public static class ServiceCollectionRegistration
 
     private static readonly Dictionary<Type, Type> RepositoryAsyncTypeMappings = new()
                                                                                  {
+                                                                                     {typeof(IReadRepositoryAsync<>), typeof(ReadRepositoryAsync<>)},
                                                                                      { typeof(IReadRepositoryAsync<,>), typeof(ReadRepositoryAsync<,>) },
                                                                                      { typeof(IWriteRepositoryAsync<,>), typeof(ReadWriteRepositoryAsync<,>) },
                                                                                      { typeof(IReadWriteRepositoryAsync<,>), typeof(ReadWriteRepositoryAsync<,>) }
@@ -39,7 +40,7 @@ public static class ServiceCollectionRegistration
         Guard.Argument(serviceCollection, nameof(serviceCollection)).NotNull();
 
         AddRepositories<TDbContext>(serviceCollection, (collection, sourceType, targetType) => collection.AddScoped(sourceType, targetType));
-
+        
         return serviceCollection;
     }
 
@@ -58,6 +59,11 @@ public static class ServiceCollectionRegistration
         Guard.Argument(registrationFunction, nameof(registrationFunction)).NotNull();
 
         serviceCollection.AddTransient<DbContext>(provider => provider.GetRequiredService<TDbContext>());
+
+        // foreach (var repositoryTypeMapping in RepositoryTypeMappings)
+        // {
+        //     registrationFunction!(serviceCollection, repositoryTypeMapping.Key, repositoryTypeMapping.Value);
+        // }
 
         RepositoryTypeMappings.ForEach(pair => registrationFunction!(serviceCollection, pair.Key, pair.Value));
         RepositoryAsyncTypeMappings.ForEach(pair => registrationFunction!(serviceCollection, pair.Key, pair.Value));
@@ -129,8 +135,14 @@ public static class ServiceCollectionRegistration
         Guard.Argument(serviceCollection, nameof(serviceCollection)).NotNull();
         Guard.Argument(registrationFunction, nameof(registrationFunction)).NotNull();
 
-        RepositoryTypeMappings.ForEach(pair => registrationFunction(serviceCollection, pair.Key, typeof(TRepository)));
-        RepositoryAsyncTypeMappings.ForEach(pair => registrationFunction(serviceCollection, pair.Key, typeof(TRepository)));
+        // RepositoryTypeMappings.ForEach(pair => registrationFunction!(serviceCollection,
+        //                                                             Type.MakeGenericSignatureType(pair.Key, typeof(TEntity), typeof(TId)),
+        //                                                             typeof(TRepository)));
+        // RepositoryAsyncTypeMappings.ForEach(pair => registrationFunction!(serviceCollection,
+        //                                                                  Type.MakeGenericSignatureType(pair.Key, typeof(TEntity), typeof(TId)),
+        //                                                                  typeof(TRepository)));
+
+        registrationFunction!(serviceCollection, typeof(TRepositoryInterface), typeof(TRepository));
 
         return serviceCollection;
     }
