@@ -45,19 +45,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{970E85D2-F
 		src\Common.Data\README.md = src\Common.Data\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.EFCore", "src\Common.Data\Data.EFCore\Ploch.Common.Data.EFCore.csproj", "{AA9CC66F-215B-4412-86A8-CA29B8F8F20B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.GenericRepository.Tests", "src\Common.Data\Data.GenericRepository\Data.GenericRepository.Tests\content\Ploch.Common.Data.GenericRepository.Tests.csproj", "{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Data.EFCore", "src\Common.Data\Data.EFCore\Ploch.Common.Data.EFCore.csproj", "{AA9CC66F-215B-4412-86A8-CA29B8F8F20B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A60CBBC0-8305-4438-AF1C-951FA0E70BE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GenericRepository", "GenericRepository", "{7C1230FF-8A34-466C-A3FD-F74B7F224AAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting", "src\Common.Data\Data.GenericRepository\Data.GenericRepository.EFCore.IntegrationTesting\Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting.csproj", "{F45217F5-17F5-4CB8-9A5E-5587DE9AEB33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting", "src\Common.Data\Data.GenericRepository\Data.GenericRepository.EFCore.IntegrationTesting\Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting.csproj", "{F45217F5-17F5-4CB8-9A5E-5587DE9AEB33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.CommandQuery", "src\Common.Data\Data.CommandQuery\Ploch.Common.Data.CommandQuery.csproj", "{210DF234-9F51-4D95-A7B7-C29A6DB2ED1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Data.CommandQuery", "src\Common.Data\Data.CommandQuery\Ploch.Common.Data.CommandQuery.csproj", "{210DF234-9F51-4D95-A7B7-C29A6DB2ED1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Data.CommandQuery.Tests", "src\Common.Data\Data.CommandQuery.Tests\content\Ploch.Common.Data.CommandQuery.Tests.csproj", "{EEFBB025-2C25-4E2E-90C4-0BEBBDB87A38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Data.CommandQuery.Tests", "src\Common.Data\Data.CommandQuery.Tests\content\Ploch.Common.Data.CommandQuery.Tests.csproj", "{EEFBB025-2C25-4E2E-90C4-0BEBBDB87A38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{87F93313-FCDE-4545-A30B-03D05077F647}"
 	ProjectSection(SolutionItems) = preProject
@@ -66,20 +64,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
 	ProjectSection(SolutionItems) = preProject
-		directory.build.targets = directory.build.targets
 		.editorconfig = .editorconfig
-		global.json = global.json
-		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		directory.build.targets = directory.build.targets
+		global.json = global.json
 		Ploch.Common.nuspec = Ploch.Common.nuspec
-		qodana.yaml = qodana.yaml
 		qodana.sarif.json = qodana.sarif.json
+		qodana.yaml = qodana.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{73418E3A-0260-462E-A269-0540040A06A3}"
 	ProjectSection(SolutionItems) = preProject
-		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
 		Clean-DocFx.ps1 = Clean-DocFx.ps1
+		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
 	EndProjectSection
 EndProject
 Global
@@ -396,26 +394,6 @@ Global
 		{AA9CC66F-215B-4412-86A8-CA29B8F8F20B}.Release|x64.Build.0 = Release|Any CPU
 		{AA9CC66F-215B-4412-86A8-CA29B8F8F20B}.Release|x86.ActiveCfg = Release|Any CPU
 		{AA9CC66F-215B-4412-86A8-CA29B8F8F20B}.Release|x86.Build.0 = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|ARM.Build.0 = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|x64.Build.0 = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Debug|x86.Build.0 = Debug|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|ARM.ActiveCfg = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|ARM.Build.0 = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|ARM64.Build.0 = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|x64.ActiveCfg = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|x64.Build.0 = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|x86.ActiveCfg = Release|Any CPU
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42}.Release|x86.Build.0 = Release|Any CPU
 		{F45217F5-17F5-4CB8-9A5E-5587DE9AEB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F45217F5-17F5-4CB8-9A5E-5587DE9AEB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45217F5-17F5-4CB8-9A5E-5587DE9AEB33}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -482,25 +460,24 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0BAE0808-2372-4B4D-8438-B07D8803D5B2} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
-		{A3BB69C2-4CFB-4172-BC7A-ED7413B1CB0F} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
-		{57622815-4765-4DAD-A0F8-DBC204A6E84E} = {87F93313-FCDE-4545-A30B-03D05077F647}
-		{73418E3A-0260-462E-A269-0540040A06A3} = {87F93313-FCDE-4545-A30B-03D05077F647}
-		{41B7DDC2-1AEC-4529-BB17-458CF671A0C5} = {2EBC511A-69AC-4175-AD33-E19F5FBAA034}
-		{3584EAC0-FAF3-4F3B-8279-1694BAC5137F} = {2EBC511A-69AC-4175-AD33-E19F5FBAA034}
-		{2EBC511A-69AC-4175-AD33-E19F5FBAA034} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
 		{48F50CE8-A2E6-428B-B491-B410C524A3A4} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
+		{38871480-2261-4529-A44C-1061C6EA80B7} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
+		{9627D787-346F-430E-983B-F60B7610604E} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
 		{C23183C4-E0FF-4C77-A25A-B164565BFDC1} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
 		{46E7BBE3-D06F-42B8-9290-AA50B7D3D866} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
-		{9627D787-346F-430E-983B-F60B7610604E} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
-		{38871480-2261-4529-A44C-1061C6EA80B7} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
+		{A3BB69C2-4CFB-4172-BC7A-ED7413B1CB0F} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
+		{41B7DDC2-1AEC-4529-BB17-458CF671A0C5} = {2EBC511A-69AC-4175-AD33-E19F5FBAA034}
+		{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9} = {7C1230FF-8A34-466C-A3FD-F74B7F224AAA}
+		{3584EAC0-FAF3-4F3B-8279-1694BAC5137F} = {2EBC511A-69AC-4175-AD33-E19F5FBAA034}
+		{2EBC511A-69AC-4175-AD33-E19F5FBAA034} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
 		{AA9CC66F-215B-4412-86A8-CA29B8F8F20B} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
 		{A60CBBC0-8305-4438-AF1C-951FA0E70BE6} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 		{7C1230FF-8A34-466C-A3FD-F74B7F224AAA} = {A60CBBC0-8305-4438-AF1C-951FA0E70BE6}
-		{FC442CAD-7F89-4B52-A7FB-E6E8E7D7AA42} = {7C1230FF-8A34-466C-A3FD-F74B7F224AAA}
-		{9018DB13-DC12-4E78-8BF4-1A13DC4B97C9} = {7C1230FF-8A34-466C-A3FD-F74B7F224AAA}
 		{F45217F5-17F5-4CB8-9A5E-5587DE9AEB33} = {2EBC511A-69AC-4175-AD33-E19F5FBAA034}
 		{210DF234-9F51-4D95-A7B7-C29A6DB2ED1D} = {970E85D2-FEF0-43F8-8672-43891D57D9E6}
 		{EEFBB025-2C25-4E2E-90C4-0BEBBDB87A38} = {A60CBBC0-8305-4438-AF1C-951FA0E70BE6}
+		{57622815-4765-4DAD-A0F8-DBC204A6E84E} = {87F93313-FCDE-4545-A30B-03D05077F647}
+		{73418E3A-0260-462E-A269-0540040A06A3} = {87F93313-FCDE-4545-A30B-03D05077F647}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A84E1AF7-BEBB-47F9-A917-8373C7F0D39E}

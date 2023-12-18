@@ -22,7 +22,7 @@ public static class ServiceCollectionRegistration
 
     private static readonly Dictionary<Type, Type> RepositoryAsyncTypeMappings = new()
                                                                                  {
-                                                                                     {typeof(IReadRepositoryAsync<>), typeof(ReadRepositoryAsync<>)},
+                                                                                     { typeof(IReadRepositoryAsync<>), typeof(ReadRepositoryAsync<>) },
                                                                                      { typeof(IReadRepositoryAsync<,>), typeof(ReadRepositoryAsync<,>) },
                                                                                      { typeof(IWriteRepositoryAsync<,>), typeof(ReadWriteRepositoryAsync<,>) },
                                                                                      { typeof(IReadWriteRepositoryAsync<,>), typeof(ReadWriteRepositoryAsync<,>) }
@@ -40,7 +40,7 @@ public static class ServiceCollectionRegistration
         Guard.Argument(serviceCollection, nameof(serviceCollection)).NotNull();
 
         AddRepositories<TDbContext>(serviceCollection, (collection, sourceType, targetType) => collection.AddScoped(sourceType, targetType));
-        
+
         return serviceCollection;
     }
 

@@ -6,6 +6,13 @@ namespace Ploch.Common.Data.GenericRepository.EFCore.IntegrationTests;
 
 public class ReadWriteRepositoryAsyncTests : DataIntegrationTest<TestDbContext>
 {
+    private readonly IReadWriteRepositoryAsync<TestEntity, int> _repository;
+
+    public ReadWriteRepositoryAsyncTests()
+    {
+        _repository = CreateReadWriteRepositoryAsync<TestEntity, int>();
+    }
+
     [Fact]
     public async Task CountAsync_should_return_entity_count()
     {
@@ -35,7 +42,7 @@ public class ReadWriteRepositoryAsyncTests : DataIntegrationTest<TestDbContext>
 
         count.Should().Be(2);
     }
-    
+
     [Fact]
     public async Task Count_should_return_zero_when_repository_is_empty()
     {
@@ -45,5 +52,42 @@ public class ReadWriteRepositoryAsyncTests : DataIntegrationTest<TestDbContext>
         var count = repository.Count();
 
         count.Should().Be(0);
+    }
+
+    [Fact]
+    public async Task AddAsync_ShouldAddEntity()
+    {
+        var entity = new TestEntity { Id = 1, Name = "Test" };
+        var result = await _repository.AddAsync(entity);
+        result.Should().BeEquivalentTo(entity);
+    }
+
+    [Fact]
+    public async Task AddRangeAsync_ShouldAddEntities()
+    {
+        var entities = new List<TestEntity> { new() { Id = 1, Name = "Test1" }, new() { Id = 2, Name = "Test2" } };
+        var result = await _repository.AddRangeAsync(entities);
+        result.Should().BeEquivalentTo(entities);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_ShouldDeleteEntity()
+    {
+        var entity = new TestEntity { Id = 1, Name = "Test" };
+        await _repository.AddAsync(entity);
+        await _repository.DeleteAsync(entity);
+        var result = await _repository.GetByIdAsync(entity.Id);
+        result.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task UpdateAsync_ShouldUpdateEntity()
+    {
+        var entity = new TestEntity { Id = 1, Name = "Test" };
+        await _repository.AddAsync(entity);
+        entity.Name = "Updated";
+        await _repository.UpdateAsync(entity);
+        var result = await _repository.GetByIdAsync(entity.Id);
+        result.Name.Should().Be("Updated");
     }
 }
