@@ -8,9 +8,19 @@ using Ploch.Common.Data.Model;
 
 namespace Ploch.Common.Data.GenericRepository.EFCore;
 
+/// <summary>
+/// Provides a repository that allows asynchronous reading and writing of entities of type <see cref="TEntity"/> with a specified identifier type from a <see cref="DbContext"/>.
+/// </summary>
+/// <typeparam name="TEntity">The type of the entities in the repository.</typeparam>
+/// <inheritdoc cref="ReadRepositoryAsync{TEntity,TId}"/>
+/// <inheritdoc cref="IReadRepositoryAsync{TEntity, TId}"/>
 public class ReadWriteRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, IReadWriteRepositoryAsync<TEntity, TId>
     where TEntity : class, IHasId<TId>
 {
+    // <summary>
+    /// Initializes a new instance of the <see cref="ReadWriteRepositoryAsync{TEntity, TId}"/> class.
+    /// </summary>
+    /// <param name="dbContext">The <see cref="DbContext"/> to use for reading and writing entities.</param>
     public ReadWriteRepositoryAsync(DbContext dbContext) : base(dbContext)
     { }
 
@@ -30,20 +40,6 @@ public class ReadWriteRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntit
         await DbContext.AddRangeAsync(entities, cancellationToken);
 
         return entities;
-    }
-
-    public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(params TEntity[] entities)
-    {
-        Guard.Argument(entities, nameof(entities)).NotNull();
-
-        return await AddRangeAsync(entities, CancellationToken.None);
-    }
-
-    public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(CancellationToken cancellationToken, params TEntity[] entities)
-    {
-        Guard.Argument(entities, nameof(entities)).NotNull();
-
-        return await AddRangeAsync(entities, cancellationToken);
     }
 
     public virtual Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)

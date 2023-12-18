@@ -7,6 +7,12 @@ using Ploch.Common.Data.Model;
 namespace Ploch.Common.Data.GenericRepository.EFCore;
 
 
+/// <summary>
+/// Provides a repository that allows asynchronous reading of entities of type <see cref="TEntity"/> from a <see cref="DbContext"/>.
+/// </summary>
+/// <typeparam name="TEntity">The type of the entities in the repository.</typeparam>
+/// <inheritdoc cref="IReadRepository{TEntity}"/>
+/// <inheritdoc cref="QueryableRepository{TEntity}"/>
 public class ReadRepositoryAsync<TEntity> : QueryableRepository<TEntity>, IReadRepositoryAsync<TEntity>
     where TEntity : class
 {
@@ -30,13 +36,27 @@ public class ReadRepositoryAsync<TEntity> : QueryableRepository<TEntity>, IReadR
         return Entities.CountAsync(cancellationToken);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ReadRepositoryAsync{TEntity}"/> class.
+    /// </summary>
+    /// <param name="dbContext">The <see cref="DbContext"/> to use for reading entities.</param>
     public ReadRepositoryAsync(DbContext dbContext) : base(dbContext)
     {
     }
 }
+/// <summary>
+/// Provides a repository that allows asynchronous reading of entities of type <see cref="TEntity"/> with a specified identifier type from a <see cref="DbContext"/>.
+/// </summary>
+/// <typeparam name="TId">The type of the identifier for the entities in the repository.</typeparam>
+/// <inheritdoc cref="ReadRepositoryAsync{TEntity}"/>
+/// <inheritdoc cref="IReadRepositoryAsync{TEntity}"/>
 public class ReadRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity>, IReadRepositoryAsync<TEntity, TId>
     where TEntity : class, IHasId<TId>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ReadRepositoryAsync{TEntity, TId}"/> class.
+    /// </summary>
+    /// <param name="dbContext">The <see cref="DbContext"/> to use for reading entities.</param>
     public ReadRepositoryAsync(DbContext dbContext) : base(dbContext)
     { }
 
