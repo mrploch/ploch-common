@@ -17,7 +17,7 @@ public interface IReadRepositoryAsync<TEntity> : IQueryableRepository<TEntity>
     /// <param name="keyValues">The values of the primary key for the entity to be found.</param>
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the entity found, or null.</returns>
-    Task<TEntity> GetByIdAsync(object[] keyValues, CancellationToken cancellationToken = default);
+    Task<TEntity?> GetByIdAsync(object[] keyValues, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Asynchronously gets all entities from the repository.

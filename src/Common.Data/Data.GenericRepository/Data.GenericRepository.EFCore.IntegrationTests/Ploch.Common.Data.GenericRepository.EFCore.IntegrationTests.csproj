@@ -16,7 +16,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="FluentAssertions" Version="6.12.0"/>
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="FluentAssertions.Analyzers" Version="0.26.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -44,6 +44,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\Common\Ploch.Common.csproj" />
         <ProjectReference Include="..\Data.GenericRepository.EFCore.IntegrationTesting\Ploch.Common.Data.GenericRepository.EFCore.IntegrationTesting.csproj" />
-        <ProjectReference Include="..\Data.GenericRepository.EFCore\Ploch.Common.Data.GenericRepository.EFCore.csproj"/>
+        <ProjectReference Include="..\Data.GenericRepository.EFCore\Ploch.Common.Data.GenericRepository.EFCore.csproj" />
     </ItemGroup>
 </Project>

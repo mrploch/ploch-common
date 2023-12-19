@@ -23,7 +23,7 @@ public class ReadRepositoryAsync<TEntity> : QueryableRepository<TEntity>, IReadR
     public ReadRepositoryAsync(DbContext dbContext) : base(dbContext)
     { }
 
-    public async Task<TEntity> GetByIdAsync(object[] keyValues, CancellationToken cancellationToken = default)
+    public async Task<TEntity?> GetByIdAsync(object[] keyValues, CancellationToken cancellationToken = default)
     {
         return await DbSet.FindAsync(keyValues, cancellationToken);
     }
@@ -50,7 +50,7 @@ public class ReadRepositoryAsync<TEntity> : QueryableRepository<TEntity>, IReadR
 /// </summary>
 /// <typeparam name="TId">The type of the identifier for the entities in the repository.</typeparam>
 /// <inheritdoc cref="ReadRepositoryAsync{TEntity}" />
-/// <inheritdoc cref="IReadRepositoryAsync{TEntity}" />
+/// <inheritdoc cref="IReadRepositoryAsync{TEntity, TId}" />
 public class ReadRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity>, IReadRepositoryAsync<TEntity, TId>
     where TEntity : class, IHasId<TId>
 {

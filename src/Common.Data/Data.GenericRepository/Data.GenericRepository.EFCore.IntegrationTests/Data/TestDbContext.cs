@@ -17,7 +17,7 @@ public class TestDbContext : DbContext
     public DbSet<BlogPostTag> BlogPostTags { get; set; } = null!;
 
     public DbSet<UserIdea> UserIdeas { get; set; } = null!;
-    
+
     public DbSet<TestEntity> TestEntities { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

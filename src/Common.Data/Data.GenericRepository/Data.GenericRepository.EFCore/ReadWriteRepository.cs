@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Dawn;
 using Microsoft.EntityFrameworkCore;
 using Ploch.Common.Data.Model;
@@ -31,6 +32,7 @@ public class ReadWriteRepository<TEntity, TId> : ReadRepository<TEntity, TId>, I
         return entity;
     }
 
+    [SuppressMessage("ReSharper", "PossibleMultipleEnumeration", Justification = "Guard does not enumerate items.")]
     public IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities)
     {
         Guard.Argument(entities, nameof(entities)).NotNull();

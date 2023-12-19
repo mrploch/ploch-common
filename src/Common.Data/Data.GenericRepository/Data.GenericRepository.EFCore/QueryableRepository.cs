@@ -30,8 +30,10 @@ public class QueryableRepository<TEntity> : IQueryableRepository<TEntity>
     /// </summary>
     protected DbSet<TEntity> DbSet => DbContext.Set<TEntity>();
 
+    /// <inheritdoc />
     public IQueryable<TEntity> Entities => DbSet;
 
+    /// <inheritdoc />
     public IQueryable<TEntity> GetPageQuery(int pageNumber, int pageSize)
     {
         Guard.Argument(pageNumber, nameof(pageNumber)).Positive();

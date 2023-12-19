@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using Dawn;
@@ -18,10 +19,8 @@ namespace Ploch.Common.Data.GenericRepository.EFCore;
 public class ReadWriteRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntity, TId>, IReadWriteRepositoryAsync<TEntity, TId>
     where TEntity : class, IHasId<TId>
 {
-    // <summary>
-    /// Initializes a new instance of the
-    /// <see cref="ReadWriteRepositoryAsync{TEntity, TId}" />
-    /// class.
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ReadWriteRepositoryAsync{TEntity, TId}" /> class.
     /// </summary>
     /// <param name="dbContext">The <see cref="DbContext" /> to use for reading and writing entities.</param>
     public ReadWriteRepositoryAsync(DbContext dbContext) : base(dbContext)
@@ -36,6 +35,7 @@ public class ReadWriteRepositoryAsync<TEntity, TId> : ReadRepositoryAsync<TEntit
         return entity;
     }
 
+    [SuppressMessage("ReSharper", "PossibleMultipleEnumeration", Justification = "Guard does not enumerate items.")]
     public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
         Guard.Argument(entities, nameof(entities)).NotNull();
