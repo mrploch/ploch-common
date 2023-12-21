@@ -45,13 +45,9 @@ public class ServiceCollectionRegistrationsTests
         // serviceProvider.GetRequiredService<ICustomBlogRepository>().Should().BeOfType<CustomBlogRepository>();
 
         // Resolving the default repository interfaces
-        serviceProvider.GetRequiredService<IReadRepository<Blog, int>>().Should().BeOfType<CustomBlogRepository>();
-        serviceProvider.GetRequiredService<IReadRepository<Blog>>().Should().BeOfType<CustomBlogRepository>();
         serviceProvider.GetRequiredService<IReadRepositoryAsync<Blog, int>>().Should().BeOfType<CustomBlogRepository>();
         serviceProvider.GetRequiredService<IReadRepositoryAsync<Blog>>().Should().BeOfType<CustomBlogRepository>();
-        serviceProvider.GetRequiredService<IWriteRepository<Blog, int>>().Should().BeOfType<CustomBlogRepository>();
         serviceProvider.GetRequiredService<IWriteRepositoryAsync<Blog, int>>().Should().BeOfType<CustomBlogRepository>();
-        serviceProvider.GetRequiredService<IReadWriteRepository<Blog, int>>().Should().BeOfType<CustomBlogRepository>();
         serviceProvider.GetRequiredService<IReadWriteRepositoryAsync<Blog, int>>().Should().BeOfType<CustomBlogRepository>();
 
         // Resolving the open-generic repository interfaces

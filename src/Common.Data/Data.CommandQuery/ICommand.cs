@@ -5,10 +5,11 @@ public interface ICommand
     CommandResult Execute(object input);
 }
 
-public interface ICommand<TInput> : ICommand<TInput, CommandResult>
+public interface ICommand<in TInput> : ICommand<TInput, CommandResult>
 { }
 
-public interface ICommand<TInput, TOutput> : ICommand where TOutput : CommandResult
+public interface ICommand<in TInput, out TOutput> : ICommand
+    where TOutput : CommandResult
 {
     TOutput Execute(TInput input);
 }
