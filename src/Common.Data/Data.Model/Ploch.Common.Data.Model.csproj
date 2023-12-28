@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.12.0.78982">
+        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.16.0.82469">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
