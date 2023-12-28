@@ -6,7 +6,7 @@ namespace Ploch.Common.Data.Model.CommonTypes;
 ///     Represents a tag with an Id, Name, and Description.
 /// </summary>
 /// <typeparam name="TId">The type of the ID property.</typeparam>
-public class Tag<TId> : IHasId<TId>, INamed, IHasDescription
+public class Tag<TId> : IHasIdSettable<TId>, INamed, IHasDescription
 {
     /// <inheritdoc cref="IHasId{TId}" />
     [Key]

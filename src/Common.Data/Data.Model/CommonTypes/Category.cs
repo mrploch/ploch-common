@@ -33,7 +33,7 @@ public class Category<TCategory> : Category<TCategory, int>
 /// </remarks>
 /// <typeparam name="TCategory">The actual category type in the data model.</typeparam>
 /// <typeparam name="TId">The type of the <c>Id</c> property.</typeparam>
-public class Category<TCategory, TId> : IHasId<TId>, INamed, IHierarchicalParentChildrenComposite<TCategory>
+public class Category<TCategory, TId> : IHasIdSettable<TId>, INamed, IHierarchicalParentChildrenComposite<TCategory>
     where TCategory : Category<TCategory, TId>
 {
     /// <inheritdoc cref="IHasId{TId}.Id" />
