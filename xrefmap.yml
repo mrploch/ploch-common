@@ -833,44 +833,6 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Data.Model.INamed.Name
   nameWithType: INamed.Name
-- uid: Ploch.Common.Data.StandardDataSets
-  name: Ploch.Common.Data.StandardDataSets
-  href: api/Ploch.Common.Data.StandardDataSets.html
-  commentId: N:Ploch.Common.Data.StandardDataSets
-  fullName: Ploch.Common.Data.StandardDataSets
-  nameWithType: Ploch.Common.Data.StandardDataSets
-- uid: Ploch.Common.Data.StandardDataSets.Regions
-  name: Regions
-  href: api/Ploch.Common.Data.StandardDataSets.Regions.html
-  commentId: T:Ploch.Common.Data.StandardDataSets.Regions
-  fullName: Ploch.Common.Data.StandardDataSets.Regions
-  nameWithType: Regions
-- uid: Ploch.Common.Data.StandardDataSets.Regions.EnglishCountryNames
-  name: EnglishCountryNames()
-  href: api/Ploch.Common.Data.StandardDataSets.Regions.html#Ploch_Common_Data_StandardDataSets_Regions_EnglishCountryNames
-  commentId: M:Ploch.Common.Data.StandardDataSets.Regions.EnglishCountryNames
-  fullName: Ploch.Common.Data.StandardDataSets.Regions.EnglishCountryNames()
-  nameWithType: Regions.EnglishCountryNames()
-- uid: Ploch.Common.Data.StandardDataSets.Regions.EnglishCountryNames*
-  name: EnglishCountryNames
-  href: api/Ploch.Common.Data.StandardDataSets.Regions.html#Ploch_Common_Data_StandardDataSets_Regions_EnglishCountryNames_
-  commentId: Overload:Ploch.Common.Data.StandardDataSets.Regions.EnglishCountryNames
-  isSpec: "True"
-  fullName: Ploch.Common.Data.StandardDataSets.Regions.EnglishCountryNames
-  nameWithType: Regions.EnglishCountryNames
-- uid: Ploch.Common.Data.StandardDataSets.Regions.GetRegions
-  name: GetRegions()
-  href: api/Ploch.Common.Data.StandardDataSets.Regions.html#Ploch_Common_Data_StandardDataSets_Regions_GetRegions
-  commentId: M:Ploch.Common.Data.StandardDataSets.Regions.GetRegions
-  fullName: Ploch.Common.Data.StandardDataSets.Regions.GetRegions()
-  nameWithType: Regions.GetRegions()
-- uid: Ploch.Common.Data.StandardDataSets.Regions.GetRegions*
-  name: GetRegions
-  href: api/Ploch.Common.Data.StandardDataSets.Regions.html#Ploch_Common_Data_StandardDataSets_Regions_GetRegions_
-  commentId: Overload:Ploch.Common.Data.StandardDataSets.Regions.GetRegions
-  isSpec: "True"
-  fullName: Ploch.Common.Data.StandardDataSets.Regions.GetRegions
-  nameWithType: Regions.GetRegions
 - uid: Ploch.Common.Data.Utilities
   name: Ploch.Common.Data.Utilities
   href: api/Ploch.Common.Data.Utilities.html
