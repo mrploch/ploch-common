@@ -52,7 +52,7 @@ namespace Ploch.Common.Tests
         {
             var property = obj.GetProperty(o => o.StringProp2);
 
-            property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo>();
+            property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<TestTypes.MyTestClass, string>>();
             property.Owner.Should().Be(obj);
         }
     }
