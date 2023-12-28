@@ -1,6 +1,6 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using FluentAssertions;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Linq;
 using Ploch.Common.Tests.Reflection;
 using Xunit;
@@ -44,6 +44,16 @@ namespace Ploch.Common.Tests
             Expression<Func<string>> expression = () => str;
 
             expression.GetMemberName().Should().Be(nameof(str));
+        }
+
+        [Theory]
+        [AutoMockData]
+        public void GetProperty_should_return_OwnedPropertyInfo_for_the_provided_property_selector_expression(TestTypes.MyTestClass obj)
+        {
+            var property = obj.GetProperty(o => o.StringProp2);
+
+            property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<TestTypes.MyTestClass, string>>();
+            property.Owner.Should().Be(obj);
         }
     }
 }
