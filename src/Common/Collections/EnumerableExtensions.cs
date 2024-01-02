@@ -10,8 +10,6 @@ namespace Ploch.Common.Collections;
 /// </summary>
 public static class EnumerableExtensions
 {
-    [ThreadStatic] private static readonly Random Random = new();
-
     /// <summary>
     ///     Checks if a set of values the value using provided comparer.
     /// </summary>

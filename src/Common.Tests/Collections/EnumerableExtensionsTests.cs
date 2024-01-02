@@ -1,7 +1,5 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using FluentAssertions.Collections;
-using FluentAssertions.Execution;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
 using Ploch.Common.Tests.Reflection;
@@ -193,53 +191,5 @@ public class EnumerableExtensionsTests
         numbers.ForEach(n => sum += n);
 
         sum.Should().Be(numbers.Sum());
-    }
-}
-
-public static class GenericCollectionAssertionsExtensions
-{
-    public static ICollection<T> ConvertOrCastToCollection<T>(this IEnumerable<T> source)
-    {
-        return source as ICollection<T> ?? source.ToList();
-    }
-
-    public static AndConstraint<TAssertions> ContainAllNotInOrder<TCollection, T, TAssertions>(this GenericCollectionAssertions<TCollection, T, TAssertions> assertions,
-                                                                                               IEnumerable<T> expected,
-                                                                                               string because = "",
-                                                                                               params object[] becauseArgs)
-        where TCollection : IEnumerable<T> where TAssertions : GenericCollectionAssertions<TCollection, T, TAssertions>
-    {
-        //Guard.ThrowIfArgumentIsNull(expected, nameof(expected), "Cannot verify containment against a <null> collection");
-
-        var expectedObjects = expected.ConvertOrCastToCollection();
-        // Guard.ThrowIfArgumentIsEmpty(expectedObjects, nameof(expected), "Cannot verify containment against an empty collection");
-
-        bool success = Execute.Assertion.BecauseOf(because, becauseArgs)
-                              .ForCondition(assertions.Subject is not null)
-                              .FailWith("Expected {context:collection} to contain {0}{reason}, but found <null>.", expectedObjects);
-
-        if (success)
-        {
-            var missingItems = expectedObjects.Where(item => !assertions.Subject.Contains(item));
-
-            if (missingItems.Any())
-            {
-                if (expectedObjects.Count > 1)
-                {
-                    Execute.Assertion.BecauseOf(because, becauseArgs)
-                           .FailWith("Expected {context:collection} {0} to contain {1}{reason}, but could not find {2}.",
-                                     assertions.Subject,
-                                     expectedObjects,
-                                     missingItems);
-                }
-                else
-                {
-                    Execute.Assertion.BecauseOf(because, becauseArgs)
-                           .FailWith("Expected {context:collection} {0} to contain {1}{reason}.", assertions.Subject, expectedObjects.Single());
-                }
-            }
-        }
-
-        return new AndConstraint<TAssertions>((TAssertions)assertions);
     }
 }
