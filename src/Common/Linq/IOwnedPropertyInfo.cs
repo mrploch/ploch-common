@@ -70,13 +70,13 @@ public interface IOwnedPropertyInfo<out TType, TProperty> : IOwnedPropertyInfo
     /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />
     new TType Owner { get; }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.GetValue" />
+    /// <inheritdoc cref="IOwnedPropertyInfo.GetValue()" />
     new TProperty? GetValue();
 
     /// <inheritdoc cref="IOwnedPropertyInfo.GetValue(object[])" />
     new TProperty? GetValue(object[] index);
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.SetValue" />
+    /// <inheritdoc cref="IOwnedPropertyInfo.SetValue(object?)" />
     void SetValue(TProperty? value);
 
     /// <inheritdoc cref="IOwnedPropertyInfo.SetValue(object?, object[])" />

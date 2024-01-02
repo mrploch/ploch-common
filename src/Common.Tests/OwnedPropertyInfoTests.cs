@@ -27,4 +27,31 @@ public class OwnedPropertyInfoTests
 
         obj.StringProp2.Should().Be("new-value");
     }
+
+    [Theory]
+    [AutoMockData]
+    public void Name_should_return_property_name(TestTypes.MyTestClass obj)
+    {
+        var property = obj.GetProperty(o => o.StringProp2);
+
+        property.Name.Should().Be(nameof(TestTypes.MyTestClass.StringProp2));
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void PropertyInfo_should_return_property_info(TestTypes.MyTestClass obj)
+    {
+        var property = obj.GetProperty(o => o.StringProp2);
+
+        property.PropertyInfo.Should().BeSameAs(typeof(TestTypes.MyTestClass).GetProperty(nameof(TestTypes.MyTestClass.StringProp2)));
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void Owner_should_return_source_object(TestTypes.MyTestClass obj)
+    {
+        var property = obj.GetProperty(o => o.StringProp2);
+
+        property.Owner.Should().BeSameAs(obj);
+    }
 }

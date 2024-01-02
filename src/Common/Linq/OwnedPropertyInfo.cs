@@ -20,15 +20,13 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
         Owner = owner;
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />
+    /// <inheritdoc />
     public object Owner { get; }
 
-    /// <summary>
-    ///     Gets an underlying <see cref="PropertyInfo" />.
-    /// </summary>
+    /// <inheritdoc />
     public PropertyInfo PropertyInfo { get; }
 
-    /// <inheritdoc cref="PropertyInfo.Name" />
+    /// <inheritdoc />
     public string Name => PropertyInfo.Name;
 
     /// <inheritdoc />
@@ -43,16 +41,13 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
         PropertyInfo.SetValue(Owner, value, index);
     }
 
-    /// <summary>
-    ///     Gets a value of the property.
-    /// </summary>
-    /// <returns>The property value.</returns>
+    /// <inheritdoc />
     public object? GetValue()
     {
         return PropertyInfo.GetValue(Owner);
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.GetValue(object[])" />
+    /// <inheritdoc />
     public object GetValue(object[] index)
     {
         return PropertyInfo.GetValue(Owner, index);
@@ -76,9 +71,7 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.GetValue()" />
     public new TProperty? GetValue()
     {
-        var value = base.GetValue();
-
-        return (TProperty?)value;
+        return (TProperty?)base.GetValue();
     }
 
     /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.GetValue(object[])" />

@@ -25,17 +25,12 @@ public static class ExpressionExtensions
     {
         Guard.Argument(expression, nameof(expression)).NotNull();
 
-        if (expression.Body is MemberExpression memberExpressionBody)
-        {
-            return memberExpressionBody.Member.Name;
-        }
-
-        if (expression.Body is MethodCallExpression methodCallExpression)
-        {
-            return methodCallExpression.Method.Name;
-        }
-
-        throw new InvalidOperationException("Not a member expression!");
+        return expression.Body switch
+               {
+                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+                   _ => throw new InvalidOperationException("Not a member expression!")
+               };
     }
 
     /// <summary>
@@ -50,17 +45,12 @@ public static class ExpressionExtensions
     {
         Guard.Argument(expression, nameof(expression)).NotNull();
 
-        if (expression.Body is MemberExpression memberExpressionBody)
-        {
-            return memberExpressionBody.Member.Name;
-        }
-
-        if (expression.Body is MethodCallExpression methodCallExpression)
-        {
-            return methodCallExpression.Method.Name;
-        }
-
-        throw new InvalidOperationException("Not a member expression!");
+        return expression.Body switch
+               {
+                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+                   _ => throw new InvalidOperationException("Not a member expression!")
+               };
     }
 
     /// <summary>
@@ -79,23 +69,15 @@ public static class ExpressionExtensions
     {
         Guard.Argument(expression, nameof(expression)).NotNull();
 
-        if (expression.Body is MemberExpression memberExpressionBody)
-        {
-            return memberExpressionBody.Member.Name;
-        }
+        return expression.Body switch
+               {
+                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
 
-        if (expression.Body is MethodCallExpression methodCallExpression)
-        {
-            return methodCallExpression.Method.Name;
-        }
-
-        // Might be an implicit cast
-        if (expression.Body is UnaryExpression { Operand: MemberExpression memberExpression })
-        {
-            return memberExpression.Member.Name;
-        }
-
-        throw new InvalidOperationException("Not a member expression and not unary expression for member.");
+                   // Might be an implicit cast
+                   UnaryExpression { Operand: MemberExpression memberExpression } => memberExpression.Member.Name,
+                   _ => throw new InvalidOperationException("Not a member expression and not unary expression for member.")
+               };
     }
 
     /// <summary>
@@ -114,14 +96,13 @@ public static class ExpressionExtensions
     {
         Guard.Argument(propertySelector, nameof(propertySelector)).NotNull();
 
-        if (propertySelector.Body is MemberExpression memberExpression)
+        if (propertySelector.Body is not MemberExpression memberExpression)
         {
-            var propertyInfo = memberExpression.Member as PropertyInfo ??
-                               throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
-
-            return new OwnedPropertyInfo<TType, TMember>(propertyInfo, obj);
+            throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
         }
 
-        throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
+        var propertyInfo = memberExpression.Member as PropertyInfo ?? throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
+
+        return new OwnedPropertyInfo<TType, TMember>(propertyInfo, obj);
     }
 }
