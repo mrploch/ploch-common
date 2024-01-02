@@ -7,7 +7,6 @@ public interface IOwnedPropertyInfo
     void SetValue(object value);
 }
 
-
 public interface IOwnedPropertyInfo<out TType, TProperty>
 {
     TType Owner { get; }

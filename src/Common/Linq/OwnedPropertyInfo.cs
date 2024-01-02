@@ -4,7 +4,6 @@ using System.Reflection;
 
 namespace Ploch.Common.Linq;
 
-
 public class OwnedPropertyInfo : PropertyInfo
 {
     public OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
