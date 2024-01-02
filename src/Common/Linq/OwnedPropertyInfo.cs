@@ -13,8 +13,11 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     /// <param name="owner">The object that owns the property.</param>
     protected OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
     {
-        Owner = Guard.Argument(owner, nameof(owner)).NotNull();
-        PropertyInfo = Guard.Argument(propertyInfo, nameof(propertyInfo)).NotNull();
+        Guard.Argument(propertyInfo, nameof(propertyInfo)).NotNull();
+        Guard.Argument(owner, nameof(owner)).NotNull();
+
+        PropertyInfo = propertyInfo;
+        Owner = owner;
     }
 
     /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />
@@ -73,7 +76,9 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.GetValue()" />
     public new TProperty? GetValue()
     {
-        return (TProperty?)base.GetValue();
+        var value = base.GetValue();
+
+        return (TProperty?)value;
     }
 
     /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.GetValue(object[])" />

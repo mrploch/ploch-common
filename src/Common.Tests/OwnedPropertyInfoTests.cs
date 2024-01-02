@@ -13,7 +13,8 @@ public class OwnedPropertyInfoTests
     {
         var property = obj.GetProperty(o => o.StringProp2);
 
-        property.GetValue().Should().Be(obj.StringProp2);
+        var value = property.GetValue();
+        value.Should().Be(obj.StringProp2);
     }
 
     [Theory]
