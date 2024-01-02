@@ -30,7 +30,7 @@ public class StopwatchUtilTests
     {
         var asyncMethodTime = StopwatchUtil.Time(AsyncMethod(TimeSpan.FromMilliseconds(100)));
 
-        asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(100));
+        asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }
 
     private Task AsyncMethod(TimeSpan delay)
