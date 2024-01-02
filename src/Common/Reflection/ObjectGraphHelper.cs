@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Dawn;
 
 namespace Ploch.Common.Reflection;
 
@@ -26,7 +27,7 @@ public static class ObjectGraphHelper
                                  {
                                      if (obj is TPropertyType property)
                                      {
-                                         action?.Invoke(property);
+                                         action.Invoke(property);
                                      }
                                  });
     }
@@ -41,6 +42,8 @@ public static class ObjectGraphHelper
     /// <param name="action">The action to execute on properties.</param>
     public static void ExecuteOnProperties(this object? root, Action<object> action)
     {
+        Guard.Argument(action, nameof(action)).NotNull();
+
         if (root == null)
         {
             return;
@@ -54,25 +57,22 @@ public static class ObjectGraphHelper
     private static void ProcessProperties(this object current, Action<object> action, HashSet<object> visited)
     {
         visited.Add(current);
-        action?.Invoke(current);
+        action.Invoke(current);
         foreach (var property in GetProperties(current))
         {
             var value = property.GetValue(current);
-            if (value == null || visited.Contains(value))
+            if (value == null)
             {
                 continue;
             }
 
             visited.Add(value);
 
-            action?.Invoke(value);
+            action.Invoke(value);
 
             if (value is IEnumerable enumerable)
             {
-                foreach (var item in enumerable)
-                {
-                    ProcessProperties(item, action, visited);
-                }
+                ProcessEnumerableProperties(enumerable, action, visited);
             }
             else
             {
@@ -81,7 +81,15 @@ public static class ObjectGraphHelper
         }
     }
 
-    private static IEnumerable<PropertyInfo> GetProperties(object obj)
+    private static void ProcessEnumerableProperties(IEnumerable enumerable, Action<object> action, HashSet<object> visited)
+    {
+        foreach (var item in enumerable)
+        {
+            ProcessProperties(item, action, visited);
+        }
+    }
+
+    private static PropertyInfo[] GetProperties(object obj)
     {
         var type = obj.GetType();
 

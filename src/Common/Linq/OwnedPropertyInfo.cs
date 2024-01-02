@@ -1,4 +1,5 @@
 using System.Reflection;
+using Dawn;
 
 namespace Ploch.Common.Linq;
 
@@ -12,8 +13,8 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     /// <param name="owner">The object that owns the property.</param>
     protected OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
     {
-        Owner = owner;
-        PropertyInfo = propertyInfo;
+        Owner = Guard.Argument(owner, nameof(owner)).NotNull();
+        PropertyInfo = Guard.Argument(propertyInfo, nameof(propertyInfo)).NotNull();
     }
 
     /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />
@@ -27,11 +28,6 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     /// <inheritdoc cref="PropertyInfo.Name" />
     public string Name => PropertyInfo.Name;
 
-    public object? GetValue()
-    {
-        return PropertyInfo.GetValue(Owner);
-    }
-
     /// <inheritdoc />
     public void SetValue(object? value)
     {
@@ -42,6 +38,15 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     public void SetValue(object? value, object[] index)
     {
         PropertyInfo.SetValue(Owner, value, index);
+    }
+
+    /// <summary>
+    ///     Gets a value of the property.
+    /// </summary>
+    /// <returns>The property value.</returns>
+    public object? GetValue()
+    {
+        return PropertyInfo.GetValue(Owner);
     }
 
     /// <inheritdoc cref="IOwnedPropertyInfo.GetValue(object[])" />
@@ -59,7 +64,7 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     /// </summary>
     /// <param name="propertyInfo">The property info delegate.</param>
     /// <param name="owner">The object that owns the property.</param>
-    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner)
+    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner!)
     { }
 
     /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.Owner" />
@@ -92,7 +97,7 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.SetValue(TProperty?)" />
     public void SetValue(TProperty? value)
     {
-        this.SetValue((object?)value);
+        SetValue((object?)value);
     }
 
     /// <inheritdoc />
@@ -101,7 +106,7 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
         base.SetValue(value, index);
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.GetValue" />
+    /// <inheritdoc cref="IOwnedPropertyInfo.GetValue()" />
     object? IOwnedPropertyInfo.GetValue()
     {
         return base.GetValue();

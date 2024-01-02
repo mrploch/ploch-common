@@ -36,6 +36,11 @@ public static class StopwatchUtil
         return sw.Elapsed;
     }
 
+    /// <summary>
+    ///     Measures the time it takes for a task to complete.
+    /// </summary>
+    /// <param name="task">The task to measure the time for.</param>
+    /// <returns>The time elapsed for the task to complete.</returns>
     public static TimeSpan Time(Task task)
     {
         Guard.Argument(task, nameof(task)).NotNull();
@@ -47,6 +52,11 @@ public static class StopwatchUtil
         return sw.Elapsed;
     }
 
+    /// <summary>
+    ///     Measures the time it takes to execute the specified asynchronous action.
+    /// </summary>
+    /// <param name="asyncAction">The asynchronous action to measure the time for.</param>
+    /// <returns>The time elapsed for the action to complete.</returns>
     public static TimeSpan Time(Func<Task> asyncAction)
     {
         Guard.Argument(asyncAction, nameof(asyncAction)).NotNull();
