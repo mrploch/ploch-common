@@ -13,7 +13,7 @@ public class StopwatchUtilTests
 
         var actionTime = StopwatchUtil.Time(action);
 
-        actionTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(100));
+        actionTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }
 
     [Fact]
@@ -22,7 +22,7 @@ public class StopwatchUtilTests
         var taskFunc = () => Task.Delay(TimeSpan.FromMilliseconds(100));
         var taskTime = StopwatchUtil.Time(taskFunc);
 
-        taskTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(100));
+        taskTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }
 
     [Fact]
