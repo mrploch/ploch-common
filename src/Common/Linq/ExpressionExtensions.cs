@@ -15,13 +15,12 @@ namespace Ploch.Common.Linq;
 public static class ExpressionExtensions
 {
     /// <summary>
-    ///     Gets the member name from an expression
+    ///     Gets the member name from an expression.
     /// </summary>
-    /// <typeparam name="TType">The type.</typeparam>
     /// <param name="expression">The expression.</param>
-    /// <returns>Member name</returns>
+    /// <returns>Member name.</returns>
     /// <exception cref="InvalidOperationException">Not a member expression.</exception>
-    /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
     public static string GetMemberName(this Expression<Action> expression)
     {
         Guard.Argument(expression, nameof(expression)).NotNull();
@@ -44,9 +43,9 @@ public static class ExpressionExtensions
     /// </summary>
     /// <typeparam name="TMember">The member.</typeparam>
     /// <param name="expression">The expression.</param>
-    /// <returns>Member name</returns>
+    /// <returns>Member name.</returns>
     /// <exception cref="InvalidOperationException">Not a member expression.</exception>
-    /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
     public static string GetMemberName<TMember>(this Expression<Func<TMember>> expression)
     {
         Guard.Argument(expression, nameof(expression)).NotNull();
@@ -65,15 +64,15 @@ public static class ExpressionExtensions
     }
 
     /// <summary>
-    ///     Gets the member name from an expression
+    ///     Gets the member name from an expression.
     /// </summary>
-    /// <typeparam name="TType">Member parent type</typeparam>
-    /// <typeparam name="TMember">Member type</typeparam>
-    /// <param name="expression">Expression</param>
-    /// <returns>Member name</returns>
+    /// <typeparam name="TType">Member parent type.</typeparam>
+    /// <typeparam name="TMember">Member type.</typeparam>
+    /// <param name="expression">Expression.</param>
+    /// <returns>Member name.</returns>
     /// <exception cref="InvalidOperationException">Not a member expression and not unary expression for member.</exception>
-    /// <exception cref="T:System.ArgumentNullException">
-    ///     <paramref name="argument" /> value is <c>null</c> and the argument is not modified
+    /// <exception cref="ArgumentNullException">
+    ///     <paramref name="expression" /> value is <c>null</c> and the argument is not modified
     ///     since it is initialized.
     /// </exception>
     public static string GetMemberName<TType, TMember>(this Expression<Func<TType, TMember>> expression)
@@ -99,6 +98,18 @@ public static class ExpressionExtensions
         throw new InvalidOperationException("Not a member expression and not unary expression for member.");
     }
 
+    /// <summary>
+    ///     Retrieves property information based on the provided property selector expression.
+    /// </summary>
+    /// <typeparam name="TType">The type of the object.</typeparam>
+    /// <typeparam name="TMember">The type of the property.</typeparam>
+    /// <param name="obj">The object instance.</param>
+    /// <param name="propertySelector">The property selector expression.</param>
+    /// <returns>An instance of <see cref="IOwnedPropertyInfo{TType, TMember}" /> representing the property information.</returns>
+    /// <exception cref="InvalidOperationException">
+    ///     Thrown when the provided <paramref name="propertySelector" /> is not a
+    ///     property expression.
+    /// </exception>
     public static IOwnedPropertyInfo<TType, TMember> GetProperty<TType, TMember>(this TType obj, Expression<Func<TType, TMember>> propertySelector)
     {
         Guard.Argument(propertySelector, nameof(propertySelector)).NotNull();

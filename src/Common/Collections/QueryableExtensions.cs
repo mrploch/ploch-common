@@ -28,7 +28,7 @@ public static class QueryableExtensions
     /// </example>
     /// <param name="queryable">The source enumerable.</param>
     /// <param name="condition">The condition.</param>
-    /// <param name="action">The query action to perform on <paramref name="enumerable" />.</param>
+    /// <param name="action">The query action to perform on <paramref name="queryable" />.</param>
     /// <typeparam name="T">The enumerable value type.</typeparam>
     /// <returns>The resulting enumerable.</returns>
     public static IQueryable<T> If<T>(this IQueryable<T> queryable, bool condition, Func<IQueryable<T>, IQueryable<T>> action)
