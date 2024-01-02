@@ -22,7 +22,7 @@ public static class ExpressionExtensions
     /// <returns>Member name</returns>
     /// <exception cref="InvalidOperationException">Not a member expression.</exception>
     /// <exception cref="T:System.ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
-    public static string GetMemberName<TType>(this Expression<Action<TType>> expression)
+    public static string GetMemberName(this Expression<Action> expression)
     {
         Guard.Argument(expression, nameof(expression)).NotNull();
 

@@ -4,49 +4,6 @@ using System.Reflection;
 
 namespace Ploch.Common.Linq;
 
-public interface IOwnedPropertyInfo
-{
-    object GetValue();
-
-    void SetValue(object value);
-}
-
-public interface IOwnedPropertyInfo<TType, TProperty>
-{
-    TType Owner { get; }
-
-     TProperty GetValue();
-
-    void SetValue(TProperty? value);
-}
-
-public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedPropertyInfo<TType, TProperty>, IOwnedPropertyInfo
-{
-    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner)
-    { }
-
-    public TType Owner => (TType)base.Owner;
-
-    public new TProperty GetValue()
-    {
-        return (TProperty)base.GetValue();
-    }
-
-    void IOwnedPropertyInfo.SetValue(object value)
-    {
-        SetValue(value);
-    }
-
-    public void SetValue(TProperty? value)
-    {
-        SetValue((object?)value);
-    }
-
-    object IOwnedPropertyInfo.GetValue()
-    {
-        return base.GetValue();
-    }
-}
 
 public class OwnedPropertyInfo : PropertyInfo
 {
@@ -142,5 +99,33 @@ public class OwnedPropertyInfo : PropertyInfo
     public override void SetValue(object obj, object value, BindingFlags invokeAttr, Binder binder, object[] index, CultureInfo culture)
     {
         PropertyInfo.SetValue(obj, value, invokeAttr, binder, index, culture);
+    }
+}
+
+public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedPropertyInfo<TType, TProperty>, IOwnedPropertyInfo
+{
+    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner)
+    { }
+
+    public TType Owner => (TType)base.Owner;
+
+    public new TProperty GetValue()
+    {
+        return (TProperty)base.GetValue();
+    }
+
+    void IOwnedPropertyInfo.SetValue(object value)
+    {
+        SetValue(value);
+    }
+
+    public void SetValue(TProperty? value)
+    {
+        SetValue((object?)value);
+    }
+
+    object IOwnedPropertyInfo.GetValue()
+    {
+        return base.GetValue();
     }
 }

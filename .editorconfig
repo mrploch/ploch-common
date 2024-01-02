@@ -246,6 +246,7 @@ dotnet_diagnostic.sa1133.severity = none
 dotnet_diagnostic.sa1009.severity = none
 dotnet_diagnostic.sa1000.severity = none
 dotnet_diagnostic.sa1633.severity = none
+dotnet_diagnostic.sa1306.severity = none
 
 # ReSharper properties
 resharper_csharp_empty_block_style = together
