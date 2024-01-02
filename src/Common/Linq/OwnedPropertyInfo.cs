@@ -65,34 +65,34 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner!)
     { }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.Owner" />
+    /// <inheritdoc />
     public new TType Owner => (TType)base.Owner;
 
-    /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.GetValue()" />
+    /// <inheritdoc />
     public new TProperty? GetValue()
     {
         return (TProperty?)base.GetValue();
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.GetValue(object[])" />
+    /// <inheritdoc />
     public new TProperty? GetValue(object[] index)
     {
         return (TProperty?)base.GetValue(index);
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.SetValue(object?)" />
+    /// <inheritdoc />
     void IOwnedPropertyInfo.SetValue(object? value)
     {
         SetValue(value);
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.SetValue(object?,object[])" />
+    /// <inheritdoc />
     void IOwnedPropertyInfo.SetValue(object? value, object[] index)
     {
         SetValue(value, index);
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo{TType,TProperty}.SetValue(TProperty?)" />
+    /// <inheritdoc />
     public void SetValue(TProperty? value)
     {
         SetValue((object?)value);
@@ -104,7 +104,7 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
         base.SetValue(value, index);
     }
 
-    /// <inheritdoc cref="IOwnedPropertyInfo.GetValue()" />
+    /// <inheritdoc />
     object? IOwnedPropertyInfo.GetValue()
     {
         return base.GetValue();
