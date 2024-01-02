@@ -8,7 +8,7 @@ public interface IOwnedPropertyInfo
 }
 
 
-public interface IOwnedPropertyInfo<TType, TProperty>
+public interface IOwnedPropertyInfo<out TType, TProperty>
 {
     TType Owner { get; }
 

@@ -84,9 +84,6 @@ public class EnumerableExtensionsTests
         var (sourceList, result) = TestTakeRandom(100, 10);
 
         result.Should().HaveCount(10).And.OnlyContain(s => sourceList.Contains(s)).And.NotContainInOrder(sourceList.Take(10));
-        // TestTakeRandom(100, 1000);
-        // TestTakeRandom(0, 100);
-        // TestTakeRandom(100, 101);
     }
 
     [Fact]
