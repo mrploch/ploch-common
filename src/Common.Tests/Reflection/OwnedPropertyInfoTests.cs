@@ -1,20 +1,11 @@
 ﻿using FluentAssertions;
-using Xunit;
 using Ploch.Common.Linq;
+using Xunit;
 
 namespace Ploch.Common.Tests.Reflection;
 
 public class OwnedPropertyInfoTests
 {
-    public class MyTestAttribAttribute : Attribute
-    { }
-    
-    private class TestClass
-    {
-        [MyTestAttrib]
-        public int TestProperty { get; set; }
-    }
-
     [Fact]
     public void GetValue_ShouldReturnCorrectValue()
     {
@@ -45,7 +36,7 @@ public class OwnedPropertyInfoTests
         // Assert
         value.Should().Be(10);
     }
-    
+
     [Fact]
     public void OwnedProperty_methods_properties_should_be_redirected_to_owner()
     {
@@ -67,7 +58,18 @@ public class OwnedPropertyInfoTests
         ownedPropertyInfo.GetSetMethod(true).Should().BeSameAs(propertyInfo.GetSetMethod(true));
         ownedPropertyInfo.GetIndexParameters().Should().BeSameAs(propertyInfo.GetIndexParameters());
         ownedPropertyInfo.GetCustomAttributes(true).Should().BeEquivalentTo(propertyInfo.GetCustomAttributes(true));
-        ownedPropertyInfo.GetCustomAttributes(typeof(MyTestAttribAttribute), true).Should().BeEquivalentTo(propertyInfo.GetCustomAttributes(typeof(MyTestAttribAttribute), true));
+        ownedPropertyInfo.GetCustomAttributes(typeof(MyTestAttribAttribute), true)
+                         .Should()
+                         .BeEquivalentTo(propertyInfo.GetCustomAttributes(typeof(MyTestAttribAttribute), true));
         ownedPropertyInfo.IsDefined(typeof(MyTestAttribAttribute), true).Should().Be(propertyInfo.IsDefined(typeof(MyTestAttribAttribute), true));
+    }
+
+    public class MyTestAttribAttribute : Attribute
+    { }
+
+    private class TestClass
+    {
+        [MyTestAttrib]
+        public int TestProperty { get; set; }
     }
 }

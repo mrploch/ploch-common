@@ -108,16 +108,14 @@ public class ObjectGraphHelperTests
         public required string Name { get; set; }
     }
 
-    
     public class TestCategory : IHasIdSettable<int>, INamed
     {
-        
         public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
 
         public int Id { get; set; }
 
         public string Name { get; set; } = null!;
-        
+
         public TestCategory? Parent { get; set; }
     }
 
