@@ -115,10 +115,173 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.ForEach%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L244">View Source</a>
+  </span>
+  <a id="Ploch_Common_Collections_EnumerableExtensions_ForEach_" data-uid="Ploch.Common.Collections.EnumerableExtensions.ForEach*"></a>
+  <h4 id="Ploch_Common_Collections_EnumerableExtensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__" data-uid="Ploch.Common.Collections.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Performs the specified action on each element of the <code data-dev-comment-type="paramref" class="paramref">enumerable</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, Action&lt;T&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>The enumerable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>The action to perform on each element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><p>The same enumerable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The enumerable type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_If__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Func_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0___.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.If%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Boolean%2CSystem.Func%7BSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L223">View Source</a>
+  </span>
+  <a id="Ploch_Common_Collections_EnumerableExtensions_If_" data-uid="Ploch.Common.Collections.EnumerableExtensions.If*"></a>
+  <h4 id="Ploch_Common_Collections_EnumerableExtensions_If__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Func_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0___" data-uid="Ploch.Common.Collections.EnumerableExtensions.If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">If&lt;T&gt;(IEnumerable&lt;T&gt;, Boolean, Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates an enumerable query if the condition is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; If&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, bool condition, Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">enumerable</span></td>
+        <td><p>The source enumerable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p>The condition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>The query action to perform on <code data-dev-comment-type="paramref" class="paramref">enumerable</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><p>The resulting enumerable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The enumerable value type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Ploch_Common_Collections_EnumerableExtensions_If__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Func_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is useful when you want to conditionally add a where clause to a query.</p>
+</div>
+  <h5 id="Ploch_Common_Collections_EnumerableExtensions_If__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Func_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0____examples">Examples</h5>
+  <p>Method below returns a list of cars ordered by creation date.
+If the <code>createdAfter</code> is not null, the query will be filtered by the creation date.
+If the <code>createdBefore</code> is not null, the query will be further filtered by the creation date.</p>
+<pre><code>var carsList = GetCars();
+carsList.OrderBy(x => x.Created)
+.If(createdAfter.HasValue, x => x.Where(y => y.Created > createdAfter!.Value))
+.If(createdBefore.HasValue, x => x.Where(y => y.Created &lt; createdBefore!.Value))
+.If(first.HasValue, x => x.Take(first!.Value))</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_Join__1_System_Collections_Generic_IEnumerable___0__System_String_.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.Join%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L100">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L98">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_Join_" data-uid="Ploch.Common.Collections.EnumerableExtensions.Join*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_Join__1_System_Collections_Generic_IEnumerable___0__System_String_" data-uid="Ploch.Common.Collections.EnumerableExtensions.Join``1(System.Collections.Generic.IEnumerable{``0},System.String)">Join&lt;TValue&gt;(IEnumerable&lt;TValue&gt;, String)</h4>
@@ -191,7 +354,7 @@ collection.</p>
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_Join__2_System_Collections_Generic_IEnumerable___0__System_String_System_Func___0___1__.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.Join%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.String%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L115">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L113">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_Join_" data-uid="Ploch.Common.Collections.EnumerableExtensions.Join*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_Join__2_System_Collections_Generic_IEnumerable___0__System_String_System_Func___0___1__" data-uid="Ploch.Common.Collections.EnumerableExtensions.Join``2(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,``1})">Join&lt;TValue, TResult&gt;(IEnumerable&lt;TValue&gt;, String, Func&lt;TValue, TResult&gt;)</h4>
@@ -275,7 +438,7 @@ each element.</p>
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator__1_System_Collections_Generic_IEnumerable___0__System_String_System_String_.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L129">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L127">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator_" data-uid="Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator__1_System_Collections_Generic_IEnumerable___0__System_String_System_String_" data-uid="Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)">JoinWithFinalSeparator&lt;TValue&gt;(IEnumerable&lt;TValue&gt;, String, String)</h4>
@@ -354,7 +517,7 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator__2_System_Collections_Generic_IEnumerable___0__System_String_System_String_System_Func___0___1__.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.String%2CSystem.String%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L134">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L132">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator_" data-uid="Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator__2_System_Collections_Generic_IEnumerable___0__System_String_System_String_System_Func___0___1__" data-uid="Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Func{``0,``1})">JoinWithFinalSeparator&lt;TValue, TResult&gt;(IEnumerable&lt;TValue&gt;, String, String, Func&lt;TValue, TResult&gt;)</h4>
@@ -435,7 +598,7 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.None%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L76">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L74">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_None_" data-uid="Ploch.Common.Collections.EnumerableExtensions.None*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__" data-uid="Ploch.Common.Collections.EnumerableExtensions.None``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">None&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, Boolean&gt;)</h4>
@@ -507,7 +670,7 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_Shuffle__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.Shuffle%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L155">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L153">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_Shuffle_" data-uid="Ploch.Common.Collections.EnumerableExtensions.Shuffle*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_Shuffle__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ploch.Common.Collections.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">Shuffle&lt;TValue&gt;(IEnumerable&lt;TValue&gt;)</h4>
@@ -573,11 +736,12 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_TakeRandom__1_System_Collections_Generic_IEnumerable___0__System_Int32_.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.TakeRandom%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L169">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L174">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_TakeRandom_" data-uid="Ploch.Common.Collections.EnumerableExtensions.TakeRandom*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_TakeRandom__1_System_Collections_Generic_IEnumerable___0__System_Int32_" data-uid="Ploch.Common.Collections.EnumerableExtensions.TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">TakeRandom&lt;TValue&gt;(IEnumerable&lt;TValue&gt;, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Takes random <code data-dev-comment-type="paramref" class="paramref">count</code> amount of items from the <code data-dev-comment-type="paramref" class="paramref">source</code> enumerable.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -596,12 +760,14 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TValue&gt;</td>
         <td><span class="parametername">source</span></td>
-        <td></td>
+        <td><p>The source enumerable.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">count</span></td>
-        <td></td>
+        <td><p>The number of values to take.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -616,7 +782,8 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TValue&gt;</td>
-        <td></td>
+        <td><p>The random items from the source enumerable.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -631,7 +798,8 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <tbody>
       <tr>
         <td><span class="parametername">TValue</span></td>
-        <td></td>
+        <td><p>The enumerable value type.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -640,7 +808,7 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0___0___.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.ValueIn%60%601(%60%600%2C%60%600%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L35">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L33">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_ValueIn_" data-uid="Ploch.Common.Collections.EnumerableExtensions.ValueIn*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0___0___" data-uid="Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,``0[])">ValueIn&lt;TValue&gt;(TValue, TValue[])</h4>
@@ -712,7 +880,7 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEqualityComparer___0__.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.ValueIn%60%601(%60%600%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Collections.Generic.IEqualityComparer%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L48">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L46">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_ValueIn_" data-uid="Ploch.Common.Collections.EnumerableExtensions.ValueIn*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEqualityComparer___0__" data-uid="Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">ValueIn&lt;TValue&gt;(TValue, IEnumerable&lt;TValue&gt;, IEqualityComparer&lt;TValue&gt;)</h4>
@@ -790,7 +958,7 @@ collection. The last element is joined using the <code data-dev-comment-type="pa
     <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0_System_Collections_Generic_IEqualityComparer___0____0___.md&amp;value=---%0Auid%3A%20Ploch.Common.Collections.EnumerableExtensions.ValueIn%60%601(%60%600%2CSystem.Collections.Generic.IEqualityComparer%7B%60%600%7D%2C%60%600%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L23">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs/#L21">View Source</a>
   </span>
   <a id="Ploch_Common_Collections_EnumerableExtensions_ValueIn_" data-uid="Ploch.Common.Collections.EnumerableExtensions.ValueIn*"></a>
   <h4 id="Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0_System_Collections_Generic_IEqualityComparer___0____0___" data-uid="Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])">ValueIn&lt;TValue&gt;(TValue, IEqualityComparer&lt;TValue&gt;, TValue[])</h4>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ISerializer
+    <title>Interface IOwnedPropertyInfo
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ISerializer
+    <meta name="title" content="Interface IOwnedPropertyInfo
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,56 +68,144 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ploch.Common.Serialization.ISerializer">
+            <article class="content wrap" id="_content" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo">
   
   
-  <h1 id="Ploch_Common_Serialization_ISerializer" data-uid="Ploch.Common.Serialization.ISerializer" class="text-break">Interface ISerializer
+  <h1 id="Ploch_Common_Linq_IOwnedPropertyInfo" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo" class="text-break">Interface IOwnedPropertyInfo
   </h1>
-  <div class="markdown level0 summary"><p>Common interface for serializers.</p>
+  <div class="markdown level0 summary"><p>Represents an interface for retrieving and setting the value of a property
+owned by an instance of an object.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.Serialization.html">Ploch.Common.Serialization</a></h6>
-  <h6><strong>Assembly</strong>: Ploch.Common.Serialization.dll</h6>
-  <h5 id="Ploch_Common_Serialization_ISerializer_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.Linq.html">Ploch.Common.Linq</a></h6>
+  <h6><strong>Assembly</strong>: Ploch.Common.dll</h6>
+  <h5 id="Ploch_Common_Linq_IOwnedPropertyInfo_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISerializer</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IOwnedPropertyInfo</code></pre>
   </div>
+  <h5 id="Ploch_Common_Linq_IOwnedPropertyInfo_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+    This interface represents a property in a specific instance of an object. Instances of this interface
+    provide an easy way to retrieve and set the value of a property.
+    It wraps the PropertyInfo and connects it with a specific owning object instance.
+</p>
+<p>
+    It is extensively used by the <a class="xref" href="Ploch.Common.Linq.ExpressionExtensions.html">ExpressionExtensions</a> class.
+</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_Name.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L26">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_Name_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.Name*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_Name" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Returns the name of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_Owner.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.Owner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L36">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_Owner_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.Owner*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_Owner" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.Owner">Owner</h4>
+  <div class="markdown level1 summary"><p>Gets the the object that owns the the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object Owner { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L31">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo">PropertyInfo</h4>
+  <div class="markdown level1 summary"><p>Returns the underlying <a class="xref" href="Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo">PropertyInfo</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PropertyInfo PropertyInfo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Reflection.PropertyInfo</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Serialization_ISerializer_Convert__1_System_Object_.md&amp;value=---%0Auid%3A%20Ploch.Common.Serialization.ISerializer.Convert%60%601(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_GetValue.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.GetValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Serialization/ISerializer.cs/#L39">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L42">View Source</a>
   </span>
-  <a id="Ploch_Common_Serialization_ISerializer_Convert_" data-uid="Ploch.Common.Serialization.ISerializer.Convert*"></a>
-  <h4 id="Ploch_Common_Serialization_ISerializer_Convert__1_System_Object_" data-uid="Ploch.Common.Serialization.ISerializer.Convert``1(System.Object)">Convert&lt;TTargetType&gt;(Object)</h4>
-  <div class="markdown level1 summary"><p>Converts the embedded object to the specified type.</p>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.GetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_GetValue" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.GetValue">GetValue()</h4>
+  <div class="markdown level1 summary"><p>Retrieves a value of the property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TTargetType Convert&lt;TTargetType&gt;(object jsonObject)</code></pre>
+    <pre><code class="lang-csharp hljs">object GetValue()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">jsonObject</span></td>
-        <td><p>The embedded object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -128,43 +216,27 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TTargetType</span></td>
-        <td><p>The deserialized embedded object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TTargetType</span></td>
-        <td><p>The target type.</p>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>A value of the property.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Serialization_ISerializer_Deserialize_System_String_System_Type_.md&amp;value=---%0Auid%3A%20Ploch.Common.Serialization.ISerializer.Deserialize(System.String%2CSystem.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_System_Object___.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.GetValue(System.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Serialization/ISerializer.cs/#L23">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L49">View Source</a>
   </span>
-  <a id="Ploch_Common_Serialization_ISerializer_Deserialize_" data-uid="Ploch.Common.Serialization.ISerializer.Deserialize*"></a>
-  <h4 id="Ploch_Common_Serialization_ISerializer_Deserialize_System_String_System_Type_" data-uid="Ploch.Common.Serialization.ISerializer.Deserialize(System.String,System.Type)">Deserialize(String, Type)</h4>
-  <div class="markdown level1 summary"><p>Deserializes the specified serialized object.</p>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.GetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_System_Object___" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.GetValue(System.Object[])">GetValue(Object[])</h4>
+  <div class="markdown level1 summary"><p>Retrieves a value of the index property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">object Deserialize(string serializedObj, Type type)</code></pre>
+    <pre><code class="lang-csharp hljs">object GetValue(object[] index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -177,15 +249,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">serializedObj</span></td>
-        <td><p>The serialized object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Type</span></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>The type of the object.</p>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The property index.</p>
 </td>
       </tr>
     </tbody>
@@ -201,92 +267,26 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Object</span></td>
-        <td><p>The deserialized object.</p>
+        <td><p>The property value at the specified index.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Serialization_ISerializer_Deserialize__1_System_String_.md&amp;value=---%0Auid%3A%20Ploch.Common.Serialization.ISerializer.Deserialize%60%601(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Serialization/ISerializer.cs/#L31">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L55">View Source</a>
   </span>
-  <a id="Ploch_Common_Serialization_ISerializer_Deserialize_" data-uid="Ploch.Common.Serialization.ISerializer.Deserialize*"></a>
-  <h4 id="Ploch_Common_Serialization_ISerializer_Deserialize__1_System_String_" data-uid="Ploch.Common.Serialization.ISerializer.Deserialize``1(System.String)">Deserialize&lt;TTargetType&gt;(String)</h4>
-  <div class="markdown level1 summary"><p>Deserializes the specified serialized object.</p>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.SetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)">SetValue(Object)</h4>
+  <div class="markdown level1 summary"><p>Sets a value of the property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TTargetType Deserialize&lt;TTargetType&gt;(string serializedObj)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">serializedObj</span></td>
-        <td><p>The serialized object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TTargetType</span></td>
-        <td><p>The deserialized object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TTargetType</span></td>
-        <td><p>The type to deserialize object to.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Serialization_ISerializer_Serialize_System_Object_.md&amp;value=---%0Auid%3A%20Ploch.Common.Serialization.ISerializer.Serialize(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Serialization/ISerializer.cs/#L15">View Source</a>
-  </span>
-  <a id="Ploch_Common_Serialization_ISerializer_Serialize_" data-uid="Ploch.Common.Serialization.ISerializer.Serialize*"></a>
-  <h4 id="Ploch_Common_Serialization_ISerializer_Serialize_System_Object_" data-uid="Ploch.Common.Serialization.ISerializer.Serialize(System.Object)">Serialize(Object)</h4>
-  <div class="markdown level1 summary"><p>Serializes the specified object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string Serialize(object obj)</code></pre>
+    <pre><code class="lang-csharp hljs">void SetValue(object value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -300,24 +300,48 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">obj</span></td>
-        <td><p>The object to serialize.</p>
+        <td><span class="parametername">value</span></td>
+        <td><p>A value to set the property to.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_System_Object___.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L62">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.SetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_System_Object___" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object,System.Object[])">SetValue(Object, Object[])</h4>
+  <div class="markdown level1 summary"><p>Sets a value of the index property at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetValue(object value, object[] index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The serialized object.</p>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>A value to set the property to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index value where to set the property value.</p>
 </td>
       </tr>
     </tbody>
@@ -389,6 +413,10 @@
   <div>
       <a class="xref" href="Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_HasProperty_System_Object_System_String_">PropertyHelpers.HasProperty(Object, String)</a>
   </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Ploch.Common.Linq.ExpressionExtensions.html">ExpressionExtensions</a></div>
+  </div>
 </article>
           </div>
           
@@ -397,10 +425,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Serialization_ISerializer.md&amp;value=---%0Auid%3A%20Ploch.Common.Serialization.ISerializer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Serialization/ISerializer.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L21" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

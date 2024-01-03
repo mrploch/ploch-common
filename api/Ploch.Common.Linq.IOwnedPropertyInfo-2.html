@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Category&lt;TCategory, TId&gt;
+    <title>Interface IOwnedPropertyInfo&lt;TType, TProperty&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Category&lt;TCategory, TId&gt;
+    <meta name="title" content="Interface IOwnedPropertyInfo&lt;TType, TProperty&gt;
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,33 +68,33 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2">
+            <article class="content wrap" id="_content" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2">
   
   
-  <h1 id="Ploch_Common_Data_Model_CommonTypes_Category_2" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2" class="text-break">Class Category&lt;TCategory, TId&gt;
+  <h1 id="Ploch_Common_Linq_IOwnedPropertyInfo_2" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2" class="text-break">Interface IOwnedPropertyInfo&lt;TType, TProperty&gt;
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Category&lt;TCategory, TId&gt;</span></div>
-      <div class="level2"><a class="xref" href="Ploch.Common.Data.Model.CommonTypes.Category-1.html">Category&lt;TCategory&gt;</a></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_Name">IOwnedPropertyInfo.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo">IOwnedPropertyInfo.PropertyInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_">IOwnedPropertyInfo.SetValue(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_System_Object___">IOwnedPropertyInfo.SetValue(Object, Object[])</a>
+    </div>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Ploch.Common.Data.Model.IHasId-1.html">IHasId</a>&lt;TId&gt;</div>
-    <div><a class="xref" href="Ploch.Common.Data.Model.INamed.html">INamed</a></div>
-    <div><a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithParentComposite-1.html">IHierarchicalWithParentComposite</a>&lt;TCategory&gt;</div>
-    <div><a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithParent-1.html">IHierarchicalWithParent</a>&lt;TCategory&gt;</div>
-    <div><a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite-1.html">IHierarchicalWithChildrenComposite</a>&lt;TCategory&gt;</div>
-    <div><a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithChildren-1.html">IHierarchicalWithChildren</a>&lt;TCategory&gt;</div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.Data.Model.CommonTypes.html">Ploch.Common.Data.Model.CommonTypes</a></h6>
-  <h6><strong>Assembly</strong>: Ploch.Common.Data.Model.dll</h6>
-  <h5 id="Ploch_Common_Data_Model_CommonTypes_Category_2_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.Linq.html">Ploch.Common.Linq</a></h6>
+  <h6><strong>Assembly</strong>: Ploch.Common.dll</h6>
+  <h5 id="Ploch_Common_Linq_IOwnedPropertyInfo_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Category&lt;TCategory, TId&gt; : object, IHasId&lt;TId&gt;, INamed, IHierarchicalWithParentComposite&lt;TCategory&gt;, IHierarchicalWithParent&lt;TCategory&gt;, IHierarchicalWithChildrenComposite&lt;TCategory&gt;, IHierarchicalWithChildren&lt;TCategory&gt; where TCategory : Category&lt;TCategory, TId&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IOwnedPropertyInfo&lt;out TType, TProperty&gt; : IOwnedPropertyInfo</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -106,12 +106,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TCategory</span></td>
-        <td></td>
+        <td><span class="parametername">TType</span></td>
+        <td><p>The object type that owns the property.</p>
+</td>
       </tr>
       <tr>
-        <td><span class="parametername">TId</span></td>
-        <td></td>
+        <td><span class="parametername">TProperty</span></td>
+        <td><p>The type of the property value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -119,18 +121,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Model_CommonTypes_Category_2_Children.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Model.CommonTypes.Category%602.Children%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_2_Owner.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%602.Owner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Model/CommonTypes/Category.cs/#L15">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L71">View Source</a>
   </span>
-  <a id="Ploch_Common_Data_Model_CommonTypes_Category_2_Children_" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Children*"></a>
-  <h4 id="Ploch_Common_Data_Model_CommonTypes_Category_2_Children" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Children">Children</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_2_Owner_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.Owner*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_2_Owner" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.Owner">Owner</h4>
+  <div class="markdown level1 summary"><p>Gets the the object that owns the the property.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ICollection&lt;TCategory&gt;? Children { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">TType Owner { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,121 +145,171 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ICollection</span>&lt;TCategory&gt;&gt;</td>
+        <td><span class="xref">TType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%602.GetValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L74">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue">GetValue()</h4>
+  <div class="markdown level1 summary"><p>Retrieves a value of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TProperty GetValue()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TProperty</span></td>
+        <td><p>A value of the property.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue_System_Object___.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%602.GetValue(System.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L77">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue_System_Object___" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue(System.Object[])">GetValue(Object[])</h4>
+  <div class="markdown level1 summary"><p>Retrieves a value of the index property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TProperty GetValue(object[] index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The property index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TProperty</span></td>
+        <td><p>The property value at the specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue__1_.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%602.SetValue(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L80">View Source</a>
+  </span>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue__1_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue(`1)">SetValue(TProperty)</h4>
+  <div class="markdown level1 summary"><p>Sets a value of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetValue(TProperty value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TProperty</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Model_CommonTypes_Category_2_Id.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Model.CommonTypes.Category%602.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue__1_System_Object___.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%602.SetValue(%601%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Model/CommonTypes/Category.cs/#L12">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L83">View Source</a>
   </span>
-  <a id="Ploch_Common_Data_Model_CommonTypes_Category_2_Id_" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Id*"></a>
-  <h4 id="Ploch_Common_Data_Model_CommonTypes_Category_2_Id" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Id">Id</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue_" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue*"></a>
+  <h4 id="Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue__1_System_Object___" data-uid="Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue(`1,System.Object[])">SetValue(TProperty, Object[])</h4>
+  <div class="markdown level1 summary"><p>Sets a value of the index property at the specified index.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TId Id { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">void SetValue(TProperty value, object[] index)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TId</span></td>
+        <td><span class="xref">TProperty</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index value where to set the property value.</p>
+</td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Model_CommonTypes_Category_2_Name.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Model.CommonTypes.Category%602.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Model/CommonTypes/Category.cs/#L19">View Source</a>
-  </span>
-  <a id="Ploch_Common_Data_Model_CommonTypes_Category_2_Name_" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Name*"></a>
-  <h4 id="Ploch_Common_Data_Model_CommonTypes_Category_2_Name" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Name">Name</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Name { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Model_CommonTypes_Category_2_Parent.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Model.CommonTypes.Category%602.Parent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Model/CommonTypes/Category.cs/#L17">View Source</a>
-  </span>
-  <a id="Ploch_Common_Data_Model_CommonTypes_Category_2_Parent_" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Parent*"></a>
-  <h4 id="Ploch_Common_Data_Model_CommonTypes_Category_2_Parent" data-uid="Ploch.Common.Data.Model.CommonTypes.Category`2.Parent">Parent</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual TCategory Parent { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TCategory</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Ploch.Common.Data.Model.IHasId-1.html">IHasId&lt;TId&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="Ploch.Common.Data.Model.INamed.html">INamed</a>
-  </div>
-  <div>
-      <a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithParentComposite-1.html">IHierarchicalWithParentComposite&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithParent-1.html">IHierarchicalWithParent&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite-1.html">IHierarchicalWithChildrenComposite&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="Ploch.Common.Data.Model.IHierarchicalWithChildren-1.html">IHierarchicalWithChildren&lt;T&gt;</a>
-  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Ploch.TestingSupport.Moq.MockingExtensions.html#Ploch_TestingSupport_Moq_MockingExtensions_Mock__1___0_">MockingExtensions.Mock&lt;T&gt;(T)</a>
+  </div>
   <div>
       <a class="xref" href="Ploch.Common.ComparisonUtils.html#Ploch_Common_ComparisonUtils_IsNotDefault__1___0_">ComparisonUtils.IsNotDefault&lt;TValue&gt;(TValue)</a>
   </div>
@@ -294,6 +347,15 @@
       <a class="xref" href="Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEqualityComparer___0__">EnumerableExtensions.ValueIn&lt;TValue&gt;(TValue, IEnumerable&lt;TValue&gt;, IEqualityComparer&lt;TValue&gt;)</a>
   </div>
   <div>
+      <a class="xref" href="Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetProperty__2___0_System_Linq_Expressions_Expression_System_Func___0___1___">ExpressionExtensions.GetProperty&lt;TType, TMember&gt;(TType, Expression&lt;Func&lt;TType, TMember&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Ploch.Common.Reflection.ObjectGraphHelper.html#Ploch_Common_Reflection_ObjectGraphHelper_ExecuteOnProperties__1_System_Object_System_Action___0__">ObjectGraphHelper.ExecuteOnProperties&lt;TPropertyType&gt;(Object, Action&lt;TPropertyType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Ploch.Common.Reflection.ObjectGraphHelper.html#Ploch_Common_Reflection_ObjectGraphHelper_ExecuteOnProperties_System_Object_System_Action_System_Object__">ObjectGraphHelper.ExecuteOnProperties(Object, Action&lt;Object&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="Ploch.Common.Reflection.ObjectReflectionExtensions.html#Ploch_Common_Reflection_ObjectReflectionExtensions_GetFieldValue_System_Object_System_String_">ObjectReflectionExtensions.GetFieldValue(Object, String)</a>
   </div>
   <div>
@@ -311,9 +373,6 @@
   <div>
       <a class="xref" href="Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_HasProperty_System_Object_System_String_">PropertyHelpers.HasProperty(Object, String)</a>
   </div>
-  <div>
-      <a class="xref" href="Ploch.TestingSupport.Moq.MockingExtensions.html#Ploch_TestingSupport_Moq_MockingExtensions_Mock__1___0_">MockingExtensions.Mock&lt;T&gt;(T)</a>
-  </div>
 </article>
           </div>
           
@@ -322,10 +381,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Model_CommonTypes_Category_2.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Model.CommonTypes.Category%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Linq_IOwnedPropertyInfo_2.md&amp;value=---%0Auid%3A%20Ploch.Common.Linq.IOwnedPropertyInfo%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Model/CommonTypes/Category.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Linq/IOwnedPropertyInfo.cs/#L68" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

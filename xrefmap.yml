@@ -104,6 +104,38 @@ references:
   commentId: T:Ploch.Common.Collections.EnumerableExtensions
   fullName: Ploch.Common.Collections.EnumerableExtensions
   nameWithType: EnumerableExtensions
+- uid: Ploch.Common.Collections.EnumerableExtensions.ForEach*
+  name: ForEach
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_ForEach_
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.ForEach
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ForEach
+  nameWithType: EnumerableExtensions.ForEach
+- uid: Ploch.Common.Collections.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  name: ForEach<T>(IEnumerable<T>, Action<T>)
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  name.vb: ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ForEach<T>(System.Collections.Generic.IEnumerable<T>, System.Action<T>)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ForEach(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Action(Of T))
+  nameWithType: EnumerableExtensions.ForEach<T>(IEnumerable<T>, Action<T>)
+  nameWithType.vb: EnumerableExtensions.ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+- uid: Ploch.Common.Collections.EnumerableExtensions.If*
+  name: If
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_If_
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.If
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.EnumerableExtensions.If
+  nameWithType: EnumerableExtensions.If
+- uid: Ploch.Common.Collections.EnumerableExtensions.If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})
+  name: If<T>(IEnumerable<T>, Boolean, Func<IEnumerable<T>, IEnumerable<T>>)
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_If__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Func_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0___
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})
+  name.vb: If(Of T)(IEnumerable(Of T), Boolean, Func(Of IEnumerable(Of T), IEnumerable(Of T)))
+  fullName: Ploch.Common.Collections.EnumerableExtensions.If<T>(System.Collections.Generic.IEnumerable<T>, System.Boolean, System.Func<System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IEnumerable<T>>)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.If(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Boolean, System.Func(Of System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEnumerable(Of T)))
+  nameWithType: EnumerableExtensions.If<T>(IEnumerable<T>, Boolean, Func<IEnumerable<T>, IEnumerable<T>>)
+  nameWithType.vb: EnumerableExtensions.If(Of T)(IEnumerable(Of T), Boolean, Func(Of IEnumerable(Of T), IEnumerable(Of T)))
 - uid: Ploch.Common.Collections.EnumerableExtensions.Join*
   name: Join
   href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_Join_
@@ -236,6 +268,28 @@ references:
   fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ValueIn(Of TValue)(TValue, System.Collections.Generic.IEqualityComparer(Of TValue), TValue())
   nameWithType: EnumerableExtensions.ValueIn<TValue>(TValue, IEqualityComparer<TValue>, TValue[])
   nameWithType.vb: EnumerableExtensions.ValueIn(Of TValue)(TValue, IEqualityComparer(Of TValue), TValue())
+- uid: Ploch.Common.Collections.QueryableExtensions
+  name: QueryableExtensions
+  href: api/Ploch.Common.Collections.QueryableExtensions.html
+  commentId: T:Ploch.Common.Collections.QueryableExtensions
+  fullName: Ploch.Common.Collections.QueryableExtensions
+  nameWithType: QueryableExtensions
+- uid: Ploch.Common.Collections.QueryableExtensions.If*
+  name: If
+  href: api/Ploch.Common.Collections.QueryableExtensions.html#Ploch_Common_Collections_QueryableExtensions_If_
+  commentId: Overload:Ploch.Common.Collections.QueryableExtensions.If
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.QueryableExtensions.If
+  nameWithType: QueryableExtensions.If
+- uid: Ploch.Common.Collections.QueryableExtensions.If``1(System.Linq.IQueryable{``0},System.Boolean,System.Func{System.Linq.IQueryable{``0},System.Linq.IQueryable{``0}})
+  name: If<T>(IQueryable<T>, Boolean, Func<IQueryable<T>, IQueryable<T>>)
+  href: api/Ploch.Common.Collections.QueryableExtensions.html#Ploch_Common_Collections_QueryableExtensions_If__1_System_Linq_IQueryable___0__System_Boolean_System_Func_System_Linq_IQueryable___0__System_Linq_IQueryable___0___
+  commentId: M:Ploch.Common.Collections.QueryableExtensions.If``1(System.Linq.IQueryable{``0},System.Boolean,System.Func{System.Linq.IQueryable{``0},System.Linq.IQueryable{``0}})
+  name.vb: If(Of T)(IQueryable(Of T), Boolean, Func(Of IQueryable(Of T), IQueryable(Of T)))
+  fullName: Ploch.Common.Collections.QueryableExtensions.If<T>(System.Linq.IQueryable<T>, System.Boolean, System.Func<System.Linq.IQueryable<T>, System.Linq.IQueryable<T>>)
+  fullName.vb: Ploch.Common.Collections.QueryableExtensions.If(Of T)(System.Linq.IQueryable(Of T), System.Boolean, System.Func(Of System.Linq.IQueryable(Of T), System.Linq.IQueryable(Of T)))
+  nameWithType: QueryableExtensions.If<T>(IQueryable<T>, Boolean, Func<IQueryable<T>, IQueryable<T>>)
+  nameWithType.vb: QueryableExtensions.If(Of T)(IQueryable(Of T), Boolean, Func(Of IQueryable(Of T), IQueryable(Of T)))
 - uid: Ploch.Common.ComparisonUtils
   name: ComparisonUtils
   href: api/Ploch.Common.ComparisonUtils.html
@@ -312,552 +366,6 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Cryptography.Hashing.ToMD5HashString
   nameWithType: Hashing.ToMD5HashString
-- uid: Ploch.Common.Data.Model
-  name: Ploch.Common.Data.Model
-  href: api/Ploch.Common.Data.Model.html
-  commentId: N:Ploch.Common.Data.Model
-  fullName: Ploch.Common.Data.Model
-  nameWithType: Ploch.Common.Data.Model
-- uid: Ploch.Common.Data.Model.CommonTypes
-  name: Ploch.Common.Data.Model.CommonTypes
-  href: api/Ploch.Common.Data.Model.CommonTypes.html
-  commentId: N:Ploch.Common.Data.Model.CommonTypes
-  fullName: Ploch.Common.Data.Model.CommonTypes
-  nameWithType: Ploch.Common.Data.Model.CommonTypes
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`1
-  name: Category<TCategory>
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-1.html
-  commentId: T:Ploch.Common.Data.Model.CommonTypes.Category`1
-  name.vb: Category(Of TCategory)
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory>
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory)
-  nameWithType: Category<TCategory>
-  nameWithType.vb: Category(Of TCategory)
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2
-  name: Category<TCategory, TId>
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html
-  commentId: T:Ploch.Common.Data.Model.CommonTypes.Category`2
-  name.vb: Category(Of TCategory, TId)
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId)
-  nameWithType: Category<TCategory, TId>
-  nameWithType.vb: Category(Of TCategory, TId)
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Children
-  name: Children
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Children
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Category`2.Children
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Children
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Children
-  nameWithType: Category<TCategory, TId>.Children
-  nameWithType.vb: Category(Of TCategory, TId).Children
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Children*
-  name: Children
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Children_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Category`2.Children
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Children
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Children
-  nameWithType: Category<TCategory, TId>.Children
-  nameWithType.vb: Category(Of TCategory, TId).Children
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Id
-  name: Id
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Id
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Category`2.Id
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Id
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Id
-  nameWithType: Category<TCategory, TId>.Id
-  nameWithType.vb: Category(Of TCategory, TId).Id
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Id*
-  name: Id
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Id_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Category`2.Id
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Id
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Id
-  nameWithType: Category<TCategory, TId>.Id
-  nameWithType.vb: Category(Of TCategory, TId).Id
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Name
-  name: Name
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Name
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Category`2.Name
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Name
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Name
-  nameWithType: Category<TCategory, TId>.Name
-  nameWithType.vb: Category(Of TCategory, TId).Name
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Name*
-  name: Name
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Name_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Category`2.Name
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Name
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Name
-  nameWithType: Category<TCategory, TId>.Name
-  nameWithType.vb: Category(Of TCategory, TId).Name
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Parent
-  name: Parent
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Parent
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Category`2.Parent
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Parent
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Parent
-  nameWithType: Category<TCategory, TId>.Parent
-  nameWithType.vb: Category(Of TCategory, TId).Parent
-- uid: Ploch.Common.Data.Model.CommonTypes.Category`2.Parent*
-  name: Parent
-  href: api/Ploch.Common.Data.Model.CommonTypes.Category-2.html#Ploch_Common_Data_Model_CommonTypes_Category_2_Parent_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Category`2.Parent
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Category<TCategory, TId>.Parent
-  fullName.vb: Ploch.Common.Data.Model.CommonTypes.Category(Of TCategory, TId).Parent
-  nameWithType: Category<TCategory, TId>.Parent
-  nameWithType.vb: Category(Of TCategory, TId).Parent
-- uid: Ploch.Common.Data.Model.CommonTypes.Image
-  name: Image
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html
-  commentId: T:Ploch.Common.Data.Model.CommonTypes.Image
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image
-  nameWithType: Image
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Contents
-  name: Contents
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Contents
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Image.Contents
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Contents
-  nameWithType: Image.Contents
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Contents*
-  name: Contents
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Contents_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Image.Contents
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Contents
-  nameWithType: Image.Contents
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Description
-  name: Description
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Description
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Image.Description
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Description
-  nameWithType: Image.Description
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Description*
-  name: Description
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Description_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Image.Description
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Description
-  nameWithType: Image.Description
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Id
-  name: Id
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Id
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Image.Id
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Id
-  nameWithType: Image.Id
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Id*
-  name: Id
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Id_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Image.Id
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Id
-  nameWithType: Image.Id
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Name
-  name: Name
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Name
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Image.Name
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Name
-  nameWithType: Image.Name
-- uid: Ploch.Common.Data.Model.CommonTypes.Image.Name*
-  name: Name
-  href: api/Ploch.Common.Data.Model.CommonTypes.Image.html#Ploch_Common_Data_Model_CommonTypes_Image_Name_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Image.Name
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Image.Name
-  nameWithType: Image.Name
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag
-  name: Tag
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html
-  commentId: T:Ploch.Common.Data.Model.CommonTypes.Tag
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag
-  nameWithType: Tag
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag.Description
-  name: Description
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html#Ploch_Common_Data_Model_CommonTypes_Tag_Description
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Tag.Description
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag.Description
-  nameWithType: Tag.Description
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag.Description*
-  name: Description
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html#Ploch_Common_Data_Model_CommonTypes_Tag_Description_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Tag.Description
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag.Description
-  nameWithType: Tag.Description
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag.Id
-  name: Id
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html#Ploch_Common_Data_Model_CommonTypes_Tag_Id
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Tag.Id
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag.Id
-  nameWithType: Tag.Id
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag.Id*
-  name: Id
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html#Ploch_Common_Data_Model_CommonTypes_Tag_Id_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Tag.Id
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag.Id
-  nameWithType: Tag.Id
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag.Name
-  name: Name
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html#Ploch_Common_Data_Model_CommonTypes_Tag_Name
-  commentId: P:Ploch.Common.Data.Model.CommonTypes.Tag.Name
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag.Name
-  nameWithType: Tag.Name
-- uid: Ploch.Common.Data.Model.CommonTypes.Tag.Name*
-  name: Name
-  href: api/Ploch.Common.Data.Model.CommonTypes.Tag.html#Ploch_Common_Data_Model_CommonTypes_Tag_Name_
-  commentId: Overload:Ploch.Common.Data.Model.CommonTypes.Tag.Name
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.CommonTypes.Tag.Name
-  nameWithType: Tag.Name
-- uid: Ploch.Common.Data.Model.IHasAccessedTime
-  name: IHasAccessedTime
-  href: api/Ploch.Common.Data.Model.IHasAccessedTime.html
-  commentId: T:Ploch.Common.Data.Model.IHasAccessedTime
-  fullName: Ploch.Common.Data.Model.IHasAccessedTime
-  nameWithType: IHasAccessedTime
-- uid: Ploch.Common.Data.Model.IHasAccessedTime.AccessedTime
-  name: AccessedTime
-  href: api/Ploch.Common.Data.Model.IHasAccessedTime.html#Ploch_Common_Data_Model_IHasAccessedTime_AccessedTime
-  commentId: P:Ploch.Common.Data.Model.IHasAccessedTime.AccessedTime
-  fullName: Ploch.Common.Data.Model.IHasAccessedTime.AccessedTime
-  nameWithType: IHasAccessedTime.AccessedTime
-- uid: Ploch.Common.Data.Model.IHasAccessedTime.AccessedTime*
-  name: AccessedTime
-  href: api/Ploch.Common.Data.Model.IHasAccessedTime.html#Ploch_Common_Data_Model_IHasAccessedTime_AccessedTime_
-  commentId: Overload:Ploch.Common.Data.Model.IHasAccessedTime.AccessedTime
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasAccessedTime.AccessedTime
-  nameWithType: IHasAccessedTime.AccessedTime
-- uid: Ploch.Common.Data.Model.IHasAuditTimeProperties
-  name: IHasAuditTimeProperties
-  href: api/Ploch.Common.Data.Model.IHasAuditTimeProperties.html
-  commentId: T:Ploch.Common.Data.Model.IHasAuditTimeProperties
-  fullName: Ploch.Common.Data.Model.IHasAuditTimeProperties
-  nameWithType: IHasAuditTimeProperties
-- uid: Ploch.Common.Data.Model.IHasCreatedTime
-  name: IHasCreatedTime
-  href: api/Ploch.Common.Data.Model.IHasCreatedTime.html
-  commentId: T:Ploch.Common.Data.Model.IHasCreatedTime
-  fullName: Ploch.Common.Data.Model.IHasCreatedTime
-  nameWithType: IHasCreatedTime
-- uid: Ploch.Common.Data.Model.IHasCreatedTime.CreatedTime
-  name: CreatedTime
-  href: api/Ploch.Common.Data.Model.IHasCreatedTime.html#Ploch_Common_Data_Model_IHasCreatedTime_CreatedTime
-  commentId: P:Ploch.Common.Data.Model.IHasCreatedTime.CreatedTime
-  fullName: Ploch.Common.Data.Model.IHasCreatedTime.CreatedTime
-  nameWithType: IHasCreatedTime.CreatedTime
-- uid: Ploch.Common.Data.Model.IHasCreatedTime.CreatedTime*
-  name: CreatedTime
-  href: api/Ploch.Common.Data.Model.IHasCreatedTime.html#Ploch_Common_Data_Model_IHasCreatedTime_CreatedTime_
-  commentId: Overload:Ploch.Common.Data.Model.IHasCreatedTime.CreatedTime
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasCreatedTime.CreatedTime
-  nameWithType: IHasCreatedTime.CreatedTime
-- uid: Ploch.Common.Data.Model.IHasDescription
-  name: IHasDescription
-  href: api/Ploch.Common.Data.Model.IHasDescription.html
-  commentId: T:Ploch.Common.Data.Model.IHasDescription
-  fullName: Ploch.Common.Data.Model.IHasDescription
-  nameWithType: IHasDescription
-- uid: Ploch.Common.Data.Model.IHasDescription.Description
-  name: Description
-  href: api/Ploch.Common.Data.Model.IHasDescription.html#Ploch_Common_Data_Model_IHasDescription_Description
-  commentId: P:Ploch.Common.Data.Model.IHasDescription.Description
-  fullName: Ploch.Common.Data.Model.IHasDescription.Description
-  nameWithType: IHasDescription.Description
-- uid: Ploch.Common.Data.Model.IHasDescription.Description*
-  name: Description
-  href: api/Ploch.Common.Data.Model.IHasDescription.html#Ploch_Common_Data_Model_IHasDescription_Description_
-  commentId: Overload:Ploch.Common.Data.Model.IHasDescription.Description
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasDescription.Description
-  nameWithType: IHasDescription.Description
-- uid: Ploch.Common.Data.Model.IHasId`1
-  name: IHasId<TId>
-  href: api/Ploch.Common.Data.Model.IHasId-1.html
-  commentId: T:Ploch.Common.Data.Model.IHasId`1
-  name.vb: IHasId(Of TId)
-  fullName: Ploch.Common.Data.Model.IHasId<TId>
-  fullName.vb: Ploch.Common.Data.Model.IHasId(Of TId)
-  nameWithType: IHasId<TId>
-  nameWithType.vb: IHasId(Of TId)
-- uid: Ploch.Common.Data.Model.IHasId`1.Id
-  name: Id
-  href: api/Ploch.Common.Data.Model.IHasId-1.html#Ploch_Common_Data_Model_IHasId_1_Id
-  commentId: P:Ploch.Common.Data.Model.IHasId`1.Id
-  fullName: Ploch.Common.Data.Model.IHasId<TId>.Id
-  fullName.vb: Ploch.Common.Data.Model.IHasId(Of TId).Id
-  nameWithType: IHasId<TId>.Id
-  nameWithType.vb: IHasId(Of TId).Id
-- uid: Ploch.Common.Data.Model.IHasId`1.Id*
-  name: Id
-  href: api/Ploch.Common.Data.Model.IHasId-1.html#Ploch_Common_Data_Model_IHasId_1_Id_
-  commentId: Overload:Ploch.Common.Data.Model.IHasId`1.Id
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasId<TId>.Id
-  fullName.vb: Ploch.Common.Data.Model.IHasId(Of TId).Id
-  nameWithType: IHasId<TId>.Id
-  nameWithType.vb: IHasId(Of TId).Id
-- uid: Ploch.Common.Data.Model.IHasIdSettable`1
-  name: IHasIdSettable<TId>
-  href: api/Ploch.Common.Data.Model.IHasIdSettable-1.html
-  commentId: T:Ploch.Common.Data.Model.IHasIdSettable`1
-  name.vb: IHasIdSettable(Of TId)
-  fullName: Ploch.Common.Data.Model.IHasIdSettable<TId>
-  fullName.vb: Ploch.Common.Data.Model.IHasIdSettable(Of TId)
-  nameWithType: IHasIdSettable<TId>
-  nameWithType.vb: IHasIdSettable(Of TId)
-- uid: Ploch.Common.Data.Model.IHasIdSettable`1.Id
-  name: Id
-  href: api/Ploch.Common.Data.Model.IHasIdSettable-1.html#Ploch_Common_Data_Model_IHasIdSettable_1_Id
-  commentId: P:Ploch.Common.Data.Model.IHasIdSettable`1.Id
-  fullName: Ploch.Common.Data.Model.IHasIdSettable<TId>.Id
-  fullName.vb: Ploch.Common.Data.Model.IHasIdSettable(Of TId).Id
-  nameWithType: IHasIdSettable<TId>.Id
-  nameWithType.vb: IHasIdSettable(Of TId).Id
-- uid: Ploch.Common.Data.Model.IHasIdSettable`1.Id*
-  name: Id
-  href: api/Ploch.Common.Data.Model.IHasIdSettable-1.html#Ploch_Common_Data_Model_IHasIdSettable_1_Id_
-  commentId: Overload:Ploch.Common.Data.Model.IHasIdSettable`1.Id
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasIdSettable<TId>.Id
-  fullName.vb: Ploch.Common.Data.Model.IHasIdSettable(Of TId).Id
-  nameWithType: IHasIdSettable<TId>.Id
-  nameWithType.vb: IHasIdSettable(Of TId).Id
-- uid: Ploch.Common.Data.Model.IHasModifiedTime
-  name: IHasModifiedTime
-  href: api/Ploch.Common.Data.Model.IHasModifiedTime.html
-  commentId: T:Ploch.Common.Data.Model.IHasModifiedTime
-  fullName: Ploch.Common.Data.Model.IHasModifiedTime
-  nameWithType: IHasModifiedTime
-- uid: Ploch.Common.Data.Model.IHasModifiedTime.ModifiedTime
-  name: ModifiedTime
-  href: api/Ploch.Common.Data.Model.IHasModifiedTime.html#Ploch_Common_Data_Model_IHasModifiedTime_ModifiedTime
-  commentId: P:Ploch.Common.Data.Model.IHasModifiedTime.ModifiedTime
-  fullName: Ploch.Common.Data.Model.IHasModifiedTime.ModifiedTime
-  nameWithType: IHasModifiedTime.ModifiedTime
-- uid: Ploch.Common.Data.Model.IHasModifiedTime.ModifiedTime*
-  name: ModifiedTime
-  href: api/Ploch.Common.Data.Model.IHasModifiedTime.html#Ploch_Common_Data_Model_IHasModifiedTime_ModifiedTime_
-  commentId: Overload:Ploch.Common.Data.Model.IHasModifiedTime.ModifiedTime
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasModifiedTime.ModifiedTime
-  nameWithType: IHasModifiedTime.ModifiedTime
-- uid: Ploch.Common.Data.Model.IHasOptionalValue`1
-  name: IHasOptionalValue<TValue>
-  href: api/Ploch.Common.Data.Model.IHasOptionalValue-1.html
-  commentId: T:Ploch.Common.Data.Model.IHasOptionalValue`1
-  name.vb: IHasOptionalValue(Of TValue)
-  fullName: Ploch.Common.Data.Model.IHasOptionalValue<TValue>
-  fullName.vb: Ploch.Common.Data.Model.IHasOptionalValue(Of TValue)
-  nameWithType: IHasOptionalValue<TValue>
-  nameWithType.vb: IHasOptionalValue(Of TValue)
-- uid: Ploch.Common.Data.Model.IHasOptionalValue`1.Value
-  name: Value
-  href: api/Ploch.Common.Data.Model.IHasOptionalValue-1.html#Ploch_Common_Data_Model_IHasOptionalValue_1_Value
-  commentId: P:Ploch.Common.Data.Model.IHasOptionalValue`1.Value
-  fullName: Ploch.Common.Data.Model.IHasOptionalValue<TValue>.Value
-  fullName.vb: Ploch.Common.Data.Model.IHasOptionalValue(Of TValue).Value
-  nameWithType: IHasOptionalValue<TValue>.Value
-  nameWithType.vb: IHasOptionalValue(Of TValue).Value
-- uid: Ploch.Common.Data.Model.IHasOptionalValue`1.Value*
-  name: Value
-  href: api/Ploch.Common.Data.Model.IHasOptionalValue-1.html#Ploch_Common_Data_Model_IHasOptionalValue_1_Value_
-  commentId: Overload:Ploch.Common.Data.Model.IHasOptionalValue`1.Value
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasOptionalValue<TValue>.Value
-  fullName.vb: Ploch.Common.Data.Model.IHasOptionalValue(Of TValue).Value
-  nameWithType: IHasOptionalValue<TValue>.Value
-  nameWithType.vb: IHasOptionalValue(Of TValue).Value
-- uid: Ploch.Common.Data.Model.IHasParentId`1
-  name: IHasParentId<TId>
-  href: api/Ploch.Common.Data.Model.IHasParentId-1.html
-  commentId: T:Ploch.Common.Data.Model.IHasParentId`1
-  name.vb: IHasParentId(Of TId)
-  fullName: Ploch.Common.Data.Model.IHasParentId<TId>
-  fullName.vb: Ploch.Common.Data.Model.IHasParentId(Of TId)
-  nameWithType: IHasParentId<TId>
-  nameWithType.vb: IHasParentId(Of TId)
-- uid: Ploch.Common.Data.Model.IHasParentId`1.ParentId
-  name: ParentId
-  href: api/Ploch.Common.Data.Model.IHasParentId-1.html#Ploch_Common_Data_Model_IHasParentId_1_ParentId
-  commentId: P:Ploch.Common.Data.Model.IHasParentId`1.ParentId
-  fullName: Ploch.Common.Data.Model.IHasParentId<TId>.ParentId
-  fullName.vb: Ploch.Common.Data.Model.IHasParentId(Of TId).ParentId
-  nameWithType: IHasParentId<TId>.ParentId
-  nameWithType.vb: IHasParentId(Of TId).ParentId
-- uid: Ploch.Common.Data.Model.IHasParentId`1.ParentId*
-  name: ParentId
-  href: api/Ploch.Common.Data.Model.IHasParentId-1.html#Ploch_Common_Data_Model_IHasParentId_1_ParentId_
-  commentId: Overload:Ploch.Common.Data.Model.IHasParentId`1.ParentId
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasParentId<TId>.ParentId
-  fullName.vb: Ploch.Common.Data.Model.IHasParentId(Of TId).ParentId
-  nameWithType: IHasParentId<TId>.ParentId
-  nameWithType.vb: IHasParentId(Of TId).ParentId
-- uid: Ploch.Common.Data.Model.IHasTitle
-  name: IHasTitle
-  href: api/Ploch.Common.Data.Model.IHasTitle.html
-  commentId: T:Ploch.Common.Data.Model.IHasTitle
-  fullName: Ploch.Common.Data.Model.IHasTitle
-  nameWithType: IHasTitle
-- uid: Ploch.Common.Data.Model.IHasTitle.Title
-  name: Title
-  href: api/Ploch.Common.Data.Model.IHasTitle.html#Ploch_Common_Data_Model_IHasTitle_Title
-  commentId: P:Ploch.Common.Data.Model.IHasTitle.Title
-  fullName: Ploch.Common.Data.Model.IHasTitle.Title
-  nameWithType: IHasTitle.Title
-- uid: Ploch.Common.Data.Model.IHasTitle.Title*
-  name: Title
-  href: api/Ploch.Common.Data.Model.IHasTitle.html#Ploch_Common_Data_Model_IHasTitle_Title_
-  commentId: Overload:Ploch.Common.Data.Model.IHasTitle.Title
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasTitle.Title
-  nameWithType: IHasTitle.Title
-- uid: Ploch.Common.Data.Model.IHasValue`1
-  name: IHasValue<TValue>
-  href: api/Ploch.Common.Data.Model.IHasValue-1.html
-  commentId: T:Ploch.Common.Data.Model.IHasValue`1
-  name.vb: IHasValue(Of TValue)
-  fullName: Ploch.Common.Data.Model.IHasValue<TValue>
-  fullName.vb: Ploch.Common.Data.Model.IHasValue(Of TValue)
-  nameWithType: IHasValue<TValue>
-  nameWithType.vb: IHasValue(Of TValue)
-- uid: Ploch.Common.Data.Model.IHasValue`1.Value
-  name: Value
-  href: api/Ploch.Common.Data.Model.IHasValue-1.html#Ploch_Common_Data_Model_IHasValue_1_Value
-  commentId: P:Ploch.Common.Data.Model.IHasValue`1.Value
-  fullName: Ploch.Common.Data.Model.IHasValue<TValue>.Value
-  fullName.vb: Ploch.Common.Data.Model.IHasValue(Of TValue).Value
-  nameWithType: IHasValue<TValue>.Value
-  nameWithType.vb: IHasValue(Of TValue).Value
-- uid: Ploch.Common.Data.Model.IHasValue`1.Value*
-  name: Value
-  href: api/Ploch.Common.Data.Model.IHasValue-1.html#Ploch_Common_Data_Model_IHasValue_1_Value_
-  commentId: Overload:Ploch.Common.Data.Model.IHasValue`1.Value
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHasValue<TValue>.Value
-  fullName.vb: Ploch.Common.Data.Model.IHasValue(Of TValue).Value
-  nameWithType: IHasValue<TValue>.Value
-  nameWithType.vb: IHasValue(Of TValue).Value
-- uid: Ploch.Common.Data.Model.IHierarchicalWithChildren`1
-  name: IHierarchicalWithChildren<T>
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithChildren-1.html
-  commentId: T:Ploch.Common.Data.Model.IHierarchicalWithChildren`1
-  name.vb: IHierarchicalWithChildren(Of T)
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithChildren<T>
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithChildren(Of T)
-  nameWithType: IHierarchicalWithChildren<T>
-  nameWithType.vb: IHierarchicalWithChildren(Of T)
-- uid: Ploch.Common.Data.Model.IHierarchicalWithChildren`1.Children
-  name: Children
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithChildren-1.html#Ploch_Common_Data_Model_IHierarchicalWithChildren_1_Children
-  commentId: P:Ploch.Common.Data.Model.IHierarchicalWithChildren`1.Children
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithChildren<T>.Children
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithChildren(Of T).Children
-  nameWithType: IHierarchicalWithChildren<T>.Children
-  nameWithType.vb: IHierarchicalWithChildren(Of T).Children
-- uid: Ploch.Common.Data.Model.IHierarchicalWithChildren`1.Children*
-  name: Children
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithChildren-1.html#Ploch_Common_Data_Model_IHierarchicalWithChildren_1_Children_
-  commentId: Overload:Ploch.Common.Data.Model.IHierarchicalWithChildren`1.Children
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithChildren<T>.Children
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithChildren(Of T).Children
-  nameWithType: IHierarchicalWithChildren<T>.Children
-  nameWithType.vb: IHierarchicalWithChildren(Of T).Children
-- uid: Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite`1
-  name: IHierarchicalWithChildrenComposite<T>
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite-1.html
-  commentId: T:Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite`1
-  name.vb: IHierarchicalWithChildrenComposite(Of T)
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite<T>
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithChildrenComposite(Of T)
-  nameWithType: IHierarchicalWithChildrenComposite<T>
-  nameWithType.vb: IHierarchicalWithChildrenComposite(Of T)
-- uid: Ploch.Common.Data.Model.IHierarchicalWithParent`1
-  name: IHierarchicalWithParent<T>
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithParent-1.html
-  commentId: T:Ploch.Common.Data.Model.IHierarchicalWithParent`1
-  name.vb: IHierarchicalWithParent(Of T)
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithParent<T>
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithParent(Of T)
-  nameWithType: IHierarchicalWithParent<T>
-  nameWithType.vb: IHierarchicalWithParent(Of T)
-- uid: Ploch.Common.Data.Model.IHierarchicalWithParent`1.Parent
-  name: Parent
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithParent-1.html#Ploch_Common_Data_Model_IHierarchicalWithParent_1_Parent
-  commentId: P:Ploch.Common.Data.Model.IHierarchicalWithParent`1.Parent
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithParent<T>.Parent
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithParent(Of T).Parent
-  nameWithType: IHierarchicalWithParent<T>.Parent
-  nameWithType.vb: IHierarchicalWithParent(Of T).Parent
-- uid: Ploch.Common.Data.Model.IHierarchicalWithParent`1.Parent*
-  name: Parent
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithParent-1.html#Ploch_Common_Data_Model_IHierarchicalWithParent_1_Parent_
-  commentId: Overload:Ploch.Common.Data.Model.IHierarchicalWithParent`1.Parent
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithParent<T>.Parent
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithParent(Of T).Parent
-  nameWithType: IHierarchicalWithParent<T>.Parent
-  nameWithType.vb: IHierarchicalWithParent(Of T).Parent
-- uid: Ploch.Common.Data.Model.IHierarchicalWithParentComposite`1
-  name: IHierarchicalWithParentComposite<T>
-  href: api/Ploch.Common.Data.Model.IHierarchicalWithParentComposite-1.html
-  commentId: T:Ploch.Common.Data.Model.IHierarchicalWithParentComposite`1
-  name.vb: IHierarchicalWithParentComposite(Of T)
-  fullName: Ploch.Common.Data.Model.IHierarchicalWithParentComposite<T>
-  fullName.vb: Ploch.Common.Data.Model.IHierarchicalWithParentComposite(Of T)
-  nameWithType: IHierarchicalWithParentComposite<T>
-  nameWithType.vb: IHierarchicalWithParentComposite(Of T)
-- uid: Ploch.Common.Data.Model.INamed
-  name: INamed
-  href: api/Ploch.Common.Data.Model.INamed.html
-  commentId: T:Ploch.Common.Data.Model.INamed
-  fullName: Ploch.Common.Data.Model.INamed
-  nameWithType: INamed
-- uid: Ploch.Common.Data.Model.INamed.Name
-  name: Name
-  href: api/Ploch.Common.Data.Model.INamed.html#Ploch_Common_Data_Model_INamed_Name
-  commentId: P:Ploch.Common.Data.Model.INamed.Name
-  fullName: Ploch.Common.Data.Model.INamed.Name
-  nameWithType: INamed.Name
-- uid: Ploch.Common.Data.Model.INamed.Name*
-  name: Name
-  href: api/Ploch.Common.Data.Model.INamed.html#Ploch_Common_Data_Model_INamed_Name_
-  commentId: Overload:Ploch.Common.Data.Model.INamed.Name
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Model.INamed.Name
-  nameWithType: INamed.Name
-- uid: Ploch.Common.Data.Utilities
-  name: Ploch.Common.Data.Utilities
-  href: api/Ploch.Common.Data.Utilities.html
-  commentId: N:Ploch.Common.Data.Utilities
-  fullName: Ploch.Common.Data.Utilities
-  nameWithType: Ploch.Common.Data.Utilities
-- uid: Ploch.Common.Data.Utilities.DataColumnExtensions
-  name: DataColumnExtensions
-  href: api/Ploch.Common.Data.Utilities.DataColumnExtensions.html
-  commentId: T:Ploch.Common.Data.Utilities.DataColumnExtensions
-  fullName: Ploch.Common.Data.Utilities.DataColumnExtensions
-  nameWithType: DataColumnExtensions
-- uid: Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties(DataColumn,DataColumn)
-  name: CopyProperties(DataColumn, DataColumn)
-  href: api/Ploch.Common.Data.Utilities.DataColumnExtensions.html#Ploch_Common_Data_Utilities_DataColumnExtensions_CopyProperties_DataColumn_DataColumn_
-  commentId: M:Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties(DataColumn,DataColumn)
-  fullName: Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties(DataColumn, DataColumn)
-  nameWithType: DataColumnExtensions.CopyProperties(DataColumn, DataColumn)
-- uid: Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties*
-  name: CopyProperties
-  href: api/Ploch.Common.Data.Utilities.DataColumnExtensions.html#Ploch_Common_Data_Utilities_DataColumnExtensions_CopyProperties_
-  commentId: Overload:Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties
-  isSpec: "True"
-  fullName: Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties
-  nameWithType: DataColumnExtensions.CopyProperties
 - uid: Ploch.Common.DateTimeExtensions
   name: DateTimeExtensions
   href: api/Ploch.Common.DateTimeExtensions.html
@@ -1080,6 +588,28 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.DependencyInjection.IServicesBundle.Configure
   nameWithType: IServicesBundle.Configure
+- uid: Ploch.Common.EnumHelper
+  name: EnumHelper
+  href: api/Ploch.Common.EnumHelper.html
+  commentId: T:Ploch.Common.EnumHelper
+  fullName: Ploch.Common.EnumHelper
+  nameWithType: EnumHelper
+- uid: Ploch.Common.EnumHelper.GetEnumEntries*
+  name: GetEnumEntries
+  href: api/Ploch.Common.EnumHelper.html#Ploch_Common_EnumHelper_GetEnumEntries_
+  commentId: Overload:Ploch.Common.EnumHelper.GetEnumEntries
+  isSpec: "True"
+  fullName: Ploch.Common.EnumHelper.GetEnumEntries
+  nameWithType: EnumHelper.GetEnumEntries
+- uid: Ploch.Common.EnumHelper.GetEnumEntries``1
+  name: GetEnumEntries<TEnum>()
+  href: api/Ploch.Common.EnumHelper.html#Ploch_Common_EnumHelper_GetEnumEntries__1
+  commentId: M:Ploch.Common.EnumHelper.GetEnumEntries``1
+  name.vb: GetEnumEntries(Of TEnum)()
+  fullName: Ploch.Common.EnumHelper.GetEnumEntries<TEnum>()
+  fullName.vb: Ploch.Common.EnumHelper.GetEnumEntries(Of TEnum)()
+  nameWithType: EnumHelper.GetEnumEntries<TEnum>()
+  nameWithType.vb: EnumHelper.GetEnumEntries(Of TEnum)()
 - uid: Ploch.Common.EnvironmentUtilities
   name: EnvironmentUtilities
   href: api/Ploch.Common.EnvironmentUtilities.html
@@ -1224,6 +754,15 @@ references:
   commentId: T:Ploch.Common.Linq.ExpressionExtensions
   fullName: Ploch.Common.Linq.ExpressionExtensions
   nameWithType: ExpressionExtensions
+- uid: Ploch.Common.Linq.ExpressionExtensions.GetMemberName(System.Linq.Expressions.Expression{System.Action})
+  name: GetMemberName(Expression<Action>)
+  href: api/Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetMemberName_System_Linq_Expressions_Expression_System_Action__
+  commentId: M:Ploch.Common.Linq.ExpressionExtensions.GetMemberName(System.Linq.Expressions.Expression{System.Action})
+  name.vb: GetMemberName(Expression(Of Action))
+  fullName: Ploch.Common.Linq.ExpressionExtensions.GetMemberName(System.Linq.Expressions.Expression<System.Action>)
+  fullName.vb: Ploch.Common.Linq.ExpressionExtensions.GetMemberName(System.Linq.Expressions.Expression(Of System.Action))
+  nameWithType: ExpressionExtensions.GetMemberName(Expression<Action>)
+  nameWithType.vb: ExpressionExtensions.GetMemberName(Expression(Of Action))
 - uid: Ploch.Common.Linq.ExpressionExtensions.GetMemberName*
   name: GetMemberName
   href: api/Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetMemberName_
@@ -1231,15 +770,6 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Linq.ExpressionExtensions.GetMemberName
   nameWithType: ExpressionExtensions.GetMemberName
-- uid: Ploch.Common.Linq.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Action{``0}})
-  name: GetMemberName<TType>(Expression<Action<TType>>)
-  href: api/Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetMemberName__1_System_Linq_Expressions_Expression_System_Action___0___
-  commentId: M:Ploch.Common.Linq.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Action{``0}})
-  name.vb: GetMemberName(Of TType)(Expression(Of Action(Of TType)))
-  fullName: Ploch.Common.Linq.ExpressionExtensions.GetMemberName<TType>(System.Linq.Expressions.Expression<System.Action<TType>>)
-  fullName.vb: Ploch.Common.Linq.ExpressionExtensions.GetMemberName(Of TType)(System.Linq.Expressions.Expression(Of System.Action(Of TType)))
-  nameWithType: ExpressionExtensions.GetMemberName<TType>(Expression<Action<TType>>)
-  nameWithType.vb: ExpressionExtensions.GetMemberName(Of TType)(Expression(Of Action(Of TType)))
 - uid: Ploch.Common.Linq.ExpressionExtensions.GetMemberName``1(System.Linq.Expressions.Expression{System.Func{``0}})
   name: GetMemberName<TMember>(Expression<Func<TMember>>)
   href: api/Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetMemberName__1_System_Linq_Expressions_Expression_System_Func___0___
@@ -1258,6 +788,433 @@ references:
   fullName.vb: Ploch.Common.Linq.ExpressionExtensions.GetMemberName(Of TType, TMember)(System.Linq.Expressions.Expression(Of System.Func(Of TType, TMember)))
   nameWithType: ExpressionExtensions.GetMemberName<TType, TMember>(Expression<Func<TType, TMember>>)
   nameWithType.vb: ExpressionExtensions.GetMemberName(Of TType, TMember)(Expression(Of Func(Of TType, TMember)))
+- uid: Ploch.Common.Linq.ExpressionExtensions.GetProperty*
+  name: GetProperty
+  href: api/Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetProperty_
+  commentId: Overload:Ploch.Common.Linq.ExpressionExtensions.GetProperty
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.ExpressionExtensions.GetProperty
+  nameWithType: ExpressionExtensions.GetProperty
+- uid: Ploch.Common.Linq.ExpressionExtensions.GetProperty``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetProperty<TType, TMember>(TType, Expression<Func<TType, TMember>>)
+  href: api/Ploch.Common.Linq.ExpressionExtensions.html#Ploch_Common_Linq_ExpressionExtensions_GetProperty__2___0_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:Ploch.Common.Linq.ExpressionExtensions.GetProperty``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetProperty(Of TType, TMember)(TType, Expression(Of Func(Of TType, TMember)))
+  fullName: Ploch.Common.Linq.ExpressionExtensions.GetProperty<TType, TMember>(TType, System.Linq.Expressions.Expression<System.Func<TType, TMember>>)
+  fullName.vb: Ploch.Common.Linq.ExpressionExtensions.GetProperty(Of TType, TMember)(TType, System.Linq.Expressions.Expression(Of System.Func(Of TType, TMember)))
+  nameWithType: ExpressionExtensions.GetProperty<TType, TMember>(TType, Expression<Func<TType, TMember>>)
+  nameWithType.vb: ExpressionExtensions.GetProperty(Of TType, TMember)(TType, Expression(Of Func(Of TType, TMember)))
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo
+  name: IOwnedPropertyInfo
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html
+  commentId: T:Ploch.Common.Linq.IOwnedPropertyInfo
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo
+  nameWithType: IOwnedPropertyInfo
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  name: GetValue()
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_GetValue
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue()
+  nameWithType: IOwnedPropertyInfo.GetValue()
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue(System.Object[])
+  name: GetValue(Object[])
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_System_Object___
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo.GetValue(System.Object[])
+  name.vb: GetValue(Object())
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue(System.Object[])
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue(System.Object())
+  nameWithType: IOwnedPropertyInfo.GetValue(Object[])
+  nameWithType.vb: IOwnedPropertyInfo.GetValue(Object())
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue*
+  name: GetValue
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  nameWithType: IOwnedPropertyInfo.GetValue
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.Name
+  name: Name
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_Name
+  commentId: P:Ploch.Common.Linq.IOwnedPropertyInfo.Name
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.Name
+  nameWithType: IOwnedPropertyInfo.Name
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.Name*
+  name: Name
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_Name_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo.Name
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.Name
+  nameWithType: IOwnedPropertyInfo.Name
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.Owner
+  name: Owner
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_Owner
+  commentId: P:Ploch.Common.Linq.IOwnedPropertyInfo.Owner
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.Owner
+  nameWithType: IOwnedPropertyInfo.Owner
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.Owner*
+  name: Owner
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_Owner_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo.Owner
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.Owner
+  nameWithType: IOwnedPropertyInfo.Owner
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo
+  name: PropertyInfo
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo
+  commentId: P:Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo
+  nameWithType: IOwnedPropertyInfo.PropertyInfo
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo*
+  name: PropertyInfo
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_PropertyInfo_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.PropertyInfo
+  nameWithType: IOwnedPropertyInfo.PropertyInfo
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)
+  name: SetValue(Object)
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)
+  nameWithType: IOwnedPropertyInfo.SetValue(Object)
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object,System.Object[])
+  name: SetValue(Object, Object[])
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_System_Object___
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object,System.Object[])
+  name.vb: SetValue(Object, Object())
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object, System.Object[])
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object, System.Object())
+  nameWithType: IOwnedPropertyInfo.SetValue(Object, Object[])
+  nameWithType.vb: IOwnedPropertyInfo.SetValue(Object, Object())
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue*
+  name: SetValue
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo.html#Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo.SetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue
+  nameWithType: IOwnedPropertyInfo.SetValue
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2
+  name: IOwnedPropertyInfo<TType, TProperty>
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html
+  commentId: T:Ploch.Common.Linq.IOwnedPropertyInfo`2
+  name.vb: IOwnedPropertyInfo(Of TType, TProperty)
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty)
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty)
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue
+  name: GetValue()
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.GetValue()
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).GetValue()
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.GetValue()
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).GetValue()
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue(System.Object[])
+  name: GetValue(Object[])
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue_System_Object___
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue(System.Object[])
+  name.vb: GetValue(Object())
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.GetValue(System.Object[])
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).GetValue(System.Object())
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.GetValue(Object[])
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).GetValue(Object())
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue*
+  name: GetValue
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_GetValue_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo`2.GetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.GetValue
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).GetValue
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.GetValue
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).GetValue
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.Owner
+  name: Owner
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_Owner
+  commentId: P:Ploch.Common.Linq.IOwnedPropertyInfo`2.Owner
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.Owner
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).Owner
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.Owner
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).Owner
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.Owner*
+  name: Owner
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_Owner_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo`2.Owner
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.Owner
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).Owner
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.Owner
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).Owner
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue(`1)
+  name: SetValue(TProperty)
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue__1_
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue(`1)
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.SetValue(TProperty)
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty)
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.SetValue(TProperty)
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty)
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue(`1,System.Object[])
+  name: SetValue(TProperty, Object[])
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue__1_System_Object___
+  commentId: M:Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue(`1,System.Object[])
+  name.vb: SetValue(TProperty, Object())
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.SetValue(TProperty, System.Object[])
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty, System.Object())
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.SetValue(TProperty, Object[])
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty, Object())
+- uid: Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue*
+  name: SetValue
+  href: api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html#Ploch_Common_Linq_IOwnedPropertyInfo_2_SetValue_
+  commentId: Overload:Ploch.Common.Linq.IOwnedPropertyInfo`2.SetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>.SetValue
+  fullName.vb: Ploch.Common.Linq.IOwnedPropertyInfo(Of TType, TProperty).SetValue
+  nameWithType: IOwnedPropertyInfo<TType, TProperty>.SetValue
+  nameWithType.vb: IOwnedPropertyInfo(Of TType, TProperty).SetValue
+- uid: Ploch.Common.Linq.OwnedPropertyInfo
+  name: OwnedPropertyInfo
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html
+  commentId: T:Ploch.Common.Linq.OwnedPropertyInfo
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo
+  nameWithType: OwnedPropertyInfo
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.#ctor(System.Reflection.PropertyInfo,System.Object)
+  name: OwnedPropertyInfo(PropertyInfo, Object)
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo__ctor_System_Reflection_PropertyInfo_System_Object_
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo.#ctor(System.Reflection.PropertyInfo,System.Object)
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.OwnedPropertyInfo(System.Reflection.PropertyInfo, System.Object)
+  nameWithType: OwnedPropertyInfo.OwnedPropertyInfo(PropertyInfo, Object)
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.#ctor*
+  name: OwnedPropertyInfo
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo__ctor_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo.#ctor
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.OwnedPropertyInfo
+  nameWithType: OwnedPropertyInfo.OwnedPropertyInfo
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.GetValue
+  name: GetValue()
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_GetValue
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo.GetValue
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.GetValue()
+  nameWithType: OwnedPropertyInfo.GetValue()
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.GetValue(System.Object[])
+  name: GetValue(Object[])
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_GetValue_System_Object___
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo.GetValue(System.Object[])
+  name.vb: GetValue(Object())
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.GetValue(System.Object[])
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo.GetValue(System.Object())
+  nameWithType: OwnedPropertyInfo.GetValue(Object[])
+  nameWithType.vb: OwnedPropertyInfo.GetValue(Object())
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.GetValue*
+  name: GetValue
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_GetValue_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo.GetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.GetValue
+  nameWithType: OwnedPropertyInfo.GetValue
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.Name
+  name: Name
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_Name
+  commentId: P:Ploch.Common.Linq.OwnedPropertyInfo.Name
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.Name
+  nameWithType: OwnedPropertyInfo.Name
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.Name*
+  name: Name
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_Name_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo.Name
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.Name
+  nameWithType: OwnedPropertyInfo.Name
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.Owner
+  name: Owner
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_Owner
+  commentId: P:Ploch.Common.Linq.OwnedPropertyInfo.Owner
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.Owner
+  nameWithType: OwnedPropertyInfo.Owner
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.Owner*
+  name: Owner
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_Owner_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo.Owner
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.Owner
+  nameWithType: OwnedPropertyInfo.Owner
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.PropertyInfo
+  name: PropertyInfo
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_PropertyInfo
+  commentId: P:Ploch.Common.Linq.OwnedPropertyInfo.PropertyInfo
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.PropertyInfo
+  nameWithType: OwnedPropertyInfo.PropertyInfo
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.PropertyInfo*
+  name: PropertyInfo
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_PropertyInfo_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo.PropertyInfo
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.PropertyInfo
+  nameWithType: OwnedPropertyInfo.PropertyInfo
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object)
+  name: SetValue(Object)
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_SetValue_System_Object_
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object)
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object)
+  nameWithType: OwnedPropertyInfo.SetValue(Object)
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object,System.Object[])
+  name: SetValue(Object, Object[])
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_SetValue_System_Object_System_Object___
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object,System.Object[])
+  name.vb: SetValue(Object, Object())
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object, System.Object[])
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo.SetValue(System.Object, System.Object())
+  nameWithType: OwnedPropertyInfo.SetValue(Object, Object[])
+  nameWithType.vb: OwnedPropertyInfo.SetValue(Object, Object())
+- uid: Ploch.Common.Linq.OwnedPropertyInfo.SetValue*
+  name: SetValue
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo.html#Ploch_Common_Linq_OwnedPropertyInfo_SetValue_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo.SetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo.SetValue
+  nameWithType: OwnedPropertyInfo.SetValue
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2
+  name: OwnedPropertyInfo<TType, TProperty>
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html
+  commentId: T:Ploch.Common.Linq.OwnedPropertyInfo`2
+  name.vb: OwnedPropertyInfo(Of TType, TProperty)
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty)
+  nameWithType: OwnedPropertyInfo<TType, TProperty>
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty)
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.#ctor(System.Reflection.PropertyInfo,`0)
+  name: OwnedPropertyInfo(PropertyInfo, TType)
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2__ctor_System_Reflection_PropertyInfo__0_
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.#ctor(System.Reflection.PropertyInfo,`0)
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.OwnedPropertyInfo(System.Reflection.PropertyInfo, TType)
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).OwnedPropertyInfo(System.Reflection.PropertyInfo, TType)
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.OwnedPropertyInfo(PropertyInfo, TType)
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).OwnedPropertyInfo(PropertyInfo, TType)
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.#ctor*
+  name: OwnedPropertyInfo
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2__ctor_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo`2.#ctor
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.OwnedPropertyInfo
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).OwnedPropertyInfo
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.OwnedPropertyInfo
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).OwnedPropertyInfo
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.GetValue
+  name: GetValue()
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_GetValue
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.GetValue
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.GetValue()
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).GetValue()
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.GetValue()
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).GetValue()
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.GetValue(System.Object[])
+  name: GetValue(Object[])
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_GetValue_System_Object___
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.GetValue(System.Object[])
+  name.vb: GetValue(Object())
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.GetValue(System.Object[])
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).GetValue(System.Object())
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.GetValue(Object[])
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).GetValue(Object())
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.GetValue*
+  name: GetValue
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_GetValue_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo`2.GetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.GetValue
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).GetValue
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.GetValue
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).GetValue
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Owner
+  name: Owner
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Owner
+  commentId: P:Ploch.Common.Linq.OwnedPropertyInfo`2.Owner
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Owner
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Owner
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.Owner
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Owner
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Owner*
+  name: Owner
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Owner_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo`2.Owner
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Owner
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Owner
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.Owner
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Owner
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#GetValue
+  name: IOwnedPropertyInfo.GetValue()
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Ploch_Common_Linq_IOwnedPropertyInfo_GetValue
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#GetValue
+  name.vb: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue()
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Ploch.Common.Linq.IOwnedPropertyInfo.GetValue()
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.GetValue()
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.IOwnedPropertyInfo.GetValue()
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.GetValue()
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#GetValue*
+  name: IOwnedPropertyInfo.GetValue
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Ploch_Common_Linq_IOwnedPropertyInfo_GetValue_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#GetValue
+  isSpec: "True"
+  name.vb: Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.IOwnedPropertyInfo.GetValue
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.GetValue
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#SetValue(System.Object)
+  name: IOwnedPropertyInfo.SetValue(Object)
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#SetValue(System.Object)
+  name.vb: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(Object)
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object)
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.IOwnedPropertyInfo.SetValue(Object)
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(Object)
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#SetValue(System.Object,System.Object[])
+  name: IOwnedPropertyInfo.SetValue(Object, Object[])
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_System_Object_System_Object___
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#SetValue(System.Object,System.Object[])
+  name.vb: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(Object, Object())
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object, System.Object[])
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(System.Object, System.Object())
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.IOwnedPropertyInfo.SetValue(Object, Object[])
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.SetValue(Object, Object())
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#SetValue*
+  name: IOwnedPropertyInfo.SetValue
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_Ploch_Common_Linq_IOwnedPropertyInfo_SetValue_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo`2.Ploch#Common#Linq#IOwnedPropertyInfo#SetValue
+  isSpec: "True"
+  name.vb: Ploch.Common.Linq.IOwnedPropertyInfo.SetValue
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.Ploch.Common.Linq.IOwnedPropertyInfo.SetValue
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.SetValue
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.IOwnedPropertyInfo.SetValue
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).Ploch.Common.Linq.IOwnedPropertyInfo.SetValue
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.SetValue(`1)
+  name: SetValue(TProperty)
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_SetValue__1_
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.SetValue(`1)
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.SetValue(TProperty)
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty)
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.SetValue(TProperty)
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty)
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.SetValue(`1,System.Object[])
+  name: SetValue(TProperty, Object[])
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_SetValue__1_System_Object___
+  commentId: M:Ploch.Common.Linq.OwnedPropertyInfo`2.SetValue(`1,System.Object[])
+  name.vb: SetValue(TProperty, Object())
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.SetValue(TProperty, System.Object[])
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty, System.Object())
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.SetValue(TProperty, Object[])
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).SetValue(TProperty, Object())
+- uid: Ploch.Common.Linq.OwnedPropertyInfo`2.SetValue*
+  name: SetValue
+  href: api/Ploch.Common.Linq.OwnedPropertyInfo-2.html#Ploch_Common_Linq_OwnedPropertyInfo_2_SetValue_
+  commentId: Overload:Ploch.Common.Linq.OwnedPropertyInfo`2.SetValue
+  isSpec: "True"
+  fullName: Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>.SetValue
+  fullName.vb: Ploch.Common.Linq.OwnedPropertyInfo(Of TType, TProperty).SetValue
+  nameWithType: OwnedPropertyInfo<TType, TProperty>.SetValue
+  nameWithType.vb: OwnedPropertyInfo(Of TType, TProperty).SetValue
 - uid: Ploch.Common.ObjectCloningHelpers
   name: ObjectCloningHelpers
   href: api/Ploch.Common.ObjectCloningHelpers.html
@@ -1337,6 +1294,37 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Reflection.AssemblyExtensions.GetAssemblyDirectory
   nameWithType: AssemblyExtensions.GetAssemblyDirectory
+- uid: Ploch.Common.Reflection.ObjectGraphHelper
+  name: ObjectGraphHelper
+  href: api/Ploch.Common.Reflection.ObjectGraphHelper.html
+  commentId: T:Ploch.Common.Reflection.ObjectGraphHelper
+  fullName: Ploch.Common.Reflection.ObjectGraphHelper
+  nameWithType: ObjectGraphHelper
+- uid: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties(System.Object,System.Action{System.Object})
+  name: ExecuteOnProperties(Object, Action<Object>)
+  href: api/Ploch.Common.Reflection.ObjectGraphHelper.html#Ploch_Common_Reflection_ObjectGraphHelper_ExecuteOnProperties_System_Object_System_Action_System_Object__
+  commentId: M:Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties(System.Object,System.Action{System.Object})
+  name.vb: ExecuteOnProperties(Object, Action(Of Object))
+  fullName: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties(System.Object, System.Action<System.Object>)
+  fullName.vb: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties(System.Object, System.Action(Of System.Object))
+  nameWithType: ObjectGraphHelper.ExecuteOnProperties(Object, Action<Object>)
+  nameWithType.vb: ObjectGraphHelper.ExecuteOnProperties(Object, Action(Of Object))
+- uid: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties*
+  name: ExecuteOnProperties
+  href: api/Ploch.Common.Reflection.ObjectGraphHelper.html#Ploch_Common_Reflection_ObjectGraphHelper_ExecuteOnProperties_
+  commentId: Overload:Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties
+  isSpec: "True"
+  fullName: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties
+  nameWithType: ObjectGraphHelper.ExecuteOnProperties
+- uid: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties``1(System.Object,System.Action{``0})
+  name: ExecuteOnProperties<TPropertyType>(Object, Action<TPropertyType>)
+  href: api/Ploch.Common.Reflection.ObjectGraphHelper.html#Ploch_Common_Reflection_ObjectGraphHelper_ExecuteOnProperties__1_System_Object_System_Action___0__
+  commentId: M:Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties``1(System.Object,System.Action{``0})
+  name.vb: ExecuteOnProperties(Of TPropertyType)(Object, Action(Of TPropertyType))
+  fullName: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties<TPropertyType>(System.Object, System.Action<TPropertyType>)
+  fullName.vb: Ploch.Common.Reflection.ObjectGraphHelper.ExecuteOnProperties(Of TPropertyType)(System.Object, System.Action(Of TPropertyType))
+  nameWithType: ObjectGraphHelper.ExecuteOnProperties<TPropertyType>(Object, Action<TPropertyType>)
+  nameWithType.vb: ObjectGraphHelper.ExecuteOnProperties(Of TPropertyType)(Object, Action(Of TPropertyType))
 - uid: Ploch.Common.Reflection.ObjectReflectionExtensions
   name: ObjectReflectionExtensions
   href: api/Ploch.Common.Reflection.ObjectReflectionExtensions.html
@@ -2332,6 +2320,40 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.SerializeAsync
   nameWithType: SystemTextJsonSerializer.SerializeAsync
+- uid: Ploch.Common.StopwatchUtil
+  name: StopwatchUtil
+  href: api/Ploch.Common.StopwatchUtil.html
+  commentId: T:Ploch.Common.StopwatchUtil
+  fullName: Ploch.Common.StopwatchUtil
+  nameWithType: StopwatchUtil
+- uid: Ploch.Common.StopwatchUtil.Time(System.Action)
+  name: Time(Action)
+  href: api/Ploch.Common.StopwatchUtil.html#Ploch_Common_StopwatchUtil_Time_System_Action_
+  commentId: M:Ploch.Common.StopwatchUtil.Time(System.Action)
+  fullName: Ploch.Common.StopwatchUtil.Time(System.Action)
+  nameWithType: StopwatchUtil.Time(Action)
+- uid: Ploch.Common.StopwatchUtil.Time(System.Func{System.Threading.Tasks.Task})
+  name: Time(Func<Task>)
+  href: api/Ploch.Common.StopwatchUtil.html#Ploch_Common_StopwatchUtil_Time_System_Func_System_Threading_Tasks_Task__
+  commentId: M:Ploch.Common.StopwatchUtil.Time(System.Func{System.Threading.Tasks.Task})
+  name.vb: Time(Func(Of Task))
+  fullName: Ploch.Common.StopwatchUtil.Time(System.Func<System.Threading.Tasks.Task>)
+  fullName.vb: Ploch.Common.StopwatchUtil.Time(System.Func(Of System.Threading.Tasks.Task))
+  nameWithType: StopwatchUtil.Time(Func<Task>)
+  nameWithType.vb: StopwatchUtil.Time(Func(Of Task))
+- uid: Ploch.Common.StopwatchUtil.Time(System.Threading.Tasks.Task)
+  name: Time(Task)
+  href: api/Ploch.Common.StopwatchUtil.html#Ploch_Common_StopwatchUtil_Time_System_Threading_Tasks_Task_
+  commentId: M:Ploch.Common.StopwatchUtil.Time(System.Threading.Tasks.Task)
+  fullName: Ploch.Common.StopwatchUtil.Time(System.Threading.Tasks.Task)
+  nameWithType: StopwatchUtil.Time(Task)
+- uid: Ploch.Common.StopwatchUtil.Time*
+  name: Time
+  href: api/Ploch.Common.StopwatchUtil.html#Ploch_Common_StopwatchUtil_Time_
+  commentId: Overload:Ploch.Common.StopwatchUtil.Time
+  isSpec: "True"
+  fullName: Ploch.Common.StopwatchUtil.Time
+  nameWithType: StopwatchUtil.Time
 - uid: Ploch.Common.StringBuilderExtensions
   name: StringBuilderExtensions
   href: api/Ploch.Common.StringBuilderExtensions.html
@@ -2453,6 +2475,25 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.StringExtensions.ToBase64String
   nameWithType: StringExtensions.ToBase64String
+- uid: Ploch.Common.ThreadSafeRandom
+  name: ThreadSafeRandom
+  href: api/Ploch.Common.ThreadSafeRandom.html
+  commentId: T:Ploch.Common.ThreadSafeRandom
+  fullName: Ploch.Common.ThreadSafeRandom
+  nameWithType: ThreadSafeRandom
+- uid: Ploch.Common.ThreadSafeRandom.Shared
+  name: Shared
+  href: api/Ploch.Common.ThreadSafeRandom.html#Ploch_Common_ThreadSafeRandom_Shared
+  commentId: P:Ploch.Common.ThreadSafeRandom.Shared
+  fullName: Ploch.Common.ThreadSafeRandom.Shared
+  nameWithType: ThreadSafeRandom.Shared
+- uid: Ploch.Common.ThreadSafeRandom.Shared*
+  name: Shared
+  href: api/Ploch.Common.ThreadSafeRandom.html#Ploch_Common_ThreadSafeRandom_Shared_
+  commentId: Overload:Ploch.Common.ThreadSafeRandom.Shared
+  isSpec: "True"
+  fullName: Ploch.Common.ThreadSafeRandom.Shared
+  nameWithType: ThreadSafeRandom.Shared
 - uid: Ploch.Common.WebUI.TagUtilities
   name: Ploch.Common.WebUI.TagUtilities
   href: api/Ploch.Common.WebUI.TagUtilities.html

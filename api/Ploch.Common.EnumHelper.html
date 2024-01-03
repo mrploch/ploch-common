@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DataColumnExtensions
+    <title>Class EnumHelper
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DataColumnExtensions
+    <meta name="title" content="Class EnumHelper
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,60 +68,97 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ploch.Common.Data.Utilities.DataColumnExtensions">
+            <article class="content wrap" id="_content" data-uid="Ploch.Common.EnumHelper">
   
   
-  <h1 id="Ploch_Common_Data_Utilities_DataColumnExtensions" data-uid="Ploch.Common.Data.Utilities.DataColumnExtensions" class="text-break">Class DataColumnExtensions
+  <h1 id="Ploch_Common_EnumHelper" data-uid="Ploch.Common.EnumHelper" class="text-break">Class EnumHelper
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Provides helper methods for working with enums.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">DataColumnExtensions</span></div>
+    <div class="level1"><span class="xref">EnumHelper</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.Data.Utilities.html">Ploch.Common.Data.Utilities</a></h6>
-  <h6><strong>Assembly</strong>: Ploch.Common.Data.Utilities.dll</h6>
-  <h5 id="Ploch_Common_Data_Utilities_DataColumnExtensions_syntax">Syntax</h5>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.html">Ploch.Common</a></h6>
+  <h6><strong>Assembly</strong>: Ploch.Common.dll</h6>
+  <h5 id="Ploch_Common_EnumHelper_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class DataColumnExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class EnumHelper</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Utilities_DataColumnExtensions_CopyProperties_DataColumn_DataColumn_.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties(DataColumn%2CDataColumn)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_EnumHelper_GetEnumEntries__1.md&amp;value=---%0Auid%3A%20Ploch.Common.EnumHelper.GetEnumEntries%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Utilities/DataColumnExtensions.cs/#L7">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/EnumHelper.cs/#L17">View Source</a>
   </span>
-  <a id="Ploch_Common_Data_Utilities_DataColumnExtensions_CopyProperties_" data-uid="Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties*"></a>
-  <h4 id="Ploch_Common_Data_Utilities_DataColumnExtensions_CopyProperties_DataColumn_DataColumn_" data-uid="Ploch.Common.Data.Utilities.DataColumnExtensions.CopyProperties(DataColumn,DataColumn)">CopyProperties(DataColumn, DataColumn)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Ploch_Common_EnumHelper_GetEnumEntries_" data-uid="Ploch.Common.EnumHelper.GetEnumEntries*"></a>
+  <h4 id="Ploch_Common_EnumHelper_GetEnumEntries__1" data-uid="Ploch.Common.EnumHelper.GetEnumEntries``1">GetEnumEntries&lt;TEnum&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets all enum entries.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void CopyProperties(this DataColumn sourceColumn, DataColumn targetColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;TEnum&gt; GetEnumEntries&lt;TEnum&gt;()
+    where TEnum : Enum</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEnum&gt;</td>
+        <td><p>All enum entries.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">DataColumn</span></td>
-        <td><span class="parametername">sourceColumn</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">DataColumn</span></td>
-        <td><span class="parametername">targetColumn</span></td>
-        <td></td>
+        <td><span class="parametername">TEnum</span></td>
+        <td><p>The enum type.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -133,10 +170,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Data_Utilities_DataColumnExtensions.md&amp;value=---%0Auid%3A%20Ploch.Common.Data.Utilities.DataColumnExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_EnumHelper.md&amp;value=---%0Auid%3A%20Ploch.Common.EnumHelper%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.Data/Data.Utilities/DataColumnExtensions.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/EnumHelper.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
