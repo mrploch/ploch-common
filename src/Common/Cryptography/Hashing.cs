@@ -2,22 +2,21 @@
 using System.IO;
 using System.Security.Cryptography;
 
-namespace Ploch.Common.Cryptography
+namespace Ploch.Common.Cryptography;
+
+public static class Hashing
 {
-    public static class Hashing
+    public static string ToHashString(this Stream stream, HashAlgorithm algorithm)
     {
-        public static string ToHashString(this Stream stream, HashAlgorithm algorithm)
-        {
-            var hashBytes = algorithm.ComputeHash(stream);
+        var hashBytes = algorithm.ComputeHash(stream);
 
-            return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
-        }
+        return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+    }
 
-        public static string ToMD5HashString(this Stream stream)
-        {
-            var hashBytes = MD5.Create().ComputeHash(stream);
+    public static string ToMD5HashString(this Stream stream)
+    {
+        var hashBytes = MD5.Create().ComputeHash(stream);
 
-            return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
-        }
+        return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
     }
 }

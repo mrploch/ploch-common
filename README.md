@@ -8,12 +8,13 @@
 ## Overview
 
 This repository is a collection of miscellaneous utility libraries for .NET.
+I basically add anything that I used more than once, and that I think might be useful to others :)
 
 ## Projects and Packages
 
 The repository consists of the following main projects:
 
-- Ploch.Common
+- [Ploch.Common](./src/Common/README.md)
 - Ploch.Common.Data.Model
 - Ploch.Common.Data.StandardDataSets
 - Ploch.Common.Data.Utilities
