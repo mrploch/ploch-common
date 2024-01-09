@@ -9,6 +9,7 @@ This includes:
 - enumerables: `IEnumerable<T>`, `ICollection<T>`, `IQueryable<T>` and others,
 - expression trees
 - `System.String`
+- hashing
 - enums
 - environment utilities
 
@@ -50,4 +51,4 @@ A few examples of the enumerable extensions:
   // result will be true
 ```
 
-More in 
+More on the [API reference pages](https://github.ploch.dev/ploch-common/).

@@ -15,10 +15,11 @@
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <VersionPrefix>2.0.1</VersionPrefix>
-        <VersionSuffix>-prerelease</VersionSuffix>
+        <!--        <VersionSuffix>-prerelease</VersionSuffix>-->
         <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
-        <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
-        <Version>$(VersionPrefix)$(FullVersionSuffix)</Version>
+        <!--        <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>-->
+        <!--        <Version>$(VersionPrefix)$(FullVersionSuffix)</Version>-->
+        <Version>$(VersionPrefix)</Version>
         <FileVersion>$(InformationalVersion)</FileVersion>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
