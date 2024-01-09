@@ -14,7 +14,7 @@
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-        <VersionPrefix>1.2.0</VersionPrefix>
+        <VersionPrefix>2.0.1</VersionPrefix>
         <VersionSuffix>-prerelease</VersionSuffix>
         <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
         <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
