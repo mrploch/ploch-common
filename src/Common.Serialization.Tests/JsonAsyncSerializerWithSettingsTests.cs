@@ -88,7 +88,7 @@ public abstract class JsonAsyncSerializerWithSettingsTests<TSerializer, TSeriali
     
     protected abstract override TSerializer GetSerializer();
 
-    private async Task<MemoryStream> GetSerializedTestType4Stream()
+    private static async Task<MemoryStream> GetSerializedTestType4Stream()
     {
         var stream = new MemoryStream();
         var writer = new StreamWriter(stream);

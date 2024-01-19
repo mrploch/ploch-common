@@ -2,15 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <DocumentationFile>bin\Debug\Ploch.Common.Serialization.SystemTextJson.xml</DocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DocumentationFile>bin\Release\Ploch.Common.Serialization.SystemTextJson.xml</DocumentationFile>
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
