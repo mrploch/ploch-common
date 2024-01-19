@@ -52,6 +52,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{87F93313-FCDE-4545-A30B-03D05077F647}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		release-notes.md = release-notes.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
@@ -64,6 +65,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{576228
 		qodana.yaml = qodana.yaml
 		qodana.sarif.json = qodana.sarif.json
 		dotnet-releaser.toml = dotnet-releaser.toml
+		.codacy.yml = .codacy.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{73418E3A-0260-462E-A269-0540040A06A3}"

@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,6 +16,11 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Common.Serialization\Ploch.Common.Serialization.csproj" />
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>

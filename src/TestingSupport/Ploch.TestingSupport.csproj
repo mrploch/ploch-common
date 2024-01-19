@@ -5,6 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Kris Ploch</Authors>
         <Nullable>warnings</Nullable>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
@@ -21,6 +22,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
