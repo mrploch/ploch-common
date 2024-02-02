@@ -18,6 +18,14 @@ public class EnumerableExtensionsTests
     }
 
     [Fact]
+    public void ValueIn_should_work_on_short_type()
+    {
+        short number = 10;
+
+        number.ValueIn<short>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).Should().BeTrue();
+    }
+
+    [Fact]
     public void ValueIn_should_return_true_if_value_is_in_specified_set_of_values_using_default_comparer()
     {
         "val2".ValueIn("val1", "val2", "val3").Should().BeTrue();
@@ -188,5 +196,38 @@ public class EnumerableExtensionsTests
         numbers.ForEach(n => sum += n);
 
         sum.Should().Be(numbers.Sum());
+    }
+
+    [Fact]
+    public void AreSequentialInOrder_returns_true_if_numbers_in_a_sequence_are_sequential()
+    {
+        var sequential = new[] { 1, 2, 3, 4, 5, 6, 7 };
+        var sequentialNotInOrderNumbers = new[] { 1, 3, 2, 4, 5, 6, 7 };
+        var nonSequentialNumbers = new[] { 1, 2, 3, 4, 5, 6, 8 };
+
+        sequential.AreIntegersSequentialInOrder().Should().BeTrue();
+        sequentialNotInOrderNumbers.AreIntegersSequentialInOrder().Should().BeFalse();
+        nonSequentialNumbers.AreIntegersSequentialInOrder().Should().BeFalse();
+    }
+
+    [Fact]
+    public void NullOrEmpty_should_return_true_for_null_enumerable()
+    {
+        IEnumerable<int>? nullEnumerable = null;
+        nullEnumerable.NullOrEmpty().Should().BeTrue();
+    }
+
+    [Fact]
+    public void NullOrEmpty_should_return_true_for_empty_enumerable()
+    {
+        var emptyEnumerable = Enumerable.Empty<int>();
+        emptyEnumerable.NullOrEmpty().Should().BeTrue();
+    }
+
+    [Fact]
+    public void NullOrEmpty_should_return_false_for_non_empty_enumerable()
+    {
+        IEnumerable<int>? nonEmptyEnumerable = new[] { 1, 2, 3 };
+        nonEmptyEnumerable.NullOrEmpty().Should().BeFalse();
     }
 }
