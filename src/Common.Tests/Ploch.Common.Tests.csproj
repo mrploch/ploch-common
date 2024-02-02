@@ -38,7 +38,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="FluentAssertions" Version="6.12.0"/>
-      <PackageReference Include="FluentAssertions.Analyzers" Version="0.27.0">
+      <PackageReference Include="FluentAssertions.Analyzers" Version="0.30.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
@@ -48,17 +48,20 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.6.0" />
-      <PackageReference Include="xunit" Version="2.6.2" />
-      <PackageReference Include="xunit.analyzers" Version="1.6.0" />
-      <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4">
+      <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.6.1" />
+      <PackageReference Include="xunit" Version="2.6.6" />
+      <PackageReference Include="xunit.analyzers" Version="1.10.0" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Update="SonarAnalyzer.CSharp" Version="9.18.0.83559">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
   </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common.Data\Data.Model\Ploch.Common.Data.Model.csproj" />
         <ProjectReference Include="..\Common\Ploch.Common.csproj" />
     </ItemGroup>
 
