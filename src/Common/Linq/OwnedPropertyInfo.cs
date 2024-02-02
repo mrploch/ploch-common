@@ -1,146 +1,112 @@
-using System;
-using System.Globalization;
 using System.Reflection;
+using Dawn;
 
 namespace Ploch.Common.Linq;
 
-public interface IOwnedPropertyInfo
+/// <inheritdoc cref="IOwnedPropertyInfo" />
+public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
 {
-    object GetValue();
-
-    void SetValue(object value);
-}
-
-public interface IOwnedPropertyInfo<TType, TProperty>
-{
-    TType Owner { get; }
-
-     TProperty GetValue();
-
-    void SetValue(TProperty? value);
-}
-
-public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedPropertyInfo<TType, TProperty>, IOwnedPropertyInfo
-{
-    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner)
-    { }
-
-    public TType Owner => (TType)base.Owner;
-
-    public new TProperty GetValue()
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="OwnedPropertyInfo" /> class.
+    /// </summary>
+    /// <param name="propertyInfo">The property info delegate.</param>
+    /// <param name="owner">The object that owns the property.</param>
+    protected OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
     {
-        return (TProperty)base.GetValue();
-    }
+        Guard.Argument(propertyInfo, nameof(propertyInfo)).NotNull();
+        Guard.Argument(owner, nameof(owner)).NotNull();
 
-    void IOwnedPropertyInfo.SetValue(object value)
-    {
-        SetValue(value);
-    }
-
-    public void SetValue(TProperty? value)
-    {
-        SetValue((object?)value);
-    }
-
-    object IOwnedPropertyInfo.GetValue()
-    {
-        return base.GetValue();
-    }
-}
-
-public class OwnedPropertyInfo : PropertyInfo
-{
-    public OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
-    {
-        Owner = owner;
         PropertyInfo = propertyInfo;
+        Owner = owner;
     }
 
+    /// <inheritdoc />
     public object Owner { get; }
 
+    /// <inheritdoc />
     public PropertyInfo PropertyInfo { get; }
 
-    public override Type DeclaringType => PropertyInfo.DeclaringType;
+    /// <inheritdoc />
+    public string Name => PropertyInfo.Name;
 
-    public override string Name => PropertyInfo.Name;
-
-    public override Type ReflectedType => PropertyInfo.ReflectedType;
-
-    public override PropertyAttributes Attributes => PropertyInfo.Attributes;
-
-    public override bool CanRead => PropertyInfo.CanRead;
-
-    public override bool CanWrite => PropertyInfo.CanWrite;
-
-    public override Type PropertyType => PropertyInfo.PropertyType;
-
-    public object GetValue()
-    {
-        return PropertyInfo.GetValue(Owner);
-    }
-
+    /// <inheritdoc />
     public void SetValue(object? value)
     {
         PropertyInfo.SetValue(Owner, value);
     }
 
-    public override object[] GetCustomAttributes(bool inherit)
+    /// <inheritdoc />
+    public void SetValue(object? value, object[] index)
     {
-        return PropertyInfo.GetCustomAttributes(inherit);
+        PropertyInfo.SetValue(Owner, value, index);
     }
 
-    public override object[] GetCustomAttributes(Type attributeType, bool inherit)
+    /// <inheritdoc />
+    public object? GetValue()
     {
-        return PropertyInfo.GetCustomAttributes(attributeType, inherit);
+        return PropertyInfo.GetValue(Owner);
     }
 
-    public override bool IsDefined(Type attributeType, bool inherit)
-    {
-        return PropertyInfo.IsDefined(attributeType, inherit);
-    }
-
-    public override MethodInfo[] GetAccessors(bool nonPublic)
-    {
-        return PropertyInfo.GetAccessors(nonPublic);
-    }
-
-    public override MethodInfo GetGetMethod(bool nonPublic)
-    {
-        return PropertyInfo.GetGetMethod(nonPublic);
-    }
-
-    public override ParameterInfo[] GetIndexParameters()
-    {
-        return PropertyInfo.GetIndexParameters();
-    }
-
-    public override MethodInfo GetSetMethod(bool nonPublic)
-    {
-        return PropertyInfo.GetSetMethod(nonPublic);
-    }
-
-    public object GetValue(BindingFlags invokeAttr, Binder binder, object[] index, CultureInfo culture)
-    {
-        return GetValue(Owner, invokeAttr, binder, index, culture);
-    }
-
-    public override object GetValue(object obj, BindingFlags invokeAttr, Binder binder, object[] index, CultureInfo culture)
-    {
-        return PropertyInfo.GetValue(obj, invokeAttr, binder, index, culture);
-    }
-
+    /// <inheritdoc />
     public object GetValue(object[] index)
     {
         return PropertyInfo.GetValue(Owner, index);
     }
+}
 
-    public void SetValue(object value, BindingFlags invokeAttr, Binder binder, object[] index, CultureInfo culture)
+/// <inheritdoc cref="IOwnedPropertyInfo{TType, TProperty}" />
+public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedPropertyInfo<TType, TProperty>
+{
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="OwnedPropertyInfo{TType,TProperty}" /> class.
+    /// </summary>
+    /// <param name="propertyInfo">The property info delegate.</param>
+    /// <param name="owner">The object that owns the property.</param>
+    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner!)
+    { }
+
+    /// <inheritdoc />
+    public new TType Owner => (TType)base.Owner;
+
+    /// <inheritdoc />
+    public new TProperty? GetValue()
     {
-        SetValue(Owner, value, invokeAttr, binder, index, culture);
+        return (TProperty?)base.GetValue();
     }
 
-    public override void SetValue(object obj, object value, BindingFlags invokeAttr, Binder binder, object[] index, CultureInfo culture)
+    /// <inheritdoc />
+    public new TProperty? GetValue(object[] index)
     {
-        PropertyInfo.SetValue(obj, value, invokeAttr, binder, index, culture);
+        return (TProperty?)base.GetValue(index);
+    }
+
+    /// <inheritdoc />
+    void IOwnedPropertyInfo.SetValue(object? value)
+    {
+        SetValue(value);
+    }
+
+    /// <inheritdoc />
+    void IOwnedPropertyInfo.SetValue(object? value, object[] index)
+    {
+        SetValue(value, index);
+    }
+
+    /// <inheritdoc />
+    public void SetValue(TProperty? value)
+    {
+        SetValue((object?)value);
+    }
+
+    /// <inheritdoc />
+    public void SetValue(TProperty? value, object[] index)
+    {
+        base.SetValue(value, index);
+    }
+
+    /// <inheritdoc />
+    object? IOwnedPropertyInfo.GetValue()
+    {
+        return base.GetValue();
     }
 }

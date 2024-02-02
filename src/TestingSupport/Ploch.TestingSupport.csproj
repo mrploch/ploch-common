@@ -5,17 +5,23 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Kris Ploch</Authors>
         <Nullable>warnings</Nullable>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoFixture" Version="4.18.1" />
-    <PackageReference Include="AutoFixture.AutoMoq" Version="4.18.1" />
-    <PackageReference Include="AutoFixture.SeedExtensions" Version="4.18.1" />
-    <PackageReference Include="Moq" Version="4.20.70" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-    <PackageReference Include="System.ComponentModel" Version="4.3.0" />
-    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
-    <PackageReference Include="System.IO.Abstractions" Version="20.0.4" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoFixture" Version="4.18.1" />
+        <PackageReference Include="AutoFixture.AutoMoq" Version="4.18.1" />
+        <PackageReference Include="AutoFixture.SeedExtensions" Version="4.18.1" />
+        <PackageReference Include="Moq" Version="4.20.70" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="System.ComponentModel" Version="4.3.0" />
+        <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+        <PackageReference Include="System.IO.Abstractions" Version="20.0.4" />
+        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.16.0.82469">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
 </Project>

@@ -10,10 +10,5 @@ To create a concrete instance of the serializer, you can use the `NewtonsoftJson
 
 ```csharp
 var serializer = new NewtonsoftJsonSerializer();
-```
-
-To register this serializer with the dependency injection container:
-
-```csharp
-ser
+var json = _serializer.Serialize(new { Foo = "Bar" });
 ```

@@ -1,5 +1,4 @@
 ---
-engines:
-  sonarscharp:
-    exclude_paths:
-      - "src/**Tests/**"
+exclude_paths:
+  - "**/*Tests/**"
+

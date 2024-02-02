@@ -4,11 +4,19 @@ using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
 using Ploch.Common.Tests.Reflection;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Ploch.Common.Tests.Collections;
 
 public class EnumerableExtensionsTests
 {
+    private readonly ITestOutputHelper _output;
+
+    public EnumerableExtensionsTests(ITestOutputHelper output)
+    {
+        _output = output;
+    }
+
     [Fact]
     public void ValueIn_should_return_true_if_value_is_in_specified_set_of_values_using_default_comparer()
     {
@@ -73,15 +81,47 @@ public class EnumerableExtensionsTests
     [Fact]
     public void TakeRandom_should_pick_count_number_of_random_items_from_source()
     {
+        var (sourceList, result) = TestTakeRandom(100, 10);
+
+        result.Should().HaveCount(10).And.OnlyContain(s => sourceList.Contains(s)).And.NotContainInOrder(sourceList.Take(10));
+    }
+
+    [Fact]
+    public void TakeRandom_should_return_source_list_size_items_if_sample_is_greater_than_source()
+    {
+        var (sourceList, result) = TestTakeRandom(10, 100);
+
+        result.Should().HaveCount(10).And.OnlyContain(s => sourceList.Contains(s)).And.NotContainInOrder(sourceList.Take(10));
+    }
+
+    [Fact]
+    public void TakeRandom_should_return_0_items_if_sample_size_is_0()
+    {
+        var (sourceList, result) = TestTakeRandom(10, 0);
+
+        result.Should().BeEmpty();
+    }
+
+    [Fact]
+    public void TakeRandom_should_return_0_items_if_source_list_size_is_0()
+    {
+        var (sourceList, result) = TestTakeRandom(0, 10);
+
+        result.Should().BeEmpty();
+    }
+
+    private (List<string> list, IEnumerable<string> result) TestTakeRandom(int itemsCount, int sampleSize)
+    {
         var list = new List<string>();
-        for (var i = 0; i < 1000; i++)
+        for (var i = 0; i < itemsCount; i++)
         {
             list.Add($"Item {i}");
         }
 
-        var result = list.TakeRandom(200);
+        var result = list.TakeRandom(sampleSize);
+        _output.WriteLine($"TakeRandom test. Sample size: {sampleSize}, items count: {itemsCount}, result count: {result.Count()}");
 
-        result.Should().HaveCount(200);
+        return (list, result);
     }
 
     [Fact]
@@ -117,6 +157,9 @@ public class EnumerableExtensionsTests
         var result = strings.JoinWithFinalSeparator(", ", " and ");
 
         result.Should().Be(string.Join(", ", strings.Take(strings.Count() - 1)) + " and " + strings.Last());
+
+        var items = new[] { 1, 2, 3 };
+        items.JoinWithFinalSeparator(", ", " and ").Should().Be("1, 2 and 3");
     }
 
     [Fact]
@@ -135,5 +178,15 @@ public class EnumerableExtensionsTests
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         items.Invoking(i => i.If(true, null)).Should().Throw<ArgumentNullException>();
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void ForEach_should_execute_action_on_each_element(int[] numbers)
+    {
+        var sum = 0;
+        numbers.ForEach(n => sum += n);
+
+        sum.Should().Be(numbers.Sum());
     }
 }

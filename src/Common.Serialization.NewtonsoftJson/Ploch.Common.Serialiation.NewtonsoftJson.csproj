@@ -2,14 +2,15 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\Ploch.Common.Serialiation.NewtonsoftJson.xml</DocumentationFile>
+        <DocumentationFile>bin\Debug\Ploch.Common.Serialiation.NewtonsoftJson.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DocumentationFile>bin\Release\Ploch.Common.Serialiation.NewtonsoftJson.xml</DocumentationFile>
+        <DocumentationFile>bin\Release\Ploch.Common.Serialiation.NewtonsoftJson.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,6 +19,11 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.16.0.82469">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>

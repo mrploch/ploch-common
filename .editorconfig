@@ -231,21 +231,22 @@ dotnet_naming_style.prefixedcamelcase.capitalization = camel_case
 
 # StyleCop
 
-dotnet_diagnostic.sa1600.severity = none
+dotnet_diagnostic.sa1000.severity = none
+dotnet_diagnostic.sa1009.severity = none
+dotnet_diagnostic.sa1011.severity = none
 dotnet_diagnostic.sa1116.severity = none
 dotnet_diagnostic.sa1101.severity = none
 dotnet_diagnostic.sa1413.severity = none
 dotnet_diagnostic.sa1309.severity = none
-dotnet_diagnostic.sa1623.severity = none
-dotnet_diagnostic.sa1640.severity = none
 dotnet_diagnostic.sa1127.severity = none
 dotnet_diagnostic.sa1200.severity = none
 dotnet_diagnostic.sa1502.severity = none
 dotnet_diagnostic.sa1128.severity = none
 dotnet_diagnostic.sa1133.severity = none
-dotnet_diagnostic.sa1009.severity = none
-dotnet_diagnostic.sa1000.severity = none
+dotnet_diagnostic.sa1600.severity = none
+dotnet_diagnostic.sa1623.severity = none
 dotnet_diagnostic.sa1633.severity = none
+dotnet_diagnostic.sa1640.severity = none
 dotnet_diagnostic.SA1649.severity = warning # File name should match first type name.
 
 # ReSharper properties
@@ -261,7 +262,6 @@ resharper_keep_existing_invocation_parens_arrangement = false
 resharper_keep_existing_property_patterns_arrangement = false
 
 # Checks
-
 dotnet_diagnostic.ca1001.severity = warning
 dotnet_diagnostic.ca1009.severity = warning
 dotnet_diagnostic.cc0108.severity = warning

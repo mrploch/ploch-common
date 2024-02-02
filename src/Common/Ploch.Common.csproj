@@ -2,18 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dawn.Guard" Version="1.12.0"/>
+        <PackageReference Include="Dawn.Guard" Version="1.12.0" />
         <PackageReference Include="ResharperCodeContractNullability" Version="2.0.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Update="SonarAnalyzer.CSharp" Version="9.18.0.83559">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
     </ItemGroup>
-
+    <ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 </Project>

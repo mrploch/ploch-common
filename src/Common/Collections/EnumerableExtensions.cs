@@ -10,8 +10,6 @@ namespace Ploch.Common.Collections;
 /// </summary>
 public static class EnumerableExtensions
 {
-    private static readonly Random Random = new();
-
     /// <summary>
     ///     Checks if a set of values the value using provided comparer.
     /// </summary>
@@ -159,7 +157,7 @@ public static class EnumerableExtensions
         while (n > 1)
         {
             n--;
-            var k = Random.Next(n + 1);
+            var k = ThreadSafeRandom.Shared.Next(n + 1);
             (list[k], list[n]) = (list[n], list[k]);
         }
 
@@ -178,19 +176,22 @@ public static class EnumerableExtensions
         var list = source.ToList();
 
         var result = new List<TValue>();
-        var previousRandoms = new List<int>();
+
+        var indexes = new List<int>(list.Count);
+        for (var i = 0; i < list.Count; i++)
+        {
+            indexes.Add(i);
+        }
+
+        count = count > list.Count ? list.Count : count;
 
         for (var i = 0; i < count; i++)
         {
-            int num;
-            do
-            {
-                num = Random.Next(0, list.Count - 1);
-            } while (previousRandoms.Contains(num));
+            var indexesItemNum = ThreadSafeRandom.Shared.Next(0, indexes.Count - 1);
+            var itemIndex = indexes[indexesItemNum];
 
-            previousRandoms.Add(num);
-
-            result.Add(list[num]);
+            result.Add(list[itemIndex]);
+            indexes.RemoveAt(indexesItemNum);
         }
 
         return result;

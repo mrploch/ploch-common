@@ -14,39 +14,31 @@
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-        <VersionPrefix>1.2.0</VersionPrefix>
-        <VersionSuffix>-prerelease</VersionSuffix>
+        <VersionPrefix>2.0.1</VersionPrefix>
+        <!--        <VersionSuffix>-prerelease</VersionSuffix>-->
         <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
-        <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
-        <Version>$(VersionPrefix)$(FullVersionSuffix)</Version>
+        <!--        <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>-->
+        <!--        <Version>$(VersionPrefix)$(FullVersionSuffix)</Version>-->
+        <Version>$(VersionPrefix)</Version>
         <FileVersion>$(InformationalVersion)</FileVersion>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
     </PropertyGroup>
-
-    <PropertyGroup Label="ProjectType">
-        <IsReleaseBuild>false</IsReleaseBuild>
-        <IsReleaseBuild Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">true</IsReleaseBuild>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DebugType>embedded</DebugType>
         <DebugSymbols>true</DebugSymbols>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
-
     <PropertyGroup Condition="$(IsTestProject)">
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     </PropertyGroup>
     <PropertyGroup Condition="!$(IsTestProject)">
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IsTestProject>false</IsTestProject>
     </PropertyGroup>
-
     <Target Name="PrintSettings" BeforeTargets="Build">
         <Message Text="Building $(MSBuildProjectName) with settings:" Importance="high" />
         <Message Text="MSBuildProjectName -> '$(MSBuildProjectName)'" Importance="high" />
@@ -59,6 +51,17 @@
         <Message Text="GenerateDocumentationFile -> '$(GenerateDocumentationFile)' " Importance="high" />
         <Message Text="IsPackable -> '$(IsPackable)' " Importance="high" />
     </Target>
+    <!--  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">-->
+    <!--    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>-->
+    <!--    <GenerateDocumentationFile>false</GenerateDocumentationFile>-->
+    <!--    <IsPackable>false</IsPackable>-->
+    <!--    <IsTestProject>true</IsTestProject>-->
+    <!--  </PropertyGroup>-->
+    <!--  <PropertyGroup Condition="!$(MSBuildProjectName.EndsWith('Tests'))">-->
+    <!--    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+    <!--    <GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+    <!--    <IsTestProject>false</IsTestProject>-->
+    <!--  </PropertyGroup>-->
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <LangVersion>default</LangVersion>
