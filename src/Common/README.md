@@ -51,4 +51,4 @@ A few examples of the enumerable extensions:
   // result will be true
 ```
 
-More on the [API reference pages](https://github.ploch.dev/ploch-common/).
+More examples available [here](./Collections/README.md) and in the [tests](../Common.Tests/).

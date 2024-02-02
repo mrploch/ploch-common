@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Dawn;
 
@@ -252,5 +253,56 @@ public static class EnumerableExtensions
         }
 
         return enumerable;
+    }
+
+    /// <summary>
+    ///     Determines whether the elements in the given enumerable are sequential.
+    /// </summary>
+    /// <typeparam name="T">
+    ///     The type of the elements in the enumerable.
+    /// </typeparam>
+    /// <param name="enumerable">
+    ///     The enumerable to check for sequentiality. Must not be null.
+    /// </param>
+    /// <returns>
+    ///     True if the elements in the enumerable are sequential; otherwise, false.
+    /// </returns>
+    public static bool AreIntegersSequentialInOrder(this IEnumerable<long> enumerable)
+    {
+        Guard.Argument(enumerable, nameof(enumerable)).NotNull();
+        var array = enumerable.Select(v => v).ToArray();
+
+        return array.Skip(1).Select((v, i) => v == array[i] + 1).All(v => v);
+    }
+    
+    /// <summary>
+    ///     Determines whether the elements in the given enumerable are sequential.
+    /// </summary>
+    /// <typeparam name="T">
+    ///     The type of the elements in the enumerable.
+    /// </typeparam>
+    /// <param name="enumerable">
+    ///     The enumerable to check for sequentiality. Must not be null.
+    /// </param>
+    /// <returns>
+    ///     True if the elements in the enumerable are sequential; otherwise, false.
+    /// </returns>
+    public static bool AreIntegersSequentialInOrder(this IEnumerable<int> enumerable)
+    {
+        Guard.Argument(enumerable, nameof(enumerable)).NotNull();
+        var array = enumerable.Select(v => v).ToArray();
+
+        return array.Skip(1).Select((v, i) => v == array[i] + 1).All(v => v);
+    }
+
+    /// <summary>
+    /// Checks if the specified collection is null or empty.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in the collection.</typeparam>
+    /// <param name="enumerable">The collection to check.</param>
+    /// <returns>true if the collection is null or empty; otherwise, false.</returns>
+    public static bool NullOrEmpty<T>(this IEnumerable<T>? enumerable)
+    {
+        return enumerable == null || !enumerable.Any();
     }
 }
