@@ -104,7 +104,7 @@ public class ExpressionExtensionsTests
 #pragma warning disable S3459
 
     // ReSharper disable once UnusedParameter.Local
-    private class TestType
+    public class TestType
     {
         public int IntProp { get; set; }
 
