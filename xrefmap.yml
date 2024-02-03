@@ -104,6 +104,31 @@ references:
   commentId: T:Ploch.Common.Collections.EnumerableExtensions
   fullName: Ploch.Common.Collections.EnumerableExtensions
   nameWithType: EnumerableExtensions
+- uid: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int32})
+  name: AreIntegersSequentialInOrder(IEnumerable<Int32>)
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_AreIntegersSequentialInOrder_System_Collections_Generic_IEnumerable_System_Int32__
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int32})
+  name.vb: AreIntegersSequentialInOrder(IEnumerable(Of Int32))
+  fullName: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable<System.Int32>)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable(Of System.Int32))
+  nameWithType: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable<Int32>)
+  nameWithType.vb: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable(Of Int32))
+- uid: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int64})
+  name: AreIntegersSequentialInOrder(IEnumerable<Int64>)
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_AreIntegersSequentialInOrder_System_Collections_Generic_IEnumerable_System_Int64__
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int64})
+  name.vb: AreIntegersSequentialInOrder(IEnumerable(Of Int64))
+  fullName: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable<System.Int64>)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable(Of System.Int64))
+  nameWithType: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable<Int64>)
+  nameWithType.vb: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable(Of Int64))
+- uid: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder*
+  name: AreIntegersSequentialInOrder
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_AreIntegersSequentialInOrder_
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder
+  nameWithType: EnumerableExtensions.AreIntegersSequentialInOrder
 - uid: Ploch.Common.Collections.EnumerableExtensions.ForEach*
   name: ForEach
   href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_ForEach_
@@ -202,6 +227,22 @@ references:
   fullName.vb: Ploch.Common.Collections.EnumerableExtensions.None(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.Boolean))
   nameWithType: EnumerableExtensions.None<TSource>(IEnumerable<TSource>, Func<TSource, Boolean>)
   nameWithType.vb: EnumerableExtensions.None(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, Boolean))
+- uid: Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty*
+  name: NullOrEmpty
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_NullOrEmpty_
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty
+  nameWithType: EnumerableExtensions.NullOrEmpty
+- uid: Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  name: NullOrEmpty<T>(IEnumerable<T>)
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_NullOrEmpty__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: NullOrEmpty(Of T)(IEnumerable(Of T))
+  fullName: Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: EnumerableExtensions.NullOrEmpty<T>(IEnumerable<T>)
+  nameWithType.vb: EnumerableExtensions.NullOrEmpty(Of T)(IEnumerable(Of T))
 - uid: Ploch.Common.Collections.EnumerableExtensions.Shuffle*
   name: Shuffle
   href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_Shuffle_
@@ -2475,6 +2516,82 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.StringExtensions.ToBase64String
   nameWithType: StringExtensions.ToBase64String
+- uid: Ploch.Common.StringExtensions.ToInt32(System.String)
+  name: ToInt32(String)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_ToInt32_System_String_
+  commentId: M:Ploch.Common.StringExtensions.ToInt32(System.String)
+  fullName: Ploch.Common.StringExtensions.ToInt32(System.String)
+  nameWithType: StringExtensions.ToInt32(String)
+- uid: Ploch.Common.StringExtensions.ToInt32*
+  name: ToInt32
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_ToInt32_
+  commentId: Overload:Ploch.Common.StringExtensions.ToInt32
+  isSpec: "True"
+  fullName: Ploch.Common.StringExtensions.ToInt32
+  nameWithType: StringExtensions.ToInt32
+- uid: Ploch.Common.StringExtensions.ToInt64(System.String)
+  name: ToInt64(String)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_ToInt64_System_String_
+  commentId: M:Ploch.Common.StringExtensions.ToInt64(System.String)
+  fullName: Ploch.Common.StringExtensions.ToInt64(System.String)
+  nameWithType: StringExtensions.ToInt64(String)
+- uid: Ploch.Common.StringExtensions.ToInt64*
+  name: ToInt64
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_ToInt64_
+  commentId: Overload:Ploch.Common.StringExtensions.ToInt64
+  isSpec: "True"
+  fullName: Ploch.Common.StringExtensions.ToInt64
+  nameWithType: StringExtensions.ToInt64
+- uid: Ploch.Common.StringExtensions.TryConvertToInt32(System.String,System.IFormatProvider,System.Int32@)
+  name: TryConvertToInt32(String, IFormatProvider, out Int32)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_TryConvertToInt32_System_String_System_IFormatProvider_System_Int32__
+  commentId: M:Ploch.Common.StringExtensions.TryConvertToInt32(System.String,System.IFormatProvider,System.Int32@)
+  name.vb: TryConvertToInt32(String, IFormatProvider, ByRef Int32)
+  fullName: Ploch.Common.StringExtensions.TryConvertToInt32(System.String, System.IFormatProvider, out System.Int32)
+  fullName.vb: Ploch.Common.StringExtensions.TryConvertToInt32(System.String, System.IFormatProvider, ByRef System.Int32)
+  nameWithType: StringExtensions.TryConvertToInt32(String, IFormatProvider, out Int32)
+  nameWithType.vb: StringExtensions.TryConvertToInt32(String, IFormatProvider, ByRef Int32)
+- uid: Ploch.Common.StringExtensions.TryConvertToInt32(System.String,System.Int32@)
+  name: TryConvertToInt32(String, out Int32)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_TryConvertToInt32_System_String_System_Int32__
+  commentId: M:Ploch.Common.StringExtensions.TryConvertToInt32(System.String,System.Int32@)
+  name.vb: TryConvertToInt32(String, ByRef Int32)
+  fullName: Ploch.Common.StringExtensions.TryConvertToInt32(System.String, out System.Int32)
+  fullName.vb: Ploch.Common.StringExtensions.TryConvertToInt32(System.String, ByRef System.Int32)
+  nameWithType: StringExtensions.TryConvertToInt32(String, out Int32)
+  nameWithType.vb: StringExtensions.TryConvertToInt32(String, ByRef Int32)
+- uid: Ploch.Common.StringExtensions.TryConvertToInt32*
+  name: TryConvertToInt32
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_TryConvertToInt32_
+  commentId: Overload:Ploch.Common.StringExtensions.TryConvertToInt32
+  isSpec: "True"
+  fullName: Ploch.Common.StringExtensions.TryConvertToInt32
+  nameWithType: StringExtensions.TryConvertToInt32
+- uid: Ploch.Common.StringExtensions.TryConvertToInt64(System.String,System.IFormatProvider,System.Int64@)
+  name: TryConvertToInt64(String, IFormatProvider, out Int64)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_TryConvertToInt64_System_String_System_IFormatProvider_System_Int64__
+  commentId: M:Ploch.Common.StringExtensions.TryConvertToInt64(System.String,System.IFormatProvider,System.Int64@)
+  name.vb: TryConvertToInt64(String, IFormatProvider, ByRef Int64)
+  fullName: Ploch.Common.StringExtensions.TryConvertToInt64(System.String, System.IFormatProvider, out System.Int64)
+  fullName.vb: Ploch.Common.StringExtensions.TryConvertToInt64(System.String, System.IFormatProvider, ByRef System.Int64)
+  nameWithType: StringExtensions.TryConvertToInt64(String, IFormatProvider, out Int64)
+  nameWithType.vb: StringExtensions.TryConvertToInt64(String, IFormatProvider, ByRef Int64)
+- uid: Ploch.Common.StringExtensions.TryConvertToInt64(System.String,System.Int64@)
+  name: TryConvertToInt64(String, out Int64)
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_TryConvertToInt64_System_String_System_Int64__
+  commentId: M:Ploch.Common.StringExtensions.TryConvertToInt64(System.String,System.Int64@)
+  name.vb: TryConvertToInt64(String, ByRef Int64)
+  fullName: Ploch.Common.StringExtensions.TryConvertToInt64(System.String, out System.Int64)
+  fullName.vb: Ploch.Common.StringExtensions.TryConvertToInt64(System.String, ByRef System.Int64)
+  nameWithType: StringExtensions.TryConvertToInt64(String, out Int64)
+  nameWithType.vb: StringExtensions.TryConvertToInt64(String, ByRef Int64)
+- uid: Ploch.Common.StringExtensions.TryConvertToInt64*
+  name: TryConvertToInt64
+  href: api/Ploch.Common.StringExtensions.html#Ploch_Common_StringExtensions_TryConvertToInt64_
+  commentId: Overload:Ploch.Common.StringExtensions.TryConvertToInt64
+  isSpec: "True"
+  fullName: Ploch.Common.StringExtensions.TryConvertToInt64
+  nameWithType: StringExtensions.TryConvertToInt64
 - uid: Ploch.Common.ThreadSafeRandom
   name: ThreadSafeRandom
   href: api/Ploch.Common.ThreadSafeRandom.html
