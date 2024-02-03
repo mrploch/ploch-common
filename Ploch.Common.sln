@@ -62,9 +62,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{576228
 		global.json = global.json
 		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
-		Ploch.Common.nuspec = Ploch.Common.nuspec
 		qodana.yaml = qodana.yaml
 		qodana.sarif.json = qodana.sarif.json
+		dotnet-releaser.toml = dotnet-releaser.toml
 		.codacy.yml = .codacy.yml
 	EndProjectSection
 EndProject
