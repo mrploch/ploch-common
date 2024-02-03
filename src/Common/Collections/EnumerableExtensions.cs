@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Dawn;
 
@@ -109,7 +108,7 @@ public static class EnumerableExtensions
     /// <param name="separator">The separator.</param>
     /// <param name="valueSelector">The selector of <typeparamref name="TValue" /> object property or an expression.</param>
     /// <typeparam name="TValue">The type of the collection element.</typeparam>
-    /// <typeparam name="TResult">The resulting </typeparam>
+    /// <typeparam name="TResult">The resulting.</typeparam>
     /// <returns>String from joined elements.</returns>
     public static string Join<TValue, TResult>(this IEnumerable<TValue> source, string separator, Func<TValue, TResult> valueSelector)
     {
@@ -130,6 +129,16 @@ public static class EnumerableExtensions
         return JoinWithFinalSeparator(source, separator, finalSeparator, v => v?.ToString());
     }
 
+    /// <summary>
+    ///     Joins the elements of a sequence by a separator, with a final separator for the last two elements.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the elements in the sequence.</typeparam>
+    /// <typeparam name="TResult">The type of the result after applying the valueSelector function.</typeparam>
+    /// <param name="source">The sequence to join.</param>
+    /// <param name="separator">The separator to be used between elements.</param>
+    /// <param name="finalSeparator">The separator to be used between the last two elements.</param>
+    /// <param name="valueSelector">A function to select a result value from each element.</param>
+    /// <returns>A string that consists of the joined elements with the separators.</returns>
     public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
                                                                  string separator,
                                                                  string finalSeparator,
@@ -226,15 +235,6 @@ public static class EnumerableExtensions
         return If<IEnumerable<T>, T>(enumerable, condition, action);
     }
 
-    internal static TEnumerable If<TEnumerable, T>(this TEnumerable queryable, bool condition, Func<TEnumerable, TEnumerable> action)
-        where TEnumerable : class, IEnumerable<T>
-    {
-        Guard.Argument(action, nameof(action)).NotNull();
-        Guard.Argument(queryable, nameof(queryable)).NotNull();
-
-        return condition ? action!(queryable) : queryable;
-    }
-
     /// <summary>
     ///     Performs the specified action on each element of the <paramref name="enumerable" />.
     /// </summary>
@@ -258,9 +258,6 @@ public static class EnumerableExtensions
     /// <summary>
     ///     Determines whether the elements in the given enumerable are sequential.
     /// </summary>
-    /// <typeparam name="T">
-    ///     The type of the elements in the enumerable.
-    /// </typeparam>
     /// <param name="enumerable">
     ///     The enumerable to check for sequentiality. Must not be null.
     /// </param>
@@ -274,13 +271,10 @@ public static class EnumerableExtensions
 
         return array.Skip(1).Select((v, i) => v == array[i] + 1).All(v => v);
     }
-    
+
     /// <summary>
     ///     Determines whether the elements in the given enumerable are sequential.
     /// </summary>
-    /// <typeparam name="T">
-    ///     The type of the elements in the enumerable.
-    /// </typeparam>
     /// <param name="enumerable">
     ///     The enumerable to check for sequentiality. Must not be null.
     /// </param>
@@ -296,7 +290,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    /// Checks if the specified collection is null or empty.
+    ///     Checks if the specified collection is null or empty.
     /// </summary>
     /// <typeparam name="T">The type of the elements in the collection.</typeparam>
     /// <param name="enumerable">The collection to check.</param>
@@ -304,5 +298,14 @@ public static class EnumerableExtensions
     public static bool NullOrEmpty<T>(this IEnumerable<T>? enumerable)
     {
         return enumerable == null || !enumerable.Any();
+    }
+
+    internal static TEnumerable If<TEnumerable, T>(this TEnumerable queryable, bool condition, Func<TEnumerable, TEnumerable> action)
+        where TEnumerable : class, IEnumerable<T>
+    {
+        Guard.Argument(action, nameof(action)).NotNull();
+        Guard.Argument(queryable, nameof(queryable)).NotNull();
+
+        return condition ? action.Invoke(queryable) : queryable;
     }
 }
