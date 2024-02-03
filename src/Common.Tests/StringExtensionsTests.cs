@@ -95,9 +95,9 @@ public class StringExtensionsTests
     }
     
     [Fact]
-    public void EqualsIgnoreCase_should_return_true_if_one_strings_is_null_other_is_not()
+    public void EqualsIgnoreCase_should_return_false_if_one_strings_is_null_other_is_not()
     {
-        ((string)null).EqualsIgnoreCase("test").Should().BeTrue();
+        ((string)null).EqualsIgnoreCase("test").Should().BeFalse();
     }
 
     [Fact]
