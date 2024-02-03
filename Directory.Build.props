@@ -51,6 +51,7 @@
         <Message Text="IsTestProject -> '$(IsTestProject)' " Importance="high" />
         <Message Text="GeneratePackageOnBuild -> '$(GeneratePackageOnBuild)' " Importance="high" />
         <Message Text="GenerateDocumentationFile -> '$(GenerateDocumentationFile)' " Importance="high" />
+        <Message Text="DocumentationFile -> '$(DocumentationFile)' " Importance="high" />
         <Message Text="IsPackable -> '$(IsPackable)' " Importance="high" />
     </Target>
     <!--  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">-->

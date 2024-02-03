@@ -3,10 +3,9 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Authors>Kris Ploch</Authors>
         <Nullable>warnings</Nullable>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+        <DocumentationFile>$(BaseOutputPath)\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
