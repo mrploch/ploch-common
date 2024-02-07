@@ -199,11 +199,23 @@ public class EnumerableExtensionsTests
     }
 
     [Fact]
-    public void AreSequentialInOrder_returns_true_if_numbers_in_a_sequence_are_sequential()
+    public void AreIntegersSequentialInOrder_returns_true_if_numbers_in_a_sequence_are_sequential()
     {
         var sequential = new[] { 1, 2, 3, 4, 5, 6, 7 };
         var sequentialNotInOrderNumbers = new[] { 1, 3, 2, 4, 5, 6, 7 };
         var nonSequentialNumbers = new[] { 1, 2, 3, 4, 5, 6, 8 };
+
+        sequential.AreIntegersSequentialInOrder().Should().BeTrue();
+        sequentialNotInOrderNumbers.AreIntegersSequentialInOrder().Should().BeFalse();
+        nonSequentialNumbers.AreIntegersSequentialInOrder().Should().BeFalse();
+    }
+
+    [Fact]
+    public void AreIntegersSequentialInOrder_returns_true_if_numbers_in_a_sequence_are_sequential_for_longs()
+    {
+        var sequential = new long[] { 1, 2, 3, 4, 5, 6, 7 };
+        var sequentialNotInOrderNumbers = new long[] { 1, 3, 2, 4, 5, 6, 7 };
+        var nonSequentialNumbers = new long[] { 1, 2, 3, 4, 5, 6, 8 };
 
         sequential.AreIntegersSequentialInOrder().Should().BeTrue();
         sequentialNotInOrderNumbers.AreIntegersSequentialInOrder().Should().BeFalse();
