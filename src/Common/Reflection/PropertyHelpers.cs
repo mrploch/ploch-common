@@ -161,6 +161,17 @@ public static class PropertyHelpers
         return value;
     }
 
+    /// <summary>
+    /// Retrieves the value of a static property from the specified type.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the property value.</typeparam>
+    /// <param name="type">The type that contains the static property.</param>
+    /// <param name="propertyName">The name of the static property.</param>
+    /// <returns>
+    /// The value of the static property, if it exists and is of type TValue;
+    /// otherwise, null is returned if the property does not exist,
+    /// or an <see cref="InvalidOperationException"/> is thrown if the property exists but is not of type TValue.
+    /// </returns>
     public static TValue? GetStaticPropertyValue<TValue>(this Type type, string propertyName)
     {
         var valueObj = GetStaticPropertyValue(type, propertyName);
