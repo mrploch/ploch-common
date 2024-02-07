@@ -21,7 +21,7 @@ public class EnumerableExtensionsTests
     public void ValueIn_should_work_on_short_type()
     {
         short number = 10;
-
+        
         number.ValueIn<short>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).Should().BeTrue();
     }
 

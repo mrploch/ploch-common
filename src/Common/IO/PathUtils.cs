@@ -3,6 +3,9 @@ using Dawn;
 
 namespace Ploch.Common.IO;
 
+/// <summary>
+/// Utility class for manipulating path related operations.
+/// </summary>
 public static class PathUtils
 {
     /// <summary>
