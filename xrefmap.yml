@@ -7,6 +7,37 @@ references:
   commentId: N:Ploch.Common
   fullName: Ploch.Common
   nameWithType: Ploch.Common
+- uid: Ploch.Common.AssemblyInformation
+  name: AssemblyInformation
+  href: api/Ploch.Common.AssemblyInformation.html
+  commentId: T:Ploch.Common.AssemblyInformation
+  fullName: Ploch.Common.AssemblyInformation
+  nameWithType: AssemblyInformation
+- uid: Ploch.Common.AssemblyInformationProvider
+  name: AssemblyInformationProvider
+  href: api/Ploch.Common.AssemblyInformationProvider.html
+  commentId: T:Ploch.Common.AssemblyInformationProvider
+  fullName: Ploch.Common.AssemblyInformationProvider
+  nameWithType: AssemblyInformationProvider
+- uid: Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation(System.Object)
+  name: GetAssemblyInformation(Object)
+  href: api/Ploch.Common.AssemblyInformationProvider.html#Ploch_Common_AssemblyInformationProvider_GetAssemblyInformation_System_Object_
+  commentId: M:Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation(System.Object)
+  fullName: Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation(System.Object)
+  nameWithType: AssemblyInformationProvider.GetAssemblyInformation(Object)
+- uid: Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation(System.Type)
+  name: GetAssemblyInformation(Type)
+  href: api/Ploch.Common.AssemblyInformationProvider.html#Ploch_Common_AssemblyInformationProvider_GetAssemblyInformation_System_Type_
+  commentId: M:Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation(System.Type)
+  fullName: Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation(System.Type)
+  nameWithType: AssemblyInformationProvider.GetAssemblyInformation(Type)
+- uid: Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation*
+  name: GetAssemblyInformation
+  href: api/Ploch.Common.AssemblyInformationProvider.html#Ploch_Common_AssemblyInformationProvider_GetAssemblyInformation_
+  commentId: Overload:Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation
+  isSpec: "True"
+  fullName: Ploch.Common.AssemblyInformationProvider.GetAssemblyInformation
+  nameWithType: AssemblyInformationProvider.GetAssemblyInformation
 - uid: Ploch.Common.Collections
   name: Ploch.Common.Collections
   href: api/Ploch.Common.Collections.html
@@ -1445,6 +1476,28 @@ references:
   fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue(Of T)(T, System.String)
   nameWithType: PropertyHelpers.GetPropertyValue<T>(T, String)
   nameWithType.vb: PropertyHelpers.GetPropertyValue(Of T)(T, String)
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type,System.String)
+  name: GetStaticPropertyValue(Type, String)
+  href: api/Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_GetStaticPropertyValue_System_Type_System_String_
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type,System.String)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type, System.String)
+  nameWithType: PropertyHelpers.GetStaticPropertyValue(Type, String)
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue*
+  name: GetStaticPropertyValue
+  href: api/Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_GetStaticPropertyValue_
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue
+  isSpec: "True"
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue
+  nameWithType: PropertyHelpers.GetStaticPropertyValue
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue``1(System.Type,System.String)
+  name: GetStaticPropertyValue<TValue>(Type, String)
+  href: api/Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_GetStaticPropertyValue__1_System_Type_System_String_
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue``1(System.Type,System.String)
+  name.vb: GetStaticPropertyValue(Of TValue)(Type, String)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue<TValue>(System.Type, System.String)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(Of TValue)(System.Type, System.String)
+  nameWithType: PropertyHelpers.GetStaticPropertyValue<TValue>(Type, String)
+  nameWithType.vb: PropertyHelpers.GetStaticPropertyValue(Of TValue)(Type, String)
 - uid: Ploch.Common.Reflection.PropertyHelpers.HasProperty(System.Object,System.String)
   name: HasProperty(Object, String)
   href: api/Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_HasProperty_System_Object_System_String_
@@ -1474,6 +1527,22 @@ references:
   fullName.vb: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue(Of T)(T, System.String, System.Object)
   nameWithType: PropertyHelpers.SetPropertyValue<T>(T, String, Object)
   nameWithType.vb: PropertyHelpers.SetPropertyValue(Of T)(T, String, Object)
+- uid: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type,System.String,System.Object@)
+  name: TryGetStaticPropertyValue(Type, String, out Object)
+  href: api/Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_TryGetStaticPropertyValue_System_Type_System_String_System_Object__
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type,System.String,System.Object@)
+  name.vb: TryGetStaticPropertyValue(Type, String, ByRef Object)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type, System.String, out System.Object)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type, System.String, ByRef System.Object)
+  nameWithType: PropertyHelpers.TryGetStaticPropertyValue(Type, String, out Object)
+  nameWithType.vb: PropertyHelpers.TryGetStaticPropertyValue(Type, String, ByRef Object)
+- uid: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue*
+  name: TryGetStaticPropertyValue
+  href: api/Ploch.Common.Reflection.PropertyHelpers.html#Ploch_Common_Reflection_PropertyHelpers_TryGetStaticPropertyValue_
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue
+  isSpec: "True"
+  fullName: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue
+  nameWithType: PropertyHelpers.TryGetStaticPropertyValue
 - uid: Ploch.Common.Reflection.PropertyNotFoundException
   name: PropertyNotFoundException
   href: api/Ploch.Common.Reflection.PropertyNotFoundException.html
