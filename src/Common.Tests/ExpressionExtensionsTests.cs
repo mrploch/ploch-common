@@ -104,7 +104,7 @@ public class ExpressionExtensionsTests
 #pragma warning disable S3459
 
     // ReSharper disable once UnusedParameter.Local
-    private class TestType
+    public class TestType
     {
         public int IntProp { get; set; }
 
@@ -117,6 +117,16 @@ public class ExpressionExtensionsTests
         public int MethodWithReturn()
         {
             return 123;
+        }
+
+        [Theory]
+        [AutoMockData]
+        public void GetProperty_should_return_OwnedPropertyInfo_for_the_provided_property_selector_expression(TestTypes.MyTestClass obj)
+        {
+            var property = obj.GetProperty(o => o.StringProp2);
+
+            property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<TestTypes.MyTestClass, string>>();
+            property.Owner.Should().Be(obj);
         }
     }
 #pragma warning restore S3459

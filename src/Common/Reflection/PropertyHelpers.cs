@@ -122,6 +122,74 @@ public static class PropertyHelpers
     }
 
     /// <summary>
+    ///     Tries to get the value of a static property from a type.
+    /// </summary>
+    /// <param name="type">The type from which to get the static property value.</param>
+    /// <param name="propertyName">The name of the static property to get.</param>
+    /// <param name="value">The value of the static property, if it exists.</param>
+    /// <returns>True if the static property exists and its value can be retrieved, false otherwise.</returns>
+    public static bool TryGetStaticPropertyValue(this Type type, string propertyName, out object? value)
+    {
+        var propertyInfo = type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.Public);
+
+        if (propertyInfo == null)
+        {
+            value = null;
+
+            return false;
+        }
+
+        value = propertyInfo.GetValue(null);
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Retrieves the value of a static property of a given type.
+    /// </summary>
+    /// <param name="type">The type that contains the static property.</param>
+    /// <param name="propertyName">The name of the static property.</param>
+    /// <exception cref="InvalidOperationException">If property was not found in the provided type.</exception>
+    /// <returns> The value of the static property.</returns>
+    public static object? GetStaticPropertyValue(this Type type, string propertyName)
+    {
+        if (!TryGetStaticPropertyValue(type, propertyName, out var value))
+        {
+            throw new InvalidOperationException($"Static property {propertyName} was not found in {type}");
+        }
+
+        return value;
+    }
+
+    /// <summary>
+    /// Retrieves the value of a static property from the specified type.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the property value.</typeparam>
+    /// <param name="type">The type that contains the static property.</param>
+    /// <param name="propertyName">The name of the static property.</param>
+    /// <returns>
+    /// The value of the static property, if it exists and is of type TValue;
+    /// otherwise, null is returned if the property does not exist,
+    /// or an <see cref="InvalidOperationException"/> is thrown if the property exists but is not of type TValue.
+    /// </returns>
+    public static TValue? GetStaticPropertyValue<TValue>(this Type type, string propertyName)
+    {
+        var valueObj = GetStaticPropertyValue(type, propertyName);
+
+        if (valueObj == default)
+        {
+            return default;
+        }
+
+        if (valueObj is TValue value)
+        {
+            return value;
+        }
+
+        throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type");
+    }
+
+    /// <summary>
     ///     Determines whether the specified property name has property.
     /// </summary>
     /// <param name="obj">The object.</param>

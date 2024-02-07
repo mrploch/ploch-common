@@ -98,4 +98,87 @@ public class PropertyHelpersTests
         testObject.HasProperty(nameof(TestTypes.MyTestClass.IntProp)).Should().BeTrue();
         testObject.HasProperty("NoPropertyLikeThis").Should().BeFalse();
     }
+
+    [Fact]
+    public void TryGetStaticPropertyValue_should_return_true_and_static_property_value_if_property_exists()
+    {
+        TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
+
+        var success = typeof(TestClassWithStaticProperties).TryGetStaticPropertyValue(nameof(TestClassWithStaticProperties.StaticStringProp), out var value);
+
+        success.Should().BeTrue();
+        value.Should().Be(TestClassWithStaticProperties.StaticStringProp);
+    }
+
+    [Fact]
+    public void TryGetStaticPropertyValue_should_return_false_if_property_not_found()
+    {
+        var success = typeof(TestClassWithStaticProperties).TryGetStaticPropertyValue("NonExistingProperty", out var value);
+
+        success.Should().BeFalse();
+        value.Should().BeNull();
+    }
+
+    [Fact]
+    public void GetStaticPropertyValue_should_return_static_property_value_if_property_exists()
+    {
+        TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
+
+        var value = typeof(TestClassWithStaticProperties).GetStaticPropertyValue(nameof(TestClassWithStaticProperties.StaticStringProp));
+
+        value.Should().Be(TestClassWithStaticProperties.StaticStringProp);
+    }
+
+    [Fact]
+    public void GetStaticPropertyValue_should_fail_if_property_not_found()
+    {
+        var action = () => typeof(TestClassWithStaticProperties).GetStaticPropertyValue("NonExistingProperty");
+
+        action.Should().ThrowExactly<InvalidOperationException>();
+    }
+
+    [Fact]
+    public void GetStaticPropertyValue_with_expected_type_should_return_property_value_as_expected_type()
+    {
+        TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
+        TestClassWithStaticProperties.StaticIntProp = 1234;
+
+        var stringPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestClassWithStaticProperties.StaticStringProp));
+        var intPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<int>(nameof(TestClassWithStaticProperties.StaticIntProp));
+
+        stringPropValue.Should().Be(TestClassWithStaticProperties.StaticStringProp);
+        intPropValue.Should().Be(TestClassWithStaticProperties.StaticIntProp);
+    }
+
+    [Fact]
+    public void GetStaticPropertyValue_with_unexpected_type_should_throw()
+    {
+        TestClassWithStaticProperties.StaticStringProp = "test";
+
+        var type = typeof(TestClassWithStaticProperties);
+        var action = () => type.GetStaticPropertyValue<Guid>(nameof(TestClassWithStaticProperties.StaticStringProp));
+        action.Should().ThrowExactly<InvalidOperationException>();
+    }
+
+    [Fact]
+    public void GetStaticPropertyValue_with_expected_type_should_handle_null_value()
+    {
+        TestClassWithStaticProperties.StaticStringProp = null;
+        TestClassWithStaticProperties.StaticNullableIntProp = null;
+
+        var stringPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestClassWithStaticProperties.StaticStringProp));
+        var nullableIntPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestClassWithStaticProperties.StaticStringProp));
+
+        stringPropValue.Should().BeNull();
+        nullableIntPropValue.Should().BeNull();
+    }
+
+    private static class TestClassWithStaticProperties
+    {
+        public static string? StaticStringProp { get; set; }
+
+        public static int StaticIntProp { get; set; }
+
+        public static int? StaticNullableIntProp { get; set; }
+    }
 }

@@ -5,16 +5,6 @@ using Xunit;
 
 namespace Ploch.Common.Tests.Reflection;
 
-public interface IHasIdSettable<T>
-{
-    T Id { get; set; }
-}
-
-public interface INamed
-{
-    string Name { get; set; }
-}
-
 public class ObjectGraphHelperTests
 {
     [Theory]
@@ -84,6 +74,37 @@ public class ObjectGraphHelperTests
                 tag.Name.Should().Be("Test");
             }
         }
+    }
+
+    public interface IHasId<TId>
+    {
+        TId Id { get; set; }
+    }
+
+    public interface IHasIdSettable<TId> : IHasId<TId>
+    {
+        new TId Id { get; set; }
+    }
+
+    public interface INamed
+    {
+        string Name { get; set; }
+    }
+    
+    public class Category<TCategory, TId> : IHasIdSettable<TId>, INamed
+    {
+        public virtual ICollection<TCategory> Categories { get; set; } = new List<TCategory>();
+
+        public TId Id { get; set; } = default!;
+
+        public required string Name { get; set; }
+    }
+
+    public class Tag : IHasIdSettable<int>
+    {
+        public string Name { get; set; } = null!;
+
+        public int Id { get; set; }
     }
 
     public class TestBlog : IHasIdSettable<int>, INamed
