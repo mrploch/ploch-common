@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+        <DocumentationFile>$(BaseOutputPath)\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
