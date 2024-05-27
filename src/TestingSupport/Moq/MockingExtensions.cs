@@ -16,17 +16,18 @@ namespace Ploch.TestingSupport.Moq
         /// <returns>A <see cref="Mock{T}"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when mockedService is null.</exception>
         /// <exception cref="InvalidOperationException">Thrown when the provided object is not a mock.</exception>
-        public static Mock<T> Mock<T>(this T mockedService) where T : class
+        public static Mock<T> Mock<T>(this T mockedService)
+            where T : class
         {
             if (mockedService == null)
             {
-                throw new ArgumentNullException("mockedService");
+                throw new ArgumentNullException(nameof(mockedService));
             }
 
             var mocked = mockedService as IMocked<T>;
             if (mocked == null)
             {
-                throw new InvalidOperationException(string.Format("Provided object ({0}) is not a mock!", mockedService.GetType().Name));
+                throw new InvalidOperationException($"Provided object ({mockedService.GetType().Name}) is not a mock!");
             }
 
             return mocked.Mock;

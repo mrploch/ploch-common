@@ -38,6 +38,8 @@ public static class ComparisonUtils
     /// </returns>
     public static bool IsDefault<TValue>(this TValue? value)
     {
+#pragma warning disable CS8604 // Possible null reference argument. - this comparison is handling null or default values
         return EqualityComparer<TValue>.Default.Equals(value, default);
+#pragma warning restore CS8604 // Possible null reference argument.
     }
 }

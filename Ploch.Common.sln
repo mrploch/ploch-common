@@ -62,6 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{576228
 		qodana.sarif.json = qodana.sarif.json
 		dotnet-releaser.toml = dotnet-releaser.toml
 		.codacy.yml = .codacy.yml
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{73418E3A-0260-462E-A269-0540040A06A3}"
