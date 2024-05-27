@@ -54,6 +54,10 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageVersion>
+        <PackageVersion Include="docfx.console" Version="2.59.4">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageVersion>
     </ItemGroup>
     <ItemGroup>
         <GlobalPackageReference Include="codecracker.CSharp" Version="1.1.0">
