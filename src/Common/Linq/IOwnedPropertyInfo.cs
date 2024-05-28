@@ -31,7 +31,7 @@ public interface IOwnedPropertyInfo
     PropertyInfo PropertyInfo { get; }
 
     /// <summary>
-    ///     Gets the the object that owns the the property.
+    ///     Gets the object that owns the property.
     /// </summary>
     object Owner { get; }
 

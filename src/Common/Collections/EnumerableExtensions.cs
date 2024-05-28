@@ -249,7 +249,9 @@ public static class EnumerableExtensions
 
         foreach (var item in enumerable)
         {
+#pragma warning disable CC0031 - already tested for null
             action(item);
+#pragma warning restore CC0031
         }
 
         return enumerable;
@@ -297,7 +299,7 @@ public static class EnumerableExtensions
     /// <returns>true if the collection is null or empty; otherwise, false.</returns>
     public static bool NullOrEmpty<T>(this IEnumerable<T>? enumerable)
     {
-        return enumerable == null || !enumerable.Any();
+        return enumerable?.Any() != true;
     }
 
     internal static TEnumerable If<TEnumerable, T>(this TEnumerable queryable, bool condition, Func<TEnumerable, TEnumerable> action)
