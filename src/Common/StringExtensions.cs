@@ -119,14 +119,13 @@ public static class StringExtensions
 
         return newValue + str.Substring(oldValue.Length, str.Length - oldValue.Length);
     }
-    
-    
+
     /// <summary>
-    /// Converts the string representation of a number to its 32-bit signed integer equivalent.
+    ///     Converts the string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
     /// <param name="str">The string to convert.</param>
     /// <returns>
-    /// The 32-bit signed integer equivalent to the number contained in the string.
+    ///     The 32-bit signed integer equivalent to the number contained in the string.
     /// </returns>
     public static int ToInt32(this string str)
     {
@@ -136,12 +135,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
+    ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
     /// <param name="str">The string to convert.</param>
-    /// <param name="result">When this method returns, contains the 32-bit signed integer value equivalent to the number contained in <paramref name="str"/>, if the conversion succeeded; otherwise, zero. This parameter is passed uninitialized.</param>
+    /// <param name="result">
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
+    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     uninitialized.
+    /// </param>
     /// <returns>
-    /// true if the conversion succeeded; otherwise, false.
+    ///     true if the conversion succeeded; otherwise, false.
     /// </returns>
     public static bool TryConvertToInt32(this string str, out int result)
     {
@@ -149,13 +152,17 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
+    ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
     /// <param name="str">The string to convert.</param>
-    /// <param name="provider">An object that supplies culture-specific formatting information about <paramref name="str"/>.</param>
-    /// <param name="result">When this method returns, contains the 32-bit signed integer value equivalent to the number contained in <paramref name="str"/>, if the conversion succeeded; otherwise, zero. This parameter is passed uninitialized.</param>
+    /// <param name="provider">An object that supplies culture-specific formatting information about <paramref name="str" />.</param>
+    /// <param name="result">
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
+    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     uninitialized.
+    /// </param>
     /// <returns>
-    /// true if the conversion succeeded; otherwise, false.
+    ///     true if the conversion succeeded; otherwise, false.
     /// </returns>
     public static bool TryConvertToInt32(this string str, IFormatProvider provider, out int result)
     {
@@ -163,13 +170,13 @@ public static class StringExtensions
 
         return int.TryParse(str, NumberStyles.Integer, provider, out result);
     }
-    
+
     /// <summary>
-    /// Converts the string representation of a number to its 32-bit signed integer equivalent.
+    ///     Converts the string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
     /// <param name="str">The string to convert.</param>
     /// <returns>
-    /// The 32-bit signed integer equivalent to the number contained in the string.
+    ///     The 32-bit signed integer equivalent to the number contained in the string.
     /// </returns>
     public static long ToInt64(this string str)
     {
@@ -179,12 +186,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
+    ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
     /// <param name="str">The string to convert.</param>
-    /// <param name="result">When this method returns, contains the 32-bit signed integer value equivalent to the number contained in <paramref name="str"/>, if the conversion succeeded; otherwise, zero. This parameter is passed uninitialized.</param>
+    /// <param name="result">
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
+    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     uninitialized.
+    /// </param>
     /// <returns>
-    /// true if the conversion succeeded; otherwise, false.
+    ///     true if the conversion succeeded; otherwise, false.
     /// </returns>
     public static bool TryConvertToInt64(this string str, out long result)
     {
@@ -192,13 +203,17 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
+    ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
     /// <param name="str">The string to convert.</param>
-    /// <param name="provider">An object that supplies culture-specific formatting information about <paramref name="str"/>.</param>
-    /// <param name="result">When this method returns, contains the 32-bit signed integer value equivalent to the number contained in <paramref name="str"/>, if the conversion succeeded; otherwise, zero. This parameter is passed uninitialized.</param>
+    /// <param name="provider">An object that supplies culture-specific formatting information about <paramref name="str" />.</param>
+    /// <param name="result">
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
+    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     uninitialized.
+    /// </param>
     /// <returns>
-    /// true if the conversion succeeded; otherwise, false.
+    ///     true if the conversion succeeded; otherwise, false.
     /// </returns>
     public static bool TryConvertToInt64(this string str, IFormatProvider provider, out long result)
     {

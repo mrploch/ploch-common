@@ -10,10 +10,10 @@ public class ObjectReflectionExtensionsTests
 {
     [Theory]
     [AutoData]
-    public void GetFieldValue_should_return_field_private_field_value(string privateFieldValue,
-                                                                      int protectedFieldValue,
-                                                                      Guid publicFieldValue,
-                                                                      string privateStaticFieldValue)
+    public void GetFieldValue_Generic_should_return_field_private_field_value(string privateFieldValue,
+                                                                              int protectedFieldValue,
+                                                                              Guid publicFieldValue,
+                                                                              string privateStaticFieldValue)
     {
         var testType = new TestType(privateFieldValue, protectedFieldValue, publicFieldValue, privateStaticFieldValue);
 
@@ -21,6 +21,21 @@ public class ObjectReflectionExtensionsTests
         testType.GetFieldValue<int>("_protectedField").Should().Be(protectedFieldValue);
         testType.GetFieldValue<Guid>("PublicField").Should().Be(publicFieldValue);
         testType.GetFieldValue<string>("PrivateStaticField").Should().Be(privateStaticFieldValue);
+    }
+
+    [Theory]
+    [AutoData]
+    public void GetFieldValue_NonGeneric_should_return_field_private_field_value(string privateFieldValue,
+                                                                                 int protectedFieldValue,
+                                                                                 Guid publicFieldValue,
+                                                                                 string privateStaticFieldValue)
+    {
+        var testType = new TestType(privateFieldValue, protectedFieldValue, publicFieldValue, privateStaticFieldValue);
+
+        testType.GetFieldValue("_privateField").Should().Be(privateFieldValue);
+        testType.GetFieldValue("_protectedField").Should().Be(protectedFieldValue);
+        testType.GetFieldValue("PublicField").Should().Be(publicFieldValue);
+        testType.GetFieldValue("PrivateStaticField").Should().Be(privateStaticFieldValue);
     }
 
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]

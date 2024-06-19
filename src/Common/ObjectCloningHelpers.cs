@@ -10,16 +10,38 @@ namespace Ploch.Common;
 /// </remarks>
 public static class ObjectCloningHelpers
 {
+    /// <summary>
+    ///     Copies all of the properties of the source object to the target object.
+    /// </summary>
+    /// <param name="source">The source object.</param>
+    /// <param name="target">The target object.</param>
+    /// <typeparam name="T">The object type.</typeparam>
     public static void CopyProperties<T>(this T source, T target)
     {
         CopyPropertiesIncludeOnly(source, target, null);
     }
 
+    /// <summary>
+    ///     Copies the properties of the source object to the target object, but only the properties specified in the
+    ///     includedProperties array.
+    /// </summary>
+    /// <param name="source">The source object.</param>
+    /// <param name="target">The target object.</param>
+    /// <param name="includedProperties">The properties to include or null to copy all.</param>
+    /// <typeparam name="T">The object type.</typeparam>
     public static void CopyPropertiesIncludeOnly<T>(this T source, T target, params string[]? includedProperties)
     {
         CopyProperties(source, target, includedProperties, null);
     }
 
+    /// <summary>
+    ///     Copies the properties of the source object to the target object, excluding the properties specified in the
+    ///     excludedProperties array.
+    /// </summary>
+    /// <param name="source">The source object.</param>
+    /// <param name="target">The target object.</param>
+    /// <param name="excludedProperties">The properties to exclude or null to not exclude anything.</param>
+    /// <typeparam name="T">The object type.</typeparam>
     public static void CopyPropertiesExcluding<T>(this T source, T target, params string[]? excludedProperties)
     {
         CopyProperties(source, target, null, excludedProperties);

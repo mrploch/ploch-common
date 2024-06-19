@@ -20,14 +20,6 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     {
         return Serialize(obj, GetSettings(configuration));
     }
-    
-    /// <summary>
-    /// Serializes the specified object using concrete <typeparamref name="TSettings"/>.
-    /// </summary>
-    /// <param name="obj">The object to serialize.</param>
-    /// <param name="settings">The serializer settings.</param>
-    /// <returns>The serialized object.</returns>
-    protected abstract string Serialize(object obj, TSettings settings);
 
     /// <inheritdoc />
     public object? Deserialize(string serializedObj, Type type, Action<TSettings>? configuration)
@@ -48,7 +40,15 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     }
 
     /// <summary>
-    /// Deserializes the specified serialized object using concrete <typeparamref name="TSettings"/>.;
+    ///     Serializes the specified object using concrete <typeparamref name="TSettings" />.
+    /// </summary>
+    /// <param name="obj">The object to serialize.</param>
+    /// <param name="settings">The serializer settings.</param>
+    /// <returns>The serialized object.</returns>
+    protected abstract string Serialize(object obj, TSettings settings);
+
+    /// <summary>
+    ///     Deserializes the specified serialized object using concrete <typeparamref name="TSettings"/>.
     /// </summary>
     /// <param name="serializedObj">String representing the serialized object.</param>
     /// <param name="type">The type of the object to deserialize to.</param>
@@ -57,7 +57,7 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     protected abstract object? Deserialize(string serializedObj, Type type, TSettings settings);
 
     /// <summary>
-    /// Deserializes the specified serialized object using concrete <typeparamref name="TSettings"/>.
+    ///     Deserializes the specified serialized object using concrete <typeparamref name="TSettings"/>.
     /// </summary>
     /// <param name="serializedObj">String representing the serialized object.</param>
     /// <param name="settings">The serializer settings.</param>
@@ -66,7 +66,7 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     protected abstract TTargetType? Deserialize<TTargetType>(string serializedObj, TSettings settings);
 
     /// <summary>
-    /// Deserializes the embedded JSON object.
+    ///     Deserializes the embedded JSON object.
     /// </summary>
     /// <param name="jsonObject">The JSON object.</param>
     /// <param name="targetType">The type to deserialize to.</param>
@@ -74,7 +74,7 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     protected abstract object? DeserializeObject(TDataJsonObject jsonObject, Type targetType);
 
     /// <summary>
-    /// Retrieves and configures the serializer settings.
+    ///     Retrieves and configures the serializer settings.
     /// </summary>
     /// <param name="configuration">The serializer settings configuration.</param>
     /// <returns>The serializer settings.</returns>

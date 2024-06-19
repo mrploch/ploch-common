@@ -17,14 +17,15 @@
         <VersionPrefix>2.0.1</VersionPrefix>
         <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
 <!-- Development versions -->
-                <VersionSuffix>-prerelease</VersionSuffix>
-                <FullVersionSuffix>$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
-                <Version>$(VersionPrefix)$(FullVersionSuffix)</Version>
+        <VersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">-prerelease</VersionSuffix>
+        <FullVersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
+        <Version Condition="'$(RELEASEVERSION)' != 'true'">$(VersionPrefix)$(FullVersionSuffix)</Version>
 <!-- Release versions -->
-<!--        <Version>$(VersionPrefix)</Version>-->
+        <Version Condition="'$(RELEASEVERSION)' == 'true'">$(VersionPrefix)</Version>
         <FileVersion>$(InformationalVersion)</FileVersion>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
+        <NoWarn>$(NoWarn);NU1507;CS9057</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DebugType>embedded</DebugType>
