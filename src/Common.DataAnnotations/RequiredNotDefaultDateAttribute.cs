@@ -14,6 +14,7 @@ namespace Ploch.Common.DataAnnotations;
 ///         This includes <see cref="TimeOnly" />.
 ///     </para>
 /// </remarks>
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter)]
 public class RequiredNotDefaultDateAttribute : ValidationAttribute
 {
     /// <summary>
