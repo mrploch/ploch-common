@@ -438,6 +438,44 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.Cryptography.Hashing.ToMD5HashString
   nameWithType: Hashing.ToMD5HashString
+- uid: Ploch.Common.DataAnnotations
+  name: Ploch.Common.DataAnnotations
+  href: api/Ploch.Common.DataAnnotations.html
+  commentId: N:Ploch.Common.DataAnnotations
+  fullName: Ploch.Common.DataAnnotations
+  nameWithType: Ploch.Common.DataAnnotations
+- uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+  name: RequiredNotDefaultDateAttribute
+  href: api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html
+  commentId: T:Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+  fullName: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+  nameWithType: RequiredNotDefaultDateAttribute
+- uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.#ctor
+  name: RequiredNotDefaultDateAttribute()
+  href: api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html#Ploch_Common_DataAnnotations_RequiredNotDefaultDateAttribute__ctor
+  commentId: M:Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.#ctor
+  fullName: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.RequiredNotDefaultDateAttribute()
+  nameWithType: RequiredNotDefaultDateAttribute.RequiredNotDefaultDateAttribute()
+- uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.#ctor*
+  name: RequiredNotDefaultDateAttribute
+  href: api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html#Ploch_Common_DataAnnotations_RequiredNotDefaultDateAttribute__ctor_
+  commentId: Overload:Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.#ctor
+  isSpec: "True"
+  fullName: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.RequiredNotDefaultDateAttribute
+  nameWithType: RequiredNotDefaultDateAttribute.RequiredNotDefaultDateAttribute
+- uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.IsValid(System.Object)
+  name: IsValid(Object)
+  href: api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html#Ploch_Common_DataAnnotations_RequiredNotDefaultDateAttribute_IsValid_System_Object_
+  commentId: M:Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.IsValid(System.Object)
+  fullName: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.IsValid(System.Object)
+  nameWithType: RequiredNotDefaultDateAttribute.IsValid(Object)
+- uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.IsValid*
+  name: IsValid
+  href: api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html#Ploch_Common_DataAnnotations_RequiredNotDefaultDateAttribute_IsValid_
+  commentId: Overload:Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.IsValid
+  isSpec: "True"
+  fullName: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.IsValid
+  nameWithType: RequiredNotDefaultDateAttribute.IsValid
 - uid: Ploch.Common.DateTimeExtensions
   name: DateTimeExtensions
   href: api/Ploch.Common.DateTimeExtensions.html

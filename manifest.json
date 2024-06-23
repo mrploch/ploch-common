@@ -125,6 +125,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html",
+          "hash": "+GUfeRZMhzj/Ek6hmG1NkqedpxV9ARU2TH1y1laF4cQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.DataAnnotations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.DataAnnotations.html",
+          "hash": "+2hkM2+CuE/qhedlE/ohWzQ3AHYa5cmFtXjp8CqBWOY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DateTimeExtensions.yml",
       "output": {
         ".html": {
@@ -813,7 +837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "nI/zIk5bXXCxs8budqOK9L7ju/y1h9R8hDf9aCuu1yQ="
+          "hash": "Ps+VftqnKHtFxr+XoGVesXdzdUN0T4WyAmQ6zWcfNo4="
         }
       },
       "is_incremental": false,
@@ -891,7 +915,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 67,
+          "total_file_count": 69,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
