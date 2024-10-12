@@ -15,17 +15,18 @@
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <VersionPrefix>2.0.1</VersionPrefix>
-        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
-<!-- Development versions -->
+        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmm"))</BuildNumber>
+        <!-- Development versions -->
         <VersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">-prerelease</VersionSuffix>
         <FullVersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
         <Version Condition="'$(RELEASEVERSION)' != 'true'">$(VersionPrefix)$(FullVersionSuffix)</Version>
-<!-- Release versions -->
+        <!-- Release versions -->
         <Version Condition="'$(RELEASEVERSION)' == 'true'">$(VersionPrefix)</Version>
         <FileVersion>$(InformationalVersion)</FileVersion>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
         <NoWarn>$(NoWarn);NU1507;CS9057</NoWarn>
+        
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DebugType>embedded</DebugType>
@@ -43,16 +44,18 @@
         <IsTestProject>false</IsTestProject>
     </PropertyGroup>
     <Target Name="PrintSettings" BeforeTargets="Build">
-        <Message Text="Building $(MSBuildProjectName) with settings:" Importance="high" />
-        <Message Text="MSBuildProjectName -> '$(MSBuildProjectName)'" Importance="high" />
-        <Message Text="Configuration -> '$(Configuration)' " Importance="high" />
-        <Message Text="DebugType -> '$(DebugType)' " Importance="high" />
-        <Message Text="DebugSymbols -> '$(DebugSymbols)' " Importance="high" />
-        <Message Text="AssemblyName -> '$(AssemblyName)' " Importance="high" />
-        <Message Text="IsTestProject -> '$(IsTestProject)' " Importance="high" />
-        <Message Text="GeneratePackageOnBuild -> '$(GeneratePackageOnBuild)' " Importance="high" />
-        <Message Text="GenerateDocumentationFile -> '$(GenerateDocumentationFile)' " Importance="high" />
-        <Message Text="IsPackable -> '$(IsPackable)' " Importance="high" />
+        <Message Text="Building $(MSBuildProjectName) with settings:" Importance="high"/>
+        <Message Text="MSBuildProjectName -> '$(MSBuildProjectName)'" Importance="high"/>
+        <Message Text="Configuration -> '$(Configuration)' " Importance="high"/>
+        <Message Text="DebugType -> '$(DebugType)' " Importance="high"/>
+        <Message Text="DebugSymbols -> '$(DebugSymbols)' " Importance="high"/>
+        <Message Text="AssemblyName -> '$(AssemblyName)' " Importance="high"/>
+        <Message Text="IsTestProject -> '$(IsTestProject)' " Importance="high"/>
+        <Message Text="GeneratePackageOnBuild -> '$(GeneratePackageOnBuild)' " Importance="high"/>
+        <Message Text="GenerateDocumentationFile -> '$(GenerateDocumentationFile)' " Importance="high"/>
+        <Message Text="IsPackable -> '$(IsPackable)' " Importance="high"/>
+        <Message Text="Documentation Output Path -> '$(DocumentationFile)' " Importance="high"/>
+        <Message Text="OutDir Path -> '$(OutDir)' " Importance="high"/>
     </Target>
     <!--  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">-->
     <!--    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>-->

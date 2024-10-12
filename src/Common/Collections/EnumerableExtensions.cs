@@ -249,7 +249,8 @@ public static class EnumerableExtensions
 
         foreach (var item in enumerable)
         {
-#pragma warning disable CC0031 - already tested for null
+// already tested for null
+#pragma warning disable CC0031
             action(item);
 #pragma warning restore CC0031
         }

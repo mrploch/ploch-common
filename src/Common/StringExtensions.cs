@@ -89,13 +89,13 @@ public static class StringExtensions
 
     /// <summary>
     ///     Replaces the
-    ///     <param name="oldValue"></param>
+    ///     <paramref name="oldValue"></paramref>
     ///     with
-    ///     <param name="newValue"></param>
+    ///     <paramref name="newValue"></paramref>
     ///     in the string
-    ///     <param name="str"></param>
+    ///     <paramref name="str"></paramref>
     ///     if the string starts with
-    ///     <param name="oldValue"></param>
+    ///     <paramref name="oldValue"></paramref>
     ///     .
     /// </summary>
     /// <param name="str">The string.</param>

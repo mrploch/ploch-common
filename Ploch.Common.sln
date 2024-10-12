@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30803.129
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common", "src\Common\Ploch.Common.csproj", "{2B936120-F5A3-4955-8F63-925B8BC82F6D}"
 EndProject
@@ -17,33 +17,33 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.TestingSupport.Fluent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DependencyInjection", "src\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj", "{38871480-2261-4529-A44C-1061C6EA80B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DawnGuard", "src\Common.DawnGuard\Ploch.Common.DawnGuard.csproj", "{9627D787-346F-430E-983B-F60B7610604E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DawnGuard", "src\Common.DawnGuard\Ploch.Common.DawnGuard.csproj", "{9627D787-346F-430E-983B-F60B7610604E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DawnGuard.Tests", "src\Common.DawnGuard.Tests\Ploch.Common.DawnGuard.Tests.csproj", "{708BAAD8-64D8-4EF5-89FB-8BDB29FDC207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DawnGuard.Tests", "src\Common.DawnGuard.Tests\Ploch.Common.DawnGuard.Tests.csproj", "{708BAAD8-64D8-4EF5-89FB-8BDB29FDC207}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentationSite", "DocumentationSite\DocumentationSite.csproj", "{C87EB534-C0F5-47B2-886C-76DA955CA131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentationSite", "DocumentationSite\DocumentationSite.csproj", "{C87EB534-C0F5-47B2-886C-76DA955CA131}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DependencyInjection.Tests", "src\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj", "{8260D6D9-5320-40E8-9CA0-9DCCD83E63ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DependencyInjection.Tests", "src\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj", "{8260D6D9-5320-40E8-9CA0-9DCCD83E63ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization", "src\Common.Serialization\Ploch.Common.Serialization.csproj", "{BE7238AD-8F31-46F7-A94F-0B655ACDDD7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization", "src\Common.Serialization\Ploch.Common.Serialization.csproj", "{BE7238AD-8F31-46F7-A94F-0B655ACDDD7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialiation.NewtonsoftJson", "src\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialiation.NewtonsoftJson.csproj", "{009E1D9F-E412-4702-89AB-EBFBB4C95615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialiation.NewtonsoftJson", "src\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialiation.NewtonsoftJson.csproj", "{009E1D9F-E412-4702-89AB-EBFBB4C95615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.SystemTextJson", "src\Common.Serialization.SystemTextJson\Ploch.Common.Serialization.SystemTextJson.csproj", "{9A0A0AA7-C14C-4BF7-B7DB-FAA1DDEE083A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.SystemTextJson", "src\Common.Serialization.SystemTextJson\Ploch.Common.Serialization.SystemTextJson.csproj", "{9A0A0AA7-C14C-4BF7-B7DB-FAA1DDEE083A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.Tests", "src\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj", "{808A801F-C29F-453D-80EE-77B1F091F184}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.Tests", "src\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj", "{808A801F-C29F-453D-80EE-77B1F091F184}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.NewtonsoftJson.Tests", "src\Common.Serialization.NewtonsoftJson.Tests\Ploch.Common.Serialization.NewtonsoftJson.Tests.csproj", "{6BF4BFC8-1C2E-4561-8306-35153A2DB95B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.NewtonsoftJson.Tests", "src\Common.Serialization.NewtonsoftJson.Tests\Ploch.Common.Serialization.NewtonsoftJson.Tests.csproj", "{6BF4BFC8-1C2E-4561-8306-35153A2DB95B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.SystemTextJson.Tests", "src\Common.Serialization.SystemTextJson..Tests\Ploch.Common.Serialization.SystemTextJson.Tests.csproj", "{206596C9-56C2-4B65-89E3-2340F2E3D3B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.SystemTextJson.Tests", "src\Common.Serialization.SystemTextJson..Tests\Ploch.Common.Serialization.SystemTextJson.Tests.csproj", "{206596C9-56C2-4B65-89E3-2340F2E3D3B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection", "src\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj", "{AA0773CA-3F28-49CB-9605-5D859FF5E335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection", "src\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj", "{AA0773CA-3F28-49CB-9605-5D859FF5E335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection", "src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj", "{3AADAD92-4FBA-48FC-97F3-46CF9AA740CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection", "src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj", "{3AADAD92-4FBA-48FC-97F3-46CF9AA740CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests", "src\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests.csproj", "{D85C0824-CAE7-473E-A73E-EA2BCCE5FD01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests", "src\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests.csproj", "{D85C0824-CAE7-473E-A73E-EA2BCCE5FD01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests", "src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj", "{30CDF196-FE69-4CFA-91B3-091D6AE0B0D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests", "src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj", "{30CDF196-FE69-4CFA-91B3-091D6AE0B0D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{87F93313-FCDE-4545-A30B-03D05077F647}"
 	ProjectSection(SolutionItems) = preProject
@@ -53,30 +53,32 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{57622815-4765-4DAD-A0F8-DBC204A6E84E}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		global.json = global.json
-		Directory.Build.props = Directory.Build.props
-		.gitignore = .gitignore
-		qodana.yaml = qodana.yaml
-		qodana.sarif.json = qodana.sarif.json
-		dotnet-releaser.toml = dotnet-releaser.toml
 		.codacy.yml = .codacy.yml
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
+		dotnet-releaser.toml = dotnet-releaser.toml
+		global.json = global.json
+		qodana.sarif.json = qodana.sarif.json
+		qodana.yaml = qodana.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{73418E3A-0260-462E-A269-0540040A06A3}"
 	ProjectSection(SolutionItems) = preProject
-		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
 		Clean-DocFx.ps1 = Clean-DocFx.ps1
+		run-sonar-build-test.ps1 = run-sonar-build-test.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.WebUI", "src\Common.WebUI\Ploch.Common.WebUI.csproj", "{0D224927-E161-4827-B795-168D8331021C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.WebUI", "src\Common.WebUI\Ploch.Common.WebUI.csproj", "{0D224927-E161-4827-B795-168D8331021C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.WebUI.Tests", "src\Common.WebUI.Tests\Ploch.Common.WebUI.Tests.csproj", "{25A0D3DA-C32F-46A2-9113-E3E9F57EEBC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.WebUI.Tests", "src\Common.WebUI.Tests\Ploch.Common.WebUI.Tests.csproj", "{25A0D3DA-C32F-46A2-9113-E3E9F57EEBC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DataAnnotations", "src\Common.DataAnnotations\Ploch.Common.DataAnnotations.csproj", "{CCD922D4-B26A-424C-B96B-4B2E16E6072E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DataAnnotations", "src\Common.DataAnnotations\Ploch.Common.DataAnnotations.csproj", "{CCD922D4-B26A-424C-B96B-4B2E16E6072E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DataAnnotations.Tests", "src\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj", "{BFDCFA7F-482C-4863-8E7F-75F4CF0D8261}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DataAnnotations.Tests", "src\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj", "{BFDCFA7F-482C-4863-8E7F-75F4CF0D8261}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests-config", "tests-config", "{C9F3E328-1120-42AC-9938-F2F2908DF0C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -590,6 +592,7 @@ Global
 		{73418E3A-0260-462E-A269-0540040A06A3} = {87F93313-FCDE-4545-A30B-03D05077F647}
 		{25A0D3DA-C32F-46A2-9113-E3E9F57EEBC9} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 		{BFDCFA7F-482C-4863-8E7F-75F4CF0D8261} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
+		{C9F3E328-1120-42AC-9938-F2F2908DF0C2} = {861A9732-0DD2-43BF-9DA9-6529961C58D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A84E1AF7-BEBB-47F9-A917-8373C7F0D39E}
