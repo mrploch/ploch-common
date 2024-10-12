@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ploch.Common.DependencyInjection</name>
+    </assembly>
+    <members>
+        <member name="T:Ploch.Common.DependencyInjection.CompositeServicesBundle">
+            <summary>
+                Represents a collection of services bundles to register.
+            </summary>
+            <remarks>
+                Implementation of the <see cref="T:Ploch.Common.DependencyInjection.IServicesBundle" /> which contains
+                a collection of other bundles.
+            </remarks>
+            <seealso cref="T:Ploch.Common.DependencyInjection.IServicesBundle" />
+        </member>
+        <member name="M:Ploch.Common.DependencyInjection.CompositeServicesBundle.#ctor(Ploch.Common.DependencyInjection.IServicesBundle[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:Ploch.Common.DependencyInjection.CompositeServicesBundle" /> class.
+            </summary>
+            <param name="servicesBundles">Bundles used to initialize the <c>CompositeServicesBundle</c>.</param>
+        </member>
+        <member name="M:Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures a <c>IServiceCollection</c> instance using the bundles stored in this bundle.
+            </summary>
+            <inheritdoc />
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceCollection" /> value is <c>null</c>.</exception>
+        </member>
+        <member name="M:Ploch.Common.DependencyInjection.CompositeServicesBundle.AddServices(Ploch.Common.DependencyInjection.IServicesBundle)">
+            <summary>
+                Adds a services bundle to this bundle.
+            </summary>
+            <param name="services">Services bundle to add.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="services" /> value is <c>null</c>.</exception>
+            <exception cref="T:System.InvalidOperationException"><paramref name="services" /> was already added.</exception>
+        </member>
+        <member name="M:Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+            <exception cref="T:System.Exception">A delegate callback throws an exception.</exception>
+        </member>
+        <member name="T:Ploch.Common.DependencyInjection.IServicesBundle">
+            <summary>
+                Represents a collection of services that should be added to <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />
+            </summary>
+            <remarks>
+                Helps grouping service registrations together.
+                <para>
+                    Same concept as
+                    <see href="https://autofaccn.readthedocs.io/en/latest/configuration/modules.html">Autofac Modules</see>.
+                </para>
+            </remarks>
+        </member>
+        <member name="M:Ploch.Common.DependencyInjection.IServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures a <c>IServiceCollection</c> instance.
+            </summary>
+            <remarks>
+                Implementations of this method should add all required services for this particular Services Bundle.
+                Method will be executed when a service provider is built.
+            </remarks>
+            <param name="serviceCollection">A service collection.</param>
+        </member>
+    </members>
+</doc>
