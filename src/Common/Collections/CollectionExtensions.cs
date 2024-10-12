@@ -24,7 +24,7 @@ public static class CollectionExtensions
     /// <param name="value">The value.</param>
     /// <returns>
     ///     the value of
-    ///     <param name="collection"></param>
+    ///     <paramref name="collection" />
     ///     .
     /// </returns>
     public static ICollection<KeyValuePair<TKey, TValue?>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection, TKey key, TValue? value)

@@ -1,14 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
-    <PackageReference Include="ResharperCodeContractNullability" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <!--<DocumentationFile>$(OutDir)$(AssemblyName).xml</DocumentationFile>-->
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Dawn.Guard"/>
+        <PackageReference Include="ResharperCodeContractNullability"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 </Project>
