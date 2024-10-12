@@ -391,3 +391,5 @@ codestream.xml
 /.idea/**/.idea/inspectionProfiles/Project_Default.xml
 /.idea/.idea.Ploch.Common.Data/.idea/vcs.xml
 **/.idea/codestream.xml
+/.idea/**/git*
+/.idea/**/index*
