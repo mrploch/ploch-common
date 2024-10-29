@@ -18,6 +18,12 @@ public class BooleanRandomizer : IRangedRandomizer<bool>
         return _random.Next(0, 2) == 1;
     }
 
+    /// <summary>
+    ///     Generates a random boolean value between the specified range.
+    /// </summary>
+    /// <param name="minValue">The minimum boolean value, inclusive.</param>
+    /// <param name="maxValue">The maximum boolean value, inclusive.</param>
+    /// <returns>A randomly generated boolean value between the specified range.</returns>
     public bool GetRandomValue(bool minValue, bool maxValue)
     {
         return minValue == maxValue ? maxValue : GetRandomValue();

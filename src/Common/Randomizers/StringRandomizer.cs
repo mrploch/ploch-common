@@ -26,11 +26,34 @@ public class StringRandomizer : IRangedRandomizer<string>
                                     .ToArray());
     }
 
+    /// <summary>
+    ///     Generates a random string value consisting of specified characters between given minimum and maximum character
+    ///     ranges.
+    /// </summary>
+    /// <param name="minChar">The minimum character in the range.</param>
+    /// <param name="maxChar">The maximum character in the range.</param>
+    /// <returns>
+    ///     A randomly generated string value of default length 8 using characters between the specified min and max
+    ///     characters.
+    /// </returns>
+#pragma warning disable CA1725 - intentional here to give a more descriptive method name
     public string GetRandomValue(string minChar, string maxChar)
+#pragma warning restore CA1725
     {
         return GetRandomValue(8, minChar[0], maxChar[0]);
     }
 
+    /// <summary>
+    ///     Generates a random string value consisting of specified characters between given minimum and maximum character
+    ///     ranges.
+    /// </summary>
+    /// <param name="numberOfCharacters">The number of characters in the generated string.</param>
+    /// <param name="minChar">The minimum character in the range.</param>
+    /// <param name="maxChar">The maximum character in the range.</param>
+    /// <returns>
+    ///     A randomly generated string value of specified length using characters between the specified min and max
+    ///     characters.
+    /// </returns>
     public string GetRandomValue(int numberOfCharacters, char minChar = '0', char maxChar = 'Z')
     {
         var stringBuilder = new StringBuilder();
