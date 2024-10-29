@@ -15,7 +15,7 @@
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <VersionPrefix>2.0.1</VersionPrefix>
-        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHH"))</BuildNumber>
+        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmmss"))</BuildNumber>
 <!-- Development versions -->
         <VersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">-prerelease</VersionSuffix>
         <FullVersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
