@@ -24,7 +24,7 @@ public class StringRandomizerTests : RandomizerTests<string>
             {
                 int characterNum = character;
 
-                characterNum.Should().BeLessOrEqualTo(minValue);
+                characterNum.Should().BeGreaterThanOrEqualTo(minValue);
                 characterNum.Should().BeLessOrEqualTo(maxValue);
             }
         }

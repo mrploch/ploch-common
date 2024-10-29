@@ -11,9 +11,12 @@ public class DateTimeRandomizerTests : RandomizerTests<DateTime>
 
     [Theory]
     [AutoMockData]
-    public void GetRandomValue_should_return_values_within_range(DateTime minValue, DateTime maxValue)
+    public void GetRandomValue_should_return_values_within_range(DateTime dateOne, DateTime dateTwo)
     {
         var sut = CreateSUT();
+
+        var minValue = dateOne < dateTwo ? dateOne : dateTwo;
+        var maxValue = dateOne < dateTwo ? dateTwo : dateOne;
 
         for (var i = 0; i < DifferentValuesCheckCount; i++)
         {

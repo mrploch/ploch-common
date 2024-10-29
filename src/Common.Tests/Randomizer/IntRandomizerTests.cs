@@ -11,14 +11,17 @@ public class IntRandomizerTests : RandomizerTests<int>
 
     [Theory]
     [AutoMockData]
-    public void GetRandomValue_should_return_values_within_range(int minValue, int maxValue)
+    public void GetRandomValue_should_return_values_within_range(int valueOne, int valueTwo)
     {
         var sut = CreateSUT();
+
+        var minValue = Math.Min(valueOne, valueTwo);
+        var maxValue = Math.Max(valueOne, valueTwo);
 
         for (var i = 0; i < DifferentValuesCheckCount; i++)
         {
             var value = sut.GetRandomValue(minValue, maxValue);
-            value.Should().BeLessOrEqualTo(minValue);
+            value.Should().BeGreaterThanOrEqualTo(minValue);
             value.Should().BeLessOrEqualTo(maxValue);
         }
     }
