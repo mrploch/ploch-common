@@ -36,7 +36,7 @@ public class StringRandomizer : IRangedRandomizer<string>
     ///     A randomly generated string value of default length 8 using characters between the specified min and max
     ///     characters.
     /// </returns>
-#pragma warning disable CA1725 - intentional here to give a more descriptive method name
+#pragma warning disable CA1725 // Parameter names should match base declaration and other partial definitions - intentional here
     public string GetRandomValue(string minChar, string maxChar)
 #pragma warning restore CA1725
     {
