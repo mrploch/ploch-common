@@ -114,10 +114,7 @@ public class ExpressionExtensionsTests
         public void MethodWithNoArgs()
         { }
 
-        public int MethodWithReturn()
-        {
-            return 123;
-        }
+        public int MethodWithReturn() => 123;
 
         [Theory]
         [AutoMockData]

@@ -90,62 +90,56 @@ public class ObjectGraphHelperTests
     {
         string Name { get; set; }
     }
-    
+
     public class Category<TCategory, TId> : IHasIdSettable<TId>, INamed
     {
-        public virtual ICollection<TCategory> Categories { get; set; } = new List<TCategory>();
-
         public TId Id { get; set; } = default!;
 
         public required string Name { get; set; }
+        public virtual ICollection<TCategory> Categories { get; set; } = new List<TCategory>();
     }
 
     public class Tag : IHasIdSettable<int>
     {
-        public string Name { get; set; } = null!;
-
         public int Id { get; set; }
+        public string Name { get; set; } = null!;
     }
 
     public class TestBlog : IHasIdSettable<int>, INamed
     {
-        public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
-
         public int Id { get; set; }
 
         public required string Name { get; set; }
+        public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
     }
 
     public class TestBlogPost : IHasIdSettable<int>, INamed
     {
+        public int Id { get; set; }
+
+        public required string Name { get; set; }
         public string? Contents { get; set; }
 
         public virtual ICollection<TestCategory> Categories { get; set; } = new List<TestCategory>();
 
         public virtual ICollection<TestTag> Tags { get; set; } = new List<TestTag>();
-
-        public int Id { get; set; }
-
-        public required string Name { get; set; }
     }
 
     public class TestCategory : IHasIdSettable<int>, INamed
     {
-        public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
-
         public int Id { get; set; }
 
         public string Name { get; set; } = null!;
+        public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
 
         public TestCategory? Parent { get; set; }
     }
 
     public class TestTag : IHasIdSettable<int>, INamed
     {
-        public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
-
         public int Id { get; set; }
 
         public string Name { get; set; } = null!;
+        public virtual ICollection<TestBlogPost> BlogPosts { get; set; } = new List<TestBlogPost>();
     }
 }

@@ -33,8 +33,14 @@ public class StopwatchUtilTests
         asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }
 
-    private Task AsyncMethod(TimeSpan delay)
-    {
-        return Task.Delay(delay);
-    }
+    // ReSharper disable once MemberCanBeMadeStatic.Local
+#pragma warning disable CA1822
+#pragma warning disable CC0091
+#pragma warning disable CC0061
+#pragma warning disable S2325
+    private Task AsyncMethod(TimeSpan delay) => Task.Delay(delay);
+#pragma warning restore S2325
+#pragma warning restore CC0061
+#pragma warning restore CC0091
+#pragma warning restore CA1822
 }

@@ -11,8 +11,6 @@ public abstract class RandomizerTests<TValue>
 
     protected virtual int AtLeastHowManyValuesShouldBeDifferent => 10;
 
-    protected virtual IRandomizer<TValue> CreateSUT() => Randomizers.Randomizer.GetRandomizer<TValue>();
-
     [Fact]
     public void GetRandomValue_should_return_random_value()
     {
@@ -35,6 +33,8 @@ public abstract class RandomizerTests<TValue>
 
         values.Count.Should().BeGreaterThanOrEqualTo(AtLeastHowManyValuesShouldBeDifferent);
     }
+
+    protected virtual IRandomizer<TValue> CreateSUT() => Randomizers.Randomizer.GetRandomizer<TValue>();
 }
 
 public abstract class RangeRandomizerTests<TValue> : RandomizerTests<TValue>

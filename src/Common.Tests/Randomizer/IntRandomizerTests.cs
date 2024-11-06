@@ -7,8 +7,6 @@ namespace Ploch.Common.Tests.Randomizer;
 
 public class IntRandomizerTests : RandomizerTests<int>
 {
-    protected override IRangedRandomizer<int> CreateSUT() => Randomizers.Randomizer.GetRandomizer<int>();
-
     [Theory]
     [AutoMockData]
     public void GetRandomValue_should_return_values_within_range(int valueOne, int valueTwo)
@@ -25,4 +23,6 @@ public class IntRandomizerTests : RandomizerTests<int>
             value.Should().BeLessOrEqualTo(maxValue);
         }
     }
+
+    protected override IRangedRandomizer<int> CreateSUT() => Randomizers.Randomizer.GetRandomizer<int>();
 }

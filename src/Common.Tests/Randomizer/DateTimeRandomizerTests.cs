@@ -7,8 +7,6 @@ namespace Ploch.Common.Tests.Randomizer;
 
 public class DateTimeRandomizerTests : RandomizerTests<DateTime>
 {
-    protected override IRangedRandomizer<DateTime> CreateSUT() => Randomizers.Randomizer.GetRandomizer<DateTime>();
-
     [Theory]
     [AutoMockData]
     public void GetRandomValue_should_return_values_within_range(DateTime dateOne, DateTime dateTwo)
@@ -25,4 +23,6 @@ public class DateTimeRandomizerTests : RandomizerTests<DateTime>
             value.Should().BeOnOrBefore(maxValue);
         }
     }
+
+    protected override IRangedRandomizer<DateTime> CreateSUT() => Randomizers.Randomizer.GetRandomizer<DateTime>();
 }

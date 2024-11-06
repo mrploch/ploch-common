@@ -47,7 +47,7 @@ public class OwnedPropertyInfoTests
         var propertyInfo = type.GetProperty("Item");
         var ownedPropertyInfo = new OwnedPropertyInfo<TestClass, string>(propertyInfo, testClass);
         OwnedPropertyInfo baseOwnedPropertyInfo = ownedPropertyInfo;
-        
+
         // Act
         var val0 = baseOwnedPropertyInfo.GetValue(new object[] { 0 });
         var val1 = ownedPropertyInfo.GetValue(new object[] { 1 });
@@ -70,7 +70,7 @@ public class OwnedPropertyInfoTests
         // Act
         baseOwnedPropertyInfo.SetValue("val0", new object[] { 0 });
         ownedPropertyInfo.SetValue("val1", new object[] { 1 });
-        
+
         // Assert
         testClass.Strings[0].Should().Be("val0");
         testClass.Strings[1].Should().Be("val1");

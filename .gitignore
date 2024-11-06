@@ -395,3 +395,8 @@ codestream.xml
 
 # VS Code
 .vscode/
+/src/Common/Ploch.Common.xml
+/src/Common.DawnGuard/Ploch.Common.DawnGuard.xml
+/src/Common.WebUI/Ploch.Common.WebUI.xml
+/src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.xml
+/src/Common.DependencyInjection/Ploch.Common.DependencyInjection.xml

@@ -6,8 +6,6 @@ namespace Ploch.Common.Tests.Randomizer;
 
 public class StringRandomizerTests : RandomizerTests<string>
 {
-    protected override IRangedRandomizer<string> CreateSUT() => Randomizers.Randomizer.GetRandomizer<string>();
-
     [Fact]
     public void GetRandomValue_should_return_values_within_range()
     {
@@ -29,4 +27,6 @@ public class StringRandomizerTests : RandomizerTests<string>
             }
         }
     }
+
+    protected override IRangedRandomizer<string> CreateSUT() => Randomizers.Randomizer.GetRandomizer<string>();
 }
