@@ -365,7 +365,7 @@ coverage.xml
 # Rider specific files
 
 # Default ignored files
-**/.idea*/shelf/
+**/.idea*/
 **/.idea*/workspace.xml
 # Rider ignored files
 **/.idea*/projectSettingsUpdater.xml

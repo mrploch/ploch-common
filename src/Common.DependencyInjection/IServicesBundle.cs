@@ -3,7 +3,7 @@
 namespace Ploch.Common.DependencyInjection;
 
 /// <summary>
-///     Represents a collection of services that should be added to <see cref="IServiceCollection" />
+///     Represents a collection of services that should be added to <see cref="IServiceCollection" />.
 /// </summary>
 /// <remarks>
 ///     Helps grouping service registrations together.

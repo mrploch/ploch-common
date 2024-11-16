@@ -122,10 +122,16 @@ public class EnumerableExtensionsTests
     public void TakeRandom_should_return_random_values_from_source()
     {
         var results = new List<IEnumerable<int>>();
-        var source = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        var sourceList = new List<int>();
+        for (var i = 0; i < 100; i++)
+        {
+            sourceList.Add(i);
+        }
+
         for (var i = 0; i < 10; i++)
         {
-            var randomValues = source.TakeRandom(3).ToList();
+            var randomValues = sourceList.TakeRandom(3).ToList();
 
             results.Should().NotContainEquivalentOf(randomValues);
 

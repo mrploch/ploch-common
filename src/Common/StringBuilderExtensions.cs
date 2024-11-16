@@ -5,7 +5,7 @@ using Dawn;
 namespace Ploch.Common;
 
 /// <summary>
-///     Extension methods for <see cref="StringBuilder" />
+///     Extension methods for <see cref="StringBuilder" />.
 /// </summary>
 public static class StringBuilderExtensions
 {
@@ -13,7 +13,7 @@ public static class StringBuilderExtensions
     ///     Appends the <paramref name="value" /> to the <paramref name="builder" /> if the <paramref name="value" /> is not
     ///     null.
     /// </summary>
-    /// <param name="builder">The <c>StringBuilder</c></param>
+    /// <param name="builder">The <c>StringBuilder</c>.</param>
     /// <param name="value">The value to append.</param>
     /// <param name="formatFunc">Optional formatting function.</param>
     /// <typeparam name="TValue">The value type.</typeparam>
@@ -27,7 +27,7 @@ public static class StringBuilderExtensions
     ///     Appends the <paramref name="value" /> to the <paramref name="builder" /> if the <paramref name="value" /> is not
     ///     null or empty string.
     /// </summary>
-    /// <param name="builder">The <c>StringBuilder</c></param>
+    /// <param name="builder">The <c>StringBuilder</c>.</param>
     /// <param name="value">The value to append.</param>
     /// <param name="formatFunc">Optional formatting function.</param>
     /// <typeparam name="TValue">The value type.</typeparam>
