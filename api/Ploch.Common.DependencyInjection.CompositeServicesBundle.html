@@ -85,11 +85,35 @@
     <h5>Implements</h5>
     <div><a class="xref" href="Ploch.Common.DependencyInjection.IServicesBundle.html">IServicesBundle</a></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.DependencyInjection.html">Ploch.Common.DependencyInjection</a></h6>
   <h6><strong>Assembly</strong>: Ploch.Common.DependencyInjection.dll</h6>
   <h5 id="Ploch_Common_DependencyInjection_CompositeServicesBundle_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CompositeServicesBundle : object, IServicesBundle</code></pre>
+    <pre><code class="lang-csharp hljs">public class CompositeServicesBundle : IServicesBundle</code></pre>
   </div>
   <h5 id="Ploch_Common_DependencyInjection_CompositeServicesBundle_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Implementation of the <a class="xref" href="Ploch.Common.DependencyInjection.IServicesBundle.html">IServicesBundle</a> which contains
@@ -182,15 +206,36 @@ a collection of other bundles.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">services</code> value is <code>null</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">services</code> was already added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_IServiceCollection_.md&amp;value=---%0Auid%3A%20Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(IServiceCollection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_.md&amp;value=---%0Auid%3A%20Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.DependencyInjection/CompositeServicesBundle.cs/#L39">View Source</a>
   </span>
   <a id="Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_" data-uid="Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure*"></a>
-  <h4 id="Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_IServiceCollection_" data-uid="Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(IServiceCollection)">Configure(IServiceCollection)</h4>
+  <h4 id="Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">Configure(IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Configures a <code>IServiceCollection</code> instance using the bundles stored in this bundle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -209,17 +254,33 @@ a collection of other bundles.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>A service collection.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_IServiceCollection__remarks">Remarks</h5>
+  <h5 id="Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implementations of this method should add all required services for this particular Services Bundle.
 Method will be executed when a service provider is built.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> value is <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Ploch.Common.DependencyInjection.IServicesBundle.html">IServicesBundle</a>

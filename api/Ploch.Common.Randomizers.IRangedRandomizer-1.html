@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IServicesBundle
+    <title>Interface IRangedRandomizer&lt;TValue&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IServicesBundle
+    <meta name="title" content="Interface IRangedRandomizer&lt;TValue&gt;
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,44 +68,59 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ploch.Common.DependencyInjection.IServicesBundle">
+            <article class="content wrap" id="_content" data-uid="Ploch.Common.Randomizers.IRangedRandomizer`1">
   
   
-  <h1 id="Ploch_Common_DependencyInjection_IServicesBundle" data-uid="Ploch.Common.DependencyInjection.IServicesBundle" class="text-break">Interface IServicesBundle
+  <h1 id="Ploch_Common_Randomizers_IRangedRandomizer_1" data-uid="Ploch.Common.Randomizers.IRangedRandomizer`1" class="text-break">Interface IRangedRandomizer&lt;TValue&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Represents a collection of services that should be added to <span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span>.</p>
+  <div class="markdown level0 summary"><p>Represents an interface for generating random values of a specified type within a defined range.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.DependencyInjection.html">Ploch.Common.DependencyInjection</a></h6>
-  <h6><strong>Assembly</strong>: Ploch.Common.DependencyInjection.dll</h6>
-  <h5 id="Ploch_Common_DependencyInjection_IServicesBundle_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IServicesBundle</code></pre>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Ploch.Common.Randomizers.IRandomizer-1.html#Ploch_Common_Randomizers_IRandomizer_1_GetRandomValue">IRandomizer&lt;TValue&gt;.GetRandomValue()</a>
+    </div>
   </div>
-  <h5 id="Ploch_Common_DependencyInjection_IServicesBundle_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Helps grouping service registrations together.</p>
-<p>
-    Same concept as
-<a href="https://autofaccn.readthedocs.io/en/latest/configuration/modules.html">Autofac Modules</a>.
-</p>
-</div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ploch.Common.Randomizers.html">Ploch.Common.Randomizers</a></h6>
+  <h6><strong>Assembly</strong>: Ploch.Common.dll</h6>
+  <h5 id="Ploch_Common_Randomizers_IRangedRandomizer_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRangedRandomizer&lt;TValue&gt; : IRandomizer&lt;TValue&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of values to be generated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_DependencyInjection_IServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_.md&amp;value=---%0Auid%3A%20Ploch.Common.DependencyInjection.IServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Randomizers_IRangedRandomizer_1_GetRandomValue__0__0_.md&amp;value=---%0Auid%3A%20Ploch.Common.Randomizers.IRangedRandomizer%601.GetRandomValue(%600%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.DependencyInjection/IServicesBundle.cs/#L25">View Source</a>
+    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Randomizers/IRangedRandomizer.cs/#L15">View Source</a>
   </span>
-  <a id="Ploch_Common_DependencyInjection_IServicesBundle_Configure_" data-uid="Ploch.Common.DependencyInjection.IServicesBundle.Configure*"></a>
-  <h4 id="Ploch_Common_DependencyInjection_IServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Ploch.Common.DependencyInjection.IServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">Configure(IServiceCollection)</h4>
-  <div class="markdown level1 summary"><p>Configures a <code>IServiceCollection</code> instance.</p>
+  <a id="Ploch_Common_Randomizers_IRangedRandomizer_1_GetRandomValue_" data-uid="Ploch.Common.Randomizers.IRangedRandomizer`1.GetRandomValue*"></a>
+  <h4 id="Ploch_Common_Randomizers_IRangedRandomizer_1_GetRandomValue__0__0_" data-uid="Ploch.Common.Randomizers.IRangedRandomizer`1.GetRandomValue(`0,`0)">GetRandomValue(TValue, TValue)</h4>
+  <div class="markdown level1 summary"><p>Generates a random value of the specified type within the provided range.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Configure(IServiceCollection serviceCollection)</code></pre>
+    <pre><code class="lang-csharp hljs">TValue GetRandomValue(TValue minValue, TValue maxValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -118,17 +133,35 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
-        <td><span class="parametername">serviceCollection</span></td>
-        <td><p>A service collection.</p>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">minValue</span></td>
+        <td><p>The minimum value of the generated range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">maxValue</span></td>
+        <td><p>The maximum value of the generated range.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Ploch_Common_DependencyInjection_IServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Implementations of this method should add all required services for this particular Services Bundle.
-Method will be executed when a service provider is built.</p>
-</div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>A randomly generated value of the specified type within the range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="Ploch.TestingSupport.Moq.MockingExtensions.html#Ploch_TestingSupport_Moq_MockingExtensions_Mock__1___0_">MockingExtensions.Mock&lt;T&gt;(T)</a>
@@ -207,10 +240,10 @@ Method will be executed when a service provider is built.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_DependencyInjection_IServicesBundle.md&amp;value=---%0Auid%3A%20Ploch.Common.DependencyInjection.IServicesBundle%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/mrploch/ploch-common/new/master/apiSpec/new?filename=Ploch_Common_Randomizers_IRangedRandomizer_1.md&amp;value=---%0Auid%3A%20Ploch.Common.Randomizers.IRangedRandomizer%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common.DependencyInjection/IServicesBundle.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/src/Common/Randomizers/IRangedRandomizer.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

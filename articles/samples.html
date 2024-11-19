@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Ploch.Common.DependencyInjection
-   </title>
+    <title>Project Ploch.Common </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Ploch.Common.DependencyInjection
-   ">
+    <meta name="title" content="Project Ploch.Common ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -68,25 +66,48 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ploch.Common.DependencyInjection">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="project-plochcommon">Project Ploch.Common</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This library contains a set of extension methods and utilities for core .NET types.</p>
+<p>This includes:</p>
+<ul>
+<li>enumerables: <code>IEnumerable&lt;T&gt;</code>, <code>ICollection&lt;T&gt;</code>, <code>IQueryable&lt;T&gt;</code> and others,</li>
+<li>expression trees</li>
+<li><code>System.String</code></li>
+<li>hashing</li>
+<li>enums</li>
+<li>environment utilities</li>
+</ul>
+<p>It's delivered as a .NET Standard 2.0 package allowing usage in both the .NET Core and the legacy
+.NET Framework.</p>
+<h2 id="usage">Usage</h2>
+<p>The library is available as a <a href="https://www.nuget.org/packages/Ploch.Common/">NuGet package</a>.</p>
+<pre><code class="lang-powershell">dotnet add package Ploch.Common
+</code></pre>
+<p>The API reference is available <a href="https://github.ploch.dev/ploch-common/">here</a>.</p>
+<h3 id="examples">Examples</h3>
+<p>The best place to look for examples is
+the <a href="https://github.com/mrploch/ploch-common/tree/master/src/Common.Tests">library unit tests project</a>.</p>
+<h3 id="enumerables">Enumerables</h3>
+<p>A few examples of the enumerable extensions:</p>
+<pre><code class="lang-csharp">  var items = new[] { 1, 2, 3};
+  var result = items.JoinWithFinalSeparator(&quot;, &quot;, &quot; and &quot;);
   
-  <h1 id="Ploch_Common_DependencyInjection" data-uid="Ploch.Common.DependencyInjection" class="text-break">Namespace Ploch.Common.DependencyInjection
-  </h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
-  </h3>
-      <h4><a class="xref" href="Ploch.Common.DependencyInjection.CompositeServicesBundle.html">CompositeServicesBundle</a></h4>
-      <section><p>Represents a collection of services bundles to register.</p>
-</section>
-      <h4><a class="xref" href="Ploch.Common.DependencyInjection.DelegatingServicesBundle.html">DelegatingServicesBundle</a></h4>
-      <section></section>
-    <h3 id="interfaces">Interfaces
-  </h3>
-      <h4><a class="xref" href="Ploch.Common.DependencyInjection.IServicesBundle.html">IServicesBundle</a></h4>
-      <section><p>Represents a collection of services that should be added to <span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span>.</p>
-</section>
+    // result will be &quot;1, 2 and 3&quot;
+  
+  var items = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  var result = items.TakeRandom(3);
+  // result will be 3 random items from the collection
+  var result = items.Shuffle();
+  // result will be the collection with items in random order
+  
+  var result = 10.ValueIn(items);
+  // result will be true
+</code></pre>
+<p>More examples available <a href="./collection-samples.md">here</a> and in
+the <a href="https://github.com/mrploch/ploch-common/tree/master/src/Common.Tests">tests</a>.</p>
 </article>
           </div>
           
@@ -94,6 +115,9 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/DocumentationSite/articles/samples.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

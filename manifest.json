@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.Collections.EnumerableExtensions.html",
-          "hash": "L45kuBEEG7DNPYl/b2M4h5STheExVGQPXkt2ce6vt8s="
+          "hash": "vFqQWCxYxebtxxQOucxG0pckOVY92LbTfMgKH+kJZDM="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.DateTimeExtensions.html",
-          "hash": "fYiUGM8gMsJGtjPo2txwLpztHWWtG8JfWtNbpn8PRLI="
+          "hash": "wiuo8d4oT4TDjBNBX2Jdmu7fMfaz6uBFehgQYRKZIsE="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html",
-          "hash": "FEbZyV+D2jKef090WGh0U4zLXNDSZuOl1TpMBoD92Ng="
+          "hash": "sy0468dj9n1xpB+/4zibQvUGpMZKGIXItRwW+JPw3CE="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html",
-          "hash": "GvyPe7SpCUzrJ7lAh2zgMYOzpioBxvsHyji8FLDPyek="
+          "hash": "qCElKQzWsOsRGOg9eSjZ2xNi215I9TW7EJ5AwPgVW0M="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.DependencyInjection.IServicesBundle.html",
-          "hash": "KZphQwuxWVZlO0GFkl+K2nbfOLEsHfHcNWm1SAeA9tM="
+          "hash": "hO4DORt9dz1Jyvb3BkxEDaCNyhRQrX55c47WErjO25Y="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.DependencyInjection.html",
-          "hash": "Qa/qCQ9hdHGcsMIEgvmTVOMX24+ZglqqIBnZQFVSkb8="
+          "hash": "7eRtk1vAk70JeX5HjdbxfFOV/5Mj1HDd+l8V+D1F+BI="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.EnvironmentUtilities.html",
-          "hash": "LlGDEVO6H81Lani3ksYhTDybYWJPUSffIv2Tg4vP00o="
+          "hash": "LxNijE/Icg2gEzXIabE9/MEieSP6+y4sPkx7YL+TK9k="
         }
       },
       "is_incremental": false,
@@ -382,6 +382,102 @@
         ".html": {
           "relative_path": "api/Ploch.Common.ObjectCloningHelpers.html",
           "hash": "X+xlOgFg+lQePU4zdFSBgYyLc37TXmud+4zOV/2t+cg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.BooleanRandomizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.BooleanRandomizer.html",
+          "hash": "gmEYLEdkB4vEPkhOsr74FpnlWjHyRIDkoxbQsaHmTUo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.DateTimeRandomizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.DateTimeRandomizer.html",
+          "hash": "VMbd2IWicp0r9GL3TM1yWCNooa8QNZCsXGwGMGRb1ns="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.IRandomizer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.IRandomizer-1.html",
+          "hash": "q/tQpqIgCYV8RfCNcQ3+uZyZUIf1aATcLOo4bBNTdEw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.IRangedRandomizer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.IRangedRandomizer-1.html",
+          "hash": "jm/0vNHTzg7F6gcW/po6fhq0XDgl8zLH0AaG4ecHzL8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.IntRandomizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.IntRandomizer.html",
+          "hash": "ocgsM4Nda1jtCavJdflWuNkibgctOFJDAez7wjJAqmw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.Randomizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.Randomizer.html",
+          "hash": "EjoopcQjEWrxN0o0l0pHwLxtiV0P5+/YUD4hwTBTqeA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.StringRandomizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.StringRandomizer.html",
+          "hash": "lci89OBJtLVf9g3xKgq6YR6ZTG2aVpnQvVIgKNrEcsU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ploch.Common.Randomizers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ploch.Common.Randomizers.html",
+          "hash": "qJjOi+c/3ScT88M2h96hxO4RYS8zfiA8Aq3xXDaoa6I="
         }
       },
       "is_incremental": false,
@@ -669,7 +765,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.StringBuilderExtensions.html",
-          "hash": "LYif1tNORfTKnJ1GW2r/sFxk7JrWkLcF8j+6BRdffsI="
+          "hash": "gYteE/nen1BP7sYCRwARw16BDEAH8MMHQpasZcm+l3E="
         }
       },
       "is_incremental": false,
@@ -693,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.ThreadSafeRandom.html",
-          "hash": "Z3kN+2z4a6k8MKW03srRvu5e/9ITDWw0uj+SOZX3NuA="
+          "hash": "rNKwH4XU933xYJOOj1XBz2tDSjkbItUsWYn/blpPkYs="
         }
       },
       "is_incremental": false,
@@ -729,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ploch.Common.html",
-          "hash": "nABhxZ59ot+fabil6jlUsBVzF/B5md6IdkqmhiPAYeA="
+          "hash": "dTV3RI1lJWHH2CnldwKFvd6lOgWGv2WJ2XpA6Hf4lNo="
         }
       },
       "is_incremental": false,
@@ -837,7 +933,19 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "Ps+VftqnKHtFxr+XoGVesXdzdUN0T4WyAmQ6zWcfNo4="
+          "hash": "DhqBvFo2mCqgT59TCJ2M0y2JUtZ57ZFFd+HVtC+z/W8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/collections-samples.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/collections-samples.html",
+          "hash": "PmxrVhT5YEW6tGdN9ctpTR8HFcXWWiGpZqhdiI8UoeQ="
         }
       },
       "is_incremental": false,
@@ -856,12 +964,30 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/samples.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/samples.html",
+          "hash": "NBk9b+C/4im6H2luuH0mIMjM8NpX6Hx9/YFAUR0YzuM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+          "hash": "/l0wiEJK5jxyJT+CNXBq5ZT7Jo4mE9tZM1Z5XQIpYK8="
         }
       },
       "is_incremental": false,
@@ -888,7 +1014,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "E6ysxf2qAlVl7kuvk/Pb7pk0fkn/fU9zVepWJc6zCVk="
+          "hash": "Q/txdoItmySQlyZUDonzL23ncy7AlaWTRkb+j9fUIcA="
         }
       },
       "is_incremental": false,
@@ -909,13 +1035,13 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 3,
+          "total_file_count": 5,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 69,
+          "total_file_count": 77,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

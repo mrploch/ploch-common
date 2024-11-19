@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>EnumerableExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="EnumerableExtensions ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="enumerableextensions">EnumerableExtensions</h1>
+
+<p>This is a static class with extension methods related to <code>IEnumerable</code>.</p>
+<blockquote>
+<p>Docs entirely written by AI :)</p>
+</blockquote>
+<h2 id="extensions">Extensions</h2>
+<h3 id="valuein">ValueIn</h3>
+<pre><code class="lang-csharp">public static bool ValueIn&lt;TValue&gt;(this TValue value, IEqualityComparer&lt;TValue&gt;? comparer, params TValue[] values)
+</code></pre>
+<p>This method checks if a set of <code>values</code> contain the provided <code>value</code> using a provided <code>comparer</code>.</p>
+<p>Here is an example of use:</p>
+<pre><code class="lang-csharp">bool result = &quot;value&quot;.ValueIn(StringComparer.OrdinalIgnoreCase, &quot;VALUE&quot;);
+</code></pre>
+<p>In this example, <code>result</code> will be <code>true</code> because &quot;value&quot; is in the list of provided values, using a case-insensitive
+comparison.</p>
+<h3 id="valuein-1">ValueIn</h3>
+<pre><code class="lang-csharp">public static bool ValueIn&lt;TValue&gt;(this TValue value, params TValue[] values)
+</code></pre>
+<p>Checks if a set of <code>values</code> contain the provided <code>value</code> using default comparer.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">bool result = &quot;value&quot;.ValueIn(&quot;value&quot;, &quot;anotherValue&quot;);
+</code></pre>
+<p>In this case, <code>result</code> will be <code>true</code> because &quot;value&quot; is in the list of provided values, using the default string
+comparer.</p>
+<h3 id="none">None</h3>
+<pre><code class="lang-csharp">public static bool None&lt;TSource&gt;(this IEnumerable&lt;TSource&gt; source, Func&lt;TSource, bool&gt; predicate)
+</code></pre>
+<p>Verifies that none of the items in the <code>source</code> collection matches the provided <code>predicate</code>.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; source = new[] {1, 2, 3};
+bool result = source.None(x =&gt; x &gt; 3);
+</code></pre>
+<p>In this case, <code>result</code> will be <code>true</code> because none of the values in the <code>source</code> collection are greater than 3.</p>
+<h3 id="join">Join</h3>
+<pre><code class="lang-csharp">public static string Join&lt;TValue&gt;(this IEnumerable&lt;TValue&gt; source, string separator)
+</code></pre>
+<p>Joins the elements of the <code>source</code> collection using the provided <code>separator</code>, calling <code>ToString</code> on each element of the
+collection.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; source = new[] {1, 2, 3};
+string result = source.Join(&quot;, &quot;);
+</code></pre>
+<p>In this case, <code>result</code> will be <code>&quot;1, 2, 3&quot;</code>.</p>
+<p>In all examples above, <code>TValue</code> and <code>TSource</code> are placeholder type names. Replace them with the actual types when using
+the methods.</p>
+<h3 id="join-1">Join</h3>
+<pre><code class="lang-csharp">public static string Join&lt;TValue, TResult&gt;(this IEnumerable&lt;TValue&gt; source, string separator, Func&lt;TValue, TResult&gt; valueSelector)
+</code></pre>
+<p>Joins the elements of the <code>source</code> collection using the provided <code>separator</code>, calling <code>valueSelector</code> on each element.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; source = new[] {1, 2, 3};
+string result = source.Join(&quot;, &quot;, num =&gt; $&quot;Item {num}&quot;);
+</code></pre>
+<p>In this case, <code>result</code> will be <code>&quot;Item 1, Item 2, Item 3&quot;</code>.</p>
+<h3 id="joinwithfinalseparator">JoinWithFinalSeparator</h3>
+<pre><code class="lang-csharp">public static string JoinWithFinalSeparator&lt;TValue&gt;(this IEnumerable&lt;TValue&gt; source, string separator, string finalSeparator)
+</code></pre>
+<p>Joins the elements of the <code>source</code> collection using the provided <code>separator</code>, calling <code>ToString</code> on each element of the
+collection. The last element is joined using the <code>finalSeparator</code>.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; source = new[] {1, 2, 3};
+string result = source.JoinWithFinalSeparator(&quot;, &quot;, &quot; and &quot;);
+</code></pre>
+<p>In this case, <code>result</code> will be <code>&quot;1, 2 and 3&quot;</code>.</p>
+<h3 id="shuffle">Shuffle</h3>
+<pre><code class="lang-csharp">public static IEnumerable&lt;TValue&gt; Shuffle&lt;TValue&gt;(this IEnumerable&lt;TValue&gt; source)
+</code></pre>
+<p>Randomly shuffles the elements of the <code>source</code> enumerable.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; source = new[] {1, 2, 3};
+IEnumerable&lt;int&gt; shuffled = source.Shuffle();
+</code></pre>
+<p>The <code>shuffled</code> variable will contain the elements <code>1</code>, <code>2</code>, <code>3</code> in a random order.</p>
+<h3 id="takerandom">TakeRandom</h3>
+<pre><code class="lang-csharp">public static IEnumerable&lt;TValue&gt; TakeRandom&lt;TValue&gt;(this IEnumerable&lt;TValue&gt; source, int count)
+</code></pre>
+<p>Takes random <code>count</code> amount of items from the <code>source</code> enumerable.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; source = new[] {1, 2, 3};
+IEnumerable&lt;int&gt; randomTwo = source.TakeRandom(2);
+</code></pre>
+<p>The <code>randomTwo</code> variable will contain two random elements from the source collection.</p>
+<p>Please note that <code>TValue</code> is a placeholder type. Replace it with the actual type when using the methods.</p>
+<h3 id="if">If</h3>
+<pre><code class="lang-csharp">public static IEnumerable&lt;T&gt; If&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, bool condition, Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt; action)
+</code></pre>
+<p>This method is used to conditionally perform an action on the <code>enumerable</code>. If the <code>condition</code> is <code>true</code>, the <code>action</code>
+is performed on the <code>enumerable</code>.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; numbers = new[] {1, 2, 3, 4, 5};
+var hasFilterCondition = true;
+numbers = numbers.If(hasFilterCondition, nums =&gt; nums.Where(num =&gt; num &gt; 3));
+</code></pre>
+<p>In this example, if <code>hasFilterCondition</code> is <code>true</code>, numbers greater than <code>3</code> are included in <code>numbers</code>.</p>
+<h3 id="foreach">ForEach</h3>
+<pre><code class="lang-csharp">public static IEnumerable&lt;T&gt; ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable, Action&lt;T&gt; action)
+</code></pre>
+<p>Performs the specified <code>action</code> on each element of the <code>enumerable</code>.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; numbers = new[] {1, 2, 3, 4, 5};
+numbers.ForEach(num =&gt; Console.WriteLine(num));
+</code></pre>
+<p>In this example, the <code>ForEach</code> method is used to write each number in the console.</p>
+<h3 id="aresequentialinorder">AreSequentialInOrder</h3>
+<pre><code class="lang-csharp">public static bool AreSequentialInOrder&lt;T&gt;(this IEnumerable&lt;T&gt; enumerable) where T : struct, IComparable, IComparable&lt;T&gt;, IConvertible, IEquatable&lt;T&gt;, IFormattable
+</code></pre>
+<p>Determines whether the elements in the given <code>enumerable</code> are in sequential order.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; numbers = new[] {1, 2, 3, 4, 5};
+bool areSequential = numbers.AreSequentialInOrder();
+</code></pre>
+<p>In this example, <code>areSequential</code> will be <code>true</code> because the numbers are in sequential order.</p>
+<h3 id="nullorempty">NullOrEmpty</h3>
+<pre><code class="lang-csharp">public static bool NullOrEmpty&lt;T&gt;(this IEnumerable&lt;T&gt;? enumerable)
+</code></pre>
+<p>Checks if the specified <code>enumerable</code> collection is <code>null</code> or empty.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;int&gt; numbers = null;
+bool isNullOrEmpty = numbers.NullOrEmpty();  
+</code></pre>
+<p>In this example, <code>isNullOrEmpty</code> will be <code>true</code> because the <code>numbers</code> collection is <code>null</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mrploch/ploch-common/blob/master/DocumentationSite/articles/collections-samples.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

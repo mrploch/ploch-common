@@ -274,6 +274,22 @@ references:
   fullName.vb: Ploch.Common.Collections.EnumerableExtensions.NullOrEmpty(Of T)(System.Collections.Generic.IEnumerable(Of T))
   nameWithType: EnumerableExtensions.NullOrEmpty<T>(IEnumerable<T>)
   nameWithType.vb: EnumerableExtensions.NullOrEmpty(Of T)(IEnumerable(Of T))
+- uid: Ploch.Common.Collections.EnumerableExtensions.Second*
+  name: Second
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_Second_
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.Second
+  isSpec: "True"
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Second
+  nameWithType: EnumerableExtensions.Second
+- uid: Ploch.Common.Collections.EnumerableExtensions.Second``1(System.Collections.Generic.IEnumerable{``0})
+  name: Second<T>(IEnumerable<T>)
+  href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_Second__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.Second``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: Second(Of T)(IEnumerable(Of T))
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Second<T>(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.Second(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: EnumerableExtensions.Second<T>(IEnumerable<T>)
+  nameWithType.vb: EnumerableExtensions.Second(Of T)(IEnumerable(Of T))
 - uid: Ploch.Common.Collections.EnumerableExtensions.Shuffle*
   name: Shuffle
   href: api/Ploch.Common.Collections.EnumerableExtensions.html#Ploch_Common_Collections_EnumerableExtensions_Shuffle_
@@ -638,11 +654,11 @@ references:
   isSpec: "True"
   fullName: Ploch.Common.DependencyInjection.CompositeServicesBundle.AddServices
   nameWithType: CompositeServicesBundle.AddServices
-- uid: Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(IServiceCollection)
+- uid: Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: Configure(IServiceCollection)
-  href: api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html#Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_IServiceCollection_
-  commentId: M:Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(IServiceCollection)
-  fullName: Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(IServiceCollection)
+  href: api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html#Ploch_Common_DependencyInjection_CompositeServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: CompositeServicesBundle.Configure(IServiceCollection)
 - uid: Ploch.Common.DependencyInjection.CompositeServicesBundle.Configure*
   name: Configure
@@ -657,21 +673,21 @@ references:
   commentId: T:Ploch.Common.DependencyInjection.DelegatingServicesBundle
   fullName: Ploch.Common.DependencyInjection.DelegatingServicesBundle
   nameWithType: DelegatingServicesBundle
-- uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Action{IServiceCollection})
+- uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Configure(IServiceCollection)
+  href: api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html#Ploch_Common_DependencyInjection_DelegatingServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: DelegatingServicesBundle.Configure(IServiceCollection)
+- uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
   name: Configure(Action<IServiceCollection>)
-  href: api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html#Ploch_Common_DependencyInjection_DelegatingServicesBundle_Configure_Action_IServiceCollection__
-  commentId: M:Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Action{IServiceCollection})
+  href: api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html#Ploch_Common_DependencyInjection_DelegatingServicesBundle_Configure_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__
+  commentId: M:Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
   name.vb: Configure(Action(Of IServiceCollection))
-  fullName: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Action<IServiceCollection>)
-  fullName.vb: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(Action(Of IServiceCollection))
+  fullName: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection>)
+  fullName.vb: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(System.Action(Of Microsoft.Extensions.DependencyInjection.IServiceCollection))
   nameWithType: DelegatingServicesBundle.Configure(Action<IServiceCollection>)
   nameWithType.vb: DelegatingServicesBundle.Configure(Action(Of IServiceCollection))
-- uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(IServiceCollection)
-  name: Configure(IServiceCollection)
-  href: api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html#Ploch_Common_DependencyInjection_DelegatingServicesBundle_Configure_IServiceCollection_
-  commentId: M:Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(IServiceCollection)
-  fullName: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure(IServiceCollection)
-  nameWithType: DelegatingServicesBundle.Configure(IServiceCollection)
 - uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle.Configure*
   name: Configure
   href: api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html#Ploch_Common_DependencyInjection_DelegatingServicesBundle_Configure_
@@ -685,11 +701,11 @@ references:
   commentId: T:Ploch.Common.DependencyInjection.IServicesBundle
   fullName: Ploch.Common.DependencyInjection.IServicesBundle
   nameWithType: IServicesBundle
-- uid: Ploch.Common.DependencyInjection.IServicesBundle.Configure(IServiceCollection)
+- uid: Ploch.Common.DependencyInjection.IServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: Configure(IServiceCollection)
-  href: api/Ploch.Common.DependencyInjection.IServicesBundle.html#Ploch_Common_DependencyInjection_IServicesBundle_Configure_IServiceCollection_
-  commentId: M:Ploch.Common.DependencyInjection.IServicesBundle.Configure(IServiceCollection)
-  fullName: Ploch.Common.DependencyInjection.IServicesBundle.Configure(IServiceCollection)
+  href: api/Ploch.Common.DependencyInjection.IServicesBundle.html#Ploch_Common_DependencyInjection_IServicesBundle_Configure_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Ploch.Common.DependencyInjection.IServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Ploch.Common.DependencyInjection.IServicesBundle.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   nameWithType: IServicesBundle.Configure(IServiceCollection)
 - uid: Ploch.Common.DependencyInjection.IServicesBundle.Configure*
   name: Configure
@@ -1379,6 +1395,192 @@ references:
   fullName.vb: Ploch.Common.ObjectCloningHelpers.CopyPropertiesIncludeOnly(Of T)(T, T, System.String())
   nameWithType: ObjectCloningHelpers.CopyPropertiesIncludeOnly<T>(T, T, String[])
   nameWithType.vb: ObjectCloningHelpers.CopyPropertiesIncludeOnly(Of T)(T, T, String())
+- uid: Ploch.Common.Randomizers
+  name: Ploch.Common.Randomizers
+  href: api/Ploch.Common.Randomizers.html
+  commentId: N:Ploch.Common.Randomizers
+  fullName: Ploch.Common.Randomizers
+  nameWithType: Ploch.Common.Randomizers
+- uid: Ploch.Common.Randomizers.BooleanRandomizer
+  name: BooleanRandomizer
+  href: api/Ploch.Common.Randomizers.BooleanRandomizer.html
+  commentId: T:Ploch.Common.Randomizers.BooleanRandomizer
+  fullName: Ploch.Common.Randomizers.BooleanRandomizer
+  nameWithType: BooleanRandomizer
+- uid: Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue
+  name: GetRandomValue()
+  href: api/Ploch.Common.Randomizers.BooleanRandomizer.html#Ploch_Common_Randomizers_BooleanRandomizer_GetRandomValue
+  commentId: M:Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue
+  fullName: Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue()
+  nameWithType: BooleanRandomizer.GetRandomValue()
+- uid: Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue(System.Boolean,System.Boolean)
+  name: GetRandomValue(Boolean, Boolean)
+  href: api/Ploch.Common.Randomizers.BooleanRandomizer.html#Ploch_Common_Randomizers_BooleanRandomizer_GetRandomValue_System_Boolean_System_Boolean_
+  commentId: M:Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue(System.Boolean,System.Boolean)
+  fullName: Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue(System.Boolean, System.Boolean)
+  nameWithType: BooleanRandomizer.GetRandomValue(Boolean, Boolean)
+- uid: Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue*
+  name: GetRandomValue
+  href: api/Ploch.Common.Randomizers.BooleanRandomizer.html#Ploch_Common_Randomizers_BooleanRandomizer_GetRandomValue_
+  commentId: Overload:Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.BooleanRandomizer.GetRandomValue
+  nameWithType: BooleanRandomizer.GetRandomValue
+- uid: Ploch.Common.Randomizers.DateTimeRandomizer
+  name: DateTimeRandomizer
+  href: api/Ploch.Common.Randomizers.DateTimeRandomizer.html
+  commentId: T:Ploch.Common.Randomizers.DateTimeRandomizer
+  fullName: Ploch.Common.Randomizers.DateTimeRandomizer
+  nameWithType: DateTimeRandomizer
+- uid: Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue
+  name: GetRandomValue()
+  href: api/Ploch.Common.Randomizers.DateTimeRandomizer.html#Ploch_Common_Randomizers_DateTimeRandomizer_GetRandomValue
+  commentId: M:Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue
+  fullName: Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue()
+  nameWithType: DateTimeRandomizer.GetRandomValue()
+- uid: Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue(System.DateTime,System.DateTime)
+  name: GetRandomValue(DateTime, DateTime)
+  href: api/Ploch.Common.Randomizers.DateTimeRandomizer.html#Ploch_Common_Randomizers_DateTimeRandomizer_GetRandomValue_System_DateTime_System_DateTime_
+  commentId: M:Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue(System.DateTime,System.DateTime)
+  fullName: Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue(System.DateTime, System.DateTime)
+  nameWithType: DateTimeRandomizer.GetRandomValue(DateTime, DateTime)
+- uid: Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue*
+  name: GetRandomValue
+  href: api/Ploch.Common.Randomizers.DateTimeRandomizer.html#Ploch_Common_Randomizers_DateTimeRandomizer_GetRandomValue_
+  commentId: Overload:Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.DateTimeRandomizer.GetRandomValue
+  nameWithType: DateTimeRandomizer.GetRandomValue
+- uid: Ploch.Common.Randomizers.IntRandomizer
+  name: IntRandomizer
+  href: api/Ploch.Common.Randomizers.IntRandomizer.html
+  commentId: T:Ploch.Common.Randomizers.IntRandomizer
+  fullName: Ploch.Common.Randomizers.IntRandomizer
+  nameWithType: IntRandomizer
+- uid: Ploch.Common.Randomizers.IntRandomizer.GetRandomValue
+  name: GetRandomValue()
+  href: api/Ploch.Common.Randomizers.IntRandomizer.html#Ploch_Common_Randomizers_IntRandomizer_GetRandomValue
+  commentId: M:Ploch.Common.Randomizers.IntRandomizer.GetRandomValue
+  fullName: Ploch.Common.Randomizers.IntRandomizer.GetRandomValue()
+  nameWithType: IntRandomizer.GetRandomValue()
+- uid: Ploch.Common.Randomizers.IntRandomizer.GetRandomValue(System.Int32,System.Int32)
+  name: GetRandomValue(Int32, Int32)
+  href: api/Ploch.Common.Randomizers.IntRandomizer.html#Ploch_Common_Randomizers_IntRandomizer_GetRandomValue_System_Int32_System_Int32_
+  commentId: M:Ploch.Common.Randomizers.IntRandomizer.GetRandomValue(System.Int32,System.Int32)
+  fullName: Ploch.Common.Randomizers.IntRandomizer.GetRandomValue(System.Int32, System.Int32)
+  nameWithType: IntRandomizer.GetRandomValue(Int32, Int32)
+- uid: Ploch.Common.Randomizers.IntRandomizer.GetRandomValue*
+  name: GetRandomValue
+  href: api/Ploch.Common.Randomizers.IntRandomizer.html#Ploch_Common_Randomizers_IntRandomizer_GetRandomValue_
+  commentId: Overload:Ploch.Common.Randomizers.IntRandomizer.GetRandomValue
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.IntRandomizer.GetRandomValue
+  nameWithType: IntRandomizer.GetRandomValue
+- uid: Ploch.Common.Randomizers.IRandomizer`1
+  name: IRandomizer<TValue>
+  href: api/Ploch.Common.Randomizers.IRandomizer-1.html
+  commentId: T:Ploch.Common.Randomizers.IRandomizer`1
+  name.vb: IRandomizer(Of TValue)
+  fullName: Ploch.Common.Randomizers.IRandomizer<TValue>
+  fullName.vb: Ploch.Common.Randomizers.IRandomizer(Of TValue)
+  nameWithType: IRandomizer<TValue>
+  nameWithType.vb: IRandomizer(Of TValue)
+- uid: Ploch.Common.Randomizers.IRandomizer`1.GetRandomValue
+  name: GetRandomValue()
+  href: api/Ploch.Common.Randomizers.IRandomizer-1.html#Ploch_Common_Randomizers_IRandomizer_1_GetRandomValue
+  commentId: M:Ploch.Common.Randomizers.IRandomizer`1.GetRandomValue
+  fullName: Ploch.Common.Randomizers.IRandomizer<TValue>.GetRandomValue()
+  fullName.vb: Ploch.Common.Randomizers.IRandomizer(Of TValue).GetRandomValue()
+  nameWithType: IRandomizer<TValue>.GetRandomValue()
+  nameWithType.vb: IRandomizer(Of TValue).GetRandomValue()
+- uid: Ploch.Common.Randomizers.IRandomizer`1.GetRandomValue*
+  name: GetRandomValue
+  href: api/Ploch.Common.Randomizers.IRandomizer-1.html#Ploch_Common_Randomizers_IRandomizer_1_GetRandomValue_
+  commentId: Overload:Ploch.Common.Randomizers.IRandomizer`1.GetRandomValue
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.IRandomizer<TValue>.GetRandomValue
+  fullName.vb: Ploch.Common.Randomizers.IRandomizer(Of TValue).GetRandomValue
+  nameWithType: IRandomizer<TValue>.GetRandomValue
+  nameWithType.vb: IRandomizer(Of TValue).GetRandomValue
+- uid: Ploch.Common.Randomizers.IRangedRandomizer`1
+  name: IRangedRandomizer<TValue>
+  href: api/Ploch.Common.Randomizers.IRangedRandomizer-1.html
+  commentId: T:Ploch.Common.Randomizers.IRangedRandomizer`1
+  name.vb: IRangedRandomizer(Of TValue)
+  fullName: Ploch.Common.Randomizers.IRangedRandomizer<TValue>
+  fullName.vb: Ploch.Common.Randomizers.IRangedRandomizer(Of TValue)
+  nameWithType: IRangedRandomizer<TValue>
+  nameWithType.vb: IRangedRandomizer(Of TValue)
+- uid: Ploch.Common.Randomizers.IRangedRandomizer`1.GetRandomValue(`0,`0)
+  name: GetRandomValue(TValue, TValue)
+  href: api/Ploch.Common.Randomizers.IRangedRandomizer-1.html#Ploch_Common_Randomizers_IRangedRandomizer_1_GetRandomValue__0__0_
+  commentId: M:Ploch.Common.Randomizers.IRangedRandomizer`1.GetRandomValue(`0,`0)
+  fullName: Ploch.Common.Randomizers.IRangedRandomizer<TValue>.GetRandomValue(TValue, TValue)
+  fullName.vb: Ploch.Common.Randomizers.IRangedRandomizer(Of TValue).GetRandomValue(TValue, TValue)
+  nameWithType: IRangedRandomizer<TValue>.GetRandomValue(TValue, TValue)
+  nameWithType.vb: IRangedRandomizer(Of TValue).GetRandomValue(TValue, TValue)
+- uid: Ploch.Common.Randomizers.IRangedRandomizer`1.GetRandomValue*
+  name: GetRandomValue
+  href: api/Ploch.Common.Randomizers.IRangedRandomizer-1.html#Ploch_Common_Randomizers_IRangedRandomizer_1_GetRandomValue_
+  commentId: Overload:Ploch.Common.Randomizers.IRangedRandomizer`1.GetRandomValue
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.IRangedRandomizer<TValue>.GetRandomValue
+  fullName.vb: Ploch.Common.Randomizers.IRangedRandomizer(Of TValue).GetRandomValue
+  nameWithType: IRangedRandomizer<TValue>.GetRandomValue
+  nameWithType.vb: IRangedRandomizer(Of TValue).GetRandomValue
+- uid: Ploch.Common.Randomizers.Randomizer
+  name: Randomizer
+  href: api/Ploch.Common.Randomizers.Randomizer.html
+  commentId: T:Ploch.Common.Randomizers.Randomizer
+  fullName: Ploch.Common.Randomizers.Randomizer
+  nameWithType: Randomizer
+- uid: Ploch.Common.Randomizers.Randomizer.GetRandomizer*
+  name: GetRandomizer
+  href: api/Ploch.Common.Randomizers.Randomizer.html#Ploch_Common_Randomizers_Randomizer_GetRandomizer_
+  commentId: Overload:Ploch.Common.Randomizers.Randomizer.GetRandomizer
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.Randomizer.GetRandomizer
+  nameWithType: Randomizer.GetRandomizer
+- uid: Ploch.Common.Randomizers.Randomizer.GetRandomizer``1
+  name: GetRandomizer<TValue>()
+  href: api/Ploch.Common.Randomizers.Randomizer.html#Ploch_Common_Randomizers_Randomizer_GetRandomizer__1
+  commentId: M:Ploch.Common.Randomizers.Randomizer.GetRandomizer``1
+  name.vb: GetRandomizer(Of TValue)()
+  fullName: Ploch.Common.Randomizers.Randomizer.GetRandomizer<TValue>()
+  fullName.vb: Ploch.Common.Randomizers.Randomizer.GetRandomizer(Of TValue)()
+  nameWithType: Randomizer.GetRandomizer<TValue>()
+  nameWithType.vb: Randomizer.GetRandomizer(Of TValue)()
+- uid: Ploch.Common.Randomizers.StringRandomizer
+  name: StringRandomizer
+  href: api/Ploch.Common.Randomizers.StringRandomizer.html
+  commentId: T:Ploch.Common.Randomizers.StringRandomizer
+  fullName: Ploch.Common.Randomizers.StringRandomizer
+  nameWithType: StringRandomizer
+- uid: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue
+  name: GetRandomValue()
+  href: api/Ploch.Common.Randomizers.StringRandomizer.html#Ploch_Common_Randomizers_StringRandomizer_GetRandomValue
+  commentId: M:Ploch.Common.Randomizers.StringRandomizer.GetRandomValue
+  fullName: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue()
+  nameWithType: StringRandomizer.GetRandomValue()
+- uid: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue(System.Int32,System.Char,System.Char)
+  name: GetRandomValue(Int32, Char, Char)
+  href: api/Ploch.Common.Randomizers.StringRandomizer.html#Ploch_Common_Randomizers_StringRandomizer_GetRandomValue_System_Int32_System_Char_System_Char_
+  commentId: M:Ploch.Common.Randomizers.StringRandomizer.GetRandomValue(System.Int32,System.Char,System.Char)
+  fullName: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue(System.Int32, System.Char, System.Char)
+  nameWithType: StringRandomizer.GetRandomValue(Int32, Char, Char)
+- uid: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue(System.String,System.String)
+  name: GetRandomValue(String, String)
+  href: api/Ploch.Common.Randomizers.StringRandomizer.html#Ploch_Common_Randomizers_StringRandomizer_GetRandomValue_System_String_System_String_
+  commentId: M:Ploch.Common.Randomizers.StringRandomizer.GetRandomValue(System.String,System.String)
+  fullName: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue(System.String, System.String)
+  nameWithType: StringRandomizer.GetRandomValue(String, String)
+- uid: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue*
+  name: GetRandomValue
+  href: api/Ploch.Common.Randomizers.StringRandomizer.html#Ploch_Common_Randomizers_StringRandomizer_GetRandomValue_
+  commentId: Overload:Ploch.Common.Randomizers.StringRandomizer.GetRandomValue
+  isSpec: "True"
+  fullName: Ploch.Common.Randomizers.StringRandomizer.GetRandomValue
+  nameWithType: StringRandomizer.GetRandomValue
 - uid: Ploch.Common.Reflection
   name: Ploch.Common.Reflection
   href: api/Ploch.Common.Reflection.html
