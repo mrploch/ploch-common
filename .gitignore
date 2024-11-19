@@ -365,7 +365,7 @@ coverage.xml
 # Rider specific files
 
 # Default ignored files
-**/.idea*/shelf/
+**/.idea*/
 **/.idea*/workspace.xml
 # Rider ignored files
 **/.idea*/projectSettingsUpdater.xml
@@ -391,3 +391,12 @@ codestream.xml
 /.idea/**/.idea/inspectionProfiles/Project_Default.xml
 /.idea/.idea.Ploch.Common.Data/.idea/vcs.xml
 **/.idea/codestream.xml
+**./idea/vcs.xml
+
+# VS Code
+.vscode/
+/src/Common/Ploch.Common.xml
+/src/Common.DawnGuard/Ploch.Common.DawnGuard.xml
+/src/Common.WebUI/Ploch.Common.WebUI.xml
+/src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.xml
+/src/Common.DependencyInjection/Ploch.Common.DependencyInjection.xml

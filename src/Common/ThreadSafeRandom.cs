@@ -9,7 +9,9 @@ public static class ThreadSafeRandom
 {
     private static readonly Random Global = new();
 
-#pragma warning disable SA1306 - naming of the static field should be in PascalCase (fix this in the next iteration)
+#pragma warning disable SA1008 // Bracket should not be preceded by space - false/positive
+#pragma warning disable SA1306 // naming of the static field should be in PascalCase (fix this in the next iteration)
+#pragma warning restore SA1008
     [ThreadStatic] private static Random? LocalRandom;
 #pragma warning restore SA1306
 

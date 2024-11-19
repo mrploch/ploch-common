@@ -21,7 +21,7 @@ public class EnumerableExtensionsTests
     public void ValueIn_should_work_on_short_type()
     {
         short number = 10;
-        
+
         number.ValueIn<short>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).Should().BeTrue();
     }
 
@@ -105,7 +105,7 @@ public class EnumerableExtensionsTests
     [Fact]
     public void TakeRandom_should_return_0_items_if_sample_size_is_0()
     {
-        var (sourceList, result) = TestTakeRandom(10, 0);
+        var (_, result) = TestTakeRandom(10, 0);
 
         result.Should().BeEmpty();
     }
@@ -113,23 +113,30 @@ public class EnumerableExtensionsTests
     [Fact]
     public void TakeRandom_should_return_0_items_if_source_list_size_is_0()
     {
-        var (sourceList, result) = TestTakeRandom(0, 10);
+        var (_, result) = TestTakeRandom(0, 10);
 
         result.Should().BeEmpty();
     }
 
-    private (List<string> list, IEnumerable<string> result) TestTakeRandom(int itemsCount, int sampleSize)
+    [Fact]
+    public void TakeRandom_should_return_random_values_from_source()
     {
-        var list = new List<string>();
-        for (var i = 0; i < itemsCount; i++)
+        var results = new List<IEnumerable<int>>();
+
+        var sourceList = new List<int>();
+        for (var i = 0; i < 100; i++)
         {
-            list.Add($"Item {i}");
+            sourceList.Add(i);
         }
 
-        var result = list.TakeRandom(sampleSize);
-        _output.WriteLine($"TakeRandom test. Sample size: {sampleSize}, items count: {itemsCount}, result count: {result.Count()}");
+        for (var i = 0; i < 10; i++)
+        {
+            var randomValues = sourceList.TakeRandom(3).ToList();
 
-        return (list, result);
+            results.Should().NotContainEquivalentOf(randomValues);
+
+            results.Add(randomValues);
+        }
     }
 
     [Fact]
@@ -174,7 +181,9 @@ public class EnumerableExtensionsTests
     public void If_should_extend_the_query_with_a_provided_query_if_the_condition_is_met()
     {
         var items = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        var result = items.If(true, q => q.Where(i => i > 3)).If(false, q => q.Where(i => i != 6)).If(true, q => q.Where(i => i < 7));
+        var result = items.If(true, q => q.Where(i => i > 3))
+                          .If(false, q => q.Where(i => i != 6))
+                          .If(true, q => q.Where(i => i < 7));
 
         result.Should().BeEquivalentTo(items.Where(i => i is > 3 and < 7));
     }
@@ -239,7 +248,62 @@ public class EnumerableExtensionsTests
     [Fact]
     public void NullOrEmpty_should_return_false_for_non_empty_enumerable()
     {
-        IEnumerable<int>? nonEmptyEnumerable = new[] { 1, 2, 3 };
+        IEnumerable<int> nonEmptyEnumerable = [1, 2, 3];
         nonEmptyEnumerable.NullOrEmpty().Should().BeFalse();
+    }
+
+    [Fact]
+    public void Second_should_return_second_element_in_sequence()
+    {
+        IEnumerable<int> nonEmptyEnumerable = [1, 2, 3];
+
+        nonEmptyEnumerable.Second().Should().Be(2);
+    }
+
+    [Fact]
+    public void Second_should_throw_argument_null_exception_if_sequence_is_null()
+    {
+        // Arrange
+        IEnumerable<int>? sequence = null;
+
+        // Act
+#pragma warning disable CS8604 // Possible null reference argument - intentional hgere
+        Action act = () => sequence.Second();
+#pragma warning restore CS8604 // Possible null reference argument.
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void Second_should_throw_if_less_items_in_sequence_than_two()
+    {
+        // Arrange
+        var singleItemList = new List<int> { 1 };
+
+        // ReSharper disable once CollectionNeverUpdated.Local
+        var emptyList = new List<int>();
+
+        // Act
+        Action actSingleItem = () => singleItemList.Second();
+        Action actEmpty = () => emptyList.Second();
+
+        // Assert
+        actSingleItem.Should().Throw<InvalidOperationException>().WithMessage("Sequence*");
+        actEmpty.Should().Throw<InvalidOperationException>().WithMessage("Sequence*");
+    }
+
+    private (List<string> list, IEnumerable<string> result) TestTakeRandom(int itemsCount, int sampleSize)
+    {
+        var list = new List<string>();
+        for (var i = 0; i < itemsCount; i++)
+        {
+            list.Add($"Item {i}");
+        }
+
+        var result = list.TakeRandom(sampleSize);
+        _output.WriteLine($"TakeRandom test. Sample size: {sampleSize}, items count: {itemsCount}, result count: {result.Count()}");
+
+        return (list, result);
     }
 }

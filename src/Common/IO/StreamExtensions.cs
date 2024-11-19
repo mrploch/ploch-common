@@ -4,12 +4,12 @@ using System.IO;
 namespace Ploch.Common.IO;
 
 /// <summary>
-/// A static class providing extension methods for Stream objects.
+///     A static class providing extension methods for Stream objects.
 /// </summary>
 public static class StreamExtensions
 {
     /// <summary>
-    /// Converts the contents of a stream to a byte array.
+    ///     Converts the contents of a stream to a byte array.
     /// </summary>
     /// <param name="stream">The stream to convert.</param>
     /// <returns>An enumerable byte array representing the contents of the stream.</returns>

@@ -1,4 +1,9 @@
-﻿using System;
+﻿// ReSharper disable ExceptionNotDocumented
+// ReSharper disable PossibleMultipleEnumeration
+
+#pragma warning disable S3267
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dawn;
@@ -45,6 +50,7 @@ public static class EnumerableExtensions
     /// <returns><c>true</c> if the set of values contains the value, <c>false</c> otherwise.</returns>
     public static bool ValueIn<TValue>(this TValue value, IEnumerable<TValue> values, IEqualityComparer<TValue>? comparer = null)
     {
+        // ReSharper disable once PossibleMultipleEnumeration
         Guard.Argument(values, nameof(values)).NotNull();
 
         var actualComparer = comparer ?? EqualityComparer<TValue>.Default;
@@ -53,6 +59,7 @@ public static class EnumerableExtensions
             return collection.Contains(value);
         }
 
+        // ReSharper disable once PossibleMultipleEnumeration
         foreach (var item in values)
         {
             if (actualComparer.Equals(item, value))
@@ -300,6 +307,21 @@ public static class EnumerableExtensions
     public static bool NullOrEmpty<T>(this IEnumerable<T>? enumerable)
     {
         return enumerable?.Any() != true;
+    }
+
+    /// <summary>
+    ///     Returns the second element of a sequence.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in the sequence.</typeparam>
+    /// <param name="enumerable">The sequence to return the second element from.</param>
+    /// <returns>The second element in the specified sequence.</returns>
+    /// <exception cref="InvalidOperationException">The source sequence contains fewer than two elements.</exception>
+    public static T Second<T>(this IEnumerable<T> enumerable)
+    {
+        Guard.Argument(enumerable, nameof(enumerable)).NotNull();
+
+        // ReSharper disable once PossibleMultipleEnumeration - Guard is not enumerating
+        return enumerable.Skip(1).First();
     }
 
     internal static TEnumerable If<TEnumerable, T>(this TEnumerable queryable, bool condition, Func<TEnumerable, TEnumerable> action)

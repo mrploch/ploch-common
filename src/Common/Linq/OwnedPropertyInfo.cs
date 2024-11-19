@@ -13,8 +13,8 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     /// <param name="owner">The object that owns the property.</param>
     protected OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
     {
-        Guard.Argument(propertyInfo, nameof(propertyInfo)).NotNull();
-        Guard.Argument(owner, nameof(owner)).NotNull();
+        Guard.Argument(propertyInfo, nameof(propertyInfo));
+        Guard.Argument(owner, nameof(owner));
 
         PropertyInfo = propertyInfo;
         Owner = owner;
@@ -48,7 +48,7 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     }
 
     /// <inheritdoc />
-    public object GetValue(object[] index)
+    public object? GetValue(object[] index)
     {
         return PropertyInfo.GetValue(Owner, index);
     }

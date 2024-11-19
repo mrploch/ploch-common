@@ -46,7 +46,7 @@ public interface IOwnedPropertyInfo
     /// </summary>
     /// <param name="index">The property index.</param>
     /// <returns>The property value at the specified index.</returns>
-    object GetValue(object[] index);
+    object? GetValue(object[] index);
 
     /// <summary>
     ///     Sets a value of the property.

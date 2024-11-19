@@ -67,7 +67,8 @@ public static class DateTimeExtensions
     /// </summary>
     /// <param name="epochSeconds">The epoch seconds.</param>
     /// <returns>DateTime.</returns>
-    public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
+    public static DateTime ToDateTime<T>(this T epochSeconds)
+        where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
     {
         var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
 
