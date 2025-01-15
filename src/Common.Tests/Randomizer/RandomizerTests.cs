@@ -21,27 +21,17 @@ public abstract class RandomizerTests<TValue>
         for (var i = 0; i < DifferentValuesCheckCount; i++)
         {
             var randomValue = sut.GetRandomValue();
-            if (values.ContainsKey(randomValue))
+            if (!values.TryAdd(randomValue, 1))
             {
                 values[randomValue]++;
-            }
-            else
-            {
-                values.Add(randomValue, 1);
             }
         }
 
         values.Count.Should().BeGreaterThanOrEqualTo(AtLeastHowManyValuesShouldBeDifferent);
     }
 
-    protected virtual IRandomizer<TValue> CreateSUT() => Randomizers.Randomizer.GetRandomizer<TValue>();
-}
-
-public abstract class RangeRandomizerTests<TValue> : RandomizerTests<TValue>
-{
-    protected abstract TValue MinValue { get; }
-
-    protected abstract TValue MaxValue { get; }
-
-    protected override IRangedRandomizer<TValue> CreateSUT() => Randomizers.Randomizer.GetRandomizer<TValue>();
+    protected virtual IRandomizer<TValue> CreateSUT()
+    {
+        return Randomizers.Randomizer.GetRandomizer<TValue>();
+    }
 }
