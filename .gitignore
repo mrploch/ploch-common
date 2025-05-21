@@ -141,6 +141,9 @@ _TeamCity*
 *.coverage
 *.coveragexml
 
+# Coverlet code coverage
+coverage.*.xml
+
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml
@@ -347,7 +350,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/.idea
 
 # My Additions
 .history/
@@ -356,3 +358,45 @@ MigrationBackup/
 /NDependOut1
 .sonarqube/**
 **/TestResults/coverage.opencover.xml
+**/log.txt
+*.bak
+coverage.xml
+
+# Rider specific files
+
+# Default ignored files
+**/.idea*/
+**/.idea*/workspace.xml
+# Rider ignored files
+**/.idea*/projectSettingsUpdater.xml
+**/.idea*/contentModel.xml
+**/.idea*/modules.xml
+**/.idea*/*.iml
+# Editor-based HTTP Client requests
+**/.idea*/httpRequests/
+# Datasource local storage ignored files
+**/.idea*/dataSources/
+**/.idea*/dataSources.local.xml
+**/.idea/**/sonarlint/
+**/.idea*/**/dbnavigator.xml
+**/.idea/**/codestream.xml
+**/codestream.xml
+codestream.xml
+/.idea/**/aws.xml
+/.idea/**/encodings.xml
+/.idea/**/GitLink.xml
+/.idea/**/misc.xml
+/.idea/**/vcs.xml
+/.idea/**/.idea/dataSources.xml
+/.idea/**/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.idea.Ploch.Common.Data/.idea/vcs.xml
+**/.idea/codestream.xml
+**./idea/vcs.xml
+
+# VS Code
+.vscode/
+/src/Common/Ploch.Common.xml
+/src/Common.DawnGuard/Ploch.Common.DawnGuard.xml
+/src/Common.WebUI/Ploch.Common.WebUI.xml
+/src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.xml
+/src/Common.DependencyInjection/Ploch.Common.DependencyInjection.xml

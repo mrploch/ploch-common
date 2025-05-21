@@ -1,0 +1,9 @@
+# configuration file for dotnet-releaser
+[msbuild]
+project = "Ploch.Common.sln"
+[msbuild.properties]
+CopyOutputSymbolsToPublishDirectory = false
+SkipCopyingSymbolsToOutputDirectory = true 
+[github]
+user = "mrploch"
+repo = "ploch-common"

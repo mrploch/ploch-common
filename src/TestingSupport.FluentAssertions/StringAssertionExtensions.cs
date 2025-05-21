@@ -8,13 +8,30 @@ using FluentAssertions.Primitives;
 
 namespace Ploch.TestingSupport.FluentAssertions
 {
+    /// <summary>
+    ///     Provides extension methods for <see cref="StringAssertions" />.
+    /// </summary>
     public static class StringAssertionExtensions
     {
+        /// <summary>
+        ///     Asserts that the subject string contains all of the specified values ignoring case.
+        /// </summary>
+        /// <param name="assertions">The assertions.</param>
+        /// <param name="values">Values to check.</param>
+        /// <returns>The assertion constraint.</returns>
         public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions, params string?[] values)
         {
             return ContainAllEquivalentOf(assertions, values, string.Empty);
         }
 
+        /// <summary>
+        ///     Asserts that the subject string contains all of the specified values ignoring case.
+        /// </summary>
+        /// <param name="assertions">The assertions.</param>
+        /// <param name="values">Values to check.</param>
+        /// <param name="because">The because string.</param>
+        /// <param name="becauseArgs">The because string arguments.</param>
+        /// <returns>The assertion constraint.</returns>
         public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions,
                                                                              IEnumerable<string?> values,
                                                                              string because = "",

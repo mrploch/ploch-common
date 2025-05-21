@@ -18,3 +18,16 @@ The repository consists of the following main projects:
 - Ploch.TestingSupport
 - Ploch.TestingSupport.FluentAssertions
 - Ploch.TestingSupport.Xunit
+
+## Usage
+
+The libraries are available as NuGet packages.
+The API reference is available [here](https://github.ploch.dev/ploch-common/).
+
+For example, to install the Ploch.Common package, run:
+
+```powershell
+dotnet add package Ploch.Common
+```
+
+There some [sample usages](.articles/samples.html) of Ploch.Common extension methods and utilities.

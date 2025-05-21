@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using Dawn;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Ploch.Common.DependencyInjection
+namespace Ploch.Common.DependencyInjection;
+
+public class DelegatingServicesBundle : IServicesBundle
 {
-    public class DelegatingServicesBundle : IServicesBundle
+    private readonly ICollection<Action<IServiceCollection>> _serviceCollectionActions = new List<Action<IServiceCollection>>();
+
+    /// <inheritdoc />
+    /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+    public void Configure(IServiceCollection serviceCollection)
     {
-        private readonly ICollection<Action<IServiceCollection>> _serviceCollectionActions = new List<Action<IServiceCollection>>();
+        Guard.Argument(serviceCollection, nameof(serviceCollection)).NotNull();
 
-        /// <inheritdoc />
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        public void Configure(IServiceCollection serviceCollection)
+        foreach (var serviceCollectionAction in _serviceCollectionActions)
         {
-            Guard.Argument(serviceCollection, nameof(serviceCollection)).NotNull();
-
-            foreach (var serviceCollectionAction in _serviceCollectionActions)
-            {
-                serviceCollectionAction(serviceCollection);
-            }
+            serviceCollectionAction(serviceCollection);
         }
+    }
 
-        public DelegatingServicesBundle Configure(Action<IServiceCollection> serviceCollectionAction)
-        {
-            Guard.Argument(serviceCollectionAction, nameof(serviceCollectionAction)).NotNull();
+    public DelegatingServicesBundle Configure(Action<IServiceCollection> serviceCollectionAction)
+    {
+        Guard.Argument(serviceCollectionAction, nameof(serviceCollectionAction)).NotNull();
 
-            _serviceCollectionActions.Add(serviceCollectionAction);
+        _serviceCollectionActions.Add(serviceCollectionAction);
 
-            return this;
-        }
+        return this;
     }
 }
