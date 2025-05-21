@@ -28,7 +28,7 @@ namespace TestingSupport.FluentAssertions.IOAbstractions.Tests
         [Fact]
         public void HaveNamesEquivalentTo_should_compare_names_only_and_not_fail_if_the_match()
         {
-            var fileSystemInfoNames = new List<string>() {"File1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2"};
+            var fileSystemInfoNames = new List<string>() {"file1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2"};
             var fileSystemInfoNames2 = new List<string>() {"file1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2"};
 
          //   fileSystemInfoNames.Should().BeEquivalentTo(fileSystemInfoNames2, config => config.Using(StringComparer.Ordinal));
@@ -36,7 +36,6 @@ namespace TestingSupport.FluentAssertions.IOAbstractions.Tests
             var fileSystem = BuildFileSystem();
 
             var fileSystemInfos = fileSystem.DirectoryInfo.New("c:\\folder1").GetFileSystemInfos();
-
 
             fileSystemInfos.Should().HaveNamesEquivalentTo(fileSystemInfoNames, StringComparer.Ordinal);
         }
@@ -48,7 +47,7 @@ namespace TestingSupport.FluentAssertions.IOAbstractions.Tests
 
             var fileSystemInfos = fileSystem.DirectoryInfo.New("c:\\folder1").GetFileSystemInfos();
 
-            fileSystemInfos.Should().HaveNamesEquivalentTo(new[] {"file1.txt", "file2.txt", "file3.txt", "folder1_1"}, StringComparer.Ordinal);
+            fileSystemInfos.Should().HaveNamesEquivalentTo(new[] {"file1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2"}, StringComparer.Ordinal);
         }
     }
 }
