@@ -58,6 +58,11 @@ jobs:
         uses: phoenix-actions/test-reporting@v8
         id: test-report               # Set ID reference for step
         if: success() || failure()    # run this step even if previous step failed
+        with:
+          artifact: test-results
+          name: DotNet Tests
+          path: '*.trx'
+          reporter: dotnet-trx
       - name: Upload Coverage Results
         uses: actions/upload-artifact@v4
         if: success() || failure()
