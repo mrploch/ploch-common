@@ -10,7 +10,7 @@ using Xunit;
 
 namespace TestingSupport.FluentAssertions.IOAbstractions.Tests
 {
-   
+
     public class FileSystemInfoAssertionsTests
     {
         private static IFileSystem BuildFileSystem()
@@ -24,7 +24,7 @@ namespace TestingSupport.FluentAssertions.IOAbstractions.Tests
             fileSystem.AddDirectory("c:\\folder1\\folder1_2");
             return fileSystem;
         }
-        
+
         [Fact]
         public void HaveNamesEquivalentTo_should_compare_names_only_and_not_fail_if_the_match()
         {
@@ -32,21 +32,21 @@ namespace TestingSupport.FluentAssertions.IOAbstractions.Tests
             var fileSystemInfoNames2 = new List<string>() {"file1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2"};
 
          //   fileSystemInfoNames.Should().BeEquivalentTo(fileSystemInfoNames2, config => config.Using(StringComparer.Ordinal));
-            
+
             var fileSystem = BuildFileSystem();
 
-            var fileSystemInfos = fileSystem.DirectoryInfo.FromDirectoryName("c:\\folder1").GetFileSystemInfos();
-            
+            var fileSystemInfos = fileSystem.DirectoryInfo.New("c:\\folder1").GetFileSystemInfos();
+
 
             fileSystemInfos.Should().HaveNamesEquivalentTo(fileSystemInfoNames, StringComparer.Ordinal);
         }
-        
+
         [Fact]
         public void HaveNamesEquivalentTo_should_compare_names_only_and_fail_if_they_dont_match_count_different()
         {
             var fileSystem = BuildFileSystem();
 
-            var fileSystemInfos = fileSystem.DirectoryInfo.FromDirectoryName("c:\\folder1").GetFileSystemInfos();
+            var fileSystemInfos = fileSystem.DirectoryInfo.New("c:\\folder1").GetFileSystemInfos();
 
             fileSystemInfos.Should().HaveNamesEquivalentTo(new[] {"file1.txt", "file2.txt", "file3.txt", "folder1_1"}, StringComparer.Ordinal);
         }
