@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.DependencyInjection;
 
 namespace Ploch.Common.Windows.Wmi;
 
-public static class WmiObjectQueryServiceRegistrations
+public class WmiObjectQueryServicesBundle : IServicesBundle
 {
-    public static IServiceCollection AddWmiObjectQueryServices(this IServiceCollection services) =>
+    public void Configure(IServiceCollection services) =>
         services.AddSingleton<IWmiObjectQueryFactory, WmiObjectQueryFactory>().AddSingleton<IWmiConnectionFactory, DefaultWmiConnectionFactory>();
 }

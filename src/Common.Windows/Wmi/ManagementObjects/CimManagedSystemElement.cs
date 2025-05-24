@@ -27,10 +27,5 @@ public abstract class CimManagedSystemElement
     /// <summary>
     ///     The name of the object.
     /// </summary>
-    public string? Name { get; set; }
-
-    /// <summary>
-    ///     A string that indicates the current status of the object.
-    /// </summary>
-    public string? Status { get; set; }
+    public string Name { get; set; } = null!;
 }

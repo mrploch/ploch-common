@@ -1,11 +1,37 @@
+using System.Linq.Expressions;
 using System.Reflection;
+using Ploch.Common.Linq;
 using Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
-using WmiLight;
 
 namespace Ploch.Common.Windows.Wmi;
 
 public static class ManagementObjectQuery
 {
+    public static async Task<IEnumerable<TManagementObject>> GetAllAsync<TManagementObject, TPropertyValue>(this IWmiQuery wmiQuery,
+                                                                                                            Expression<Func<TManagementObject,
+                                                                                                                    TPropertyValue>>
+                                                                                                                wherePropertySelectorExpression,
+                                                                                                            TPropertyValue propertyValue,
+                                                                                                            CancellationToken cancellationToken =
+                                                                                                                default)
+        where TManagementObject : new()
+    {
+        var whereClause = GetWhereClause(wherePropertySelectorExpression, propertyValue);
+
+        return await GetAllAsync<TManagementObject>(wmiQuery, whereClause, cancellationToken);
+    }
+
+    private static string GetWhereClause<TManagementObject, TPropertyValue>(
+        Expression<Func<TManagementObject, TPropertyValue>> wherePropertySelectorExpression,
+        TPropertyValue propertyValue)
+    {
+        var propertyName = wherePropertySelectorExpression.GetMemberName();
+
+        var whereClause = $"where {propertyName} = '{propertyValue}'";
+
+        return whereClause;
+    }
+
     public static Task<IEnumerable<TManagementObject>> GetAllAsync<TManagementObject>(this IWmiQuery wmiQuery,
                                                                                       string? whereClause = null,
                                                                                       CancellationToken cancellationToken = default)
@@ -15,15 +41,9 @@ public static class ManagementObjectQuery
     public static IEnumerable<TManagementObject> GetAll<TManagementObject>(this IWmiQuery wmiQuery, string? whereClause = null)
         where TManagementObject : new()
     {
-        var objectType = typeof(TManagementObject);
-        var managementClassAttribute = ValidateManagementObjectType(objectType);
-
-        var queryText = CreateQuery(managementClassAttribute, whereClause);
+        var query = GetQueryResults<TManagementObject>(wmiQuery, whereClause);
 
         var results = new List<TManagementObject>();
-        using var con = new WmiConnection();
-        var query = wmiQuery.Execute(queryText);
-
         foreach (var wmiObject in query)
         {
             var resultObject = ManagementObjectBuilder.BuildObject<TManagementObject>(wmiObject);
@@ -32,6 +52,55 @@ public static class ManagementObjectQuery
         }
 
         return results;
+    }
+
+    public static Task<TManagementObject?> GetFirstOrDefaultAsync<TManagementObject, TPropertyValue>(this IWmiQuery wmiQuery,
+                                                                                                     Expression<Func<TManagementObject,
+                                                                                                             TPropertyValue>>
+                                                                                                         wherePropertySelectorExpression,
+                                                                                                     TPropertyValue propertyValue,
+                                                                                                     CancellationToken cancellationToken = default)
+        where TManagementObject : new() =>
+        Task.Run(() => wmiQuery.GetFirstOrDefault(wherePropertySelectorExpression, propertyValue), cancellationToken);
+
+    public static TManagementObject? GetFirstOrDefault<TManagementObject, TPropertyValue>(this IWmiQuery wmiQuery,
+                                                                                          Expression<Func<TManagementObject, TPropertyValue>>
+                                                                                              wherePropertySelectorExpression,
+                                                                                          TPropertyValue propertyValue)
+        where TManagementObject : new()
+    {
+        var whereClause = GetWhereClause(wherePropertySelectorExpression, propertyValue);
+
+        var query = GetQueryResults<TManagementObject>(wmiQuery, whereClause);
+        foreach (var wmiObject in query)
+        {
+            return ManagementObjectBuilder.BuildObject<TManagementObject>(wmiObject);
+        }
+
+        return default;
+    }
+
+    public static TManagementObject? GetFirstOrDefault<TManagementObject>(this IWmiQuery wmiQuery, string? whereClause = null)
+        where TManagementObject : new()
+    {
+        var query = GetQueryResults<TManagementObject>(wmiQuery, whereClause);
+        foreach (var wmiObject in query)
+        {
+            return ManagementObjectBuilder.BuildObject<TManagementObject>(wmiObject);
+        }
+
+        return default;
+    }
+
+    private static IEnumerable<IWmiObject> GetQueryResults<TManagementObject>(this IWmiQuery wmiQuery, string? whereClause = null)
+        where TManagementObject : new()
+    {
+        var objectType = typeof(TManagementObject);
+        var managementClassAttribute = ValidateManagementObjectType(objectType);
+
+        var queryText = CreateQuery(managementClassAttribute, whereClause);
+
+        return wmiQuery.Execute(queryText);
     }
 
     private static string CreateQuery(WindowsManagementClassAttribute managementClassAttribute, string? whereClause)

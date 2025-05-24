@@ -55,17 +55,22 @@ public class WindowsManagementBaseService : CimService
     /// <summary>
     ///     The type of service (e.g., Win32_OWN_PROCESS or Win32_SHARE_PROCESS).
     /// </summary>
-    public string? ServiceType { get; set; }
+    public ServiceType? ServiceType { get; set; }
 
     /// <summary>
     ///     The account name under which the service runs.
     /// </summary>
-    public string? StartName { get; set; }
+    public ServiceAccontType? StartName { get; set; }
 
     /// <summary>
     ///     The current state of the service (e.g., Running, Stopped, Paused).
     /// </summary>
     public ServiceState? State { get; set; }
+
+    /// <summary>
+    ///     A string that indicates the current status of the object.
+    /// </summary>
+    public ServiceStatus? Status { get; set; }
 
     /// <summary>
     ///     A unique tag identifier for the service.

@@ -4,7 +4,7 @@ namespace Ploch.Common.Windows.Wmi.ManagementObjects;
 
 public enum ServiceAccontType
 {
-    [WindowsManagementObjectEnumMapping("LocalSystem", "localSystem")]
+    [WindowsManagementObjectEnumMapping("LocalSystem")]
     LocalSystem,
 
     [WindowsManagementObjectEnumMapping("NT AUTHORITY\\LocalService")]
@@ -37,6 +37,6 @@ public enum ServiceAccontType
     [WindowsManagementObjectEnumMapping("NT Service\\SSISTELEMETRY160")]
     NtServiceSsistelemetry160,
 
-    [WindowsManagementObjectEnumMapping(null, "")]
+    [WindowsManagementObjectEnumMapping]
     Empty
 }

@@ -11,4 +11,6 @@ public sealed class WindowsManagementObjectEnumMappingAttribute : Attribute
     public IEnumerable<string?> Names { get; }
 
     public bool CaseSensitive { get; set; } = false;
+
+    public bool IncludeActualEnumName { get; set; } = false;
 }

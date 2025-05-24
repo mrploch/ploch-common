@@ -1,27 +1,34 @@
-using System.Collections.Concurrent;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 
-public static class EnumFieldValueCache
+/// <summary>
+///     Provides functionality to extract a map of names to enum values.
+/// </summary>
+/// <summary>
+///     Enumeration fields can be mapped to string names using <see cref="WindowsManagementObjectEnumMappingAttribute" /> attribute.
+///     Also the <see cref="WindowsManagementEnumAttribute" /> allows to specify if mapped string names should be case-sensitive.
+/// </summary>
+public static class EnumerationMapExtractor
 {
-    private static readonly ConcurrentDictionary<Type, IDictionary<string, object>> EnumsFieldValues = new();
-
-    public static object GetFieldValue(Type enumType, string fieldNameOrAlias)
-    {
-        var fieldMap = GetFieldsMapping(enumType);
-
-        if (fieldMap.TryGetValue(fieldNameOrAlias, out var value))
-        {
-            return value;
-        }
-
-        throw new InvalidOperationException($"Enum field mapped to {fieldNameOrAlias} was not found in {enumType}");
-    }
-
-    public static IDictionary<string, object> GetFieldsMapping(Type enumType) => EnumsFieldValues.GetOrAdd(enumType, GetEnumFieldValueMap);
-
-    private static IDictionary<string, object> GetEnumFieldValueMap(Type enumType)
+    /// <summary>
+    ///     Retrieves a mapping of enumeration field names to their corresponding values for the specified enumeration type.
+    /// </summary>
+    /// <remarks>
+    ///     The <see cref="WindowsManagementEnumAttribute" /> and <see cref="WindowsManagementObjectEnumMappingAttribute" /> allow to control how
+    ///     string names are mapped to enum values.
+    /// </remarks>
+    /// <param name="enumType">
+    ///     The enumeration type for which to create the mapping of field names to values. This parameter must be of type <see cref="System.Type" /> and must represent
+    ///     an enumeration.
+    /// </param>
+    /// <returns>
+    ///     A dictionary where the keys are the string names of the enumeration fields, and the values are the corresponding enumeration values.
+    /// </returns>
+    /// <exception cref="InvalidOperationException">
+    ///     Thrown when <paramref name="enumType" /> is not an enumeration type.
+    /// </exception>
+    public static IDictionary<string, object> GetEnumFieldValueMap(Type enumType)
     {
         if (!enumType.IsEnum)
         {
@@ -47,7 +54,7 @@ public static class EnumFieldValueCache
         return fieldMap;
     }
 
-    private static void AddValueMappings(IDictionary<string, object> fieldMap, FieldInfo fieldInfo)
+    private static void AddValueMappings(Dictionary<string, object> fieldMap, FieldInfo fieldInfo)
     {
         var enumValue = fieldInfo.GetValue(null) ?? throw new InvalidOperationException($"Value for field {fieldInfo.Name} is null");
         foreach (var name in GetFieldValueNames(fieldInfo))
@@ -72,6 +79,6 @@ public static class EnumFieldValueCache
             return [fieldInfo.Name];
         }
 
-        return enumMappingAttribute.Names;
+        return enumMappingAttribute.IncludeActualEnumName ? [fieldInfo.Name, ..enumMappingAttribute.Names] : enumMappingAttribute.Names;
     }
 }

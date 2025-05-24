@@ -1,5 +1,6 @@
 namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 
+/// <inheritdoc />
 public class EnumConverter : ManagementObjectTypeConverter<string>
 {
     public const int MapperOrder = DefaultManagementObjectTypeConverter.MapperOrder - 100;
@@ -12,7 +13,7 @@ public class EnumConverter : ManagementObjectTypeConverter<string>
     {
         var enumType = GetUnderlyingNullableType(targetType);
 
-        var fieldMap = EnumFieldValueCache.GetFieldsMapping(enumType);
+        var fieldMap = EnumerationFieldValueCache.GetFieldsMapping(enumType);
 
         var stringValue = value ?? string.Empty;
 
@@ -23,6 +24,8 @@ public class EnumConverter : ManagementObjectTypeConverter<string>
 
         return null;
     }
+
+    protected override bool IsTargetTypeSupported(Type targetType) => GetUnderlyingNullableType(targetType).IsEnum;
 
     private static Type GetUnderlyingNullableType(Type targetType) => Nullable.GetUnderlyingType(targetType) ?? targetType;
 }

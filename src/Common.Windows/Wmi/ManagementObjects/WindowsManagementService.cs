@@ -9,9 +9,18 @@ namespace Ploch.Common.Windows.Wmi.ManagementObjects;
 ///     This class provides properties that describe a Windows service, including its process ID, startup configuration, and operational state.
 ///     It is based on the Win32_Service class.
 /// </remarks>
-[WindowsManagementClass("Win32_Service")]
+[WindowsManagementClass(ClassName)]
 public class WindowsManagementService : WindowsManagementBaseService
 {
+    /// <summary>
+    ///     The name of the Windows Management Instrumentation (WMI) class that represents a Windows service.
+    /// </summary>
+    /// <remarks>
+    ///     This constant specifies the WMI class name "Win32_Service", which is used to describe Windows services in the WMI model.
+    ///     to associate the <see cref="Ploch.Common.Windows.Wmi.ManagementObjects.WindowsManagementService" /> class with the corresponding WMI class.
+    /// </remarks>
+    public const string ClassName = "Win32_Service";
+
     /// <summary>
     ///     The current checkpoint value of the service during a pending start, stop, pause, or continue operation.
     /// </summary>

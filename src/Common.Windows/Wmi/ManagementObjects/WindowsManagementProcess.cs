@@ -14,6 +14,14 @@ namespace Ploch.Common.Windows.Wmi.ManagementObjects;
 [WindowsManagementClass(ClassName)]
 public class WindowsManagementProcess : CimProcess
 {
+    /// <summary>
+    ///     Specifies the name of the WMI (Windows Management Instrumentation) class associated with the
+    ///     <see cref="Ploch.Common.Windows.Wmi.ManagementObjects.WindowsManagementProcess" /> class.
+    /// </summary>
+    /// <remarks>
+    ///     This constant is used to map the <see cref="Ploch.Common.Windows.Wmi.ManagementObjects.WindowsManagementProcess" /> class
+    ///     to the WMI class "Win32_Process", enabling programmatic access to process-related information on Windows operating systems.
+    /// </remarks>
     public const string ClassName = "Win32_Process";
 
     /// <summary>
