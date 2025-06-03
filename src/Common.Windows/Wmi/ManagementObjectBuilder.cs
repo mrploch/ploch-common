@@ -64,7 +64,7 @@ public static class ManagementObjectBuilder
         {
             if (mapper.CanHandle(value, targetType))
             {
-                return mapper.MapValue(value, targetType);
+                return mapper.ConvertValue(value, targetType);
             }
         }
 

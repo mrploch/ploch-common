@@ -5,7 +5,8 @@ namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 /// <inheritdoc />
 public abstract class ManagementObjectTypeConverter<TSourceType> : IManagementObjectTypeConverter
 {
-    protected ManagementObjectTypeConverter(params IEnumerable<Type> supportedTargetTypes) => SupportedTargetTypes = new HashSet<Type>(supportedTargetTypes);
+    protected ManagementObjectTypeConverter(params IEnumerable<Type> supportedTargetTypes) =>
+        SupportedTargetTypes = new HashSet<Type>(supportedTargetTypes);
 
     /// <summary>
     ///     Represents the processing order or priority for the type converter during type conversion operations.
@@ -60,7 +61,7 @@ public abstract class ManagementObjectTypeConverter<TSourceType> : IManagementOb
     /// <returns>
     ///     The converted value of the specified target type, or null if the conversion is unsuccessful or the value is null.
     /// </returns>
-    public virtual object? MapValue(object? value, Type targetType) => MapValue((TSourceType?)value, targetType);
+    public virtual object? ConvertValue(object? value, Type targetType) => MapValue((TSourceType?)value, targetType);
 
     /// <summary>
     ///     Represents a collection of supported target types that this type converter can handle for type conversion operations.

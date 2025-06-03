@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 
@@ -19,7 +21,8 @@ public static class EnumerationMapExtractor
     ///     string names are mapped to enum values.
     /// </remarks>
     /// <param name="enumType">
-    ///     The enumeration type for which to create the mapping of field names to values. This parameter must be of type <see cref="System.Type" /> and must represent
+    ///     The enumeration type for which to create the mapping of field names to values. This parameter must be of type <see cref="System.Type" /> and must
+    ///     represent
     ///     an enumeration.
     /// </param>
     /// <returns>

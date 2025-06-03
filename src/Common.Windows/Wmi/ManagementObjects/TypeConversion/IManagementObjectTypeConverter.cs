@@ -39,5 +39,5 @@ public interface IManagementObjectTypeConverter
     /// <returns>
     ///     The converted value, or null if the conversion cannot be performed or the input value is null.
     /// </returns>
-    object? MapValue(object? value, Type targetType);
+    object? ConvertValue(object? value, Type targetType);
 }

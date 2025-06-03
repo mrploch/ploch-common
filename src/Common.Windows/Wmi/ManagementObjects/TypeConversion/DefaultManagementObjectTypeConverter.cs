@@ -34,7 +34,7 @@ public class DefaultManagementObjectTypeConverter : IManagementObjectTypeConvert
     /// <exception cref="TypeConversionException">
     ///     Thrown when a conversion error occurs, such as an invalid format, invalid cast, or overflow during type conversion.
     /// </exception>
-    public object? MapValue(object? value, Type targetType)
+    public object? ConvertValue(object? value, Type targetType)
     {
         if (value is null)
         {

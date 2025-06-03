@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 
 [AttributeUsage(AttributeTargets.Field)]

@@ -1,3 +1,5 @@
+using System;
+
 namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 
 /// <summary>
