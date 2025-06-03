@@ -11,13 +11,19 @@ public class WmiTestClass
     [WindowsManagementObjectProperty("IntValue")]
     public int IntValue { get; set; }
 
-    [WindowsManagementObjectDateTimeProperty("DateTimeValue", DateTimeKind.Utc)]
     public DateTime DateTimeValue { get; set; }
+
+    public DateTime? NullableDateTimeValue { get; set; }
+
+    public DateTimeOffset DateTimeOffsetValue { get; set; }
+
+    public DateTimeOffset? NullableDateTimeOffsetValue { get; set; }
 
     [WindowsManagementObjectProperty("TestStringValue")]
     public string? StringPropertyWithDifferentName { get; set; }
 
     public string? TestPropertyWithoutAttribute { get; set; }
 
-    public TestEnum? TestEnumValue { get; set; }
+    [WindowsManagementObjectProperty("TestEnumValue1")]
+    public TestEnumWithMappings2? TestEnumValue { get; set; }
 }

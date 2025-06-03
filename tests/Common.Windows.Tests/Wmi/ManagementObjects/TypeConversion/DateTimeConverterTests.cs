@@ -1,5 +1,6 @@
 using System.Management;
 using FluentAssertions;
+using Ploch.Common.Reflection;
 using Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 
 namespace Ploch.Common.Windows.Tests.Wmi.ManagementObjects.TypeConversion;
@@ -23,8 +24,6 @@ public class DateTimeConverterTests
     [InlineData("abc", typeof(DateTime))]
     [InlineData("abc", typeof(DateTime?))]
     [InlineData(null, typeof(DateTime?))]
-
-    //  [InlineData(null, typeof(DateTimeOffset?))]
     public void CanHandle_ShouldAlwaysReturnTrue(object value, Type targetType)
     {
         // Act
@@ -44,7 +43,6 @@ public class DateTimeConverterTests
         // Assert
         canHandle.Should().BeFalse();
     }
-
 
     [Fact]
     public void MapValue_should_convert_to_DateTime()
@@ -98,5 +96,66 @@ public class DateTimeConverterTests
 
         // Assert
         dateTimeResult.Should().BeCloseTo(now.ToUniversalTime(), TimeSpan.FromMilliseconds(1));
+    }
+
+    [Theory]
+    [InlineData(nameof(TypeWithDateProperties.DateTimeProperty), typeof(DateTime))]
+    [InlineData(nameof(TypeWithDateProperties.NullableDateTimeProperty), typeof(DateTime?))]
+    public void MapValue_should_allow_DateTime_property_to_be_set_using_reflection_using_mapped_value(string propertyName, Type targetType)
+    {
+        var now = DateTime.UtcNow;
+
+        var convertedValue = _converter.MapValue(ManagementDateTimeConverter.ToDmtfDateTime(now), targetType);
+
+        var typeWithDateProperties = new TypeWithDateProperties();
+        typeWithDateProperties.SetPropertyValue(propertyName, convertedValue);
+        // SetTestTypeProperty(typeWithDateProperties, propertyName, convertedValue);
+
+        typeWithDateProperties.GetPropertyValue(propertyName).As<DateTime>().Should().BeCloseTo(now, TimeSpan.FromMilliseconds(1));
+    }
+
+    [Theory]
+    [InlineData(nameof(TypeWithDateProperties.DateTimeOffsetProperty), typeof(DateTimeOffset))]
+    [InlineData(nameof(TypeWithDateProperties.NullableDateTimeOffsetProperty), typeof(DateTimeOffset?))]
+    public void MapValue_should_allow_DateTimeOffset_property_to_be_set_using_reflection_using_mapped_value(string propertyName, Type targetType)
+    {
+        var now = DateTime.UtcNow;
+
+        var convertedValue = _converter.MapValue(ManagementDateTimeConverter.ToDmtfDateTime(now), targetType);
+
+        var typeWithDateProperties = new TypeWithDateProperties();
+        SetTestTypeProperty(typeWithDateProperties, propertyName, convertedValue);
+
+        typeWithDateProperties.GetPropertyValue(propertyName).As<DateTimeOffset>().Should().BeCloseTo(now, TimeSpan.FromMilliseconds(1));
+    }
+
+    // [Fact]
+    // public void MapValue_should_allow_DateTimeOffset_property_to_be_set_using_reflection_using_mapped_value()
+    // {
+    //     var now = DateTime.UtcNow;
+    //
+    //     var convertedValue = _converter.MapValue(ManagementDateTimeConverter.ToDmtfDateTime(now), typeof(DateTimeOffset));
+    //
+    //     var typeWithDateProperties = new TypeWithDateProperties();
+    //     SetTestTypeProperty(typeWithDateProperties, nameof(TypeWithDateProperties.DateTimeProperty), convertedValue);
+    //
+    //     typeWithDateProperties.DateTimeProperty.Should().BeCloseTo(now, TimeSpan.FromMilliseconds(1));
+    // }
+
+    private static void SetTestTypeProperty(TypeWithDateProperties obj, string propertyName, object? value)
+    {
+        var dateTimeProperty = obj.GetType().GetProperty(propertyName);
+        dateTimeProperty?.SetValue(obj, value);
+    }
+
+    private class TypeWithDateProperties
+    {
+        public DateTime DateTimeProperty { get; set; }
+
+        public DateTime? NullableDateTimeProperty { get; set; }
+
+        public DateTimeOffset DateTimeOffsetProperty { get; set; }
+
+        public DateTimeOffset? NullableDateTimeOffsetProperty { get; set; }
     }
 }

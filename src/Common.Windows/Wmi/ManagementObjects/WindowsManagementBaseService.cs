@@ -40,7 +40,7 @@ public class WindowsManagementBaseService : CimService
     /// <summary>
     ///     The exit code returned by the service when it stops.
     /// </summary>
-    public int ExitCode { get; set; }
+    public long ExitCode { get; set; }
 
     /// <summary>
     ///     The fully qualified path to the service executable file.
@@ -50,7 +50,7 @@ public class WindowsManagementBaseService : CimService
     /// <summary>
     ///     The service-specific error code returned by the service when it stops.
     /// </summary>
-    public int ServiceSpecificExitCode { get; set; }
+    public long ServiceSpecificExitCode { get; set; }
 
     /// <summary>
     ///     The type of service (e.g., Win32_OWN_PROCESS or Win32_SHARE_PROCESS).

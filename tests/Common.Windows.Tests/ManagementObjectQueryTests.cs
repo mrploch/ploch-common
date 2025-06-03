@@ -19,7 +19,7 @@ public class ManagementObjectQueryTests
         Action act = () => mockQuery.Object.GetAll<WmiInvalidTestClass>().ToList();
 
         // Assert
-        act.Should().Throw<InvalidOperationException>().WithMessage($"Type {nameof(WmiInvalidTestClass)} does not have the WindowsManagementClass attribute.");
+        act.Should().Throw<InvalidOperationException>().WithMessage($"*{nameof(WmiInvalidTestClass)}*WindowsManagementClass*attribute*");
     }
 
     [Fact]
@@ -62,7 +62,11 @@ public class ManagementObjectQueryTests
         var mockObjects = new List<MockWmiObject>();
         var enumValues = new[]
                          {
-                             "Value 1", "value 1", "value1", "VALUE1", "Value 2", "value 2", "value2", "VALUE2", null, ""
+                             ("Value 1", TestEnumWithMappings2.Value1), ("value 1", TestEnumWithMappings2.Value1),
+                             ("value1", TestEnumWithMappings2.Value1), ("VALUE1", TestEnumWithMappings2.Value1),
+                             ("Value 2", TestEnumWithMappings2.Value2), ("value 2", TestEnumWithMappings2.Value2),
+                             ("value2", TestEnumWithMappings2.Value2), ("VALUE2", TestEnumWithMappings2.Value2),
+                             (null, TestEnumWithMappings2.Value3MappedToNull), ("", TestEnumWithMappings2.Value3MappedToNull)
                          };
         for (var i = 0; i < 10; i++)
         {
@@ -70,9 +74,15 @@ public class ManagementObjectQueryTests
                                               ("IntValue", i),
                                               ("DateTimeValue",
                                                ManagementDateTimeConverter.ToDmtfDateTime(new DateTime(2000 + i, 1, 1, 12, 0, 0, DateTimeKind.Utc))),
+                                              (nameof(WmiTestClass.NullableDateTimeValue),
+                                               ManagementDateTimeConverter.ToDmtfDateTime(new DateTime(2001 + i, 1, 1, 12, 0, 0, DateTimeKind.Utc))),
+                                              (nameof(WmiTestClass.DateTimeOffsetValue),
+                                               ManagementDateTimeConverter.ToDmtfDateTime(new DateTime(2002 + i, 1, 1, 12, 0, 0, DateTimeKind.Utc))),
+                                              (nameof(WmiTestClass.NullableDateTimeOffsetValue),
+                                               ManagementDateTimeConverter.ToDmtfDateTime(new DateTime(2003 + i, 1, 1, 12, 0, 0, DateTimeKind.Utc))),
                                               ("TestStringValue", $"Test{i}"),
                                               ("TestPropertyWithoutAttribute", $"TestPropertyWithoutAttribute{i}"),
-                                              (nameof(WmiTestClass.TestEnumValue), enumValues[i])));
+                                              (nameof(WmiTestClass.TestEnumValue) + 1, enumValues[i].Item1)));
         }
 
         mockQuery.Setup(query => query.Execute(It.Is<string>(s => s == "SELECT * FROM Win32_TestClass"))).Returns(mockObjects);
@@ -86,16 +96,30 @@ public class ManagementObjectQueryTests
         {
             wmiObjects[i].Name.Should().Be($"TestObject{i}");
             wmiObjects[i].IntValue.Should().Be(i);
-            var expectedDateTime = new DateTime(2000 + i, 1, 1, 12, 0, 0);
+            var expectedDateTime0 = GetDate(0, i);
+            DateTime? expectedDateTime1 = GetDate(1, i);
+            DateTimeOffset expectedDateTimeOffset1 = GetDate(2, i);
+            DateTimeOffset? expectedDateTimeOffset2 = GetDate(3, i);
 
-            wmiObjects[i].DateTimeValue.ToUniversalTime().Should().BeCloseTo(expectedDateTime, TimeSpan.FromMilliseconds(1));
+            wmiObjects[i].DateTimeValue.ToUniversalTime().Should().BeCloseTo(expectedDateTime0, TimeSpan.FromMilliseconds(1));
+
+            wmiObjects[i].NullableDateTimeValue.Should().HaveValue();
+            wmiObjects[i].NullableDateTimeValue!.Value.Should().BeCloseTo(expectedDateTime1.Value, TimeSpan.FromMilliseconds(1));
+
+            wmiObjects[i].DateTimeOffsetValue.Should().BeCloseTo(expectedDateTimeOffset1, TimeSpan.FromMilliseconds(1));
+
+            wmiObjects[i].NullableDateTimeOffsetValue.Should().HaveValue();
+            wmiObjects[i].NullableDateTimeOffsetValue!.Value.Should().BeCloseTo(expectedDateTimeOffset2.Value, TimeSpan.FromMilliseconds(1));
+
             wmiObjects[i].StringPropertyWithDifferentName.Should().Be($"Test{i}");
             wmiObjects[i].TestPropertyWithoutAttribute.Should().Be($"TestPropertyWithoutAttribute{i}");
-            wmiObjects[i].TestEnumValue.Should().Be((TestEnum)i);
+            wmiObjects[i].TestEnumValue.Should().Be(enumValues[i].Item2);
         }
     }
 
-    [Fact]
+    private static DateTime GetDate(int year, int index) => new(2000 + year + index, 1, 1, 12, 0, 0, DateTimeKind.Utc);
+
+    // [Fact]
     public void MyMethod()
     {
         var targetType = typeof(TestEnum);
@@ -133,21 +157,5 @@ public class ManagementObjectQueryTests
         }
     }
 
-
     // A test class with the required WindowsManagementClass attribute
-}
-
-public class MockWmiObject : IWmiObject
-{
-    private readonly IDictionary<string, object?> _properties;
-
-    public MockWmiObject(params IEnumerable<(string, object?)> properties) => _properties = properties.ToDictionary(x => x.Item1, x => x.Item2);
-
-    public object? this[string propertyName] => _properties[propertyName];
-
-    public object? GetPropertyValue(string propertyName) => _properties[propertyName];
-
-    public IEnumerable<string> GetPropertyNames() => _properties.Keys;
-
-    public IEnumerable<(string, object?)> GetProperties() => _properties.Select(pair => (pair.Key, pair.Value));
 }

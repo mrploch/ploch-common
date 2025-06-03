@@ -22,7 +22,7 @@ public class EnumConverterTests
     [Theory]
     [InlineData("", typeof(TypeCode))]
     [InlineData(null, typeof(TypeCode?))]
-    public void CanHandle_should_always_return_true(object value, Type targetType)
+    public void CanHandle_should_return_true_for_string_value_and_enum_target_type(object value, Type targetType)
     {
         // Act
         var canHandle = _converter.CanHandle(value, targetType);
@@ -30,12 +30,11 @@ public class EnumConverterTests
         canHandle.Should().BeTrue();
     }
 
-
     [Fact]
     public void CanHandle_should_return_false_if_null_value_being_converted_to_non_nullable_enum()
     {
         // Act
-        var canHandle = _converter.CanHandle(null, typeof(TypeCode?));
+        var canHandle = _converter.CanHandle(null, typeof(TypeCode));
         // Assert
         canHandle.Should().BeFalse();
     }

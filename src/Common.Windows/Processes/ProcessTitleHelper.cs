@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Ploch.Common.Windows.Processes;
 
+/// <summary>
+///     Provides helper methods for retrieving information related to process window titles.
+/// </summary>
 public static class ProcessWindowTitleHelper
 {
     [DllImport("user32.dll")]
@@ -17,7 +20,18 @@ public static class ProcessWindowTitleHelper
     [DllImport("user32.dll")]
     private static extern bool IsWindowVisible(IntPtr hWnd);
 
-    // Get main window title for a process id
+    /// <summary>
+    ///     Retrieves the title of the main window for a specified process.
+    /// </summary>
+    /// <param name="processId">The ID of the process for which to find the main window title.</param>
+    /// <returns>
+    ///     The title of the main window if found; otherwise, <see langword="null" /> if the process
+    ///     has no visible main window or if the window title could not be retrieved.
+    /// </returns>
+    /// <remarks>
+    ///     This method enumerates all top-level windows and finds the first visible window
+    ///     that belongs to the specified process.
+    /// </remarks>
     public static string? GetMainWindowTitle(int processId)
     {
         var mainWindowHandle = IntPtr.Zero;

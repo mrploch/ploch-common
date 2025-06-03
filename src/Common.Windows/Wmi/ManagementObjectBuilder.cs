@@ -7,13 +7,6 @@ public static class ManagementObjectBuilder
 {
     private static readonly IList<IManagementObjectTypeConverter> _mappers = CreateMappers();
 
-    private static IList<IManagementObjectTypeConverter> CreateMappers()
-    {
-        var mappers = new List<IManagementObjectTypeConverter> { new DateTimeConverter(), new EnumConverter(), new DefaultManagementObjectTypeConverter() };
-
-        return mappers.OrderBy(m => m.Order).ToList();
-    }
-
     public static TManagementObject BuildObject<TManagementObject>(IWmiObject wmiObject)
         where TManagementObject : new()
     {
@@ -30,20 +23,39 @@ public static class ManagementObjectBuilder
 
         foreach (var wmiObjectPropertyName in wmiObjectPropertyNames)
         {
-            if (!propertyMap.TryGetValue(wmiObjectPropertyName, out var propertyMapValue))
+            try
             {
-                continue;
+                if (!propertyMap.TryGetValue(wmiObjectPropertyName, out var propertyMapValue))
+                {
+                    continue;
+                }
+
+                var (resultObjectProperty, propertyAttribute) = propertyMapValue;
+
+                var wmiObjectPropertyValue = wmiObject[wmiObjectPropertyName];
+                var convertedValue = ConvertWmiValue(wmiObjectPropertyValue, resultObjectProperty.PropertyType);
+
+                resultObjectProperty.SetValue(resultObject, convertedValue, null);
             }
+            catch (TypeConversionException ex)
+            {
+                Console.WriteLine(ex);
 
-            var (resultObjectProperty, propertyAttribute) = propertyMapValue;
-
-            var wmiObjectPropertyValue = wmiObject[wmiObjectPropertyName];
-            var convertedValue = ConvertWmiValue(wmiObjectPropertyValue, resultObjectProperty.PropertyType);
-
-            resultObjectProperty.SetValue(resultObject, convertedValue, null);
+                throw;
+            }
         }
 
         return resultObject;
+    }
+
+    private static IList<IManagementObjectTypeConverter> CreateMappers()
+    {
+        var mappers = new List<IManagementObjectTypeConverter>
+                      {
+                          new DateTimeConverter(), new EnumConverter(), new DefaultManagementObjectTypeConverter()
+                      };
+
+        return mappers.OrderBy(m => m.Order).ToList();
     }
 
     private static object? ConvertWmiValue(object? value, Type targetType)

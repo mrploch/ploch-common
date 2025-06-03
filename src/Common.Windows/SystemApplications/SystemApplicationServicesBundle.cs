@@ -1,4 +1,5 @@
 ﻿using System.IO.Abstractions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.DependencyInjection;
 using Ploch.Common.Windows.Wmi;
