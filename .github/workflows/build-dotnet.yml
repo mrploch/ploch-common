@@ -60,6 +60,7 @@ jobs:
         if: success() || failure()    # run this step even if previous step failed
         with:
           artifact: test-results
+          token: '${{ github.token }}'
           name: DotNet Tests
           path: '*.trx'
           reporter: dotnet-trx
