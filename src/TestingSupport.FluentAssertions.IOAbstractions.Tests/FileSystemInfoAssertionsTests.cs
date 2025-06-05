@@ -15,8 +15,6 @@ public class FileSystemInfoAssertionsTests(ITestOutputHelper output)
         var fileSystemInfoNames = new List<string> { "file1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2" };
         var fileSystemInfoNames2 = new List<string> { "file1.txt", "file2.txt", "file3.txt", "folder1_1", "folder1_2" };
 
-        //   fileSystemInfoNames.Should().BeEquivalentTo(fileSystemInfoNames2, config => config.Using(StringComparer.Ordinal));
-
         var fileSystem = BuildFileSystem();
 
         var fileSystemInfos = fileSystem.DirectoryInfo.New("c:/folder1").GetFileSystemInfos();
@@ -29,7 +27,6 @@ public class FileSystemInfoAssertionsTests(ITestOutputHelper output)
     {
         var fileSystem = BuildFileSystem();
 
-        var directories = fileSystem.Directory.GetDirectories("c:/");
         output.WriteLine($"FileSystem PathSeparator: {fileSystem.Path.PathSeparator}");
         output.WriteLine($"FileSystem DirectorySeparatorChar: {fileSystem.Path.DirectorySeparatorChar}");
         output.WriteLine($"FileSystem DirectorySeparatorChar: {fileSystem.Path.VolumeSeparatorChar}");

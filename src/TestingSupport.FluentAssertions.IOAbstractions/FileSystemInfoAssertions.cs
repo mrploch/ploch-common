@@ -11,16 +11,13 @@ namespace TestingSupport.FluentAssertions.IOAbstractions;
 ///     Provides a way to do assertions on collections of <see cref="IFileSystemInfo" /> objects.
 /// </summary>
 /// <typeparam name="TItems">The type of the file system info items in the collection.</typeparam>
-public class FileSystemInfoAssertions<TItems> : GenericCollectionAssertions<TItems>
+/// <remarks>
+///     Initializes a new instance of the <see cref="FileSystemInfoAssertions{TItems}" /> class.
+/// </remarks>
+/// <param name="actualValue">The collection of file system info objects to verify.</param>
+public class FileSystemInfoAssertions<TItems>(IEnumerable<TItems> actualValue) : GenericCollectionAssertions<TItems>(actualValue)
     where TItems : IFileSystemInfo
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="FileSystemInfoAssertions{TItems}" /> class.
-    /// </summary>
-    /// <param name="actualValue">The collection of file system info objects to verify.</param>
-    public FileSystemInfoAssertions(IEnumerable<TItems> actualValue) : base(actualValue)
-    { }
-
     /// <summary>
     ///     Gets the identifier of the subject for use in error messages.
     /// </summary>
@@ -69,7 +66,10 @@ public class FileSystemInfoAssertions<TItems> : GenericCollectionAssertions<TIte
         Subject.Select(fsi => TrimEndPathSeparator(fsi.Name))
                .OrderBy(name => name)
                .Should()
-               .BeEquivalentTo(fileSystemInfoNames.Select(TrimEndPathSeparator).OrderBy(static name => name), config => config.Using(equalityComparer));
+               .BeEquivalentTo(fileSystemInfoNames.Select(TrimEndPathSeparator).OrderBy(static name => name),
+                               config => config.Using(equalityComparer),
+                               because,
+                               becauseArgs);
 
         return new AndConstraint<FileSystemInfoAssertions<TItems>>(this);
     }
