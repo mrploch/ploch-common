@@ -11,6 +11,7 @@ jobs:
     - uses: phoenix-actions/test-reporting@v8
       id: test-report                     # Set ID reference for step
       with:
+        token: ${{ secrets.GH_TOKEN }}
         artifact: 'test-results'            # artifact name
         name: 'Test Results'
         path: '**/TestResults/TestOutputResults.xml'
