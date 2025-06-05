@@ -1,5 +1,4 @@
 {
-  "homepages": [],
   "source_base_path": "/home/runner/work/ploch-common/ploch-common/DocumentationSite",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -8,923 +7,1073 @@
       "source_relative_path": "api/Ploch.Common.AssemblyInformation.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.AssemblyInformation.html",
-          "hash": "EZjjEEULeVeNYB43HlUAjb4bS3y3XLRVvDrUFVCXhkI="
+          "relative_path": "api/Ploch.Common.AssemblyInformation.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.AssemblyInformation",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.AssemblyInformation.yml\" sourcestartlinenumber=\"1\">Represents information about an assembly.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.AssemblyInformationProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.AssemblyInformationProvider.html",
-          "hash": "mV1W9sPg0m8QJ/pJDZw4BQSKZqbE2/HyRYo6TCjeohQ="
+          "relative_path": "api/Ploch.Common.AssemblyInformationProvider.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.AssemblyInformationProvider",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.AssemblyInformationProvider.yml\" sourcestartlinenumber=\"1\">Provides methods to retrieve information about the assembly of an object or a type.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.ArrayExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Collections.ArrayExtensions.html",
-          "hash": "BIOYkOPfqTqp2U5si+O3gEktmdLgoqu6Ih7Nijz+sGI="
+          "relative_path": "api/Ploch.Common.Collections.ArrayExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Collections.ArrayExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Collections.ArrayExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Array\" data-throw-if-not-resolved=\"false\"></xref> class.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.CollectionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Collections.CollectionExtensions.html",
-          "hash": "Lv3XWybajN/4X2BT9uit0R9ILhB422C/whwyefdV+m8="
+          "relative_path": "api/Ploch.Common.Collections.CollectionExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Collections.CollectionExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Collections.CollectionExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Collections.Generic.ICollection%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.EnumerableExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Collections.EnumerableExtensions.html",
-          "hash": "vFqQWCxYxebtxxQOucxG0pckOVY92LbTfMgKH+kJZDM="
+          "relative_path": "api/Ploch.Common.Collections.EnumerableExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Collections.EnumerableExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Collections.EnumerableExtensions.yml\" sourcestartlinenumber=\"1\">IEnumerable (and related) extensions.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.QueryableExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Collections.QueryableExtensions.html",
-          "hash": "m+LGqnmlL74Yse7grtVwuDnqniRP0xhyaS6bOjLf6F8="
+          "relative_path": "api/Ploch.Common.Collections.QueryableExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Collections.QueryableExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Collections.QueryableExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for the <xref href=\"System.Linq.IQueryable%601\" data-throw-if-not-resolved=\"false\"></xref> interface.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Collections.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Collections.html",
-          "hash": "URlZq9eWgRQ81Vdj+o1LVA9aPIF36+otn9FTCWkAJKc="
+          "relative_path": "api/Ploch.Common.Collections.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Collections",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.ComparisonUtils.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.ComparisonUtils.html",
-          "hash": "pTX5WHKmFuCYur/qR/MVZOYV/NM1kp6dsz6U0TsKe4w="
+          "relative_path": "api/Ploch.Common.ComparisonUtils.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.ComparisonUtils",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.ComparisonUtils.yml\" sourcestartlinenumber=\"1\">Comparison utility methods.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Cryptography.Hashing.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Cryptography.Hashing.html",
-          "hash": "5+sBVudYwNIjDHpffvh+vAnk1IcN6QKAgtupUvRxEJQ="
+          "relative_path": "api/Ploch.Common.Cryptography.Hashing.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Cryptography.Hashing",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Cryptography.Hashing.yml\" sourcestartlinenumber=\"1\">Provides hashing utility methods for strings.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Cryptography.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Cryptography.html",
-          "hash": "4DIOg7+JZ0hSk1vGUN5yzSpRUQD+6D80H50Te/vAF54="
+          "relative_path": "api/Ploch.Common.Cryptography.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Cryptography",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html",
-          "hash": "+GUfeRZMhzj/Ek6hmG1NkqedpxV9ARU2TH1y1laF4cQ="
+          "relative_path": "api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.yml\" sourcestartlinenumber=\"1\">Validates that a date / time value is not null or default.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DataAnnotations.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DataAnnotations.html",
-          "hash": "+2hkM2+CuE/qhedlE/ohWzQ3AHYa5cmFtXjp8CqBWOY="
+          "relative_path": "api/Ploch.Common.DataAnnotations.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DataAnnotations",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DateTimeExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DateTimeExtensions.html",
-          "hash": "wiuo8d4oT4TDjBNBX2Jdmu7fMfaz6uBFehgQYRKZIsE="
+          "relative_path": "api/Ploch.Common.DateTimeExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DateTimeExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.DateTimeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.DateTime\" data-throw-if-not-resolved=\"false\"></xref> and related.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DawnGuard.TypeGuards.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DawnGuard.TypeGuards.html",
-          "hash": "FtFyxQQHk9pQ1ZsPexi2C1QpWDfJp1O+z/H2d59sB1U="
+          "relative_path": "api/Ploch.Common.DawnGuard.TypeGuards.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DawnGuard.TypeGuards",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.DawnGuard.TypeGuards.yml\" sourcestartlinenumber=\"1\">Provides utility methods for type guards.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DawnGuard.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DawnGuard.html",
-          "hash": "qcnR9ketZOaLGe4t9PmRh/21UGLtswUE7cKYsdrLk+c="
+          "relative_path": "api/Ploch.Common.DawnGuard.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DawnGuard",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DependencyInjection.CompositeServicesBundle.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html",
-          "hash": "sy0468dj9n1xpB+/4zibQvUGpMZKGIXItRwW+JPw3CE="
+          "relative_path": "api/Ploch.Common.DependencyInjection.CompositeServicesBundle.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DependencyInjection.CompositeServicesBundle",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.DependencyInjection.CompositeServicesBundle.yml\" sourcestartlinenumber=\"1\">Represents a collection of services bundles to register.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html",
-          "hash": "qCElKQzWsOsRGOg9eSjZ2xNi215I9TW7EJ5AwPgVW0M="
+          "relative_path": "api/Ploch.Common.DependencyInjection.DelegatingServicesBundle.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DependencyInjection.DelegatingServicesBundle",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DependencyInjection.IServicesBundle.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DependencyInjection.IServicesBundle.html",
-          "hash": "hO4DORt9dz1Jyvb3BkxEDaCNyhRQrX55c47WErjO25Y="
+          "relative_path": "api/Ploch.Common.DependencyInjection.IServicesBundle.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DependencyInjection.IServicesBundle",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.DependencyInjection.IServicesBundle.yml\" sourcestartlinenumber=\"1\">Represents a collection of services that should be added to <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.DependencyInjection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.DependencyInjection.html",
-          "hash": "7eRtk1vAk70JeX5HjdbxfFOV/5Mj1HDd+l8V+D1F+BI="
+          "relative_path": "api/Ploch.Common.DependencyInjection.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.DependencyInjection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.EnumHelper.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.EnumHelper.html",
-          "hash": "quy4I2b2DGXXsAHkWWhi4fiSQNUnoWcYh5b1t2OSIQM="
+          "relative_path": "api/Ploch.Common.EnumHelper.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.EnumHelper",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.EnumHelper.yml\" sourcestartlinenumber=\"1\">Provides helper methods for working with enums.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.EnvironmentUtilities.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.EnvironmentUtilities.html",
-          "hash": "LxNijE/Icg2gEzXIabE9/MEieSP6+y4sPkx7YL+TK9k="
+          "relative_path": "api/Ploch.Common.EnvironmentUtilities.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.EnvironmentUtilities",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.EnvironmentUtilities.yml\" sourcestartlinenumber=\"1\">Utility class for common operations related to the environment.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.IO.PathUtils.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.IO.PathUtils.html",
-          "hash": "vG2mrX6jUAn6OItWpUQNct+R/v9whLCSaWoc5PzRtoU="
+          "relative_path": "api/Ploch.Common.IO.PathUtils.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.IO.PathUtils",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.IO.PathUtils.yml\" sourcestartlinenumber=\"1\">Utility class for manipulating path related operations.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.IO.StreamExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.IO.StreamExtensions.html",
-          "hash": "ybTrbZjdCo+ws+1206kggH6lMPFDQqnAL3lZ5DB5WVo="
+          "relative_path": "api/Ploch.Common.IO.StreamExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.IO.StreamExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.IO.StreamExtensions.yml\" sourcestartlinenumber=\"1\">A static class providing extension methods for Stream objects.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.IO.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.IO.html",
-          "hash": "pA24ysIkwfe81+kfz8ChHqpKM1NbExrnUjDi2gnMf8s="
+          "relative_path": "api/Ploch.Common.IO.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.IO",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.IsInExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.IsInExtensions.html",
-          "hash": "6db0AUqulC7ky35uLFYNZEhnmRhlDyCkkimFUr0YlXw="
+          "relative_path": "api/Ploch.Common.IsInExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.IsInExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.IsInExtensions.yml\" sourcestartlinenumber=\"1\">Class IsInExtensions.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Linq.ExpressionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Linq.ExpressionExtensions.html",
-          "hash": "hrgyO1uzf/FOiw7xfhQojbgjDopS/ILcoaIhoVDzyb8="
+          "relative_path": "api/Ploch.Common.Linq.ExpressionExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Linq.ExpressionExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Linq.ExpressionExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Linq.Expressions.Expression\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Linq.IOwnedPropertyInfo-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html",
-          "hash": "rM4PU6ZaTu3gyvIVPoKKyAeRTKQGPEkEuleL8ssf224="
+          "relative_path": "api/Ploch.Common.Linq.IOwnedPropertyInfo-2.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Linq.IOwnedPropertyInfo<TType, TProperty>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Linq.IOwnedPropertyInfo-2.yml\" sourcestartlinenumber=\"1\">Represents an interface for retrieving and setting the value of a property\nowned by an instance of an object.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Linq.IOwnedPropertyInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Linq.IOwnedPropertyInfo.html",
-          "hash": "JE3mL9HWp31AUVlKrb/eibYr0gu2Yu2Dwx50PnagjiI="
+          "relative_path": "api/Ploch.Common.Linq.IOwnedPropertyInfo.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Linq.IOwnedPropertyInfo",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Linq.IOwnedPropertyInfo.yml\" sourcestartlinenumber=\"1\">Represents an interface for retrieving and setting the value of a property\nowned by an instance of an object.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Linq.OwnedPropertyInfo-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Linq.OwnedPropertyInfo-2.html",
-          "hash": "zv28vyL8AwmxkcjEkDeCsPsu2WMU012U/tLDs9yTH0A="
+          "relative_path": "api/Ploch.Common.Linq.OwnedPropertyInfo-2.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Linq.OwnedPropertyInfo<TType, TProperty>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Linq.OwnedPropertyInfo-2.yml\" sourcestartlinenumber=\"1\">Represents an interface for retrieving and setting the value of a property\nowned by an instance of an object.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Linq.OwnedPropertyInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Linq.OwnedPropertyInfo.html",
-          "hash": "e13lRwUxNPnKoue9tsH/dolahpIrQDtQmGnZ5ZPB+ck="
+          "relative_path": "api/Ploch.Common.Linq.OwnedPropertyInfo.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Linq.OwnedPropertyInfo",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Linq.OwnedPropertyInfo.yml\" sourcestartlinenumber=\"1\">Represents an interface for retrieving and setting the value of a property\nowned by an instance of an object.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Linq.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Linq.html",
-          "hash": "tZ6vCivacEgetAGEVWzhkdW/kCPwebc7LuUPDQe29YM="
+          "relative_path": "api/Ploch.Common.Linq.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Linq",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.ObjectCloningHelpers.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.ObjectCloningHelpers.html",
-          "hash": "X+xlOgFg+lQePU4zdFSBgYyLc37TXmud+4zOV/2t+cg="
+          "relative_path": "api/Ploch.Common.ObjectCloningHelpers.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.ObjectCloningHelpers",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.ObjectCloningHelpers.yml\" sourcestartlinenumber=\"1\">Class ObjectCloningHelpers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.BooleanRandomizer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.BooleanRandomizer.html",
-          "hash": "gmEYLEdkB4vEPkhOsr74FpnlWjHyRIDkoxbQsaHmTUo="
+          "relative_path": "api/Ploch.Common.Randomizers.BooleanRandomizer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.BooleanRandomizer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.BooleanRandomizer.yml\" sourcestartlinenumber=\"1\">Provides functionality to generate random boolean values.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.DateTimeRandomizer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.DateTimeRandomizer.html",
-          "hash": "VMbd2IWicp0r9GL3TM1yWCNooa8QNZCsXGwGMGRb1ns="
+          "relative_path": "api/Ploch.Common.Randomizers.DateTimeRandomizer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.DateTimeRandomizer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.DateTimeRandomizer.yml\" sourcestartlinenumber=\"1\">Provides functionality to generate random past DateTime values (up until now).</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.IRandomizer-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.IRandomizer-1.html",
-          "hash": "q/tQpqIgCYV8RfCNcQ3+uZyZUIf1aATcLOo4bBNTdEw="
+          "relative_path": "api/Ploch.Common.Randomizers.IRandomizer-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.IRandomizer<TValue>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.IRandomizer-1.yml\" sourcestartlinenumber=\"1\">Represents an interface for generating random values of a specified type.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.IRangedRandomizer-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.IRangedRandomizer-1.html",
-          "hash": "jm/0vNHTzg7F6gcW/po6fhq0XDgl8zLH0AaG4ecHzL8="
+          "relative_path": "api/Ploch.Common.Randomizers.IRangedRandomizer-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.IRangedRandomizer<TValue>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.IRangedRandomizer-1.yml\" sourcestartlinenumber=\"1\">Represents an interface for generating random values of a specified type within a defined range.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.IntRandomizer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.IntRandomizer.html",
-          "hash": "ocgsM4Nda1jtCavJdflWuNkibgctOFJDAez7wjJAqmw="
+          "relative_path": "api/Ploch.Common.Randomizers.IntRandomizer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.IntRandomizer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.IntRandomizer.yml\" sourcestartlinenumber=\"1\">Provides functionality to generate random integer values.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.Randomizer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.Randomizer.html",
-          "hash": "EjoopcQjEWrxN0o0l0pHwLxtiV0P5+/YUD4hwTBTqeA="
+          "relative_path": "api/Ploch.Common.Randomizers.Randomizer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.Randomizer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.Randomizer.yml\" sourcestartlinenumber=\"1\">Provides functionality to get a randomizer instance for various types such as string, int, DateTime, and bool.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.StringRandomizer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.StringRandomizer.html",
-          "hash": "lci89OBJtLVf9g3xKgq6YR6ZTG2aVpnQvVIgKNrEcsU="
+          "relative_path": "api/Ploch.Common.Randomizers.StringRandomizer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers.StringRandomizer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Randomizers.StringRandomizer.yml\" sourcestartlinenumber=\"1\">Provides functionality to generate random string values.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Randomizers.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Randomizers.html",
-          "hash": "qJjOi+c/3ScT88M2h96hxO4RYS8zfiA8Aq3xXDaoa6I="
+          "relative_path": "api/Ploch.Common.Randomizers.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Randomizers",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.AssemblyExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.AssemblyExtensions.html",
-          "hash": "vRwrWh1WjeW5DUeikFStuVfX7pTOGFQejfqyB7F8B+4="
+          "relative_path": "api/Ploch.Common.Reflection.AssemblyExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection.AssemblyExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Reflection.AssemblyExtensions.yml\" sourcestartlinenumber=\"1\">Extension utility methods for an <xref href=\"System.Reflection.Assembly\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.ObjectGraphHelper.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.ObjectGraphHelper.html",
-          "hash": "fxqBBI/nvixqU2GTCpECsG1amgNHYN47alIaQHeVrLM="
+          "relative_path": "api/Ploch.Common.Reflection.ObjectGraphHelper.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection.ObjectGraphHelper",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Reflection.ObjectGraphHelper.yml\" sourcestartlinenumber=\"1\">Provides helper methods for working with object graphs.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.ObjectReflectionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.ObjectReflectionExtensions.html",
-          "hash": "oiuHZ1CwjKOQxLG6y6fw36tuvOTpJg/xl8fzbOiPno4="
+          "relative_path": "api/Ploch.Common.Reflection.ObjectReflectionExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection.ObjectReflectionExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Reflection.ObjectReflectionExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for working with object reflection.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.PropertyHelpers.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.PropertyHelpers.html",
-          "hash": "wLzfAWzvclM05kUf6ciZ39jIX92hHkta1/oqQyHS1/U="
+          "relative_path": "api/Ploch.Common.Reflection.PropertyHelpers.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection.PropertyHelpers",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Reflection.PropertyHelpers.yml\" sourcestartlinenumber=\"1\">Common reflection tasks convenience object extensions.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.PropertyNotFoundException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.PropertyNotFoundException.html",
-          "hash": "I+C+qDji2cfyVL5oMxRG4OFqMa37/NTXX5YNKs7I0QQ="
+          "relative_path": "api/Ploch.Common.Reflection.PropertyNotFoundException.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection.PropertyNotFoundException",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.TypeExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.TypeExtensions.html",
-          "hash": "aL3tTmc8ZdPWbqFzHYw9kxv16Tp6IOLR0PMn7iK2tGc="
+          "relative_path": "api/Ploch.Common.Reflection.TypeExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection.TypeExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Reflection.TypeExtensions.yml\" sourcestartlinenumber=\"1\"><xref href=\"System.Type\" data-throw-if-not-resolved=\"false\"></xref> extension methods.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Reflection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Reflection.html",
-          "hash": "5+h7U8h1aEnypSthG5/+5Jg9es2zO0x+FVceN7wmgz8="
+          "relative_path": "api/Ploch.Common.Reflection.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Reflection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html",
-          "hash": "s30nsdqVRk5hT3vmPFkLLQ+lXXwGlufo5HPYF/hWEYw="
+          "relative_path": "api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.yml\" sourcestartlinenumber=\"1\">Newtonsoft.Json based implementation of <xref href=\"Ploch.Common.Serialization.ISerializer\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialiation.NewtonsoftJson.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialiation.NewtonsoftJson.html",
-          "hash": "n9PBLi7lWksAd7Vp4GKlYVdvO4b9h4HIq0zBiedHExA="
+          "relative_path": "api/Ploch.Common.Serialiation.NewtonsoftJson.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialiation.NewtonsoftJson",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.AsyncSerializer-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.AsyncSerializer-2.html",
-          "hash": "HvqeHlUj7yPoy+oKlOnRSbTpec9vq9/wcE3A8MmjER4="
+          "relative_path": "api/Ploch.Common.Serialization.AsyncSerializer-2.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.AsyncSerializer-2.yml\" sourcestartlinenumber=\"1\">Base class for async serializers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.IAsyncSerializer-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.IAsyncSerializer-1.html",
-          "hash": "VGXbg8mqIHwBggzXft/FwMfouLydoJDcsPtVR0RlFsM="
+          "relative_path": "api/Ploch.Common.Serialization.IAsyncSerializer-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.IAsyncSerializer<TSettings>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.IAsyncSerializer-1.yml\" sourcestartlinenumber=\"1\">The common interface for async serializers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.IAsyncSerializer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.IAsyncSerializer.html",
-          "hash": "aSMxEzmbS2aEN+oTMCCzoSLn3PkMK5BaY82VRZVP7Eo="
+          "relative_path": "api/Ploch.Common.Serialization.IAsyncSerializer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.IAsyncSerializer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.IAsyncSerializer.yml\" sourcestartlinenumber=\"1\">The common interface for async serializers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.ISerializer-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.ISerializer-1.html",
-          "hash": "aD6ErNDpIWCEoFBUdEh9rc5JBcwqdD3Dr/faaE+eFcg="
+          "relative_path": "api/Ploch.Common.Serialization.ISerializer-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.ISerializer<TSettings>",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.ISerializer-1.yml\" sourcestartlinenumber=\"1\">Common interface for serializers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.ISerializer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.ISerializer.html",
-          "hash": "vYrBg9Jyk2znlb53VJ+5pCRCjvicS8R9wNdjQxZBM3Y="
+          "relative_path": "api/Ploch.Common.Serialization.ISerializer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.ISerializer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.ISerializer.yml\" sourcestartlinenumber=\"1\">Common interface for serializers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.html",
-          "hash": "78zT04hpq7V1lsNNc2HQHgJ7KWxi6tmDAWcQ2TRd8tY="
+          "relative_path": "api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.yml\" sourcestartlinenumber=\"1\"><code sourcefile=\"api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.yml\" sourcestartlinenumber=\"1\">IServiceCollection</code> extension methods for registering <code sourcefile=\"api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.yml\" sourcestartlinenumber=\"1\">NewtonsoftJson</code> serializer.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.html",
-          "hash": "jIKAYbPoPlH9Wg7t+TUAhdSTXmG1Rcfy5kVjsdEtorQ="
+          "relative_path": "api/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.Serializer-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.Serializer-2.html",
-          "hash": "OTI/3WBGf3N6SDvArwLw8ierwabZgpzo/lsb39jNSHI="
+          "relative_path": "api/Ploch.Common.Serialization.Serializer-2.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.html",
-          "hash": "q7EmRF4RtA25urtdTj6hI/cCQwrEYT61ckZ7OaMlzaY="
+          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.yml\" sourcestartlinenumber=\"1\"><code>SystemTextJsonSerializer</code> registration inside the <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.html",
-          "hash": "8QZaV4C4EGgEndYhWjRMFx2bVI/aqNXUO38SAusqpoA="
+          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html",
-          "hash": "wcrlqZqhs+dCx1FUZB2yOR2DHto0KxSvPcEwmHcUdAg="
+          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.yml\" sourcestartlinenumber=\"1\">The System.Text.Json implementation of <xref href=\"Ploch.Common.Serialization.ISerializer\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.SystemTextJson.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.html",
-          "hash": "acfWlmUm6Gb29muVfeGIGt8hgTxiVI9zM0/me0V+U8o="
+          "relative_path": "api/Ploch.Common.Serialization.SystemTextJson.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization.SystemTextJson",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.Serialization.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.Serialization.html",
-          "hash": "r95t2uDOx5u+OeASxi/5dz9/QGXriXGndE4Hcrdpx04="
+          "relative_path": "api/Ploch.Common.Serialization.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.Serialization",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.StopwatchUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.StopwatchUtil.html",
-          "hash": "nOMoSkmpxeyvYYFzQyof01dBcLzlR14wZl8/AuazAQU="
+          "relative_path": "api/Ploch.Common.StopwatchUtil.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.StopwatchUtil",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.StopwatchUtil.yml\" sourcestartlinenumber=\"1\">Represents a utility class for measuring the execution time of an action using a <xref href=\"System.Diagnostics.Stopwatch\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.StringBuilderExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.StringBuilderExtensions.html",
-          "hash": "gYteE/nen1BP7sYCRwARw16BDEAH8MMHQpasZcm+l3E="
+          "relative_path": "api/Ploch.Common.StringBuilderExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.StringBuilderExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.StringBuilderExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Text.StringBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.StringExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.StringExtensions.html",
-          "hash": "Dyvm9x1FKRYs8ixI+8om2xVlXJCZjqb0ooTGYOOZZsM="
+          "relative_path": "api/Ploch.Common.StringExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.StringExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.StringExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.String\" data-throw-if-not-resolved=\"false\"></xref> and related.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.ThreadSafeRandom.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.ThreadSafeRandom.html",
-          "hash": "rNKwH4XU933xYJOOj1XBz2tDSjkbItUsWYn/blpPkYs="
+          "relative_path": "api/Ploch.Common.ThreadSafeRandom.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.ThreadSafeRandom",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.ThreadSafeRandom.yml\" sourcestartlinenumber=\"1\">A thread-safe wrapper class for generating random numbers.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.WebUI.TagUtilities.SelectListHelper.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.WebUI.TagUtilities.SelectListHelper.html",
-          "hash": "Rsa1jKSMiY8jNMt/+pxw8InV2sFtI349N6oegT3l4XA="
+          "relative_path": "api/Ploch.Common.WebUI.TagUtilities.SelectListHelper.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.WebUI.TagUtilities.SelectListHelper",
+      "Summary": "<p sourcefile=\"api/Ploch.Common.WebUI.TagUtilities.SelectListHelper.yml\" sourcestartlinenumber=\"1\">Helper class for creating <xref href=\"Microsoft.AspNetCore.Mvc.Rendering.SelectListItem\" data-throw-if-not-resolved=\"false\"></xref> collections.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.WebUI.TagUtilities.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.WebUI.TagUtilities.html",
-          "hash": "8dHz6TRhGefc5qqIsqViN0uVOLBJ4n9cVDd2/fGcTkg="
+          "relative_path": "api/Ploch.Common.WebUI.TagUtilities.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common.WebUI.TagUtilities",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.Common.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.Common.html",
-          "hash": "dTV3RI1lJWHH2CnldwKFvd6lOgWGv2WJ2XpA6Hf4lNo="
+          "relative_path": "api/Ploch.Common.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.Common",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.html",
-          "hash": "O91pTam4Fte4HKyk4URW1L71Rlz5lweEXqVDQ9Ew9Fk="
+          "relative_path": "api/Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for <xref href=\"FluentAssertions.Primitives.StringAssertions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.TestingSupport.FluentAssertions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.TestingSupport.FluentAssertions.html",
-          "hash": "ax9HkP5sQzSBG0U6km+lPmLZtJGbG9FTRkJJHQDZWE4="
+          "relative_path": "api/Ploch.TestingSupport.FluentAssertions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.TestingSupport.FluentAssertions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.TestingSupport.Moq.MockingExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.TestingSupport.Moq.MockingExtensions.html",
-          "hash": "Aw9WXmxz9mEF8pndlr96+w2NBe60XddhckzuSgCymII="
+          "relative_path": "api/Ploch.TestingSupport.Moq.MockingExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.TestingSupport.Moq.MockingExtensions",
+      "Summary": "<p sourcefile=\"api/Ploch.TestingSupport.Moq.MockingExtensions.yml\" sourcestartlinenumber=\"1\">This class provides an extension method for mocking objects.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Ploch.TestingSupport.Moq.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ploch.TestingSupport.Moq.html",
-          "hash": "sg607E/Y2d53q54Xgv/39YHLojWJf2twE+bsZho0/c0="
+          "relative_path": "api/Ploch.TestingSupport.Moq.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Ploch.TestingSupport.Moq",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.html",
-          "hash": "7ABYPGdwagc0Pz0j73xY8kisi4ercFM4oJeiw1+Tfg4="
+          "relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions<TItems>",
+      "Summary": "<p sourcefile=\"api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.yml\" sourcestartlinenumber=\"1\">Provides a way to do assertions on collections of <xref href=\"System.IO.Abstractions.IFileSystemInfo\" data-throw-if-not-resolved=\"false\"></xref> objects.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions.html",
-          "hash": "k6pW6XM5bugC49IlR3ihPON85EW2RP5g8lqfd7GZJZg="
+          "relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions",
+      "Summary": "<p sourcefile=\"api/TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for collections of file system information objects to enable fluent assertions.</p>\n"
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.html",
-          "hash": "6aIa1PhfIlTu4ZoJJhd+uvo/GumCYKXX0aLR7wyCddU="
+          "relative_path": "api/TestingSupport.FluentAssertions.IOAbstractions.html"
         }
       },
-      "is_incremental": false,
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TestingSupport.FluentAssertions.IOAbstractions",
+      "Summary": null
     },
     {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "luE7lafPf1MCUtZjEAOyXVTcMkBDMdqQ2KdXrTlYhJk="
+          "relative_path": "api/index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -932,11 +1081,12 @@
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "DhqBvFo2mCqgT59TCJ2M0y2JUtZ57ZFFd+HVtC+z/W8="
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -944,11 +1094,9 @@
       "source_relative_path": "articles/collections-samples.md",
       "output": {
         ".html": {
-          "relative_path": "articles/collections-samples.html",
-          "hash": "PmxrVhT5YEW6tGdN9ctpTR8HFcXWWiGpZqhdiI8UoeQ="
+          "relative_path": "articles/collections-samples.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -956,56 +1104,42 @@
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "VECeLKjpr6adx8JjirL/gQNu3Ek8Ml3vkZgGSUajPn8="
+          "relative_path": "articles/intro.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/samples.md",
       "output": {
         ".html": {
-          "relative_path": "articles/samples.html",
-          "hash": "NBk9b+C/4im6H2luuH0mIMjM8NpX6Hx9/YFAUR0YzuM="
+          "relative_path": "articles/samples.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "/l0wiEJK5jxyJT+CNXBq5ZT7Jo4mE9tZM1Z5XQIpYK8="
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "RPS+zMH6mmJPNlsu2pRvhD3PtVwkGBLDMc2ty2ETZQg="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1013,58 +1147,15 @@
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
-          "hash": "Q/txdoItmySQlyZUDonzL23ncy7AlaWTRkb+j9fUIcA="
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     }
   ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 5,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 77,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
-    }
-  ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
