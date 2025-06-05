@@ -16,7 +16,7 @@ namespace TestingSupport.FluentAssertions.IOAbstractions
         protected override string Identifier => nameof(IFileSystemInfo);
 
         public AndConstraint<FileSystemInfoAssertions<TItems>> HaveNamesEquivalentToIgnoringCase(params string[] fileSystemInfoNames) =>
-            HaveNamesEquivalentToIgnoringCase(fileSystemInfoNames);
+            HaveNamesEquivalentToIgnoringCase(fileSystemInfoNames.AsEnumerable());
 
         public AndConstraint<FileSystemInfoAssertions<TItems>> HaveNamesEquivalentToIgnoringCase(IEnumerable<string> fileSystemInfoNames,
                                                                                                  string because = "",
