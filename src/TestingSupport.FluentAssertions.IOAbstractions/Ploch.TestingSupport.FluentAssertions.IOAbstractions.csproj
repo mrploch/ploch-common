@@ -1,15 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <RootNamespace>TestingSupport.FluentAssertions.IOAbstractions</RootNamespace>
-        <LangVersion>9</LangVersion>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>TestingSupport.FluentAssertions.IOAbstractions</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="FluentAssertions" />
-      <PackageReference Include="System.IO.Abstractions" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="System.IO.Abstractions" />
+  </ItemGroup>
 
 </Project>

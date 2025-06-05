@@ -10,8 +10,6 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-# Microsoft .NET properties
-csharp_style_namespace_declarations = file_scoped:warning
 
 # ReSharper properties
 
@@ -20,7 +18,8 @@ csharp_style_namespace_declarations = file_scoped:warning
 [*.cs]
 # Microsoft .NET properties
 csharp_preferred_modifier_order = public, private, protected, internal, static, extern, abstract, virtual, new, sealed, override, readonly, unsafe, volatile, async, file, required:none
-
+# Microsoft .NET properties
+csharp_style_namespace_declarations = file_scoped:warning
 # ReSharper properties
 resharper_instance_members_qualify_declared_in =
 resharper_place_expr_property_on_single_line = true
