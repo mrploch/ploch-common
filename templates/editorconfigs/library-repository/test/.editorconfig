@@ -1,0 +1,8 @@
+[*.cs]
+## XML Documentation headers
+dotnet_diagnostic.classdocumentationheader.severity = none # XML documentation header for class - use in apps and tests
+dotnet_diagnostic.interfacedocumentationheader.severity = none
+dotnet_diagnostic.methoddocumentationheader.severity = none
+dotnet_diagnostic.propertydocumentationheader.severity = none
+dotnet_analyzer_diagnostic.category-documentationheader.severity = none
+dotnet_analyzer_diagnostic.category-Documentation.severity = none
