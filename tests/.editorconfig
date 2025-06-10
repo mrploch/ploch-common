@@ -11,14 +11,21 @@ dotnet_analyzer_diagnostic.category-Documentation.severity = none
 dotnet_diagnostic.ca1707.severity = none # Identifiers should not contain underscores
 dotnet_diagnostic.ca1851.severity = none # Possible multiple enumerations of IEnumerable collection
 dotnet_diagnostic.cs1957.severity = suggestion # Member 'name' overrides 'method'. There are multiple override candidates at run-time. It is implementation dependent which method will be called.
+
+# Nullability
+dotnet_diagnostic.cs8600.severity = suggestion # Converting null literal or possible null value to non-nullable type.
 dotnet_diagnostic.cs8603.severity = suggestion # Possible null reference return
 dotnet_diagnostic.cs8604.severity = suggestion # Possible null reference argument for parameter.
+
 dotnet_diagnostic.IDE0051.severity = warning # Remove unused private members
 dotnet_diagnostic.IDE0052.severity = warning # Remove unused private members
+
+# SonarAnalyzer settings
 dotnet_diagnostic.s4487.severity = none # Unread "private" fields should be removed
 dotnet_diagnostic.sa0001.severity = none # XML comment analysis is disabled due to project configuration
 dotnet_diagnostic.sa1402.severity = none # File may only contain a single type
 
+# Naming rules
 dotnet_naming_rule.method_rule.import_to_resharper = True
 dotnet_naming_rule.method_rule.resharper_description = Methods
 dotnet_naming_rule.method_rule.resharper_guid = 8284009d-e743-4d89-9402-a5bf9a89b657
@@ -47,8 +54,8 @@ dotnet_naming_symbols.unity_serialized_field_symbols.resharper_required_modifier
 dotnet_style_parentheses_in_arithmetic_binary_operators = never_if_unnecessary:none
 dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:none
 dotnet_style_parentheses_in_relational_binary_operators = never_if_unnecessary:none
-dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
-dotnet_style_predefined_type_for_member_access = true:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:error
+dotnet_style_predefined_type_for_member_access = true:error
 dotnet_style_qualification_for_event = false:suggestion
 dotnet_style_qualification_for_field = false:suggestion
 dotnet_style_qualification_for_method = false:suggestion
