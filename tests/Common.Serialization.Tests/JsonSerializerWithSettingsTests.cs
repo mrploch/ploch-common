@@ -5,8 +5,11 @@ using Ploch.Common.Serialization.Tests.TestTypes;
 
 namespace Ploch.Common.Serialization.Tests;
 
-public abstract class JsonSerializerWithSettingsTests<TSerializer, TSerializerSettings> : JsonSerializerTests<TSerializer> where TSerializer : ISerializer<TSerializerSettings>
+public abstract class JsonSerializerWithSettingsTests<TSerializer, TSerializerSettings> : JsonSerializerTests<TSerializer>
+    where TSerializer : ISerializer<TSerializerSettings>
 {
+    protected abstract Action<TSerializerSettings> SettingsConfigurationAction { get; }
+
     [Theory]
     [AutoMockData]
     public void Serialize_with_settings_should_correctly_serialize_object(TestRecords.TestType4 testType)
@@ -29,7 +32,7 @@ public abstract class JsonSerializerWithSettingsTests<TSerializer, TSerializerSe
 
         ValidateDeserializedTestType4(deserialized);
     }
-    
+
     [Theory]
     [AutoMockData]
     public void Deserialize_NotGeneric_with_settings_should_correctly_deserialize_data_(TestRecords.TestType4 testType)
@@ -38,11 +41,9 @@ public abstract class JsonSerializerWithSettingsTests<TSerializer, TSerializerSe
 
         var deserializedObject = sut.Deserialize(SerializedTestType4, typeof(TestRecords.TestType4), SettingsConfigurationAction);
         var deserialized = deserializedObject.Should().BeOfType<TestRecords.TestType4>().Subject;
-        
+
         ValidateDeserializedTestType4(deserialized);
     }
-    
-    protected abstract override TSerializer GetSerializer();
 
-    protected abstract Action<TSerializerSettings> SettingsConfigurationAction { get; }
+    protected abstract override TSerializer GetSerializer();
 }

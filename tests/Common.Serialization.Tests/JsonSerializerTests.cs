@@ -8,6 +8,8 @@ namespace Ploch.Common.Serialization.Tests;
 
 public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISerializer
 {
+    protected const string SerializedTestType4 = @"{""TestType4IntProp"": 18, ""TestType4LongProp"": 140}";
+
     [Theory]
     [AutoMockData]
     public void Serialize_should_correctly_serialize_object(TestRecords.TestType4 testType)
@@ -20,7 +22,7 @@ public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISeri
 
         JToken.Parse(serialized).Should().BeEquivalentTo(JToken.FromObject(testType));
     }
-    
+
     [Theory]
     [AutoMockData]
     public void Deserialize_should_correctly_deserialize_data()
@@ -51,14 +53,32 @@ public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISeri
     [AutoMockData]
     public void Deserialize_NotGeneric_should_correctly_deserialize_data_(TestRecords.TestType4 testType)
     {
-
         var sut = GetSerializer();
 
         var deserializedObject = sut.Deserialize(SerializedTestType4, typeof(TestRecords.TestType4));
         var deserialized = deserializedObject.Should().BeOfType<TestRecords.TestType4>().Subject;
-        
+
         ValidateDeserializedTestType4(deserialized);
     }
+
+    protected static (string, TestRecords.TestComplexType, TestRecords.TestDataComplexType) GetSerializedComplexType(
+        ISerializer sut /*, IEnumerable<string> strings*/)
+    {
+        var fixture = new Fixture();
+        var complexTypeData = fixture.Create<TestRecords.TestDataComplexType>();
+        var wrapper = fixture.Build<TestRecords.TestComplexType>().With(type => type.ComplexTypeData, complexTypeData).Create();
+
+        return (sut.Serialize(wrapper), wrapper, complexTypeData);
+    }
+
+    protected static void ValidateDeserializedTestType4(TestRecords.TestType4? deserialized)
+    {
+        deserialized.Should().NotBeNull();
+        deserialized!.TestType4IntProp.Should().Be(18);
+        deserialized.TestType4LongProp.Should().Be(140);
+    }
+
+    protected abstract TSerializer GetSerializer();
 
     private static void ValidateDeserializedComplexType(TestRecords.TestComplexType? actualComplexType,
                                                         TestRecords.TestComplexType expectedComplexType,
@@ -71,24 +91,4 @@ public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISeri
 
         actualComplexTypeData.Should().BeEquivalentTo(expectedComplexTypeData);
     }
-
-    protected static (string, TestRecords.TestComplexType, TestRecords.TestDataComplexType) GetSerializedComplexType(ISerializer sut /*, IEnumerable<string> strings*/)
-    {
-        var fixture = new Fixture();
-        var complexTypeData = fixture.Create<TestRecords.TestDataComplexType>();
-        var wrapper = fixture.Build<TestRecords.TestComplexType>().With(type => type.ComplexTypeData, complexTypeData).Create();
-
-        return (sut.Serialize(wrapper), wrapper, complexTypeData);
-    }
-    
-    protected const string SerializedTestType4 = @"{""TestType4IntProp"": 18, ""TestType4LongProp"": 140}";
-    
-    protected static void ValidateDeserializedTestType4(TestRecords.TestType4? deserialized)
-    {
-        deserialized.Should().NotBeNull();
-        deserialized!.TestType4IntProp.Should().Be(18);
-        deserialized.TestType4LongProp.Should().Be(140);
-    }
-
-    protected abstract TSerializer GetSerializer();
 }

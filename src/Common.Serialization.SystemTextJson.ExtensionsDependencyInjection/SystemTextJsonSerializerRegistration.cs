@@ -1,5 +1,6 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.DependencyInjection;
 
 namespace Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection;
 
@@ -18,14 +19,8 @@ public static class SystemTextJsonSerializerRegistration
     ///     The same instance of the service collection that was passed to the method in the <paramref name="services" />
     ///     parameter.
     /// </returns>
-    public static IServiceCollection AddSystemTextJsonSerializer(this IServiceCollection services)
-    {
-        var serializer = new SystemTextJsonSerializer();
-        services.AddSingleton<ISerializer>(serializer);
-        services.AddSingleton<ISerializer<JsonSerializerOptions>>(serializer);
-        services.AddSingleton<IAsyncSerializer>(serializer);
-        services.AddSingleton<IAsyncSerializer<JsonSerializerOptions>>(serializer);
-
-        return services;
-    }
+    public static IServiceCollection AddSystemTextJsonSerializer(this IServiceCollection services, JsonSerializerOptions? serializerOptions = null) =>
+        services.AddServicesBundle(serializerOptions is null ?
+                                       new SystemTextJsonSerializerServicesBundle() :
+                                       new SystemTextJsonSerializerServicesBundle(serializerOptions));
 }

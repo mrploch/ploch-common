@@ -1,12 +1,12 @@
 ﻿using System.Text.Json;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Serialization.Tests;
-using Ploch.Common.Serialization.Tests.TestTypes;
 
 namespace Ploch.Common.Serialization.SystemTextJson.Tests;
 
 public class SystemTextJsonSerializerTests : JsonAsyncSerializerWithSettingsTests<SystemTextJsonSerializer, JsonSerializerOptions>
 {
+    protected override Action<JsonSerializerOptions> SettingsConfigurationAction => options => options.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+
     [Fact]
     public void Serialize_should_use_options()
     {
@@ -27,6 +27,4 @@ public class SystemTextJsonSerializerTests : JsonAsyncSerializerWithSettingsTest
     {
         return new JsonSerializerOptions();
     }
-
-    protected override Action<JsonSerializerOptions> SettingsConfigurationAction => options => options.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
 }

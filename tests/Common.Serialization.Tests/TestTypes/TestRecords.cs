@@ -17,7 +17,10 @@ public static class TestRecords
 
     public record TestComplexType(string ComplexTypeIntProp, string ComplexTypeDataType, object? ComplexTypeData, IEnumerable<string>? ComplexTypeStrings);
 
-    public record TestDataComplexType(int ComplexTypeIntProp, string ComplexTypeStringProp, TestEnum ComplexTypeEnumProp, IEnumerable<TestType2> ComplexTypeTestType2s);
+    public record TestDataComplexType(int ComplexTypeIntProp,
+                                      string ComplexTypeStringProp,
+                                      TestEnum ComplexTypeEnumProp,
+                                      IEnumerable<TestType2> ComplexTypeTestType2s);
 
     public record TestType2(string TestType2StrProperty, IEnumerable<TestType4>? TestType2TestType4s);
 

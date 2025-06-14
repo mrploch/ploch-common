@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -18,10 +18,22 @@
     <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.analyzers" />
-    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
+    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Common.Serialization.SystemTextJson\Ploch.Common.Serialization.SystemTextJson.csproj" />
     <ProjectReference Include="..\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
   </ItemGroup>
 </Project>
