@@ -1,0 +1,2 @@
+[*.cs]
+dotnet_diagnostic.s3236.severity = none # Caller information arguments should not be provided explicitly - gives false positives for use of .net standard version of the Guard class

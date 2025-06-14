@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Linq;
 
@@ -23,7 +23,7 @@ public static class ExpressionExtensions
     /// <exception cref="ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
     public static string GetMemberName(this Expression<Action> expression)
     {
-        Guard.Argument(expression, nameof(expression)).NotNull();
+        expression.NotNull(nameof(expression));
 
         return expression.Body switch
                {
@@ -43,7 +43,7 @@ public static class ExpressionExtensions
     /// <exception cref="ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
     public static string GetMemberName<TMember>(this Expression<Func<TMember>> expression)
     {
-        Guard.Argument(expression, nameof(expression)).NotNull();
+        expression.NotNull(nameof(expression));
 
         return expression.Body switch
                {
@@ -67,7 +67,7 @@ public static class ExpressionExtensions
     /// </exception>
     public static string GetMemberName<TType, TMember>(this Expression<Func<TType, TMember>> expression)
     {
-        Guard.Argument(expression, nameof(expression)).NotNull();
+        expression.NotNull(nameof(expression));
 
         return expression.Body switch
                {
@@ -94,14 +94,15 @@ public static class ExpressionExtensions
     /// </exception>
     public static IOwnedPropertyInfo<TType, TMember> GetProperty<TType, TMember>(this TType obj, Expression<Func<TType, TMember>> propertySelector)
     {
-        Guard.Argument(propertySelector, nameof(propertySelector)).NotNull();
+        propertySelector.NotNull(nameof(propertySelector));
 
         if (propertySelector.Body is not MemberExpression memberExpression)
         {
             throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
         }
 
-        var propertyInfo = memberExpression.Member as PropertyInfo ?? throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
+        var propertyInfo = memberExpression.Member as PropertyInfo ??
+                           throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
 
         return new OwnedPropertyInfo<TType, TMember>(propertyInfo, obj);
     }

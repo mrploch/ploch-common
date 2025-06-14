@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
 
@@ -27,7 +27,7 @@ public static class StopwatchUtil
     /// </example>
     public static TimeSpan Time(Action action)
     {
-        Guard.Argument(action, nameof(action)).NotNull();
+        action.NotNull(nameof(action));
 
         var sw = Stopwatch.StartNew();
         action();
@@ -43,7 +43,7 @@ public static class StopwatchUtil
     /// <returns>The time elapsed for the task to complete.</returns>
     public static TimeSpan Time(Task task)
     {
-        Guard.Argument(task, nameof(task)).NotNull();
+        task.NotNull(nameof(task));
 
         var sw = Stopwatch.StartNew();
         task.Wait();
@@ -59,7 +59,7 @@ public static class StopwatchUtil
     /// <returns>The time elapsed for the action to complete.</returns>
     public static TimeSpan Time(Func<Task> asyncAction)
     {
-        Guard.Argument(asyncAction, nameof(asyncAction)).NotNull();
+        asyncAction.NotNull(nameof(asyncAction));
 
         var sw = Stopwatch.StartNew();
         var task = asyncAction();

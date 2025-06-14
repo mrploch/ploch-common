@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Collections;
 
@@ -27,10 +27,11 @@ public static class CollectionExtensions
     ///     <param name="collection"></param>
     ///     .
     /// </returns>
-    public static ICollection<KeyValuePair<TKey, TValue?>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection, TKey key, TValue? value)
-        where TValue : class?
+    public static ICollection<KeyValuePair<TKey, TValue?>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection,
+                                                                                      TKey key,
+                                                                                      TValue? value) where TValue : class?
     {
-        Guard.Argument(collection, nameof(collection)).NotNull();
+        collection.NotNull(nameof(collection));
 
         if (value != null)
         {
@@ -56,41 +57,50 @@ public static class CollectionExtensions
     /// <exception cref="ArgumentNullException"><paramref name="collection" /> is <see langword="null" />.</exception>
     public static ICollection<KeyValuePair<TKey, TValue?>> Add<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection, TKey key, TValue? value)
     {
-        Guard.Argument(collection, nameof(collection)).NotNull();
+        collection.NotNull(nameof(collection));
 
         collection.Add(new KeyValuePair<TKey, TValue?>(key, value));
 
         return collection;
     }
 
-    /// <summary>Adds all items to the collection.</summary>
-    /// <typeparam name="TItem">Item type.</typeparam>
-    /// <param name="collection">The collection instance.</param>
-    /// <param name="items">Items to add to the collection.</param>
-    /// <exception cref="System.ArgumentNullException">
-    ///     <paramref name="collection" /> or <paramref name="items" /> is
-    ///     <see langword="null" />.
-    /// </exception>
-    /// <returns>The source collection after addition, providing a fluent interface.</returns>
-    public static ICollection<TItem> AddMany<TItem>(this ICollection<TItem> collection, params TItem[] items)
+    /// <summary>
+    ///     Adds multiple items to a collection. Provides control over handling duplicates using the <paramref name="duplicateHandling" /> parameter.
+    /// </summary>
+    /// <typeparam name="TCollection">The type of the collection being extended, which implements <see cref="ICollection{T}" />.</typeparam>
+    /// <typeparam name="TItem">The type of items in the collection.</typeparam>
+    /// <param name="collection">The target collection to which items are added.</param>
+    /// <param name="duplicateHandling">
+    ///     Specifies how duplicate items should be handled:
+    ///     <see cref="DuplicateHandling.Ignore" />, <see cref="DuplicateHandling.Overwrite" />, or <see cref="DuplicateHandling.Throw" />.
+    /// </param>
+    /// <param name="items">The items to add to the collection.</param>
+    /// <returns>The same instance of <paramref name="collection" /> after items have been added.</returns>
+    public static ICollection<TItem> AddMany<TCollection, TItem>(this TCollection collection,
+                                                                 DuplicateHandling duplicateHandling = DuplicateHandling.Throw,
+                                                                 params TItem[] items) where TCollection : ICollection<TItem>
     {
-        AddManyInternal(collection, items);
+        AddManyInternal(collection, items, duplicateHandling);
 
         return collection;
     }
 
     /// <summary>Adds all items to the collection.</summary>
-    /// <typeparam name="TItem">Item type.</typeparam>
     /// <param name="collection">The collection instance.</param>
     /// <param name="items">Items to add to the collection.</param>
+    /// <param name="duplicateHandling">Duplicate handling behavior.</param>
+    /// <typeparam name="TCollection">The collection type.</typeparam>
+    /// <typeparam name="TItem">Item type.</typeparam>
     /// <exception cref="System.ArgumentNullException">
     ///     <paramref name="collection" /> or <paramref name="items" /> is
     ///     <see langword="null" />.
     /// </exception>
     /// <returns>The source collection after addition, providing a fluent interface.</returns>
-    public static ICollection<TItem> AddMany<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
+    public static TCollection AddMany<TCollection, TItem>(this TCollection collection,
+                                                          IEnumerable<TItem> items,
+                                                          DuplicateHandling duplicateHandling = DuplicateHandling.Throw) where TCollection : ICollection<TItem>
     {
-        AddManyInternal(collection, items);
+        AddManyInternal(collection, items, duplicateHandling);
 
         return collection;
     }
@@ -101,18 +111,40 @@ public static class CollectionExtensions
     /// <typeparam name="TItem">The type of items.</typeparam>
     /// <param name="collection">The collection to add items to.</param>
     /// <param name="items">The items.</param>
+    /// <param name="duplicateHandling"></param>
     /// <exception cref="System.ArgumentNullException">
     ///     <paramref name="collection" /> or <paramref name="items" /> is
     ///     <see langword="null" />.
     /// </exception>
     [SuppressMessage("ReSharper", "PossibleMultipleEnumeration", Justification = "False positive - Guard.Argument would not enumerate collection.")]
-    private static void AddManyInternal<TItem>(this ICollection<TItem> collection, IEnumerable<TItem> items)
+    private static void AddManyInternal<TItem>(this ICollection<TItem> collection,
+                                               IEnumerable<TItem> items,
+                                               DuplicateHandling duplicateHandling = DuplicateHandling.Throw)
     {
-        Guard.Argument(items, nameof(items)).NotNull();
-        Guard.Argument(collection, nameof(collection)).NotNull();
+        items.NotNull(nameof(items));
+        collection.NotNull(nameof(collection));
 
         foreach (var item in items)
         {
+            if (collection.Contains(item))
+            {
+                switch (duplicateHandling)
+                {
+                    case DuplicateHandling.Throw:
+                        throw new ArgumentException($"Item {item} already exists in the collection.", nameof(items));
+                    case DuplicateHandling.Ignore:
+                        continue;
+                    case DuplicateHandling.Overwrite:
+                        // Pointless in most cases for a normal collection (not a key/value pair collection), it'll just remove and add the same item.
+                        // Might be useful only if a type contains a custom equality comparer or things like cache that refreshes item access.
+                        collection.Remove(item);
+
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(duplicateHandling), duplicateHandling, null);
+                }
+            }
+
             collection.Add(item);
         }
     }

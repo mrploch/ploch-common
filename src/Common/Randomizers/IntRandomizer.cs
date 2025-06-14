@@ -5,7 +5,7 @@ namespace Ploch.Common.Randomizers;
 /// <summary>
 ///     Provides functionality to generate random integer values.
 /// </summary>
-public class IntRandomizer : IRangedRandomizer<int>
+public class IntRandomizer : BaseRandomizere<int>, IRangedRandomizer<int>
 {
     private readonly Random _random = new();
 
@@ -13,7 +13,7 @@ public class IntRandomizer : IRangedRandomizer<int>
     ///     Generates a random integer value.
     /// </summary>
     /// <returns>A randomly generated integer value.</returns>
-    public int GetRandomValue()
+    public override int GetRandomValue()
     {
         return _random.Next();
     }
@@ -24,7 +24,7 @@ public class IntRandomizer : IRangedRandomizer<int>
     /// <param name="minValue">The inclusive lower bound of the random number returned.</param>
     /// <param name="maxValue">The exclusive upper bound of the random number returned.</param>
     /// <returns>A randomly generated integer value between minValue (inclusive) and maxValue (exclusive).</returns>
-    public int GetRandomValue(int minValue, int maxValue)
+    public override int GetRandomValue(int minValue, int maxValue)
     {
         return _random.Next(minValue, maxValue);
     }

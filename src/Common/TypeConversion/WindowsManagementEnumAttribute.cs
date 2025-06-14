@@ -1,6 +1,6 @@
 using System;
 
-namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
+namespace Ploch.Common.TypeConversion;
 
 /// <summary>
 ///     Specifies whether the enumeration values should be treated in a case-sensitive or case-insensitive manner
@@ -10,12 +10,7 @@ namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
 ///     This attribute can be applied to enums to designate if their string representation mappings
 ///     should be case-sensitive or case-insensitive.
 /// </remarks>
-public sealed class WindowsManagementEnumAttribute : Attribute
+public sealed class WindowsManagementEnumAttribute(bool caseSensitive = false) : Attribute
 {
-    public WindowsManagementEnumAttribute() : this(false)
-    { }
-
-    public WindowsManagementEnumAttribute(bool caseSensitive) => CaseSensitive = caseSensitive;
-
-    public bool CaseSensitive { get; }
+    public bool CaseSensitive { get; } = caseSensitive;
 }

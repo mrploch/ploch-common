@@ -1,5 +1,5 @@
 ﻿using System;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Collections;
 
@@ -17,8 +17,8 @@ public static class ArrayExtensions
     /// <returns><c>true</c> if array contains matching item, <c>false</c> otherwise.</returns>
     public static bool Exists<TItem>(this TItem[] array, Predicate<TItem> predicate)
     {
-        Guard.Argument(array, nameof(array)).NotNull();
-        Guard.Argument(predicate, nameof(predicate)).NotNull();
+        array.NotNull(nameof(array));
+        predicate.NotNull(nameof(predicate));
 
         return Array.Exists(array, predicate);
     }

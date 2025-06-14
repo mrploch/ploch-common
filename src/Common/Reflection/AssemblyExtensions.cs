@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Reflection;
 
@@ -17,7 +17,7 @@ public static class AssemblyExtensions
     /// <returns>The directory name where assembly is located.</returns>
     public static string? GetAssemblyDirectory(this Assembly assembly)
     {
-        Guard.Argument(assembly, nameof(assembly)).NotNull();
+        assembly.NotNull(nameof(assembly));
 
         var agentAssemblyPath = assembly.Location ?? throw new InvalidOperationException("Assembly location is null.");
 

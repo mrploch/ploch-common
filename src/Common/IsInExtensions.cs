@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Dawn;
+using System.Linq;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
 
@@ -18,10 +19,7 @@ public static class IsInExtensions
     ///     <c>true</c> if the <paramref name="value" /> is equal to one of the <paramref name="values" />, <c>false</c>
     ///     otherwise.
     /// </returns>
-    public static bool NotIn<TValue>(this TValue value, params TValue[] values)
-    {
-        return NotIn(value, (IEnumerable<TValue>)values);
-    }
+    public static bool NotIn<TValue>(this TValue value, params TValue[] values) => NotIn(value, (IEnumerable<TValue>)values);
 
     /// <summary>
     ///     Checks if the <paramref name="value" /> is equal to one of the <paramref name="values" /> provided.
@@ -33,10 +31,7 @@ public static class IsInExtensions
     ///     <c>true</c> if the <paramref name="value" /> is equal to one of the <paramref name="values" />, <c>false</c>
     ///     otherwise.
     /// </returns>
-    public static bool NotIn<TValue>(this TValue value, IEnumerable<TValue> values)
-    {
-        return !In(value, values);
-    }
+    public static bool NotIn<TValue>(this TValue value, IEnumerable<TValue> values) => !In(value, values);
 
     /// <summary>
     ///     Checks if the <paramref name="value" /> is equal to one of the <paramref name="values" /> provided.
@@ -48,10 +43,7 @@ public static class IsInExtensions
     ///     <c>true</c> if the <paramref name="value" /> is equal to one of the <paramref name="values" />, <c>false</c>
     ///     otherwise.
     /// </returns>
-    public static bool In<TValue>(this TValue value, params TValue[] values)
-    {
-        return In(value, (IEnumerable<TValue>)values);
-    }
+    public static bool In<TValue>(this TValue value, params TValue[] values) => In(value, (IEnumerable<TValue>)values);
 
     /// <summary>
     ///     Checks if the <paramref name="value" /> is equal to one of the <paramref name="values" /> provided.
@@ -65,21 +57,13 @@ public static class IsInExtensions
     /// </returns>
     public static bool In<TValue>(this TValue? value, IEnumerable<TValue> values)
     {
-        Guard.Argument(values).NotNull();
+        values.NotNull(nameof(values));
 
         if (value.IsDefault())
         {
             return false;
         }
 
-        foreach (var v in values)
-        {
-            if (value.IsNotDefault() && value!.Equals(v))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return values.Any(v => value.IsNotDefault() && value!.Equals(v));
     }
 }

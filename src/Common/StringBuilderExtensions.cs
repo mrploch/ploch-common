@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
 
@@ -39,8 +39,8 @@ public static class StringBuilderExtensions
 
     private static StringBuilder AppendIf<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, bool> test, Func<TValue?, string>? formatFunc = null)
     {
-        Guard.Argument(test, nameof(test)).NotNull();
-        Guard.Argument(builder, nameof(builder)).NotNull();
+        test.NotNull(nameof(test));
+        builder.NotNull(nameof(builder));
 
         // It is already checked by Guard
 #pragma warning disable CC0031

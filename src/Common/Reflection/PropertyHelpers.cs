@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
+using Ploch.Common.Linq;
 
 namespace Ploch.Common.Reflection;
 
@@ -13,26 +15,47 @@ namespace Ploch.Common.Reflection;
 public static class PropertyHelpers
 {
     /// <summary>
-    ///     Gets the <see langword="public" /> properties of specific type.
+    ///     Represents the default name for an indexer property in .NET, i.e., "Item".
+    ///     This constant is commonly used in reflection-based operations to reference
+    ///     indexer properties implemented in classes.
+    /// </summary>
+    /// <remarks>
+    ///     In .NET, indexers are special properties that allow instances of a class
+    ///     or struct to be indexed like arrays. The default name for indexers is "Item",
+    ///     but the actual usage can vary based on the language or implementation.
+    ///     This constant provides a strongly typed reference to that default name
+    ///     to avoid hardcoded strings in reflection utilities.
+    /// </remarks>
+    /// <example>
+    ///     <code>
+    /// // Example usage of the `IndexerPropertyName` constant in reflection.
+    /// var propertyValue = someObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, new object[] { 0 });
+    /// Console.WriteLine(propertyValue);
+    /// </code>
+    /// </example>
+    public const string IndexerPropertyName = "Item";
+
+    /// <summary>
+    ///     Gets the <see langword="public" /> properties of a specific type.
     /// </summary>
     /// <typeparam name="TPropertyType">
     ///     The type of the properties to return.
     /// </typeparam>
     /// <param name="obj">The object.</param>
     /// <param name="includeSubTypes">
-    ///     Include sub types of <typeparamref name="TPropertyType" /> in
+    ///     Include subtypes of <typeparamref name="TPropertyType" /> in
     ///     results.
     /// </param>
     /// <exception cref="ArgumentNullException">
     ///     <paramref name="obj" /> is <see langword="null" />.
     /// </exception>
     /// <returns>
-    ///     List of <see langword="public" /> properties of specific type.(
+    ///     List of <see langword="public" /> properties of a specific type.(
     ///     <see cref="PropertyInfo" /> s).
     /// </returns>
     public static IEnumerable<PropertyInfo> GetProperties<TPropertyType>(this object obj, bool includeSubTypes = true)
     {
-        Guard.Argument(obj, nameof(obj)).NotNull();
+        obj.NotNull(nameof(obj));
 
         var type = obj.GetType();
 
@@ -49,48 +72,34 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    ///     Sets the property.
+    ///     Gets the property information.
     /// </summary>
-    /// <typeparam name="T">The type of a property.</typeparam>
-    /// <param name="obj">The object type.</param>
+    /// <param name="type">The type.</param>
     /// <param name="propertyName">Name of the property.</param>
-    /// <param name="value">The value to set.</param>
-    /// <exception cref="AmbiguousMatchException">
-    ///     More than one property is found with the specified name. See
-    ///     Remarks.
-    /// </exception>
-    /// <exception cref="TargetException">
-    ///     In the .NET for Windows Store apps or the Portable Class Library,
-    ///     <see langword="catch" /> <see cref="Exception" /> instead. The type
-    ///     of <paramref name="obj" /> does not match the target type, or a
-    ///     property is an instance property but <paramref name="obj" /> is
-    ///     null.
-    /// </exception>
-    /// <exception cref="MethodAccessException">
-    ///     In the .NET for Windows Store apps or the Portable Class Library,
-    ///     <see langword="catch" /> the base class exception,
-    ///     <see cref="MemberAccessException" /> , instead. There was an illegal
-    ///     attempt to access a <see langword="private" /> or
-    ///     <see langword="protected" /> method inside a class.
-    /// </exception>
-    /// <exception cref="TargetInvocationException">
-    ///     An error occurred while setting the property value. The
-    ///     <see cref="System.Exception.InnerException" /> property indicates
-    ///     the reason for the error.
-    /// </exception>
+    /// <param name="throwIfNotFound">
+    ///     if set to <c>true</c> throws
+    ///     <see cref="PropertyNotFoundException" /> if property is not found.
+    /// </param>
     /// <exception cref="PropertyNotFoundException">
-    ///     If <paramref name="propertyName" /> property is not found.
+    ///     if <paramref name="throwIfNotFound" /> is <c>true</c> and property
+    ///     is not found.
     /// </exception>
-    public static void SetPropertyValue<T>(this T obj, string propertyName, object value)
+    /// <returns>
+    ///     Property information.
+    /// </returns>
+    public static PropertyInfo? GetPropertyInfo(this Type type, string propertyName, bool throwIfNotFound)
     {
-        var propertyInfo = typeof(T).GetPropertyInfo(propertyName, true);
+        type.NotNull(nameof(type));
+        propertyName.NotNullOrEmpty(nameof(propertyName));
 
-        if (propertyInfo == null)
+        var propertyInfo = type.GetTypeInfo().GetProperty(propertyName);
+
+        if (propertyInfo == null && throwIfNotFound)
         {
             throw new PropertyNotFoundException(propertyName);
         }
 
-        propertyInfo.SetValue(obj, value);
+        return propertyInfo;
     }
 
     /// <summary>
@@ -99,6 +108,7 @@ public static class PropertyHelpers
     /// <typeparam name="T">Object type.</typeparam>
     /// <param name="obj">The object.</param>
     /// <param name="propertyName">Name of the property.</param>
+    /// <param name="index">Optional index value.</param>
     /// <exception cref="AmbiguousMatchException">
     ///     More than one property is found with the specified name. See
     ///     Remarks.
@@ -109,39 +119,74 @@ public static class PropertyHelpers
     /// <returns>
     ///     Property value.
     /// </returns>
-    public static object GetPropertyValue<T>(this T obj, string propertyName)
+    public static object? GetPropertyValue<T>(this T obj, string propertyName, object?[]? index = null)
     {
+        obj.NotNull(nameof(obj));
+        propertyName.NotNullOrEmpty(nameof(propertyName));
+
         var propertyInfo = typeof(T).GetPropertyInfo(propertyName, true);
+        PropertyAccessValidators.ValidatePropertyInfoForGetValue(propertyInfo, propertyName, index);
 
-        if (propertyInfo == null)
-        {
-            throw new PropertyNotFoundException(propertyName);
-        }
-
-        return propertyInfo.GetValue(obj);
+        return propertyInfo.RequiredNotNull(nameof(propertyInfo)).GetValue(obj, index);
     }
 
     /// <summary>
-    ///     Tries to get the value of a static property from a type.
+    ///     Gets the property value.
     /// </summary>
-    /// <param name="type">The type from which to get the static property value.</param>
-    /// <param name="propertyName">The name of the static property to get.</param>
-    /// <param name="value">The value of the static property, if it exists.</param>
-    /// <returns>True if the static property exists and its value can be retrieved, false otherwise.</returns>
-    public static bool TryGetStaticPropertyValue(this Type type, string propertyName, out object? value)
+    /// <typeparam name="T">Object type.</typeparam>
+    /// <typeparam name="TValue">The type of the retrieved property value.</typeparam>
+    /// <param name="obj">The object.</param>
+    /// <param name="propertyName">Name of the property.</param>
+    /// <param name="index">Optional index value.</param>
+    /// <exception cref="AmbiguousMatchException">
+    ///     More than one property is found with the specified name. See
+    ///     Remarks.
+    /// </exception>
+    /// <exception cref="PropertyNotFoundException">
+    ///     If <paramref name="propertyName" /> property is not found.
+    /// </exception>
+    /// <returns>
+    ///     Property value.
+    /// </returns>
+    public static TValue? GetPropertyValue<T, TValue>(this T obj, string propertyName, object?[]? index = null) =>
+        (TValue?)GetPropertyValue(obj, propertyName, index);
+
+    /// <summary>
+    ///     Gets the property value.
+    /// </summary>
+    /// <param name="obj">The object to get the property from.</param>
+    /// <param name="propertyInfo">The property info of the property to get the value from.</param>
+    /// <param name="index">Optional index value.</param>
+    /// <typeparam name="T">The type of the object.</typeparam>
+    /// <returns>The property value.</returns>
+    public static object? GetPropertyValue<T>(this T? obj, PropertyInfo propertyInfo, object?[]? index = null)
     {
-        var propertyInfo = type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.Public);
+        propertyInfo.NotNull(nameof(propertyInfo));
 
-        if (propertyInfo == null)
-        {
-            value = null;
+        PropertyAccessValidators.ValidatePropertyInfoForGetValue(propertyInfo, propertyInfo.Name, index);
 
-            return false;
-        }
+        return index != null ? propertyInfo.GetValue(obj, index) : propertyInfo.GetValue(obj);
+    }
 
-        value = propertyInfo.GetValue(null);
+    /// <summary>
+    ///     Gets the value of a property from an object using a lambda expression to specify the property.
+    /// </summary>
+    /// <typeparam name="TProperty">The type of the property to retrieve.</typeparam>
+    /// <typeparam name="T">The type of the object containing the property.</typeparam>
+    /// <param name="obj">The object from which to retrieve the property value.</param>
+    /// <param name="propertySelector">A lambda expression specifying the property to retrieve (e.g., x => x.PropertyName).</param>
+    /// <returns>
+    ///     The value of the specified property, or null if the property doesn't exist or its value is null.
+    ///     The return type matches the type of the property specified in the expression.
+    /// </returns>
+    public static TProperty? GetPropertyValue<TProperty, T>(this T obj, Expression<Func<T, TProperty>> propertySelector)
+    {
+        obj.NotNull(nameof(obj));
+        propertySelector.NotNull(nameof(propertySelector));
 
-        return true;
+        var property = obj.GetProperty(propertySelector);
+
+        return property.GetValue();
     }
 
     /// <summary>
@@ -174,19 +219,17 @@ public static class PropertyHelpers
     /// </returns>
     public static TValue? GetStaticPropertyValue<TValue>(this Type type, string propertyName)
     {
+        type.NotNull(nameof(type));
+        propertyName.NotNullOrEmpty(nameof(propertyName));
+
         var valueObj = GetStaticPropertyValue(type, propertyName);
 
-        if (valueObj == default)
-        {
-            return default;
-        }
-
-        if (valueObj is TValue value)
-        {
-            return value;
-        }
-
-        throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type");
+        return valueObj switch
+               {
+                   null => default,
+                   TValue value => value,
+                   _ => throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type")
+               };
     }
 
     /// <summary>
@@ -202,36 +245,93 @@ public static class PropertyHelpers
     ///     <c>true</c> if the specified property name has property; otherwise,
     ///     <c>false</c> .
     /// </returns>
-    public static bool HasProperty(this object obj, string propertyName)
-    {
-        return obj.GetType().GetPropertyInfo(propertyName, false) != null;
-    }
+    public static bool HasProperty(this object obj, string propertyName) => obj.GetType().GetPropertyInfo(propertyName, false) != null;
 
     /// <summary>
-    ///     Gets the property information.
+    ///     Sets the property.
     /// </summary>
-    /// <param name="type">The type.</param>
+    /// <typeparam name="T">The type of property.</typeparam>
+    /// <param name="obj">The object type.</param>
     /// <param name="propertyName">Name of the property.</param>
-    /// <param name="throwIfNotFound">
-    ///     if set to <c>true</c> throws
-    ///     <see cref="PropertyNotFoundException" /> if property is not found.
-    /// </param>
-    /// <exception cref="PropertyNotFoundException">
-    ///     if <paramref name="throwIfNotFound" /> is <c>true</c> and property
-    ///     is not found.
+    /// <param name="value">The value to set.</param>
+    /// <exception cref="AmbiguousMatchException">
+    ///     More than one property is found with the specified name. See
+    ///     Remarks.
     /// </exception>
-    /// <returns>
-    ///     Property information.
-    /// </returns>
-    public static PropertyInfo? GetPropertyInfo(this Type type, string propertyName, bool throwIfNotFound)
+    /// <exception cref="TargetException">
+    ///     In the .NET for Windows Store apps or the Portable Class Library,
+    ///     <see langword="catch" /> <see cref="Exception" /> instead. The type
+    ///     of <paramref name="obj" /> does not match the target type, or a
+    ///     property is an instance property but <paramref name="obj" /> is
+    ///     null.
+    /// </exception>
+    /// <exception cref="MethodAccessException">
+    ///     In the .NET for Windows Store apps or the Portable Class Library,
+    ///     <see langword="catch" /> the base class exception,
+    ///     <see cref="MemberAccessException" /> , instead. There was an illegal
+    ///     attempt to access a <see langword="private" /> or
+    ///     <see langword="protected" /> method inside a class.
+    /// </exception>
+    /// <exception cref="TargetInvocationException">
+    ///     An error occurred while setting the property value. The
+    ///     <see cref="System.Exception.InnerException" /> property indicates
+    ///     the reason for the error.
+    /// </exception>
+    /// <exception cref="PropertyNotFoundException">
+    ///     If <paramref name="propertyName" /> property is not found.
+    /// </exception>
+    public static void SetPropertyValue<T>(this T obj, string propertyName, object? value)
     {
-        var propertyInfo = type.GetTypeInfo().GetProperty(propertyName);
+        obj.NotNull(nameof(obj));
+        propertyName.NotNullOrEmpty(nameof(propertyName));
 
-        if (propertyInfo == null && throwIfNotFound)
+        var propertyInfo = typeof(T).GetPropertyInfo(propertyName, true);
+
+        if (propertyInfo == null)
         {
             throw new PropertyNotFoundException(propertyName);
         }
 
-        return propertyInfo;
+        propertyInfo.SetValue(obj, value);
     }
+
+    /// <summary>
+    ///     Tries to get the value of a static property from a type.
+    /// </summary>
+    /// <param name="type">The type from which to get the static property value.</param>
+    /// <param name="propertyName">The name of the static property to get.</param>
+    /// <param name="value">The value of the static property, if it exists.</param>
+    /// <returns>True if the static property exists and its value can be retrieved, false otherwise.</returns>
+    public static bool TryGetStaticPropertyValue(this Type type, string propertyName, out object? value)
+    {
+        type.NotNull(nameof(type));
+        propertyName.NotNullOrEmpty(nameof(propertyName));
+
+        var propertyInfo = type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.Public);
+
+        if (propertyInfo == null)
+        {
+            value = null;
+
+            return false;
+        }
+
+        value = propertyInfo.GetValue(null);
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Determines whether the specified <see cref="PropertyInfo" /> represents a static property.
+    /// </summary>
+    /// <param name="propertyInfo">
+    ///     The <see cref="PropertyInfo" /> instance to evaluate.
+    /// </param>
+    /// <returns>
+    ///     <see langword="true" /> if the property is static; otherwise, <see langword="false" />.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    ///     <paramref name="propertyInfo" /> is <see langword="null" />.
+    /// </exception>
+    public static bool IsStatic(this PropertyInfo propertyInfo) => propertyInfo.NotNull(nameof(propertyInfo)).GetAccessors(true)[0].IsStatic;
 }

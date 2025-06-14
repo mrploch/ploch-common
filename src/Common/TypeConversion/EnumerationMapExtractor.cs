@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
-namespace Ploch.Common.Windows.Wmi.ManagementObjects.TypeConversion;
+namespace Ploch.Common.TypeConversion;
 
 /// <summary>
 ///     Provides functionality to extract a map of names to enum values.
@@ -60,14 +61,13 @@ public static class EnumerationMapExtractor
     private static void AddValueMappings(Dictionary<string, object> fieldMap, FieldInfo fieldInfo)
     {
         var enumValue = fieldInfo.GetValue(null) ?? throw new InvalidOperationException($"Value for field {fieldInfo.Name} is null");
-        foreach (var name in GetFieldValueNames(fieldInfo))
+        foreach (var nameToUse in GetFieldValueNames(fieldInfo).Select(name => name ?? string.Empty))
         {
-            var nameToUse = name ?? string.Empty;
-            if (fieldMap.ContainsKey(nameToUse))
+            if (fieldMap.TryGetValue(nameToUse, out var value))
             {
                 var fieldMessage = nameToUse.IsNullOrEmpty() ? "default (empty string)" : nameToUse;
 
-                throw new InvalidOperationException($"Enum field {fieldMessage} is already mapped to {fieldMap[nameToUse]}");
+                throw new InvalidOperationException($"Enum field {fieldMessage} is already mapped to {value}");
             }
 
             fieldMap.Add(nameToUse, enumValue);

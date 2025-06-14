@@ -19,10 +19,7 @@ public static class ComparisonUtils
     /// <returns>
     ///     <c>true</c> if the value is default or null, otherwise <c>false</c>
     /// </returns>
-    public static bool IsNotDefault<TValue>(this TValue? value)
-    {
-        return !value.IsDefault();
-    }
+    public static bool IsNotDefault<TValue>(this TValue? value) => !value.IsDefault()!;
 
     /// <summary>
     ///     Checks if the value is equal to default (or null) value of the type.

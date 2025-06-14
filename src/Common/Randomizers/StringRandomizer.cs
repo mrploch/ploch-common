@@ -7,7 +7,7 @@ namespace Ploch.Common.Randomizers;
 /// <summary>
 ///     Provides functionality to generate random string values.
 /// </summary>
-public class StringRandomizer : IRangedRandomizer<string>
+public class StringRandomizer : BaseRandomizere<string>, IRangedRandomizer<string>
 {
     private readonly Random _random = new();
 
@@ -18,12 +18,11 @@ public class StringRandomizer : IRangedRandomizer<string>
     ///     A randomly generated string value consisting of 8 characters selected from upper and lower case alphabets and
     ///     digits.
     /// </returns>
-    public string GetRandomValue()
+    public override string GetRandomValue()
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        return new string(Enumerable.Repeat(chars, 8)
-                                    .Select(s => s[_random.Next(s.Length)])
-                                    .ToArray());
+
+        return new string(Enumerable.Repeat(chars, 8).Select(s => s[_random.Next(s.Length)]).ToArray());
     }
 
     /// <summary>
@@ -37,7 +36,7 @@ public class StringRandomizer : IRangedRandomizer<string>
     ///     characters.
     /// </returns>
 #pragma warning disable CA1725 // Parameter names should match base declaration and other partial definitions - intentional here
-    public string GetRandomValue(string minChar, string maxChar)
+    public override string GetRandomValue(string minChar, string maxChar)
 #pragma warning restore CA1725
     {
         return GetRandomValue(8, minChar[0], maxChar[0]);

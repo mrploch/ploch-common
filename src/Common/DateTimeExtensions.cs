@@ -25,10 +25,7 @@ public static class DateTimeExtensions
     /// </remarks>
     /// <param name="dateTime">The date time.</param>
     /// <returns>Epoch seconds value.</returns>
-    public static long ToEpochSeconds(this DateTime dateTime)
-    {
-        return ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
-    }
+    public static long ToEpochSeconds(this DateTime dateTime) => ((DateTimeOffset)dateTime).ToUnixTimeSeconds();
 
     /// <summary>
     ///     Converts a <see cref="DateTime" /> to Epoch Seconds handling nullable values.
@@ -52,7 +49,7 @@ public static class DateTimeExtensions
     /// <returns>DateTime.</returns>
     public static DateTime ToDateTime(this long epochSecondsOrMilliseconds)
     {
-        if (epochSecondsOrMilliseconds < -62135596800 || epochSecondsOrMilliseconds > 253402300799)
+        if (epochSecondsOrMilliseconds is < -62135596800 or > 253402300799)
         {
             epochSecondsOrMilliseconds /= 1000;
         }
@@ -67,8 +64,7 @@ public static class DateTimeExtensions
     /// </summary>
     /// <param name="epochSeconds">The epoch seconds.</param>
     /// <returns>DateTime.</returns>
-    public static DateTime ToDateTime<T>(this T epochSeconds)
-        where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
+    public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
     {
         var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
 

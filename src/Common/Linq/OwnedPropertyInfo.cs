@@ -1,5 +1,5 @@
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Linq;
 
@@ -13,8 +13,8 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     /// <param name="owner">The object that owns the property.</param>
     protected OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
     {
-        Guard.Argument(propertyInfo, nameof(propertyInfo));
-        Guard.Argument(owner, nameof(owner));
+        propertyInfo.NotNull(nameof(propertyInfo));
+        owner.NotNull(nameof(owner));
 
         PropertyInfo = propertyInfo;
         Owner = owner;
@@ -42,16 +42,10 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     }
 
     /// <inheritdoc />
-    public object? GetValue()
-    {
-        return PropertyInfo.GetValue(Owner);
-    }
+    public object? GetValue() => PropertyInfo.GetValue(Owner);
 
     /// <inheritdoc />
-    public object? GetValue(object[] index)
-    {
-        return PropertyInfo.GetValue(Owner, index);
-    }
+    public object? GetValue(object[] index) => PropertyInfo.GetValue(Owner, index);
 }
 
 /// <inheritdoc cref="IOwnedPropertyInfo{TType, TProperty}" />
@@ -63,21 +57,28 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     /// <param name="propertyInfo">The property info delegate.</param>
     /// <param name="owner">The object that owns the property.</param>
     public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner!)
-    { }
+    {
+    }
 
     /// <inheritdoc />
     public new TType Owner => (TType)base.Owner;
 
     /// <inheritdoc />
-    public new TProperty? GetValue()
+    public new TProperty? GetValue() => (TProperty?)base.GetValue();
+
+    /// <inheritdoc />
+    public new TProperty? GetValue(object[] index) => (TProperty?)base.GetValue(index);
+
+    /// <inheritdoc />
+    public void SetValue(TProperty? value)
     {
-        return (TProperty?)base.GetValue();
+        SetValue((object?)value);
     }
 
     /// <inheritdoc />
-    public new TProperty? GetValue(object[] index)
+    public void SetValue(TProperty? value, object[] index)
     {
-        return (TProperty?)base.GetValue(index);
+        base.SetValue(value, index);
     }
 
     /// <inheritdoc />
@@ -93,20 +94,5 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     }
 
     /// <inheritdoc />
-    public void SetValue(TProperty? value)
-    {
-        SetValue((object?)value);
-    }
-
-    /// <inheritdoc />
-    public void SetValue(TProperty? value, object[] index)
-    {
-        base.SetValue(value, index);
-    }
-
-    /// <inheritdoc />
-    object? IOwnedPropertyInfo.GetValue()
-    {
-        return base.GetValue();
-    }
+    object? IOwnedPropertyInfo.GetValue() => base.GetValue();
 }
