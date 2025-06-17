@@ -3,7 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kris Ploch</Authors>
-    <Nullable>warnings</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
@@ -11,11 +10,25 @@
     <PackageReference Include="AutoFixture" />
     <PackageReference Include="AutoFixture.AutoMoq" />
     <PackageReference Include="AutoFixture.SeedExtensions" />
+    <PackageReference Include="FluentAssertions" />
     <PackageReference Include="Moq" />
     <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="System.ComponentModel" />
     <PackageReference Include="System.ComponentModel.TypeConverter" />
     <PackageReference Include="System.IO.Abstractions" />
     <None Include=".\README.md" Pack="true" PackagePath="\" />
+    <PackageReference Include="xunit.extensibility.core" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Ploch.Common.csproj" />
   </ItemGroup>
 </Project>
