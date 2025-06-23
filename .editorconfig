@@ -46,6 +46,8 @@ csharp_new_line_before_members_in_anonymous_types = true
 csharp_new_line_before_members_in_object_initializers = true
 csharp_new_line_before_open_brace = all
 csharp_new_line_between_query_expression_clauses = true
+//csharp_new_line_before_open_brace = none
+csharp_new_line_before_open_brace_types = true
 
 # Order
 csharp_preferred_modifier_order = public, private, protected, internal, static, extern, abstract, virtual, new, sealed, override, readonly, unsafe, volatile, async, file, required:none
@@ -184,17 +186,19 @@ dotnet_diagnostic.ca2016.severity = warning
 dotnet_diagnostic.ca2252.severity = warning
 
 ## Properties: 'dotnet_diagnostic.cc' - CodeCracker
+dotnet_diagnostic.cc0001.severity = none # AlwaysUseVarAnalyzer - gives false positives for collection initializers
 dotnet_diagnostic.cc0022.severity = none # Object should be disposed - gives false positives for new using syntax
 dotnet_diagnostic.cc0031.severity = none # Verify delegate is not null - gives false positives
 dotnet_diagnostic.cc0091.severity = none # Make method static - gives false positives and marks methods that use instance members
 dotnet_diagnostic.cc0108.severity = warning
 
 ## Properties: 'dotnet_diagnostic.cs'
+### Nullability
 dotnet_diagnostic.cs1591.severity = warning # Missing XML comment for publicly visible type or member 'Type_or_Member'
 dotnet_diagnostic.cs8597.severity = error # Thrown value may be null.
 dotnet_diagnostic.cs8600.severity = error # Converting null literal or possible null value to non-nullable type.
 dotnet_diagnostic.cs8601.severity = error # Possible null reference assignment to non-nullable field.
-dotnet_diagnostic.cs8602.severity = none # Dereference of a possibly null reference.
+dotnet_diagnostic.cs8602.severity = error # Dereference of a possibly null reference.
 dotnet_diagnostic.cs8603.severity = error # Possible null reference return.
 dotnet_diagnostic.cs8604.severity = error # Possible null reference argument for parameter.
 dotnet_diagnostic.cs8605.severity = error # Unboxing a possibly null value.
@@ -218,6 +222,7 @@ dotnet_diagnostic.cs8624.severity = error # Argument cannot be used for paramete
 dotnet_diagnostic.cs8625.severity = error # Cannot convert null literal to non-nullable reference type.
 dotnet_diagnostic.cs8629.severity = error # Nullable value type may be null.
 dotnet_diagnostic.cs8631.severity = error # The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match constraint type.
+dotnet_diagnostic.cs8633.severity = error # Nullability in constraints for type parameter of method doesn't match the constraints for type parameter of interface method. Consider using an explicit interface implementation instead.
 dotnet_diagnostic.cs8634.severity = error # The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'class' constraint.
 dotnet_diagnostic.cs8643.severity = error # Nullability of reference types in explicit interface specifier doesn't match interface implemented by the type.
 dotnet_diagnostic.cs8644.severity = error # Type does not implement interface member. Nullability of reference types in interface implemented by the base type doesn't match.
@@ -225,6 +230,7 @@ dotnet_diagnostic.cs8645.severity = error # Member is already listed in the inte
 dotnet_diagnostic.cs8655.severity = error # The switch expression does not handle some null inputs (it is not exhaustive).
 dotnet_diagnostic.cs8667.severity = error # Partial method declarations have inconsistent nullability in constraints for type parameter.
 dotnet_diagnostic.cs8714.severity = error # The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.
+dotnet_diagnostic.cs8762.severity = error # Parameter must have a non-null value when exiting.
 dotnet_diagnostic.cs8763.severity = error # A method marked [DoesNotReturn] should not return.
 dotnet_diagnostic.cs8764.severity = error # Nullability of return type doesn't match overridden member (possibly because of nullability attributes).
 dotnet_diagnostic.cs8765.severity = error # Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
@@ -256,6 +262,7 @@ dotnet_diagnostic.nu1507.severity = none # Use nameof operator
 
 ## Properties: 'dotnet_diagnostic.rcs'
 dotnet_diagnostic.rcs1169.severity = suggestion
+dotnet_diagnostic.RCS1196.severity = false:error
 
 ## Properties: 'dotnet_diagnostic.s'
 dotnet_diagnostic.s1451.severity = none
@@ -319,7 +326,7 @@ dotnet_naming_rule.private_constants_rule.import_to_resharper = True
 dotnet_naming_rule.private_constants_rule.resharper_description = Constant fields (private)
 dotnet_naming_rule.private_constants_rule.resharper_guid = 236f7aa5-7b06-43ca-bf2a-9b31bfcff09a
 dotnet_naming_rule.private_constants_rule.severity = warning
-dotnet_naming_rule.private_constants_rule.style = lower_camel_case_style
+dotnet_naming_rule.private_constants_rule.style = upper_camel_case_style
 dotnet_naming_rule.private_constants_rule.symbols = private_constants_symbols
 dotnet_naming_rule.private_instance_fields_override_rule.import_to_resharper = False
 dotnet_naming_rule.private_instance_fields_override_rule.severity = warning
@@ -499,11 +506,12 @@ dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
+
 dotnet_style_qualification_for_event = false:silent
 dotnet_style_qualification_for_field = false:silent
 dotnet_style_qualification_for_method = false:silent
 dotnet_style_qualification_for_property = false:silent
-dotnet_style_readonly_field = true:suggestion # Readonly fields should be preferred over mutable fields
+dotnet_style_readonly_field = true:silent # Readonly fields should be preferred over mutable fields
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
 
 # ReSharper settings
@@ -567,7 +575,7 @@ resharper_csharp_place_type_constraints_on_same_line = true
 resharper_csharp_wrap_arguments_style = chop_if_long
 resharper_csharp_wrap_chained_method_calls = chop_if_long
 resharper_csharp_wrap_parameters_style = chop_if_long
-
+resharper_force_attribute_style = separate
 resharper_enforce_line_ending_style = true
 resharper_exception_not_documented_highlighting = hint
 resharper_heap_view_object_allocation_evident_highlighting = none
@@ -592,7 +600,8 @@ resharper_keep_existing_linebreaks = false
 resharper_keep_existing_primary_constructor_declaration_parens_arrangement = true
 resharper_keep_existing_property_patterns_arrangement = false
 
-resharper_lambda_expression_can_be_made_static_highlighting = none
+resharper_lambda_expression_can_be_made_static_highlighting = hint
+
 resharper_local_function_body = expression_body
 resharper_max_formal_parameters_on_line = 8
 resharper_max_primary_constructor_parameters_on_line = 8
@@ -608,6 +617,9 @@ resharper_mvc_template_not_resolved_highlighting = warning
 resharper_mvc_view_component_not_resolved_highlighting = warning
 resharper_mvc_view_component_view_not_resolved_highlighting = warning
 resharper_mvc_view_not_resolved_highlighting = warning
+
+resharper_operator_is_can_be_used_highlighting = suggestion
+resharper_outdent_binary_pattern_ops = true
 
 resharper_place_accessorholder_attribute_on_same_line = false
 resharper_place_expr_method_on_single_line = true
@@ -634,3 +646,9 @@ resharper_wrap_after_primary_constructor_declaration_lpar = false
 resharper_wrap_before_primary_constructor_declaration_lpar = false
 resharper_wrap_chained_method_calls = chop_if_long
 resharper_wrap_list_pattern = chop_if_long
+resharper_csharp_keep_existing_attribute_arrangement = true
+resharper_csharp_keep_existing_declaration_block_arrangement = true
+resharper_keep_existing_attribute_arrangement = true
+
+# Experimental - trying to fix some Rider & Resharper formatting issues
+resharper_wrap_long_line = false
