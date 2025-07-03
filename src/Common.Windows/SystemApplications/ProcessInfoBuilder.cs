@@ -38,7 +38,7 @@ public static class ProcessInfoBuilder
         FileVersionInfo? fileVersionInfo = null;
         if (mainModule.IsSuccess)
         {
-            fileVersionInfo = mainModule.Value.FileVersionInfo;
+            fileVersionInfo = mainModule.Value.RequiredNotNull().FileVersionInfo;
         }
 
         int? parentId = null;
@@ -54,7 +54,7 @@ public static class ProcessInfoBuilder
         CommandLineInfo? commandLineInfo = null;
         if (startInfo != null && fileVersionInfo != null)
         {
-            commandLineInfo = CommandLineParser.GetCommandLine(mainModule.Value.FileName);
+            commandLineInfo = CommandLineParser.GetCommandLine(mainModule.Value.RequiredNotNull().FileName);
         }
 
         var processInfo = new ProcessInfo(process.Id, process.ProcessName, fileVersionInfo?.ProductName, commandLineInfo)

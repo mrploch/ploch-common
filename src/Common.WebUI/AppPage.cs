@@ -9,3 +9,4 @@
 /// <param name="Name">The page name.</param>
 /// <param name="Path">The page path.</param>
 public record AppPage(string Name, string Path, string Title);
+

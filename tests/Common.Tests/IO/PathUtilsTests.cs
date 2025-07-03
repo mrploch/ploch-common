@@ -50,6 +50,11 @@ public class PathUtilsTests
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\my_another_sub_folder", @"mysubfolder\my_another_sub_folder")]
     public void MakeRelativePath_should_return_relative_path_from_one_path_to_another(string fromPath, string toPath, string expectedRelativePath)
     {
+
+        fromPath = fromPath.Replace('\\', Path.DirectorySeparatorChar);
+        toPath = toPath.Replace('\\', Path.DirectorySeparatorChar);
+        expectedRelativePath = expectedRelativePath.Replace('\\', Path.DirectorySeparatorChar);
+
         PathUtils.MakeRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
         PathUtils.GetRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
     }

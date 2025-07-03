@@ -9,8 +9,6 @@
   <Folder Name="/repository/">
     <File Path="README.md" />
     <File Path="release-notes.md" />
-    <File Path=".ai_config.toml" />
-    <File Path="qodo-gen.config.yaml" />
   </Folder>
   <Folder Name="/repository/config/">
     <File Path=".codacy.yml" />
@@ -19,7 +17,6 @@
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
     <File Path="dotnet-releaser.toml" />
-    <File Path="global.json" />
     <File Path="qodana.sarif.json" />
     <File Path="qodana.yaml" />
     <File Path="stylecop.json" />
@@ -35,11 +32,9 @@
     <File Path="run-sonar-build-test.ps1" />
   </Folder>
   <Folder Name="/Serialization/">
-    <Project
-      Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
+    <Project Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
     <Project Path="src/Common.Serialization.NewtonsoftJson/Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
-    <Project
-      Path="src/Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj" />
+    <Project Path="src/Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj" />
     <Project Path="src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj" />
     <Project Path="src/Common.Serialization/Ploch.Common.Serialization.csproj" />
   </Folder>
@@ -74,12 +69,10 @@
     <File Path="tests\.editorconfig" />
   </Folder>
   <Folder Name="/Tests/Serialization/">
-    <Project
-      Path="tests\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Serialization.NewtonsoftJson.Tests\Ploch.Common.Serialization.NewtonsoftJson.Tests.csproj" />
     <Project Path="tests\Common.Serialization.SystemTextJson..Tests\Ploch.Common.Serialization.SystemTextJson.Tests.csproj" />
-    <Project
-      Path="tests\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
   </Folder>
   <Folder Name="/Tests/TestAssemblies/">
