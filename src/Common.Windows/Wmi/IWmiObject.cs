@@ -7,21 +7,16 @@ public interface IWmiObject
     /// <summary>
     ///     Gets the value that is used to distinguish between classes and instances.
     /// </summary>
-
     WmiObjectGenus Genus { get; }
 
     /// <summary>
     ///     Gets the Class name.
     /// </summary>
-
-
     string Class { get; }
 
     /// <summary>
     ///     Gets the name of the immediate parent class of the class or instance.
     /// </summary>
-
-
     string SuperClass { get; }
 
     /// <summary>
@@ -29,15 +24,11 @@ public interface IWmiObject
     ///     <para />
     ///     When this class or instance is the top-level class, the values of <see cref="Dynasty" /> property and the <see cref="Class" /> property are the same.
     /// </summary>
-
-
     string Dynasty { get; }
 
     /// <summary>
     ///     Gets the relative path to the class or instance.
     /// </summary>
-
-
     string Namespace { get; }
 
     /// <summary>
