@@ -46,7 +46,6 @@ public class PathUtilsTests
 
     [Theory]
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\myfile.txt", @"mysubfolder\myfile.txt")]
-    [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\myfile.txt", @"mysubfolder\myfile.txt")]
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\my_another_sub_folder", @"mysubfolder\my_another_sub_folder")]
     public void MakeRelativePath_should_return_relative_path_from_one_path_to_another(string fromPath, string toPath, string expectedRelativePath)
     {
