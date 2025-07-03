@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RuntimeIdentifier>win</RuntimeIdentifier>
@@ -11,6 +11,7 @@
     <PackageReference Include="Ardalis.Result" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
     <PackageReference Include="System.Management" />
     <PackageReference Include="TestableIO.System.IO.Abstractions" />
     <PackageReference Include="TestableIO.System.IO.Abstractions.Analyzers">
@@ -23,8 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ploch-ini-parser\src\IniParser\Ploch.IniParser.csproj" />
     <ProjectReference Include="..\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj" />
-    <ProjectReference Include="..\Common.Net9\Ploch.Common.Net9.csproj" />
+    <ProjectReference Include="..\Common.Extensions.Configuration\Ploch.Common.Extensions.Configuration.csproj" />
     <ProjectReference Include="..\Common\Ploch.Common.csproj" />
   </ItemGroup>
 
@@ -37,6 +39,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

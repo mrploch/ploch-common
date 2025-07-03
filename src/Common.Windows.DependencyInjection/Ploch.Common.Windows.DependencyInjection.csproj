@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Common.Windows\Ploch.Common.Windows.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,6 +1,7 @@
 using System.IO.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.DependencyInjection;
+using Ploch.Common.Windows.SystemApplications.Operations;
 
 namespace Ploch.Common.Windows.SystemApplications;
 
@@ -12,7 +13,7 @@ namespace Ploch.Common.Windows.SystemApplications;
 ///     It includes methods to add services for file system abstraction, system application providers, and WMI object queries
 ///     to the dependency injection container.
 /// </remarks>
-public static class SystemApplicationServicesRegistration
+public static class SystemApplicationServicesRegistrations
 {
     /// <summary>
     ///     Registers services required for working with system applications using WMI (Windows Management Instrumentation).
@@ -34,5 +35,5 @@ public static class SystemApplicationServicesRegistration
     ///     </list>
     /// </remarks>
     public static IServiceCollection AddWmiSystemApplicationServices(this IServiceCollection services) =>
-        services.AddServicesBundle<SystemApplicationServicesBundle>();
+        services.AddServicesBundle<SystemApplicationsServicesBundle>();
 }

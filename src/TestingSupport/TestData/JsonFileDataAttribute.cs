@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 using Ploch.Common.ArgumentChecking;
 using Xunit.Sdk;
 
-namespace Ploch.TestingSupport;
+namespace Ploch.TestingSupport.TestData;
 
 /// <summary>
 ///     Provides a data source for a data theory, with the data coming from a JSON file.
@@ -45,7 +45,6 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
         // Get the absolute path to the JSON file
         var path = Path.GetFullPath(filePath.NotNullOrEmpty(nameof(filePath)));
-
         if (!File.Exists(path))
         {
             throw new ArgumentException($"Could not find file at path: {path}");
