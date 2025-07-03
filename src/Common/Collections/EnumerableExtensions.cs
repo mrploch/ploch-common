@@ -233,7 +233,7 @@ public static class EnumerableExtensions
 
         foreach (var item in enumerable)
         {
-#pragma warning disable CC0031 - already tested for null
+#pragma warning disable CC0031 // already tested for null
             action(item);
 #pragma warning restore CC0031
         }
@@ -320,6 +320,18 @@ public static class EnumerableExtensions
         // ReSharper disable once PossibleMultipleEnumeration - Guard is not enumerating
         return enumerable.Skip(1).First();
     }
+
+    /// <summary>
+    ///     Excludes the specified items from the source enumerable.
+    /// </summary>
+    /// <typeparam name="TItem">The type of elements in the enumerable.</typeparam>
+    /// <param name="source">The source enumerable from which items will be excluded.</param>
+    /// <param name="itemsToRemove">An array of items to exclude from the source enumerable.</param>
+    /// <returns>
+    ///     An <see cref="IEnumerable{T}" /> that contains elements from the source enumerable
+    ///     except for those elements that are present in <paramref name="itemsToRemove" />.
+    /// </returns>
+    public static IEnumerable<TItem> ExceptItems<TItem>(this IEnumerable<TItem> source, params TItem[] itemsToRemove) => source.Except(itemsToRemove);
 
     internal static TEnumerable If<TEnumerable, T>(this TEnumerable queryable, bool condition, Func<TEnumerable, TEnumerable> action)
         where TEnumerable : class, IEnumerable<T>

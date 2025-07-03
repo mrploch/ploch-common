@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.TypeConversion;
 
@@ -9,8 +10,8 @@ namespace Ploch.Common.TypeConversion;
 ///     Provides functionality to extract a map of names to enum values.
 /// </summary>
 /// <summary>
-///     Enumeration fields can be mapped to string names using <see cref="WindowsManagementObjectEnumMappingAttribute" /> attribute.
-///     Also the <see cref="WindowsManagementEnumAttribute" /> allows to specify if mapped string names should be case-sensitive.
+///     Enumeration fields can be mapped to string names using <see cref="EnumMappingAttribute" /> attribute.
+///     Also the <see cref="EnumConvertionAttribute" /> allows to specify if mapped string names should be case-sensitive.
 /// </summary>
 public static class EnumerationMapExtractor
 {
@@ -18,7 +19,7 @@ public static class EnumerationMapExtractor
     ///     Retrieves a mapping of enumeration field names to their corresponding values for the specified enumeration type.
     /// </summary>
     /// <remarks>
-    ///     The <see cref="WindowsManagementEnumAttribute" /> and <see cref="WindowsManagementObjectEnumMappingAttribute" /> allow to control how
+    ///     The <see cref="EnumConvertionAttribute" /> and <see cref="EnumMappingAttribute" /> allow to control how
     ///     string names are mapped to enum values.
     /// </remarks>
     /// <param name="enumType">
@@ -34,12 +35,12 @@ public static class EnumerationMapExtractor
     /// </exception>
     public static IDictionary<string, object> GetEnumFieldValueMap(Type enumType)
     {
-        if (!enumType.IsEnum)
+        if (!enumType.NotNull(nameof(enumType)).IsEnum)
         {
             throw new InvalidOperationException($"Type {enumType} is not an enumeration");
         }
 
-        var enumAttribute = enumType.GetCustomAttribute<WindowsManagementEnumAttribute>();
+        var enumAttribute = enumType.GetCustomAttribute<EnumConvertionAttribute>();
         var isCaseSensitive = false;
         if (enumAttribute != null)
         {
@@ -76,12 +77,12 @@ public static class EnumerationMapExtractor
 
     private static IEnumerable<string?> GetFieldValueNames(FieldInfo fieldInfo)
     {
-        var enumMappingAttribute = fieldInfo.GetCustomAttribute<WindowsManagementObjectEnumMappingAttribute>();
+        var enumMappingAttribute = fieldInfo.GetCustomAttribute<EnumMappingAttribute>();
         if (enumMappingAttribute is null)
         {
-            return [fieldInfo.Name];
+            return [ fieldInfo.Name ];
         }
 
-        return enumMappingAttribute.IncludeActualEnumName ? [fieldInfo.Name, ..enumMappingAttribute.Names] : enumMappingAttribute.Names;
+        return enumMappingAttribute.IncludeActualEnumName ? [ fieldInfo.Name, ..enumMappingAttribute.Names ] : enumMappingAttribute.Names;
     }
 }

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
@@ -14,25 +15,6 @@ namespace Ploch.Common.ArgumentChecking;
 /// </summary>
 public static partial class Guard
 {
-    /// <summary>
-    ///     Ensures that the given boolean condition evaluates to <c>true</c>. Throws an <see cref="InvalidOperationException" /> if the condition is <c>false</c>.
-    ///     This method is typically used as a guard clause to validate method preconditions or other conditions.
-    /// </summary>
-    /// <param name="argument">The boolean condition to evaluate. Must be <c>true</c>.</param>
-    /// <param name="message">The message to include in the exception if the condition is <c>false</c>. This provides context about the failure.</param>
-    /// <returns>Returns the original <paramref name="argument" /> if the condition is <c>true</c>.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when the <paramref name="argument" /> evaluates to <c>false</c>.</exception>
-    [AssertionMethod]
-    public static bool RequiredTrue([AssertionCondition(AssertionConditionType.IS_TRUE)] this bool argument, string message)
-    {
-        if (!argument)
-        {
-            throw new InvalidOperationException(message);
-        }
-
-        return argument;
-    }
-
     /// <summary>
     ///     Ensures that the given boolean condition evaluates to <c>false</c>. Throws an <see cref="InvalidOperationException" /> if the condition is <c>true</c>.
     ///     This method is typically used as a guard clause to validate method preconditions or other conditions.
@@ -49,6 +31,26 @@ public static partial class Guard
     }
 #if NETSTANDARD2_0
     /// <summary>
+    ///     Ensures that the given boolean condition evaluates to <c>true</c>. Throws an <see cref="InvalidOperationException" /> if the condition is <c>false</c>.
+    ///     This method is typically used as a guard clause to validate method preconditions or other conditions.
+    /// </summary>
+    /// <param name="argument">The boolean condition to evaluate. Must be <c>true</c>.</param>
+    /// <param name="message">The message to include in the exception if the condition is <c>false</c>. This provides context about the failure.</param>
+    /// <returns>Returns the original <paramref name="argument" /> if the condition is <c>true</c>.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when the <paramref name="argument" /> evaluates to <c>false</c>.</exception>
+    [AssertionMethod]
+    [SuppressMessage("ReSharper", "FlagArgument", Justification = "False positive")]
+    public static bool RequiredTrue([AssertionCondition(AssertionConditionType.IS_TRUE)] this bool argument, string message)
+    {
+        if (!argument)
+        {
+            throw new InvalidOperationException(message);
+        }
+
+        return argument;
+    }
+
+    /// <summary>
     ///     Ensures that a nullable value type argument is not null.
     /// </summary>
     /// <remarks>
@@ -60,7 +62,6 @@ public static partial class Guard
     /// <param name="variableName">The name of the parameter (automatically captured from the caller).</param>
     /// <returns>The non-null value of the argument.</returns>
     /// <exception cref="ArgumentNullException">Thrown when the argument is null.</exception>
-    [NotNull]
     [AssertionMethod]
     public static T NotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument, string variableName) where T : struct
     {
@@ -85,9 +86,9 @@ public static partial class Guard
     /// <returns>The non-null argument.</returns>
     /// <exception cref="ArgumentNullException">Thrown when the argument is null.</exception>
     [AssertionMethod]
+    [method: NotNull]
     public static T NotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument, string variableName)
     {
-        //TODO: Test this with structs / nullables
         if (argument is null)
         {
             throw new ArgumentNullException(variableName);
@@ -109,6 +110,7 @@ public static partial class Guard
     /// <returns>The non-null value of the argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [AssertionMethod]
+    [method: NotNull]
     public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument, string memberName) where T : struct
     {
         if (!argument.HasValue)
@@ -129,31 +131,28 @@ public static partial class Guard
     /// </remarks>
     /// <typeparam name="T">The reference type of the argument.</typeparam>
     /// <param name="argument">The reference type argument to check.</param>
+    /// <param name="memberName">The name of the variable (automatically captured from the caller).</param>
     /// <param name="message">The exception message if argument is null.</param>
     /// <param name="formatProvider">The instance of IFormatProvider used to format the exception message.</param>
-    /// <param name="arg1">The second object to format.</param>
-    /// <param name="arg2">The third object to format.</param>
-    /// <param name="arg3">The fourth object to format.</param>
-    /// <param name="arg4">The fifth object to format.</param>
-    /// <param name="memberName">The name of the variable (automatically captured from the caller).</param>
     /// <returns>The non-null argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [AssertionMethod]
+    [method: NotNull]
     public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument,
-                                       string memberName,
+                                       string? memberName,
                                        string? message = null,
-                                       IFormatProvider? formatProvider = null,
-                                       object? arg1 = null,
-                                       object? arg2 = null,
-                                       object? arg3 = null,
-                                       object? arg4 = null) where T : class
+                                       IFormatProvider? formatProvider = null) where T : class
     {
         if (argument == null)
         {
-            var format =
-                message != null ?
-                    string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName, arg1, arg2, arg3, arg4) :
-                    $"Variable {memberName} is null.";
+            if (memberName is null && message is null)
+            {
+                throw new InvalidOperationException("Both memberName and message arguments cannot be null at the same time.");
+            }
+
+            var format = message != null ?
+                             string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName) :
+                             $"Variable {memberName} is null, but was expected to not be null.";
 
             throw new InvalidOperationException(format);
         }
@@ -174,6 +173,7 @@ public static partial class Guard
     /// <exception cref="ArgumentNullException">Thrown when the argument is null.</exception>
     /// <exception cref="ArgumentException">Thrown when the argument is an empty string.</exception>
     [AssertionMethod]
+    [method: NotNull]
     public static string NotNullOrEmpty([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this string? argument, string parameterName)
     {
         if (argument == null)
@@ -190,6 +190,7 @@ public static partial class Guard
     }
 
     [AssertionMethod]
+    [method: NotNull]
     public static TEnumerable NotNullOrEmpty<TEnumerable>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this TEnumerable? argument,
                                                           string parameterName) where TEnumerable : class, IEnumerable
     {
@@ -219,33 +220,25 @@ public static partial class Guard
     ///     from the calling code, reducing the need for string literals.
     /// </remarks>
     /// <param name="argument">The string argument to validate.</param>
+    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <param name="message">The exception message if argument is null.</param>
     /// <param name="formatProvider">The instance of IFormatProvider used to format the exception message.</param>
-    /// <param name="arg1">The second object to format.</param>
-    /// <param name="arg2">The third object to format.</param>
-    /// <param name="arg3">The fourth object to format.</param>
-    /// <param name="arg4">The fifth object to format.</param>
-    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <returns>The validated string argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null or empty.</exception>
     [AssertionMethod]
+    [method: NotNull]
     public static string RequiredNotNullOrEmpty([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this string? argument,
                                                 string memberName,
                                                 string? message = null,
-                                                IFormatProvider? formatProvider = null,
-                                                object? arg1 = null,
-                                                object? arg2 = null,
-                                                object? arg3 = null,
-                                                object? arg4 = null)
+                                                IFormatProvider? formatProvider = null)
     {
-        argument.RequiredNotNull(memberName, message, formatProvider, arg1, arg2, arg3, arg4);
+        argument.RequiredNotNull(memberName, message, formatProvider);
 
         if (string.IsNullOrEmpty(argument))
         {
-            var format =
-                message != null ?
-                    string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName, arg1, arg2, arg3, arg4) :
-                    $"Variable {memberName} is empty.";
+            var format = message != null ?
+                             string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName) :
+                             $"Variable {memberName} is empty.";
 
             throw new InvalidOperationException(format);
         }
@@ -253,13 +246,23 @@ public static partial class Guard
         return argument!;
     }
 
-    public static TEnum NotOutOfRange<TEnum>(
-        [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument,
-        string argumentName) where TEnum : struct, Enum
+    public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument, string argumentName)
+        where TEnum : struct, Enum
     {
         if (!Enum.IsDefined(typeof(TEnum), argument))
         {
             throw new ArgumentOutOfRangeException(argumentName, argument, $"Value {argument} is not defined in enum {typeof(TEnum).Name}.");
+        }
+
+        return argument;
+    }
+
+    public static TValue Positive<TValue>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TValue argument, string argumentName)
+        where TValue : struct, IComparable<TValue>
+    {
+        if (argument.CompareTo(default) <= 0)
+        {
+            throw new ArgumentOutOfRangeException(argumentName, argument, $"Value {argument} is not positive.");
         }
 
         return argument;

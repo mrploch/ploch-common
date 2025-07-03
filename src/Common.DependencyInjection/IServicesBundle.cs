@@ -21,6 +21,6 @@ public interface IServicesBundle
     ///     Implementations of this method should add all required services for this particular Services Bundle.
     ///     Method will be executed when a service provider is built.
     /// </remarks>
-    /// <param name="serviceCollection">A service collection.</param>
-    void Configure(IServiceCollection serviceCollection);
+    /// <param name="services">A service collection.</param>
+    void Configure(IServiceCollection services);
 }

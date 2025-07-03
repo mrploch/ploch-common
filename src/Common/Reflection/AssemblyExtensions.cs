@@ -11,9 +11,9 @@ namespace Ploch.Common.Reflection;
 public static class AssemblyExtensions
 {
     /// <summary>
-    ///     Gets the directory name where assembly is located
+    ///     Gets the directory name where assembly is located.
     /// </summary>
-    /// <param name="assembly">The assembly</param>
+    /// <param name="assembly">The assembly.</param>
     /// <returns>The directory name where assembly is located.</returns>
     public static string? GetAssemblyDirectory(this Assembly assembly)
     {

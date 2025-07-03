@@ -23,9 +23,7 @@ public static class CollectionExtensions
     /// <param name="key">The key.</param>
     /// <param name="value">The value.</param>
     /// <returns>
-    ///     the value of
-    ///     <param name="collection"></param>
-    ///     .
+    ///     the value of <paramref name="collection" />.
     /// </returns>
     public static ICollection<KeyValuePair<TKey, TValue?>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection,
                                                                                       TKey key,
@@ -80,7 +78,7 @@ public static class CollectionExtensions
                                                                  DuplicateHandling duplicateHandling = DuplicateHandling.Throw,
                                                                  params TItem[] items) where TCollection : ICollection<TItem>
     {
-        AddManyInternal(collection, items, duplicateHandling);
+        AddManyInternal(collection, items.NotNull(nameof(items)), duplicateHandling);
 
         return collection;
     }
@@ -100,7 +98,7 @@ public static class CollectionExtensions
                                                           IEnumerable<TItem> items,
                                                           DuplicateHandling duplicateHandling = DuplicateHandling.Throw) where TCollection : ICollection<TItem>
     {
-        AddManyInternal(collection, items, duplicateHandling);
+        AddManyInternal(collection, items.NotNull(nameof(items)), duplicateHandling);
 
         return collection;
     }
@@ -111,7 +109,7 @@ public static class CollectionExtensions
     /// <typeparam name="TItem">The type of items.</typeparam>
     /// <param name="collection">The collection to add items to.</param>
     /// <param name="items">The items.</param>
-    /// <param name="duplicateHandling"></param>
+    /// <param name="duplicateHandling">Duplicate handling behavior.</param>
     /// <exception cref="System.ArgumentNullException">
     ///     <paramref name="collection" /> or <paramref name="items" /> is
     ///     <see langword="null" />.

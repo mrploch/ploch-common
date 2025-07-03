@@ -299,6 +299,7 @@ dotnet_diagnostic.sa1009.severity = none # Closing parenthesis should be spaced 
 dotnet_diagnostic.sa1010.severity = none # Square bracket should not be proceeded by a space - gives false positive for collection initializers []
 dotnet_diagnostic.sa1011.severity = none # Closing square brackets should be spaced correctly
 dotnet_diagnostic.sa1101.severity = none # Prefix local calls with this
+dotnet_diagnostic.SA1003.severity = none # : should not appear at the end of a line
 dotnet_diagnostic.sa1106.severity = warning
 dotnet_diagnostic.sa1116.severity = none # Split parameters should start on line after opening parenthesis
 dotnet_diagnostic.sa1127.severity = none # Generic type parameters should be documented
@@ -315,7 +316,9 @@ dotnet_diagnostic.sa1502.severity = none # element containing opening and closin
 dotnet_diagnostic.sa1600.severity = none # Elements should be documented
 dotnet_diagnostic.sa1623.severity = none # Property summary documentation should match accessors
 dotnet_diagnostic.sa1633.severity = none # File should have header
+dotnet_diagnostic.sa1636.severity = none # File should have copyright notice
 dotnet_diagnostic.sa1640.severity = none # File header should have summary
+dotnet_diagnostic.sa1641.severity = none # The file header at the top of a C# code file does not contain the appropriate company name text
 dotnet_diagnostic.sa1649.severity = warning # File name should match first type name.
 
 ## Properties: 'dotnet_diagnostic.spectre' - Spectre.Console
@@ -375,14 +378,14 @@ dotnet_naming_rule.private_or_internal_field_should_be_prefixedcamelcase.symbols
 dotnet_naming_rule.private_static_fields_rule.import_to_resharper = True
 dotnet_naming_rule.private_static_fields_rule.resharper_description = Static fields (private)
 dotnet_naming_rule.private_static_fields_rule.resharper_guid = f9fce829-e6f4-4cb2-80f1-5497c44f51df
-dotnet_naming_rule.private_static_fields_rule.resharper_style = _ + aaBb, AaBb
+dotnet_naming_rule.private_static_fields_rule.resharper_style = upper_camel_case_style
 dotnet_naming_rule.private_static_fields_rule.severity = warning
 dotnet_naming_rule.private_static_fields_rule.style = lower_camel_case_style
 dotnet_naming_rule.private_static_fields_rule.symbols = private_static_fields_symbols
 dotnet_naming_rule.private_static_readonly_rule.import_to_resharper = True
 dotnet_naming_rule.private_static_readonly_rule.resharper_description = Static readonly fields (private)
 dotnet_naming_rule.private_static_readonly_rule.resharper_guid = 15b5b1f1-457c-4ca6-b278-5615aedc07d3
-dotnet_naming_rule.private_static_readonly_rule.resharper_style = _ + aaBb, AaBb
+dotnet_naming_rule.private_static_readonly_rule.resharper_style = upper_camel_case_style
 dotnet_naming_rule.private_static_readonly_rule.severity = warning
 dotnet_naming_rule.private_static_readonly_rule.style = lower_camel_case_style
 dotnet_naming_rule.private_static_readonly_rule.symbols = private_static_readonly_symbols

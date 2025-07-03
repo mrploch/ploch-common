@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Collections;
 
 namespace Ploch.Common.TypeConversion;
@@ -20,7 +21,7 @@ public static class TypeConverterHelper
     ///     and the actual type is derived from or implements the specified type; otherwise, false.
     /// </returns>
     public static bool CanHandleType(bool canHandleDerivedValue, Type type, Type actualType) =>
-        actualType == type || (canHandleDerivedValue && type.IsAssignableFrom(actualType));
+        actualType == type || (canHandleDerivedValue && type.NotNull(nameof(type)).IsAssignableFrom(actualType));
 
     /// <summary>
     ///     Creates a HashSet containing a specified type and optionally combines it with additional types.
@@ -28,5 +29,5 @@ public static class TypeConverterHelper
     /// <typeparam name="TType">The primary type to include in the resulting HashSet.</typeparam>
     /// <param name="types">Additional collections of types to include in the resulting HashSet.</param>
     /// <returns>A HashSet containing the primary type and all additional types.</returns>
-    public static HashSet<Type> CombinedTypes<TType>(params IEnumerable<Type>? types) => new HashSet<Type> { typeof(TType) }.AddMany(types ?? []);
+    public static ISet<Type> CombinedTypes<TType>(params IEnumerable<Type>? types) => new HashSet<Type> { typeof(TType) }.AddMany(types ?? []);
 }

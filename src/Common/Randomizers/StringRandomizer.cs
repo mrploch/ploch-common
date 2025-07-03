@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Randomizers;
 
 /// <summary>
 ///     Provides functionality to generate random string values.
 /// </summary>
-public class StringRandomizer : BaseRandomizere<string>, IRangedRandomizer<string>
+public class StringRandomizer : BaseRandomizer<string>, IRangedRandomizer<string>
 {
     private readonly Random _random = new();
 
@@ -39,7 +40,7 @@ public class StringRandomizer : BaseRandomizere<string>, IRangedRandomizer<strin
     public override string GetRandomValue(string minChar, string maxChar)
 #pragma warning restore CA1725
     {
-        return GetRandomValue(8, minChar[0], maxChar[0]);
+        return GetRandomValue(8, minChar.NotNull(nameof(minChar))[0], maxChar.NotNull(nameof(maxChar))[0]);
     }
 
     /// <summary>

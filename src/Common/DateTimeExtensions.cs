@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Ploch.Common;
 
@@ -62,11 +63,12 @@ public static class DateTimeExtensions
     /// <summary>
     ///     Converts Epoch Seconds value to <see cref="DateTime" />.
     /// </summary>
+    /// <typeparam name="T">The epoch seconds type.</typeparam>
     /// <param name="epochSeconds">The epoch seconds.</param>
     /// <returns>DateTime.</returns>
     public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
     {
-        var epochSecondsAsLong = Convert.ToInt64(epochSeconds);
+        var epochSecondsAsLong = Convert.ToInt64(epochSeconds, CultureInfo.InvariantCulture);
 
         return epochSecondsAsLong.ToDateTime();
     }

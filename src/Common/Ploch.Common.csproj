@@ -2,31 +2,38 @@
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
-    <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
+    <Title>Ploch.Common Library</Title>
+
+    <Description>Utility and extension methods for the core .NET types and common development tasks.</Description>
+    <PackageTags>common;utility;common-library;core</PackageTags>
+    <!--<TargetFramework>net7.0</TargetFramework>-->
+    <TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
+    <!--<TargetFramework>netstandard2.0</TargetFramework>-->
+    <!--    <BuildTarget>3</BuildTarget>
+
+        <TargetFrameworks Condition="`$(BuildTarget)`==1">net7.0;netstandard2.0</TargetFrameworks>
+        <TargetFramework Condition="`$(BuildTarget)`==2">netstandard2.0</TargetFramework>
+        <TargetFramework Condition="`$(BuildTarget)`==3">net7.0</TargetFramework>-->
   </PropertyGroup>
+  <!--<PropertyGroup Condition="!$(IsTestProject)">-->
   <PropertyGroup>
     <NoWarn>$(NoWarn);NU1507;CS9057</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <WarningsAsErrors>$(WarningsAsErrors);NU1605;Nullable</WarningsAsErrors>
+    <DefineConstants>JETBRAINS_ANNOTATIONS;CODE_ANALYSIS;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <WarningsAsErrors>;NU1605;NU1605;Nullable;</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
-    <PackageReference Include="JetBrains.Annotations" />
     <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".\README.md" Pack="true" PackagePath="\" />
     <None Remove="Ploch.Common.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
 </Project>

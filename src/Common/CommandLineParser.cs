@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
 
@@ -28,6 +29,8 @@ public static class CommandLineParser
     /// <returns>A <see cref="CommandLineInfo" /> object containing the parsed command line information; or null if parsing fails.</returns>
     public static CommandLineInfo? GetAsArguments(string commandLineString)
     {
+        commandLineString.NotNull(nameof(commandLineString));
+
         var parsingContext = new ParsingContext { PathPartNumber = 1 };
 
         return GetCommandLine(commandLineString, parsingContext);
@@ -38,7 +41,8 @@ public static class CommandLineParser
     /// </summary>
     /// <param name="commandLineString">The command line string to parse.</param>
     /// <returns>A <see cref="CommandLineInfo" /> object containing the parsed command line information; or null if parsing fails.</returns>
-    public static CommandLineInfo? GetCommandLine(string commandLineString) => GetCommandLine(commandLineString, new ParsingContext());
+    public static CommandLineInfo? GetCommandLine(string commandLineString) =>
+        GetCommandLine(commandLineString.NotNull(nameof(commandLineString)), new ParsingContext());
 
     /// <summary>
     ///     Internal method that parses a command line string using the provided parsing context.
@@ -123,7 +127,7 @@ public static class CommandLineParser
         /// <summary>
         ///     Gets the list of arguments extracted from the command line.
         /// </summary>
-        public IList<string> Arguments { get; } = new List<string>();
+        public IList<string> Arguments { get; } = [];
 
         /// <summary>
         ///     Gets or sets the current part number being processed (0 for application path, 1+ for arguments).

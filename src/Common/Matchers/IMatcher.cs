@@ -13,5 +13,5 @@ public interface IMatcher<in T>
     /// <returns>
     ///     <c>true</c> if the provided value matches the criteria; otherwise, <c>false</c>.
     /// </returns>
-    bool IsMatch(T value);
+    bool IsMatch(T? value);
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Reflection;
 
 namespace Ploch.Common.TypeConversion;
@@ -13,6 +14,12 @@ namespace Ploch.Common.TypeConversion;
 public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<Type> supportedSourceTypes, IEnumerable<Type> supportedTargetTypes)
     : ITypeConverter
 {
+    /// <summary>
+    ///     Gets the processing order for this type converter.
+    ///     Determines the sequence in which the converter should be executed when multiple converters are available.
+    /// </summary>
+    public int Order { get; }
+
     /// <summary>
     ///     Gets the collection of source types that this converter can handle.
     /// </summary>
@@ -35,6 +42,8 @@ public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<T
     /// </returns>
     public bool CanHandle(object? value, Type targetType)
     {
+        targetType.NotNull(nameof(targetType));
+
         if (value is not null)
         {
             return CanHandle(value.GetType(), targetType);

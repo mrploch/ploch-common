@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Ploch.Common.TypeConversion;
 
@@ -10,57 +9,7 @@ namespace Ploch.Common.TypeConversion;
 /// </summary>
 public interface ITypeConverter
 {
-    /// <summary>
-    ///     Gets the collection of source types that the converter supports for conversion.
-    /// </summary>
-    /// <remarks>
-    ///     This property provides a list of all the types that are accepted as input (source types)
-    ///     for this specific type converter. It is useful for determining whether a given type
-    ///     can be converted by this converter and serves as a reference for supported input
-    ///     types in type conversion scenarios.
-    /// </remarks>
-    /// <value>
-    ///     A collection of <see cref="System.Type" /> objects representing the supported source types for conversion.
-    ///     This property is guaranteed to return a non-null enumerable, but it may be empty if no
-    ///     types are supported as source types.
-    /// </value>
-    /// <example>
-    ///     Use this property to inspect which source types the converter accepts:
-    ///     <code>
-    /// var converter = new CustomTypeConverter();
-    /// foreach (var type in converter.SupportedSourceTypes)
-    /// {
-    /// Console.WriteLine($"Supported Source Type: {type.FullName}");
-    /// }
-    /// </code>
-    /// </example>
-    IEnumerable<Type> SupportedSourceTypes { get; }
-
-    /// <summary>
-    ///     Gets the collection of target types that the converter supports for conversion.
-    /// </summary>
-    /// <remarks>
-    ///     This property defines the list of all types that are accepted as output (target types)
-    ///     for this specific type converter. It helps in determining whether a given type can be
-    ///     the result of a conversion performed by this converter. This is particularly useful in
-    ///     understanding the possible output types when using this type converter in different contexts.
-    /// </remarks>
-    /// <value>
-    ///     A collection of <see cref="System.Type" /> objects representing the supported target types for conversion.
-    ///     This property ensures a non-null enumerable, though it may be empty if no target types are supported
-    ///     by the converter.
-    /// </value>
-    /// <example>
-    ///     Inspect the target types that are supported by this type converter to see what outputs can be expected:
-    ///     <code>
-    /// var converter = new CustomTypeConverter();
-    /// foreach (var type in converter.SupportedTargetTypes)
-    /// {
-    /// Console.WriteLine($"Supported Target Type: {type.FullName}");
-    /// }
-    /// </code>
-    /// </example>
-    IEnumerable<Type> SupportedTargetTypes { get; }
+    int Order { get; }
 
     /// <summary>
     ///     Determines whether the current converter can handle the specified value and target type.

@@ -17,6 +17,13 @@ namespace Ploch.Common.ArgumentChecking;
 /// </summary>
 public static partial class Guard
 {
+    private const string CannotBeEmptyMessageFormat = "Variable {0} cannot be empty.";
+    private const string CannotBeNullMessageFormat = "Variable {0} cannot be null.";
+    private const string ConditionRequiredTrueMessageFormat = "Condition {0} is required to be true in {1}, {2} at {3}";
+#pragma warning disable IDE1006
+    private const string EnumNotDefinedMessageFormat = "Value {0} is not defined in enum {1}.";
+#pragma warning restore IDE1006
+
 #if NET7_0_OR_GREATER
     /// <summary>
     ///     Ensures that a given boolean condition is true, throwing an <see cref="InvalidOperationException" /> if it is not.
@@ -47,6 +54,9 @@ public static partial class Guard
     ///     Thrown when the condition is false, optionally formatted with the provided message or default contextual details.
     /// </exception>
     [AssertionMethod]
+    [Pure]
+    [SuppressMessage("ReSharper", "TooManyArguments", Justification = "Arguments are required and are automatically captured.")]
+    [SuppressMessage("ReSharper", "FlagArgument", Justification = "False positive")]
     public static bool RequiredTrue([AssertionCondition(AssertionConditionType.IS_TRUE)] this bool condition,
                                     string? messageFormat = null,
                                     [CallerMemberName] string? memberName = null,
@@ -56,11 +66,11 @@ public static partial class Guard
     {
         if (condition)
         {
-            return condition!;
+            return condition;
         }
 
         var message = string.Format(CultureInfo.InvariantCulture,
-                                    messageFormat ?? "Condition {0} is required to be true in {1}, {2} at {3}",
+                                    messageFormat ?? ConditionRequiredTrueMessageFormat,
                                     expression,
                                     memberName,
                                     sourceFilePath,
@@ -81,7 +91,6 @@ public static partial class Guard
     /// <param name="variableName">The name of the parameter (automatically captured from the caller).</param>
     /// <returns>The non-null value of the argument.</returns>
     /// <exception cref="ArgumentNullException">Thrown when the argument is null.</exception>
-    [return: NotNullIfNotNull(nameof(argument))]
     [AssertionMethod]
     public static T NotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
                                [CallerArgumentExpression(nameof(argument))] string? variableName = null) where T : struct
@@ -89,31 +98,6 @@ public static partial class Guard
         if (!argument.HasValue)
         {
             throw new ArgumentNullException(variableName);
-        }
-
-        return argument.Value;
-    }
-
-    /// <summary>
-    ///     Ensures that a nullable value type argument is not null, throwing an <see cref="InvalidOperationException" /> if it is.
-    /// </summary>
-    /// <remarks>
-    ///     This method uses <see cref="CallerArgumentExpressionAttribute" /> to automatically capture the argument name
-    ///     from the calling code, reducing the need for string literals.
-    /// </remarks>
-    /// <typeparam name="T">The underlying value type of the nullable argument.</typeparam>
-    /// <param name="argument">The nullable value type argument to check.</param>
-    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
-    /// <returns>The non-null value of the argument.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
-    [return: NotNullIfNotNull(nameof(argument))]
-    [AssertionMethod]
-    public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
-                                       [CallerArgumentExpression(nameof(argument))] string? memberName = null) where T : struct
-    {
-        if (!argument.HasValue)
-        {
-            throw new InvalidOperationException($"Variable {memberName} does not have value.");
         }
 
         return argument.Value;
@@ -141,19 +125,31 @@ public static partial class Guard
         return argument;
     }
 
+    /// <summary>
+    ///     Ensures that a nullable value type argument is not null, throwing an <see cref="InvalidOperationException" /> if it is.
+    /// </summary>
+    /// <remarks>
+    ///     This method uses <see cref="CallerArgumentExpressionAttribute" /> to automatically capture the argument name
+    ///     from the calling code, reducing the need for string literals.
+    /// </remarks>
+    /// <typeparam name="T">The underlying value type of the nullable argument.</typeparam>
+    /// <param name="argument">The nullable value type argument to check.</param>
+    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
+    /// <param name="messageFormat">The exception message format.</param>
+    /// <returns>The non-null value of the argument.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [return: NotNullIfNotNull(nameof(argument))]
     [AssertionMethod]
-    public static TValue NotNullOrDefault<TValue>(
-        [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this TValue? argument,
-        [CallerArgumentExpression(nameof(argument))] string? argumentName = null)
+    public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
+                                       [CallerArgumentExpression(nameof(argument))] string? memberName = null,
+                                       string? messageFormat = null) where T : struct
     {
-        ArgumentNullException.ThrowIfNull(argument, argumentName);
-        if (EqualityComparer<TValue>.Default.Equals(argument, default))
+        if (!argument.HasValue)
         {
-            throw new ArgumentNullException(nameof(argument));
+            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeNullMessageFormat, memberName));
         }
 
-        return argument;
+        return argument.Value;
     }
 
     /// <summary>
@@ -167,11 +163,6 @@ public static partial class Guard
     /// <typeparam name="T">The reference type of the argument.</typeparam>
     /// <param name="argument">The reference type argument to check.</param>
     /// <param name="message">The exception message if argument is null.</param>
-    /// <param name="formatProvider">The instance of IFormatProvider used to format the exception message.</param>
-    /// <param name="arg1">The second object to format.</param>
-    /// <param name="arg2">The third object to format.</param>
-    /// <param name="arg3">The fourth object to format.</param>
-    /// <param name="arg4">The fifth object to format.</param>
     /// <param name="memberName">The name of the variable (automatically captured from the caller).</param>
     /// <returns>The non-null argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
@@ -180,10 +171,6 @@ public static partial class Guard
     public static T RequiredNotNull<T>(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] [JetBrains.Annotations.NotNull] this T? argument,
         string? message = null,
-        object? arg1 = null,
-        object? arg2 = null,
-        object? arg3 = null,
-        object? arg4 = null,
         [CallerArgumentExpression(nameof(argument))] string? memberName = null) where T : class
     {
         if (argument != null)
@@ -191,11 +178,22 @@ public static partial class Guard
             return argument;
         }
 
-        var format = message != null ?
-                         string.Format(CultureInfo.CurrentUICulture, message, memberName, arg1, arg2, arg3, arg4) :
-                         $"Variable {memberName} is null.";
+        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, message ?? CannotBeNullMessageFormat, memberName));
+    }
 
-        throw new InvalidOperationException(format);
+    [return: NotNullIfNotNull(nameof(argument))]
+    [AssertionMethod]
+    public static TValue NotNullOrDefault<TValue>(
+        [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this TValue? argument,
+        [CallerArgumentExpression(nameof(argument))] string? argumentName = null)
+    {
+        ArgumentNullException.ThrowIfNull(argument, argumentName);
+        if (EqualityComparer<TValue>.Default.Equals(argument, default))
+        {
+            throw new ArgumentNullException(argumentName);
+        }
+
+        return argument;
     }
 
     /// <summary>
@@ -215,7 +213,6 @@ public static partial class Guard
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this string? argument,
         [CallerArgumentExpression(nameof(argument))] string? parameterName = null)
     {
-        ArgumentNullException.ThrowIfNull(argument, parameterName);
         ArgumentException.ThrowIfNullOrEmpty(argument, parameterName);
 
         return argument;
@@ -250,11 +247,6 @@ public static partial class Guard
     /// </remarks>
     /// <param name="argument">The string argument to validate.</param>
     /// <param name="message">The exception message if argument is null.</param>
-    /// <param name="formatProvider">The instance of IFormatProvider used to format the exception message.</param>
-    /// <param name="arg1">The second object to format.</param>
-    /// <param name="arg2">The third object to format.</param>
-    /// <param name="arg3">The fourth object to format.</param>
-    /// <param name="arg4">The fifth object to format.</param>
     /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <returns>The validated string argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null or empty.</exception>
@@ -263,22 +255,16 @@ public static partial class Guard
     public static string RequiredNotNullOrEmpty(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this string? argument,
         string? message = null,
-        object? arg1 = null,
-        object? arg2 = null,
-        object? arg3 = null,
-        object? arg4 = null,
         [CallerArgumentExpression(nameof(argument))] string? memberName = null)
     {
-        argument.RequiredNotNull(message, arg1, arg2, arg3, arg4, memberName);
+        argument.RequiredNotNull(message, memberName);
 
         if (!string.IsNullOrEmpty(argument))
         {
             return argument;
         }
 
-        var format = message != null ? string.Format(message, memberName, arg1, arg2, arg3, arg4) : $"Variable {memberName} is empty.";
-
-        throw new InvalidOperationException(format);
+        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, message ?? CannotBeEmptyMessageFormat, memberName));
     }
 
     /// <summary>
@@ -286,7 +272,7 @@ public static partial class Guard
     ///     If the value is not defined, an <see cref="ArgumentOutOfRangeException" /> is thrown.
     /// </summary>
     /// <remarks>
-    ///     This method does not handle flags.
+    ///     This method does not handle flags - https://github.com/mrploch/ploch-common/issues/159.
     /// </remarks>
     /// <param name="argument">The enum value to validate.</param>
     /// <param name="argumentName">
@@ -301,22 +287,27 @@ public static partial class Guard
     public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument,
                                              [CallerArgumentExpression(nameof(argument))] string? argumentName = null) where TEnum : struct, Enum
     {
-        // var tryParse = Enum.TryParse(argument.ToString(), out TEnum parsedValue);
         if (!Enum.IsDefined(argument))
         {
-// TODO: Implement flags validation for flags
-            // var tryParse = Enum.TryParse(argument.ToString(), out TEnum parsedValue);
-            // var o = Enum.ToObject(typeof(TEnum), parsedValue);
-            //
-            // if (tryParse && Enum.IsDefined(parsedValue))
-            // {
-            //     return argument;
-            // }
-
-            throw new ArgumentOutOfRangeException(argumentName, argument, $"Value {argument} is not defined in enum {typeof(TEnum).Name}.");
+            throw new ArgumentOutOfRangeException(argumentName,
+                                                  argument,
+                                                  string.Format(CultureInfo.InvariantCulture, EnumNotDefinedMessageFormat, argument, typeof(TEnum).Name));
         }
 
         return argument;
     }
+
+    public static TValue Positive<TValue>(
+        [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this TValue argument,
+        [CallerArgumentExpression(nameof(argument))] string? argumentName = null) where TValue : struct, IComparable<TValue>
+    {
+        if (argument.CompareTo(default) <= 0)
+        {
+            throw new ArgumentOutOfRangeException(argumentName, argument, $"{argumentName} must be positive.");
+        }
+
+        return argument;
+    }
+
 #endif
 }

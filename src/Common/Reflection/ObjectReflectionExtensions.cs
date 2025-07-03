@@ -7,6 +7,12 @@ using Ploch.Common.Collections;
 
 namespace Ploch.Common.Reflection;
 
+public static class TypeHelper
+{
+    public static IDictionary<string, object?> GetStaticFieldValues<TType>(BindingFlags bindingFlags = BindingFlags.Public) =>
+        ObjectReflectionExtensions.GetFieldValues<TType>(default, bindingFlags | BindingFlags.Static);
+}
+
 /// <summary>
 ///     Provides extension methods for working with object reflection.
 /// </summary>
@@ -22,7 +28,9 @@ public static class ObjectReflectionExtensions
     /// <returns>The field value if found or null.</returns>
     public static object? GetFieldValue(this object obj, string fieldName)
     {
-        var fieldInfo = obj.GetType().GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
+        var fieldInfo = obj.NotNull(nameof(obj))
+                           .GetType()
+                           .GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
 
         return fieldInfo?.GetValue(obj);
     }
@@ -71,17 +79,9 @@ public static class ObjectReflectionExtensions
     /// <returns>
     ///     A dictionary where each key is the field name, and each value is the corresponding field value.
     /// </returns>
-    public static IDictionary<string, object?> UGetStaticFieldValues<TType>(BindingFlags bindingFlags = BindingFlags.Public) =>
-        GetFieldValues<TType>(default, bindingFlags | BindingFlags.Static);
-
     /// <summary>
     ///     Retrieves the values of static members (fields and/or properties) from a specified type.
     /// </summary>
-    /// <typeparam name="TType">The type whose static members are to be retrieved.</typeparam>
-    /// <param name="bindingFlags">
-    ///     A combination of <see cref="BindingFlags" /> that specifies how the search for members is conducted.
-    ///     By default, the search is performed for public members. The Instance flag will be removed as this method only retrieves static members.
-    /// </param>
     /// <param name="memberTypes">
     ///     The types of members to retrieve. By default, both fields and properties are included.
     /// </param>

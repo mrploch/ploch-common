@@ -400,3 +400,11 @@ codestream.xml
 /src/Common.WebUI/Ploch.Common.WebUI.xml
 /src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.xml
 /src/Common.DependencyInjection/Ploch.Common.DependencyInjection.xml
+/src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.xml
+/src/Common.Serialization.NewtonsoftJson/Ploch.Common.Serialization.NewtonsoftJson.xml
+/src/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.xml
+/src/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.xml
+/src/Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.xml
+/src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.xml
+/src/TestingSupport/Ploch.TestingSupport.xml
+/src/Common.AppServices/Ploch.Common.AppServices.xml

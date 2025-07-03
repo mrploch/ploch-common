@@ -26,11 +26,9 @@ public static class ExpressionExtensions
         expression.NotNull(nameof(expression));
 
         return expression.Body switch
-               {
-                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
-                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
-                   _ => throw new InvalidOperationException("Not a member expression!")
-               };
+               { MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                 MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+                 _ => throw new InvalidOperationException("Not a member expression!") };
     }
 
     /// <summary>
@@ -46,11 +44,9 @@ public static class ExpressionExtensions
         expression.NotNull(nameof(expression));
 
         return expression.Body switch
-               {
-                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
-                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
-                   _ => throw new InvalidOperationException("Not a member expression!")
-               };
+               { MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                 MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+                 _ => throw new InvalidOperationException("Not a member expression!") };
     }
 
     /// <summary>
@@ -70,14 +66,12 @@ public static class ExpressionExtensions
         expression.NotNull(nameof(expression));
 
         return expression.Body switch
-               {
-                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
-                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+               { MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                 MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
 
-                   // Might be an implicit cast
-                   UnaryExpression { Operand: MemberExpression memberExpression } => memberExpression.Member.Name,
-                   _ => throw new InvalidOperationException("Not a member expression and not unary expression for member.")
-               };
+                 // Might be an implicit cast
+                 UnaryExpression { Operand: MemberExpression memberExpression } => memberExpression.Member.Name,
+                 _ => throw new InvalidOperationException("Not a member expression and not unary expression for member.") };
     }
 
     /// <summary>
@@ -98,6 +92,14 @@ public static class ExpressionExtensions
 
         if (propertySelector.Body is not MemberExpression memberExpression)
         {
+            if (propertySelector.Body is MethodCallExpression bc && bc.Method.IsSpecialName && bc.Method.Name.StartsWith("get_", StringComparison.Ordinal))
+            {
+                var pi = typeof(TType).GetProperty(bc.Method.Name.Substring(4))
+                                      .RequiredNotNull("typeof(TType).GetProperty(bc.Method.Name.Substring(4)) != null");
+
+                return new OwnedPropertyInfo<TType, TMember>(pi, obj);
+            }
+
             throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
         }
 

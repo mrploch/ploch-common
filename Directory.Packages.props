@@ -15,20 +15,22 @@
     <PackageVersion Include="AutoMapper" Version="14.0.0" />
     <PackageVersion Include="CaseExtensions" Version="1.1.0" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-    <PackageVersion Include="CsvHelper" Version="33.0.1" />
+    <PackageVersion Include="CsvHelper" Version="33.1.0" />
     <PackageVersion Include="FastEndpoints" Version="5.34.0" />
     <PackageVersion Include="FastEndpoints.Swagger" Version="5.34.0" />
+    <PackageVersion Include="FluentAssertions.Microsoft.Extensions.DependencyInjection" Version="1.0.0" />
     <PackageVersion Include="JetBrains.Annotations" Version="2024.3.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.5" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.FileSystemGlobbing" Version="9.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.5" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.FileSystemGlobbing" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.6" />
     <PackageVersion Include="NSwag.CodeGeneration.CSharp" Version="14.2.0" />
     <PackageVersion Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.6.3" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4">
@@ -40,19 +42,19 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <PackageVersion Include="Dawn.Guard" Version="1.12.0" />
-    <PackageVersion Include="FluentAssertions" Version="8.2.0" />
+    <PackageVersion Include="FluentAssertions" Version="8.3.0" />
     <PackageVersion Include="FluentAssertions.Analyzers" Version="0.34.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <PackageVersion Include="FluentAssertions.Json" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Authorization" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authorization" Version="9.0.6" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.3.0" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
     <PackageVersion Include="Microsoft.Maui.Controls.Xaml" Version="9.0.30" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="Moq.Analyzers" Version="0.3.0">
       <PrivateAssets>all</PrivateAssets>
@@ -73,22 +75,25 @@
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageVersion Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
     <PackageVersion Include="System.IO.Abstractions" Version="22.0.14" />
-    <PackageVersion Include="System.Management" Version="9.0.4" />
-    <PackageVersion Include="System.ServiceProcess.ServiceController" Version="9.0.4" />
-    <PackageVersion Include="System.Text.Json" Version="9.0.4" />
+    <PackageVersion Include="System.Management" Version="9.0.6" />
+    <PackageVersion Include="System.ServiceProcess.ServiceController" Version="9.0.6" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.6" />
     <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
     <PackageVersion Include="TestableIO.System.IO.Abstractions" Version="22.0.14" />
     <PackageVersion Include="TestableIO.System.IO.Abstractions.TestingHelpers" Version="22.0.14" />
     <PackageVersion Include="TestableIO.System.IO.Abstractions.Analyzers" Version="2022.0.0" />
     <PackageVersion Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.14" />
-    <PackageVersion Include="Vanara.SystemServices" Version="4.1.3" />
+    <PackageVersion Include="Testably.Abstractions.FileSystem.Interface" Version="9.0.0" />
+    <PackageVersion Include="Vanara.SystemServices" Version="4.1.4" />
     <PackageVersion Include="WmiLight" Version="6.13.0" />
+    <PackageVersion Include="xunit.v3" Version="2.0.3" />
     <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.analyzers" Version="1.21.0">
+    <PackageVersion Include="xunit.analyzers" Version="1.22.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.0">
+    <PackageVersion Include="xunit.extensibility.core" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
@@ -110,7 +115,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </GlobalPackageReference>
-    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.11.0.117924">
+    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.12.0.118525">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </GlobalPackageReference>

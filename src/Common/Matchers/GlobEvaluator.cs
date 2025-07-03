@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.FileSystemGlobbing;
+using Ploch.Common.Collections;
 
 namespace Ploch.Common.Matchers;
+// TODO: I think this should be moved to a separate project due to the dependency on Microsoft.Extensions.FileSystemGlobbing.
 
 /// <summary>
 ///     Evaluates strings against a list of glob patterns to determine if they match.
@@ -15,6 +17,7 @@ namespace Ploch.Common.Matchers;
 public class GlobEvaluator(IEnumerable<string> includes,
                            IEnumerable<string> excludes,
                            bool nullMatchResult = false,
+                           bool emptyMatchResult = false,
                            StringComparison comparisonType = StringComparison.OrdinalIgnoreCase) : IStringMatcher
 {
     private readonly Matcher _matcher = new Matcher(comparisonType).IncludePatterns(includes).ExcludePatterns(excludes);
@@ -32,6 +35,11 @@ public class GlobEvaluator(IEnumerable<string> includes,
         if (value == null)
         {
             return nullMatchResult;
+        }
+
+        if (value.IsEmpty())
+        {
+            return emptyMatchResult;
         }
 
         var result = _matcher.Match(value);

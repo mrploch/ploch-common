@@ -15,7 +15,7 @@ public static class AssemblyTypes
     ///     Retrieves all types that implement or inherit from the specified base type within the provided assemblies.
     /// </summary>
     /// <param name="baseType">The base type to search for implementations of.</param>
-    /// <param name="concreteOnly">Return only concrete implementations</param>
+    /// <param name="concreteOnly">Return only concrete implementations.</param>
     /// <param name="assemblies">The assemblies to search within.</param>
     /// <returns>A collection of types that implement or inherit from the specified base type.</returns>
     public static IEnumerable<Type> GetImplementations(Type baseType, bool concreteOnly, params IEnumerable<Assembly> assemblies)
@@ -52,9 +52,9 @@ public static class AssemblyTypes
     /// <summary>
     ///     Retrieves all types that implement or inherit from the specified base type within the provided assemblies.
     /// </summary>
-    /// <param name="baseType">The base type to search for implementations of.</param>
-    /// <param name="concreteOnly">Return only concrete implementations.</param>
+    /// <typeparam name="TBaseType">The base type to search for implementations of.</typeparam>
     /// <param name="assemblies">The assemblies to search within.</param>
+    /// <param name="concreteOnly">Return only concrete implementations.</param>
     /// <returns>A collection of types that implement or inherit from the specified base type.</returns>
     public static IEnumerable<Type> GetImplementations<TBaseType>(this IEnumerable<Assembly> assemblies, bool concreteOnly = true) =>
         GetImplementations<TBaseType>(concreteOnly, assemblies.ToArray());

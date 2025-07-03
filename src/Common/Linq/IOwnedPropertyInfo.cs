@@ -21,12 +21,12 @@ namespace Ploch.Common.Linq;
 public interface IOwnedPropertyInfo
 {
     /// <summary>
-    ///     Returns the name of the property.
+    ///     Gets the name of the property.
     /// </summary>
     string Name { get; }
 
     /// <summary>
-    ///     Returns the underlying <see cref="PropertyInfo" />.
+    ///     Gets the underlying <see cref="PropertyInfo" />.
     /// </summary>
     PropertyInfo PropertyInfo { get; }
 

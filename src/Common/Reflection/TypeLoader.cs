@@ -32,6 +32,11 @@ public class TypeLoader
     }
 
     /// <summary>
+    ///     Gets the collection of types that have been loaded and match the configured criteria.
+    /// </summary>
+    public IEnumerable<Type> LoadedTypes => _loadedTypes;
+
+    /// <summary>
     ///     Creates and configures a new instance of the <see cref="TypeLoader" /> class.
     /// </summary>
     /// <param name="configurator">The action used to configure the type loader.</param>
@@ -46,11 +51,6 @@ public class TypeLoader
 
         return new TypeLoader(configuration);
     }
-
-    /// <summary>
-    ///     Gets the collection of types that have been loaded and match the configured criteria.
-    /// </summary>
-    public IEnumerable<Type> LoadedTypes => _loadedTypes;
 
     /// <summary>
     ///     Loads types from the assembly containing the specified generic type parameter.
@@ -83,7 +83,7 @@ public class TypeLoader
     {
         assemblyTypes.NotNullOrEmpty(nameof(assemblyTypes));
 
-        assemblyTypes.ForEach(type => LoadTypes((Assembly)type.Assembly));
+        assemblyTypes.ForEach(type => LoadTypes(type.Assembly));
 
         return this;
     }

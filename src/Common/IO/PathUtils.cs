@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Ploch.Common.ArgumentChecking;
@@ -15,7 +16,7 @@ public static class PathUtils
     /// </summary>
     /// <param name="directoryPath">Directory path.</param>
     /// <returns>The name of the directory.</returns>
-    public static string GetDirectoryName(string directoryPath)
+    public static string GetDirectoryName(this string directoryPath)
     {
         directoryPath.NotNullOrEmpty(nameof(directoryPath));
 
@@ -25,10 +26,14 @@ public static class PathUtils
     /// <summary>
     ///     Converts the input string to a safe file name by replacing invalid characters with an underscore.
     /// </summary>
-    /// <param name="input">The input string to be transformed into a safe file name.</param>
+    /// <param name="input">The input string to be transformed into a safe file name. Must not be null or empty.</param>
     /// <returns>The transformed string that is safe to use as a file name.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="input" /> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="input" /> is empty.</exception>
     public static string ToSafeFileName(string input)
     {
+        input.NotNullOrEmpty(nameof(input));
+
         var invalidChars = Path.GetInvalidFileNameChars().ToList();
         var builder = new StringBuilder(input.Length);
         foreach (var c in input)
@@ -50,7 +55,7 @@ public static class PathUtils
 
         var normalizedPath = Path.GetFullPath(path.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
 
-        return normalizedPath + Path.DirectorySeparatorChar;
+        return $"{normalizedPath}{Path.DirectorySeparatorChar}";
     }
 
     /// <summary>
@@ -63,5 +68,69 @@ public static class PathUtils
         path.NotNullOrEmpty(nameof(path));
 
         return Path.GetFullPath(path.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+    }
+
+    /// <summary>
+    ///     Creates a relative path from one file or folder to another.
+    /// </summary>
+    /// <param name="fromPath">Contains the directory that defines the start of the relative path.</param>
+    /// <param name="toPath">Contains the path that defines the endpoint of the relative path.</param>
+    /// <returns>The relative path from the start directory to the end path or <c>toPath</c> if the paths are not related.</returns>
+    /// <exception cref="ArgumentNullException">When <paramref name="fromPath" /> or <paramref name="toPath" /> is null.</exception>
+    /// <exception cref="ArgumentException">When <paramref name="fromPath" /> or <paramref name="toPath" /> is empty or is not a valid path string.</exception>
+    public static string MakeRelativePath(string fromPath, string toPath)
+    {
+        fromPath.IsValidPath(nameof(fromPath));
+        toPath.IsValidPath(nameof(toPath));
+
+        var fromUri = new Uri(NormalizePathWithTrailingSeparator(fromPath));
+        var toUri = new Uri(toPath);
+
+        if (fromUri.Scheme != toUri.Scheme)
+        {
+            return toPath;
+        } // path can't be made relative.
+
+        var relativeUri = fromUri.MakeRelativeUri(toUri);
+        var relativePath = Uri.UnescapeDataString(relativeUri.ToString());
+
+        if (toUri.Scheme.Equals("file", StringComparison.OrdinalIgnoreCase))
+        {
+            relativePath = relativePath.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+        }
+
+        return relativePath;
+    }
+
+    /// <summary>
+    ///     Creates a relative path from one file or folder to another.
+    /// </summary>
+    /// <param name="fromPath">Contains the directory that defines the start of the relative path.</param>
+    /// <param name="toPath">Contains the path that defines the endpoint of the relative path.</param>
+    /// <returns>The relative path from the start directory to the end path.</returns>
+    /// <exception cref="ArgumentNullException"><paramref name="fromPath" /> or <paramref name="toPath" /> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException"><paramref name="fromPath" /> or <paramref name="toPath" /> is empty or not a valid path string.</exception>
+    public static string GetRelativePath(string fromPath, string toPath)
+    {
+        fromPath.NotNullOrEmpty(nameof(fromPath));
+        toPath.NotNullOrEmpty(nameof(toPath));
+
+        var fromUri = new Uri(NormalizePathWithTrailingSeparator(fromPath));
+        var toUri = new Uri(toPath);
+
+        if (fromUri.Scheme != toUri.Scheme)
+        {
+            return toPath;
+        }
+
+        var relativeUri = fromUri.MakeRelativeUri(toUri);
+        var relativePath = Uri.UnescapeDataString(relativeUri.ToString());
+
+        if (string.Equals(toUri.Scheme, Uri.UriSchemeFile, StringComparison.OrdinalIgnoreCase))
+        {
+            relativePath = relativePath.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+        }
+
+        return relativePath;
     }
 }

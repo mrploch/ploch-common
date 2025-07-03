@@ -1,0 +1,23 @@
+# Qodo Gen Custom Test Instructions
+
+test_framework: xunit
+test_project_path: ./tests/Common.Tests
+test_file_pattern: "*Tests.cs"
+test_class_suffix: "Tests"
+assertion_library: FluentAssertions
+
+custom_instructions:
+  - "All test classes should be suffixed with 'Tests'."
+  - "Use [Fact] for unit tests and [Theory] for parameterized tests."
+  - "Use FluentAssertions for expressive assertions."
+  - "Use the following naming convention for method names: MethodName_should_explain_what_it_should_do()"
+  - "Test files should be placed in the /tests/Common.Tests/ directory."
+  - "Test method names should describe the behavior being tested."
+  - "Ensure all test methods are public and have clear, descriptive names."
+  - "Add new test utilities to /tests/Common.Tests/Utilities/ if needed."
+
+code_generation:
+  arrange_section: true
+  act_section: true
+  assert_section: true
+  naming_convention: "PascalCase"

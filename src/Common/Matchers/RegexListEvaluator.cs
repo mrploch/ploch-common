@@ -18,21 +18,7 @@ namespace Ploch.Common.Matchers;
 /// <param name="ignoreCase">Indicates whether case should be ignored when matching. Default is true.</param>
 public class RegexListEvaluator(IEnumerable<string> regexList, bool nullValueMatchResult = false, bool compiled = true, bool ignoreCase = true) : IStringMatcher
 {
-    private readonly IEnumerable<Regex> _matchers = regexList.Select(regexString =>
-                                                                     {
-                                                                         var options = RegexOptions.None;
-                                                                         if (compiled)
-                                                                         {
-                                                                             options |= RegexOptions.Compiled;
-                                                                         }
-
-                                                                         if (ignoreCase)
-                                                                         {
-                                                                             options |= RegexOptions.IgnoreCase;
-                                                                         }
-
-                                                                         return new Regex(regexString, options);
-                                                                     });
+    private readonly IEnumerable<Regex> _matchers = regexList.Select(regexString => CreateRegex(regexString, compiled, ignoreCase)).ToArray();
 
     /// <summary>
     ///     Determines whether the specified string matches any of the regular expressions in the collection.
@@ -47,4 +33,20 @@ public class RegexListEvaluator(IEnumerable<string> regexList, bool nullValueMat
     ///     <c>false</c>.
     /// </returns>
     public bool IsMatch(string? value) => value == null ? nullValueMatchResult : _matchers.Any(regex => regex.IsMatch(value));
+
+    private static Regex CreateRegex(string pattern, bool compiled, bool ignoreCase)
+    {
+        var options = RegexOptions.None;
+        if (compiled)
+        {
+            options |= RegexOptions.Compiled;
+        }
+
+        if (ignoreCase)
+        {
+            options |= RegexOptions.IgnoreCase;
+        }
+
+        return new Regex(pattern, options);
+    }
 }

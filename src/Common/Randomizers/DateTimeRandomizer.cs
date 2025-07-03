@@ -5,7 +5,7 @@ namespace Ploch.Common.Randomizers;
 /// <summary>
 ///     Provides functionality to generate random past DateTime values (up until now).
 /// </summary>
-public class DateTimeRandomizer : BaseRandomizere<DateTime>, IRangedRandomizer<DateTime>
+public class DateTimeRandomizer : BaseRandomizer<DateTime>, IRangedRandomizer<DateTime>
 {
     private readonly Random _random = new();
 
@@ -13,10 +13,7 @@ public class DateTimeRandomizer : BaseRandomizere<DateTime>, IRangedRandomizer<D
     ///     Generates a random DateTime value between DateTime.MinValue and today.
     /// </summary>
     /// <returns>A randomly generated DateTime value.</returns>
-    public override DateTime GetRandomValue()
-    {
-        return GetRandomValue(DateTime.MinValue, DateTime.MaxValue);
-    }
+    public override DateTime GetRandomValue() => GetRandomValue(DateTime.MinValue, DateTime.MaxValue);
 
     /// <summary>
     ///     Generates a random DateTime value between provided dates.

@@ -21,14 +21,13 @@ public static class Randomizer
         return (IRangedRandomizer<TValue>)randomizer;
     }
 
-    public static IRandomizer GetRandomizer(Type type) => (IRangedRandomizer<string>)GetRandomizerInternal(type);
+    public static IRandomizer GetRandomizer(Type type) => GetRandomizerInternal(type);
 
     private static IRandomizer GetRandomizerInternal(Type type) => type switch
-                                                                   {
-                                                                       not null when type == typeof(string) => new StringRandomizer(),
-                                                                       not null when type == typeof(int) => new IntRandomizer(),
-                                                                       not null when type == typeof(DateTime) => new DateTimeRandomizer(),
-                                                                       not null when type == typeof(bool) => new BooleanRandomizer(),
-                                                                       _ => throw new NotSupportedException($"Randomizer for type {type} is not supported.")
-                                                                   };
+                                                                   { not null when type == typeof(string) => new StringRandomizer(),
+                                                                     not null when type == typeof(int) => new IntRandomizer(),
+                                                                     not null when type == typeof(DateTime) => new DateTimeRandomizer(),
+                                                                     not null when type == typeof(DateTimeOffset) => new DateTimeOffsetRandomizer(),
+                                                                     not null when type == typeof(bool) => new BooleanRandomizer(),
+                                                                     _ => throw new NotSupportedException($"Randomizer for type {type} is not supported.") };
 }

@@ -31,7 +31,7 @@ public static class EnvironmentUtilities
     /// <returns>An enumerable collection of command line arguments.</returns>
     public static IEnumerable<string> GetEnvironmentCommandLine(bool includeApplication = false)
     {
-        var args = Environment.CommandLine.Split(' ');
+        var args = Environment.CommandLine.Split(Chars.Space);
 
         return includeApplication ? args : args.Skip(1);
     }

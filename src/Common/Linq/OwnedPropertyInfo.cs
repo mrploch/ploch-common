@@ -49,17 +49,14 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
 }
 
 /// <inheritdoc cref="IOwnedPropertyInfo{TType, TProperty}" />
-public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedPropertyInfo<TType, TProperty>
+/// <summary>
+///     Initializes a new instance of the <see cref="OwnedPropertyInfo{TType,TProperty}" /> class.
+/// </summary>
+/// <param name="propertyInfo">The property info delegate.</param>
+/// <param name="owner">The object that owns the property.</param>
+public class OwnedPropertyInfo<TType, TProperty>(PropertyInfo propertyInfo, TType owner)
+    : OwnedPropertyInfo(propertyInfo, owner!), IOwnedPropertyInfo<TType, TProperty>
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="OwnedPropertyInfo{TType,TProperty}" /> class.
-    /// </summary>
-    /// <param name="propertyInfo">The property info delegate.</param>
-    /// <param name="owner">The object that owns the property.</param>
-    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner!)
-    {
-    }
-
     /// <inheritdoc />
     public new TType Owner => (TType)base.Owner;
 

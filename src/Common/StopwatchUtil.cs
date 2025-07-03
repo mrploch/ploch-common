@@ -43,7 +43,9 @@ public static class StopwatchUtil
     /// <returns>The time elapsed for the task to complete.</returns>
     public static TimeSpan Time(Task task)
     {
+#pragma warning disable VSTHRD110
         task.NotNull(nameof(task));
+#pragma warning restore VSTHRD110
 
         var sw = Stopwatch.StartNew();
         task.Wait();

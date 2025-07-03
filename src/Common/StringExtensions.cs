@@ -71,7 +71,7 @@ public static partial class StringExtensions
         str.NotNull(nameof(str));
 #pragma warning restore S3236
 
-        return Convert.ToBase64String(encoding.GetBytes(str));
+        return Convert.ToBase64String(encoding.NotNull(nameof(encoding)).GetBytes(str));
     }
 
     /// <summary>
@@ -91,7 +91,7 @@ public static partial class StringExtensions
     {
         str.NotNull(nameof(str));
 
-        return encoding.GetString(Convert.FromBase64String(str));
+        return encoding.NotNull(nameof(encoding)).GetString(Convert.FromBase64String(str));
     }
 
     /// <summary>
@@ -269,7 +269,7 @@ public static partial class StringExtensions
         var pascalCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
 
                                         // split by underscores
-                                        .Split(['_'], StringSplitOptions.RemoveEmptyEntries)
+                                        .Split([ '_' ], StringSplitOptions.RemoveEmptyEntries)
 
                                         // set the first letter to uppercase
                                         .Select(w => startsWithLowerCaseChar.Replace(w, static m => m.Value.ToUpperInvariant()))

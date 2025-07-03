@@ -20,7 +20,7 @@
 ///         without needing to directly specify the source type for the conversion.
 ///     </para>
 /// </remarks>
-public interface ITargetTypeConverter<TTargetType> : ITypeConverter
+public interface ITargetTypeConverter<out TTargetType> : ITypeConverter
 {
     /// <summary>
     ///     Converts the specified value to the target type.
