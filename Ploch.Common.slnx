@@ -11,7 +11,6 @@
     <File Path="release-notes.md" />
   </Folder>
   <Folder Name="/repository/config/">
-    <File Path=".codacy.yml" />
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
@@ -19,11 +18,8 @@
     <File Path="dotnet-releaser.toml" />
     <File Path="qodana.sarif.json" />
     <File Path="qodana.yaml" />
-    <File Path="stylecop.json" />
-    <File Path="stylecop.ruleset" />
   </Folder>
   <Folder Name="/repository/docs/">
-    <File Path="docs\Categories.md" />
     <File Path="docs\README.md" />
   </Folder>
   <Folder Name="/repository/github/" />
@@ -54,7 +50,6 @@
     <Project Path="tests\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Net9.Tests\Ploch.Common.Net9.Tests.csproj" />
     <Project Path="tests\Common.Tests\Ploch.Common.Tests.csproj" />
-    <Project Path="tests\Common.Windows.Tests\Ploch.Common.Windows.Tests.csproj" />
     <Project Path="tests\TestingSupport.FluentAssertions.Tests\Ploch.TestingSupport.FluentAssertions.Tests.csproj" Type="Classic C#">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
@@ -92,24 +87,4 @@
   <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
   <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
   <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
-  <Project Path="src\Common.Windows.DependencyInjection\Ploch.Common.Windows.DependencyInjection.csproj">
-    <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
-    <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
-  <Project Path="src\Common.Windows\Ploch.Common.Windows.csproj">
-    <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
-    <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
-    <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
-    <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x64" Project="Release|Any CPU" />
-    <Configuration Solution="Release|x86" Project="Release|Any CPU" />
-  </Project>
 </Solution>
