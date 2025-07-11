@@ -61,6 +61,20 @@ public static class PathUtils
     /// <summary>
     ///     Normalizes the given path and removes any trailing directory separator characters.
     /// </summary>
+    /// <remarks>
+    /// Besides removing the trailing directory separator, on Windows platform, it would also normalize separators to the backslash,
+    /// in case they are mixed in the path.
+    /// For example, on Windows it would change:
+    /// <code>
+    /// c:\mypath/somefolder\some-other-folder
+    /// </code>
+    /// to:
+    /// <code>
+    /// c:\mypath\somefolder\some-other-folder
+    /// </code>
+    /// On platform like Mac OS, forward slash (<c>/</c>) is a legal character in directory or file names, which means
+    /// they would not be changed.
+    /// </remarks>
     /// <param name="path">The path to normalize.</param>
     /// <returns>The normalized path without trailing directory separator characters.</returns>
     public static string NormalizePathWithoutTrailingSeparator(string path)
@@ -68,38 +82,6 @@ public static class PathUtils
         path.NotNullOrEmpty(nameof(path));
 
         return Path.GetFullPath(path.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
-    }
-
-    /// <summary>
-    ///     Creates a relative path from one file or folder to another.
-    /// </summary>
-    /// <param name="fromPath">Contains the directory that defines the start of the relative path.</param>
-    /// <param name="toPath">Contains the path that defines the endpoint of the relative path.</param>
-    /// <returns>The relative path from the start directory to the end path or <c>toPath</c> if the paths are not related.</returns>
-    /// <exception cref="ArgumentNullException">When <paramref name="fromPath" /> or <paramref name="toPath" /> is null.</exception>
-    /// <exception cref="ArgumentException">When <paramref name="fromPath" /> or <paramref name="toPath" /> is empty or is not a valid path string.</exception>
-    public static string MakeRelativePath(string fromPath, string toPath)
-    {
-        fromPath.IsValidPath(nameof(fromPath));
-        toPath.IsValidPath(nameof(toPath));
-
-        var fromUri = new Uri(NormalizePathWithTrailingSeparator(fromPath));
-        var toUri = new Uri(toPath);
-
-        if (fromUri.Scheme != toUri.Scheme)
-        {
-            return toPath;
-        } // path can't be made relative.
-
-        var relativeUri = fromUri.MakeRelativeUri(toUri);
-        var relativePath = Uri.UnescapeDataString(relativeUri.ToString());
-
-        if (toUri.Scheme.Equals("file", StringComparison.OrdinalIgnoreCase))
-        {
-            relativePath = relativePath.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
-        }
-
-        return relativePath;
     }
 
     /// <summary>

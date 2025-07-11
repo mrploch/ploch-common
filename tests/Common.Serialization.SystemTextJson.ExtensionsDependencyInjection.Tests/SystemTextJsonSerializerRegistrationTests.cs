@@ -13,18 +13,20 @@ public class SystemTextJsonSerializerRegistrationTests
 
         var serializer = provider.GetRequiredService<ISerializer>();
         serializer.Should().BeOfType<SystemTextJsonSerializer>();
-        provider.GetRequiredService<ISerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
-        provider.GetRequiredService<IAsyncSerializer>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
-        provider.GetRequiredService<IAsyncSerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
+        var nonAsyncSerializer = provider.GetRequiredService<ISerializer<JsonSerializerOptions>>();
+        provider.GetRequiredService<ISerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(nonAsyncSerializer);
+
+        var asyncSerializer = provider.GetRequiredService<IAsyncSerializer>();
+        provider.GetRequiredService<IAsyncSerializer>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(asyncSerializer);
+
+        provider.GetRequiredService<IAsyncSerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(asyncSerializer);
     }
 
     [Fact]
     public void SystemTextJsonSerializer_should_be_resolved_with_options_if_provided()
     {
         var provider = BuildServiceProvider(services => services.AddSingleton(new JsonSerializerOptions
-                                                                              {
-                                                                                  PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
-                                                                              }));
+                                                                              { PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower }));
 
         var serializer = provider.GetRequiredService<ISerializer>();
 

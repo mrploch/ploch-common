@@ -18,6 +18,14 @@ public class EnumConverter() : SingleSourceTargetTypeConverter<string, ValueType
 
         var stringValue = value ?? string.Empty;
 
+        foreach (var keyValuePair in fieldMap)
+        {
+            if (keyValuePair.Key == stringValue)
+            {
+                return (Enum?)keyValuePair.Value;
+            }
+        }
+
         if (fieldMap.TryGetValue(stringValue, out var enumValue))
         {
             return (Enum?)enumValue;

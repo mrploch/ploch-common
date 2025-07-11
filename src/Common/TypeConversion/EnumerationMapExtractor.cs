@@ -33,7 +33,7 @@ public static class EnumerationMapExtractor
     /// <exception cref="InvalidOperationException">
     ///     Thrown when <paramref name="enumType" /> is not an enumeration type.
     /// </exception>
-    public static IDictionary<string, object> GetEnumFieldValueMap(Type enumType)
+    public static IDictionary<EnumName, object> GetEnumFieldValueMap(Type enumType)
     {
         if (!enumType.NotNull(nameof(enumType)).IsEnum)
         {
@@ -49,24 +49,25 @@ public static class EnumerationMapExtractor
 
         var fields = enumType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
-        var fieldMap = new Dictionary<string, object>(isCaseSensitive ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase);
+        var fieldMap = new Dictionary<EnumName, object>(new EnumNameValueComparer());
 
         foreach (var fieldInfo in fields)
         {
-            AddValueMappings(fieldMap, fieldInfo);
+            AddValueMappings(fieldMap, fieldInfo, isCaseSensitive);
         }
 
         return fieldMap;
     }
 
-    private static void AddValueMappings(Dictionary<string, object> fieldMap, FieldInfo fieldInfo)
+    private static void AddValueMappings(Dictionary<EnumName, object> fieldMap, FieldInfo fieldInfo, bool caseSensitiveDefault)
     {
         var enumValue = fieldInfo.GetValue(null) ?? throw new InvalidOperationException($"Value for field {fieldInfo.Name} is null");
-        foreach (var nameToUse in GetFieldValueNames(fieldInfo).Select(name => name ?? string.Empty))
+
+        foreach (var nameToUse in GetFieldValueNames(fieldInfo, caseSensitiveDefault).Select(name => name ?? new EnumName(string.Empty)))
         {
             if (fieldMap.TryGetValue(nameToUse, out var value))
             {
-                var fieldMessage = nameToUse.IsNullOrEmpty() ? "default (empty string)" : nameToUse;
+                var fieldMessage = nameToUse.Name.IsNullOrEmpty() ? "default (empty string)" : nameToUse.Name;
 
                 throw new InvalidOperationException($"Enum field {fieldMessage} is already mapped to {value}");
             }
@@ -75,14 +76,21 @@ public static class EnumerationMapExtractor
         }
     }
 
-    private static IEnumerable<string?> GetFieldValueNames(FieldInfo fieldInfo)
+    private static IEnumerable<EnumName?> GetFieldValueNames(FieldInfo fieldInfo, bool caseSensitiveDefault)
     {
         var enumMappingAttribute = fieldInfo.GetCustomAttribute<EnumMappingAttribute>();
         if (enumMappingAttribute is null)
         {
-            return [ fieldInfo.Name ];
+            return [ new EnumName(fieldInfo.Name, caseSensitiveDefault) ];
         }
 
-        return enumMappingAttribute.IncludeActualEnumName ? [ fieldInfo.Name, ..enumMappingAttribute.Names ] : enumMappingAttribute.Names;
+        return enumMappingAttribute.IncludeActualEnumName
+            ?
+            [ new EnumName(fieldInfo.Name, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault)),
+              ..enumMappingAttribute.Names.Select(n => new EnumName(n, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault))) ]
+            : GetFromNames(enumMappingAttribute.Names, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault));
     }
+
+    private static IEnumerable<EnumName> GetFromNames(IEnumerable<string?> names, bool caseSensitiveDefault) =>
+        names.Select(n => new EnumName(n, caseSensitiveDefault));
 }
