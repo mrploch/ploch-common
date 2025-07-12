@@ -7,33 +7,24 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AutoFixture" />
-    <PackageReference Include="AutoFixture.Xunit2" />
-    <PackageReference Include="coverlet.msbuild" />
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="FluentAssertions.Analyzers" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
-    <PackageReference Include="Moq.Analyzers" />
-    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.analyzers" />
+    <PackageReference Include="AutoFixture"/>
+    <PackageReference Include="AutoFixture.Xunit2"/>
+    <PackageReference Include="coverlet.msbuild"/>
+    <PackageReference Include="FluentAssertions"/>
+    <PackageReference Include="FluentAssertions.Analyzers"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+    <PackageReference Include="Moq"/>
+    <PackageReference Include="Moq.Analyzers"/>
+    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq"/>
+    <PackageReference Include="xunit"/>
+    <PackageReference Include="xunit.analyzers"/>
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Common.Serialization.SystemTextJson\Ploch.Common.Serialization.SystemTextJson.csproj" />
-    <ProjectReference Include="..\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
+    <ProjectReference Include="..\..\src\Common.Serialization.SystemTextJson\Ploch.Common.Serialization.SystemTextJson.csproj"/>
+    <ProjectReference Include="..\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj"/>
   </ItemGroup>
 </Project>

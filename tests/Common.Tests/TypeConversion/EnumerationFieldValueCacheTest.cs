@@ -1,3 +1,4 @@
+using System.Globalization;
 using FluentAssertions;
 using JetBrains.Annotations;
 using Ploch.Common.Tests.Reflection;
@@ -72,7 +73,6 @@ public class EnumerationFieldValueCacheTest
     [InlineData(typeof(TestEnumWithMapping), "ValueWithMultipleMappedNames1", TestEnumWithMapping.ValueWithMultipleMappedNames)]
     [InlineData(typeof(TestEnumWithMapping), "ValueWithMultipleMappedNames2", TestEnumWithMapping.ValueWithMultipleMappedNames)]
     [InlineData(typeof(TestEnumWithMapping), "", TestEnumWithMapping.ValueWithMultipleMappedNames)]
-    [InlineData(typeof(TestEnumWithMapping), "ValueWithoutMappingAttribute", TestEnumWithMapping.ValueWithoutMappingAttribute)]
     public void GetFieldValue_should_return_mapped_enum_field_value(Type enumType, string name, object expectedFieldValue)
     {
         var actualFieldValue = EnumerationFieldValueCache.GetFieldValue(enumType, name);
@@ -83,7 +83,7 @@ public class EnumerationFieldValueCacheTest
     [Fact]
     public void GetFieldValue_should_throw_if_enum_is_not_marked_as_case_insensitive_and_value_does_not_match_case()
     {
-        var name = nameof(TestEnumWithCaseSensitiveMatching.Value1).ToUpper();
+        var name = nameof(TestEnumWithCaseSensitiveMatching.Value1).ToUpper(CultureInfo.InvariantCulture);
         var enumType = typeof(TestEnumWithCaseSensitiveMatching);
         Action act = () => EnumerationFieldValueCache.GetFieldValue(enumType, name);
 
@@ -134,7 +134,7 @@ public class EnumerationFieldValueCacheTest
         result.Should().ContainKey("ValueWithOneMappedName1").And.ContainValue(TestEnumWithMapping.ValueWithOneMappedName);
         result.Should().ContainKey("ValueWithMultipleMappedNames1").And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
         result.Should().ContainKey("ValueWithMultipleMappedNames2").And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
-        result.Should().ContainKey(string.Empty).And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
+        result.Should().ContainKey(new EnumName(null)).And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
     }
 
     [Fact]

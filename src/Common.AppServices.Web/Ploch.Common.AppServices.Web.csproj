@@ -18,22 +18,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-    <None Remove="Ploch.Common.AppServices.Web.xml" />
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>
+    <None Remove="Ploch.Common.AppServices.Web.xml"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common.AppServices\Ploch.Common.AppServices.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <ProjectReference Include="..\Common.AppServices\Ploch.Common.AppServices.csproj"/>
   </ItemGroup>
 </Project>

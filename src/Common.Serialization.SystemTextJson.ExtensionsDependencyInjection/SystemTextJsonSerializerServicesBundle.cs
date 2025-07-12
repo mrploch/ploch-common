@@ -5,28 +5,17 @@ using Ploch.Common.DependencyInjection;
 namespace Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection;
 
 /// <summary>
-///     A services bundle that registers <see cref="SystemTextJsonSerializer" /> and related services
-///     in the dependency injection container.
+///     Represents a services bundle for registering and configuring the System.Text.Json-based serializer
+///     within a dependency injection container.
 /// </summary>
-public class SystemTextJsonSerializerServicesBundle : IServicesBundle
+/// <remarks>
+///     This class uses the <see cref="JsonSerializerOptions" /> provided during initialization to configure
+///     the <see cref="SystemTextJsonSerializer" /> as the implementation for several serialization-related interfaces.
+///     By default, if no options are provided, it uses the default settings from <see cref="JsonSerializerOptions.Default" />.
+/// </remarks>
+/// <param name="serializerOptions">JSON serializer options.</param>
+public class SystemTextJsonSerializerServicesBundle(JsonSerializerOptions? serializerOptions = null) : IServicesBundle
 {
-    private readonly JsonSerializerOptions _serializerOptions = JsonSerializerOptions.Default;
-
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="SystemTextJsonSerializerServicesBundle" /> class
-    ///     with default <see cref="JsonSerializerOptions" />.
-    /// </summary>
-    public SystemTextJsonSerializerServicesBundle()
-    {
-    }
-
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="SystemTextJsonSerializerServicesBundle" /> class
-    ///     with the specified <see cref="JsonSerializerOptions" />.
-    /// </summary>
-    /// <param name="serializerOptions">The JSON serializer options to use for serialization operations.</param>
-    public SystemTextJsonSerializerServicesBundle(JsonSerializerOptions serializerOptions) => _serializerOptions = serializerOptions;
-
     /// <summary>
     ///     Configures the service collection by registering the <see cref="SystemTextJsonSerializer" />
     ///     as various serializer interfaces and the configured <see cref="JsonSerializerOptions" />.
@@ -34,10 +23,12 @@ public class SystemTextJsonSerializerServicesBundle : IServicesBundle
     /// <param name="services">The service collection to configure.</param>
     public void Configure(IServiceCollection services)
     {
-        services.AddSingleton<ISerializer, SystemTextJsonSerializer>()
-                .AddSingleton<ISerializer<JsonSerializerOptions>, SystemTextJsonSerializer>()
-                .AddSingleton<IAsyncSerializer, SystemTextJsonSerializer>()
-                .AddSingleton<IAsyncSerializer<JsonSerializerOptions>, SystemTextJsonSerializer>()
-                .AddSingleton(_serializerOptions ?? JsonSerializerOptions.Default);
+        services.AddSingleton<SystemTextJsonSerializer>()
+                .AddSingleton<ISerializer, SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+                .AddSingleton<ISerializer<JsonSerializerOptions>, SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+                .AddSingleton<IAsyncSerializer, SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+                .AddSingleton<IAsyncSerializer<JsonSerializerOptions>,
+                    SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+                .AddSingleton(serializerOptions ?? JsonSerializerOptions.Default);
     }
 }

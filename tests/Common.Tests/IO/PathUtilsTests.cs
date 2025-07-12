@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.Versioning;
 using System.Text;
 using FluentAssertions;
 using Ploch.Common.Collections;
@@ -12,7 +13,7 @@ public class PathUtilsTests
     [Fact]
     public void GetDirectoryName_should_return_folder_name_in_provided_path()
     {
-        @"c:/myrootfolder/mysubfolder/expected-folder-name".GetDirectoryName().Should().Be("expected-folder-name");
+        "c:/myrootfolder/mysubfolder/expected-folder-name".GetDirectoryName().Should().Be("expected-folder-name");
     }
 
     [Fact]
@@ -35,26 +36,34 @@ public class PathUtilsTests
         act.Should().Throw<ArgumentException>().WithParameterName("directoryPath").WithMessage("*empty*");
     }
 
-    [Theory]
+    [SkippableTheory]
+    [SupportedOSPlatform("windows")]
     [InlineData("d:", @"D:\")]
     [InlineData("c:/", @"c:\")]
     public void GetDirectoryName_should_return_name_of_root_directory(string directoryPath, string expectedDirectoryName)
     {
+        var directoryName = directoryPath.GetDirectoryName();
+
         // For root directories, DirectoryInfo.Name returns the root name itself
-        directoryPath.GetDirectoryName().Should().Be(expectedDirectoryName);
+        directoryName.Should().Be(expectedDirectoryName);
     }
 
-    [Theory]
+    [SkippableTheory]
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\myfile.txt", @"mysubfolder\myfile.txt")]
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\my_another_sub_folder", @"mysubfolder\my_another_sub_folder")]
+    [SupportedOSPlatform("windows")]
     public void MakeRelativePath_should_return_relative_path_from_one_path_to_another(string fromPath, string toPath, string expectedRelativePath)
     {
+        PathUtils.GetRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
+    }
 
-        fromPath = fromPath.Replace('\\', Path.DirectorySeparatorChar);
-        toPath = toPath.Replace('\\', Path.DirectorySeparatorChar);
-        expectedRelativePath = expectedRelativePath.Replace('\\', Path.DirectorySeparatorChar);
-
-        PathUtils.MakeRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
+    [SkippableTheory]
+    [SupportedOSPlatform("macos")]
+    [InlineData(@"/myrootfolder", @"/myrootfolder/mysubfolder/myfile.txt", @"mysubfolder/myfile.txt")]
+    [InlineData(@"/Users/someuser/dev", @"/Users/someuser/dev/someanotherfolder/and-yet-another", @"someanotherfolder/and-yet-another")]
+    [InlineData(@"/Users/someuser/dev", @"/Users/someuser/dev/someanotherfolder/and-yet-another/test.txt", @"someanotherfolder/and-yet-another/test.txt")]
+    public void MakeRelativePath_should_return_relative_path_from_one_path_to_another_on_MacOS(string fromPath, string toPath, string expectedRelativePath)
+    {
         PathUtils.GetRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
     }
 
@@ -62,8 +71,8 @@ public class PathUtilsTests
     public void NormalizePathWithTrailingSeparator_should_add_directory_separator_to_path_that_doesnt_have_one()
     {
         // Arrange
-        var path = @"c:\myrootfolder\mysubfolder";
-        var expected = @$"c:\myrootfolder\mysubfolder{Path.DirectorySeparatorChar}";
+        var path = GenerateFolderPath(3, false);
+        var expected = path + Path.DirectorySeparatorChar;
 
         // Act
         var result = PathUtils.NormalizePathWithTrailingSeparator(path);
@@ -107,7 +116,8 @@ public class PathUtilsTests
         Path.IsPathRooted(result).Should().BeTrue();
     }
 
-    [Fact]
+    [SkippableFact(Skip = "On Linux and MacOS, the backslash is a legal character in path, hence it's not modified")]
+    [SupportedOSPlatform("windows")]
     public void NormalizePathWithTrailingSeparator_should_handle_paths_with_mixed_separators()
     {
         // Arrange
@@ -122,7 +132,8 @@ public class PathUtilsTests
         result.Should().EndWith(Path.DirectorySeparatorChar.ToString());
     }
 
-    [Fact]
+    [SkippableFact]
+    [SupportedOSPlatform("windows")]
     public void NormalizePathWithTrailingSeparator_should_properly_handle_UNC_paths()
     {
         // Arrange
@@ -142,8 +153,8 @@ public class PathUtilsTests
     public void NormalizePathWithTrailingSeparator_should_deduplicate_trailing_separators_if_multiple_exist()
     {
         // Arrange
-        var pathWithMultipleSeparators = @"c:\myrootfolder\mysubfolder\\\";
-        var expected = @$"c:\myrootfolder\mysubfolder{Path.DirectorySeparatorChar}";
+        var expected = GenerateFolderPath(3, true);
+        var pathWithMultipleSeparators = expected + Path.DirectorySeparatorChar + Path.DirectorySeparatorChar;
 
         // Act
         var result = PathUtils.NormalizePathWithTrailingSeparator(pathWithMultipleSeparators);
@@ -178,8 +189,8 @@ public class PathUtilsTests
     public void NormalizePathWithoutTrailingSeparator_should_remove_trailing_separator_if_present()
     {
         // Arrange
-        var pathWithTrailingSeparator = @"c:\myrootfolder\mysubfolder\";
-        var expected = @"c:\myrootfolder\mysubfolder";
+        var pathWithTrailingSeparator = GenerateFolderPath(3, true);
+        var expected = GenerateFolderPath(3, false);
 
         // Act
         var result = PathUtils.NormalizePathWithoutTrailingSeparator(pathWithTrailingSeparator);
@@ -192,8 +203,9 @@ public class PathUtilsTests
     public void NormalizePathWithoutTrailingSeparator_should_handle_paths_with_no_trailing_separator()
     {
         // Arrange
-        var pathWithoutTrailingSeparator = @"c:\myrootfolder\mysubfolder";
-        var expected = @"c:\myrootfolder\mysubfolder";
+        var pathWithoutTrailingSeparator = GenerateFolderPath(3, false);
+
+        var expected = pathWithoutTrailingSeparator;
 
         // Act
         var result = PathUtils.NormalizePathWithoutTrailingSeparator(pathWithoutTrailingSeparator);
@@ -218,21 +230,8 @@ public class PathUtilsTests
         Path.IsPathRooted(result).Should().BeTrue();
     }
 
-    [Fact]
-    public void NormalizePathWithoutTrailingSeparator_should_handle_paths_with_mixed_separators()
-    {
-        // Arrange
-        var pathWithMixedSeparators = @"c:\myrootfolder/mysubfolder\anotherfolder/";
-        var expected = @"c:\myrootfolder\mysubfolder\anotherfolder";
-
-        // Act
-        var result = PathUtils.NormalizePathWithoutTrailingSeparator(pathWithMixedSeparators);
-
-        // Assert
-        result.Should().Be(expected);
-    }
-
-    [Fact]
+    [SkippableFact]
+    [SupportedOSPlatform("windows")]
     public void NormalizePathWithoutTrailingSeparator_should_properly_handle_UNC_paths()
     {
         // Arrange
@@ -250,8 +249,9 @@ public class PathUtilsTests
     public void NormalizePathWithoutTrailingSeparator_should_remove_multiple_trailing_separators()
     {
         // Arrange
-        var pathWithMultipleTrailingSeparators = @"c:\myrootfolder\mysubfolder\\\//";
-        var expected = @"c:\myrootfolder\mysubfolder";
+        var path = GenerateFolderPath(3, false);
+        var pathWithMultipleTrailingSeparators = path + (Environment.OSVersion.IsWindows() ? @"\\\//" : "///");
+        var expected = path;
 
         // Act
         var result = PathUtils.NormalizePathWithoutTrailingSeparator(pathWithMultipleTrailingSeparators);
@@ -260,12 +260,16 @@ public class PathUtilsTests
         result.Should().Be(expected);
     }
 
-    [Fact]
+    [SkippableFact]
+    [SupportedOSPlatform("windows")]
     public void NormalizePathWithoutTrailingSeparator_should_handle_paths_with_both_types_of_directory_separators()
     {
         // Arrange
-        var pathWithBothSeparators = @"c:\myrootfolder/subfolder1\subfolder2/subfolder3";
-        var expected = @"c:\myrootfolder\subfolder1\subfolder2\subfolder3";
+        var pathWithBothSeparators =
+            $"c:{Path.DirectorySeparatorChar}myrootfolder{Path.AltDirectorySeparatorChar}subfolder1{Path.DirectorySeparatorChar}subfolder2{Path.AltDirectorySeparatorChar}subfolder3";
+
+        var expected =
+            $"c:{Path.DirectorySeparatorChar}myrootfolder{Path.DirectorySeparatorChar}subfolder1{Path.DirectorySeparatorChar}subfolder2{Path.DirectorySeparatorChar}subfolder3";
 
         // Act
         var result = PathUtils.NormalizePathWithoutTrailingSeparator(pathWithBothSeparators);
@@ -274,7 +278,8 @@ public class PathUtilsTests
         result.Should().Be(expected);
     }
 
-    [Fact]
+    [SkippableFact]
+    [SupportedOSPlatform("windows")]
     public void NormalizePathWithoutTrailingSeparator_should_maintain_consistent_behavior_across_platforms()
     {
         // Arrange
@@ -295,7 +300,7 @@ public class PathUtilsTests
     {
         // Arrange
         var inputWithInvalidChars = "file:name*with?invalid/\\chars<>|";
-        var expectedSafeFileName = "file_name_with_invalid__chars___";
+        var expectedSafeFileName = Environment.OSVersion.IsWindows() ? "file_name_with_invalid__chars___" : "file:name*with?invalid_\\chars<>|";
 
         // Act
         var result = PathUtils.ToSafeFileName(inputWithInvalidChars);
@@ -409,5 +414,48 @@ public class PathUtilsTests
         // Assert
         result.Should().Be(expectedSafeFileName.ToString());
         result.Should().NotContainAny(Path.GetInvalidFileNameChars().Select(c => c.ToString()));
+    }
+
+    private static string GenerateFolderPath(int levels, bool pathSeparatorSuffix)
+    {
+        var sb = new StringBuilder();
+
+        sb.Append(GenerateRoot());
+        for (var level = 0; level < levels; level++)
+        {
+            if (level == 0)
+            {
+                sb.Append("root");
+            }
+            else
+            {
+#pragma warning disable CA1305 // Specify IFormatProvider - false/positive
+                sb.Append(Path.DirectorySeparatorChar).Append($"folder{level}");
+#pragma warning restore CA1305
+            }
+        }
+
+        if (pathSeparatorSuffix)
+        {
+            sb.Append(Path.DirectorySeparatorChar);
+        }
+
+        var result = sb.ToString();
+        if (!pathSeparatorSuffix)
+        {
+            result.Should().NotEndWith(Path.DirectorySeparatorChar.ToString()).And.NotEndWith(Path.AltDirectorySeparatorChar.ToString());
+        }
+
+        return result;
+    }
+
+    private static string GenerateRoot()
+    {
+        if (Environment.OSVersion.IsWindows())
+        {
+            return @"c:\";
+        }
+
+        return new string([ Path.VolumeSeparatorChar ]);
     }
 }

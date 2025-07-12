@@ -13,13 +13,10 @@ public class SystemTextJsonSerializerRegistrationTests
 
         var serializer = provider.GetRequiredService<ISerializer>();
         serializer.Should().BeOfType<SystemTextJsonSerializer>();
-        var nonAsyncSerializer = provider.GetRequiredService<ISerializer<JsonSerializerOptions>>();
-        provider.GetRequiredService<ISerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(nonAsyncSerializer);
 
-        var asyncSerializer = provider.GetRequiredService<IAsyncSerializer>();
-        provider.GetRequiredService<IAsyncSerializer>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(asyncSerializer);
-
-        provider.GetRequiredService<IAsyncSerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(asyncSerializer);
+        provider.GetRequiredService<ISerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
+        provider.GetRequiredService<IAsyncSerializer>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
+        provider.GetRequiredService<IAsyncSerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
     }
 
     [Fact]

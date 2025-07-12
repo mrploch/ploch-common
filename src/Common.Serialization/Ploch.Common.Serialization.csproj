@@ -11,19 +11,10 @@
     <DocumentationFile>bin\Release\Ploch.Common.Serialization.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" />
+    <PackageReference Include="Dawn.Guard"/>
+    <PackageReference Include="System.Threading.Tasks.Extensions"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

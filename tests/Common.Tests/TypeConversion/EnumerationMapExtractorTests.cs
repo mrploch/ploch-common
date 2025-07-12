@@ -1,10 +1,10 @@
-﻿using FluentAssertions;
+﻿using System.Globalization;
+using FluentAssertions;
 using Ploch.Common.Tests.Reflection;
-using Ploch.Common.Tests.TypeConversion;
 using Ploch.Common.TypeConversion;
 using Xunit;
 
-namespace Ploch.Common.Windows.Tests.Wmi.ManagementObjects.TypeConversion;
+namespace Ploch.Common.Tests.TypeConversion;
 
 public class EnumerationMapExtractorTests
 {
@@ -13,7 +13,7 @@ public class EnumerationMapExtractorTests
     {
         // Arrange
         var enumType = typeof(TestTypes.TestEnum);
-        var fieldName = nameof(TestTypes.TestEnum.FirstValue);
+        var fieldName = new EnumName(nameof(TestTypes.TestEnum.FirstValue));
 
         // Act
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
@@ -62,7 +62,7 @@ public class EnumerationMapExtractorTests
     public void GetFieldValue_should_return_mapped_enum_field_value(Type enumType, string name, object expectedFieldValue)
     {
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
-        var actualFieldValue = valueMap[name];
+        var actualFieldValue = valueMap.FirstOrDefault(m => m.Key == name).Value;
 
         actualFieldValue.Should().Be(expectedFieldValue);
     }
@@ -70,7 +70,7 @@ public class EnumerationMapExtractorTests
     [Fact]
     public void GetEnumFieldValueMap_should_throw_if_enum_is_not_marked_as_case_insensitive_and_value_does_not_match_case()
     {
-        var name = nameof(EnumerationFieldValueCacheTest.TestEnumWithCaseSensitiveMatching.Value1).ToUpper();
+        var name = nameof(EnumerationFieldValueCacheTest.TestEnumWithCaseSensitiveMatching.Value1).ToUpper(CultureInfo.InvariantCulture);
         var enumType = typeof(EnumerationFieldValueCacheTest.TestEnumWithCaseSensitiveMatching);
 
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
@@ -102,8 +102,8 @@ public class EnumerationMapExtractorTests
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
 
         // Assert
-        valueMap.Should().ContainKey(nameof(TestTypes.TestEnum.FirstValue)).And.ContainValue(TestTypes.TestEnum.FirstValue);
-        valueMap.Should().ContainKey(nameof(TestTypes.TestEnum.SecondValue)).And.ContainValue(TestTypes.TestEnum.SecondValue);
+        valueMap.Should().ContainKey(new EnumName(nameof(TestTypes.TestEnum.FirstValue))).And.ContainValue(TestTypes.TestEnum.FirstValue);
+        valueMap.Should().ContainKey(new EnumName(nameof(TestTypes.TestEnum.SecondValue))).And.ContainValue(TestTypes.TestEnum.SecondValue);
     }
 
     [Fact]
@@ -128,7 +128,7 @@ public class EnumerationMapExtractorTests
         valueMap.Should()
                 .ContainKey("ValueWithMultipleMappedNames2")
                 .And.ContainValue(EnumerationFieldValueCacheTest.TestEnumWithMapping.ValueWithMultipleMappedNames);
-        valueMap.Should().ContainKey(string.Empty).And.ContainValue(EnumerationFieldValueCacheTest.TestEnumWithMapping.ValueWithMultipleMappedNames);
+        valueMap.Should().ContainKey(new EnumName(null)).And.ContainValue(EnumerationFieldValueCacheTest.TestEnumWithMapping.ValueWithMultipleMappedNames);
     }
 
     [Fact]

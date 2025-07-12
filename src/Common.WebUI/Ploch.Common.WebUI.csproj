@@ -7,29 +7,10 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
-    <PackageReference Include="Microsoft.AspNetCore.Authorization" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
+    <PackageReference Include="Dawn.Guard"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authorization"/>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Update="Roslynator.Analyzers" Version="4.13.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="Roslynator.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.6.0.109712" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
 </Project>

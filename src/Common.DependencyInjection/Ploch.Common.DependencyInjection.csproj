@@ -5,34 +5,17 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
-    <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" />
-    <PackageReference Include="Testably.Abstractions.FileSystem.Interface" />
+    <PackageReference Include="Dawn.Guard"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+    <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers"/>
+    <PackageReference Include="Testably.Abstractions.FileSystem.Interface"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
+
   <ItemGroup>
-    <PackageVersion Update="Roslynator.Analyzers" Version="4.13.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="Roslynator.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Ploch.Common.csproj" />
+    <ProjectReference Include="..\Common\Ploch.Common.csproj"/>
   </ItemGroup>
 </Project>

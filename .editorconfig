@@ -22,15 +22,12 @@ indent_size = 2
 [{action.yml,super-linter.yml,workflow.yml}]
 indent_size = 2
 
-[{*.sarif,*.sarif,*.json,*.sarif.json}]
+[{*.sarif,*.json,*.sarif.json}]
 indent_size = 2
 
-[{*.csproj, *.xml,*.props,*.targets,*.wxi,*.wxl,*.wxs,*.DotSettings,*.slnx}]
+[*.{csproj,xml,props,targets,wxi,wxl,wxs,DotSettings,slnx,ruleset}]
 indent_size = 2
 tab_width = 2
-
-[{*.har,*.jsb2,*.jsb3,*.jsonc,*.postman_collection,*.postman_collection.json,*.postman_environment,*.postman_environment.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,.ws-context,jest.config}]
-indent_size = 2
 
 [*.{appxmanifest,asax,ascx,aspx,axaml,axml,blockshader,build,c,c++,c++m,cc,ccm,cginc,compute,config,cp,cpp,cppm,cs,cshtml,cu,cuh,cxx,cxxm,dbml,discomap,dtd,feature,fs,fsi,fsscript,fsx,fx,fxh,h,h++,hh,hlsl,hlsli,hlslinc,hp,hpp,htm,html,hxx,icc,inc,inl,ino,ipp,ixx,jsproj,lsproj,master,ml,mli,mpp,mq4,mq5,mqh,mxx,njsproj,nuspec,paml,proj,razor,resw,resx,shader,shaderFoundry,skin,StyleCop,tasks,tcc,tpp,urtshader,usf,ush,uxml,vb,vbproj,xaml,xamlx,xoml,xsd}]
 indent_size = 4
@@ -212,6 +209,7 @@ dotnet_diagnostic.cc0022.severity = none # Object should be disposed - gives fal
 dotnet_diagnostic.cc0031.severity = none # Verify delegate is not null - gives false positives
 dotnet_diagnostic.cc0091.severity = none # Make method static - gives false positives and marks methods that use instance members
 dotnet_diagnostic.cc0108.severity = warning
+dotnet_diagnostic.cc0057.severity = none # Unused parameter - gives false positives
 
 ## Properties: 'dotnet_diagnostic.cs'
 ### Nullability
@@ -278,15 +276,15 @@ dotnet_diagnostic.faa0002.severity = warning
 
 ## Properties: 'dotnet_diagnostic.IDE'
 dotnet_diagnostic.IDE0001.severity = suggestion # Simplify name
-dotnet_diagnostic.IDE0002.severity = true:error # Simplify name
+dotnet_diagnostic.IDE0002.severity = error # Simplify name
 dotnet_diagnostic.IDE0018.severity = warning # Inline variable declaration
 
 ## Properties: 'dotnet_diagnostic.nu'
 dotnet_diagnostic.nu1507.severity = none # Use nameof operator
 
-## Properties: 'dotnet_diagnostic.rcs'
-dotnet_diagnostic.rcs1169.severity = suggestion
-dotnet_diagnostic.RCS1196.severity = false:error # TODO: Evaluate
+## Properties: 'dotnet_diagnostic.rcs' - Roslynator
+dotnet_diagnostic.rcs1169.severity = suggestion # Make field read-only
+dotnet_diagnostic.rcs1194.severity = suggestion # Implement standard Exception constructors
 
 ## Properties: 'dotnet_diagnostic.s'
 dotnet_diagnostic.s1451.severity = none
@@ -299,7 +297,6 @@ dotnet_diagnostic.sa1009.severity = none # Closing parenthesis should be spaced 
 dotnet_diagnostic.sa1010.severity = none # Square bracket should not be proceeded by a space - gives false positive for collection initializers []
 dotnet_diagnostic.sa1011.severity = none # Closing square brackets should be spaced correctly
 dotnet_diagnostic.sa1101.severity = none # Prefix local calls with this
-dotnet_diagnostic.SA1003.severity = none # : should not appear at the end of a line
 dotnet_diagnostic.sa1106.severity = warning
 dotnet_diagnostic.sa1116.severity = none # Split parameters should start on line after opening parenthesis
 dotnet_diagnostic.sa1127.severity = none # Generic type parameters should be documented
@@ -316,9 +313,7 @@ dotnet_diagnostic.sa1502.severity = none # element containing opening and closin
 dotnet_diagnostic.sa1600.severity = none # Elements should be documented
 dotnet_diagnostic.sa1623.severity = none # Property summary documentation should match accessors
 dotnet_diagnostic.sa1633.severity = none # File should have header
-dotnet_diagnostic.sa1636.severity = none # File should have copyright notice
 dotnet_diagnostic.sa1640.severity = none # File header should have summary
-dotnet_diagnostic.sa1641.severity = none # The file header at the top of a C# code file does not contain the appropriate company name text
 dotnet_diagnostic.sa1649.severity = warning # File name should match first type name.
 
 ## Properties: 'dotnet_diagnostic.spectre' - Spectre.Console
@@ -378,14 +373,14 @@ dotnet_naming_rule.private_or_internal_field_should_be_prefixedcamelcase.symbols
 dotnet_naming_rule.private_static_fields_rule.import_to_resharper = True
 dotnet_naming_rule.private_static_fields_rule.resharper_description = Static fields (private)
 dotnet_naming_rule.private_static_fields_rule.resharper_guid = f9fce829-e6f4-4cb2-80f1-5497c44f51df
-dotnet_naming_rule.private_static_fields_rule.resharper_style = upper_camel_case_style
+dotnet_naming_rule.private_static_fields_rule.resharper_style = _ + aaBb, AaBb
 dotnet_naming_rule.private_static_fields_rule.severity = warning
 dotnet_naming_rule.private_static_fields_rule.style = lower_camel_case_style
 dotnet_naming_rule.private_static_fields_rule.symbols = private_static_fields_symbols
 dotnet_naming_rule.private_static_readonly_rule.import_to_resharper = True
 dotnet_naming_rule.private_static_readonly_rule.resharper_description = Static readonly fields (private)
 dotnet_naming_rule.private_static_readonly_rule.resharper_guid = 15b5b1f1-457c-4ca6-b278-5615aedc07d3
-dotnet_naming_rule.private_static_readonly_rule.resharper_style = upper_camel_case_style
+dotnet_naming_rule.private_static_readonly_rule.resharper_style = _ + aaBb, AaBb
 dotnet_naming_rule.private_static_readonly_rule.severity = warning
 dotnet_naming_rule.private_static_readonly_rule.style = lower_camel_case_style
 dotnet_naming_rule.private_static_readonly_rule.symbols = private_static_readonly_symbols
@@ -538,8 +533,8 @@ dotnet_style_qualification_for_event = false:suggestion
 dotnet_style_qualification_for_field = false:suggestion
 dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_property = false:suggestion
-dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
 dotnet_style_readonly_field = true:suggestion # Readonly fields should be preferred over mutable fields
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
 
 # ReSharper settings
 resharper_align_linq_query = true
@@ -602,7 +597,7 @@ resharper_csharp_place_type_constraints_on_same_line = true
 resharper_csharp_wrap_arguments_style = chop_if_long
 resharper_csharp_wrap_chained_method_calls = chop_if_long
 resharper_csharp_wrap_parameters_style = chop_if_long
-resharper_force_attribute_style = separate # TODO: Evaluate
+
 resharper_enforce_line_ending_style = true
 resharper_exception_not_documented_highlighting = hint
 resharper_heap_view_object_allocation_evident_highlighting = none
@@ -672,16 +667,9 @@ resharper_wrap_after_primary_constructor_declaration_lpar = false
 resharper_wrap_before_primary_constructor_declaration_lpar = false
 resharper_wrap_chained_method_calls = chop_if_long
 resharper_wrap_list_pattern = chop_if_long
-resharper_csharp_keep_existing_attribute_arrangement = true # TODO: Evaluate
-resharper_csharp_keep_existing_declaration_block_arrangement = true # TODO: Evaluate
-resharper_keep_existing_attribute_arrangement = true # TODO: Evaluate
 
-# Experimental - trying to fix some Rider & Resharper formatting issues
-resharper_wrap_long_line = false # TODO: Evaluate
+resharper_parameter_type_can_be_enumerable_local_highlighting = suggestion
+resharper_parameter_type_can_be_enumerable_global_highlighting = suggestion
+resharper_csharp_outdent_commas = true
 
-## New Settings
-
-### Roslynator
-# Format block's braces on single line or multiple lines
-# Default value is multi_line
-
+resharper_class_with_virtual_members_never_inherited_global_highlighting = hint
