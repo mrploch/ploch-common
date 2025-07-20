@@ -1,8 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 #pragma warning disable CS8603 // Possible null reference return.
 
-namespace Ploch.Common.Tests.Reflection;
+namespace Ploch.Common.Tests.TestTypes.TestingTypes;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
@@ -325,15 +327,15 @@ public static class TestTypes
 
     public class TestClassWithStaticFieldsAndProperties
     {
-        public static string PrivateStaticField = "Private Static Property";
         public const string PrivateStaticPropName = nameof(PrivateStaticProp);
-        public static string ProtectedStaticField = "Protected Static Property";
         public const string ProtectedStaticPropName = nameof(ProtectedStaticProp);
-        public static string InternalStaticField = "Internal Static Property";
         public const string InternalStaticPropName = nameof(InternalStaticProp);
+        public const string PublicStaticPropName = nameof(PublicStaticProp);
+        public static string PrivateStaticField = "Private Static Property";
+        public static string ProtectedStaticField = "Protected Static Property";
+        public static string InternalStaticField = "Internal Static Property";
 
         public static string PublicStaticField = "Public Static Property";
-        public const string PublicStaticPropName = nameof(PublicStaticProp);
 
         public static string PublicStaticProp { get; set; } = PublicStaticField;
 
@@ -346,8 +348,8 @@ public static class TestTypes
 
     public class ClassWithPrivateMembers
     {
-        private string _privateField = PrivateFieldValue;
         public const string PrivateFieldName = nameof(_privateField);
         public static string PrivateFieldValue = Guid.NewGuid().ToString();
+        private string _privateField = PrivateFieldValue;
     }
 }
