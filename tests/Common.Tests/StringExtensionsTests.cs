@@ -2,7 +2,6 @@
 using System.Text;
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
-using Xunit;
 
 namespace Ploch.Common.Tests;
 
@@ -16,7 +15,7 @@ public class StringExtensionsTests
         string nullString = null;
         nullString.IsNullOrEmpty().Should().BeTrue();
 
-        "".IsNullOrEmpty().Should().BeTrue();
+        string.Empty.IsNullOrEmpty().Should().BeTrue();
     }
 
     [Theory]

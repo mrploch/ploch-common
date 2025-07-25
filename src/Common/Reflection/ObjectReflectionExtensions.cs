@@ -7,12 +7,6 @@ using Ploch.Common.Collections;
 
 namespace Ploch.Common.Reflection;
 
-public static class TypeHelper
-{
-    public static IDictionary<string, object?> GetStaticFieldValues<TType>(BindingFlags bindingFlags = BindingFlags.Public) =>
-        ObjectReflectionExtensions.GetFieldValues<TType>(default, bindingFlags | BindingFlags.Static);
-}
-
 /// <summary>
 ///     Provides extension methods for working with object reflection.
 /// </summary>

@@ -143,21 +143,21 @@ public static partial class Guard
                                        string? message = null,
                                        IFormatProvider? formatProvider = null) where T : class
     {
-        if (argument == null)
+        if (argument != null)
         {
-            if (memberName is null && message is null)
-            {
-                throw new InvalidOperationException("Both memberName and message arguments cannot be null at the same time.");
-            }
-
-            var format = message != null ?
-                             string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName) :
-                             $"Variable {memberName} is null, but was expected to not be null.";
-
-            throw new InvalidOperationException(format);
+            return argument;
         }
 
-        return argument;
+        if (memberName is null && message is null)
+        {
+            throw new InvalidOperationException("Both memberName and message arguments cannot be null at the same time.");
+        }
+
+        var format = message != null
+            ? string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName)
+            : $"Variable {memberName} is null, but was expected to not be null.";
+
+        throw new InvalidOperationException(format);
     }
 
     /// <summary>
@@ -189,6 +189,15 @@ public static partial class Guard
         return argument;
     }
 
+    /// <summary>
+    ///     Ensures that an enumerable argument is neither null nor empty.
+    /// </summary>
+    /// <typeparam name="TEnumerable">The type of the enumerable.</typeparam>
+    /// <param name="argument">The enumerable argument to check.</param>
+    /// <param name="parameterName">The name of the parameter (automatically captured from the caller).</param>
+    /// <returns>The non-null argument.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when the argument is null.</exception>
+    /// <exception cref="ArgumentException">Thrown when the argument is an empty enumerable.</exception>
     [AssertionMethod]
     [method: NotNull]
     public static TEnumerable NotNullOrEmpty<TEnumerable>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this TEnumerable? argument,
@@ -236,9 +245,9 @@ public static partial class Guard
 
         if (string.IsNullOrEmpty(argument))
         {
-            var format = message != null ?
-                             string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName) :
-                             $"Variable {memberName} is empty.";
+            var format = message != null
+                ? string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName)
+                : $"Variable {memberName} is empty.";
 
             throw new InvalidOperationException(format);
         }
@@ -246,6 +255,15 @@ public static partial class Guard
         return argument!;
     }
 
+    /// <summary>
+    ///     Ensures that the provided enum value is defined within its enum type.
+    /// </summary>
+    /// <typeparam name="TEnum">The enum type.</typeparam>
+    /// <param name="argument">The enum value to check.</param>
+    /// <param name="argumentName">The name of the argument being checked.</param>
+    /// <returns>The original enum value if it is defined within the enum type.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when the <paramref name="argument" /> is not defined in the enum <typeparamref name="TEnum" />.</exception>
+    [AssertionMethod]
     public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument, string argumentName)
         where TEnum : struct, Enum
     {
@@ -257,6 +275,18 @@ public static partial class Guard
         return argument;
     }
 
+    /// <summary>
+    ///     Ensures that the given value is positive (greater than the default value for its type).
+    /// </summary>
+    /// <typeparam name="TValue">The type of the value, which must be a struct and implement IComparable&lt;TValue&gt;.</typeparam>
+    /// <param name="argument">The value to check.</param>
+    /// <param name="argumentName">The name of the argument being checked.</param>
+    /// <returns>The original value if it is positive.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    ///     Thrown when the <paramref name="argument" /> is not positive (i.e., less than or equal to the default value for
+    ///     its type).
+    /// </exception>
+    [AssertionMethod]
     public static TValue Positive<TValue>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TValue argument, string argumentName)
         where TValue : struct, IComparable<TValue>
     {

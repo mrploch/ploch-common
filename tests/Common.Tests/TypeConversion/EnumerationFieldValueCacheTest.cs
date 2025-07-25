@@ -1,23 +1,22 @@
 using System.Globalization;
 using FluentAssertions;
 using JetBrains.Annotations;
-using Ploch.Common.Tests.Reflection;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
-using Xunit;
 
 namespace Ploch.Common.Tests.TypeConversion;
 
 [TestSubject(typeof(EnumerationFieldValueCache))]
 public class EnumerationFieldValueCacheTest
 {
-    [EnumConvertion]
+    [EnumConversion]
     public enum TestEnumWithCaseInsensitiveConversion
     {
         Value1,
         Value2
     }
 
-    [EnumConvertion(true)]
+    [EnumConversion(true)]
     public enum TestEnumWithCaseSensitiveMatching
     {
         Value1,
@@ -49,19 +48,19 @@ public class EnumerationFieldValueCacheTest
     public void GetFieldValue_should_return_correct_value_when_field_exists()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
-        var fieldName = nameof(TestTypes.TestEnum.FirstValue);
+        var enumType = typeof(TestEnum);
+        var fieldName = nameof(TestEnum.FirstValue);
 
         // Act
         var result = EnumerationFieldValueCache.GetFieldValue(enumType, fieldName);
 
         // Assert
-        result.Should().Be(TestTypes.TestEnum.FirstValue);
+        result.Should().Be(TestEnum.FirstValue);
     }
 
     [Theory]
-    [InlineData(typeof(TestTypes.TestEnum), "FirstValue", TestTypes.TestEnum.FirstValue)]
-    [InlineData(typeof(TestTypes.TestEnum), "SecondValue", TestTypes.TestEnum.SecondValue)]
+    [InlineData(typeof(TestEnum), "FirstValue", TestEnum.FirstValue)]
+    [InlineData(typeof(TestEnum), "SecondValue", TestEnum.SecondValue)]
     [InlineData(typeof(TestEnumWithCaseInsensitiveConversion), "Value1", TestEnumWithCaseInsensitiveConversion.Value1)]
     [InlineData(typeof(TestEnumWithCaseInsensitiveConversion), "VALUE1", TestEnumWithCaseInsensitiveConversion.Value1)]
     [InlineData(typeof(TestEnumWithCaseInsensitiveConversion), "value1", TestEnumWithCaseInsensitiveConversion.Value1)]
@@ -94,7 +93,7 @@ public class EnumerationFieldValueCacheTest
     public void GetFieldValue_should_throw_invalid_operation_exception_when_field_does_not_exist()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
+        var enumType = typeof(TestEnum);
         var fieldName = "NonExistentField";
 
         // Act
@@ -108,14 +107,14 @@ public class EnumerationFieldValueCacheTest
     public void GetFieldsMapping_should_return_correct_mapping_for_valid_enum()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
+        var enumType = typeof(TestEnum);
 
         // Act
         var result = EnumerationFieldValueCache.GetFieldsMapping(enumType);
 
         // Assert
-        result.Should().ContainKey(nameof(TestTypes.TestEnum.FirstValue)).And.ContainValue(TestTypes.TestEnum.FirstValue);
-        result.Should().ContainKey(nameof(TestTypes.TestEnum.SecondValue)).And.ContainValue(TestTypes.TestEnum.SecondValue);
+        result.Should().ContainKey(nameof(TestEnum.FirstValue)).And.ContainValue(TestEnum.FirstValue);
+        result.Should().ContainKey(nameof(TestEnum.SecondValue)).And.ContainValue(TestEnum.SecondValue);
     }
 
     [Fact]

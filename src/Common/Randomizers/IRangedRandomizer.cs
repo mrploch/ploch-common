@@ -1,5 +1,8 @@
 ﻿namespace Ploch.Common.Randomizers;
 
+/// <summary>
+///     Represents an interface for generating random values of a specified type within a specified range.
+/// </summary>
 public interface IRangeRandomizer : IRandomizer
 {
     /// <summary>
@@ -8,7 +11,7 @@ public interface IRangeRandomizer : IRandomizer
     /// <param name="minValue">The minimum value of the generated range.</param>
     /// <param name="maxValue">The maximum value of the generated range.</param>
     /// <returns>A randomly generated value of the specified type within the range.</returns>
-    object GetRandomValue(object minValue, object maxValue);
+    new object GetRandomValue(object minValue, object maxValue);
 }
 
 /// <summary>

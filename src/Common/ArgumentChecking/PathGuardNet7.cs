@@ -15,9 +15,8 @@ namespace Ploch.Common.ArgumentChecking;
 public static partial class PathGuard
 {
     private const string InvalidPathMessageFormat = "The provided path contains invalid characters: {0}, parameter name: {1}";
-    private const string PathDoesNotExistMessageFormat = "The path does not exist: {0}";
-
 #if NET7_0_OR_GREATER
+    private const string PathDoesNotExistMessageFormat = "The path does not exist: {0}";
     /// <summary>
     ///     Validates that the provided string is a valid file system path.
     /// </summary>

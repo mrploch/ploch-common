@@ -7,7 +7,8 @@
     <Description>Utility and extension methods for the core .NET types and common development tasks.</Description>
     <PackageTags>common;utility;common-library;core</PackageTags>
     <!--<TargetFramework>net7.0</TargetFramework>-->
-    <TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <FileVersion>2.0.0</FileVersion>
     <!--<TargetFramework>netstandard2.0</TargetFramework>-->
     <!--    <BuildTarget>3</BuildTarget>
 
@@ -30,10 +31,10 @@
     <AnalysisLevel>latest-all</AnalysisLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" />
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-    <None Remove="Ploch.Common.xml" />
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>
+    <None Remove="Ploch.Common.xml"/>
   </ItemGroup>
 </Project>

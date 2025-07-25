@@ -13,7 +13,7 @@ namespace Ploch.Common.Matchers;
 ///     methods to check if a string matches any of the patterns.
 /// </remarks>
 /// <param name="regexList">A collection of regular expression patterns to match against.</param>
-/// <param name="nullValueMatchResult">A match value to return if the checked value is <c>null</c></param>
+/// <param name="nullValueMatchResult">A match value to return if the checked value is <c>null</c>.</param>
 /// <param name="compiled">Indicates whether to compile the regular expressions for improved performance. Default is true.</param>
 /// <param name="ignoreCase">Indicates whether case should be ignored when matching. Default is true.</param>
 public class RegexListEvaluator(IEnumerable<string> regexList, bool nullValueMatchResult = false, bool compiled = true, bool ignoreCase = true) : IStringMatcher

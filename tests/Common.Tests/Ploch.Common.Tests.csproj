@@ -64,5 +64,6 @@
     <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj"/>
     <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj"/>
     <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj"/>
+    <ProjectReference Include="..\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj"/>
   </ItemGroup>
 </Project>

@@ -3,8 +3,7 @@ using AutoFixture;
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
-using Ploch.Common.Tests.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Xunit.Abstractions;
 
 namespace Ploch.Common.Tests.Collections;
@@ -77,7 +76,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     [Fact]
     public void Join_should_string_join_objects_enumerable_with_different_final_separator()
     {
-        var testObjects = new TestTypes.MyTestClass[] { new() { IntProp = 1 }, new() { IntProp = 2 }, new() { IntProp = 3 } };
+        var testObjects = new MyTestClass[] { new() { IntProp = 1 }, new() { IntProp = 2 }, new() { IntProp = 3 } };
 
         var join = testObjects.JoinWithFinalSeparator(", ", " and ", o => o.IntProp);
 
@@ -466,17 +465,17 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
 
         private class DisposableEnumeratorStub(IEnumerator innerEnumerator, Action onDispose) : IEnumerator, IDisposable
         {
-            public object? Current => innerEnumerator.Current;
-
-            public bool MoveNext() => innerEnumerator.MoveNext();
-
-            public void Reset() => innerEnumerator.Reset();
-
             public void Dispose()
             {
                 onDispose();
                 (innerEnumerator as IDisposable)?.Dispose();
             }
+
+            public object? Current => innerEnumerator.Current;
+
+            public bool MoveNext() => innerEnumerator.MoveNext();
+
+            public void Reset() => innerEnumerator.Reset();
         }
     }
 
@@ -508,11 +507,11 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
 
         public bool WasDisposed { get; private set; }
 
-        public object? Current => _enumerator.Current;
+        public void Dispose() => WasDisposed = true;
 
         public IEnumerator GetEnumerator() => this;
 
-        public void Dispose() => WasDisposed = true;
+        public object? Current => _enumerator.Current;
 
         public bool MoveNext() => _enumerator.MoveNext();
 

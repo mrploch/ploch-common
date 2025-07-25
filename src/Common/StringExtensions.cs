@@ -12,12 +12,58 @@ namespace Ploch.Common;
 /// </summary>
 public static partial class StringExtensions
 {
+#if NET7_0_OR_GREATER
+    [GeneratedRegex("[^_a-zA-Z0-9]")]
+    private static partial Regex InvalidCharsRegex();
+
+    [GeneratedRegex("(?<=\\s)")]
+    private static partial Regex WhiteSpaceRegex();
+
+    [GeneratedRegex("^[a-z]")]
+    private static partial Regex StartsWithLowerCaseCharRegex();
+
+    [GeneratedRegex("(?<=[A-Z])[A-Z0-9]+$")]
+    private static partial Regex FirstCharFollowedByUpperCasesOnlyRegex();
+
+    [GeneratedRegex("(?<=[0-9])[a-z]")]
+    private static partial Regex LowerCaseNextToNumberRegex();
+
+    [GeneratedRegex("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))")]
+    private static partial Regex UpperCaseInsideRegex();
+#else
+    private static readonly Regex InvalidCharsRegexField = new("[^_a-zA-Z0-9]");
+
+    private static readonly Regex WhiteSpaceRegexField = new("(?<=\\s)");
+
+    private static readonly Regex StartsWithLowerCaseCharRegexField = new("^[a-z]");
+
+    private static readonly Regex UpperCaseInsideRegexField = new("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))");
+
+    private static readonly Regex FirstCharFollowedByUpperCasesOnlyRegexField = new("(?<=[A-Z])[A-Z0-9]+$");
+
+    private static readonly Regex LowerCaseNextToNumberRegexField = new("(?<=[0-9])[a-z]");
+
+    private static Regex InvalidCharsRegex() => InvalidCharsRegexField;
+
+    private static Regex StartsWithLowerCaseCharRegex() => StartsWithLowerCaseCharRegexField;
+
+    private static Regex FirstCharFollowedByUpperCasesOnlyRegex() => FirstCharFollowedByUpperCasesOnlyRegexField;
+
+    private static Regex LowerCaseNextToNumberRegex() => LowerCaseNextToNumberRegexField;
+
+    private static Regex WhiteSpaceRegex() => WhiteSpaceRegexField;
+
+    private static Regex UpperCaseInsideRegex() => UpperCaseInsideRegexField;
+#endif
+
     /// <summary>
     ///     Extension method that determines if a string is not <c>null</c> or empty.
     /// </summary>
     /// <param name="str">The string to check.</param>
     /// <returns><c>true</c> if the string is not <c>null</c> or empty; otherwise, <c>false</c>.</returns>
+#pragma warning disable SA1202
     public static bool IsNotNullOrEmpty(this string? str) => !str.IsNullOrEmpty();
+#pragma warning restore SA1202
 
     /// <summary>
     ///     Extension method version of <see cref="string.IsNullOrEmpty" />.
@@ -60,7 +106,7 @@ public static partial class StringExtensions
     public static string ToBase64String(this string str) => str.ToBase64String(Encoding.UTF8);
 
     /// <summary>
-    ///     Encodes a string as base64 string.
+    ///     Encodes a string as a base64 string.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="encoding">The encoding to use.</param>
@@ -99,7 +145,7 @@ public static partial class StringExtensions
     /// </summary>
     /// <param name="str">The first string to compare.</param>
     /// <param name="other">The second string to compare.</param>
-    /// <returns><c>true</c> if strings are equal ignoring case, <c>false</c> otherwise.</returns>
+    /// <returns><c>true</c> if strings are equal ignoring the case, <c>false</c> otherwise.</returns>
     public static bool EqualsIgnoreCase(this string? str, string? other)
     {
         if (str == null && other == null)
@@ -117,13 +163,13 @@ public static partial class StringExtensions
 
     /// <summary>
     ///     Replaces the
-    ///     <param name="oldValue"></param>
+    ///     <paramref name="oldValue"></paramref>
     ///     with
-    ///     <param name="newValue"></param>
+    ///     <paramref name="newValue"></paramref>
     ///     in the string
-    ///     <param name="str"></param>
+    ///     <paramref name="str"></paramref>
     ///     if the string starts with
-    ///     <param name="oldValue"></param>
+    ///     <paramref name="oldValue"></paramref>
     ///     .
     /// </summary>
     /// <param name="str">The string.</param>
@@ -275,57 +321,18 @@ public static partial class StringExtensions
                                         .Select(w => startsWithLowerCaseChar.Replace(w, static m => m.Value.ToUpperInvariant()))
 
                                         // replace the second and all following upper case letters to lower if there is no next lower (ABC -> Abc)
+#pragma warning disable CA1308 // Normalize strings to uppercase
                                         .Select(w => firstCharFollowedByUpperCasesOnly.Replace(w, static m => m.Value.ToLowerInvariant()))
+#pragma warning restore CA1308
 
                                         // set the upper case the first lower case following a number (Ab9cd -> Ab9Cd)
                                         .Select(w => lowerCaseNextToNumber.Replace(w, static m => m.Value.ToUpperInvariant()))
 
                                         // lower second and next upper case letters except the last if it follows by any lower (ABcDEf -> AbcDef)
+#pragma warning disable CA1308 // Normalize strings to uppercase
                                         .Select(w => upperCaseInside.Replace(w, static m => m.Value.ToLowerInvariant()));
+#pragma warning restore CA1308
 
         return string.Concat(pascalCase);
     }
-#if NET7_0_OR_GREATER
-    [GeneratedRegex("[^_a-zA-Z0-9]")]
-    private static partial Regex InvalidCharsRegex();
-
-    [GeneratedRegex("(?<=\\s)")]
-    private static partial Regex WhiteSpaceRegex();
-
-    [GeneratedRegex("^[a-z]")]
-    private static partial Regex StartsWithLowerCaseCharRegex();
-
-    [GeneratedRegex("(?<=[A-Z])[A-Z0-9]+$")]
-    private static partial Regex FirstCharFollowedByUpperCasesOnlyRegex();
-
-    [GeneratedRegex("(?<=[0-9])[a-z]")]
-    private static partial Regex LowerCaseNextToNumberRegex();
-
-    [GeneratedRegex("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))")]
-    private static partial Regex UpperCaseInsideRegex();
-#else
-    private static readonly Regex InvalidCharsRegexField = new("[^_a-zA-Z0-9]");
-
-    private static Regex InvalidCharsRegex() => InvalidCharsRegexField;
-
-    private static readonly Regex WhiteSpaceRegexField = new("(?<=\\s)");
-
-    private static Regex WhiteSpaceRegex() => WhiteSpaceRegexField;
-
-    private static readonly Regex StartsWithLowerCaseCharRegexField = new("^[a-z]");
-
-    private static Regex StartsWithLowerCaseCharRegex() => StartsWithLowerCaseCharRegexField;
-
-    private static readonly Regex FirstCharFollowedByUpperCasesOnlyRegexField = new("(?<=[A-Z])[A-Z0-9]+$");
-
-    private static Regex FirstCharFollowedByUpperCasesOnlyRegex() => FirstCharFollowedByUpperCasesOnlyRegexField;
-
-    private static readonly Regex LowerCaseNextToNumberRegexField = new("(?<=[0-9])[a-z]");
-
-    private static Regex LowerCaseNextToNumberRegex() => LowerCaseNextToNumberRegexField;
-
-    private static readonly Regex UpperCaseInsideRegexField = new("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))");
-
-    private static Regex UpperCaseInsideRegex() => UpperCaseInsideRegexField;
-#endif
 }

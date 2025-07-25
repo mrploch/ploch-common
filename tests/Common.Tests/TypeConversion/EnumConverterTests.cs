@@ -1,7 +1,6 @@
 using FluentAssertions;
-using Ploch.Common.Tests.Reflection;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
-using Xunit;
 
 namespace Ploch.Common.Tests.TypeConversion;
 
@@ -74,7 +73,7 @@ public class EnumConverterTests
     [Theory]
 
     // Case-insensitive mapping: null
-    [InlineData(null, typeof(TestTypes.TestEnum?), null)]
+    [InlineData(null, typeof(TestEnum?), null)]
     [InlineData(null, typeof(TypeCode?), null)]
     [InlineData(null, typeof(TestEnumWithMappings), TestEnumWithMappings.Value3MappedToNull)]
     [InlineData("", typeof(TestEnumWithMappings), TestEnumWithMappings.Value3MappedToNull)]

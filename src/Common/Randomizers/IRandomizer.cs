@@ -30,5 +30,5 @@ public interface IRandomizer<out TValue> : IRandomizer
     ///     Generates a random value of the specified type.
     /// </summary>
     /// <returns>A randomly generated value of the specified type.</returns>
-    TValue GetRandomValue();
+    new TValue GetRandomValue();
 }

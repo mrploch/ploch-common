@@ -1,9 +1,9 @@
-using Ploch.Common.TypeConversion;
+namespace Ploch.Common.TypeConversion;
 
 /// <summary>
 ///     Provides extension methods for the <see cref="CaseSensitivity" /> enum.
 /// </summary>
-public static class CaseSensitivityEstensions
+public static class CaseSensitivityExtensions
 {
     /// <summary>
     ///     Determines whether case-sensitive comparison should be used based on the CaseSensitivity value.

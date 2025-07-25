@@ -19,6 +19,8 @@ public abstract class SingleSourceTargetTypeConverter<TSourceType, TTargetType>(
                     TypeConverterHelper.CombinedTypes<TSourceType>(additionalSourceTypes),
                     TypeConverterHelper.CombinedTypes<TTargetType>(additionalTargetTypes)), ITypeConverter<TSourceType, TTargetType>
 {
+    private readonly bool _canHandleNullSourceValue = canHandleNullSourceValue;
+
     /// <summary>
     ///     Converts a value of the source type to the target type.
     /// </summary>
@@ -51,7 +53,7 @@ public abstract class SingleSourceTargetTypeConverter<TSourceType, TTargetType>(
     /// <inheritdoc />
     public TTargetType? ConvertValue(TSourceType? value, Type targetType)
     {
-        if (value is null && !canHandleNullSourceValue)
+        if (value is null && !_canHandleNullSourceValue)
         {
             throw new ArgumentNullException(nameof(value), "Source value cannot be null for this converter.");
         }

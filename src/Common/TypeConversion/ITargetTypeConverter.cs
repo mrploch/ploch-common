@@ -25,7 +25,6 @@ public interface ITargetTypeConverter<out TTargetType> : ITypeConverter
     /// <summary>
     ///     Converts the specified value to the target type.
     /// </summary>
-    /// <typeparam name="TTargetType">The target data type to which the value should be converted.</typeparam>
     /// <param name="value">The value to be converted. This parameter can be null or any type that is compatible with the target type.</param>
     /// <returns>The converted value as the target type, or null if the value cannot be converted.</returns>
     TTargetType? ConvertValueToTargetType(object? value);

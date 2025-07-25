@@ -20,5 +20,3 @@ using System.Diagnostics.CodeAnalysis;
                     Scope = "module")]
 
 [assembly: CLSCompliant(true)]
-
-namespace Ploch.Common;

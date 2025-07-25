@@ -10,6 +10,8 @@ namespace Ploch.Common.TypeConversion;
 ///     is the cause of this exception.
 /// </remarks>
 /// <param name="message">The error message that explains the reason for the exception. This parameter can be null.</param>
+/// <param name="convertedValue">The value that was attempted to be converted when the exception occurred.</param>
+/// <param name="targetType">The type that the conversion operation was attempting to convert to when the exception occurred.</param>
 /// <param name="innerException">The exception that is the cause of the current exception. This parameter can be null.</param>
 #pragma warning disable CA1032 // Implement standard exception constructors
 #pragma warning disable RCS1194 // Implement exception constructors
@@ -25,7 +27,8 @@ public class TypeConversionException(string? message, object convertedValue, Typ
     /// </remarks>
     /// <param name="convertedValue">Converted value.</param>
     /// <param name="targetType">Type conversion target type.</param>
-    public TypeConversionException(object convertedValue, Type targetType) : this(convertedValue, targetType, null) { }
+    public TypeConversionException(object convertedValue, Type targetType) : this(convertedValue, targetType, null)
+    { }
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="TypeConversionException" /> class with a specified converted value, target type
@@ -47,7 +50,8 @@ public class TypeConversionException(string? message, object convertedValue, Typ
     /// <param name="message">The message that describes the error. This parameter can be null.</param>
     /// <param name="convertedValue">Converted value.</param>
     /// <param name="targetType">Type conversion target type.</param>
-    public TypeConversionException(string? message, object convertedValue, Type targetType) : this(message, convertedValue, targetType, null) { }
+    public TypeConversionException(string? message, object convertedValue, Type targetType) : this(message, convertedValue, targetType, null)
+    { }
 
     /// <summary>
     ///     Gets the value that was attempted to be converted when the type conversion exception occurred.

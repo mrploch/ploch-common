@@ -1,6 +1,7 @@
 ﻿// ReSharper disable RedundantUsingDirective
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace Ploch.Common.ArgumentChecking;
 /// </remarks>
 public static partial class PathGuard
 {
-    private static bool CheckIsValidPath(string path) => path.IndexOfAny(Path.GetInvalidPathChars()) < 0;
+    // @formatter:off
 #if NETSTANDARD2_0
+    // @formatter:on
+
     /// <summary>
     ///     Ensures that the specified path is valid, throwing an exception if the path is null, empty, not rooted, or contains invalid characters.
     /// </summary>
@@ -31,16 +34,16 @@ public static partial class PathGuard
     /// </exception>
     public static string RequireValidPath(this string? path, string parameterName)
     {
-        path.RequiredNotNullOrEmpty(nameof(path));
+        path.RequiredNotNullOrEmpty(nameof(path), formatProvider: CultureInfo.InvariantCulture);
 
         if (!Path.IsPathRooted(path))
         {
-            throw new ArgumentException("Path must be rooted.", parameterName);
+            throw new InvalidOperationException($"Path must be rooted: {parameterName}.");
         }
 
         if (Path.GetInvalidPathChars().Any(path.Contains))
         {
-            throw new ArgumentException("Path contains invalid characters.", parameterName);
+            throw new InvalidOperationException($"Path contains invalid characters: {parameterName}.");
         }
 #pragma warning disable CS8603 // Possible null reference return - false positive
 
@@ -89,7 +92,7 @@ public static partial class PathGuard
         // Check for invalid path characters
         if (!CheckIsValidPath(path!))
         {
-            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, InvalidPathMessageFormat, path));
+            throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, InvalidPathMessageFormat, path, nameof(path)));
         }
 
         // Optionally, check for reserved device names or other platform-specific rules here
@@ -98,4 +101,8 @@ public static partial class PathGuard
 #pragma warning restore CS8603
     }
 #endif
+
+    private static bool CheckIsValidPath(string path) => path.IndexOfAny(Path.GetInvalidPathChars()) < 0;
+
+    // @formatter:on
 }

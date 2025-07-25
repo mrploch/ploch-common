@@ -18,6 +18,7 @@
     <File Path="dotnet-releaser.toml" />
     <File Path="qodana.sarif.json" />
     <File Path="qodana.yaml" />
+    <File Path="Ploch.Common.slnx.DotSettings"/>
   </Folder>
   <Folder Name="/repository/docs/">
     <File Path="docs\README.md" />
@@ -36,6 +37,16 @@
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
+    <Project Path="tests\central-mgmt-disabled\Common.Tests.Net6\Ploch.Common.Tests.Net6.csproj" Type="Classic C#">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU"/>
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU"/>
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU"/>
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU"/>
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU"/>
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU"/>
+      <Configuration Solution="Release|x64" Project="Release|Any CPU"/>
+      <Configuration Solution="Release|x86" Project="Release|Any CPU"/>
+    </Project>
     <Project Path="tests\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj" />
     <Project Path="tests\Common.DawnGuard.Tests\Ploch.Common.DawnGuard.Tests.csproj" Type="Classic C#">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
@@ -73,7 +84,16 @@
   <Folder Name="/Tests/TestAssemblies/">
     <Project Path="tests\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
     <Project Path="tests\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj" />
-    <File Path="src/TestAssemblies/.editorconfig" />
+    <Project Path="tests\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj" Type="Classic C#">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU"/>
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU"/>
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU"/>
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU"/>
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU"/>
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU"/>
+      <Configuration Solution="Release|x64" Project="Release|Any CPU"/>
+      <Configuration Solution="Release|x86" Project="Release|Any CPU"/>
+    </Project>
     <File Path="tests\TestAssemblies\.editorconfig" />
   </Folder>
   <Project Path="DocumentationSite/DocumentationSite.csproj" />

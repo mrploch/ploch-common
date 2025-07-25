@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -40,7 +40,7 @@ public class ByValueObjectComparerTests
         testType2.SubType.SubDateTime = testType1.SubType.SubDateTime;
         testType2.SubType.SubInt = testType1.SubType.SubInt;
         testType2.SubType.SubString = testType1.SubType.SubString;
-        testType2.TestStruct = new TestTypes.TestStruct(testType1.TestStruct.StructProperty, testType1.TestStruct.Struct2Property);
+        testType2.TestStruct = new TestStruct(testType1.TestStruct.StructProperty, testType1.TestStruct.Struct2Property);
 
         testType2.SubType.SubGuid = Guid.NewGuid();
 
@@ -74,7 +74,7 @@ public class ByValueObjectComparerTests
 
         public SampleSubType SubType { get; set; } = new();
 
-        public TestTypes.TestStruct TestStruct { get; set; }
+        public TestStruct TestStruct { get; set; }
     }
 
     public record SampleRecord(int Id, string Name, DateTime CreatedDate);

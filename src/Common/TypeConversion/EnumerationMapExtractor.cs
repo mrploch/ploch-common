@@ -11,7 +11,7 @@ namespace Ploch.Common.TypeConversion;
 /// </summary>
 /// <summary>
 ///     Enumeration fields can be mapped to string names using <see cref="EnumMappingAttribute" /> attribute.
-///     Also the <see cref="EnumConvertionAttribute" /> allows to specify if mapped string names should be case-sensitive.
+///     Also the <see cref="EnumConversionAttribute" /> allows to specify if mapped string names should be case-sensitive.
 /// </summary>
 public static class EnumerationMapExtractor
 {
@@ -19,7 +19,7 @@ public static class EnumerationMapExtractor
     ///     Retrieves a mapping of enumeration field names to their corresponding values for the specified enumeration type.
     /// </summary>
     /// <remarks>
-    ///     The <see cref="EnumConvertionAttribute" /> and <see cref="EnumMappingAttribute" /> allow to control how
+    ///     The <see cref="EnumConversionAttribute" /> and <see cref="EnumMappingAttribute" /> allow to control how
     ///     string names are mapped to enum values.
     /// </remarks>
     /// <param name="enumType">
@@ -37,10 +37,10 @@ public static class EnumerationMapExtractor
     {
         if (!enumType.NotNull(nameof(enumType)).IsEnum)
         {
-            throw new InvalidOperationException($"Type {enumType} is not an enumeration");
+            throw new InvalidOperationException($"Type {enumType.FullName} is not an enumeration");
         }
 
-        var enumAttribute = enumType.GetCustomAttribute<EnumConvertionAttribute>();
+        var enumAttribute = enumType.GetCustomAttribute<EnumConversionAttribute>();
         var isCaseSensitive = false;
         if (enumAttribute != null)
         {
@@ -61,7 +61,8 @@ public static class EnumerationMapExtractor
 
     private static void AddValueMappings(Dictionary<EnumName, object> fieldMap, FieldInfo fieldInfo, bool caseSensitiveDefault)
     {
-        var enumValue = fieldInfo.GetValue(null) ?? throw new InvalidOperationException($"Value for field {fieldInfo.Name} is null");
+        var enumValue = fieldInfo.GetValue(null) ??
+                        throw new InvalidOperationException($"Value for field {fieldInfo.Name} in enum type {fieldInfo.DeclaringType?.Name} is null");
 
         foreach (var nameToUse in GetFieldValueNames(fieldInfo, caseSensitiveDefault).Select(name => name ?? new EnumName(string.Empty)))
         {

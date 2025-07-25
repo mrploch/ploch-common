@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using FluentAssertions;
-using Ploch.Common.Tests.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 #pragma warning disable CS8604 // Possible null reference argument.
 
@@ -14,7 +13,7 @@ public class EnumerationConverterTests
     {
         string? value = null;
 
-        var act = () => value.ParseToEnum<TestTypes.TestEnum>();
+        var act = () => value.ParseToEnum<TestEnum>();
 
         act.Should().Throw<ArgumentNullException>().Which.ParamName.Should().Be(nameof(value));
     }
@@ -26,31 +25,31 @@ public class EnumerationConverterTests
         var value = "FirstValue";
 
         // Act
-        var result = value.ParseToEnum<TestTypes.TestEnum>();
+        var result = value.ParseToEnum<TestEnum>();
 
         // Assert
-        result.Should().Be(TestTypes.TestEnum.FirstValue);
+        result.Should().Be(TestEnum.FirstValue);
     }
 
     [Fact]
     public void ParseToEnum_should_correctly_parse_int_representing_enum_flags()
     {
         // Arrange
-        var flagsValue = TestTypes.TestEnumWithFlags.FirstValue | TestTypes.TestEnumWithFlags.SecondValue;
+        var flagsValue = TestEnumWithFlags.FirstValue | TestEnumWithFlags.SecondValue;
 
         var flagsIntValue = (int)flagsValue;
 
-        var x = (TestTypes.TestEnumWithFlags)flagsIntValue;
-        x.HasFlag(TestTypes.TestEnumWithFlags.FirstValue).Should().BeTrue();
-        x.HasFlag(TestTypes.TestEnumWithFlags.SecondValue).Should().BeTrue();
-        x.HasFlag(TestTypes.TestEnumWithFlags.ThirdValue).Should().BeFalse();
+        var x = (TestEnumWithFlags)flagsIntValue;
+        x.HasFlag(TestEnumWithFlags.FirstValue).Should().BeTrue();
+        x.HasFlag(TestEnumWithFlags.SecondValue).Should().BeTrue();
+        x.HasFlag(TestEnumWithFlags.ThirdValue).Should().BeFalse();
 
         // Act
-        var testEnumWithFlags = flagsIntValue.ParseToEnum<TestTypes.TestEnumWithFlags>();
+        var testEnumWithFlags = flagsIntValue.ParseToEnum<TestEnumWithFlags>();
 
-        var hasFlagFirstValue = testEnumWithFlags.HasFlag(TestTypes.TestEnumWithFlags.FirstValue);
-        var hasFlagSecondValue = testEnumWithFlags.HasFlag(TestTypes.TestEnumWithFlags.SecondValue);
-        var hasFlagThirdValue = testEnumWithFlags.HasFlag(TestTypes.TestEnumWithFlags.ThirdValue);
+        var hasFlagFirstValue = testEnumWithFlags.HasFlag(TestEnumWithFlags.FirstValue);
+        var hasFlagSecondValue = testEnumWithFlags.HasFlag(TestEnumWithFlags.SecondValue);
+        var hasFlagThirdValue = testEnumWithFlags.HasFlag(TestEnumWithFlags.ThirdValue);
 
         hasFlagFirstValue.Should().BeTrue();
         hasFlagSecondValue.Should().BeTrue();
@@ -64,10 +63,10 @@ public class EnumerationConverterTests
         var value = "firstvalue"; // Lowercase version of the enum value
 
         // Act
-        var result = value.ParseToEnum<TestTypes.TestEnum>(true);
+        var result = value.ParseToEnum<TestEnum>(true);
 
         // Assert
-        result.Should().Be(TestTypes.TestEnum.FirstValue);
+        result.Should().Be(TestEnum.FirstValue);
     }
 
     [Fact]
@@ -77,7 +76,7 @@ public class EnumerationConverterTests
         var value = "NonExistentValue";
 
         // Act
-        var act = () => value.ParseToEnum<TestTypes.TestEnum>();
+        var act = () => value.ParseToEnum<TestEnum>();
 
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>().Which.Message.Should().Contain($"'{value}' is not a valid value for enum type 'TestEnum'");
@@ -90,7 +89,7 @@ public class EnumerationConverterTests
         var value = string.Empty;
 
         // Act
-        var act = () => value.ParseToEnum<TestTypes.TestEnum>();
+        var act = () => value.ParseToEnum<TestEnum>();
 
         // Assert
         act.Should().Throw<ArgumentException>().Which.ParamName.Should().Be(nameof(value));
@@ -103,7 +102,7 @@ public class EnumerationConverterTests
         string? value = null;
 
         // Act
-        var result = value.SafeParseToEnum<TestTypes.TestEnum>();
+        var result = value.SafeParseToEnum<TestEnum>();
 
         // Assert
         result.Should().BeNull();
@@ -116,7 +115,7 @@ public class EnumerationConverterTests
         var value = "   ";
 
         // Act
-        var result = value.SafeParseToEnum<TestTypes.TestEnum>();
+        var result = value.SafeParseToEnum<TestEnum>();
 
         // Assert
         result.Should().BeNull();
@@ -129,7 +128,7 @@ public class EnumerationConverterTests
         var value = "NonExistentValue";
 
         // Act
-        var result = value.SafeParseToEnum<TestTypes.TestEnum>();
+        var result = value.SafeParseToEnum<TestEnum>();
 
         // Assert
         result.Should().BeNull();
@@ -142,11 +141,11 @@ public class EnumerationConverterTests
         var value = "FirstValue";
 
         // Act
-        var result = value.SafeParseToEnum<TestTypes.TestEnum>();
+        var result = value.SafeParseToEnum<TestEnum>();
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().Be(TestTypes.TestEnum.FirstValue);
+        result.Should().Be(TestEnum.FirstValue);
     }
 
     [Fact]
@@ -156,11 +155,11 @@ public class EnumerationConverterTests
         var value = "firstValue"; // Lowercase version of the enum value
 
         // Act
-        var result = value.SafeParseToEnum<TestTypes.TestEnum>(true);
+        var result = value.SafeParseToEnum<TestEnum>(true);
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().Be(TestTypes.TestEnum.FirstValue);
+        result.Should().Be(TestEnum.FirstValue);
     }
 
     [Fact]
@@ -170,51 +169,51 @@ public class EnumerationConverterTests
         var value = "Special_Value_With_Characters";
 
         // Act
-        var result = value.ParseToEnum<TestTypes.EnumWithSpecialChars>();
+        var result = value.ParseToEnum<EnumWithSpecialChars>();
 
         // Assert
-        result.Should().Be(TestTypes.EnumWithSpecialChars.Special_Value_With_Characters);
+        result.Should().Be(EnumWithSpecialChars.Special_Value_With_Characters);
     }
 
     [Fact]
     public void ParseToEnum_should_handle_different_format_providers_when_parsing_int_to_enum()
     {
         // Arrange
-        var enumValue = (int)TestTypes.TestEnum.SecondValue;
+        var enumValue = (int)TestEnum.SecondValue;
         var germanCulture = new CultureInfo("de-DE");
 
         // Act
-        var result = enumValue.ParseToEnum<TestTypes.TestEnum>(germanCulture);
+        var result = enumValue.ParseToEnum<TestEnum>(germanCulture);
 
         // Assert
-        result.Should().Be(TestTypes.TestEnum.SecondValue);
+        result.Should().Be(TestEnum.SecondValue);
     }
 
     [Fact]
     public void ParseToEnum_should_correctly_parse_int_to_enum_with_null_format_provider()
     {
         // Arrange
-        var enumValue = (int)TestTypes.TestEnum.ThirdValue;
+        var enumValue = (int)TestEnum.ThirdValue;
 
         // Act
-        var result = enumValue.ParseToEnum<TestTypes.TestEnum>();
+        var result = enumValue.ParseToEnum<TestEnum>();
 
         // Assert
-        result.Should().Be(TestTypes.TestEnum.ThirdValue);
+        result.Should().Be(TestEnum.ThirdValue);
     }
 
     [Fact]
     public void ParseToEnum_should_correctly_parse_custom_enum_values()
     {
         // Arrange
-        var minEnumValue = (int)TestTypes.EnumWithCustomValues.MinValue;
-        var maxEnumValue = (int)TestTypes.EnumWithCustomValues.MaxValue;
-        var secondValue = (int)TestTypes.EnumWithCustomValues.SecondValue;
+        var minEnumValue = (int)EnumWithCustomValues.MinValue;
+        var maxEnumValue = (int)EnumWithCustomValues.MaxValue;
+        var secondValue = (int)EnumWithCustomValues.SecondValue;
 
         // Act
-        minEnumValue.ParseToEnum<TestTypes.EnumWithCustomValues>().Should().Be(TestTypes.EnumWithCustomValues.MinValue);
-        maxEnumValue.ParseToEnum<TestTypes.EnumWithCustomValues>().Should().Be(TestTypes.EnumWithCustomValues.MaxValue);
-        secondValue.ParseToEnum<TestTypes.EnumWithCustomValues>().Should().Be(TestTypes.EnumWithCustomValues.SecondValue);
+        minEnumValue.ParseToEnum<EnumWithCustomValues>().Should().Be(EnumWithCustomValues.MinValue);
+        maxEnumValue.ParseToEnum<EnumWithCustomValues>().Should().Be(EnumWithCustomValues.MaxValue);
+        secondValue.ParseToEnum<EnumWithCustomValues>().Should().Be(EnumWithCustomValues.SecondValue);
     }
 
     [Fact]
@@ -224,7 +223,7 @@ public class EnumerationConverterTests
         int? value = null;
 
         // Act
-        var result = value.SafaParseToEnum<TestTypes.TestEnum>();
+        var result = value.SafaParseToEnum<TestEnum>();
 
         // Assert
         result.Should().BeNull();
@@ -234,44 +233,44 @@ public class EnumerationConverterTests
     public void SafaParseToEnum_should_correctly_convert_valid_nullable_int_to_enum()
     {
         // Arrange
-        int? enumValue = (int)TestTypes.TestEnum.SecondValue;
+        int? enumValue = (int)TestEnum.SecondValue;
 
         // Act
-        var result = enumValue.SafaParseToEnum<TestTypes.TestEnum>();
+        var result = enumValue.SafaParseToEnum<TestEnum>();
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().Be(TestTypes.TestEnum.SecondValue);
+        result.Should().Be(TestEnum.SecondValue);
     }
 
     [Fact]
     public void SafaParseToEnum_should_handle_custom_format_providers_when_parsing_nullable_int_to_enum()
     {
         // Arrange
-        int? enumValue = (int)TestTypes.TestEnum.SecondValue;
+        int? enumValue = (int)TestEnum.SecondValue;
         var germanCulture = new CultureInfo("de-DE");
 
         // Act
-        var result = enumValue.SafaParseToEnum<TestTypes.TestEnum>(germanCulture);
+        var result = enumValue.SafaParseToEnum<TestEnum>(germanCulture);
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().Be(TestTypes.TestEnum.SecondValue);
+        result.Should().Be(TestEnum.SecondValue);
     }
 
     [Fact]
     public void SafaParseToEnum_should_correctly_handle_enum_flags_when_converting_from_nullable_int()
     {
         // Arrange
-        int? flagsValue = (int)(TestTypes.TestEnumWithFlags.FirstValue | TestTypes.TestEnumWithFlags.SecondValue);
+        int? flagsValue = (int)(TestEnumWithFlags.FirstValue | TestEnumWithFlags.SecondValue);
 
         // Act
-        var result = flagsValue.SafaParseToEnum<TestTypes.TestEnumWithFlags>();
+        var result = flagsValue.SafaParseToEnum<TestEnumWithFlags>();
 
         // Assert
         result.Should().NotBeNull();
-        result.Should().HaveFlag(TestTypes.TestEnumWithFlags.FirstValue);
-        result.Should().HaveFlag(TestTypes.TestEnumWithFlags.SecondValue);
-        result.Should().NotHaveFlag(TestTypes.TestEnumWithFlags.ThirdValue);
+        result.Should().HaveFlag(TestEnumWithFlags.FirstValue);
+        result.Should().HaveFlag(TestEnumWithFlags.SecondValue);
+        result.Should().NotHaveFlag(TestEnumWithFlags.ThirdValue);
     }
 }

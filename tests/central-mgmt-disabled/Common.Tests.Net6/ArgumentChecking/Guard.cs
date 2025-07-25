@@ -1,13 +1,125 @@
 ﻿using FluentAssertions;
 using Ploch.Common.ArgumentChecking;
-using Ploch.Common.Tests.Reflection;
 using Ploch.Common.Tests.TestTypes;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 
-namespace Ploch.Common.Tests.ArgumentChecking;
+// ReSharper disable MissingXmlDoc
 
-public class GuardNet7Tests
+namespace Ploch.Common.Tests.Net6.ArgumentChecking;
+
+public class Guard
 {
+    [Fact]
+    public void NotNull_should_return_value_if_argument_is_not_null()
+    {
+        // Arrange
+        var expectedValue = new TestClass();
+
+        // Act
+        var actualValue = GuardForNotNull(expectedValue);
+
+        // Assert
+        actualValue.Should().Be(expectedValue);
+    }
+
+    [Fact]
+    public void NotNull_should_return_value_if_struct_argument_is_not_null()
+    {
+        // Arrange
+        var expectedValue = new TestStruct(123, new TestStruct2(321, "test"));
+
+        // Act
+        var actualValue = GuardForNotNullStruct(expectedValue);
+
+        // Assert
+        actualValue.Should().Be(expectedValue);
+    }
+
+    [Fact]
+    public void NotNull_should_throw_if_argument_is_null_with_argument_name()
+    {
+        // Act
+        var action = () => GuardForNotNull(null);
+
+        // Assert
+        action.Should().Throw<ArgumentNullException>().WithMessage("*null*argumentName*").WithParameterName("argumentName");
+    }
+
+    [Fact]
+    public void NotNull_should_throw_if_struct_argument_is_null_with_argument_name()
+    {
+        // Act
+        var action = () => GuardForNotNullStruct(default!);
+
+        // Assert
+        action.Should().Throw<ArgumentNullException>().WithMessage("*null*argumentName*").WithParameterName("argumentName");
+    }
+
+    [Fact]
+    public void RequiredNotNull_should_throw_InvalidOperationException_if_member_and_message_are_null()
+    {
+        TestClass? obj = null;
+        var action = () => obj.RequiredNotNull(null!);
+
+        action.Should().Throw<InvalidOperationException>().WithMessage("*memberName*message*null*");
+    }
+
+    [Fact]
+    public void MyMethod_should_explain()
+    {
+        object? obj = null;
+        var b1 = false;
+
+        var act = () => obj.RequiredNotNull(nameof(obj), "Custom message for {0}");
+        var act2 = () => b1.RequiredFalse(nameof(b1));
+        act.Should().Throw<InvalidOperationException>();
+        act2.Should().NotThrow();
+    }
+
+    [Fact]
+    public void RequiredNotNull_should_throw_InvalidOperationException_when_argument_is_null()
+    {
+        TestClass? obj = null;
+        var action = () => obj.RequiredNotNull(nameof(obj));
+
+        action.Should().Throw<InvalidOperationException>().WithMessage($"*{nameof(obj)}*null*");
+    }
+
+    [Fact]
+    public void RequiredNotNull_should_throw_InvalidOperationException_when_argument_is_null_with_provided_message()
+    {
+        TestClass? obj = null;
+        var action = () => obj.RequiredNotNull(nameof(obj), "Custom message for {0}");
+
+        action.Should().Throw<InvalidOperationException>().WithMessage($"Custom message for {nameof(obj)}");
+    }
+
+    [Fact]
+    public void NotNullOrEmpty_should_throw_if_string_is_null()
+    {
+        // Arrange
+        string? argXyz = null;
+
+        // Act
+        var act = () => argXyz.NotNullOrEmpty(nameof(argXyz));
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>().WithMessage("*null*Parameter*").WithParameterName(nameof(argXyz));
+    }
+
+    [Fact]
+    public void NotNullOrEmpty_should_throw_if_string_is_empty()
+    {
+        // Arrange
+        var argXyz = string.Empty;
+
+        // Act
+        var act = () => argXyz.NotNullOrEmpty(nameof(argXyz));
+
+        // Assert
+        act.Should().Throw<ArgumentException>().WithMessage("*empty**").WithParameterName(nameof(argXyz));
+    }
+
     [Fact]
     public void NotNullOrEmpty_should_not_throw_if_string_is_not_null_or_empty()
     {
@@ -15,19 +127,10 @@ public class GuardNet7Tests
         var argument = "test";
 
         // Act
-        var act = () => argument.NotNullOrEmpty();
+        var act = () => argument.NotNullOrEmpty(nameof(argument));
 
         // Assert
         act.Should().NotThrow();
-    }
-
-    [Fact]
-    public void RequiredNotNull_should_throw_InvalidOperationException_when_argument_is_null_with_provided_message()
-    {
-        TestClass? obj = null;
-        var action = () => obj.RequiredNotNull("Custom message for {0}");
-
-        action.Should().Throw<InvalidOperationException>().WithMessage($"Custom message for {nameof(obj)}");
     }
 
     [Fact]
@@ -98,76 +201,14 @@ public class GuardNet7Tests
         act2.Should().Throw<InvalidOperationException>().Which.Message.Should().Be("Condition is true");
     }
 
-#if NET7_0_OR_GREATER
-    [Fact]
-    public void NotNull_should_return_value_if_argument_is_not_null()
-    {
-        // Arrange
-        var expectedValue = new OwnedPropertyInfoTests.TestClass();
-
-        // Act
-        var actualValue = GuardForNotNull(expectedValue);
-
-        // Assert
-        actualValue.Should().Be(expectedValue);
-    }
-
-    [Fact]
-    public void NotNull_should_throw_if_argument_is_null_with_argument_name()
-    {
-        // Act
-        var action = () => GuardForNotNull(null!);
-
-        // Assert
-        action.Should().Throw<ArgumentNullException>().WithMessage("*null*argumentName*").WithParameterName("argumentName");
-    }
-
-    [Fact]
-    public void NotNull_should_throw_if_struct_argument_is_null_with_argument_name()
-    {
-        // Act
-        var action = () => GuardForNotNullStruct(default);
-
-        // Assert
-        action.Should().Throw<ArgumentNullException>().WithMessage("*null*argumentName*").WithParameterName("argumentName");
-    }
-
-    [Fact]
-    public void NotNullOrEmpty_should_throw_if_string_is_null()
-    {
-        // Arrange
-        string? argXyz = null;
-
-        // Act
-        var act = () => argXyz.NotNullOrEmpty();
-
-        // Assert
-        act.Should().Throw<ArgumentNullException>().WithMessage("*null*Parameter*").WithParameterName(nameof(argXyz));
-    }
-
-    [Fact]
-    public void NotNullOrEmpty_should_throw_if_string_is_empty()
-    {
-        // Arrange
-        var argXyz = string.Empty;
-
-        // Act
-        var act = () => argXyz.NotNullOrEmpty();
-
-        // Assert
-        act.Should().Throw<ArgumentException>().WithMessage("*empty*string*").WithParameterName(nameof(argXyz));
-    }
-
     [Fact]
     public void Required_should_test_the_expresssion_and_print_out_exception_message_with_member_and_expresssion()
     {
         var class1 = new Class1 { MyProperty = "test" };
 
-        var action = () => class1.MyProperty.EndsWith("xyx", StringComparison.CurrentCulture).RequiredTrue();
+        var action = () => class1.MyProperty.EndsWith("xyx", StringComparison.CurrentCulture).RequiredTrue("message");
 
-        var str =
-            $"Condition*class1.MyProperty.EndsWith*required*true*{nameof(Required_should_test_the_expresssion_and_print_out_exception_message_with_member_and_expresssion)}*";
-        action.Should().Throw<InvalidOperationException>().WithMessage(str);
+        action.Should().Throw<InvalidOperationException>().WithMessage("message");
     }
 
     [Fact]
@@ -177,7 +218,7 @@ public class GuardNet7Tests
         var expectedValue = DayOfWeek.Monday;
 
         // Act
-        var result = expectedValue.NotOutOfRange();
+        var result = expectedValue.NotOutOfRange(nameof(expectedValue));
 
         // Assert
         result.Should().Be(expectedValue);
@@ -190,7 +231,7 @@ public class GuardNet7Tests
         var invalidValue = (DayOfWeek)99; // 99 is not a valid DayOfWeek value
 
         // Act
-        var action = () => invalidValue.NotOutOfRange();
+        var action = () => invalidValue.NotOutOfRange(nameof(invalidValue));
 
         // Assert
         action.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidValue}*not defined*{nameof(DayOfWeek)}*");
@@ -208,14 +249,14 @@ public class GuardNet7Tests
 
         // Act & Assert
         // Valid cases should return the original value
-        byteEnumValue.NotOutOfRange().Should().Be(byteEnumValue);
-        longEnumValue.NotOutOfRange().Should().Be(longEnumValue);
+        byteEnumValue.NotOutOfRange(nameof(byteEnumValue)).Should().Be(byteEnumValue);
+        longEnumValue.NotOutOfRange(nameof(longEnumValue)).Should().Be(longEnumValue);
 
         // Invalid cases should throw
-        var byteAction = () => invalidByteEnumValue.NotOutOfRange();
+        var byteAction = () => invalidByteEnumValue.NotOutOfRange(nameof(invalidByteEnumValue));
         byteAction.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidByteEnumValue}*not defined*{nameof(ByteEnum)}*");
 
-        var longAction = () => invalidLongEnumValue.NotOutOfRange();
+        var longAction = () => invalidLongEnumValue.NotOutOfRange(nameof(invalidLongEnumValue));
         longAction.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidLongEnumValue}*not defined*{nameof(LongEnum)}*");
     }
 
@@ -230,82 +271,14 @@ public class GuardNet7Tests
 
         // Act & .T
         // Single valid flag should pass
-        singleFlag.NotOutOfRange().Should().Be(singleFlag);
+        singleFlag.NotOutOfRange(nameof(singleFlag)).Should().Be(singleFlag);
 
         // Combined valid flags should pass
-        combinedFlags.NotOutOfRange().Should().Be(combinedFlags);
+        combinedFlags.NotOutOfRange(nameof(combinedFlags)).Should().Be(combinedFlags);
 
         // Invalid flag should throw
-        var action = () => invalidFlag.NotOutOfRange();
+        var action = () => invalidFlag.NotOutOfRange(nameof(invalidFlag));
         action.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidFlag}*not defined*{nameof(TestEnumWithFlags)}*");
-    }
-
-    [Fact]
-    public void NotNullOrDefault_should_return_value_if_argument_is_non_null_and_non_default()
-    {
-        // Arrange
-        var argument = 42;
-
-        // Act
-        var result = argument.NotNullOrDefault();
-
-        // Assert
-        result.Should().Be(argument);
-    }
-
-    [Fact]
-    public void NotNullOrDefault_should_return_reference_type_if_not_null_or_default()
-    {
-        // Arrange
-        var argument = "valid string";
-
-        // Act
-        var result = argument.NotNullOrDefault();
-
-        // Assert
-        result.Should().Be(argument);
-    }
-
-    [Fact]
-    public void NotNullOrDefault_should_throw_if_argument_is_null()
-    {
-        // Arrange
-        string? argXyz = null;
-
-        // Act
-        Action act = () => argXyz.NotNullOrDefault();
-
-        // Assert
-        act.Should().Throw<ArgumentNullException>().Which.ParamName.Should().Be(nameof(argXyz));
-    }
-
-    [Fact]
-    public void NotNullOrDefault_should_throw_if_argument_is_default_value()
-    {
-        // Arrange
-        int argXyz = default;
-
-        // Act
-        Action act = () => argXyz.NotNullOrDefault();
-
-        // Assert
-        act.Should().Throw<ArgumentNullException>().Which.ParamName.Should().Be(nameof(argXyz));
-    }
-
-    [Fact]
-    public void NotNullOrDefault_should_throw_with_correct_parameter_name_if_argument_is_null_or_default()
-    {
-        // Arrange
-        string? nullArg = null;
-        int defaultArg = default;
-
-        // Act
-        Action nullAct = () => nullArg.NotNullOrDefault();
-        Action defaultAct = () => defaultArg.NotNullOrDefault();
-
-        // Assert
-        nullAct.Should().Throw<ArgumentNullException>().Where(e => e.ParamName == nameof(nullArg));
-        defaultAct.Should().Throw<ArgumentNullException>().Where(e => e.ParamName == nameof(defaultArg));
     }
 
     [Theory]
@@ -313,7 +286,7 @@ public class GuardNet7Tests
     [InlineData(int.MaxValue)]
     public void Positive_should_not_throw_exception_when_number_is_positive(int argumentXyz)
     {
-        var act = () => argumentXyz.Positive();
+        var act = () => argumentXyz.Positive(nameof(argumentXyz));
         act.Should().NotThrow();
     }
 
@@ -326,22 +299,21 @@ public class GuardNet7Tests
     [InlineData(char.MinValue)]
     public void Positive_should_throw_exception_when_number_is_negative(double argumentXyz)
     {
-        var act = () => argumentXyz.Positive();
+        var act = () => argumentXyz.Positive(nameof(argumentXyz));
         act.Should().Throw<ArgumentOutOfRangeException>().WithParameterName(nameof(argumentXyz));
     }
 
-    private static OwnedPropertyInfoTests.TestClass GuardForNotNull(OwnedPropertyInfoTests.TestClass argumentName)
+    private static TestClass GuardForNotNull(TestClass? argumentName)
     {
-        var actualValue = argumentName.NotNull();
+        var actualValue = argumentName.NotNull(nameof(argumentName));
 
         return actualValue;
     }
 
     private static TestStruct GuardForNotNullStruct(TestStruct? argumentName)
     {
-        var actualValue = argumentName.NotNull();
+        var actualValue = argumentName.NotNull(nameof(argumentName));
 
         return actualValue;
     }
-#endif
 }

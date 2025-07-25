@@ -1,8 +1,7 @@
 ﻿using System.Globalization;
 using FluentAssertions;
-using Ploch.Common.Tests.Reflection;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
-using Xunit;
 
 namespace Ploch.Common.Tests.TypeConversion;
 
@@ -12,20 +11,20 @@ public class EnumerationMapExtractorTests
     public void GetEnumFieldValueMap_should_return_correct_value_when_field_exists()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
-        var fieldName = new EnumName(nameof(TestTypes.TestEnum.FirstValue));
+        var enumType = typeof(TestEnum);
+        var fieldName = new EnumName(nameof(TestEnum.FirstValue));
 
         // Act
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
         var actualFieldValue = valueMap[fieldName];
 
         // Assert
-        actualFieldValue.Should().Be(TestTypes.TestEnum.FirstValue);
+        actualFieldValue.Should().Be(TestEnum.FirstValue);
     }
 
     [Theory]
-    [InlineData(typeof(TestTypes.TestEnum), nameof(TestTypes.TestEnum.FirstValue), TestTypes.TestEnum.FirstValue)]
-    [InlineData(typeof(TestTypes.TestEnum), nameof(TestTypes.TestEnum.SecondValue), TestTypes.TestEnum.SecondValue)]
+    [InlineData(typeof(TestEnum), nameof(TestEnum.FirstValue), TestEnum.FirstValue)]
+    [InlineData(typeof(TestEnum), nameof(TestEnum.SecondValue), TestEnum.SecondValue)]
     [InlineData(typeof(EnumerationFieldValueCacheTest.TestEnumWithCaseInsensitiveConversion),
                 "Value1",
                 EnumerationFieldValueCacheTest.TestEnumWithCaseInsensitiveConversion.Value1)]
@@ -82,7 +81,7 @@ public class EnumerationMapExtractorTests
     public void GetEnumFieldValueMap_should_throw_invalid_operation_exception_when_field_does_not_exist()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
+        var enumType = typeof(TestEnum);
         var fieldName = "NonExistentField";
 
         // Act
@@ -96,14 +95,14 @@ public class EnumerationMapExtractorTests
     public void GetEnumFieldValueMap_should_return_correct_mapping_for_valid_enum()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
+        var enumType = typeof(TestEnum);
 
         // Act
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
 
         // Assert
-        valueMap.Should().ContainKey(new EnumName(nameof(TestTypes.TestEnum.FirstValue))).And.ContainValue(TestTypes.TestEnum.FirstValue);
-        valueMap.Should().ContainKey(new EnumName(nameof(TestTypes.TestEnum.SecondValue))).And.ContainValue(TestTypes.TestEnum.SecondValue);
+        valueMap.Should().ContainKey(new EnumName(nameof(TestEnum.FirstValue))).And.ContainValue(TestEnum.FirstValue);
+        valueMap.Should().ContainKey(new EnumName(nameof(TestEnum.SecondValue))).And.ContainValue(TestEnum.SecondValue);
     }
 
     [Fact]
