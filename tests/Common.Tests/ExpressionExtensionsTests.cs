@@ -2,8 +2,7 @@
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Linq;
-using Ploch.Common.Tests.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests;
 
@@ -30,7 +29,7 @@ public class ExpressionExtensionsTests
     [Fact]
     public void GetMemberName_FromType_Property()
     {
-        Expression<Func<TestTypes.Class1, string?>> expression = mc => mc.MyProperty;
+        Expression<Func<Class1, string?>> expression = mc => mc.MyProperty;
 
         var name = expression.GetMemberName();
         name.Should().Be("MyProperty");
@@ -89,11 +88,11 @@ public class ExpressionExtensionsTests
 
     [Theory]
     [AutoMockData]
-    public void GetProperty_should_return_OwnedPropertyInfo_for_the_provided_property_selector_expression(TestTypes.MyTestClass obj)
+    public void GetProperty_should_return_OwnedPropertyInfo_for_the_provided_property_selector_expression(MyTestClass obj)
     {
         var property = obj.GetProperty(o => o.StringProp2);
 
-        property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<TestTypes.MyTestClass, string>>();
+        property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<MyTestClass, string>>();
         property.Owner.Should().Be(obj);
     }
 
@@ -118,11 +117,11 @@ public class ExpressionExtensionsTests
 
         [Theory]
         [AutoMockData]
-        public void GetProperty_should_return_OwnedPropertyInfo_for_the_provided_property_selector_expression(TestTypes.MyTestClass obj)
+        public void GetProperty_should_return_OwnedPropertyInfo_for_the_provided_property_selector_expression(MyTestClass obj)
         {
             var property = obj.GetProperty(o => o.StringProp2);
 
-            property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<TestTypes.MyTestClass, string>>();
+            property.Should().NotBeNull().And.BeOfType<OwnedPropertyInfo<MyTestClass, string>>();
             property.Owner.Should().Be(obj);
         }
     }

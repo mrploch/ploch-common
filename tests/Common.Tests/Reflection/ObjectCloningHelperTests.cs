@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -11,12 +11,12 @@ public class ObjectCloningHelperTests
     [Fact]
     public void CopyPropertiesExcludedTest()
     {
-        var testSourceObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
-        var testTargetObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+        var testSourceObj = Fixture.Create<TestTypeWithMixedSettersAndGetter>();
+        var testTargetObj = Fixture.Create<TestTypeWithMixedSettersAndGetter>();
 
         testSourceObj.CopyPropertiesExcluding(testTargetObj,
-                                              nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
-                                              nameof(TestTypes.TestTypeWithMixedSettersAndGetter.StringProp2));
+                                              nameof(TestTypeWithMixedSettersAndGetter.IntProp2),
+                                              nameof(TestTypeWithMixedSettersAndGetter.StringProp2));
 
         testTargetObj.IntProp.Should().Be(testSourceObj.IntProp);
         testTargetObj.IntProp2.Should().NotBe(testSourceObj.IntProp2);
@@ -29,12 +29,12 @@ public class ObjectCloningHelperTests
     [Fact]
     public void CopyPropertiesIncludedTest()
     {
-        var testSourceObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
-        var testTargetObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+        var testSourceObj = Fixture.Create<TestTypeWithMixedSettersAndGetter>();
+        var testTargetObj = Fixture.Create<TestTypeWithMixedSettersAndGetter>();
 
         testSourceObj.CopyPropertiesIncludeOnly(testTargetObj,
-                                                nameof(TestTypes.TestTypeWithMixedSettersAndGetter.IntProp2),
-                                                nameof(TestTypes.TestTypeWithMixedSettersAndGetter.StringProp2));
+                                                nameof(TestTypeWithMixedSettersAndGetter.IntProp2),
+                                                nameof(TestTypeWithMixedSettersAndGetter.StringProp2));
 
         testTargetObj.IntProp2.Should().Be(testSourceObj.IntProp2);
         testTargetObj.StringProp2.Should().Be(testSourceObj.StringProp2);
@@ -48,8 +48,8 @@ public class ObjectCloningHelperTests
     [Fact]
     public void CopyPropertiesTest()
     {
-        var testSourceObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
-        var testTargetObj = Fixture.Create<TestTypes.TestTypeWithMixedSettersAndGetter>();
+        var testSourceObj = Fixture.Create<TestTypeWithMixedSettersAndGetter>();
+        var testTargetObj = Fixture.Create<TestTypeWithMixedSettersAndGetter>();
 
         testSourceObj.CopyProperties(testTargetObj);
 

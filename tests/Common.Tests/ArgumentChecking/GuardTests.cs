@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Ploch.Common.ArgumentChecking;
-using Xunit;
+using Ploch.Common.Tests.TestTypes;
 
 namespace Ploch.Common.Tests.ArgumentChecking;
 
@@ -54,5 +54,15 @@ public class GuardTests
     {
         var act = () => argumentXyz.Positive(nameof(argumentXyz));
         act.Should().Throw<ArgumentOutOfRangeException>().WithParameterName(nameof(argumentXyz));
+    }
+
+    [Fact]
+    public void RequiredNotNull_should_throw_InvalidOperationException_if_argument_is_null()
+    {
+        TestClass? testClass = null;
+
+        var act = () => testClass.RequiredNotNull("This is the exception message for {0}", nameof(testClass));
+
+        act.Should().Throw<InvalidOperationException>().WithMessage("This is the exception message for testClass");
     }
 }

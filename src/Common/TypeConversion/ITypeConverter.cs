@@ -9,6 +9,10 @@ namespace Ploch.Common.TypeConversion;
 /// </summary>
 public interface ITypeConverter
 {
+    /// <summary>
+    ///     Gets the order in which the converter should be applied among multiple type converters.
+    ///     Determines the priority of this converter where a lower value indicates higher priority.
+    /// </summary>
     int Order { get; }
 
     /// <summary>

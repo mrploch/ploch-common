@@ -7,27 +7,18 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" />
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.analyzers" />
+    <PackageReference Include="coverlet.msbuild"/>
+    <PackageReference Include="FluentAssertions"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+    <PackageReference Include="xunit"/>
+    <PackageReference Include="xunit.analyzers"/>
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj" />
+    <ProjectReference Include="..\..\src\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj"/>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace Ploch.Common.TypeConversion;
 /// </summary>
 /// <summary>
 ///     Enumeration fields can be mapped to string names using <see cref="EnumMappingAttribute" /> attribute.
-///     Also the <see cref="EnumConvertionAttribute" /> allows to specify if mapped string names should be case-sensitive.
+///     Also the <see cref="EnumConversionAttribute" /> allows to specify if mapped string names should be case-sensitive.
 /// </summary>
 public static class EnumerationMapExtractor
 {
@@ -19,7 +19,7 @@ public static class EnumerationMapExtractor
     ///     Retrieves a mapping of enumeration field names to their corresponding values for the specified enumeration type.
     /// </summary>
     /// <remarks>
-    ///     The <see cref="EnumConvertionAttribute" /> and <see cref="EnumMappingAttribute" /> allow to control how
+    ///     The <see cref="EnumConversionAttribute" /> and <see cref="EnumMappingAttribute" /> allow to control how
     ///     string names are mapped to enum values.
     /// </remarks>
     /// <param name="enumType">
@@ -33,14 +33,14 @@ public static class EnumerationMapExtractor
     /// <exception cref="InvalidOperationException">
     ///     Thrown when <paramref name="enumType" /> is not an enumeration type.
     /// </exception>
-    public static IDictionary<string, object> GetEnumFieldValueMap(Type enumType)
+    public static IDictionary<EnumName, object> GetEnumFieldValueMap(Type enumType)
     {
         if (!enumType.NotNull(nameof(enumType)).IsEnum)
         {
-            throw new InvalidOperationException($"Type {enumType} is not an enumeration");
+            throw new InvalidOperationException($"Type {enumType.FullName} is not an enumeration");
         }
 
-        var enumAttribute = enumType.GetCustomAttribute<EnumConvertionAttribute>();
+        var enumAttribute = enumType.GetCustomAttribute<EnumConversionAttribute>();
         var isCaseSensitive = false;
         if (enumAttribute != null)
         {
@@ -49,24 +49,26 @@ public static class EnumerationMapExtractor
 
         var fields = enumType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
-        var fieldMap = new Dictionary<string, object>(isCaseSensitive ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase);
+        var fieldMap = new Dictionary<EnumName, object>(new EnumNameValueComparer());
 
         foreach (var fieldInfo in fields)
         {
-            AddValueMappings(fieldMap, fieldInfo);
+            AddValueMappings(fieldMap, fieldInfo, isCaseSensitive);
         }
 
         return fieldMap;
     }
 
-    private static void AddValueMappings(Dictionary<string, object> fieldMap, FieldInfo fieldInfo)
+    private static void AddValueMappings(Dictionary<EnumName, object> fieldMap, FieldInfo fieldInfo, bool caseSensitiveDefault)
     {
-        var enumValue = fieldInfo.GetValue(null) ?? throw new InvalidOperationException($"Value for field {fieldInfo.Name} is null");
-        foreach (var nameToUse in GetFieldValueNames(fieldInfo).Select(name => name ?? string.Empty))
+        var enumValue = fieldInfo.GetValue(null) ??
+                        throw new InvalidOperationException($"Value for field {fieldInfo.Name} in enum type {fieldInfo.DeclaringType?.Name} is null");
+
+        foreach (var nameToUse in GetFieldValueNames(fieldInfo, caseSensitiveDefault).Select(name => name ?? new EnumName(string.Empty)))
         {
             if (fieldMap.TryGetValue(nameToUse, out var value))
             {
-                var fieldMessage = nameToUse.IsNullOrEmpty() ? "default (empty string)" : nameToUse;
+                var fieldMessage = nameToUse.Name.IsNullOrEmpty() ? "default (empty string)" : nameToUse.Name;
 
                 throw new InvalidOperationException($"Enum field {fieldMessage} is already mapped to {value}");
             }
@@ -75,14 +77,21 @@ public static class EnumerationMapExtractor
         }
     }
 
-    private static IEnumerable<string?> GetFieldValueNames(FieldInfo fieldInfo)
+    private static IEnumerable<EnumName?> GetFieldValueNames(FieldInfo fieldInfo, bool caseSensitiveDefault)
     {
         var enumMappingAttribute = fieldInfo.GetCustomAttribute<EnumMappingAttribute>();
         if (enumMappingAttribute is null)
         {
-            return [ fieldInfo.Name ];
+            return [ new EnumName(fieldInfo.Name, caseSensitiveDefault) ];
         }
 
-        return enumMappingAttribute.IncludeActualEnumName ? [ fieldInfo.Name, ..enumMappingAttribute.Names ] : enumMappingAttribute.Names;
+        return enumMappingAttribute.IncludeActualEnumName
+            ?
+            [ new EnumName(fieldInfo.Name, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault)),
+              ..enumMappingAttribute.Names.Select(n => new EnumName(n, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault))) ]
+            : GetFromNames(enumMappingAttribute.Names, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault));
     }
+
+    private static IEnumerable<EnumName> GetFromNames(IEnumerable<string?> names, bool caseSensitiveDefault) =>
+        names.Select(n => new EnumName(n, caseSensitiveDefault));
 }

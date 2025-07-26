@@ -1,0 +1,239 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="8.5.0"/>
+    <PackageReference Include="Meziantou.Analyzer" Version="2.0.205">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0"/>
+    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" Version="3.6.3"/>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.13.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.13.0.120203">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit" Version="2.9.3"/>
+    <PackageReference Include="xunit.analyzers" Version="1.23.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Xunit.SkippableFact" Version="1.5.23"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Common\Ploch.Common.csproj"/>
+    <ProjectReference Include="..\..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj"/>
+    <ProjectReference Include="..\..\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj"/>
+    <ProjectReference Include="..\..\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Common.Tests\AssemblyInformationTests.cs">
+      <Link>AssemblyInformationTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\ArrayExtensionsTests.cs">
+      <Link>Collections\ArrayExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\CollectionExtensionsTests.cs">
+      <Link>Collections\CollectionExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\DictionaryExtensionsTests.cs">
+      <Link>Collections\DictionaryExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\EnumerableExtensionsTests.cs">
+      <Link>Collections\EnumerableExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\EnumerableQueriesTests.cs">
+      <Link>Collections\EnumerableQueriesTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\KeyValuePairExtensionsTests.cs">
+      <Link>Collections\KeyValuePairExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Collections\QueryableExtensionsTests.cs">
+      <Link>Collections\QueryableExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\CommandLineParserTests.cs">
+      <Link>CommandLineParserTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\ComparisonUtilsTests.cs">
+      <Link>ComparisonUtilsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\ContentSizesTest.cs">
+      <Link>ContentSizesTest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\DateTimeExtensionsTests.cs">
+      <Link>DateTimeExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\EnumerationConverterTests.cs">
+      <Link>EnumerationConverterTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\EnumHelperTests.cs">
+      <Link>EnumHelperTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\EnvironmentUtilsTests.cs">
+      <Link>EnvironmentUtilsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\ExpressionExtensionsTests.cs">
+      <Link>ExpressionExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\HashingTests.cs">
+      <Link>HashingTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\IfNullHelpersTests.cs">
+      <Link>IfNullHelpersTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\IO\PathUtilsTests.cs">
+      <Link>IO\PathUtilsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\IO\StreamExtensionsTests.cs">
+      <Link>IO\StreamExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\IsInExtensionsTests.cs">
+      <Link>IsInExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Linq\OwnedPropertyInfoTests.cs">
+      <Link>Linq\OwnedPropertyInfoTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Matchers\GlobEvaluatorTests.cs">
+      <Link>Matchers\GlobEvaluatorTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Matchers\GlobMatcherExtensionsTests.cs">
+      <Link>Matchers\GlobMatcherExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Matchers\PropertyMatcherTests.cs">
+      <Link>Matchers\PropertyMatcherTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Matchers\RegexListEvaluatorTests.cs">
+      <Link>Matchers\RegexListEvaluatorTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\OperatingSystemExtensionsTests.cs">
+      <Link>OperatingSystemExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\BaseRandomizerTests.cs">
+      <Link>Randomizers\BaseRandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\BooleanRandomizerTests.cs">
+      <Link>Randomizers\BooleanRandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\DateTimeOffsetRandomizerTests.cs">
+      <Link>Randomizers\DateTimeOffsetRandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\DateTimeRandomizerTests.cs">
+      <Link>Randomizers\DateTimeRandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\IntRandomizerTests.cs">
+      <Link>Randomizers\IntRandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\RandomizerTests.cs">
+      <Link>Randomizers\RandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Randomizers\StringRandomizerTests.cs">
+      <Link>Randomizers\StringRandomizerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\AssemblyExtensionsTests.cs">
+      <Link>Reflection\AssemblyExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\AssemblyListBuilderTests.cs">
+      <Link>Reflection\AssemblyListBuilderTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\AssemblyTypesTests.cs">
+      <Link>Reflection\AssemblyTypesTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\AttributeHelpersTests.cs">
+      <Link>Reflection\AttributeHelpersTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\ByValueObjectComparerTests.cs">
+      <Link>Reflection\ByValueObjectComparerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\MemberInfoExtensionsTests.cs">
+      <Link>Reflection\MemberInfoExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\ObjectCloningHelperTests.cs">
+      <Link>Reflection\ObjectCloningHelperTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\ObjectReflectionExtensionsTests.cs">
+      <Link>Reflection\ObjectReflectionExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\OwnedPropertyInfoTests.cs">
+      <Link>Reflection\OwnedPropertyInfoTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\PropertyHelpersGetPropertyValueTests.cs">
+      <Link>Reflection\PropertyHelpersGetPropertyValueTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\PropertyHelpersTests.cs">
+      <Link>Reflection\PropertyHelpersTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\TypeExtensionsTests.cs">
+      <Link>Reflection\TypeExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Reflection\TypeLoaderTests.cs">
+      <Link>Reflection\TypeLoaderTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\Results\ErrorInfoTests.cs">
+      <Link>Results\ErrorInfoTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\SpacesTests.cs">
+      <Link>SpacesTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\StopwatchUtilTests.cs">
+      <Link>StopwatchUtilTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\StringBuilderExtensionsTests.cs">
+      <Link>StringBuilderExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\StringExtensionsTests.cs">
+      <Link>StringExtensionsTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\TypeConversion\EnumConverterTests.cs">
+      <Link>TypeConversion\EnumConverterTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\TypeConversion\EnumerationFieldValueCacheTest.cs">
+      <Link>TypeConversion\EnumerationFieldValueCacheTest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\TypeConversion\EnumerationMapExtractorTests.cs">
+      <Link>TypeConversion\EnumerationMapExtractorTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\TypeConversion\EnumNameTests.cs">
+      <Link>TypeConversion\EnumNameTests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common.Tests\TypeConversion\SingleSourceTargetTypeConverterTests.cs">
+      <Link>TypeConversion\SingleSourceTargetTypeConverterTests.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\Common.Tests\IO\test-bytes.bin">
+      <Link>IO\test-bytes.bin</Link>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -2,7 +2,7 @@
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using Ploch.Common.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -11,7 +11,7 @@ public class PropertyHelpersTests
     [Fact]
     public void GetProperties_should_throw_if_obj_is_null()
     {
-        TestTypes.MyTestClass? testObject = null;
+        MyTestClass? testObject = null;
         var exceptionWasThrown = false;
         try
         {
@@ -30,36 +30,36 @@ public class PropertyHelpersTests
     [Fact]
     public void GetPropertiesOfTypeExcludingSubclassTest()
     {
-        var testObject = new TestTypes.MyTestClass();
-        var propertyInfos = testObject.GetProperties<TestTypes.TestTypeBase>(false);
+        var testObject = new MyTestClass();
+        var propertyInfos = testObject.GetProperties<TestTypeBase>(false);
 
         propertyInfos.Should()
                      .HaveCount(1)
-                     .And.Contain(static pi => pi.PropertyType == typeof(TestTypes.TestTypeBase) && pi.Name == nameof(TestTypes.MyTestClass.TestTypeBaseProp));
+                     .And.Contain(static pi => pi.PropertyType == typeof(TestTypeBase) && pi.Name == nameof(MyTestClass.TestTypeBaseProp));
     }
 
     [Fact]
     public void GetPropertiesOfTypeIncludingSubclassTest()
     {
-        var testObject = new TestTypes.MyTestClass();
-        var propertyInfos = testObject.GetProperties<TestTypes.TestTypeBase>();
+        var testObject = new MyTestClass();
+        var propertyInfos = testObject.GetProperties<TestTypeBase>();
 
         propertyInfos.Should()
                      .HaveCount(2)
-                     .And.Contain(static pi => pi.PropertyType == typeof(TestTypes.TestTypeBase) && pi.Name == nameof(TestTypes.MyTestClass.TestTypeBaseProp))
-                     .And.Contain(pi => pi.PropertyType == typeof(TestTypes.TestType2) && pi.Name == nameof(TestTypes.MyTestClass.TestType2Prop));
+                     .And.Contain(static pi => pi.PropertyType == typeof(TestTypeBase) && pi.Name == nameof(MyTestClass.TestTypeBaseProp))
+                     .And.Contain(pi => pi.PropertyType == typeof(TestType2) && pi.Name == nameof(MyTestClass.TestType2Prop));
     }
 
     [Fact]
     public void GetPropertiesOfTypeTest()
     {
-        var testObject = new TestTypes.MyTestClass();
+        var testObject = new MyTestClass();
         var propertyInfos = testObject.GetProperties<string>();
 
         propertyInfos.Should()
                      .HaveCount(2)
-                     .And.Contain(pi => pi.PropertyType == typeof(string) && pi.Name == nameof(TestTypes.MyTestClass.StringProp))
-                     .And.Contain(pi => pi.PropertyType == typeof(string) && pi.Name == nameof(TestTypes.MyTestClass.StringProp2));
+                     .And.Contain(pi => pi.PropertyType == typeof(string) && pi.Name == nameof(MyTestClass.StringProp))
+                     .And.Contain(pi => pi.PropertyType == typeof(string) && pi.Name == nameof(MyTestClass.StringProp2));
     }
 
     [Fact]
@@ -67,14 +67,14 @@ public class PropertyHelpersTests
     {
         var propertyName = "NonExistent";
 
-        Action action = () => typeof(TestTypes.MyTestClass).GetPropertyInfo(propertyName, true);
+        Action action = () => typeof(MyTestClass).GetPropertyInfo(propertyName, true);
         action.Should().ThrowExactly<PropertyNotFoundException>().Which.PropertyName.Should().Be(propertyName);
     }
 
     [Fact]
     public void GetStaticPropertyValue_should_fail_if_property_not_found()
     {
-        var action = () => typeof(TestTypes.TestClassWithStaticProperties).GetStaticPropertyValue("NonExistingProperty");
+        var action = () => typeof(TestClassWithStaticProperties).GetStaticPropertyValue("NonExistingProperty");
 
         action.Should().ThrowExactly<InvalidOperationException>();
     }
@@ -82,23 +82,22 @@ public class PropertyHelpersTests
     [Fact]
     public void GetStaticPropertyValue_should_return_static_property_value_if_property_exists()
     {
-        TestTypes.TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
+        TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
 
-        var value = typeof(TestTypes.TestClassWithStaticProperties).GetStaticPropertyValue(nameof(TestTypes.TestClassWithStaticProperties.StaticStringProp));
+        var value = typeof(TestClassWithStaticProperties).GetStaticPropertyValue(nameof(TestClassWithStaticProperties.StaticStringProp));
 
-        value.Should().Be(TestTypes.TestClassWithStaticProperties.StaticStringProp);
+        value.Should().Be(TestClassWithStaticProperties.StaticStringProp);
     }
 
     [Fact]
     public void GetStaticPropertyValue_with_expected_type_should_handle_null_value()
     {
-        TestTypes.TestClassWithStaticProperties.StaticStringProp = null;
-        TestTypes.TestClassWithStaticProperties.StaticNullableIntProp = null;
+        TestClassWithStaticProperties.StaticStringProp = null;
+        TestClassWithStaticProperties.StaticNullableIntProp = null;
 
-        var stringPropValue =
-            typeof(TestTypes.TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestTypes.TestClassWithStaticProperties.StaticStringProp));
+        var stringPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestClassWithStaticProperties.StaticStringProp));
         var nullableIntPropValue =
-            typeof(TestTypes.TestClassWithStaticProperties).GetStaticPropertyValue<int?>(nameof(TestTypes.TestClassWithStaticProperties.StaticNullableIntProp));
+            typeof(TestClassWithStaticProperties).GetStaticPropertyValue<int?>(nameof(TestClassWithStaticProperties.StaticNullableIntProp));
 
         stringPropValue.Should().BeNull();
         nullableIntPropValue.Should().BeNull();
@@ -107,33 +106,31 @@ public class PropertyHelpersTests
     [Fact]
     public void GetStaticPropertyValue_with_expected_type_should_return_property_value_as_expected_type()
     {
-        TestTypes.TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
-        TestTypes.TestClassWithStaticProperties.StaticIntProp = 1234;
+        TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
+        TestClassWithStaticProperties.StaticIntProp = 1234;
 
-        var stringPropValue =
-            typeof(TestTypes.TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestTypes.TestClassWithStaticProperties.StaticStringProp));
-        var intPropValue =
-            typeof(TestTypes.TestClassWithStaticProperties).GetStaticPropertyValue<int>(nameof(TestTypes.TestClassWithStaticProperties.StaticIntProp));
+        var stringPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<string>(nameof(TestClassWithStaticProperties.StaticStringProp));
+        var intPropValue = typeof(TestClassWithStaticProperties).GetStaticPropertyValue<int>(nameof(TestClassWithStaticProperties.StaticIntProp));
 
-        stringPropValue.Should().Be(TestTypes.TestClassWithStaticProperties.StaticStringProp);
-        intPropValue.Should().Be(TestTypes.TestClassWithStaticProperties.StaticIntProp);
+        stringPropValue.Should().Be(TestClassWithStaticProperties.StaticStringProp);
+        intPropValue.Should().Be(TestClassWithStaticProperties.StaticIntProp);
     }
 
     [Fact]
     public void GetStaticPropertyValue_with_unexpected_type_should_throw()
     {
-        TestTypes.TestClassWithStaticProperties.StaticStringProp = "test";
+        TestClassWithStaticProperties.StaticStringProp = "test";
 
-        var type = typeof(TestTypes.TestClassWithStaticProperties);
-        var action = () => type.GetStaticPropertyValue<Guid>(nameof(TestTypes.TestClassWithStaticProperties.StaticStringProp));
+        var type = typeof(TestClassWithStaticProperties);
+        var action = () => type.GetStaticPropertyValue<Guid>(nameof(TestClassWithStaticProperties.StaticStringProp));
         action.Should().ThrowExactly<InvalidOperationException>();
     }
 
     [Fact]
     public void HasPropertyTest()
     {
-        var testObject = new TestTypes.MyTestClass();
-        testObject.HasProperty(nameof(TestTypes.MyTestClass.IntProp)).Should().BeTrue();
+        var testObject = new MyTestClass();
+        testObject.HasProperty(nameof(MyTestClass.IntProp)).Should().BeTrue();
         testObject.HasProperty("NoPropertyLikeThis").Should().BeFalse();
     }
 
@@ -141,7 +138,7 @@ public class PropertyHelpersTests
     [AutoData]
     public void SetPropertyValueTest(int intProp, string stringProp)
     {
-        var testObject = new TestTypes.MyTestClass();
+        var testObject = new MyTestClass();
         testObject.SetPropertyValue("IntProp", intProp);
         testObject.SetPropertyValue("StringProp", stringProp);
 
@@ -152,7 +149,7 @@ public class PropertyHelpersTests
     [Fact]
     public void TryGetStaticPropertyValue_should_return_false_if_property_not_found()
     {
-        var success = typeof(TestTypes.TestClassWithStaticProperties).TryGetStaticPropertyValue("NonExistingProperty", out var value);
+        var success = typeof(TestClassWithStaticProperties).TryGetStaticPropertyValue("NonExistingProperty", out var value);
 
         success.Should().BeFalse();
         value.Should().BeNull();
@@ -161,21 +158,19 @@ public class PropertyHelpersTests
     [Fact]
     public void TryGetStaticPropertyValue_should_return_true_and_static_property_value_if_property_exists()
     {
-        TestTypes.TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
+        TestClassWithStaticProperties.StaticStringProp = Guid.NewGuid().ToString();
 
-        var success =
-            typeof(TestTypes.TestClassWithStaticProperties).TryGetStaticPropertyValue(nameof(TestTypes.TestClassWithStaticProperties.StaticStringProp),
-                                                                                      out var value);
+        var success = typeof(TestClassWithStaticProperties).TryGetStaticPropertyValue(nameof(TestClassWithStaticProperties.StaticStringProp), out var value);
 
         success.Should().BeTrue();
-        value.Should().Be(TestTypes.TestClassWithStaticProperties.StaticStringProp);
+        value.Should().Be(TestClassWithStaticProperties.StaticStringProp);
     }
 
     [Fact]
     public void IsStatic_should_return_true_for_static_property()
     {
         // Arrange
-        var propertyInfo = typeof(TestTypes.TestClassWithStaticProperties).GetProperty(nameof(TestTypes.TestClassWithStaticProperties.StaticStringProp));
+        var propertyInfo = typeof(TestClassWithStaticProperties).GetProperty(nameof(TestClassWithStaticProperties.StaticStringProp));
 
         // Act
         var isStatic = propertyInfo.IsStatic();
@@ -188,7 +183,7 @@ public class PropertyHelpersTests
     public void IsStatic_should_return_false_for_instance_property()
     {
         // Arrange
-        var propertyInfo = typeof(TestTypes.MyTestClass).GetProperty(nameof(TestTypes.MyTestClass.StringProp));
+        var propertyInfo = typeof(MyTestClass).GetProperty(nameof(MyTestClass.StringProp));
 
         // Act
         var isStatic = propertyInfo.IsStatic();
@@ -202,8 +197,8 @@ public class PropertyHelpersTests
     {
         // Arrange
         var propertyInfo =
-            typeof(TestTypes.TestClassWithStaticFieldsAndProperties).GetProperty(TestTypes.TestClassWithStaticFieldsAndProperties.PrivateStaticPropName,
-                                                                                 BindingFlags.Static | BindingFlags.NonPublic);
+            typeof(TestClassWithStaticFieldsAndProperties).GetProperty(TestClassWithStaticFieldsAndProperties.PrivateStaticPropName,
+                                                                       BindingFlags.Static | BindingFlags.NonPublic);
 
         // Act
         var isStatic = propertyInfo.IsStatic();
@@ -217,8 +212,8 @@ public class PropertyHelpersTests
     {
         // Arrange
         var propertyInfo =
-            typeof(TestTypes.TestClassWithStaticFieldsAndProperties).GetProperty(TestTypes.TestClassWithStaticFieldsAndProperties.ProtectedStaticPropName,
-                                                                                 BindingFlags.Static | BindingFlags.NonPublic);
+            typeof(TestClassWithStaticFieldsAndProperties).GetProperty(TestClassWithStaticFieldsAndProperties.ProtectedStaticPropName,
+                                                                       BindingFlags.Static | BindingFlags.NonPublic);
 
         // Act
         var isStatic = propertyInfo.IsStatic();

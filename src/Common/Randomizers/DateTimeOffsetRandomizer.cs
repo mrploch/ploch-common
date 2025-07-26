@@ -2,6 +2,9 @@ using System;
 
 namespace Ploch.Common.Randomizers;
 
+/// <summary>
+///     A randomizer class for generating random <see cref="DateTimeOffset" /> values within a specified range or the default range.
+/// </summary>
 public class DateTimeOffsetRandomizer : BaseRandomizer<DateTimeOffset>, IRangedRandomizer<DateTimeOffset>
 {
     private readonly Random _random = new();

@@ -12,7 +12,7 @@ namespace Ploch.Common.TypeConversion;
 ///     The <c>ISourceTypeConverter</c> interface serves as an abstraction for implementing type conversion
 ///     logic for specific source types. Implementing classes generally build on top of this interface by specializing
 ///     the source type and adding custom logic to convert the source type to various target types supported by
-///     <see cref="ITypeConverter.ConvertValue(object?, Type)" />.
+///     <see cref="ITypeConverter.ConvertValue" />.
 ///     Converters implementing this interface typically work in collaboration with other converters or frameworks
 ///     for custom type conversion flows.
 /// </remarks>
@@ -24,5 +24,4 @@ namespace Ploch.Common.TypeConversion;
 ///     scoped and optimized conversion logic tailored to the defined source type.
 /// </example>
 public interface ISourceTypeConverter<TSourceType> : ITypeConverter
-{
-}
+{ }

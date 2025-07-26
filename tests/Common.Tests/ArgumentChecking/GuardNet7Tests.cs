@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
 using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Tests.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.ArgumentChecking;
 
@@ -14,20 +15,26 @@ public class GuardNet7Tests
         var argument = "test";
 
         // Act
-        var act = () => argument.NotNullOrEmpty(nameof(argument));
+        var act = () => argument.NotNullOrEmpty();
 
         // Assert
         act.Should().NotThrow();
     }
 
     [Fact]
+    public void RequiredNotNull_should_throw_InvalidOperationException_when_argument_is_null_with_provided_message()
+    {
+        TestClass? obj = null;
+        var action = () => obj.RequiredNotNull("Custom message for {0}");
+
+        action.Should().Throw<InvalidOperationException>().WithMessage($"Custom message for {nameof(obj)}");
+    }
+
+    [Fact]
     public void RequiredTrue_should_throw_exception_when_condition_is_false()
     {
-        // Arrange
-        var condition = false;
-
         // Act & Assert
-        var act = () => (!true).RequiredTrue("Condition is false");
+        var act = () => false.RequiredTrue("Condition is false");
 
         act.Should().Throw<InvalidOperationException>().Which.Message.Should().Be("Condition is false");
     }
@@ -119,7 +126,7 @@ public class GuardNet7Tests
     public void NotNull_should_throw_if_struct_argument_is_null_with_argument_name()
     {
         // Act
-        var action = () => GuardForNotNullStruct(null!);
+        var action = () => GuardForNotNullStruct(default);
 
         // Assert
         action.Should().Throw<ArgumentNullException>().WithMessage("*null*argumentName*").WithParameterName("argumentName");
@@ -154,8 +161,7 @@ public class GuardNet7Tests
     [Fact]
     public void Required_should_test_the_expresssion_and_print_out_exception_message_with_member_and_expresssion()
     {
-        var class1 = new TestTypes.Class1();
-        class1.MyProperty = "test";
+        var class1 = new Class1 { MyProperty = "test" };
 
         var action = () => class1.MyProperty.EndsWith("xyx", StringComparison.CurrentCulture).RequiredTrue();
 
@@ -194,11 +200,11 @@ public class GuardNet7Tests
     public void NotOutOfRange_should_handle_enums_with_different_underlying_types()
     {
         // Arrange
-        var byteEnumValue = TestTypes.ByteEnum.Value1;
-        var longEnumValue = TestTypes.LongEnum.Value1;
+        var byteEnumValue = ByteEnum.Value1;
+        var longEnumValue = LongEnum.Value1;
 
-        var invalidByteEnumValue = (TestTypes.ByteEnum)200; // Value not defined in the enum
-        var invalidLongEnumValue = (TestTypes.LongEnum)999; // Value not defined in the enum
+        var invalidByteEnumValue = (ByteEnum)200; // Value not defined in the enum
+        var invalidLongEnumValue = (LongEnum)999; // Value not defined in the enum
 
         // Act & Assert
         // Valid cases should return the original value
@@ -207,10 +213,10 @@ public class GuardNet7Tests
 
         // Invalid cases should throw
         var byteAction = () => invalidByteEnumValue.NotOutOfRange();
-        byteAction.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidByteEnumValue}*not defined*{nameof(TestTypes.ByteEnum)}*");
+        byteAction.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidByteEnumValue}*not defined*{nameof(ByteEnum)}*");
 
         var longAction = () => invalidLongEnumValue.NotOutOfRange();
-        longAction.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidLongEnumValue}*not defined*{nameof(TestTypes.LongEnum)}*");
+        longAction.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidLongEnumValue}*not defined*{nameof(LongEnum)}*");
     }
 
     // bug: https://github.com/mrploch/ploch-common/issues/159
@@ -218,9 +224,9 @@ public class GuardNet7Tests
     public void NotOutOfRange_should_work_with_flags_enum_combined_values()
     {
         // Arrange
-        var singleFlag = TestTypes.TestEnumWithFlags.FirstValue;
-        var combinedFlags = TestTypes.TestEnumWithFlags.FirstValue | TestTypes.TestEnumWithFlags.SecondValue;
-        var invalidFlag = (TestTypes.TestEnumWithFlags)128; // Value not defined in the enum
+        var singleFlag = TestEnumWithFlags.FirstValue;
+        var combinedFlags = TestEnumWithFlags.FirstValue | TestEnumWithFlags.SecondValue;
+        var invalidFlag = (TestEnumWithFlags)128; // Value not defined in the enum
 
         // Act & .T
         // Single valid flag should pass
@@ -231,21 +237,7 @@ public class GuardNet7Tests
 
         // Invalid flag should throw
         var action = () => invalidFlag.NotOutOfRange();
-        action.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidFlag}*not defined*{nameof(TestTypes.TestEnumWithFlags)}*");
-    }
-
-    private OwnedPropertyInfoTests.TestClass GuardForNotNull(OwnedPropertyInfoTests.TestClass argumentName)
-    {
-        var actualValue = argumentName.NotNull();
-
-        return actualValue;
-    }
-
-    private TestTypes.TestStruct GuardForNotNullStruct(TestTypes.TestStruct? argumentName)
-    {
-        var actualValue = argumentName.NotNull();
-
-        return actualValue;
+        action.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalidFlag}*not defined*{nameof(TestEnumWithFlags)}*");
     }
 
     [Fact]
@@ -336,6 +328,20 @@ public class GuardNet7Tests
     {
         var act = () => argumentXyz.Positive();
         act.Should().Throw<ArgumentOutOfRangeException>().WithParameterName(nameof(argumentXyz));
+    }
+
+    private static OwnedPropertyInfoTests.TestClass GuardForNotNull(OwnedPropertyInfoTests.TestClass argumentName)
+    {
+        var actualValue = argumentName.NotNull();
+
+        return actualValue;
+    }
+
+    private static TestStruct GuardForNotNullStruct(TestStruct? argumentName)
+    {
+        var actualValue = argumentName.NotNull();
+
+        return actualValue;
     }
 #endif
 }

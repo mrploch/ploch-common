@@ -4,29 +4,26 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Serialization.SystemTextJson;
 
 /// <summary>
 ///     The System.Text.Json implementation of <see cref="ISerializer" />.
 /// </summary>
-public class SystemTextJsonSerializer : AsyncSerializer<JsonSerializerOptions, JsonElement>
+/// <remarks>
+///     Initializes a new instance of the <see cref="SystemTextJsonSerializer" /> class.
+/// </remarks>
+/// <param name="options">The serializer options.</param>
+public class SystemTextJsonSerializer(JsonSerializerOptions options) : AsyncSerializer<JsonSerializerOptions, JsonElement>
 {
-    private readonly JsonSerializerOptions _options;
+    private readonly JsonSerializerOptions _options = options.NotNull(nameof(options));
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="SystemTextJsonSerializer" /> class.
     /// </summary>
     public SystemTextJsonSerializer() : this(new JsonSerializerOptions())
-    {
-    }
-
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="SystemTextJsonSerializer" /> class.
-    /// </summary>
-    /// <param name="options">The serializer options.</param>
-    public SystemTextJsonSerializer(JsonSerializerOptions options) => _options = Guard.Argument(options, nameof(options)).NotNull();
+    { }
 
     /// <inheritdoc />
     public override string Serialize(object obj) => JsonSerializer.Serialize(obj, _options);

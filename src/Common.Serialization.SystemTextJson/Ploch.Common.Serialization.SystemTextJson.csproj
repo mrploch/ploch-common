@@ -5,22 +5,14 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="System.Text.Json"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Serialization\Ploch.Common.Serialization.csproj" />
+    <ProjectReference Include="..\Common.Serialization\Ploch.Common.Serialization.csproj"/>
+    <ProjectReference Include="..\Common\Ploch.Common.csproj"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-    <None Remove="Ploch.Common.Serialization.SystemTextJson.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>
+    <None Remove="Ploch.Common.Serialization.SystemTextJson.xml"/>
   </ItemGroup>
 </Project>

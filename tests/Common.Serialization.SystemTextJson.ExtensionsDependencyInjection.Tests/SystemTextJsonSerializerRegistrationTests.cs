@@ -13,6 +13,7 @@ public class SystemTextJsonSerializerRegistrationTests
 
         var serializer = provider.GetRequiredService<ISerializer>();
         serializer.Should().BeOfType<SystemTextJsonSerializer>();
+
         provider.GetRequiredService<ISerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
         provider.GetRequiredService<IAsyncSerializer>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
         provider.GetRequiredService<IAsyncSerializer<JsonSerializerOptions>>().Should().BeOfType<SystemTextJsonSerializer>().And.Be(serializer);
@@ -22,9 +23,7 @@ public class SystemTextJsonSerializerRegistrationTests
     public void SystemTextJsonSerializer_should_be_resolved_with_options_if_provided()
     {
         var provider = BuildServiceProvider(services => services.AddSingleton(new JsonSerializerOptions
-                                                                              {
-                                                                                  PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
-                                                                              }));
+                                                                              { PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower }));
 
         var serializer = provider.GetRequiredService<ISerializer>();
 

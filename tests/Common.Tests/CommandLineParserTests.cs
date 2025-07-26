@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.Versioning;
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
@@ -16,13 +17,7 @@ public class CommandLineParserTests(ITestOutputHelper output)
                 "C:\\Program Files\\NVIDIA Corporation\\NvContainer\\nvcontainer.exe")]
     public void GetApplicationPath_should_extract_app_path_from_commandline_string(string commandLine, string expectedPath)
     {
-        // Arrange
-        // Act
         var result = CommandLineParser.GetApplicationPath(commandLine);
-
-#pragma warning disable CS0219 // Variable is assigned but its value is never used
-        var str = "dupa";
-#pragma warning restore CS0219 // Variable is assigned but its value is never used
 
         // Assert
         result.Should().Be(expectedPath);
@@ -34,26 +29,24 @@ public class CommandLineParserTests(ITestOutputHelper output)
     [InlineData("\"C:\\Program Files\\Microsoft SQL Server\\MSSQL16.MSSQLSERVER\\MSSQL\\Binn\\Polybase\\mpdwsvc.exe\" -dms -Polybase",
                 "C:\\Program Files\\Microsoft SQL Server\\MSSQL16.MSSQLSERVER\\MSSQL\\Binn\\Polybase\\mpdwsvc.exe",
                 new[] { "-dms", "-Polybase" })]
-
-    //"C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe" -s NvContainerLocalSystem -a -f "C:\ProgramData\NVIDIA Corporation\NVIDIA app\NvContainer\NvContainerLocalSystem.log" -l 3 -d "C:\Program Files\NVIDIA Corporation\NvContainer\plugins\LocalSystem" -r -p 30000  -ert
     [InlineData("\"C:\\Program Files\\NVIDIA Corporation\\NvContainer\\nvcontainer.exe\" -s NvContainerLocalSystem -a -f \"C:\\ProgramData\\NVIDIA Corporation\\NVIDIA app\\NvContainer\\NvContainerLocalSystem.log\" -l 3 -d \"C:\\Program Files\\NVIDIA Corporation\\NvContainer\\plugins\\LocalSystem\" -r -p 30000 -ert",
                 "C:\\Program Files\\NVIDIA Corporation\\NvContainer\\nvcontainer.exe",
+#pragma warning disable SA1118 // Parameter spans multiple lines
                 new[]
                 { "-s", "NvContainerLocalSystem", "-a", "-f", "C:\\ProgramData\\NVIDIA Corporation\\NVIDIA app\\NvContainer\\NvContainerLocalSystem.log", "-l",
                   "3", "-d", "C:\\Program Files\\NVIDIA Corporation\\NvContainer\\plugins\\LocalSystem", "-r", "-p", "30000", "-ert" })]
+#pragma warning restore SA1118
     public void GetCommandLine_should_extract_app_path_from_commandline_string(string commandLine, string expectedPath, string[] arguments)
     {
-        // Arrange
-        // Act
         var result = CommandLineParser.GetCommandLine(commandLine);
 
-        // Assert
         result?.ApplicationPath.Should().Be(expectedPath);
         result.HasValue.Should().BeTrue();
         result!.Value.Arguments.Should().BeEquivalentTo(arguments);
     }
 
-    [Fact]
+    [SkippableFact]
+    [SupportedOSPlatform("windows")]
     public void GetApplicationPath_should_allow_FileVersionInfor_to_be_extracted()
     {
         var exceptionCount = 0;

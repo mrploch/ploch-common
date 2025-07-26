@@ -10,7 +10,6 @@ roslynator_accessor_braces_style = single_line_when_expression_is_on_single_line
 dotnet_diagnostic.RCS0023.severity = warning
 dotnet_diagnostic.RCS0022 = false
 
-
 dotnet_diagnostic.sa1500.severity = none # this one controlls braces on the same line
 dotnet_diagnostic.sa1501.severity = warning
 dotnet_diagnostic.sa1502.severity = warning #

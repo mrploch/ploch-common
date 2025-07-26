@@ -4,20 +4,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" />
-    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="coverlet.msbuild"/>
+    <PackageReference Include="FluentAssertions"/>
     <PackageReference Include="FluentAssertions.Analyzers">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="FluentAssertions.Microsoft.Extensions.DependencyInjection" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
-    <PackageReference Include="SparkyTestHelpers.Moq" />
-    <PackageReference Include="SparkyTestHelpers.Moq.Fluent" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.analyzers" />
+    <PackageReference Include="FluentAssertions.Microsoft.Extensions.DependencyInjection"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq"/>
+    <PackageReference Include="SparkyTestHelpers.Moq"/>
+    <PackageReference Include="SparkyTestHelpers.Moq.Fluent"/>
+    <PackageReference Include="xunit"/>
+    <PackageReference Include="xunit.analyzers"/>
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,18 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj" />
-    <ProjectReference Include="..\..\src\TestingSupport\Ploch.TestingSupport.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.9.0.115408" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <ProjectReference Include="..\..\src\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj"/>
+    <ProjectReference Include="..\..\src\TestingSupport\Ploch.TestingSupport.csproj"/>
   </ItemGroup>
 </Project>

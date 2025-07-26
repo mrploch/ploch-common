@@ -1,29 +1,12 @@
 using FluentAssertions;
-using Ploch.Common.Tests.Reflection;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
-using Xunit;
 
-namespace Ploch.Common.Windows.Tests.Wmi.ManagementObjects.TypeConversion;
+namespace Ploch.Common.Tests.TypeConversion;
 
 public class EnumConverterTests
 {
-    public enum TestEnumWithMappings2
-    {
-        [EnumMapping("Value 1", IncludeActualEnumName = true)]
-        Value1,
-
-        [EnumMapping("Value 2", IncludeActualEnumName = true)]
-        Value2,
-
-        [EnumMapping]
-        Value3MappedToNull
-    }
-
     private readonly EnumConverter _converter = new();
-
-    [Fact]
-    public void MyMethod()
-    { }
 
     [Theory]
     [InlineData(typeof(string))]
@@ -40,7 +23,7 @@ public class EnumConverterTests
     [Theory]
     [InlineData("", typeof(TypeCode))]
     [InlineData(null, typeof(TypeCode?))]
-    public void CanHandle_should_return_true_for_string_value_and_enum_target_type(object value, Type targetType)
+    public void CanHandle_should_return_true_for_string_value_and_enum_target_type(object? value, Type targetType)
     {
         // Act
         var canHandle2 = _converter.CanHandle(value, targetType);
@@ -56,7 +39,7 @@ public class EnumConverterTests
     [InlineData(nameof(Base64FormattingOptions.InsertLineBreaks), typeof(Base64FormattingOptions))]
     [InlineData(nameof(Base64FormattingOptions.InsertLineBreaks), typeof(Base64FormattingOptions?))]
     [InlineData(null, typeof(Base64FormattingOptions?))]
-    public void CanHandl_should_return_true_for_enum_types(string? value, Type targetType)
+    public void CanHandle_should_return_true_for_enum_types(string? value, Type targetType)
     {
         // Act
         var canHandleValue = _converter.CanHandle(value, targetType);
@@ -88,16 +71,41 @@ public class EnumConverterTests
     }
 
     [Theory]
-    [InlineData(null, typeof(TestTypes.TestEnum?), null)]
 
-    // [InlineData(nameof(TestEnumWithMappings2.Value3MappedToNull), typeof(TestEnumWithMappings2), TestEnumWithMappings2.Value3MappedToNull)]
+    // Case-insensitive mapping: null
+    [InlineData(null, typeof(TestEnum?), null)]
     [InlineData(null, typeof(TypeCode?), null)]
-    [InlineData(null, typeof(TestEnumWithMappings2), TestEnumWithMappings2.Value3MappedToNull)]
-    [InlineData("", typeof(TestEnumWithMappings2), TestEnumWithMappings2.Value3MappedToNull)]
-    [InlineData("value1", typeof(TestEnumWithMappings2), TestEnumWithMappings2.Value1)]
-    [InlineData("Value 1", typeof(TestEnumWithMappings2), TestEnumWithMappings2.Value1)]
-    [InlineData("VALUE2", typeof(TestEnumWithMappings2), TestEnumWithMappings2.Value2)]
-    [InlineData("value1", typeof(TestEnumWithMappings2?), TestEnumWithMappings2.Value1)]
+    [InlineData(null, typeof(TestEnumWithMappings), TestEnumWithMappings.Value3MappedToNull)]
+    [InlineData("", typeof(TestEnumWithMappings), TestEnumWithMappings.Value3MappedToNull)]
+
+    // Case-insensitive mapping: Value 1
+    [InlineData("Value 1", typeof(TestEnumWithMappings), TestEnumWithMappings.Value1)]
+    [InlineData("value1", typeof(TestEnumWithMappings), TestEnumWithMappings.Value1)]
+    [InlineData("VALUE1", typeof(TestEnumWithMappings), TestEnumWithMappings.Value1)]
+    [InlineData("VALUE 1", typeof(TestEnumWithMappings), TestEnumWithMappings.Value1)]
+    [InlineData("value1", typeof(TestEnumWithMappings?), TestEnumWithMappings.Value1)]
+
+    // Case-insensitive mapping: Value 2
+    [InlineData("Value 2", typeof(TestEnumWithMappings), TestEnumWithMappings.Value2)]
+    [InlineData("value2", typeof(TestEnumWithMappings), TestEnumWithMappings.Value2)]
+    [InlineData("VALUE2", typeof(TestEnumWithMappings), TestEnumWithMappings.Value2)]
+    [InlineData("VALUE 2", typeof(TestEnumWithMappings), TestEnumWithMappings.Value2)]
+
+    // Case-sensitive mapping: null
+    [InlineData(null, typeof(TestEnumWithMappingsCaseSensitive), TestEnumWithMappingsCaseSensitive.Value3MappedToNull)]
+    [InlineData("", typeof(TestEnumWithMappingsCaseSensitive), TestEnumWithMappingsCaseSensitive.Value3MappedToNull)]
+
+    // Case-sensitive mapping: Value 1
+    [InlineData("Value 1", typeof(TestEnumWithMappingsCaseSensitive), TestEnumWithMappingsCaseSensitive.Value1)]
+    [InlineData("Value1", typeof(TestEnumWithMappingsCaseSensitive), TestEnumWithMappingsCaseSensitive.Value1)]
+    [InlineData("VALUE1", typeof(TestEnumWithMappingsCaseSensitive), null)]
+    [InlineData("Value 1", typeof(TestEnumWithMappingsCaseSensitive?), TestEnumWithMappingsCaseSensitive.Value1)]
+    [InlineData("Value1", typeof(TestEnumWithMappingsCaseSensitive?), TestEnumWithMappingsCaseSensitive.Value1)]
+
+    // Case-sensitive mapping: Value 2
+    [InlineData("Value 2", typeof(TestEnumWithMappingsCaseSensitive), TestEnumWithMappingsCaseSensitive.Value2)]
+    [InlineData("Value2", typeof(TestEnumWithMappingsCaseSensitive), TestEnumWithMappingsCaseSensitive.Value2)]
+    [InlineData("VALUE2", typeof(TestEnumWithMappingsCaseSensitive), null)]
     public void MapValue_should_correctly_map_value(object? value, Type targetType, object? expectedResult)
     {
         // Act
@@ -105,5 +113,29 @@ public class EnumConverterTests
 
         // Assert
         result2.Should().Be(expectedResult);
+    }
+
+    private enum TestEnumWithMappings
+    {
+        [EnumMapping("Value 1", IncludeActualEnumName = true)]
+        Value1,
+
+        [EnumMapping("Value 2", IncludeActualEnumName = true)]
+        Value2,
+
+        [EnumMapping]
+        Value3MappedToNull
+    }
+
+    private enum TestEnumWithMappingsCaseSensitive
+    {
+        [EnumMapping("Value 1", IncludeActualEnumName = true, CaseSensitive = CaseSensitivity.Sensitive)]
+        Value1,
+
+        [EnumMapping("Value 2", IncludeActualEnumName = true, CaseSensitive = CaseSensitivity.Sensitive)]
+        Value2,
+
+        [EnumMapping(CaseSensitive = CaseSensitivity.Sensitive)]
+        Value3MappedToNull
     }
 }

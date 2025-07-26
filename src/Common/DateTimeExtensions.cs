@@ -66,6 +66,7 @@ public static class DateTimeExtensions
     /// <typeparam name="T">The epoch seconds type.</typeparam>
     /// <param name="epochSeconds">The epoch seconds.</param>
     /// <returns>DateTime.</returns>
+    [CLSCompliant(false)]
     public static DateTime ToDateTime<T>(this T epochSeconds) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
     {
         var epochSecondsAsLong = Convert.ToInt64(epochSeconds, CultureInfo.InvariantCulture);

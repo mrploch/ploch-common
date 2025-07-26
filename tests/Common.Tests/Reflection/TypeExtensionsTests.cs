@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -130,7 +130,7 @@ public class TypeExtensionsTests
     public void IsSimpleType_should_return_false_for_complex_types()
     {
         // Arrange
-        var complexType = typeof(TestTypes.Class1);
+        var complexType = typeof(Class1);
 
         // Act
         var result = complexType.IsSimpleType();

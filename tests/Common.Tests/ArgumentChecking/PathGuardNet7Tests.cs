@@ -1,6 +1,7 @@
 using System.Globalization;
 using FluentAssertions;
 using Ploch.Common.ArgumentChecking;
+using Ploch.Common.Collections;
 using Xunit;
 
 namespace Ploch.Common.Tests.ArgumentChecking;
@@ -63,7 +64,7 @@ public class PathGuardTests
     public void RequiredIsValidPath_should_throw_ArgumentException_when_path_is_invalid()
     {
         // Arrange
-        var invalidPath = "a:\\this/is:an*invalid<path>" + Path.InvalidPathChars[0] + Path.InvalidPathChars[1];
+        var invalidPath = $"a:\\this/is:an*invalid<path>{Path.InvalidPathChars.TakeRandom(1).First()}{Path.InvalidPathChars.TakeRandom(1).First()}";
 
         // Act & Assert
         var act = () => invalidPath.RequiredIsValidPath();

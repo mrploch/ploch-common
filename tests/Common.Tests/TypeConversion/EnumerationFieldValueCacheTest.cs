@@ -1,22 +1,22 @@
+using System.Globalization;
 using FluentAssertions;
 using JetBrains.Annotations;
-using Ploch.Common.Tests.Reflection;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
-using Xunit;
 
 namespace Ploch.Common.Tests.TypeConversion;
 
 [TestSubject(typeof(EnumerationFieldValueCache))]
 public class EnumerationFieldValueCacheTest
 {
-    [EnumConvertion]
+    [EnumConversion]
     public enum TestEnumWithCaseInsensitiveConversion
     {
         Value1,
         Value2
     }
 
-    [EnumConvertion(true)]
+    [EnumConversion(true)]
     public enum TestEnumWithCaseSensitiveMatching
     {
         Value1,
@@ -48,19 +48,19 @@ public class EnumerationFieldValueCacheTest
     public void GetFieldValue_should_return_correct_value_when_field_exists()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
-        var fieldName = nameof(TestTypes.TestEnum.FirstValue);
+        var enumType = typeof(TestEnum);
+        var fieldName = nameof(TestEnum.FirstValue);
 
         // Act
         var result = EnumerationFieldValueCache.GetFieldValue(enumType, fieldName);
 
         // Assert
-        result.Should().Be(TestTypes.TestEnum.FirstValue);
+        result.Should().Be(TestEnum.FirstValue);
     }
 
     [Theory]
-    [InlineData(typeof(TestTypes.TestEnum), "FirstValue", TestTypes.TestEnum.FirstValue)]
-    [InlineData(typeof(TestTypes.TestEnum), "SecondValue", TestTypes.TestEnum.SecondValue)]
+    [InlineData(typeof(TestEnum), "FirstValue", TestEnum.FirstValue)]
+    [InlineData(typeof(TestEnum), "SecondValue", TestEnum.SecondValue)]
     [InlineData(typeof(TestEnumWithCaseInsensitiveConversion), "Value1", TestEnumWithCaseInsensitiveConversion.Value1)]
     [InlineData(typeof(TestEnumWithCaseInsensitiveConversion), "VALUE1", TestEnumWithCaseInsensitiveConversion.Value1)]
     [InlineData(typeof(TestEnumWithCaseInsensitiveConversion), "value1", TestEnumWithCaseInsensitiveConversion.Value1)]
@@ -72,7 +72,6 @@ public class EnumerationFieldValueCacheTest
     [InlineData(typeof(TestEnumWithMapping), "ValueWithMultipleMappedNames1", TestEnumWithMapping.ValueWithMultipleMappedNames)]
     [InlineData(typeof(TestEnumWithMapping), "ValueWithMultipleMappedNames2", TestEnumWithMapping.ValueWithMultipleMappedNames)]
     [InlineData(typeof(TestEnumWithMapping), "", TestEnumWithMapping.ValueWithMultipleMappedNames)]
-    [InlineData(typeof(TestEnumWithMapping), "ValueWithoutMappingAttribute", TestEnumWithMapping.ValueWithoutMappingAttribute)]
     public void GetFieldValue_should_return_mapped_enum_field_value(Type enumType, string name, object expectedFieldValue)
     {
         var actualFieldValue = EnumerationFieldValueCache.GetFieldValue(enumType, name);
@@ -83,7 +82,7 @@ public class EnumerationFieldValueCacheTest
     [Fact]
     public void GetFieldValue_should_throw_if_enum_is_not_marked_as_case_insensitive_and_value_does_not_match_case()
     {
-        var name = nameof(TestEnumWithCaseSensitiveMatching.Value1).ToUpper();
+        var name = nameof(TestEnumWithCaseSensitiveMatching.Value1).ToUpper(CultureInfo.InvariantCulture);
         var enumType = typeof(TestEnumWithCaseSensitiveMatching);
         Action act = () => EnumerationFieldValueCache.GetFieldValue(enumType, name);
 
@@ -94,7 +93,7 @@ public class EnumerationFieldValueCacheTest
     public void GetFieldValue_should_throw_invalid_operation_exception_when_field_does_not_exist()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
+        var enumType = typeof(TestEnum);
         var fieldName = "NonExistentField";
 
         // Act
@@ -108,14 +107,14 @@ public class EnumerationFieldValueCacheTest
     public void GetFieldsMapping_should_return_correct_mapping_for_valid_enum()
     {
         // Arrange
-        var enumType = typeof(TestTypes.TestEnum);
+        var enumType = typeof(TestEnum);
 
         // Act
         var result = EnumerationFieldValueCache.GetFieldsMapping(enumType);
 
         // Assert
-        result.Should().ContainKey(nameof(TestTypes.TestEnum.FirstValue)).And.ContainValue(TestTypes.TestEnum.FirstValue);
-        result.Should().ContainKey(nameof(TestTypes.TestEnum.SecondValue)).And.ContainValue(TestTypes.TestEnum.SecondValue);
+        result.Should().ContainKey(nameof(TestEnum.FirstValue)).And.ContainValue(TestEnum.FirstValue);
+        result.Should().ContainKey(nameof(TestEnum.SecondValue)).And.ContainValue(TestEnum.SecondValue);
     }
 
     [Fact]
@@ -134,7 +133,7 @@ public class EnumerationFieldValueCacheTest
         result.Should().ContainKey("ValueWithOneMappedName1").And.ContainValue(TestEnumWithMapping.ValueWithOneMappedName);
         result.Should().ContainKey("ValueWithMultipleMappedNames1").And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
         result.Should().ContainKey("ValueWithMultipleMappedNames2").And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
-        result.Should().ContainKey(string.Empty).And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
+        result.Should().ContainKey(new EnumName(null)).And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
     }
 
     [Fact]

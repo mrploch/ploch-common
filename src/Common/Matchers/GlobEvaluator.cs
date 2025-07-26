@@ -13,6 +13,7 @@ namespace Ploch.Common.Matchers;
 /// <param name="includes">Collection of glob patterns that should be included in the match.</param>
 /// <param name="excludes">Collection of glob patterns that should be excluded from the match.</param>
 /// <param name="nullMatchResult">Determines the result when the input value is null. Default is false.</param>
+/// <param name="emptyMatchResult">Determines the result when the input value is an empty string. Default is false.</param>
 /// <param name="comparisonType">The string comparison type to use when matching. Default is StringComparison.OrdinalIgnoreCase.</param>
 public class GlobEvaluator(IEnumerable<string> includes,
                            IEnumerable<string> excludes,

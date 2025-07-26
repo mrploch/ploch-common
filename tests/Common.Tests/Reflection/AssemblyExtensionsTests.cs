@@ -2,17 +2,19 @@
 using System.Reflection;
 using FluentAssertions;
 using Ploch.Common.Reflection;
-using Xunit;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.Reflection;
 
 [SuppressMessage("ReSharper", "PossibleMultipleEnumeration", Justification = "Allowed in tests")]
 public class AssemblyExtensionsTests
 {
+    private static Assembly TestTypesAssembly => typeof(TypeHierarchies.HierarchyNine.NestedGenericImplementor).Assembly;
+
     [Fact]
     public void GetAssemblyDirectory_should_return_exact_location_of_the_dll()
     {
-        var assemblyDirectory = Assembly.GetExecutingAssembly().GetAssemblyDirectory();
+        var assemblyDirectory = TestTypesAssembly.GetAssemblyDirectory();
         assemblyDirectory.Should().NotBeNullOrWhiteSpace();
         var currentDirectory = Directory.GetCurrentDirectory();
         assemblyDirectory.Should().Be(currentDirectory);
@@ -22,7 +24,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_return_only_non_abstract_types_implementing_base_type()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
 #pragma warning disable CA2263 // This is a test case of non-generig method
@@ -40,7 +42,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_return_both_abstract_and_non_abstract_types_when_includeAbstract_is_true()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
 #pragma warning disable CA2263 // This is a test case of non-generig method
@@ -58,7 +60,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_return_empty_collection_when_no_types_implement_base_type()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
         var nonImplementedInterface = typeof(TypeHierarchies.HierarchyTwo.INonImplementedInterface);
 
         // Act
@@ -74,7 +76,7 @@ public class AssemblyExtensionsTests
     {
         // Arrange
         Assembly? nullAssembly = null;
-        var baseType = typeof(TestTypes.ITestInterface);
+        var baseType = typeof(ITestInterface);
 
         // Act & Assert
         Action act = () => nullAssembly!.GetTypesImplementing(baseType);
@@ -86,7 +88,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_correctly_identify_types_implementing_interfaces()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Create a test interface hierarchy
         var baseInterfaceType = typeof(TypeHierarchies.HierarchyOne.IBaseTestInterface);
@@ -113,7 +115,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_correctly_identify_types_inheriting_from_abstract_classes()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
         var abstractBaseType = typeof(TypeHierarchies.HierarchyThree.AbstractBaseClass);
 
         // Act
@@ -132,7 +134,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_correctly_identify_types_implementing_generic_interfaces()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
         var genericInterfaceType = typeof(TypeHierarchies.HierarchyFour.IGenericTestInterface<>);
 
         // Act
@@ -149,7 +151,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_not_return_the_base_type_itself()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
         var baseType = typeof(TypeHierarchies.HierarchyFive.BaseTypeClass);
 
         // Act
@@ -165,7 +167,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_correctly_identify_nested_types_implementing_base_type()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
         var interfaceType = typeof(TypeHierarchies.HierarchySix.INestedTypeInterface);
 
         // Act
@@ -182,7 +184,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_should_correctly_differentiate_between_implementation_and_interface_contracts()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
 #pragma warning disable CA2263 // This is a test case of non-generig method
@@ -207,7 +209,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_Generic_should_return_only_non_abstract_types_implementing_base_type()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
         var implementingTypes = assembly.GetTypesImplementing<TypeHierarchies.HierarchyTwo.IHierarchiesTestInterface>();
@@ -223,7 +225,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_Generic_should_return_both_abstract_and_non_abstract_types_when_includeAbstract_is_true()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
         var implementingTypes = assembly.GetTypesImplementing<TypeHierarchies.HierarchyTwo.IHierarchiesTestInterface>(true);
@@ -239,7 +241,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_Generic_should_handle_nested_generic_type_constraints_properly()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = typeof(TypeHierarchies.HierarchyNine.NestedGenericImplementor).Assembly;
 
         // Act
         var implementingTypes = assembly.GetTypesImplementing<TypeHierarchies.HierarchyNine.INestedGenericInterface<List<string>>>();
@@ -260,7 +262,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_TBaseType_should_work_correctly_with_open_generic_interfaces()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
         var implementingTypes = assembly.GetTypesImplementing<TypeHierarchies.HierarchyFour.IGenericTestInterface<object>>();
@@ -281,7 +283,7 @@ public class AssemblyExtensionsTests
     public void GetTypesImplementing_Generic_should_respect_class_constraint()
     {
         // Arrange
-        var assembly = Assembly.GetExecutingAssembly();
+        var assembly = TestTypesAssembly;
 
         // Act
         // We're using ReferenceClass as our TBaseType which satisfies the class constraint
