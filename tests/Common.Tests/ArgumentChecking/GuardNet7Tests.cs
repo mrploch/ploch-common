@@ -44,28 +44,30 @@ public class GuardNet7Tests
     {
         // Arrange
         var condition = true;
+        var x = 5;
+        var y = 10;
 
         // Act & Assert
         var act = () => condition.RequiredTrue("This message should not be seen");
 
+        // Act & Assert
+        var act1 = () => (x < y).RequiredTrue("Expression is false");
+        act1.Should().NotThrow();
+        (x < y).RequiredTrue("Expression {0} is false").Should().BeTrue();
         act.Should().NotThrow();
         condition.RequiredTrue("This message should not be seen").Should().BeTrue();
     }
 
     [Fact]
-    public void RequiredTrue_should_work_with_boolean_expressions()
+    public void RequiredTrue_should_throw_exception_when_condition_is_false_with_custom_message()
     {
         // Arrange
         var x = 5;
         var y = 10;
 
         // Act & Assert
-        var act1 = () => (x < y).RequiredTrue("Expression is false");
-        act1.Should().NotThrow();
-        (x < y).RequiredTrue("Expression is false").Should().BeTrue();
-
-        var act2 = () => (x > y).RequiredTrue("Expression is false");
-        act2.Should().Throw<InvalidOperationException>().Which.Message.Should().Be("Expression is false");
+        var act = () => (x > y).RequiredTrue("Expression {0} is false");
+        act.Should().Throw<InvalidOperationException>().WithMessage("Expression x > y is false");
     }
 
     [Fact]

@@ -1,8 +1,6 @@
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
@@ -10,52 +8,8 @@ namespace Ploch.Common;
 /// <summary>
 ///     Extension methods for <see cref="string" /> and related.
 /// </summary>
-public static partial class StringExtensions
+public static class StringExtensions
 {
-#if NET7_0_OR_GREATER
-    [GeneratedRegex("[^_a-zA-Z0-9]")]
-    private static partial Regex InvalidCharsRegex();
-
-    [GeneratedRegex("(?<=\\s)")]
-    private static partial Regex WhiteSpaceRegex();
-
-    [GeneratedRegex("^[a-z]")]
-    private static partial Regex StartsWithLowerCaseCharRegex();
-
-    [GeneratedRegex("(?<=[A-Z])[A-Z0-9]+$")]
-    private static partial Regex FirstCharFollowedByUpperCasesOnlyRegex();
-
-    [GeneratedRegex("(?<=[0-9])[a-z]")]
-    private static partial Regex LowerCaseNextToNumberRegex();
-
-    [GeneratedRegex("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))")]
-    private static partial Regex UpperCaseInsideRegex();
-#else
-    private static readonly Regex InvalidCharsRegexField = new("[^_a-zA-Z0-9]");
-
-    private static readonly Regex WhiteSpaceRegexField = new("(?<=\\s)");
-
-    private static readonly Regex StartsWithLowerCaseCharRegexField = new("^[a-z]");
-
-    private static readonly Regex UpperCaseInsideRegexField = new("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))");
-
-    private static readonly Regex FirstCharFollowedByUpperCasesOnlyRegexField = new("(?<=[A-Z])[A-Z0-9]+$");
-
-    private static readonly Regex LowerCaseNextToNumberRegexField = new("(?<=[0-9])[a-z]");
-
-    private static Regex InvalidCharsRegex() => InvalidCharsRegexField;
-
-    private static Regex StartsWithLowerCaseCharRegex() => StartsWithLowerCaseCharRegexField;
-
-    private static Regex FirstCharFollowedByUpperCasesOnlyRegex() => FirstCharFollowedByUpperCasesOnlyRegexField;
-
-    private static Regex LowerCaseNextToNumberRegex() => LowerCaseNextToNumberRegexField;
-
-    private static Regex WhiteSpaceRegex() => WhiteSpaceRegexField;
-
-    private static Regex UpperCaseInsideRegex() => UpperCaseInsideRegexField;
-#endif
-
     /// <summary>
     ///     Extension method that determines if a string is not <c>null</c> or empty.
     /// </summary>
@@ -288,51 +242,5 @@ public static partial class StringExtensions
         str.NotNull(nameof(str));
 
         return long.TryParse(str, NumberStyles.Integer, provider, out result);
-    }
-
-    /// <summary>
-    ///     Converts a given string to PascalCase format, transforming delimiters and capitalization
-    ///     to align with PascalCase conventions.
-    /// </summary>
-    /// <param name="original">
-    ///     The original string to be converted. This may include spaces, underscores, or other delimiters
-    ///     and mixed-case characters.
-    /// </param>
-    /// <returns>
-    ///     A new string in PascalCase where words or segments are capitalized and joined without delimiters,
-    ///     adhering to identifier-naming conventions (e.g., "pascal_case_example" becomes "PascalCaseExample").
-    /// </returns>
-    public static string ToPascalCase(this string original)
-    {
-        var invalidCharsRgx = InvalidCharsRegex();
-        var whiteSpace = WhiteSpaceRegex();
-        var startsWithLowerCaseChar = StartsWithLowerCaseCharRegex();
-        var firstCharFollowedByUpperCasesOnly = FirstCharFollowedByUpperCasesOnlyRegex();
-        var lowerCaseNextToNumber = LowerCaseNextToNumberRegex();
-        var upperCaseInside = UpperCaseInsideRegex();
-
-        // replace white spaces with undescore, then replace all invalid chars with empty string
-        var pascalCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
-
-                                        // split by underscores
-                                        .Split([ '_' ], StringSplitOptions.RemoveEmptyEntries)
-
-                                        // set the first letter to uppercase
-                                        .Select(w => startsWithLowerCaseChar.Replace(w, static m => m.Value.ToUpperInvariant()))
-
-                                        // replace the second and all following upper case letters to lower if there is no next lower (ABC -> Abc)
-#pragma warning disable CA1308 // Normalize strings to uppercase
-                                        .Select(w => firstCharFollowedByUpperCasesOnly.Replace(w, static m => m.Value.ToLowerInvariant()))
-#pragma warning restore CA1308
-
-                                        // set the upper case the first lower case following a number (Ab9cd -> Ab9Cd)
-                                        .Select(w => lowerCaseNextToNumber.Replace(w, static m => m.Value.ToUpperInvariant()))
-
-                                        // lower second and next upper case letters except the last if it follows by any lower (ABcDEf -> AbcDef)
-#pragma warning disable CA1308 // Normalize strings to uppercase
-                                        .Select(w => upperCaseInside.Replace(w, static m => m.Value.ToLowerInvariant()));
-#pragma warning restore CA1308
-
-        return string.Concat(pascalCase);
     }
 }

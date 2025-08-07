@@ -1,11 +1,10 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Tests.TestTypes;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 // ReSharper disable MissingXmlDoc
-
 namespace Ploch.Common.Tests.Net6.ArgumentChecking;
 
 public class Guard
