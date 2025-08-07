@@ -133,15 +133,13 @@ public static partial class Guard
     /// <param name="argument">The reference type argument to check.</param>
     /// <param name="memberName">The name of the variable (automatically captured from the caller).</param>
     /// <param name="message">The exception message if argument is null.</param>
-    /// <param name="formatProvider">The instance of IFormatProvider used to format the exception message.</param>
     /// <returns>The non-null argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [AssertionMethod]
     [method: NotNull]
     public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument,
                                        string? memberName,
-                                       string? message = null,
-                                       IFormatProvider? formatProvider = null) where T : class
+                                       string? message = null) where T : class
     {
         if (argument != null)
         {
@@ -154,7 +152,7 @@ public static partial class Guard
         }
 
         var format = message != null
-            ? string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName)
+            ? string.Format(CultureInfo.InvariantCulture, message, memberName)
             : $"Variable {memberName} is null, but was expected to not be null.";
 
         throw new InvalidOperationException(format);
@@ -231,22 +229,20 @@ public static partial class Guard
     /// <param name="argument">The string argument to validate.</param>
     /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <param name="message">The exception message if argument is null.</param>
-    /// <param name="formatProvider">The instance of IFormatProvider used to format the exception message.</param>
     /// <returns>The validated string argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null or empty.</exception>
     [AssertionMethod]
     [method: NotNull]
     public static string RequiredNotNullOrEmpty([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this string? argument,
                                                 string memberName,
-                                                string? message = null,
-                                                IFormatProvider? formatProvider = null)
+                                                string? message = null)
     {
-        argument.RequiredNotNull(memberName, message, formatProvider);
+        argument.RequiredNotNull(memberName, message);
 
         if (string.IsNullOrEmpty(argument))
         {
             var format = message != null
-                ? string.Format(formatProvider ?? CultureInfo.CurrentUICulture, message, memberName)
+                ? string.Format(CultureInfo.InvariantCulture, message, memberName)
                 : $"Variable {memberName} is empty.";
 
             throw new InvalidOperationException(format);
