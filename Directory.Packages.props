@@ -4,10 +4,10 @@
   </PropertyGroup>
   <Import Project="../mrploch-development/dependencies/MicrosoftExtensions.Net9.Packages.props" />
   <ItemGroup>
+    <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageVersion Include="Ardalis.Result" Version="10.1.0" />
     <PackageVersion Include="Ardalis.Result.AspNetCore" Version="10.1.0" />
     <PackageVersion Include="AsyncAwaitBestPractices" Version="9.0.0" />
-    <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
 
     <PackageVersion Include="AutoMapper" Version="14.0.0" />
     <PackageVersion Include="AutoMapper" Version="14.0.0" />
@@ -47,6 +47,8 @@
 
     <PackageVersion Include="Vanara.SystemServices" Version="4.1.4" />
     <PackageVersion Include="WmiLight" Version="6.13.0" />
+
+    <PackageVersion Include="docfx.console" Version="2.59.4" />
 
   </ItemGroup>
   <Import Project="../mrploch-development/dependencies/Testing.Packages.props" />

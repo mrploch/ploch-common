@@ -31,6 +31,7 @@ dotnet_diagnostic.s4487.severity = none # Unread "private" fields should be remo
 # StyleCop settings
 dotnet_diagnostic.sa0001.severity = none # XML comment analysis is disabled due to project configuration
 dotnet_diagnostic.sa1402.severity = none # File may only contain a single type
+dotnet_diagnostic.sa1009.severity = none # Closing parenthesis should be spaced correctly
 
 # Naming rules
 dotnet_naming_rule.method_rule.import_to_resharper = True

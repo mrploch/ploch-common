@@ -19,6 +19,10 @@
     <File Path="qodana.sarif.json" />
     <File Path="qodana.yaml" />
     <File Path="Ploch.Common.slnx.DotSettings" />
+    <File Path="..\mrploch-development\dependencies\Analyzers.Global.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\MicrosoftExtensions.Net9.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\Serilog.Logging.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\Testing.Packages.props" />
   </Folder>
   <Folder Name="/repository/docs/">
     <File Path="docs\README.md" />
@@ -33,16 +37,48 @@
     <File Path="..\mrploch-development\dependencies\MicrosoftExtensions.Net9.Packages.props" />
     <File Path="..\mrploch-development\dependencies\Testing.Packages.props" />
   </Folder>
-  <Folder Name="/Serialization/">
+  <Folder Name="/src/">
+    <Project Path="src/Common.AppServices.Web/Ploch.Common.AppServices.Web.csproj" />
+    <Project Path="src/Common.AppServices/Ploch.Common.AppServices.csproj" />
+    <Project Path="src/Common.DataAnnotations/Ploch.Common.DataAnnotations.csproj" />
+    <Project Path="src/Common.DawnGuard/Ploch.Common.DawnGuard.csproj" />
+    <Project Path="src/Common.DependencyInjection/Ploch.Common.DependencyInjection.csproj" />
+    <Project Path="src/Common.WebUI/Ploch.Common.WebUI.csproj" />
+    <Project Path="src/Common/Ploch.Common.csproj" />
+    <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
+    <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
+    <Project Path="src\Common.Apps\Apps.Model\Ploch.Common.Apps.Model.csproj" Type="Classic C#">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
+  </Folder>
+  <Folder Name="/src/Serialization/">
     <Project Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
     <Project Path="src/Common.Serialization.NewtonsoftJson/Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
     <Project Path="src/Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj" />
     <Project Path="src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj" />
     <Project Path="src/Common.Serialization/Ploch.Common.Serialization.csproj" />
   </Folder>
-  <Folder Name="/Tests/">
+  <Folder Name="/tests/">
     <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
     <Project Path="tests\central-mgmt-disabled\Common.Tests.Net6\Ploch.Common.Tests.Net6.csproj" Type="Classic C#">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    <Project Path="tests\Common.Apps\Apps.Model.Tests\Ploch.Common.Apps.Model.Tests.csproj" Type="Classic C#">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -102,14 +138,4 @@
     <File Path="tests\TestAssemblies\.editorconfig" />
   </Folder>
   <Project Path="DocumentationSite/DocumentationSite.csproj" />
-  <Project Path="src/Common.AppServices.Web/Ploch.Common.AppServices.Web.csproj" />
-  <Project Path="src/Common.AppServices/Ploch.Common.AppServices.csproj" />
-  <Project Path="src/Common.DataAnnotations/Ploch.Common.DataAnnotations.csproj" />
-  <Project Path="src/Common.DawnGuard/Ploch.Common.DawnGuard.csproj" />
-  <Project Path="src/Common.DependencyInjection/Ploch.Common.DependencyInjection.csproj" />
-  <Project Path="src/Common.WebUI/Ploch.Common.WebUI.csproj" />
-  <Project Path="src/Common/Ploch.Common.csproj" />
-  <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
-  <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
-  <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
 </Solution>
