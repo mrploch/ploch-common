@@ -34,7 +34,7 @@ public static partial class PathGuard
     /// </exception>
     public static string RequireValidPath(this string? path, string parameterName)
     {
-        path.RequiredNotNullOrEmpty(nameof(path), formatProvider: CultureInfo.InvariantCulture);
+        path.RequiredNotNullOrEmpty(nameof(path));
 
         if (!Path.IsPathRooted(path))
         {

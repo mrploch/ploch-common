@@ -26,11 +26,11 @@ else
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 # Go up one directory
 $parentDir = Split-Path $scriptDir -Parent
-$devFolder = Join-Path $parentDir 'ploch-development'
+$devFolder = Join-Path $parentDir 'mrploch-development'
 
 if (-not (Test-Path $devFolder -PathType Container))
 {
-    Write-Host "'ploch-development' folder not found. Cloning repository..."
+    Write-Host "'mrploch-development' folder not found. Cloning repository..."
     Set-Location $parentDir
     if (-not (Get-Command git -ErrorAction SilentlyContinue))
     {
@@ -38,11 +38,11 @@ if (-not (Test-Path $devFolder -PathType Container))
         exit 1
     }
     Import-Module git-posh -ErrorAction SilentlyContinue
-    git clone https://github.com/mrploch/mrploch-development.git ploch-development
+    git clone https://github.com/mrploch/mrploch-development.git
 }
 else
 {
-    Write-Host "'ploch-development' folder exists. Pulling latest changes..."
+    Write-Host "'mrploch-development' folder exists. Pulling latest changes..."
     Set-Location $devFolder
     if (-not (Get-Command git -ErrorAction SilentlyContinue))
     {

@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Tests.TestTypes;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
@@ -64,15 +65,21 @@ public class Guard
     }
 
     [Fact]
-    public void MyMethod_should_explain()
+    public void RequiredNotNull_should_throw_InvalidOperationException_if_struct_is_null()
     {
-        object? obj = null;
-        var b1 = false;
+        int? obj = null;
+        var action = () => obj.RequiredNotNull(nameof(obj));
 
-        var act = () => obj.RequiredNotNull(nameof(obj), "Custom message for {0}");
-        var act2 = () => b1.RequiredFalse(nameof(b1));
-        act.Should().Throw<InvalidOperationException>();
-        act2.Should().NotThrow();
+        action.Should().Throw<InvalidOperationException>().WithMessage($"*{nameof(obj)}*not*value*");
+    }
+
+    [Fact]
+    public void RequiredNotNull_should_not_throw_if_struct_is_not_null()
+    {
+        int? obj = 123;
+        var action = () => obj.RequiredNotNull(nameof(obj));
+
+        action.Should().NotThrow();
     }
 
     [Fact]
@@ -129,6 +136,55 @@ public class Guard
         var act = () => argument.NotNullOrEmpty(nameof(argument));
 
         // Assert
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public void RequiredNotNullOrEmpty_should_throw_InvalidOperationException_if_string_is_null_with_correct_default_message()
+    {
+        string? str = null;
+
+        var act = () => str.RequiredNotNullOrEmpty(nameof(str));
+
+        act.Should().Throw<InvalidOperationException>().WithMessage($"*{nameof(str)}*null*");
+    }
+
+    [Fact]
+    public void RequiredNotNullOrEmpty_should_throw_InvalidOperationException_if_string_is_null_with_custom_message()
+    {
+        string? str = null;
+
+        var act = () => str.RequiredNotNullOrEmpty(nameof(str), "Custom message for {0}");
+
+        act.Should().Throw<InvalidOperationException>().WithMessage($"Custom message for {nameof(str)}");
+    }
+
+    [Fact]
+    public void RequiredNotNullOrEmpty_should_throw_InvalidOperationException_if_string_is_empty_with_correct_default_message()
+    {
+        var str = string.Empty;
+
+        var act = () => str.RequiredNotNullOrEmpty(nameof(str));
+
+        act.Should().Throw<InvalidOperationException>().WithMessage($"*{nameof(str)}*empty*");
+    }
+
+    [Fact]
+    public void RequiredNotNullOrEmpty_should_throw_InvalidOperationException_if_string_is_empty_with_custom_message()
+    {
+        var str = string.Empty;
+
+        var act = () => str.RequiredNotNullOrEmpty(nameof(str), "Custom message for {0}");
+
+        act.Should().Throw<InvalidOperationException>().WithMessage($"Custom message for {nameof(str)}");
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void RequiredNotNullOrEmpty_should_not_throw_if_string_is_not_empty(string str)
+    {
+        var act = () => str.RequiredNotNullOrEmpty(nameof(str));
+
         act.Should().NotThrow();
     }
 
