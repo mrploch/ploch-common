@@ -24,13 +24,13 @@ public class AppDomainTypesLoader
     {
         if (configuration.AssemblyNameGlobConfiguration != null)
         {
-            _assemblyMatcher = new Matcher(StringComparison.Ordinal);
+            _assemblyMatcher = new(StringComparison.Ordinal);
             configuration.AssemblyNameGlobConfiguration(_assemblyMatcher);
         }
 
         if (configuration.TypeNameGlobConfiguration != null)
         {
-            _typeMatcher = new Matcher(StringComparison.Ordinal);
+            _typeMatcher = new(StringComparison.Ordinal);
             configuration.TypeNameGlobConfiguration(_typeMatcher);
         }
 
@@ -64,10 +64,7 @@ public class AppDomainTypesLoader
     public void Test()
     { }
 
-    public IEnumerable<Type> GetTypesImplementing<TBaseType>(bool includeAbstract = false)
-    {
-        return GetTypesImplementing(typeof(TBaseType), includeAbstract);
-    }
+    public IEnumerable<Type> GetTypesImplementing<TBaseType>(bool includeAbstract = false) => GetTypesImplementing(typeof(TBaseType), includeAbstract);
 
     private void LoadAssembly(Assembly? assembly)
     {
