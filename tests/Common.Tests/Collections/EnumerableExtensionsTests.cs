@@ -70,7 +70,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
         join.Should().Be(string.Join(separator, dateTimes));
 
         join = dateTimes.Join(" ", dt => dt.Year);
-        join.Should().Be(string.Join(" ", dateTimes.Select(dt => dt.Year)));
+        join.Should().Be(string.Join(Chars.Space, dateTimes.Select(dt => dt.Year)));
     }
 
     [Fact]

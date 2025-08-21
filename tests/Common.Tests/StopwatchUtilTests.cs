@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Xunit;
 
 namespace Ploch.Common.Tests;
 
@@ -28,9 +27,9 @@ public class StopwatchUtilTests
     }
 
     [Fact]
-    public void Time_should_return_execution_time_for_started_task()
+    public async Task Time_should_return_execution_time_for_started_taskAsync()
     {
-        var asyncMethodTime = StopwatchUtil.Time(AsyncMethod(TimeSpan.FromMilliseconds(100)));
+        var asyncMethodTime = await StopwatchUtil.TimeAsync(AsyncMethod(TimeSpan.FromMilliseconds(100)));
 
         asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }

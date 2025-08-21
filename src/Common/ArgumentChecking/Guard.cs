@@ -206,6 +206,11 @@ public static partial class Guard
             throw new ArgumentNullException(parameterName);
         }
 
+        if (argument is ICollection collection && collection.Count == 0)
+        {
+            throw new ArgumentException("Argument cannot be null or empty.", parameterName);
+        }
+
         var enumerator = argument.GetEnumerator();
         if (!enumerator.MoveNext())
         {
@@ -241,9 +246,7 @@ public static partial class Guard
 
         if (string.IsNullOrEmpty(argument))
         {
-            var format = message != null
-                ? string.Format(CultureInfo.InvariantCulture, message, memberName)
-                : $"Variable {memberName} is empty.";
+            var format = message != null ? string.Format(CultureInfo.InvariantCulture, message, memberName) : $"Variable {memberName} is empty.";
 
             throw new InvalidOperationException(format);
         }
