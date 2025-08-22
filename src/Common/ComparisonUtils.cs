@@ -17,9 +17,9 @@ public static class ComparisonUtils
     /// <param name="value">The value.</param>
     /// <typeparam name="TValue">The type of the value.</typeparam>
     /// <returns>
-    ///     <c>true</c> if the value is default or null, otherwise <c>false</c>
+    ///     <c>true</c> if the value is default or null, otherwise <c>false</c>.
     /// </returns>
-    public static bool IsNotDefault<TValue>(this TValue? value) => !value.IsDefault()!;
+    public static bool IsNotDefault<TValue>(this TValue? value) => !value.IsDefault();
 
     /// <summary>
     ///     Checks if the value is equal to default (or null) value of the type.
@@ -31,7 +31,7 @@ public static class ComparisonUtils
     /// <param name="value">The value.</param>
     /// <typeparam name="TValue">The type of the value.</typeparam>
     /// <returns>
-    ///     <c>false</c> if the value is default or null, otherwise <c>true</c>
+    ///     <c>false</c> if the value is default or null, otherwise <c>true</c>.
     /// </returns>
     public static bool IsDefault<TValue>(this TValue? value)
     {

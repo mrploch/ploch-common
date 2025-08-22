@@ -38,7 +38,9 @@ public static class ThreadSafeRandom
             int seed;
             lock (Global)
             {
+#pragma warning disable CA5394 - this random is not required to be safe for cryptographic use
                 seed = Global.Next();
+#pragma warning restore CA5394
             }
 
             LocalRandom = new Random(seed);

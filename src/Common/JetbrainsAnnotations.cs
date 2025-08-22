@@ -308,12 +308,12 @@ internal sealed class InvokerParameterNameAttribute : Attribute
 ///     <code>
 /// public class Foo : INotifyPropertyChanged {
 ///   public event PropertyChangedEventHandler PropertyChanged;
-/// 
+///
 ///   [NotifyPropertyChangedInvocator]
 ///   protected virtual void NotifyChanged(string propertyName) { ... }
-/// 
+///
 ///   string _name;
-/// 
+///
 ///   public string Name {
 ///     get { return _name; }
 ///     set { _name = value; NotifyChanged("LastName"); /* Warning */ }
@@ -449,7 +449,7 @@ internal sealed class LocalizationRequiredAttribute(bool required) : Attribute
 ///     <code>
 /// [CannotApplyEqualityOperator]
 /// class NoEquality { }
-/// 
+///
 /// class UsesNoEquality {
 ///   void Test() {
 ///     var ca1 = new NoEquality();
@@ -537,13 +537,13 @@ internal sealed class BaseTypeRequiredAttribute([NotNull] Type baseType) : Attri
 ///     <code>
 /// [UsedImplicitly]
 /// public class TypeConverter {}
-/// 
+///
 /// public class SummaryData
 /// {
 ///   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 ///   public SummaryData() {}
 /// }
-/// 
+///
 /// [UsedImplicitly(ImplicitUseTargetFlags.WithInheritors | ImplicitUseTargetFlags.Default)]
 /// public interface IService {}
 /// </code>
