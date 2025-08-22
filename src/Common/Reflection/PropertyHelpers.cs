@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -100,6 +100,46 @@ public static class PropertyHelpers
         }
 
         return propertyInfo;
+    }
+
+    /// <summary>
+    ///     Gets all property names and their values from the specified object.
+    /// </summary>
+    /// <remarks>
+    ///     This method uses reflection to retrieve all public properties of the object's type
+    ///     and returns their names paired with their current values. Properties that cannot
+    ///     be read or throw exceptions during value retrieval may cause this method to fail.
+    /// </remarks>
+    /// <example>
+    ///     <code>
+    /// var person = new { Name = "John", Age = 30, City = "New York" };
+    /// var propertyValues = person.GetPropertyValues();
+    /// 
+    /// foreach (var (name, value) in propertyValues)
+    /// {
+    ///     Console.WriteLine($"{name}: {value}");
+    /// }
+    /// // Output:
+    /// // Name: John
+    /// // Age: 30
+    /// // City: New York
+    /// </code>
+    /// </example>
+    /// <param name="obj">The object from which to retrieve property values.</param>
+    /// <returns>
+    ///     An enumerable collection of tuples containing property names and their corresponding values.
+    ///     Each tuple contains the property name as a string and the property value as an object (which may be null).
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    ///     <paramref name="obj" /> is <see langword="null" />.
+    /// </exception>
+    public static IEnumerable<(string, object?)> GetPropertyValues(this object obj)
+    {
+        obj.NotNull(nameof(obj));
+
+#pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type - this is a false/positive in this case.
+        return obj.GetType().GetProperties().Select(pi => (pi.Name, pi.GetValue(obj)));
+#pragma warning restore CS8619 // Nullability of reference types in value doesn't match target type.
     }
 
     /// <summary>
@@ -225,11 +265,9 @@ public static class PropertyHelpers
         var valueObj = GetStaticPropertyValue(type, propertyName);
 
         return valueObj switch
-               {
-                   null => default,
-                   TValue value => value,
-                   _ => throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type")
-               };
+               { null => default,
+                 TValue value => value,
+                 _ => throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type") };
     }
 
     /// <summary>
@@ -245,7 +283,7 @@ public static class PropertyHelpers
     ///     <c>true</c> if the specified property name has property; otherwise,
     ///     <c>false</c> .
     /// </returns>
-    public static bool HasProperty(this object obj, string propertyName) => obj.GetType().GetPropertyInfo(propertyName, false) != null;
+    public static bool HasProperty(this object obj, string propertyName) => obj.NotNull(nameof(obj)).GetType().GetPropertyInfo(propertyName, false) != null;
 
     /// <summary>
     ///     Sets the property.

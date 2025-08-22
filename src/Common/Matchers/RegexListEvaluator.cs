@@ -47,6 +47,6 @@ public class RegexListEvaluator(IEnumerable<string> regexList, bool nullValueMat
             options |= RegexOptions.IgnoreCase;
         }
 
-        return new Regex(pattern, options);
+        return new(pattern, options);
     }
 }
