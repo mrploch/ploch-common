@@ -4,6 +4,7 @@ dotnet_diagnostic.s3236.severity = none # Caller information arguments should no
 # ReSharper properties
 # resharper_csharp_case_block_braces = next_line_shifted_2
 # resharper_csharp_empty_block_style = together
+# Roslynator
 roslynator_block_braces_style = single_line_when_empty
 # Format accessor's braces on single line or multiple lines
 # Default value is multi_line
@@ -11,7 +12,8 @@ roslynator_accessor_braces_style = single_line_when_expression_is_on_single_line
 dotnet_diagnostic.rcs0023.severity = warning
 dotnet_diagnostic.rcs0022 = false
 
-dotnet_diagnostic.sa1500.severity = none # this one controlls braces on the same line
+# StyleCop
+dotnet_diagnostic.sa1500.severity = none # this one controls braces on the same line
 dotnet_diagnostic.sa1501.severity = warning
 dotnet_diagnostic.sa1502.severity = warning #
 dotnet_diagnostic.sa1503.severity = warning
@@ -30,4 +32,4 @@ dotnet_diagnostic.sa1515.severity = warning
 dotnet_diagnostic.sa1633.severity = none
 
 # Microsoft .NET properties
-# csharp_new_line_before_open_brace = all
+csharp_new_line_before_open_brace = all
