@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Ploch.Common.ArgumentChecking;
+﻿using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Tests.TestTypes;
 
 namespace Ploch.Common.Tests.ArgumentChecking;

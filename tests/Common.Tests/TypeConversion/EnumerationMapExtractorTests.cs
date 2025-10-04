@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using FluentAssertions;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
 
@@ -101,8 +100,8 @@ public class EnumerationMapExtractorTests
         var valueMap = EnumerationMapExtractor.GetEnumFieldValueMap(enumType);
 
         // Assert
-        valueMap.Should().ContainKey(new EnumName(nameof(TestEnum.FirstValue))).And.ContainValue(TestEnum.FirstValue);
-        valueMap.Should().ContainKey(new EnumName(nameof(TestEnum.SecondValue))).And.ContainValue(TestEnum.SecondValue);
+        valueMap.Should().ContainKey(new(nameof(TestEnum.FirstValue))).And.ContainValue(TestEnum.FirstValue);
+        valueMap.Should().ContainKey(new(nameof(TestEnum.SecondValue))).And.ContainValue(TestEnum.SecondValue);
     }
 
     [Fact]
@@ -127,7 +126,7 @@ public class EnumerationMapExtractorTests
         valueMap.Should()
                 .ContainKey("ValueWithMultipleMappedNames2")
                 .And.ContainValue(EnumerationFieldValueCacheTest.TestEnumWithMapping.ValueWithMultipleMappedNames);
-        valueMap.Should().ContainKey(new EnumName(null)).And.ContainValue(EnumerationFieldValueCacheTest.TestEnumWithMapping.ValueWithMultipleMappedNames);
+        valueMap.Should().ContainKey(new(null)).And.ContainValue(EnumerationFieldValueCacheTest.TestEnumWithMapping.ValueWithMultipleMappedNames);
     }
 
     [Fact]

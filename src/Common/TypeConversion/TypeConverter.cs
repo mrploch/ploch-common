@@ -15,12 +15,6 @@ public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<T
     : ITypeConverter
 {
     /// <summary>
-    ///     Gets the processing order for this type converter.
-    ///     Determines the sequence in which the converter should be executed when multiple converters are available.
-    /// </summary>
-    public int Order { get; }
-
-    /// <summary>
     ///     Gets the collection of source types that this converter can handle.
     /// </summary>
     public IEnumerable<Type> SupportedSourceTypes { get; } = supportedSourceTypes;
@@ -29,6 +23,12 @@ public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<T
     ///     Gets the collection of target types that this converter can convert to.
     /// </summary>
     public IEnumerable<Type> SupportedTargetTypes { get; } = supportedTargetTypes;
+
+    /// <summary>
+    ///     Gets the processing order for this type converter.
+    ///     Determines the sequence in which the converter should be executed when multiple converters are available.
+    /// </summary>
+    public int Order { get; }
 
     /// <summary>
     ///     Determines whether this converter can handle the conversion of the specified value to the target type.

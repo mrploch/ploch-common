@@ -1,9 +1,6 @@
-﻿using System.Reflection;
-using FluentAssertions;
-using Ploch.Common.Reflection;
+﻿using Ploch.Common.Reflection;
 using Ploch.Common.Tests.TestAssembly1;
 using Ploch.Common.Tests.TestAssembly2;
-using Xunit;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -36,8 +33,10 @@ public class TypeLoaderTests
 
         loadedTypes.Should()
                    .HaveCount(2 + expectedTypes.Count())
-                   .And.Contain([ typeof(TypeHierarchies.HierarchyOne.BaseInterfaceImplementor),
-                                  typeof(TypeHierarchies.HierarchyOne.DerivedInterfaceImplementor) ]);
+                   .And.Contain([
+                                        typeof(TypeHierarchies.HierarchyOne.BaseInterfaceImplementor),
+                                        typeof(TypeHierarchies.HierarchyOne.DerivedInterfaceImplementor)
+                                    ]);
 
         loadedTypes.Should().Contain(expectedTypes);
     }
@@ -50,11 +49,13 @@ public class TypeLoaderTests
 
         typeLoader.LoadedTypes.Should().HaveCount(5);
         typeLoader.LoadedTypes.Should()
-                  .Contain([ typeof(IGenericInterface2<,>),
-                             typeof(TestGenericClass3<>),
-                             typeof(GenericClass2<,>),
-                             typeof(InheritedFromGenericClass2OfIntAndString),
-                             typeof(TestClass4GenericClass3OfInt) ]);
+                  .Contain([
+                                   typeof(IGenericInterface2<,>),
+                                   typeof(TestGenericClass3<>),
+                                   typeof(GenericClass2<,>),
+                                   typeof(InheritedFromGenericClass2OfIntAndString),
+                                   typeof(TestClass4GenericClass3OfInt)
+                               ]);
     }
 
     [Fact]
@@ -68,10 +69,12 @@ public class TypeLoaderTests
 
         typeLoader.LoadedTypes.Should().HaveCount(4);
         typeLoader.LoadedTypes.Should()
-                  .Contain([ typeof(BaseClassImplementation1),
-                             typeof(Interface1Implementation1),
-                             typeof(Interface1Implementation3),
-                             typeof(Interface1Implementation4) ]);
+                  .Contain([
+                                   typeof(BaseClassImplementation1),
+                                   typeof(Interface1Implementation1),
+                                   typeof(Interface1Implementation3),
+                                   typeof(Interface1Implementation4)
+                               ]);
     }
 
     [Fact]
@@ -87,11 +90,6 @@ public class TypeLoaderTests
     [Fact]
     public void Constructor_throws_ArgumentNullException_when_configuration_is_null()
     {
-        // Arrange
-        var constructorInfo = typeof(TypeLoader).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
-                                                .First(c => c.GetParameters().Length == 1 &&
-                                                            c.GetParameters()[0].ParameterType == typeof(TypeLoaderConfigurator));
-
         // Act
         Action act = () => TypeLoader.Configure(null!);
 

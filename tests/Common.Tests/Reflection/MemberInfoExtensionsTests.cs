@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using FluentAssertions;
 using Ploch.Common.Reflection;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 
@@ -119,9 +118,8 @@ public class MemberInfoExtensionsTests
     {
         // Arrange
         var testObject = new ClassWithPrivateMembers();
-        var privateValue = "private field value";
 
-        // Set private field value using reflection
+        // Set a private field value using reflection
         MemberInfo privateField = testObject.GetType().GetField(ClassWithPrivateMembers.PrivateFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
 
         // Act

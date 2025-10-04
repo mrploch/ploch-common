@@ -491,11 +491,11 @@ public class ObjectReflectionExtensionsTests
     {
         private static readonly string StaticField = "static field value";
 
-        public static string StaticStrField1 = nameof(StaticStrField1) + "Value";
-        public static string StaticStrField2 = nameof(StaticStrField2) + "Value";
-        public static int StaticIntField1 = 1;
-        public static int StaticIntField2 = 2;
-        public string PublicField = "instance field value";
+        public static readonly string StaticStrField1 = nameof(StaticStrField1) + "Value";
+        public static readonly string StaticStrField2 = nameof(StaticStrField2) + "Value";
+        public static readonly int StaticIntField1 = 1;
+        public static readonly int StaticIntField2 = 2;
+        public readonly string PublicField = "instance field value";
 
         public static string StaticProperty { get; } = "static property value";
 

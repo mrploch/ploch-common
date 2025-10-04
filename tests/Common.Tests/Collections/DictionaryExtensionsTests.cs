@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-using Ploch.Common.Collections;
-using Xunit;
+﻿using Ploch.Common.Collections;
 
 namespace Ploch.Common.Tests.Collections;
 
@@ -11,7 +9,7 @@ public class DictionaryExtensionsTests
     {
         var dictionary = new Dictionary<string, string> { { "key0", "value0" } };
 
-        KeyValuePair<string, string>[] entries = [ new("key1", "value1"), new("key2", "value2"), new("key3", "value3") ];
+        KeyValuePair<string, string>[] entries = [new("key1", "value1"), new("key2", "value2"), new("key3", "value3")];
 
         var result = dictionary.AddMany(entries);
 
@@ -29,7 +27,7 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         Dictionary<string, string>? dictionary = null;
-        KeyValuePair<string, string>[] entries = [ new("key1", "value1") ];
+        KeyValuePair<string, string>[] entries = [new("key1", "value1")];
 
         // Act & Assert
         var action = () => dictionary!.AddMany(entries);
@@ -55,7 +53,7 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<string, string> { { "key1", "value1" } };
-        KeyValuePair<string, string>[] entries = [ new("key1", "newValue"), new("key2", "value2") ];
+        KeyValuePair<string, string>[] entries = [new("key1", "newValue"), new("key2", "value2")];
 
         // Act & Assert
         var action = () => dictionary.AddMany(entries);
@@ -68,9 +66,11 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<string, string>
-                         { { "key1", "originalValue" },
-                           { "key2", "value2" } };
-        KeyValuePair<string, string>[] entries = [ new("key1", "newValue"), new("key3", "value3") ];
+                             {
+                                 { "key1", "originalValue" },
+                                 { "key2", "value2" }
+                             };
+        KeyValuePair<string, string>[] entries = [new("key1", "newValue"), new("key3", "value3")];
 
         // Act
         var result = dictionary.AddMany(entries, DuplicateHandling.Overwrite);
@@ -89,9 +89,11 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<string, string>
-                         { { "key1", "originalValue" },
-                           { "key2", "value2" } };
-        KeyValuePair<string, string>[] entries = [ new("key1", "newValue"), new("key3", "value3") ];
+                             {
+                                 { "key1", "originalValue" },
+                                 { "key2", "value2" }
+                             };
+        KeyValuePair<string, string>[] entries = [new("key1", "newValue"), new("key3", "value3")];
 
         // Act
         var result = dictionary.AddMany(entries, DuplicateHandling.Ignore);
@@ -110,7 +112,7 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<string, string> { { "key1", "value1" } };
-        KeyValuePair<string, string>[] entries = [ new("key2", "value2") ];
+        KeyValuePair<string, string>[] entries = [new("key2", "value2")];
 
         // Using an invalid enum value by casting an int outside the defined enum values
         var invalidDuplicateHandling = (DuplicateHandling)999;
@@ -126,8 +128,10 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<string, string>
-                         { { "key1", "value1" },
-                           { "key2", "value2" } };
+                             {
+                                 { "key1", "value1" },
+                                 { "key2", "value2" }
+                             };
         var emptyItems = Array.Empty<KeyValuePair<string, string>>();
 
         // Act
@@ -144,7 +148,7 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<int, decimal> { { 1, 10.5m } };
-        KeyValuePair<int, decimal>[] entries = [ new(2, 20.75m), new(3, 30.25m), new(4, 40.0m) ];
+        KeyValuePair<int, decimal>[] entries = [new(2, 20.75m), new(3, 30.25m), new(4, 40.0m)];
 
         // Act
         var result = dictionary.AddMany(entries);
@@ -164,9 +168,11 @@ public class DictionaryExtensionsTests
     {
         // Arrange
         var dictionary = new Dictionary<string, string>
-                         { { "key1", "value1" },
-                           { "key2", "value2" },
-                           { "key3", "value3" } };
+                             {
+                                 { "key1", "value1" },
+                                 { "key2", "value2" },
+                                 { "key3", "value3" }
+                             };
         var originalDictionary = new Dictionary<string, string>(dictionary);
         var emptyItems = new List<KeyValuePair<string, string>>();
 
@@ -191,9 +197,11 @@ public class DictionaryExtensionsTests
         // Arrange
         // SortedDictionary is a different implementation of IDictionary<TKey,TValue>
         var dictionary = new SortedDictionary<string, int>
-                         { { "a", 1 },
-                           { "c", 3 } };
-        KeyValuePair<string, int>[] entries = [ new("b", 2), new("d", 4) ];
+                             {
+                                 { "a", 1 },
+                                 { "c", 3 }
+                             };
+        KeyValuePair<string, int>[] entries = [new("b", 2), new("d", 4)];
 
         // Act
         var result = dictionary.AddMany(entries);

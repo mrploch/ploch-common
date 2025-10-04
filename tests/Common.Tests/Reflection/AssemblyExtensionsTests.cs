@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using FluentAssertions;
 using Ploch.Common.Reflection;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 

@@ -1,6 +1,3 @@
-using FluentAssertions;
-using Xunit;
-
 namespace Ploch.Common.Tests;
 
 /// <summary>
@@ -13,11 +10,11 @@ public class OperatingSystemExtensionsTests
     /// </summary>
     public static IEnumerable<object[]> NonWindowsPlatforms()
     {
-        yield return [ new OperatingSystem(PlatformID.Unix, new Version()) ];
-        yield return [ new OperatingSystem(PlatformID.MacOSX, new Version()) ];
-        yield return [ new OperatingSystem(PlatformID.Win32S, new Version()) ];
-        yield return [ new OperatingSystem(PlatformID.Win32Windows, new Version()) ];
-        yield return [ new OperatingSystem(PlatformID.WinCE, new Version()) ];
+        yield return [new OperatingSystem(PlatformID.Unix, new())];
+        yield return [new OperatingSystem(PlatformID.MacOSX, new())];
+        yield return [new OperatingSystem(PlatformID.Win32S, new())];
+        yield return [new OperatingSystem(PlatformID.Win32Windows, new())];
+        yield return [new OperatingSystem(PlatformID.WinCE, new())];
     }
 
     [Fact]
@@ -37,7 +34,7 @@ public class OperatingSystemExtensionsTests
     public void IsWindows_should_return_true_when_platform_is_Win32NT()
     {
         // Arrange
-        var windowsOs = new OperatingSystem(PlatformID.Win32NT, new Version());
+        var windowsOs = new OperatingSystem(PlatformID.Win32NT, new());
 
         // Act
         var result = windowsOs.IsWindows();

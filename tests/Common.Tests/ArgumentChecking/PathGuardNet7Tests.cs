@@ -1,8 +1,6 @@
 using System.Globalization;
-using FluentAssertions;
 using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Collections;
-using Xunit;
 
 namespace Ploch.Common.Tests.ArgumentChecking;
 
@@ -20,7 +18,7 @@ public class PathGuardTests
            .Throw<ArgumentException>()
            .Which.Message.ToLower(CultureInfo.InvariantCulture)
            .Should()
-           .ContainAll([ nameof(path), ..expectedStringsInExceptionMessage ]);
+           .ContainAll([nameof(path), ..expectedStringsInExceptionMessage]);
     }
 
     [Fact]
@@ -78,9 +76,8 @@ public class PathGuardTests
     [Theory]
     [InlineData(null, new[] { "cannot", "null" })]
     [InlineData("", new[] { "cannot", "empty" })]
-    public void RequiredIsValidPath_should_throw_InvalidOperationException_when_path_is_null_or_empty(
-        string? path,
-        IEnumerable<string> expectedStringsInExceptionMessage)
+    public void RequiredIsValidPath_should_throw_InvalidOperationException_when_path_is_null_or_empty(string? path,
+                                                                                                      IEnumerable<string> expectedStringsInExceptionMessage)
     {
         // Arrange
         // Act & Assert

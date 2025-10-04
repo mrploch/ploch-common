@@ -23,8 +23,8 @@ public abstract class BaseRandomizer<TValue> : IRangedRandomizer<TValue>
     /// <param name="maxValue">The maximum value (inclusive) of the range as an object.</param>
     /// <returns>A random value as an object within the specified range.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the randomizer returns a null value.</exception>
-    public object GetRandomValue(object minValue, object maxValue) =>
-        GetRandomValue((TValue)minValue, (TValue)maxValue) ?? throw new InvalidOperationException("Randomizer returned null value.");
+    public object GetRandomValue(object minValue, object maxValue) => GetRandomValue((TValue)minValue, (TValue)maxValue) ??
+                                                                      throw new InvalidOperationException("Randomizer returned null value.");
 
     /// <summary>
     ///     Generates a random value using default range settings.

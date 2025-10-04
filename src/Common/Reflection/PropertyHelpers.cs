@@ -143,7 +143,7 @@ public static class PropertyHelpers
     ///     <code>
     /// var person = new { Name = "John", Age = 30, City = "New York" };
     /// var propertyValues = person.GetPropertyValues();
-    ///
+    /// 
     /// foreach (var (name, value) in propertyValues)
     /// {
     ///     Console.WriteLine($"{name}: {value}");

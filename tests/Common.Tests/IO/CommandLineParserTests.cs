@@ -54,7 +54,6 @@ public class CommandLineParserTests(ITestOutputHelper output)
         var successCount = 0;
         foreach (var commandLine in File.ReadAllLines("commandLines.txt"))
         {
-            var s = "\"\"";
             var applicationPath = CommandLineParser.GetApplicationPath(commandLine);
             output.WriteLine(applicationPath);
             try

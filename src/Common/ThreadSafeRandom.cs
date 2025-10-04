@@ -42,7 +42,7 @@ public static class ThreadSafeRandom
 #pragma warning restore CA5394
             }
 
-            LocalRandom = new Random(seed);
+            LocalRandom = new(seed);
 
             return LocalRandom;
         }

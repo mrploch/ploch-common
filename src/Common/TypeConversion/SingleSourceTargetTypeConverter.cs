@@ -17,7 +17,8 @@ public abstract class SingleSourceTargetTypeConverter<TSourceType, TTargetType>(
                                                                                 IEnumerable<Type>? additionalTargetTypes = null)
     : TypeConverter(canHandleNullSourceValue,
                     TypeConverterHelper.CombinedTypes<TSourceType>(additionalSourceTypes),
-                    TypeConverterHelper.CombinedTypes<TTargetType>(additionalTargetTypes)), ITypeConverter<TSourceType, TTargetType>
+                    TypeConverterHelper.CombinedTypes<TTargetType>(additionalTargetTypes)),
+      ITypeConverter<TSourceType, TTargetType>
 {
     private readonly bool _canHandleNullSourceValue = canHandleNullSourceValue;
 

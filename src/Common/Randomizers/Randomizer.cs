@@ -36,6 +36,6 @@ public static class Randomizer
                                                                      not null when type == typeof(DateTime) => new DateTimeRandomizer(),
                                                                      not null when type == typeof(DateTimeOffset) => new DateTimeOffsetRandomizer(),
                                                                      not null when type == typeof(bool) => new BooleanRandomizer(),
-                                                                     var _ =>
+                                                                     _ =>
                                                                          throw new NotSupportedException($"Randomizer for type {type} is not supported.") };
 }

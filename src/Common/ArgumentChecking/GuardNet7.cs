@@ -60,7 +60,8 @@ public static partial class Guard
     public static bool RequiredTrue([AssertionCondition(AssertionConditionType.IS_TRUE)] this bool condition,
                                     string? messageFormat = null,
                                     [CallerMemberName] string? memberName = null,
-                                    [CallerArgumentExpression(nameof(condition))] string? expression = null,
+                                    [CallerArgumentExpression(nameof(condition))]
+                                    string? expression = null,
                                     [CallerFilePath] string? sourceFilePath = null,
                                     [CallerLineNumber] int sourceLineNumber = 0)
     {
@@ -93,7 +94,8 @@ public static partial class Guard
     /// <exception cref="ArgumentNullException">Thrown when the argument is null.</exception>
     [AssertionMethod]
     public static T NotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
-                               [CallerArgumentExpression(nameof(argument))] string? variableName = null) where T : struct
+                               [CallerArgumentExpression(nameof(argument))]
+                               string? variableName = null) where T : struct
     {
         if (!argument.HasValue)
         {
@@ -118,7 +120,8 @@ public static partial class Guard
     [return: NotNullIfNotNull(nameof(argument))]
     [AssertionMethod]
     public static T NotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
-                               [CallerArgumentExpression(nameof(argument))] string? variableName = null)
+                               [CallerArgumentExpression(nameof(argument))]
+                               string? variableName = null)
     {
         ArgumentNullException.ThrowIfNull(argument, variableName);
 
@@ -141,7 +144,8 @@ public static partial class Guard
     [return: NotNullIfNotNull(nameof(argument))]
     [AssertionMethod]
     public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
-                                       [CallerArgumentExpression(nameof(argument))] string? memberName = null,
+                                       [CallerArgumentExpression(nameof(argument))]
+                                       string? memberName = null,
                                        string? messageFormat = null) where T : struct
     {
         if (!argument.HasValue)
@@ -171,7 +175,8 @@ public static partial class Guard
     public static T RequiredNotNull<T>(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] [JetBrains.Annotations.NotNull] this T? argument,
         string? message = null,
-        [CallerArgumentExpression(nameof(argument))] string? memberName = null) where T : class
+        [CallerArgumentExpression(nameof(argument))]
+        string? memberName = null) where T : class
     {
         if (argument != null)
         {
@@ -185,7 +190,8 @@ public static partial class Guard
     [AssertionMethod]
     public static TValue NotNullOrDefault<TValue>(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this TValue? argument,
-        [CallerArgumentExpression(nameof(argument))] string? argumentName = null)
+        [CallerArgumentExpression(nameof(argument))]
+        string? argumentName = null)
     {
         ArgumentNullException.ThrowIfNull(argument, argumentName);
         if (EqualityComparer<TValue>.Default.Equals(argument, default))
@@ -211,7 +217,8 @@ public static partial class Guard
     [AssertionMethod]
     public static string NotNullOrEmpty(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this string? argument,
-        [CallerArgumentExpression(nameof(argument))] string? parameterName = null)
+        [CallerArgumentExpression(nameof(argument))]
+        string? parameterName = null)
     {
         ArgumentException.ThrowIfNullOrEmpty(argument, parameterName);
 
@@ -221,7 +228,8 @@ public static partial class Guard
     [AssertionMethod]
     public static TEnumerable NotNullOrEmpty<TEnumerable>(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this TEnumerable? argument,
-        [CallerArgumentExpression(nameof(argument))] string? parameterName = null) where TEnumerable : class, IEnumerable
+        [CallerArgumentExpression(nameof(argument))]
+        string? parameterName = null) where TEnumerable : class, IEnumerable
     {
         argument.NotNull(parameterName);
 
@@ -255,7 +263,8 @@ public static partial class Guard
     public static string RequiredNotNullOrEmpty(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this string? argument,
         string? message = null,
-        [CallerArgumentExpression(nameof(argument))] string? memberName = null)
+        [CallerArgumentExpression(nameof(argument))]
+        string? memberName = null)
     {
         argument.RequiredNotNull(message, memberName);
 
@@ -285,7 +294,8 @@ public static partial class Guard
     ///     Thrown when the provided enum value is not a defined member of the specified enumeration type.
     /// </exception>
     public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument,
-                                             [CallerArgumentExpression(nameof(argument))] string? argumentName = null) where TEnum : struct, Enum
+                                             [CallerArgumentExpression(nameof(argument))]
+                                             string? argumentName = null) where TEnum : struct, Enum
     {
         if (!Enum.IsDefined(argument))
         {
@@ -299,7 +309,8 @@ public static partial class Guard
 
     public static TValue Positive<TValue>(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this TValue argument,
-        [CallerArgumentExpression(nameof(argument))] string? argumentName = null) where TValue : struct, IComparable<TValue>
+        [CallerArgumentExpression(nameof(argument))]
+        string? argumentName = null) where TValue : struct, IComparable<TValue>
     {
         if (argument.CompareTo(default) <= 0)
         {

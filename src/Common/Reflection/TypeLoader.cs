@@ -49,7 +49,7 @@ public class TypeLoader
         var configuration = new TypeLoaderConfigurator();
         configurator(configuration);
 
-        return new TypeLoader(configuration);
+        return new(configuration);
     }
 
     /// <summary>

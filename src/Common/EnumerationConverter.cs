@@ -14,14 +14,14 @@ namespace Ploch.Common;
 ///     <code lang="csharp">
 /// // Example enum
 /// public enum Color { Red, Green, Blue }
-///
+/// 
 /// // Basic parsing with exception on failure
 /// Color color1 = "Red".ParseToEnum&lt;Color&gt;();
 /// Color color2 = "red".ParseToEnum&lt;Color&gt;(ignoreCase: true);
-///
+/// 
 /// // This would throw an ArgumentOutOfRangeException:
 /// // Color invalidColor = "Yellow".ParseToEnum&lt;Color&gt;();
-///
+/// 
 /// // Safe parsing that returns null on failure
 /// Color? color3 = "Blue".SafeParseToEnum&lt;Color&gt;();
 /// Color? color4 = "yellow".SafeParseToEnum&lt;Color&gt;(); // Returns null
@@ -42,10 +42,10 @@ public static class EnumerationConverter
     /// <example>
     ///     <code lang="csharp">
     /// public enum Status { Active, Inactive, Pending }
-    ///
+    /// 
     /// // Case-sensitive parsing
     /// Status status1 = "Active".ParseToEnum&lt;Status&gt;();
-    ///
+    /// 
     /// // Case-insensitive parsing
     /// Status status2 = "active".ParseToEnum&lt;Status&gt;(ignoreCase: true);
     /// </code>
@@ -74,15 +74,15 @@ public static class EnumerationConverter
     /// <example>
     ///     <code lang="csharp">
     /// public enum Status { Active = 1, Inactive = 2, Pending = 3 }
-    ///
+    /// 
     /// // Convert integer to enum
     /// Status status1 = 1.ParseToEnum&lt;Status&gt;();  // Returns Status.Active
     /// Status status2 = 2.ParseToEnum&lt;Status&gt;();  // Returns Status.Inactive
-    ///
+    /// 
     /// // Using with integer variables
     /// int statusCode = GetStatusCodeFromDatabase();
     /// Status status = statusCode.ParseToEnum&lt;Status&gt;();
-    ///
+    /// 
     /// // This would throw an ArgumentOutOfRangeException:
     /// // Status invalidStatus = 99.ParseToEnum&lt;Status&gt;();
     /// </code>
@@ -100,16 +100,16 @@ public static class EnumerationConverter
     /// <example>
     ///     <code lang="csharp">
     /// public enum Priority { Low, Medium, High }
-    ///
+    /// 
     /// // Successful conversion
     /// Priority? priority1 = "Medium".SafeParseToEnum&lt;Priority&gt;();  // Returns Priority.Medium
-    ///
+    /// 
     /// // Failed conversion returns null
     /// Priority? priority2 = "Critical".SafeParseToEnum&lt;Priority&gt;(); // Returns null
-    ///
+    /// 
     /// // Null input returns null
     /// Priority? priority3 = null.SafeParseToEnum&lt;Priority&gt;();       // Returns null
-    ///
+    /// 
     /// // Case-insensitive conversion
     /// Priority? priority4 = "high".SafeParseToEnum&lt;Priority&gt;(true); // Returns Priority.High
     /// </code>
@@ -142,13 +142,13 @@ public static class EnumerationConverter
     /// <example>
     ///     <code lang="csharp">
     /// public enum Status { Active = 1, Inactive = 2, Pending = 3 }
-    ///
+    /// 
     /// // Successful conversion
     /// Status? status1 = 1.SafaParseToEnum&lt;Status&gt;();  // Returns Status.Active
-    ///
+    /// 
     /// // Failed conversion returns null
     /// Status? status2 = 99.SafaParseToEnum&lt;Status&gt;(); // Returns null
-    ///
+    /// 
     /// // Null input returns null
     /// int? nullValue = null;
     /// Status? status3 = nullValue.SafaParseToEnum&lt;Status&gt;(); // Returns null

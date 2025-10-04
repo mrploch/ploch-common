@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using FluentAssertions;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 #pragma warning disable CS8604 // Possible null reference argument.

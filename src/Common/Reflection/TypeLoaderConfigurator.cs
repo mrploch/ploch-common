@@ -117,7 +117,7 @@ public class TypeLoaderConfigurator : ITypeLoaderConfigurator
     {
         globConfiguration.NotNull(nameof(globConfiguration));
 
-        AssemblyMatcher = new Matcher(StringComparison.Ordinal);
+        AssemblyMatcher = new(StringComparison.Ordinal);
         globConfiguration(AssemblyMatcher);
 
         return this;
@@ -136,7 +136,7 @@ public class TypeLoaderConfigurator : ITypeLoaderConfigurator
     {
         globConfiguration.NotNull(nameof(globConfiguration));
 
-        TypeNameMatcher = new Matcher(StringComparison.Ordinal);
+        TypeNameMatcher = new(StringComparison.Ordinal);
         globConfiguration(TypeNameMatcher);
 
         // Implementation for configuring type name glob

@@ -15,7 +15,7 @@ public static class CaseSensitivityExtensions
     ///     <c>false</c> if comparisons should be case-insensitive.
     ///     For <see cref="CaseSensitivity.Unspecified" />, returns the value of <paramref name="caseSensitiveDefault" />.
     /// </returns>
-    public static bool IsCaseSensitive(this CaseSensitivity caseSensitivity, bool caseSensitiveDefault) => caseSensitivity == CaseSensitivity.Unspecified
-        ? caseSensitiveDefault
-        : caseSensitivity == CaseSensitivity.Sensitive;
+    public static bool IsCaseSensitive(this CaseSensitivity caseSensitivity, bool caseSensitiveDefault) => caseSensitivity == CaseSensitivity.Unspecified ?
+        caseSensitiveDefault :
+        caseSensitivity == CaseSensitivity.Sensitive;
 }

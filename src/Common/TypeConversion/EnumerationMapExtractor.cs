@@ -82,14 +82,13 @@ public static class EnumerationMapExtractor
         var enumMappingAttribute = fieldInfo.GetCustomAttribute<EnumMappingAttribute>();
         if (enumMappingAttribute is null)
         {
-            return [ new EnumName(fieldInfo.Name, caseSensitiveDefault) ];
+            return [ new(fieldInfo.Name, caseSensitiveDefault) ];
         }
 
-        return enumMappingAttribute.IncludeActualEnumName
-            ?
-            [ new EnumName(fieldInfo.Name, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault)),
-              ..enumMappingAttribute.Names.Select(n => new EnumName(n, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault))) ]
-            : GetFromNames(enumMappingAttribute.Names, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault));
+        return enumMappingAttribute.IncludeActualEnumName ?
+            [ new(fieldInfo.Name, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault)),
+              ..enumMappingAttribute.Names.Select(n => new EnumName(n, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault))) ] :
+            GetFromNames(enumMappingAttribute.Names, enumMappingAttribute.CaseSensitive.IsCaseSensitive(caseSensitiveDefault));
     }
 
     private static IEnumerable<EnumName> GetFromNames(IEnumerable<string?> names, bool caseSensitiveDefault) =>

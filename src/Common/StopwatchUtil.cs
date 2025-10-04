@@ -25,14 +25,14 @@ public static class StopwatchUtil
     ///         // do some work here...
     ///     });
     ///     Console.WriteLine($"Operation took {elapsed.TotalMilliseconds} ms");
-    ///
+    /// 
     ///     // Example: Measuring an existing async method
     ///     async Task SomeAsyncOperation()
     ///     {
     ///         await Task.Delay(250);
     ///         // do some work here...
     ///     }
-    ///
+    /// 
     ///     TimeSpan methodElapsed = StopwatchUtil.Time(SomeAsyncOperation);
     ///     Console.WriteLine($"Method took {methodElapsed.TotalMilliseconds} ms");
     ///     </code>
@@ -88,7 +88,7 @@ public static class StopwatchUtil
     ///     Task work = Task.Delay(500);
     ///     TimeSpan elapsed = await StopwatchUtil.TimeAsync(work);
     ///     Console.WriteLine($"Work took {elapsed.TotalMilliseconds} ms");
-    ///
+    /// 
     ///     // Example 2: Measure an operation created inline
     ///     TimeSpan inlineElapsed = await StopwatchUtil.TimeAsync(Task.Run(async () =>
     ///     {

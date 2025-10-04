@@ -1,8 +1,6 @@
-using FluentAssertions;
 using Ploch.Common.Reflection;
 using Ploch.Common.Tests.TestAssembly1;
 using Ploch.Common.Tests.TestAssembly2;
-using Xunit;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -10,7 +8,7 @@ public class AssemblyListBuilderTests
 {
     private readonly AssemblyListBuilder _sut;
 
-    public AssemblyListBuilderTests() => _sut = new AssemblyListBuilder();
+    public AssemblyListBuilderTests() => _sut = new();
 
     [Fact]
     public void AddAssembly_should_add_assembly_to_collection()
@@ -64,7 +62,7 @@ public class AssemblyListBuilderTests
 
         // Assert
         result.Should().BeSameAs(_sut);
-        result.Build().Should().HaveCount(2).And.Contain([ typeof(Assembly1Type).Assembly, typeof(Assembly2Type1).Assembly ]);
+        result.Build().Should().HaveCount(2).And.Contain([typeof(Assembly1Type).Assembly, typeof(Assembly2Type1).Assembly]);
     }
 
     [Fact]

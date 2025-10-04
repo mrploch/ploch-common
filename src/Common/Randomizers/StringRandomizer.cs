@@ -23,7 +23,7 @@ public class StringRandomizer : BaseRandomizer<string>, IRangedRandomizer<string
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-        return new string(Enumerable.Repeat(chars, 8).Select(s => s[_random.Next(s.Length)]).ToArray());
+        return new(Enumerable.Repeat(chars, 8).Select(s => s[_random.Next(s.Length)]).ToArray());
     }
 
     /// <summary>
