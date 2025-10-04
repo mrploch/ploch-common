@@ -93,7 +93,6 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
 /// <param name="owner">The object that owns the property.</param>
 public class OwnedPropertyInfo<TType, TProperty>(PropertyInfo propertyInfo, TType owner)
     : OwnedPropertyInfo<TProperty>(propertyInfo, owner!), IOwnedPropertyInfo<TType, TProperty>
-
 {
     /// <inheritdoc />
     public new TType Owner => (TType)base.Owner;
