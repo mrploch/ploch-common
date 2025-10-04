@@ -1,7 +1,5 @@
 ﻿using System.Globalization;
 using System.Text;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 
 namespace Ploch.Common.Tests;
 

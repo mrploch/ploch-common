@@ -1,20 +1,16 @@
 ﻿using System.Diagnostics;
-using System.Runtime.Versioning;
 using System.Text;
-using FluentAssertions;
 using Ploch.Common.Collections;
 using Ploch.Common.IO;
-using Xunit;
+using Ploch.TestingSupport.XUnit3.Dependencies;
 
 namespace Ploch.Common.Tests.IO;
 
 public class PathUtilsTests
 {
     [Fact]
-    public void GetDirectoryName_should_return_folder_name_in_provided_path()
-    {
+    public void GetDirectoryName_should_return_folder_name_in_provided_path() =>
         "c:/myrootfolder/mysubfolder/expected-folder-name".GetDirectoryName().Should().Be("expected-folder-name");
-    }
 
     [Fact]
     public void GetDirectoryName_should_throw_exception_when_directoryPath_is_null()
@@ -36,8 +32,8 @@ public class PathUtilsTests
         act.Should().Throw<ArgumentException>().WithParameterName("directoryPath").WithMessage("*empty*");
     }
 
-    [SkippableTheory]
-    [SupportedOSPlatform("windows")]
+    [SupportedOSPlatform(SupportedOS.Windows)]
+    [Theory]
     [InlineData("d:", @"D:\")]
     [InlineData("c:/", @"c:\")]
     public void GetDirectoryName_should_return_name_of_root_directory(string directoryPath, string expectedDirectoryName)
@@ -48,24 +44,20 @@ public class PathUtilsTests
         directoryName.Should().Be(expectedDirectoryName);
     }
 
-    [SkippableTheory]
+    [Theory]
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\myfile.txt", @"mysubfolder\myfile.txt")]
     [InlineData(@"c:\myrootfolder", @"c:\myrootfolder\mysubfolder\my_another_sub_folder", @"mysubfolder\my_another_sub_folder")]
-    [SupportedOSPlatform("windows")]
-    public void MakeRelativePath_should_return_relative_path_from_one_path_to_another(string fromPath, string toPath, string expectedRelativePath)
-    {
+    [SupportedOSPlatform(SupportedOS.Windows)]
+    public void MakeRelativePath_should_return_relative_path_from_one_path_to_another(string fromPath, string toPath, string expectedRelativePath) =>
         PathUtils.GetRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
-    }
 
-    [SkippableTheory]
-    [SupportedOSPlatform("macos")]
+    [Theory]
+    [SupportedOSPlatform(SupportedOS.macOS)]
     [InlineData(@"/myrootfolder", @"/myrootfolder/mysubfolder/myfile.txt", @"mysubfolder/myfile.txt")]
     [InlineData(@"/Users/someuser/dev", @"/Users/someuser/dev/someanotherfolder/and-yet-another", @"someanotherfolder/and-yet-another")]
     [InlineData(@"/Users/someuser/dev", @"/Users/someuser/dev/someanotherfolder/and-yet-another/test.txt", @"someanotherfolder/and-yet-another/test.txt")]
-    public void MakeRelativePath_should_return_relative_path_from_one_path_to_another_on_MacOS(string fromPath, string toPath, string expectedRelativePath)
-    {
+    public void MakeRelativePath_should_return_relative_path_from_one_path_to_another_on_MacOS(string fromPath, string toPath, string expectedRelativePath) =>
         PathUtils.GetRelativePath(fromPath, toPath).Should().Be(expectedRelativePath);
-    }
 
     [Fact]
     public void NormalizePathWithTrailingSeparator_should_add_directory_separator_to_path_that_doesnt_have_one()
@@ -116,8 +108,8 @@ public class PathUtilsTests
         Path.IsPathRooted(result).Should().BeTrue();
     }
 
-    [SkippableFact(Skip = "On Linux and MacOS, the backslash is a legal character in path, hence it's not modified")]
-    [SupportedOSPlatform("windows")]
+    [Fact(Skip = "On Linux and MacOS, the backslash is a legal character in path, hence it's not modified")]
+    [SupportedOSPlatform(SupportedOS.Windows)]
     public void NormalizePathWithTrailingSeparator_should_handle_paths_with_mixed_separators()
     {
         // Arrange
@@ -132,8 +124,8 @@ public class PathUtilsTests
         result.Should().EndWith(Path.DirectorySeparatorChar.ToString());
     }
 
-    [SkippableFact]
-    [SupportedOSPlatform("windows")]
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows)]
     public void NormalizePathWithTrailingSeparator_should_properly_handle_UNC_paths()
     {
         // Arrange
@@ -162,7 +154,7 @@ public class PathUtilsTests
         // Assert
         result.Should().Be(expected);
         result.Should().EndWith(Path.DirectorySeparatorChar.ToString());
-        result.Should().NotEndWith(new string(Path.DirectorySeparatorChar, 2));
+        result.Should().NotEndWith(new(Path.DirectorySeparatorChar, 2));
     }
 
     [Fact]
@@ -230,8 +222,8 @@ public class PathUtilsTests
         Path.IsPathRooted(result).Should().BeTrue();
     }
 
-    [SkippableFact]
-    [SupportedOSPlatform("windows")]
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows)]
     public void NormalizePathWithoutTrailingSeparator_should_properly_handle_UNC_paths()
     {
         // Arrange
@@ -260,8 +252,8 @@ public class PathUtilsTests
         result.Should().Be(expected);
     }
 
-    [SkippableFact]
-    [SupportedOSPlatform("windows")]
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows)]
     public void NormalizePathWithoutTrailingSeparator_should_handle_paths_with_both_types_of_directory_separators()
     {
         // Arrange
@@ -278,8 +270,8 @@ public class PathUtilsTests
         result.Should().Be(expected);
     }
 
-    [SkippableFact]
-    [SupportedOSPlatform("windows")]
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows)]
     public void NormalizePathWithoutTrailingSeparator_should_maintain_consistent_behavior_across_platforms()
     {
         // Arrange
@@ -386,7 +378,8 @@ public class PathUtilsTests
 
         // Performance assertion - should process in a reasonable time
         // Processing 100k characters should be fast on modern hardware
-        stopwatch.ElapsedMilliseconds.Should().BeLessThan(10, "processing a 100K string should be reasonably fast");
+        // NOTE: This was increased to 100ms due to the increased time it takes to run tests with coverage
+        stopwatch.ElapsedMilliseconds.Should().BeLessThan(100, "processing a 100K string should be reasonably fast");
     }
 
     [Fact]
@@ -456,6 +449,6 @@ public class PathUtilsTests
             return @"c:\";
         }
 
-        return new string([ Path.VolumeSeparatorChar ]);
+        return new([Path.VolumeSeparatorChar]);
     }
 }

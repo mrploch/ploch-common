@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.DependencyInjection;
 
@@ -49,7 +50,7 @@ public static class ServicesBundleRegistration
     ///     <code>
     /// var bundle = new MyCustomServicesBundle();
     /// services.AddServicesBundle(bundle, configuration);
-    /// 
+    ///
     /// // For configurable bundles
     /// var configurableBundle = new DatabaseServicesBundle();
     /// services.AddServicesBundle(configurableBundle, configuration);
@@ -57,12 +58,10 @@ public static class ServicesBundleRegistration
     /// </example>
     public static IServiceCollection AddServicesBundle(this IServiceCollection services, IServicesBundle servicesBundle, IConfiguration? configuration = null)
     {
-        if (servicesBundle is null)
-        {
-            throw new ArgumentNullException(nameof(servicesBundle));
-        }
+        services.NotNull(nameof(services));
+        servicesBundle.NotNull(nameof(servicesBundle));
 
-        if (servicesBundle is ConfigurableServicesBundle configurableServicesBundle)
+        if (servicesBundle is IConfigurationConsumer configurableServicesBundle)
         {
             configurableServicesBundle.Configuration = configuration;
         }
@@ -108,10 +107,10 @@ public static class ServicesBundleRegistration
     ///     <code>
     /// // Register a simple bundle
     /// services.AddServicesBundle&lt;LoggingServicesBundle&gt;();
-    /// 
+    ///
     /// // Register a configurable bundle with configuration
     /// services.AddServicesBundle&lt;DatabaseServicesBundle&gt;(configuration);
-    /// 
+    ///
     /// // Method chaining
     /// services.AddServicesBundle&lt;CacheServicesBundle&gt;(configuration)
     ///         .AddServicesBundle&lt;SecurityServicesBundle&gt;(configuration);

@@ -1,10 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using FluentAssertions;
 using Ploch.Common.Reflection;
 using Ploch.Common.Tests.TestAssembly1;
 using Ploch.Common.Tests.TestAssembly2;
-using Xunit;
 
 namespace Ploch.Common.Tests.Reflection;
 

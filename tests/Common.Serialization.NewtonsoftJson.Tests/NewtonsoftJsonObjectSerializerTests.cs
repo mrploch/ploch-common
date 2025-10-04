@@ -13,7 +13,7 @@ public class NewtonsoftJsonObjectSerializerTests : JsonSerializerWithSettingsTes
     public void Serialize_should_use_options()
     {
         var defaultSerializer = new NewtonsoftJsonObjectSerializer();
-        var serializer = new NewtonsoftJsonObjectSerializer(new JsonSerializerSettings { Formatting = Formatting.Indented });
+        var serializer = new NewtonsoftJsonObjectSerializer(new() { Formatting = Formatting.Indented });
 
         serializer.Serialize(new { Foo = "Bar" }, settings => settings.Formatting.Should().Be(Formatting.Indented));
         defaultSerializer.Serialize(new { Foo = "Bar" }, settings => settings.Formatting.Should().Be(Formatting.None));

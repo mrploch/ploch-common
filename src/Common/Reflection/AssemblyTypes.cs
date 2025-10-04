@@ -20,13 +20,9 @@ public static class AssemblyTypes
     /// <returns>A collection of types that implement or inherit from the specified base type.</returns>
     public static IEnumerable<Type> GetImplementations(Type baseType, bool concreteOnly, params IEnumerable<Assembly> assemblies)
     {
-        var result = new List<Type>();
-        foreach (var implementations in assemblies.Select(assembly => assembly.GetTypes().Where(t => t.IsImplementing(baseType, concreteOnly))))
-        {
-            result.AddRange(implementations);
-        }
-
-        return result;
+        return assemblies.Select(assembly => assembly.GetTypes()
+                                                     .Where(t => t.IsImplementing(baseType, concreteOnly)))
+                         .SelectMany(static t => t);
     }
 
     /// <summary>

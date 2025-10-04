@@ -39,7 +39,7 @@ public interface IAsyncSerializer : ISerializer
 }
 
 /// <inheritdoc cref="IAsyncSerializer"/>
-public interface IAsyncSerializer<TSettings> : IAsyncSerializer, ISerializer<TSettings>
+public interface IAsyncSerializer<out TSettings> : IAsyncSerializer, ISerializer<TSettings>
 {
     /// <summary>
     /// Asynchronously serializes the specified object.

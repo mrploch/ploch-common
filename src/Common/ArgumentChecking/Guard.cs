@@ -25,7 +25,10 @@ public static partial class Guard
     /// <exception cref="InvalidOperationException">Thrown when the <paramref name="argument" /> evaluates to <c>true</c>.</exception>
     public static bool RequiredFalse(this bool argument, string message)
     {
-        RequiredTrue(!argument, message);
+        if (argument)
+        {
+            throw new InvalidOperationException(message);
+        }
 
         return argument;
     }
@@ -151,9 +154,9 @@ public static partial class Guard
             throw new InvalidOperationException("Both memberName and message arguments cannot be null at the same time.");
         }
 
-        var format = message != null
-            ? string.Format(CultureInfo.InvariantCulture, message, memberName)
-            : $"Variable {memberName} is null, but was expected to not be null.";
+        var format = message != null ?
+            string.Format(CultureInfo.InvariantCulture, message, memberName) :
+            $"Variable {memberName} is null, but was expected to not be null.";
 
         throw new InvalidOperationException(format);
     }
@@ -268,7 +271,9 @@ public static partial class Guard
     {
         if (!Enum.IsDefined(typeof(TEnum), argument))
         {
-            throw new ArgumentOutOfRangeException(argumentName, argument, $"Value {argument} is not defined in enum {typeof(TEnum).Name}.");
+            throw new ArgumentOutOfRangeException(argumentName,
+                                                  argument,
+                                                  string.Format(CultureInfo.InvariantCulture, EnumNotDefinedMessageFormat, argument, typeof(TEnum).Name));
         }
 
         return argument;

@@ -1,6 +1,4 @@
 ﻿using System.Linq.Expressions;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Linq;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 

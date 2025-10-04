@@ -18,4 +18,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Ploch.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove=".editorconfig" />
+  </ItemGroup>
 </Project>

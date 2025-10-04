@@ -14,21 +14,21 @@ namespace Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjectio
 ///     By default, if no options are provided, it uses the default settings from <see cref="JsonSerializerOptions.Default" />.
 /// </remarks>
 /// <param name="serializerOptions">JSON serializer options.</param>
-public class SystemTextJsonSerializerServicesBundle(JsonSerializerOptions? serializerOptions = null) : IServicesBundle
+public class SystemTextJsonSerializerServicesBundle(JsonSerializerOptions? serializerOptions = null) : ServicesBundle
 {
     /// <summary>
     ///     Configures the service collection by registering the <see cref="SystemTextJsonSerializer" />
     ///     as various serializer interfaces and the configured <see cref="JsonSerializerOptions" />.
     /// </summary>
-    /// <param name="services">The service collection to configure.</param>
-    public void Configure(IServiceCollection services)
+    public override void DoConfigure()
     {
-        services.AddSingleton<SystemTextJsonSerializer>()
-                .AddSingleton<ISerializer, SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
-                .AddSingleton<ISerializer<JsonSerializerOptions>, SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
-                .AddSingleton<IAsyncSerializer, SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+        Services.AddSingleton<SystemTextJsonSerializer>()
+                .AddSingleton<ISerializer, SystemTextJsonSerializer>(static provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+                .AddSingleton<ISerializer<JsonSerializerOptions>, SystemTextJsonSerializer>(static provider =>
+                                                                                                provider.GetRequiredService<SystemTextJsonSerializer>())
+                .AddSingleton<IAsyncSerializer, SystemTextJsonSerializer>(static provider => provider.GetRequiredService<SystemTextJsonSerializer>())
                 .AddSingleton<IAsyncSerializer<JsonSerializerOptions>,
-                    SystemTextJsonSerializer>(provider => provider.GetRequiredService<SystemTextJsonSerializer>())
+                    SystemTextJsonSerializer>(static provider => provider.GetRequiredService<SystemTextJsonSerializer>())
                 .AddSingleton(serializerOptions ?? JsonSerializerOptions.Default);
     }
 }

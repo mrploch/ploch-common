@@ -5,9 +5,11 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
     <PackageReference Include="FluentAssertions" />
     <PackageReference Include="System.IO.Abstractions" />
     <None Include=".\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Ploch.Common.csproj" />
   </ItemGroup>
 </Project>

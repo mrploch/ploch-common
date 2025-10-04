@@ -1,7 +1,4 @@
 ﻿using System.Text;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
-using Xunit;
 
 namespace Ploch.Common.Tests;
 

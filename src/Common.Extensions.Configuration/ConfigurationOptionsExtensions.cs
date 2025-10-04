@@ -15,9 +15,17 @@ public static class ConfigurationOptionsExtensions
     public static IServiceCollection AddConfigurationOptions<TMainSection, TSubSection>(this IServiceCollection services,
                                                                                         IConfiguration configuration,
                                                                                         Expression<Func<TMainSection, TSubSection>> subSectionProperty)
-        where TSubSection : class =>
-        services.Configure<TSubSection>(configuration.GetSection(GetSectionName<TMainSection>()).GetSection(subSectionProperty.GetMemberName()));
+        where TSubSection : class
+    {
+        var configurationSection = configuration.GetSection(GetSectionName<TMainSection>()).GetSection(subSectionProperty.GetMemberName());
 
-    private static string GetSectionName<TSection>() =>
-        typeof(TSection).GetCustomAttribute<ConfigurationSectionAttribute>()?.SectionName ?? typeof(TSection).Name;
+        return services.Configure<TSubSection>(configurationSection);
+    }
+
+    private static string GetSectionName<TSection>()
+    {
+        var secionName = typeof(TSection).GetCustomAttribute<ConfigurationSectionAttribute>()?.SectionName ?? typeof(TSection).Name;
+
+        return secionName;
+    }
 }

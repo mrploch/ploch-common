@@ -9,7 +9,7 @@ namespace Ploch.Common.ObjectBuilder;
 
 public class DotNetTypeConverterWrapper(TypeConverter typeConverter) : ITypeConverter
 {
-    public int Order { get; } = int.MaxValue;
+    public int Order => int.MaxValue;
 
     public bool CanHandle(object? value, Type targetType) => typeConverter.CanConvertTo(targetType);
 
@@ -24,7 +24,7 @@ public class DotNetTypeConverterWrapper(TypeConverter typeConverter) : ITypeConv
 
 public class DefaultConverter(IEnumerable<ITypeConverter> converters) : ITypeConverter
 {
-    public int Order { get; } = int.MaxValue;
+    public int Order => int.MaxValue;
 
     public IEnumerable<Type> SupportedSourceTypes { get; } = [];
 
@@ -104,9 +104,7 @@ public static class ObjectConverter
     {
         var mappers =
             new List<ITypeConverter>
-            {
-                new ManagementObjectDateTimeOffsetTypeConverter(), new ManagementObjectDateTimeTypeConverter(), new EnumConverter(), new DefaultConverter([])
-            };
+            { new ManagementObjectDateTimeOffsetTypeConverter(), new ManagementObjectDateTimeTypeConverter(), new EnumConverter(), new DefaultConverter([]) };
 
         return mappers.OrderBy(m => m.Order).ToList();
     }
@@ -126,11 +124,6 @@ public static class ObjectConverter
             return null;
         }
 
-        if (targetType == typeof(string))
-        {
-            return value.ToString();
-        }
-
-        return Convert.ChangeType(value, targetType);
+        return targetType == typeof(string) ? value.ToString() : Convert.ChangeType(value, targetType);
     }
 }

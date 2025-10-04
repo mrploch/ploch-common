@@ -1,9 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using FluentAssertions;
 using Ploch.Common.Cryptography;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace Ploch.Common.Tests;
 
@@ -11,10 +8,7 @@ public class HashingTests
 {
     private readonly ITestOutputHelper _outputHelper;
 
-    public HashingTests(ITestOutputHelper outputHelper)
-    {
-        _outputHelper = outputHelper;
-    }
+    public HashingTests(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
     [Fact]
     public void ToMD5HashString_should_generate_md5_hash_from_string()

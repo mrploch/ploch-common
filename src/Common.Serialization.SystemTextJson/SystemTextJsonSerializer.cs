@@ -22,7 +22,7 @@ public class SystemTextJsonSerializer(JsonSerializerOptions options) : AsyncSeri
     /// <summary>
     ///     Initializes a new instance of the <see cref="SystemTextJsonSerializer" /> class.
     /// </summary>
-    public SystemTextJsonSerializer() : this(new JsonSerializerOptions())
+    public SystemTextJsonSerializer() : this(new())
     { }
 
     /// <inheritdoc />

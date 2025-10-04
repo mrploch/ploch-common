@@ -1,8 +1,4 @@
-﻿using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
-using Xunit;
-
-namespace Ploch.Common.Tests.Collections;
+﻿namespace Ploch.Common.Tests.Collections;
 
 public class KeyValuePairExtensionsTests
 {

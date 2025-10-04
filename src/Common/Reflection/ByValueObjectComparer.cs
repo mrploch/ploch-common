@@ -20,41 +20,15 @@ public class ByValueObjectComparer<TObject> : IEqualityComparer<TObject>
     public bool Equals(TObject? x, TObject? y) => ByValueObjectComparator.AreEqual(x, y);
 
     /// <summary>
-    ///     Calculates a hash code for the specified object based on its property values.
-    ///     This ensures that objects with the same property values will generate the same hash code.
+    ///     Calculates a hash code for the specified object based on its property values using reflection.
+    ///     The algorithm recursively processes readable, non-indexed properties in a deterministic order and
+    ///     also supports sequences (IEnumerable) by hashing their elements.
     /// </summary>
     /// <param name="obj">The object for which to calculate a hash code.</param>
     /// <returns>
     ///     A hash code for the specified object, calculated from its property values.
-    ///     Returns 0 if the object is null, the type's hash code if the object has no properties,
+    ///     Returns 0 if the object is null, the type's hash code if the object has no readable properties,
     ///     or a composite hash code based on all property values.
     /// </returns>
-    public int GetHashCode(TObject? obj)
-    {
-        if (obj is null)
-        {
-            return 0;
-        }
-
-        var type = typeof(TObject);
-        var properties = type.GetProperties();
-
-        if (properties.Length == 0)
-        {
-            return type.GetHashCode();
-        }
-
-        var firstPropertyValue = properties[0].GetValue(obj);
-        var hashCode = firstPropertyValue?.GetHashCode() ?? 0;
-
-        for (var i = 1; i < properties.Length; i++)
-        {
-            var propertyInfo = properties[i];
-            var value = propertyInfo.GetValue(obj);
-
-            hashCode = (hashCode * 13) + value?.GetHashCode() ?? 0;
-        }
-
-        return hashCode;
-    }
+    public int GetHashCode(TObject? obj) => ObjectHashCodeBuilder.GetHashCode(obj);
 }

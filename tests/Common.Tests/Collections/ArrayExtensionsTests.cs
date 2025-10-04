@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
-using Ploch.Common.Collections;
-using Xunit;
+﻿using Ploch.Common.Collections;
 
 namespace Ploch.Common.Tests.Collections;
 

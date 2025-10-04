@@ -5,24 +5,11 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="AutoFixture" />
-    <PackageReference Include="AutoFixture.Xunit2" />
-    <PackageReference Include="coverlet.msbuild" />
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="FluentAssertions.Analyzers" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
-    <PackageReference Include="Moq.Analyzers" />
-    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.analyzers" />
-    <PackageReference Include="xunit.runner.visualstudio" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
+    <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
   </ItemGroup>
 </Project>

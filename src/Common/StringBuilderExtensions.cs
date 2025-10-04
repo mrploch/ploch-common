@@ -20,7 +20,7 @@ public static class StringBuilderExtensions
     /// <returns>The source <c>StringBuilder</c>.</returns>
     public static StringBuilder AppendIfNotNull<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, string>? formatFunc = null)
     {
-        return AppendIf(builder.NotNull(nameof(builder)), value, static v => !Equals(v, default), formatFunc);
+        return builder.NotNull(nameof(builder)).AppendIf(value, static v => !Equals(v, null), formatFunc);
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public static class StringBuilderExtensions
     /// <returns>The source <c>StringBuilder</c>.</returns>
     public static StringBuilder AppendIfNotNullOrEmpty<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, string>? formatFunc = null)
     {
-        return AppendIf(builder.NotNull(nameof(builder)), value, static v => !Equals(v, default) && !v.ToString().IsNullOrEmpty(), formatFunc);
+        return builder.NotNull(nameof(builder)).AppendIf(value, static v => !Equals(v, null) && !v.ToString().IsNullOrEmpty(), formatFunc);
     }
 
     private static StringBuilder AppendIf<TValue>(this StringBuilder builder, TValue? value, Func<TValue?, bool> test, Func<TValue?, string>? formatFunc = null)

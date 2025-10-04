@@ -7,7 +7,7 @@ using Ploch.Common.ArgumentChecking;
 namespace Ploch.Common.IO;
 
 /// <summary>
-///     Utility class for manipulating path related operations.
+///     Utility class for manipulating path-related operations.
 /// </summary>
 public static class PathUtils
 {
@@ -62,18 +62,18 @@ public static class PathUtils
     ///     Normalizes the given path and removes any trailing directory separator characters.
     /// </summary>
     /// <remarks>
-    /// Besides removing the trailing directory separator, on Windows platform, it would also normalize separators to the backslash,
-    /// in case they are mixed in the path.
-    /// For example, on Windows it would change:
-    /// <code>
+    ///     Besides removing the trailing directory separator, on a Windows platform, it would also normalize separators to the backslash,
+    ///     in case they are mixed in the path.
+    ///     For example, on Windows it would change:
+    ///     <code>
     /// c:\mypath/somefolder\some-other-folder
     /// </code>
-    /// to:
-    /// <code>
+    ///     to:
+    ///     <code>
     /// c:\mypath\somefolder\some-other-folder
     /// </code>
-    /// On platform like Mac OS, forward slash (<c>/</c>) is a legal character in directory or file names, which means
-    /// they would not be changed.
+    ///     On a platform like macOS, forward slash (<c>/</c>) is a legal character in directory or file names, which means
+    ///     they would not be changed.
     /// </remarks>
     /// <param name="path">The path to normalize.</param>
     /// <returns>The normalized path without trailing directory separator characters.</returns>

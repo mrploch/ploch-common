@@ -57,7 +57,7 @@ public static class CollectionExtensions
     {
         collection.NotNull(nameof(collection));
 
-        collection.Add(new KeyValuePair<TKey, TValue?>(key, value));
+        collection.Add(new(key, value));
 
         return collection;
     }
@@ -78,7 +78,7 @@ public static class CollectionExtensions
                                                                  DuplicateHandling duplicateHandling = DuplicateHandling.Throw,
                                                                  params TItem[] items) where TCollection : ICollection<TItem>
     {
-        AddManyInternal(collection, items.NotNull(nameof(items)), duplicateHandling);
+        collection.AddManyInternal(items.NotNull(nameof(items)), duplicateHandling);
 
         return collection;
     }
@@ -98,7 +98,7 @@ public static class CollectionExtensions
                                                           IEnumerable<TItem> items,
                                                           DuplicateHandling duplicateHandling = DuplicateHandling.Throw) where TCollection : ICollection<TItem>
     {
-        AddManyInternal(collection, items.NotNull(nameof(items)), duplicateHandling);
+        collection.AddManyInternal(items.NotNull(nameof(items)), duplicateHandling);
 
         return collection;
     }

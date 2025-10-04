@@ -20,7 +20,7 @@ public static class TypeExtensions
     ///     <c>true</c> if the <paramref name="type" /> is a concrete implementation of <typeparamref name="TBaseType" />,
     ///     otherwise <c>false</c>.
     /// </returns>
-    public static bool IsConcreteImplementation<TBaseType>(this Type type) => IsConcreteImplementation(type, typeof(TBaseType));
+    public static bool IsConcreteImplementation<TBaseType>(this Type type) => type.IsConcreteImplementation(typeof(TBaseType));
 
     /// <summary>
     ///     Checks if the specified type is a concrete implementation of the provided interface.
@@ -117,7 +117,7 @@ public static class TypeExtensions
         if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>))
         {
             // nullable type, check if the nested type is simple.
-            return IsSimpleType(typeInfo.GetGenericArguments()[0]);
+            return typeInfo.GetGenericArguments()[0].IsSimpleType();
         }
 
         return typeInfo.IsPrimitive || typeInfo.IsValueType || typeInfo.IsEnum || type == typeof(string) || type == typeof(decimal);

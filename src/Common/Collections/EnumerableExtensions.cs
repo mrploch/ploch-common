@@ -83,7 +83,7 @@ public static class EnumerableExtensions
     /// <returns>String from joined elements.</returns>
     public static string Join<TValue>(this IEnumerable<TValue> source, string separator)
     {
-        return Join(source, separator, static v => v?.ToString());
+        return source.Join(separator, static v => v?.ToString());
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ public static class EnumerableExtensions
     /// <returns>String from joined elements.</returns>
     public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source, string separator, string finalSeparator)
     {
-        return JoinWithFinalSeparator(source, separator, finalSeparator, static v => v?.ToString());
+        return source.JoinWithFinalSeparator(separator, finalSeparator, static v => v?.ToString());
     }
 
     /// <summary>
@@ -134,7 +134,7 @@ public static class EnumerableExtensions
         var count = arraySource.Length;
 
 #pragma warning disable CC0031
-        return Join(arraySource.Take(count - 1), separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]);
+        return arraySource.Take(count - 1).Join(separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]);
 #pragma warning restore CC0031
     }
 

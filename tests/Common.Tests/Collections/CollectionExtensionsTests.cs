@@ -1,9 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using AutoFixture.Xunit2;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
-using Xunit;
 
 namespace Ploch.Common.Tests.Collections;
 
@@ -60,7 +56,7 @@ public class CollectionExtensionsTests
 
         var collection = target.AddMany(items);
         target.Should().HaveCount(4);
-        target.Should().Contain([ "itme1", "item2" ], "item3", "item4");
+        target.Should().Contain(["itme1", "item2"], "item3", "item4");
 
         collection.Should().BeSameAs(target);
     }

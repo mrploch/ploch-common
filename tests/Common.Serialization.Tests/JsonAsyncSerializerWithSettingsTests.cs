@@ -1,7 +1,7 @@
 ﻿using FluentAssertions.Json;
 using Newtonsoft.Json.Linq;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Serialization.Tests.TestTypes;
+using Ploch.TestingSupport.XUnit3.AutoMoq;
 
 namespace Ploch.Common.Serialization.Tests;
 

@@ -17,7 +17,11 @@ public static class EnvironmentUtilities
     /// <returns>The current application's directory path.</returns>
     public static string GetCurrentAppPath()
     {
+// TODO: This actually needs to be reviewed - I should probably comply with this rule.
+// "Avoid the method Assembly.GetEntryAssembly(), as it might not give expected results when your code runs under test from a test runner."
+#pragma warning disable PH2143
         return Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? AppDomain.CurrentDomain.BaseDirectory) ??
+#pragma warning restore PH2143
                throw new InvalidOperationException("Could not get entry assembly name, one of the components was null");
     }
 

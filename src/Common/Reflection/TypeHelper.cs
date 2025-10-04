@@ -20,5 +20,9 @@ public static class TypeHelper
     ///     A dictionary where the key represents the name of the static field, and the value represents the value of the field.
     /// </returns>
     public static IDictionary<string, object?> GetStaticFieldValues<TType>(BindingFlags bindingFlags = BindingFlags.Public) =>
+
+// Calling extension method as instance
+#pragma warning disable PH2073
         ObjectReflectionExtensions.GetFieldValues<TType>(default, bindingFlags | BindingFlags.Static);
+#pragma warning restore PH2073
 }

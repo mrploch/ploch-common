@@ -282,15 +282,23 @@ dotnet_diagnostic.nu1507.severity = none # Use nameof operator
 ## Properties: 'dotnet_diagnostic.rcs' - Roslynator
 dotnet_diagnostic.rcs1169.severity = suggestion # Make field read-only
 dotnet_diagnostic.rcs1194.severity = suggestion # Implement standard Exception constructors
+dotnet_diagnostic.rcs1251.severity = none # Remove unnecessary braces
+roslynator_block_braces_style = single_line_when_empty
+# Format accessor's braces on single line or multiple lines
+# Default value is multi_line
+roslynator_accessor_braces_style = single_line_when_expression_is_on_single_line
+dotnet_diagnostic.rcs0023.severity = warning # Add parentheses to make the order of operations explicit in conditional expressions.
+dotnet_diagnostic.rcs0022 = false # Add parentheses according to operator precedence.
 
 ## Properties: 'dotnet_diagnostic.s'
 dotnet_diagnostic.s1451.severity = none
 dotnet_diagnostic.s4487.severity = none
+dotnet_diagnostic.s3236.severity = none # Caller information arguments should not be provided explicitly - gives false positives for use of .net standard version of the Guard class
 
 ## Properties: 'dotnet_diagnostic.sa'
 dotnet_diagnostic.sa0001.severity = none # XML comment analysis is disabled due to project configuration
 dotnet_diagnostic.sa1000.severity = none # Keywords should be spaced correctly
-dotnet_diagnostic.sa1009.severity = warning # Closing parenthesis should be spaced correctly
+dotnet_diagnostic.sa1009.severity = none # Closing parenthesis should be spaced correctly
 dotnet_diagnostic.sa1010.severity = none # Square bracket should not be proceeded by a space - gives false positive for collection initializers []
 dotnet_diagnostic.sa1011.severity = none # Closing square brackets should be spaced correctly
 dotnet_diagnostic.sa1101.severity = none # Prefix local calls with this
@@ -313,9 +321,42 @@ dotnet_diagnostic.sa1633.severity = none # File should have header
 dotnet_diagnostic.sa1640.severity = none # File header should have summary
 dotnet_diagnostic.sa1649.severity = warning # File name should match first type name.
 
+dotnet_diagnostic.sa1500.severity = none # this one controls braces on the same line
+dotnet_diagnostic.sa1501.severity = warning # Statement should not be on a single line.
+dotnet_diagnostic.sa1502.severity = warning # Element must not be on a single line.
+dotnet_diagnostic.sa1503.severity = warning #  Braces should not be omitted.
+dotnet_diagnostic.sa1504.severity = warning # All accessors must be single-line or multi-line.
+dotnet_diagnostic.sa1505.severity = warning # Opening braces should not be followed by blank lines.
+dotnet_diagnostic.sa1506.severity = warning # Element documentation headers should not be followed by blank lines.
+dotnet_diagnostic.sa1507.severity = warning # Code should not contain multiple blank lines in a row.
+dotnet_diagnostic.sa1508.severity = warning # A closing brace must not be preceded by blank lines.
+dotnet_diagnostic.sa1509.severity = warning # The opening brace must not be preceded by blank lines.
+dotnet_diagnostic.sa1510.severity = warning # Chained statement blocks should not be preceded by blank lines.
+dotnet_diagnostic.sa1511.severity = warning # While-do footer should not be preceded by blank lines
+dotnet_diagnostic.sa1512.severity = warning # Single-line comments should not be followed by blank lines.
+dotnet_diagnostic.sa1513.severity = warning # Closing brace should be followed by a blank line.
+dotnet_diagnostic.sa1514.severity = warning # Element documentation header should be preceded by a blank line.
+dotnet_diagnostic.sa1515.severity = warning # Single-line comment should be preceded by a blank line.
+dotnet_diagnostic.sa1633.severity = none # File must have a file header.
+
 ## Properties: 'dotnet_diagnostic.spectre' - Spectre.Console
 dotnet_diagnostic.spectre1010.severity = warning
 dotnet_diagnostic.syslib1045.severity = warning
+
+# Philips 
+dotnet_diagnostic.ph2029.severity = none
+dotnet_diagnostic.ph2028.severity = none
+dotnet_diagnostic.ph2140.severity = suggestion
+dotnet_diagnostic.ph2045.severity = none
+dotnet_diagnostic.ph2151.severity = warning
+dotnet_diagnostic.ph2026.severity = none
+dotnet_diagnostic.ph2021.severity = none
+dotnet_diagnostic.ph2075.severity = none
+dotnet_diagnostic.ph2031.severity = suggestion
+dotnet_code_quality.PH2075.assembly_version =
+2.0.1.0
+dotnet_diagnostic.av2217.severity = none
+dotnet_diagnostic.av1706.severity = none
 
 # Properties: 'dotnet_naming_rule'
 dotnet_naming_rule.interface_should_be_begins_with_i_rule.import_to_resharper = True

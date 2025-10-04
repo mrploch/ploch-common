@@ -87,7 +87,10 @@ public static class ObjectReflectionExtensions
     {
         bindingFlags &= ~BindingFlags.Instance;
 
+// Call extension method as instance
+#pragma warning disable PH2073
         return GetMemberValues<TType>(default, bindingFlags | BindingFlags.Static, memberTypes);
+#pragma warning restore PH2073
     }
 
     /// <summary>

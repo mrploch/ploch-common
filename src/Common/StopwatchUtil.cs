@@ -38,13 +38,13 @@ public static class StopwatchUtil
     ///     </code>
     /// </example>
     /// p
-    public static TimeSpan Time(Func<Task> asyncAction)
+    public static async Task<TimeSpan> TimeAsync(Func<Task> asyncAction)
     {
         asyncAction.NotNull(nameof(asyncAction));
 
         var sw = Stopwatch.StartNew();
         var task = asyncAction();
-        task.Wait();
+        await task;
         sw.Stop();
 
         return sw.Elapsed;

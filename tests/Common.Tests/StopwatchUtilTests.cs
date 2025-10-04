@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace Ploch.Common.Tests;
+﻿namespace Ploch.Common.Tests;
 
 public class StopwatchUtilTests
 {
@@ -17,11 +15,10 @@ public class StopwatchUtilTests
     }
 
     [Fact]
-    public void Time_should_return_execution_time_for_task_func()
+    public async Task Time_should_return_execution_time_for_task_func()
     {
         static Task TaskAsync() => Task.Delay(TimeSpan.FromMilliseconds(100));
-
-        var taskTime = StopwatchUtil.Time(TaskAsync);
+        var taskTime = await StopwatchUtil.TimeAsync(TaskAsync);
 
         taskTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }
@@ -30,14 +27,6 @@ public class StopwatchUtilTests
     public async Task Time_should_return_execution_time_for_started_taskAsync()
     {
         var asyncMethodTime = await StopwatchUtil.TimeAsync(AsyncMethod(TimeSpan.FromMilliseconds(100)));
-
-        asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
-    }
-
-    [Fact]
-    public void Time_should_return_execution_time_for_func_that_returns_async_method()
-    {
-        var asyncMethodTime = StopwatchUtil.Time(() => AsyncMethod(TimeSpan.FromMilliseconds(100)));
 
         asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
     }

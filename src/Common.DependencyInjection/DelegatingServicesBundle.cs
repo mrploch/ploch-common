@@ -25,7 +25,7 @@ namespace Ploch.Common.DependencyInjection;
 /// var bundle = new DelegatingServicesBundle()
 ///     .Configure((services, config) => services.AddScoped&lt;IMyService, MyService&gt;())
 ///     .Configure((services, config) => services.AddSingleton&lt;IAnotherService, AnotherService&gt;());
-/// 
+///
 /// services.AddServicesBundle(bundle, configuration);
 /// </code>
 /// </example>
@@ -90,7 +90,7 @@ public class DelegatingServicesBundle : ConfigurableServicesBundle
     ///     Thrown when any of the registered configuration action delegates throws an exception.
     /// </exception>
     /// <inheritdoc />
-    protected override void Configure(IConfiguration? configuration = null)
+    protected override void Configure(IConfiguration configuration)
     {
         Services.NotNull(nameof(Services));
 

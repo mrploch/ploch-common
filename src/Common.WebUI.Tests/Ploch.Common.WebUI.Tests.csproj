@@ -3,23 +3,24 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AutoFixture" />
-    <PackageReference Include="AutoFixture.Xunit2" />
-    <PackageReference Include="coverlet.msbuild" />
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="FluentAssertions.Analyzers" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
-    <PackageReference Include="Moq.Analyzers" />
-    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.analyzers" />
-    <PackageReference Include="xunit.runner.visualstudio" />
-    <PackageReference Include="coverlet.collector" />
+
+    <!--  <PackageReference Include="coverlet.msbuild" />
+      <PackageReference Include="FluentAssertions" />
+      <PackageReference Include="FluentAssertions.Analyzers" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" />
+      <PackageReference Include="Moq" />
+      <PackageReference Include="Moq.Analyzers" />
+      <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
+      <PackageReference Include="xunit" />
+      <PackageReference Include="xunit.analyzers" />
+      <PackageReference Include="xunit.runner.visualstudio" />
+      <PackageReference Include="coverlet.collector" />-->
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common.WebUI\Ploch.Common.WebUI.csproj" />
+    <ProjectReference Include="..\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
   </ItemGroup>
 </Project>

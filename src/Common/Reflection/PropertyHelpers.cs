@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -42,8 +41,8 @@ public static class PropertyHelpers
     ///     The type of the properties to return.
     /// </typeparam>
     /// <param name="obj">The object.</param>
-    /// <param name="includeSubTypes">
-    ///     Include subtypes of <typeparamref name="TPropertyType" /> in
+    /// <param name="includeAssignableOrInheritedTypes">
+    ///     Include subtypes of <typeparamref name="TPropertyType" /> and types that are assignable to in
     ///     results.
     /// </param>
     /// <exception cref="ArgumentNullException">
@@ -53,21 +52,51 @@ public static class PropertyHelpers
     ///     List of <see langword="public" /> properties of a specific type.(
     ///     <see cref="PropertyInfo" /> s).
     /// </returns>
-    public static IEnumerable<PropertyInfo> GetProperties<TPropertyType>(this object obj, bool includeSubTypes = true)
+    public static IEnumerable<PropertyInfo> GetProperties<TPropertyType>(this object obj, bool includeAssignableOrInheritedTypes = true)
+    {
+        obj.NotNull(nameof(obj));
+
+        return obj.GetProperties(includeAssignableOrInheritedTypes, typeof(TPropertyType));
+    }
+
+    /// <summary>
+    ///     Retrieves public properties of a specified object based on a set of property types,
+    ///     optionally including assignable or inherited types.
+    /// </summary>
+    /// <param name="obj">
+    ///     The object whose properties are to be retrieved. Must not be <see langword="null" />.
+    /// </param>
+    /// <param name="includeAssignableOrInheritedTypes">
+    ///     A value indicating whether subtypes of the specified property types or types assignable
+    ///     to them should be included in the results.
+    /// </param>
+    /// <param name="propertyTypes">
+    ///     The types of the properties to retrieve. This can include one or more target property types.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    ///     Thrown when <paramref name="obj" /> is <see langword="null" />.
+    /// </exception>
+    /// <returns>
+    ///     A collection of <see cref="PropertyInfo" /> objects corresponding to the properties
+    ///     of the specified type(s) that belong to the given object.
+    /// </returns>
+    public static IEnumerable<PropertyInfo> GetProperties(this object obj, bool includeAssignableOrInheritedTypes, params Type[] propertyTypes)
     {
         obj.NotNull(nameof(obj));
 
         var type = obj.GetType();
-
-        var propertyType = typeof(TPropertyType);
+        var propertyTypesSet = new HashSet<Type>(propertyTypes);
 
         return type.GetTypeInfo()
                    .GetProperties()
                    .Where(pi =>
                           {
-                              Debug.WriteLine(pi.Name);
+                              if (!includeAssignableOrInheritedTypes)
+                              {
+                                  return propertyTypesSet.Contains(pi.PropertyType);
+                              }
 
-                              return includeSubTypes ? propertyType.GetTypeInfo().IsAssignableFrom(pi.PropertyType) : pi.PropertyType == propertyType;
+                              return propertyTypesSet.Any(pt => pt.GetTypeInfo().IsAssignableFrom(pi.PropertyType));
                           });
     }
 
@@ -114,7 +143,7 @@ public static class PropertyHelpers
     ///     <code>
     /// var person = new { Name = "John", Age = 30, City = "New York" };
     /// var propertyValues = person.GetPropertyValues();
-    /// 
+    ///
     /// foreach (var (name, value) in propertyValues)
     /// {
     ///     Console.WriteLine($"{name}: {value}");
@@ -133,12 +162,12 @@ public static class PropertyHelpers
     /// <exception cref="ArgumentNullException">
     ///     <paramref name="obj" /> is <see langword="null" />.
     /// </exception>
-    public static IEnumerable<(string, object?)> GetPropertyValues(this object obj)
+    public static IEnumerable<(string Name, object? Value)> GetPropertyValues(this object obj)
     {
         obj.NotNull(nameof(obj));
 
 #pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type - this is a false/positive in this case.
-        return obj.GetType().GetProperties().Select(pi => (pi.Name, pi.GetValue(obj)));
+        return obj.GetType().GetProperties().Where(pi => pi.GetIndexParameters().Length == 0).Select(pi => (pi.Name, pi.GetValue(obj)));
 #pragma warning restore CS8619 // Nullability of reference types in value doesn't match target type.
     }
 
@@ -164,7 +193,7 @@ public static class PropertyHelpers
         obj.NotNull(nameof(obj));
         propertyName.NotNullOrEmpty(nameof(propertyName));
 
-        var propertyInfo = typeof(T).GetPropertyInfo(propertyName, true);
+        var propertyInfo = obj!.GetType().GetPropertyInfo(propertyName, true);
         PropertyAccessValidators.ValidatePropertyInfoForGetValue(propertyInfo, propertyName, index);
 
         return propertyInfo.RequiredNotNull(nameof(propertyInfo)).GetValue(obj, index);
@@ -238,7 +267,7 @@ public static class PropertyHelpers
     /// <returns> The value of the static property.</returns>
     public static object? GetStaticPropertyValue(this Type type, string propertyName)
     {
-        if (!TryGetStaticPropertyValue(type, propertyName, out var value))
+        if (!type.TryGetStaticPropertyValue(propertyName, out var value))
         {
             throw new InvalidOperationException($"Static property {propertyName} was not found in {type}");
         }

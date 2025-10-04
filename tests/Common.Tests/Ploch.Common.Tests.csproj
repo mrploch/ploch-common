@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -33,37 +33,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AutoFixture" />
-    <PackageReference Include="AutoFixture.AutoMoq" />
-    <PackageReference Include="AutoFixture.Xunit2" />
-    <PackageReference Include="coverlet.msbuild">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="FluentAssertions.Analyzers" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
-    <PackageReference Include="Moq.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Objectivity.AutoFixture.XUnit2.AutoMoq" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="xunit.runner.visualstudio">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Xunit.SkippableFact" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj" />
+    <ProjectReference Include="..\..\src\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj" />
+    <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
     <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
     <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj" />
     <ProjectReference Include="..\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Agoda.Analyzers" />
+    <PackageReference Include="JetBrains.Annotations" />
   </ItemGroup>
 </Project>

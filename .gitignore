@@ -408,3 +408,5 @@ codestream.xml
 /src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.xml
 /src/TestingSupport/Ploch.TestingSupport.xml
 /src/Common.AppServices/Ploch.Common.AppServices.xml
+/.swm/
+/.sonarqube/

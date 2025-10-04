@@ -21,5 +21,5 @@ public static class IfNullHelpers
     /// <param name="enumerable">The enumerable to check for null.</param>
     /// <param name="defaultValue">The default enumerable to return if the specified enumerable is null.</param>
     /// <returns>The specified enumerable if it is not null; otherwise, the default enumerable.</returns>
-    public static TEnumerable OrIfNullOrEmpty<TEnumerable>(this TEnumerable enumerable, TEnumerable defaultValue) => OrIfNull(enumerable, defaultValue);
+    public static TEnumerable OrIfNullOrEmpty<TEnumerable>(this TEnumerable enumerable, TEnumerable defaultValue) => enumerable.OrIfNull(defaultValue);
 }

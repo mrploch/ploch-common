@@ -1,12 +1,9 @@
 using System.Globalization;
-using FluentAssertions;
-using JetBrains.Annotations;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 using Ploch.Common.TypeConversion;
 
 namespace Ploch.Common.Tests.TypeConversion;
 
-[TestSubject(typeof(EnumerationFieldValueCache))]
 public class EnumerationFieldValueCacheTest
 {
     [EnumConversion]
@@ -133,7 +130,7 @@ public class EnumerationFieldValueCacheTest
         result.Should().ContainKey("ValueWithOneMappedName1").And.ContainValue(TestEnumWithMapping.ValueWithOneMappedName);
         result.Should().ContainKey("ValueWithMultipleMappedNames1").And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
         result.Should().ContainKey("ValueWithMultipleMappedNames2").And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
-        result.Should().ContainKey(new EnumName(null)).And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
+        result.Should().ContainKey(new(null)).And.ContainValue(TestEnumWithMapping.ValueWithMultipleMappedNames);
     }
 
     [Fact]

@@ -2,6 +2,7 @@ using FluentAssertions;
 using Moq;
 using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.TestingSupport.Moq;
+using Ploch.TestingSupport.XUnit3.AutoMoq;
 
 namespace Ploch.TestingSupport.Tests.Moq;
 

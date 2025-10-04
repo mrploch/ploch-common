@@ -1,5 +1,4 @@
 using System;
-using Dawn;
 
 namespace Ploch.Common.Serialization;
 
@@ -16,27 +15,33 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     public abstract TTargetType? Deserialize<TTargetType>(string serializedObj);
 
     /// <inheritdoc />
-    public string Serialize(object obj, Action<TSettings>? configuration)
-    {
-        return Serialize(obj, GetSettings(configuration));
-    }
+    public string Serialize(object obj, Action<TSettings>? configuration) => Serialize(obj, GetSettings(configuration));
 
     /// <inheritdoc />
-    public object? Deserialize(string serializedObj, Type type, Action<TSettings>? configuration)
-    {
-        return Deserialize(serializedObj, type, GetSettings(configuration));
-    }
+    public object? Deserialize(string serializedObj, Type type, Action<TSettings>? configuration) =>
+        Deserialize(serializedObj, type, GetSettings(configuration));
 
     /// <inheritdoc />
-    public TTargetType? Deserialize<TTargetType>(string serializedObj, Action<TSettings>? configuration)
-    {
-        return Deserialize<TTargetType>(serializedObj, GetSettings(configuration));
-    }
+    public TTargetType? Deserialize<TTargetType>(string serializedObj, Action<TSettings>? configuration) =>
+        Deserialize<TTargetType>(serializedObj, GetSettings(configuration));
 
     /// <inheritdoc />
-    public TTargetType? Convert<TTargetType>(object jsonObject)
+    public TTargetType? Convert<TTargetType>(object? jsonObject) => (TTargetType?)Convert(typeof(TTargetType), jsonObject);
+
+    /// <inheritdoc />
+    public object? Convert(Type targetType, object? jsonObject)
     {
-        return (TTargetType?)Convert(typeof(TTargetType), jsonObject);
+        if (jsonObject?.GetType() == targetType)
+        {
+            return jsonObject;
+        }
+
+        if (jsonObject is TDataJsonObject dataJsonObject)
+        {
+            return DeserializeObject(dataJsonObject, targetType);
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -48,7 +53,7 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     protected abstract string Serialize(object obj, TSettings settings);
 
     /// <summary>
-    ///     Deserializes the specified serialized object using concrete <typeparamref name="TSettings"/>.
+    ///     Deserializes the specified serialized object using concrete <typeparamref name="TSettings" />.
     /// </summary>
     /// <param name="serializedObj">String representing the serialized object.</param>
     /// <param name="type">The type of the object to deserialize to.</param>
@@ -57,7 +62,7 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     protected abstract object? Deserialize(string serializedObj, Type type, TSettings settings);
 
     /// <summary>
-    ///     Deserializes the specified serialized object using concrete <typeparamref name="TSettings"/>.
+    ///     Deserializes the specified serialized object using concrete <typeparamref name="TSettings" />.
     /// </summary>
     /// <param name="serializedObj">String representing the serialized object.</param>
     /// <param name="settings">The serializer settings.</param>
@@ -79,26 +84,4 @@ public abstract class Serializer<TSettings, TDataJsonObject> : ISerializer<TSett
     /// <param name="configuration">The serializer settings configuration.</param>
     /// <returns>The serializer settings.</returns>
     protected abstract TSettings GetSettings(Action<TSettings>? configuration);
-
-    private object? Convert(Type targetType, object jsonObject)
-    {
-        if (jsonObject is TDataJsonObject dataJsonObject)
-        {
-            return Convert(targetType, dataJsonObject);
-        }
-
-        return null;
-    }
-
-    private object? Convert(Type targetType, TDataJsonObject jsonObject)
-    {
-        Guard.Argument(targetType, nameof(targetType)).NotNull();
-
-        if (jsonObject is null)
-        {
-            return null;
-        }
-
-        return DeserializeObject(jsonObject, targetType);
-    }
 }

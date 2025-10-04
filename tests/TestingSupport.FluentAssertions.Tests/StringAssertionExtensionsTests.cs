@@ -1,12 +1,17 @@
-using AutoFixture.Xunit2;
-using FluentAssertions;
-using Xunit;
-using Xunit.Sdk;
-
 namespace Ploch.TestingSupport.FluentAssertions.Tests;
 
-public class StringAssertionExtensionsTests
+public class StringAssertionExtensionsTests(ITestOutputHelper output)
 {
+    [Fact]
+    public void ContainAllEquivalentOf_should_throw_if_no_values_are_provided()
+    {
+        "a message".Should()
+                   .Invoking(assertions => assertions.ContainAllEquivalentOf())
+                   .Should()
+                   .Throw<XunitException>()
+                   .WithMessage("You have to provide at least one value to check for.");
+    }
+
     [Theory]
     [AutoData]
     public void ContainAllEquivalentOf_should_pass_if_all_of_the_strings_are_found(string? str1, string str2)
@@ -28,14 +33,7 @@ public class StringAssertionExtensionsTests
         $"message with {str1} and {str2}".Should()
                                          .Invoking(assertions => assertions.ContainAllEquivalentOf(str1, str2, notFound))
                                          .Should()
-                                         .Throw<XunitException>();
-    }
-
-    [Fact]
-    public void ContainAllEquivalentOf_should_pass_no_strings_are_provided()
-    {
-        "a message".Should().ContainAllEquivalentOf();
-        string? str = null;
-        str.Should().ContainAllEquivalentOf();
+                                         .Throw<XunitException>()
+                                         .WithMessage($"Expected * contain * but *{notFound}*not found*");
     }
 }

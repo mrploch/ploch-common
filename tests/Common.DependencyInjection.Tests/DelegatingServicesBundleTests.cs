@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
+using Ploch.TestingSupport.XUnit3.AutoMoq;
 using Xunit;
 
 namespace Ploch.Common.DependencyInjection.Tests;

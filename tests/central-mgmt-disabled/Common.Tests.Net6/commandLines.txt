@@ -1,0 +1,205 @@
+"C:\Program Files (x86)\Common Files\Acronis\Agent\aakore.exe" run
+"C:\Program Files (x86)\Common Files\Acronis\Schedule2\schedul2.exe"
+"C:\Program Files (x86)\Common Files\Adobe\ARM\1.0\armsvc.exe"
+"C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe"
+"C:\Program Files (x86)\Common Files\Acronis\CDP\afcdpsrv.exe"
+C:\WINDOWS\System32\alg.exe
+C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+C:\WINDOWS\System32\svchost.exe -k AppReadiness -p
+C:\WINDOWS\system32\AppVClient.exe
+C:\WINDOWS\system32\svchost.exe -k wsappx -p
+C:\WINDOWS\system32\svchost.exe -k LocalService -p
+"C:\Program Files\AzureConnectedMachineAgent\arcproxy.exe"
+C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\aspnet_state.exe
+C:\WINDOWS\system32\svchost.exe -k AssignedAccessManagerSvc
+C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+C:\WINDOWS\system32\svchost.exe -k autoTimeSvc
+C:\WINDOWS\system32\svchost.exe -k AxInstSVGroup
+C:\WINDOWS\system32\svchost.exe -k AzureAttestService
+C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+"C:\Program Files\Bonjour\mDNSResponder.exe"
+C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted
+C:\WINDOWS\system32\svchost.exe -k osprivacy -p
+"C:\Program Files\CCleaner\CCleanerPerformanceOptimizerService.exe"
+C:\WINDOWS\system32\svchost.exe -k netsvcs
+"C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe" /service
+C:\WINDOWS\System32\svchost.exe -k wsappx -p
+C:\WINDOWS\system32\svchost.exe -k CloudIdServiceGroup -p
+C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted
+"C:\Program Files\Docker\Docker\com.docker.service"
+C:\WINDOWS\system32\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC79235}
+C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetwork -p
+C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_5d58d28606217d2f\IntelCpHDCPSvc.exe
+C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+"C:\Program Files (x86)\Dropbox\Update\DropboxUpdate.exe" /svc
+"C:\Program Files (x86)\Dropbox\Update\DropboxUpdate.exe" /medsvc
+C:\WINDOWS\system32\DbxSvc.exe
+C:\WINDOWS\system32\svchost.exe -k defragsvc
+C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+C:\WINDOWS\System32\svchost.exe -k diagnostics
+C:\WINDOWS\System32\svchost.exe -k utcsvc -p
+C:\WINDOWS\system32\svchost.exe -k DialogBlockingService
+C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+C:\WINDOWS\System32\svchost.exe -k LocalServiceNoNetwork -p
+C:\WINDOWS\System32\DriverStore\FileRepository\dtt_sw.inf_amd64_7d0bd97002cfac37\ipfsvc.exe
+"C:\Program Files (x86)\Dropbox\Client\221.4.5365\DropboxElevationService.exe" --svc --appid={cc46080e-4c33-4981-859a-bba2f780f31e}
+C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p -s DusmSvc
+"C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /svc
+"C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /medsvc
+C:\WINDOWS\System32\lsass.exe
+C:\WINDOWS\system32\svchost.exe -k appmodel -p
+"C:\Program Files\AzureConnectedMachineAgent\ExtensionService2\GC\gc_extension_service.exe" -k netsvcs
+C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation -p
+"C:\Program Files\Microsoft OneDrive\25.046.0310.0005\FileSyncHelper.exe"
+"C:\Program Files\Fortect\bin\MainDaemon.exe"
+"C:\Program Files\Fortect\MainService.exe"
+C:\WINDOWS\System32\svchost.exe -k Camera
+C:\WINDOWS\System32\svchost.exe -k CameraMonitor
+"C:\Program Files\NVIDIA Corporation\FrameViewSDK\nvfvsdksvc_x64.exe" -service
+C:\WINDOWS\System32\GameInputSvc.exe
+"C:\Program Files\WindowsApps\Microsoft.GamingServices_28.100.8001.0_x64__8wekyb3d8bbwe\GamingServices.exe"
+"C:\Program Files\WindowsApps\Microsoft.GamingServices_28.100.8001.0_x64__8wekyb3d8bbwe\GamingServicesNet.exe"
+"C:\Program Files\AzureConnectedMachineAgent\GCArcService2\GC\gc_arc_service.exe" -k netsvcs
+C:\WINDOWS\system32\vmcomputeagent.exe
+"C:\Program Files (x86)\Google\GoogleUpdater\137.0.7129.0\updater.exe" --system --windows-service --service=update-internal
+"C:\Program Files (x86)\Google\GoogleUpdater\137.0.7129.0\updater.exe" --system --windows-service --service=update
+C:\WINDOWS\system32\svchost.exe -k GPSvcGroup
+C:\WINDOWS\System32\svchost.exe -k GraphicsPerfSvcGroup
+"C:\Program Files (x86)\Common Files\Glarysoft\StartupManager\1.0\GUBootService.exe"
+"C:\Program Files (x86)\Glary Utilities\GUPMService.exe"
+"C:\Program Files\AzureConnectedMachineAgent\himds.exe"
+C:\WINDOWS\system32\svchost.exe -k NetSvcs -p
+C:\WINDOWS\System32\DriverStore\FileRepository\igcc_dch.inf_amd64_ee28fa9e734aabda\OneApp.IGCC.WinService.exe
+C:\WINDOWS\System32\DriverStore\FileRepository\igoaudioservice.inf_amd64_00d2c20294217b95\IgoAudioService_x64.exe
+C:\WINDOWS\System32\DriverStore\FileRepository\intcoed.inf_amd64_e8618fcf8584a7f6\AS\IAS\IntelAudioService.exe
+C:\WINDOWS\system32\svchost.exe -k InvSvcGroup -p
+C:\WINDOWS\System32\DriverStore\FileRepository\ipf_cpu.inf_amd64_4b6a23f61a3d7da1\ipf_uf.exe
+C:\WINDOWS\System32\svchost.exe -k NetSvcs -p
+"C:\Program Files (x86)\Common Files\Microsoft Shared\Phone Tools\CoreCon\11.0\bin\IpOverUsbSvc.exe"
+"C:\Program Files\JetBrains\ETW Host\16\JetBrains.Etw.Collector.Host.exe"
+C:\WINDOWS\System32\DriverStore\FileRepository\dal.inf_amd64_8a3f88e34f6b8385\jhi_service.exe
+C:\WINDOWS\System32\drivers\RivetNetworks\Killer\KAPSService.exe
+C:\WINDOWS\system32\lsass.exe
+C:\WINDOWS\System32\drivers\RivetNetworks\Killer\KillerAnalyticsService.exe
+C:\WINDOWS\System32\drivers\RivetNetworks\Killer\KillerNetworkService.exe
+C:\WINDOWS\System32\drivers\RivetNetworks\Killer\KillerProviderDataHelperService.exe
+C:\WINDOWS\System32\drivers\RivetNetworks\Killer\KSPSService.exe
+C:\WINDOWS\System32\drivers\RivetNetworks\Killer\KNDBWMService.exe
+C:\WINDOWS\System32\svchost.exe -k NetworkServiceAndNoImpersonation -p
+C:\WINDOWS\System32\svchost.exe -k LocalService -p
+C:\WINDOWS\system32\svchost.exe -k McpManagementServiceGroup
+"C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.25030.2-0\MpDefenderCoreService.exe"
+"C:\WINDOWS\SysWOW64\MSIService.exe"
+"C:\Program Files (x86)\Microsoft\Edge\Application\135.0.3179.98\elevation_service.exe"
+"C:\Program Files (x86)\Common Files\Acronis\Infrastructure\mms_mini.exe"
+"C:\Program Files (x86)\Common Files\Acronis\MobileBackupServer\mobile_backup_server.exe" "--config-path=C:\ProgramData\Acronis\MobileBackupServer\Conf\WRM.conf"
+"C:\Program Files (x86)\Acronis\TrueImageHome\mobile_backup_status_server.exe"
+"C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe"
+C:\WINDOWS\System32\msdtc.exe
+"C:\Program Files\Microsoft SQL Server\160\DTS\Binn\MsDtsSrvr.exe"
+"C:\Program Files (x86)\MSI\MSI NBFoundation Service\MSIAPService.exe"
+"C:\Program Files (x86)\MSI\MSI NBFoundation Service\Sendevsvc.exe"
+C:\WINDOWS\system32\msiexec.exe /V
+"C:\Program Files\Portrait Displays\MSI True Color\MsiTrueColorService.exe"
+"C:\Program Files (x86)\MSI\MSI Center\MSI_Central_Service.exe"
+"C:\Program Files\Microsoft MPI\Bin\msmpilaunchsvc.exe"
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\fdlauncher.exe" -s MSSQL16.MSSQLSERVER
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\launchpad.exe" -launcher RLauncher.dll -launcher Pythonlauncher.dll -launcher commonlauncher.dll -pipename sqlsatellitelaunch -timeout 600000 -logPath "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\LOG\ExtensibilityLog" -workingDir "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\ExtensibilityData" -externalLanguagesTempDir "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\ExternalLanguagesTemp" -externalLanguagesDir "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\ExternalLanguages" -externalLibrariesTempDir "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\ExternalLibrariesTemp" -externalLibrariesDir "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\ExternalLibraries" -satelliteDllPath "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\sqlsatellite.dll" 
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\sqlservr.exe" -sMSSQLSERVER
+C:\WINDOWS\System32\NahimicService.exe
+C:\WINDOWS\System32\svchost.exe -k netprofm -p
+C:\WINDOWS\Microsoft.NET\Framework64\v4.0.30319\SMSvcHost.exe
+C:\WINDOWS\system32\svchost.exe -k NetSvcs
+"C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe" -s NvContainerLocalSystem -a -f "C:\ProgramData\NVIDIA Corporation\NVIDIA app\NvContainer\NvContainerLocalSystem.log" -l 3 -d "C:\Program Files\NVIDIA Corporation\NvContainer\plugins\LocalSystem" -r -p 30000  -ert
+C:\WINDOWS\System32\DriverStore\FileRepository\nvmii.inf_amd64_0966a803097b2a3b\Display.NvContainer\NVDisplay.Container.exe -s NVDisplay.ContainerLocalSystem -f C:\ProgramData\NVIDIA\NVDisplay.ContainerLocalSystem.log -l 3 -d C:\WINDOWS\System32\DriverStore\FileRepository\nvmii.inf_amd64_0966a803097b2a3b\Display.NvContainer\plugins\LocalSystem -r -p 30000 -cfg NVDisplay.ContainerLocalSystem\LocalSystem /ert
+"C:\Program Files\Microsoft OneDrive\25.046.0310.0005\OneDriveUpdaterService.exe"
+"C:\Program Files\LogiOptionsPlus\logioptionsplus_updater.exe" --run-as-service
+C:\WINDOWS\System32\svchost.exe -k PeerDist
+C:\WINDOWS\system32\PerceptionSimulation\PerceptionSimulationService.exe
+C:\WINDOWS\SysWow64\perfhost.exe
+"C:\WINDOWS\System32\DriverStore\FileRepository\piecomponent.inf_amd64_1f40e6fdf47e8b12\Intel_PIE_Service.exe"
+C:\WINDOWS\system32\svchost.exe -k NetworkServiceNetworkRestricted -p
+C:\WINDOWS\system32\svchost.exe -k print
+C:\WINDOWS\system32\svchost.exe -k UserProfileService -p
+C:\WINDOWS\System32\svchost.exe -k netsvcs
+C:\WINDOWS\System32\ReFsDedupSvc.exe
+C:\WINDOWS\system32\svchost.exe -k localService -p
+C:\WINDOWS\System32\svchost.exe -k rdxgroup
+C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted
+C:\WINDOWS\system32\svchost.exe -k RPCSS -p
+C:\WINDOWS\system32\locator.exe
+C:\WINDOWS\system32\svchost.exe -k rpcss -p
+C:\WINDOWS\System32\DriverStore\FileRepository\iastorvd.inf_amd64_dcf933055667780a\RstMwService.exe
+C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.inf_amd64_a0459e37d3c19239\RtkAudUService64.exe
+C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation
+C:\WINDOWS\system32\svchost.exe -k SDRSVC
+C:\WINDOWS\system32\SecurityHealthService.exe
+"C:\Program Files\Windows Defender Advanced Threat Protection\MsSense.exe"
+C:\WINDOWS\System32\SensorDataService.exe
+C:\WINDOWS\system32\Sgrm\SgrmBroker.exe
+C:\WINDOWS\System32\svchost.exe -k smphost
+C:\WINDOWS\System32\snmptrap.exe
+C:\WINDOWS\System32\spoolsv.exe
+C:\WINDOWS\system32\sppsvc.exe
+"C:\Program Files (x86)\Microsoft SQL Server\90\Shared\sqlbrowser.exe"
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\Polybase\mpdwsvc.exe" -dms -Polybase
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\Polybase\mpdwsvc.exe" -dweng -Polybase
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\SQLAGENT.EXE" -i MSSQLSERVER
+"C:\Program Files\Sql Server Extension\SqlServerExtension.Service.exe"
+"C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\sqlceip.exe" -Service 
+"C:\Program Files\Microsoft SQL Server\90\Shared\sqlwriter.exe"
+C:\WINDOWS\System32\OpenSSH\ssh-agent.exe
+"C:\Program Files\Microsoft SQL Server\160\DTS\Binn\sqlceip.exe" -Service default MSIS
+"C:\Program Files (x86)\Common Files\Steam\steamservice.exe" /RunAsService
+C:\WINDOWS\system32\svchost.exe -k imgsvc
+C:\WINDOWS\System32\svchost.exe -k swprv
+"C:\Program Files (x86)\Common Files\Acronis\SyncAgent\syncagentsrv.exe"
+C:\WINDOWS\ThunderboltService.exe
+C:\WINDOWS\TbtP2pShortcutService.exe
+C:\WINDOWS\System32\svchost.exe -k NetworkService
+"C:\Program Files (x86)\Common Files\Acronis\TibMounter64\tib_mounter_service.exe"
+C:\WINDOWS\system32\TieringEngineService.exe
+C:\WINDOWS\servicing\TrustedInstaller.exe
+C:\WINDOWS\system32\AgentService.exe
+C:\WINDOWS\System32\vds.exe
+C:\WINDOWS\system32\vmcompute.exe
+C:\WINDOWS\system32\svchost.exe -k ICService -p
+C:\WINDOWS\system32\vmms.exe
+"C:\Program Files (x86)\Microsoft Visual Studio\Installer\VSInstallerElevationService.exe"
+C:\WINDOWS\system32\vssvc.exe
+"C:\Program Files (x86)\Microsoft Visual Studio\Shared\Common\DiagnosticsHub.Collection.Service\StandardCollector.Service.exe"
+C:\WINDOWS\system32\svchost.exe -k LocalService
+C:\WINDOWS\system32\svchost.exe -k wusvcs -p
+C:\WINDOWS\System32\svchost.exe -k appmodel -p
+"C:\WINDOWS\system32\wbengine.exe"
+C:\WINDOWS\system32\svchost.exe -k WbioSvcGroup
+C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p -s Wcmsvc
+C:\WINDOWS\System32\svchost.exe -k LocalServiceAndNoImpersonation -p
+"C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.25030.2-0\NisSrv.exe"
+C:\WINDOWS\system32\svchost.exe -k WebThreatDefense -p
+C:\WINDOWS\system32\svchost.exe -k WepHostSvcGroup
+C:\WINDOWS\System32\svchost.exe -k WerSvcGroup
+"C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.25030.2-0\MsMpEng.exe"
+C:\WINDOWS\system32\wbem\WmiApSrv.exe
+C:\WINDOWS\System32\DriverStore\FileRepository\mewmiprov.inf_amd64_0ce29d36fc8607e6\WMIRegistrationService.exe
+"C:\Program Files\Windows Media Player\wmpnetwk.exe"
+C:\WINDOWS\system32\svchost.exe -k WSAIFabricSvcGroup -p
+C:\WINDOWS\system32\SearchIndexer.exe /Embedding
+"C:\Program Files\WSL\wslservice.exe"
+C:\WINDOWS\system32\svchost.exe -k AarSvcGroup -p
+C:\WINDOWS\system32\svchost.exe -k BcastDVRUserService
+C:\WINDOWS\system32\svchost.exe -k BthAppGroup -p
+C:\WINDOWS\system32\svchost.exe -k ClipboardSvcGroup -p
+C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+C:\WINDOWS\system32\svchost.exe -k DevicesFlow
+C:\WINDOWS\system32\CredentialEnrollmentManager.exe
+C:\WINDOWS\system32\svchost.exe -k DevicesFlow -p
+C:\WINDOWS\system32\svchost.exe -k P9RdrService -p
+C:\WINDOWS\system32\svchost.exe -k PenService
+C:\WINDOWS\system32\svchost.exe -k PrintWorkflow
+C:\WINDOWS\system32\svchost.exe -k UdkSvcGroup
+C:\WINDOWS\System32\svchost.exe -k UnistackSvcGroup

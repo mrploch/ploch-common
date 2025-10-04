@@ -1,7 +1,4 @@
 ﻿using System.Globalization;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
-using Xunit;
 
 namespace Ploch.Common.Tests;
 
@@ -63,10 +60,9 @@ public class IsInExtensionsTests
     [InlineData("test", false, "t1", "t2", "t3")]
     [InlineData("some sentence, with symbols. Another test.", true, "t1", "t2", "t3", "somesentencewithsymbolsAnothertest.")]
     [InlineData("", false, "t1", "t2", "t3", null, "t4")]
-    public void In_should_return_if_matching_string_is_found_with_case_sensitive_ignoring_symbols_matching(
-        string? value,
-        bool expectedResult,
-        params string?[] strings)
+    public void In_should_return_if_matching_string_is_found_with_case_sensitive_ignoring_symbols_matching(string? value,
+                                                                                                           bool expectedResult,
+                                                                                                           params string?[] strings)
     {
         value.In(IgnoringSymbolsComparer, strings).Should().Be(expectedResult);
     }

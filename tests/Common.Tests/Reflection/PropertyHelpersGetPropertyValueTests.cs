@@ -1,7 +1,4 @@
 using System.Linq.Expressions;
-using AutoFixture.Xunit2;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Reflection;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 
@@ -18,8 +15,8 @@ public class PropertyHelpersGetPropertyValueTests
         testObject[1] = "Value1";
 
         // Act
-        var result0 = testObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, [ 0 ]);
-        var result1 = testObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, [ 1 ]);
+        var result0 = testObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, [0]);
+        var result1 = testObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, [1]);
 
         // Assert
         result0.Should().Be("Value0");
@@ -114,7 +111,7 @@ public class PropertyHelpersGetPropertyValueTests
         testObject[1] = "Value1";
 
         // Act
-        Action action = () => testObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, [ "a" ]);
+        Action action = () => testObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, ["a"]);
 
         // Assert
         action.Should().ThrowExactly<PropertyIndexerMismatchException>().Which.PropertyName.Should().Be(PropertyHelpers.IndexerPropertyName);
@@ -143,8 +140,8 @@ public class PropertyHelpersGetPropertyValueTests
         var indexerProperty = typeof(ClassWithIndexer).GetProperty(PropertyHelpers.IndexerPropertyName);
 
         // Act
-        var result0 = testObject.GetPropertyValue(indexerProperty!, [ 0 ]);
-        var result1 = testObject.GetPropertyValue(indexerProperty!, [ 1 ]);
+        var result0 = testObject.GetPropertyValue(indexerProperty!, [0]);
+        var result1 = testObject.GetPropertyValue(indexerProperty!, [1]);
 
         // Assert
         result0.Should().Be("Value0");
@@ -236,7 +233,7 @@ public class PropertyHelpersGetPropertyValueTests
 
         // Act
 
-        Action action = () => testObject.GetPropertyValue(propertyInfo!, [ "a" ]);
+        Action action = () => testObject.GetPropertyValue(propertyInfo!, ["a"]);
 
         // Assert
         action.Should().ThrowExactly<PropertyIndexerMismatchException>().Which.PropertyName.Should().Be(PropertyHelpers.IndexerPropertyName);
@@ -286,7 +283,9 @@ public class PropertyHelpersGetPropertyValueTests
     public void GetPropertyValue_should_handle_properties_from_structs(int testValue)
     {
         // Arrange
-        var testStruct = new TestStruct(testValue, new TestStruct2 { IntProperty = testValue, StringProperty = Guid.NewGuid().ToString() });
+        var testStruct = new TestStruct(testValue,
+                                        new()
+                                            { IntProperty = testValue, StringProperty = Guid.NewGuid().ToString() });
 
         // Act
         var result = testStruct.GetPropertyValue(x => x.StructProperty);
@@ -317,11 +316,13 @@ public class PropertyHelpersGetPropertyValueTests
                                                                                               DateTimeOffset? nullableDateTimeOffset)
     {
         var testObject = new MyTestClass
-                         { IntProp = intProp,
-                           StringProp = stringProp,
-                           DateTimeOffsetProp = dateTimeOffset,
-                           NullableIntProp = nullableInt,
-                           NullableDateTimeOffsetProp = nullableDateTimeOffset };
+                             {
+                                 IntProp = intProp,
+                                 StringProp = stringProp,
+                                 DateTimeOffsetProp = dateTimeOffset,
+                                 NullableIntProp = nullableInt,
+                                 NullableDateTimeOffsetProp = nullableDateTimeOffset
+                             };
         testObject.GetPropertyValue<MyTestClass, int>(nameof(MyTestClass.IntProp)).Should().Be(intProp);
         testObject.GetPropertyValue<MyTestClass, int?>(nameof(MyTestClass.NullableIntProp)).Should().Be(nullableInt);
         testObject.GetPropertyValue<MyTestClass, string>(nameof(MyTestClass.StringProp)).Should().Be(stringProp);

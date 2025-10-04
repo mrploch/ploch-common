@@ -45,9 +45,10 @@
     <Project Path="src/Common.DependencyInjection/Ploch.Common.DependencyInjection.csproj" />
     <Project Path="src/Common.WebUI/Ploch.Common.WebUI.csproj" />
     <Project Path="src/Common/Ploch.Common.csproj" />
-    <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
-    <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
-    <Project Path="src\Common.Apps\Apps.Model\Ploch.Common.Apps.Model.csproj" Type="Classic C#">
+      <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
+  </Folder>
+    <Folder Name="/src/Apps/">
+        <Project Path="src\Common.Apps\Shared\Ploch.Common.Apps.Shared.csproj" Type="Classic C#">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -57,7 +58,19 @@
       <Configuration Solution="Release|x64" Project="Release|Any CPU" />
       <Configuration Solution="Release|x86" Project="Release|Any CPU" />
     </Project>
-    <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
+    </Folder>
+    <Folder Name="/src/Apps/Actions/">
+        <Project Path="src\Common.Apps\Apps.Actions\Actions.Model\Ploch.Common.Apps.Actions.Model.csproj"
+                 Type="Classic C#">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
   </Folder>
   <Folder Name="/src/Serialization/">
     <Project Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
@@ -66,9 +79,30 @@
     <Project Path="src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj" />
     <Project Path="src/Common.Serialization/Ploch.Common.Serialization.csproj" />
   </Folder>
-  <Folder Name="/tests/">
-    <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
-    <Project Path="tests\central-mgmt-disabled\Common.Tests.Net6\Ploch.Common.Tests.Net6.csproj" Type="Classic C#">
+    <Folder Name="/testing-support/">
+        <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
+        <Project Path="src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" Type="Classic C#">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
+        <Project Path="src\TestingSupport.XUnit3.Dependencies\Ploch.TestingSupport.XUnit3.Dependencies.csproj"
+                 Type="Classic C#">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
+        <Project Path="src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj" Type="Classic C#">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -78,6 +112,9 @@
       <Configuration Solution="Release|x64" Project="Release|Any CPU" />
       <Configuration Solution="Release|x86" Project="Release|Any CPU" />
     </Project>
+    </Folder>
+    <Folder Name="/tests/">
+        <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
     <Project Path="tests\Common.Apps\Apps.Model.Tests\Ploch.Common.Apps.Model.Tests.csproj" Type="Classic C#">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
@@ -112,7 +149,16 @@
       <Configuration Solution="Release|x64" Project="Release|Any CPU" />
       <Configuration Solution="Release|x86" Project="Release|Any CPU" />
     </Project>
-    <Project Path="tests\TestingSupport.Tests\Ploch.TestingSupport.Tests.csproj" />
+        <Project Path="tests\TestingSupport.XUnit3.Tests\Ploch.TestingSupport.XUnit3.Tests.csproj" Type="Classic C#">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
     <File Path="tests\.editorconfig" />
   </Folder>
   <Folder Name="/Tests/Serialization/">

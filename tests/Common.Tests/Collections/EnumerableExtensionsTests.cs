@@ -1,16 +1,13 @@
 using System.Collections;
 using AutoFixture;
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Collections;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
-using Xunit.Abstractions;
 
 namespace Ploch.Common.Tests.Collections;
 
 public class EnumerableExtensionsTests(ITestOutputHelper output)
 {
-    private static readonly int[] Items = [ 1, 2, 3 ];
+    private static readonly int[] Items = [1, 2, 3];
 
     [Fact]
     public void ValueIn_should_work_on_short_type()
@@ -272,7 +269,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     public void IsNullOrEmpty_should_return_false_for_non_empty_enumerable()
     {
 #pragma warning disable CC0001
-        IEnumerable<int> nonEmptyEnumerable = [ 1, 2, 3 ];
+        IEnumerable<int> nonEmptyEnumerable = [1, 2, 3];
 #pragma warning restore CC0001
         nonEmptyEnumerable.IsNullOrEmpty().Should().BeFalse();
     }
@@ -280,7 +277,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     [Fact]
     public void Second_should_return_second_element_in_sequence()
     {
-        IEnumerable<int> nonEmptyEnumerable = [ 1, 2, 3 ];
+        IEnumerable<int> nonEmptyEnumerable = [1, 2, 3];
 
         nonEmptyEnumerable.Second().Should().Be(2);
     }

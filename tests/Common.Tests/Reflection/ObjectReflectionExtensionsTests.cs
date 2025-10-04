@@ -1,9 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using AutoFixture.Xunit2;
-using FluentAssertions;
 using Ploch.Common.Reflection;
-using Xunit;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -233,7 +230,8 @@ public class ObjectReflectionExtensionsTests
                      .WithMessage("*binding*"); // The exception message should contain information about binding flags
     }
 
-    [Fact] public void GetStaticFieldValues_should_return_only_static_fields()
+    [Fact]
+    public void GetStaticFieldValues_should_return_only_static_fields()
     {
         var staticStrField1 = Guid.NewGuid().ToString();
         var staticStrField2 = Guid.NewGuid().ToString();
@@ -395,8 +393,8 @@ public class ObjectReflectionExtensionsTests
         indexedProperty.Should().NotBeNull();
 
         // Verify indexed property's GetValue works with index parameters
-        var index0Value = indexedProperty?.GetValue(testObject, [ "key1" ]);
-        var index1Value = indexedProperty?.GetValue(testObject, [ "key2" ]);
+        var index0Value = indexedProperty?.GetValue(testObject, ["key1"]);
+        var index1Value = indexedProperty?.GetValue(testObject, ["key2"]);
 
         index0Value.Should().Be("value1");
         index1Value.Should().Be("value2");
@@ -492,12 +490,12 @@ public class ObjectReflectionExtensionsTests
     private class ClassWithStaticMembers
     {
         private static readonly string StaticField = "static field value";
-        public string PublicField = "instance field value";
 
         public static string StaticStrField1 = nameof(StaticStrField1) + "Value";
         public static string StaticStrField2 = nameof(StaticStrField2) + "Value";
         public static int StaticIntField1 = 1;
         public static int StaticIntField2 = 2;
+        public string PublicField = "instance field value";
 
         public static string StaticProperty { get; } = "static property value";
 
@@ -534,7 +532,7 @@ public class ObjectReflectionExtensionsTests
     private class TypeWithComplexFields
     {
 #pragma warning disable S1144
-        private readonly List<int> _listField = [ 1, 2, 3 ];
+        private readonly List<int> _listField = [1, 2, 3];
         private readonly Dictionary<string, string> _dictionaryField = new() { { "key1", "value1" } };
         private readonly TestType _nestedObjectField = new("private value", 42, Guid.NewGuid(), "static value");
 #pragma warning restore S1144

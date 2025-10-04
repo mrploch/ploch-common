@@ -159,7 +159,7 @@ public static class StringExtensions
     {
         str.NotNull(nameof(str));
 
-        return int.Parse(str, NumberStyles.Integer, CultureInfo.InvariantCulture);
+        return int.Parse(str, CultureInfo.InvariantCulture);
     }
 
     /// <summary>
@@ -207,7 +207,7 @@ public static class StringExtensions
     {
         str.NotNull(nameof(str));
 
-        return long.Parse(str, NumberStyles.Integer, CultureInfo.InvariantCulture);
+        return long.Parse(str, CultureInfo.InvariantCulture);
     }
 
     /// <summary>

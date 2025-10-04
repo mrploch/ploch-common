@@ -52,7 +52,7 @@ public static class ObjectGraphHelper
 
         var visited = new HashSet<object>();
 
-        ProcessProperties(root, action, visited);
+        root.ProcessProperties(action, visited);
     }
 
     private static void ProcessProperties(this object current, Action<object> action, HashSet<object> visited)
@@ -71,7 +71,7 @@ public static class ObjectGraphHelper
             }
             else
             {
-                ProcessProperties(value, action, visited);
+                value.ProcessProperties(action, visited);
             }
         }
     }
@@ -80,7 +80,7 @@ public static class ObjectGraphHelper
     {
         foreach (var item in enumerable)
         {
-            ProcessProperties(item, action, visited);
+            item.ProcessProperties(action, visited);
         }
     }
 

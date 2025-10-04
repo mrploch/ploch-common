@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Ploch.Common.DependencyInjection;
 
@@ -12,8 +13,10 @@ namespace Ploch.Common.DependencyInjection;
 ///         <see href="https://autofaccn.readthedocs.io/en/latest/configuration/modules.html">Autofac Modules</see>.
 ///     </para>
 /// </remarks>
-public interface IServicesBundle
+public interface IServicesBundle : IOptionalConfigurationProvider
 {
+    IConfiguration? Configuration { get; }
+
     /// <summary>
     ///     Configures a <c>IServiceCollection</c> instance.
     /// </summary>

@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
-using Ploch.Common.Linq;
-using Xunit;
+﻿using Ploch.Common.Linq;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -49,8 +46,8 @@ public class OwnedPropertyInfoTests
         OwnedPropertyInfo baseOwnedPropertyInfo = ownedPropertyInfo;
 
         // Act
-        var val0 = baseOwnedPropertyInfo.GetValue([ 0 ]);
-        var val1 = ownedPropertyInfo.GetValue([ 1 ]);
+        var val0 = baseOwnedPropertyInfo.GetValue([0]);
+        var val1 = ownedPropertyInfo.GetValue([1]);
 
         // Assert
         val0.Should().Be(testClass.Strings[0]);
@@ -68,8 +65,8 @@ public class OwnedPropertyInfoTests
         OwnedPropertyInfo baseOwnedPropertyInfo = ownedPropertyInfo;
 
         // Act
-        baseOwnedPropertyInfo.SetValue("val0", [ 0 ]);
-        ownedPropertyInfo.SetValue("val1", [ 1 ]);
+        baseOwnedPropertyInfo.SetValue("val0", [0]);
+        ownedPropertyInfo.SetValue("val1", [1]);
 
         // Assert
         testClass.Strings[0].Should().Be("val0");

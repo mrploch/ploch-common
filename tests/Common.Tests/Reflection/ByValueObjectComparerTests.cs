@@ -1,7 +1,4 @@
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Reflection;
-using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests.Reflection;
 
@@ -9,84 +6,71 @@ public class ByValueObjectComparerTests
 {
     [Theory]
     [AutoMockData]
-    public void Equals_should_return_true_if_two_objects_are_same_type_and_have_matching_property_values(SampleTestObject testType1)
+    public void Equals_should_return_true_if_two_objects_are_same_type_and_have_matching_property_values(TestTypes.SampleTestObject testType1)
     {
-        var testType2 = new SampleTestObject();
+        testType1.UpdateSetToNullProperties();
+        var testType2 = new TestTypes.SampleTestObject();
 
         testType1.CopyProperties(testType2);
         testType1.Should().BeEquivalentTo(testType2);
 
-        // var guid = Guid.NewGuid();
-        // var dateTime = DateTime.Now.AddDays(3);
-        // var subGuid = Guid.NewGuid();
-        // var subDateTime = DateTime.Now.AddDays(4);
-
-        // var testType = CreateTestType(guid, dateTime, subGuid, subDateTime);
-        // var testType2 = CreateTestType(guid, dateTime, subGuid, subDateTime);
-        var sut = new ByValueObjectComparer<SampleTestObject>();
+        var sut = new ByValueObjectComparer<TestTypes.SampleTestObject>();
         var equals = sut.Equals(testType1, testType2);
+
         equals.Should().BeTrue();
         testType1.Should().Be(testType2, sut);
     }
 
     [Theory]
     [AutoMockData]
-    public void Equals_should_return_false_if_two_objects_are_same_type_and_have_matching_property_values_except_one(SampleTestObject testType1)
+    public void Equals_should_return_false_if_two_objects_are_same_type_and_have_matching_property_values_except_one(TestTypes.SampleTestObject testType1)
     {
-        var testType2 = new SampleTestObject();
+        testType1.UpdateSetToNullProperties();
+        var testType2 = new TestTypes.SampleTestObject();
         testType1.CopyProperties(testType2);
-        testType2.SubType = new SampleSubType();
+        testType2.SubType = new();
         testType2.SubType.SubGuid = Guid.NewGuid();
         testType2.SubType.SubDateTime = testType1.SubType.SubDateTime;
         testType2.SubType.SubInt = testType1.SubType.SubInt;
         testType2.SubType.SubString = testType1.SubType.SubString;
-        testType2.TestStruct = new TestStruct(testType1.TestStruct.StructProperty, testType1.TestStruct.Struct2Property);
+        testType2.TestStruct = new(testType1.TestStruct.StructProperty, testType1.TestStruct.Struct2Property);
 
         testType2.SubType.SubGuid = Guid.NewGuid();
 
-        // var testType = CreateTestType(guid, dateTime, subGuid, subDateTime);
-        // var testType2 = CreateTestType(guid, dateTime, subGuid, subDateTime);
-        var sut = new ByValueObjectComparer<SampleTestObject>();
+        var sut = new ByValueObjectComparer<TestTypes.SampleTestObject>();
         var equals = sut.Equals(testType1, testType2);
+
         equals.Should().BeFalse();
         testType1.Should().NotBe(testType2, sut);
     }
 
-    private static SampleTestObject CreateTestType(Guid id, DateTime dateTime, Guid subId, DateTime subDateTime) =>
-        new()
-        { Id = id,
-          Int = 42,
-          TestString = "Test",
-          TestDate = dateTime,
-          SubType = new SampleSubType { SubGuid = subId, SubInt = 24, SubString = "SubTest", SubDateTime = subDateTime } };
-
-    public class SampleTestObject
+    [Fact]
+    public void GetHashCode_should_return_0_for_null_object()
     {
-        public Guid Id { get; set; }
-
-        public int Int { get; set; }
-
-        public string? TestString { get; set; }
-
-        public DateTime TestDate { get; set; }
-
-        public string this[int index] => $"Indexer {index}";
-
-        public SampleSubType SubType { get; set; } = new();
-
-        public TestStruct TestStruct { get; set; }
+        var sut = new ByValueObjectComparer<TestTypes.SampleTestObject>();
+        sut.GetHashCode(null!).Should().Be(0);
     }
 
-    public record SampleRecord(int Id, string Name, DateTime CreatedDate);
-
-    public class SampleSubType
+    [Fact]
+    public void GetHashCode_should_return_type_hash_code_for_object_with_no_properties()
     {
-        public Guid SubGuid { get; set; }
+        var sut = new ByValueObjectComparer<TestTypes.NoPropertiesObject>();
+        var obj = new TestTypes.NoPropertiesObject();
+        sut.GetHashCode(obj).Should().Be(typeof(TestTypes.NoPropertiesObject).GetHashCode());
+    }
 
-        public int SubInt { get; set; }
+    [Theory]
+    [AutoMockData]
+    public void GetHashCode_should_return_same_hash_code_for_equal_objects(TestTypes.SampleTestObject testType1)
+    {
+        testType1.UpdateSetToNullProperties();
+        var testType2 = new TestTypes.SampleTestObject();
+        testType1.CopyProperties(testType2);
 
-        public string? SubString { get; set; }
+        var sut = new ByValueObjectComparer<TestTypes.SampleTestObject>();
+        var actualHashCode = sut.GetHashCode(testType1);
+        actualHashCode.Should().Be(sut.GetHashCode(testType2));
 
-        public DateTime SubDateTime { get; set; }
+        actualHashCode.Should().Be(ObjectHashCodeBuilder.GetHashCode(testType1));
     }
 }

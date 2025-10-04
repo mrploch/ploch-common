@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.Collections;
 
@@ -12,7 +13,7 @@ namespace Ploch.Common.DependencyInjection;
 ///     Derived classes can specify dependencies on other service bundles and must implement
 ///     the <see cref="DoConfigure" /> method to register their specific services.
 /// </remarks>
-public abstract class ServicesBundle : IServicesBundle
+public abstract class ServicesBundle : IServicesBundle, IConfigurationConsumer
 {
     /// <summary>
     ///     Gets the service collection for registering services.
@@ -32,6 +33,8 @@ public abstract class ServicesBundle : IServicesBundle
     /// </remarks>
     protected virtual IEnumerable<IServicesBundle>? Dependencies { get; }
 
+    public IConfiguration? Configuration { get; set; }
+
     /// <summary>
     ///     Configures the service collection by first configuring dependencies and then calling <see cref="DoConfigure" />.
     /// </summary>
@@ -40,7 +43,8 @@ public abstract class ServicesBundle : IServicesBundle
     {
         Services = services;
 
-        Dependencies?.ForEach(dependency => { dependency.Configure(services); });
+        Dependencies?.ForEach(dependency => services.AddServicesBundle(dependency, Configuration));
+
         DoConfigure();
     }
 

@@ -1,6 +1,4 @@
-using FluentAssertions;
 using Ploch.Common.Results;
-using Xunit;
 
 namespace Ploch.Common.Tests.Results;
 
@@ -41,8 +39,10 @@ public class ErrorInfoTests
     [Fact]
     public void Create_should_create_error_info_from_exception()
     {
-        // Arrange
+// Parameter name in ArgumentNullException should match actual parameter - does not apply to this test
+#pragma warning disable S3928
         var exception = new ArgumentNullException("param", "Parameter is required");
+#pragma warning restore S3928
         var errorCode = "EXC001";
 
         // Act
@@ -61,10 +61,10 @@ public class ErrorInfoTests
         string? message = null;
 
         // Act
-        var act = () => new ErrorInfo(message!, "ERR", new Exception());
+        var act = () => new ErrorInfo(message!, "ERR", new());
 
         // Assert
-        act.Should().Throw<ArgumentNullException>().WithParameterName("message");
+        act.Should().Throw<ArgumentNullException>().WithParameterName(nameof(message));
     }
 
     [Fact]
@@ -84,7 +84,7 @@ public class ErrorInfoTests
     public void Exception_property_should_allow_setting_to_null()
     {
         // Arrange
-        var errorInfo = new ErrorInfo("msg", "code", new Exception("ex")) { Exception = null };
+        var errorInfo = new ErrorInfo("msg", "code", new("ex")) { Exception = null };
 
         // Assert
         errorInfo.Exception.Should().BeNull();
@@ -206,6 +206,7 @@ public class ErrorInfoTests
 
     private class MyCustomException : Exception
     {
-        public MyCustomException(string message) : base(message) { }
+        public MyCustomException(string message) : base(message)
+        { }
     }
 }

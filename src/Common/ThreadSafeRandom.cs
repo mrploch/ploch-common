@@ -13,8 +13,7 @@ public static class ThreadSafeRandom
 #pragma warning disable SA1306 // naming of the static field should be in PascalCase (fix this in the next iteration)
     [ThreadStatic]
     private static Random? LocalRandom;
-#pragma warning restore SA1134
-#pragma warning restore SA1306
+#pragma warning restore SA1134, SA1306
 
     /// <summary>
     ///     Gets the shared instance of the random number generator.

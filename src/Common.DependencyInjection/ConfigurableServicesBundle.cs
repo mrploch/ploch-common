@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System;
+using Microsoft.Extensions.Configuration;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.DependencyInjection;
 
@@ -9,18 +11,18 @@ namespace Ploch.Common.DependencyInjection;
 public abstract class ConfigurableServicesBundle : ServicesBundle
 {
     /// <summary>
-    ///     Gets or sets the configuration used to configure services.
-    /// </summary>
-    public IConfiguration? Configuration { get; set; }
-
-    /// <summary>
     ///     Configures the services within the derived service bundle.
     ///     This method is typically overridden by derived classes to implement the specific
     ///     service registrations and configurations necessary for the bundle.
     /// </summary>
     public override void DoConfigure()
     {
-        Configure(Configuration);
+        if (Configuration == null)
+        {
+            throw new InvalidOperationException($"{GetType().Name} is a configurable service bundle, but configuration was not initialized.");
+        }
+
+        Configure(Configuration.RequiredNotNull(nameof(Configuration)));
     }
 
     /// <summary>
@@ -28,5 +30,5 @@ public abstract class ConfigurableServicesBundle : ServicesBundle
     ///     This method must be implemented by derived classes to register and configure services.
     /// </summary>
     /// <param name="configuration">The configuration to use for configuring services. Can be null.</param>
-    protected abstract void Configure(IConfiguration? configuration = null);
+    protected abstract void Configure(IConfiguration configuration);
 }

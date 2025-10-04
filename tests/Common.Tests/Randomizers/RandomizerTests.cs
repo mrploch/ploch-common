@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-using Ploch.Common.Randomizers;
-using Xunit;
+﻿using Ploch.Common.Randomizers;
 
 namespace Ploch.Common.Tests.Randomizers;
 

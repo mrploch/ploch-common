@@ -1,5 +1,3 @@
-using FluentAssertions;
-using Objectivity.AutoFixture.XUnit2.AutoMoq.Attributes;
 using Ploch.Common.Linq;
 using Ploch.Common.Tests.TestTypes.TestingTypes;
 
@@ -144,7 +142,7 @@ public class OwnedPropertyInfoTests
         var newValue = "new-indexed-value";
 
         // Act
-        ownedPropertyInfo.SetValue(newValue, [ 0 ]);
+        ownedPropertyInfo.SetValue(newValue, [0]);
 
         // Assert
         obj[0].Should().Be(newValue);

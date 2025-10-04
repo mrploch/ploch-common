@@ -62,14 +62,29 @@ public interface IOwnedPropertyInfo
     void SetValue(object? value, object[] index);
 }
 
-/// <typeparam name="TType">The object type that owns the property.</typeparam>
-/// <typeparam name="TProperty">The type of the property value.</typeparam>
-/// <inheritdoc />
-public interface IOwnedPropertyInfo<out TType, TProperty> : IOwnedPropertyInfo
+/// <summary>
+///     Represents an interface for properties that belong to a specific instance of an object.
+/// </summary>
+/// <remarks>
+///     <para>
+///         This interface provides abstract methods and properties for interacting with object properties
+///         at runtime in a strongly-typed manner. It encapsulates metadata about a property
+///         (<see cref="PropertyInfo" />), the name of the property, and the instance that owns the property.
+///     </para>
+///     <para>
+///         This provides an API for retrieving and modifying property values, often used in dynamic object manipulation
+///         scenarios or when working with reflection.
+///     </para>
+/// </remarks>
+/// <example>
+///     <para>
+///         The <c>IOwnedPropertyInfo</c> interface can be implemented to dynamically interact with object properties,
+///         for example, to modify property values at runtime based on their metadata.
+///     </para>
+/// </example>
+/// <seealso cref="PropertyInfo" />
+public interface IOwnedPropertyInfo<TProperty> : IOwnedPropertyInfo
 {
-    /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />
-    new TType Owner { get; }
-
     /// <inheritdoc cref="IOwnedPropertyInfo.GetValue()" />
     new TProperty? GetValue();
 
@@ -81,4 +96,13 @@ public interface IOwnedPropertyInfo<out TType, TProperty> : IOwnedPropertyInfo
 
     /// <inheritdoc cref="IOwnedPropertyInfo.SetValue(object?, object[])" />
     void SetValue(TProperty? value, object[] index);
+}
+
+/// <typeparam name="TType">The object type that owns the property.</typeparam>
+/// <typeparam name="TProperty">The type of the property value.</typeparam>
+/// <inheritdoc />
+public interface IOwnedPropertyInfo<out TType, TProperty> : IOwnedPropertyInfo<TProperty>
+{
+    /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />
+    new TType Owner { get; }
 }

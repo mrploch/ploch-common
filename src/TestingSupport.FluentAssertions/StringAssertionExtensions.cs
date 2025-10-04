@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dawn;
 using FluentAssertions;
 using FluentAssertions.Primitives;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.TestingSupport.FluentAssertions;
 
@@ -34,16 +34,47 @@ public static class StringAssertionExtensions
                                                                          string because = "",
                                                                          params object[] becauseArgs)
     {
-        Guard.Argument(values, nameof(values)).NotNull();
-        var array = values.Where(v => !Contains(assertions, assertions.Subject, v, StringComparison.OrdinalIgnoreCase)).ToArray();
+        values.NotNull(nameof(values));
+        var array = values.Where(v => !Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)).ToArray();
 
-        assertions.CurrentAssertionChain.ForCondition(values.All(v => Contains(assertions, assertions.Subject, v, StringComparison.OrdinalIgnoreCase)))
+        assertions.CurrentAssertionChain
+                  .ForCondition(values != null && values.Any())
+                  .FailWith("You have to provide at least one value to check for.")
+                  .Then
+                  .ForCondition(values.All(v => Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)))
                   .BecauseOf(because, becauseArgs)
-                  .FailWith("Expected {context:string} {0} to contain the strings ignoring case: {1}{reason}.", assertions.Subject, array);
+                  .FailWith("Expected {context:string} {0} to contain the strings ignoring case: {1} but {2} was not found{reason}.",
+                            assertions.Subject,
+                            values,
+                            array);
 
-        return new AndConstraint<StringAssertions>(assertions);
+        return new(assertions);
     }
 
-    public static bool Contains(this StringAssertions assertions, string? actual, string? expected, StringComparison comparison) =>
-        (actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0;
+    /// <summary>
+    ///     Determines whether the specified string contains the expected substring, using the specified string comparison rules.
+    /// </summary>
+    /// <param name="actual">The string being evaluated.</param>
+    /// <param name="expected">The substring to locate within <paramref name="actual" />.</param>
+    /// <param name="comparison">The type of comparison to perform between strings.</param>
+    /// <returns><c>true</c> if <paramref name="actual" /> contains <paramref name="expected" /> according to the specified comparison; otherwise, <c>false</c>.</returns>
+    private static bool Contains(string? actual,
+                                 string? expected,
+                                 StringComparison comparison) => (actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0;
+
+    /*
+     *   public static bool Contains(this StringAssertions assertions,
+                                string? actual,
+                                string? expected,
+                                StringComparison comparison,
+                                string because = "",
+                                params object[] becauseArgs)
+    {
+        assertions.CurrentAssertionChain.ForCondition((actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0)
+                  .BecauseOf(because, becauseArgs)
+                  .FailWith("Expected {context:string} {0} to contain the strings ignoring case: {1}{reason}.", assertions.Subject, array)
+
+        return (actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0;
+    }
+     */
 }
