@@ -96,7 +96,7 @@ public class PropertyHelpersGetPropertyValueTests
         MyTestClass? testObject = null;
 
         // Act
-        Action action = () => testObject.GetPropertyValue(nameof(MyTestClass.IntProp)!);
+        Action action = () => testObject.GetPropertyValue(nameof(MyTestClass.IntProp));
 
         // Assert
         action.Should().ThrowExactly<ArgumentNullException>().WithParameterName("obj");

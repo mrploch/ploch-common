@@ -636,7 +636,9 @@ internal enum ImplicitUseTargetFlags
     Default = Itself,
     Itself = 1,
 
-    /// <summary>Members of the type marked with the attribute are considered used.</summary>
+    /// <summary>
+    ///     Members of the type marked with the attribute are considered used.
+    /// </summary>
     Members = 2,
 
     /// <summary> Inherited entities are considered used. </summary>

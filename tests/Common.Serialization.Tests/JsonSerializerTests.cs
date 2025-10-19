@@ -56,7 +56,7 @@ public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISeri
         var actualComplexType = sut.Deserialize<TestRecords.TestComplexTypeWithObjectProperty>(actualSerializedComplexType);
 
         actualComplexType!.ComplexTypeData.Should().NotBeNull();
-        var deserializedData = sut.Convert<TestRecords.TestDataComplexTypeWithEnumerableProperty>(actualComplexType!.ComplexTypeData!);
+        var deserializedData = sut.Convert<TestRecords.TestDataComplexTypeWithEnumerableProperty>(actualComplexType.ComplexTypeData!);
 
         ValidateDeserializedComplexType(actualComplexType, expectedComplexType, deserializedData, expectedComplexTypeData);
     }
@@ -140,7 +140,7 @@ public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISeri
     protected static void ValidateDeserializedTestType4(TestRecords.TestType4? deserialized)
     {
         deserialized.Should().NotBeNull();
-        deserialized!.TestType4IntProp.Should().Be(18);
+        deserialized.TestType4IntProp.Should().Be(18);
         deserialized.TestType4LongProp.Should().Be(140);
     }
 
@@ -152,7 +152,7 @@ public abstract class JsonSerializerTests<TSerializer> where TSerializer : ISeri
                                                         TestRecords.TestDataComplexTypeWithEnumerableProperty expectedComplexTypeData)
     {
         actualComplexType.Should().NotBeNull();
-        actualComplexType!.ComplexTypeData.Should().NotBeNull();
+        actualComplexType.ComplexTypeData.Should().NotBeNull();
         actualComplexType.Should().BeEquivalentTo(expectedComplexType, options => options.Excluding(type => type.ComplexTypeData));
 
         actualComplexTypeData.Should().BeEquivalentTo(expectedComplexTypeData);

@@ -49,7 +49,7 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
 }
 
 /// <inheritdoc cref="IOwnedPropertyInfo{TProperty}" />
-public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner!), IOwnedPropertyInfo<TProperty>
+public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner), IOwnedPropertyInfo<TProperty>
 {
     /// <inheritdoc />
     public new TProperty? GetValue() => (TProperty?)base.GetValue();

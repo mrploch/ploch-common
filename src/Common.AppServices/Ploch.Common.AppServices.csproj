@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net9.0</TargetFrameworks>
-    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
-    <Title>Ploch.Common.AppServices Library</Title>
-    <Description>Ploch.Common.AppServices, part of Ploch.Common utility library, provides interfaces for common application services that can be implemented by various providers.</Description>
-    <PackageTags>common;utility;common-library;core</PackageTags>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+        <Title>Ploch.Common.AppServices Library</Title>
+        <Description>Ploch.Common.AppServices, part of Ploch.Common utility library, provides interfaces for common application services that can be implemented by various providers.</Description>
+        <PackageTags>common;utility;common-library;core</PackageTags>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <WarningsAsErrors>$(WarningsAsErrors);NU1605;Nullable</WarningsAsErrors>
-  </PropertyGroup>
+    <PropertyGroup>
+        <WarningsAsErrors>$(WarningsAsErrors);NU1605;Nullable</WarningsAsErrors>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-    <None Remove="Ploch.Common.AppServices.xml" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
+        <None Remove="Ploch.Common.AppServices.xml" />
+    </ItemGroup>
 
 </Project>

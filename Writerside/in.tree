@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="in"
+                  name="Instance Name" start-page="index.md">
+
+    <toc-element topic="TESTING_INSTRUCTIONS.md" />
+    <toc-element topic="temp.md" />
+    <toc-element topic="release-notes.md" />
+    <toc-element topic="README.md" />
+    <toc-element topic="post--original-complehensive.md" />
+    <toc-element toc-title=".github">
+        <toc-element topic=".github_pull_request_template.md" />
+        <toc-element topic="copilot-instructions.md" />
+    </toc-element>
+    <toc-element toc-title=".github-test">
+        <toc-element topic="pull_request_template.md" />
+    </toc-element>
+    <toc-element toc-title=".swm">
+        <toc-element topic="untitled-doc.qhisc6hu.sw.md" />
+        <toc-element topic="untitled-doc.pmku26qa.sw.md" />
+    </toc-element>
+    <toc-element toc-title="deps">
+        <toc-element topic="projectsByPackage.md" />
+        <toc-element topic="packagesByProject.md" />
+        <toc-element topic="packages.md" />
+    </toc-element>
+    <toc-element toc-title="docfx_project">
+        <toc-element topic="index.md" />
+        <toc-element toc-title="api">
+            <toc-element topic="api_index.md" />
+        </toc-element>
+        <toc-element toc-title="articles">
+            <toc-element topic="intro.md" />
+            <toc-element topic="configureawait-false.md" />
+        </toc-element>
+    </toc-element>
+    <toc-element toc-title="docs">
+        <toc-element topic="docs_README.md" />
+    </toc-element>
+    <toc-element toc-title="DocumentationSite">
+        <toc-element topic="DocumentationSite_index.md">
+            <toc-element topic="Empty-MD-Topic.md" />
+        </toc-element>
+        <toc-element toc-title="api">
+            <toc-element topic="DocumentationSite_api_index.md" />
+        </toc-element>
+        <toc-element toc-title="articles">
+            <toc-element topic="samples.md" />
+            <toc-element topic="articles_intro.md" />
+            <toc-element topic="collections-samples.md" />
+        </toc-element>
+        <toc-element toc-title="namespaces">
+            <toc-element topic="Ploch.Common.md" />
+        </toc-element>
+    </toc-element>
+    <toc-element toc-title="src">
+        <toc-element toc-title="Common">
+            <toc-element topic="Common_README.md" />
+            <toc-element toc-title="Collections">
+                <toc-element topic="Collections_README.md" />
+            </toc-element>
+        </toc-element>
+        <toc-element toc-title="Common.AppServices">
+            <toc-element topic="Common.AppServices_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.AppServices.Web">
+            <toc-element topic="Common.AppServices.Web_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.DawnGuard">
+            <toc-element topic="Common.DawnGuard_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.DependencyInjection">
+            <toc-element topic="Common.DependencyInjection_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Net9">
+            <toc-element topic="Common.Net9_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Serialization">
+            <toc-element topic="Common.Serialization_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Serialization.NewtonsoftJson">
+            <toc-element topic="Common.Serialization.NewtonsoftJson_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection">
+            <toc-element topic="Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Serialization.SystemTextJson">
+            <toc-element topic="Common.Serialization.SystemTextJson_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Serialization.SystemTextJson.ExtensionsDependencyInjection">
+            <toc-element topic="Common.Serialization.SystemTextJson.ExtensionsDependencyInjection_README.md" />
+        </toc-element>
+        <toc-element toc-title="Common.Web">
+            <toc-element toc-title="Web.WebApi.Configuration">
+                <toc-element topic="Web.WebApi.Configuration_README.md" />
+            </toc-element>
+        </toc-element>
+        <toc-element toc-title="Common.WebUI">
+            <toc-element topic="Common.WebUI_README.md" />
+        </toc-element>
+        <toc-element toc-title="TestingSupport">
+            <toc-element topic="TestingSupport_README.md" />
+        </toc-element>
+        <toc-element toc-title="TestingSupport.FluentAssertions">
+            <toc-element topic="TestingSupport.FluentAssertions_README.md" />
+        </toc-element>
+    </toc-element>
+    <toc-element toc-title="tests">
+        <toc-element toc-title="central-mgmt-disabled">
+            <toc-element toc-title="Common.Tests.Net6">
+                <toc-element topic="ISSUES.md" />
+            </toc-element>
+        </toc-element>
+    </toc-element>
+</instance-profile>

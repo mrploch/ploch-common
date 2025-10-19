@@ -33,7 +33,7 @@ public static class ObjectHashCodeBuilder
         // Track visited references to avoid infinite recursion on cyclic graphs.
         var visited = new HashSet<object>(new ReferenceEqualityComparer());
 
-        return ComputeObjectHash(obj!, visited);
+        return ComputeObjectHash(obj, visited);
     }
 
     private static int ComputeObjectHash(object value, HashSet<object> visited) => ComputeValueHash(value, visited);

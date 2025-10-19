@@ -238,11 +238,6 @@ public class ObjectReflectionExtensionsTests
         var staticIntField1 = 1;
         var staticIntField2 = 2;
 
-        ClassWithStaticMembers.StaticStrField1 = staticStrField1;
-        ClassWithStaticMembers.StaticStrField2 = staticStrField2;
-        ClassWithStaticMembers.StaticIntField1 = staticIntField1;
-        ClassWithStaticMembers.StaticIntField2 = staticIntField2;
-
         var staticFieldValues = TypeHelper.GetStaticFieldValues<ClassWithStaticMembers>(BindingFlags.Public | BindingFlags.NonPublic);
 
         staticFieldValues.Should().HaveCount(6);
