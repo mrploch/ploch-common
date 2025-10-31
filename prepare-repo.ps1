@@ -19,7 +19,7 @@ if (-not (Get-Module -ListAvailable -Name git-posh))
 }
 else
 {
-    Write-Host "git-posh module is already installed."
+    Write-Information "git-posh module is already installed."
 }
 
 # Get current script directory
@@ -30,7 +30,7 @@ $devFolder = Join-Path $parentDir 'mrploch-development'
 
 if (-not (Test-Path $devFolder -PathType Container))
 {
-    Write-Host "'mrploch-development' folder not found. Cloning repository..."
+    Write-Information "'mrploch-development' folder not found. Cloning repository..."
     Set-Location $parentDir
     if (-not (Get-Command git -ErrorAction SilentlyContinue))
     {
@@ -42,7 +42,7 @@ if (-not (Test-Path $devFolder -PathType Container))
 }
 else
 {
-    Write-Host "'mrploch-development' folder exists. Pulling latest changes..."
+    Write-Information "'mrploch-development' folder exists. Pulling latest changes..."
     Set-Location $devFolder
     if (-not (Get-Command git -ErrorAction SilentlyContinue))
     {

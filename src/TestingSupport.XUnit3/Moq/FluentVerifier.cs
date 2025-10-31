@@ -28,7 +28,7 @@ public class FluentVerifier
     /// </summary>
     /// <param name="assertion">A function representing the asynchronous assertion to evaluate.</param>
     /// <returns>A task that represents the asynchronous operation. The task result is true if the assertion passed without any failures; otherwise, false.</returns>
-    public static async Task<bool> VerifyFluentAssertion(Func<Task> assertion)
+    public static async Task<bool> VerifyFluentAssertionAsync(Func<Task> assertion)
     {
         assertion.NotNull();
 
