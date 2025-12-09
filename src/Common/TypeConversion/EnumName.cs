@@ -6,6 +6,9 @@ namespace Ploch.Common.TypeConversion;
 /// <summary>
 ///     Initializes a new instance of the <see cref="EnumName" /> record.
 /// </summary>
+/// <remarks>
+///     This record is used to represent the name of an enum value for comparison purposes.
+/// </remarks>
 /// <param name="Name">The name of the enum value.</param>
 /// <param name="CaseSensitive">A value indicating whether the comparison should be case-sensitive. Defaults to <c>false</c>.</param>
 public record EnumName(string? Name, bool CaseSensitive = false)
@@ -87,33 +90,4 @@ public record EnumName(string? Name, bool CaseSensitive = false)
         return !right.NotNull(nameof(right))
                      .Equals(left.NotNull(nameof(left)).Name, left.CaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase);
     }
-
-    //
-    // public override bool Equals(object obj)
-    // {
-    //     if (obj is EnumName other)
-    //     {
-    //         return Name == other.Name;
-    //     }
-    //
-    //     return false;
-    // }
-    // //
-    // public override int GetHashCode()
-    // {
-    //     unchecked
-    //     {
-    //         int hashcode = 1430287;
-    //         hashcode = hashcode * 7302013 ^ Name.GetHashCode();
-    //         hashcode = hashcode * 7302013 ^ CaseSensitive.GetHashCode();
-    //         return hashcode;
-    //     }
-    // }
-
-    // public virtual bool Equals(EnumName? other)
-    // {
-    //     var equals = base.Equals(other);
-    //
-    //     return equals;
-    // }
 }

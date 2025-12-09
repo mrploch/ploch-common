@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Ploch.Common.IO;
-using Ploch.TestingSupport.XUnit3.Dependencies;
+using Ploch.TestingSupport.XUnit3;
 
 namespace Ploch.Common.Tests.IO;
 

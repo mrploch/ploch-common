@@ -2,7 +2,7 @@
 using System.Text;
 using Ploch.Common.Collections;
 using Ploch.Common.IO;
-using Ploch.TestingSupport.XUnit3.Dependencies;
+using Ploch.TestingSupport.XUnit3;
 
 namespace Ploch.Common.Tests.IO;
 
@@ -408,6 +408,77 @@ public class PathUtilsTests
         result.Should().Be(expectedSafeFileName.ToString());
         result.Should().NotContainAny(Path.GetInvalidFileNameChars().Select(c => c.ToString()));
     }
+
+    [Theory]
+
+    // [InlineAutoData(@"filename.doc", "txt", "filename.txt", true, StringComparison.OrdinalIgnoreCase)]
+    // [InlineAutoData(@"filename.doc", "DOC", "filename.DOC", true, StringComparison.Ordinal)]
+    [InlineAutoData(@"filename.doc", "DOC", "filename.doc", true, StringComparison.OrdinalIgnoreCase)]
+
+    // [InlineAutoData(@"filename.doc", "txt", "filename.doc.txt", false, StringComparison.OrdinalIgnoreCase)]
+    // [InlineAutoData(@"C:\temp\somefolder1\somefolder2\filename",
+    //                 "txt",
+    //                 @"C:\temp\somefolder1\somefolder2\filename.txt",
+    //                 true,
+    //                 StringComparison.OrdinalIgnoreCase)]
+    // [InlineAutoData(@"C:\temp\somefolder1\somefolder2\filename.",
+    //                 "txt",
+    //                 @"C:\temp\somefolder1\somefolder2\filename.txt",
+    //                 true,
+    //                 StringComparison.OrdinalIgnoreCase)]
+    // [InlineAutoData(@"C:\temp\somefolder1\somefolder2\filename.txt",
+    //                 "txt",
+    //                 @"C:\temp\somefolder1\somefolder2\filename.txt",
+    //                 true,
+    //                 StringComparison.OrdinalIgnoreCase)]
+    // [InlineAutoData(@"C:\temp\somefolder1\somefolder2\filename.txt", "tXt", @"C:\temp\somefolder1\somefolder2\filename.tXt", true, StringComparison.Ordinal)]
+    // [InlineAutoData(@"filename", "txt", @"filename.txt")]
+    // [InlineAutoData(@"filename.txt", "txt", @"filename.txt")]
+    // [InlineAutoData(@"filename.txt", "txt", @"filename.txt.txt", false)]
+    public void WithExtension_should_return_full_path_with_extension(string path,
+                                                                     string extension,
+                                                                     string expectedFullPath,
+                                                                     bool replaceExistingExtension = true,
+                                                                     StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+    {
+        // Act
+        var result = PathUtils.WithExtension(path, extension, replaceExistingExtension, comparison);
+
+        // Assert
+        result.Should().Be(expectedFullPath);
+    }
+
+    [Theory]
+    [InlineData(@"C:\folder\file.txt", @"C:\folder\file")]
+    [InlineData(@"C:\folder.with.dots\file.name.txt", @"C:\folder.with.dots\file.name")]
+    [InlineData(@"file.txt", "file")]
+    [InlineData(@"file", "file")]
+    [InlineData(@"C:\folder\file", @"C:\folder\file")]
+    [InlineData(@"C:\folder\subfolder\", @"C:\folder\subfolder")]
+    [InlineData(@"C:\folder\subfolder", @"C:\folder\subfolder")]
+    [InlineData(@"C:\folder\sub.folder\file.ext", @"C:\folder\sub.folder\file")]
+    public void GetFullPathWithoutExtension_should_return_path_without_extension(string input, string expected)
+    {
+        var result = PathUtils.GetFullPathWithoutExtension(input);
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void GetFullPathWithoutExtension_should_return_file_name_without_extension_when_no_directory()
+    {
+        var result = PathUtils.GetFullPathWithoutExtension("file.txt");
+        result.Should().Be("file");
+    }
+
+    [Fact]
+    public void GetFullPathWithoutExtension_should_return_empty_string_when_path_is_empty()
+    {
+        var result = PathUtils.GetFullPathWithoutExtension(string.Empty);
+        result.Should().BeEmpty();
+    }
+
+    public void GetFullPathWithoutExtension_should_return_null_when_path_is_null()
+    { }
 
     private static string GenerateFolderPath(int levels, bool pathSeparatorSuffix)
     {

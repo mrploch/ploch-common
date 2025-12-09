@@ -115,4 +115,66 @@ public static class PathUtils
 
         return relativePath;
     }
+
+    /// <summary>
+    ///     Appends or replaces the file extension of the specified path.
+    /// </summary>
+    /// <param name="path">The file path for which the extension will be appended or replaced.</param>
+    /// <param name="extension">
+    ///     The extension to append. This should include a leading dot (e.g., ".txt"). If the leading dot is omitted, it will be added
+    ///     automatically.
+    /// </param>
+    /// <param name="replaceExistingExtension">Indicates whether to replace the existing file extension, if present. Defaults to <c>false</c>.</param>
+    /// <param name="comparison">A <see cref="StringComparison" /> value used for extension matching. Defaults to <c>StringComparison.OrdinalIgnoreCase</c>.</param>
+    /// <returns>The modified file path with the specified extension appended or replaced.</returns>
+    public static string WithExtension(this string path,
+                                       string extension,
+                                       bool replaceExistingExtension = true,
+                                       StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+    {
+        path.NotNull(nameof(path));
+        extension.NotNull(nameof(extension));
+
+        // Cannot use patterns here because this library is built for .NET Standard 2.0
+        // ReSharper disable once UsePattern
+        if (!extension.StartsWith(".", StringComparison.Ordinal))
+        {
+            extension = "." + extension;
+        }
+
+        var currentExtension = Path.GetExtension(path);
+
+        if (!currentExtension.Equals(extension, comparison) && replaceExistingExtension)
+        {
+            path = GetFullPathWithoutExtension(path);
+        }
+
+        // Cannot use patterns here because this library is built for .NET Standard 2.0
+        // ReSharper disable once UsePattern
+        if (path.EndsWith(".", StringComparison.Ordinal))
+        {
+            path = path.Substring(0, path.Length - 1);
+        }
+
+        return $"{path}{extension}";
+    }
+
+    /// <summary>
+    ///     Gets the full path of a file without its extension.
+    /// </summary>
+    /// <remarks>
+    ///     The result contains a full directory name (path) and the file name without the extension.
+    ///     If provided path is null or empty, the result will be the same.
+    /// </remarks>
+    /// <param name="path">The full path of the file. Must not be null or empty.</param>
+    /// <returns>The full path of the file without its extension.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="path" /> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="path" /> is empty.</exception>
+    public static string GetFullPathWithoutExtension(string path)
+    {
+        var directory = Path.GetDirectoryName(path);
+        var fileNameWithoutExt = Path.GetFileNameWithoutExtension(path);
+
+        return string.IsNullOrEmpty(directory) ? fileNameWithoutExt : Path.Combine(directory, fileNameWithoutExt);
+    }
 }

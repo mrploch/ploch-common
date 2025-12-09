@@ -52,7 +52,7 @@ public class EnumNameTests
     {
         var strings = new EnumName[] { "test", "TEST", new("vAlUe1", true), new("xyz", true) };
 
-        strings.Contains(name).Should().Be(expectedResult);
+        strings.ContainsString(name).Should().Be(expectedResult);
     }
 
     [Theory]

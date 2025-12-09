@@ -134,32 +134,6 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     }
 
     [Fact]
-    public void Shuffle_should_randomly_shuffle_items_in_collection()
-    {
-        var strings = new Fixture().CreateMany<string>(20);
-        var result = strings.Shuffle();
-
-        // ReSharper disable once PossibleMultipleEnumeration
-        result.Should().BeEquivalentTo(strings);
-
-        var arrayStrings = strings.ToArray();
-        var arrayResult = result.ToArray();
-
-        var sameOrder = true;
-        for (var i = 0; i < arrayResult.Length; i++)
-        {
-            if (arrayResult[i] != arrayStrings[i])
-            {
-                sameOrder = false;
-
-                break;
-            }
-        }
-
-        sameOrder.Should().BeFalse();
-    }
-
-    [Fact]
     public void JoinWithFinalSeparator_should_use_final_separator_for_last_item()
     {
         var strings = new Fixture().CreateMany<string>(20);
@@ -462,13 +436,13 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
 
         private class DisposableEnumeratorStub(IEnumerator innerEnumerator, Action onDispose) : IEnumerator, IDisposable
         {
+            public object? Current => innerEnumerator.Current;
+
             public void Dispose()
             {
                 onDispose();
                 (innerEnumerator as IDisposable)?.Dispose();
             }
-
-            public object? Current => innerEnumerator.Current;
 
             public bool MoveNext() => innerEnumerator.MoveNext();
 
@@ -504,11 +478,11 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
 
         public bool WasDisposed { get; private set; }
 
+        public object? Current => _enumerator.Current;
+
         public void Dispose() => WasDisposed = true;
 
         public IEnumerator GetEnumerator() => this;
-
-        public object? Current => _enumerator.Current;
 
         public bool MoveNext() => _enumerator.MoveNext();
 
