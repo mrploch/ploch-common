@@ -27,6 +27,7 @@
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
         <NoWarn>$(NoWarn);NU1507;CS9057</NoWarn>
+        <TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DebugType>embedded</DebugType>

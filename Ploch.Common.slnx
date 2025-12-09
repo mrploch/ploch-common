@@ -19,6 +19,8 @@
     <File Path="qodana.sarif.json" />
     <File Path="qodana.yaml" />
     <File Path="Ploch.Common.slnx.DotSettings" />
+    <File Path="../mrploch-development/dependencies/Common.Packages.props" /> <!-- TODO: Change other references to use forward-slash for compatibility, just test it works first -->
+    <File Path="../mrploch-development/dependencies/Ploch.Packages.props" />
     <File Path="..\mrploch-development\dependencies\Analyzers.Global.Packages.props" />
     <File Path="..\mrploch-development\dependencies\MicrosoftExtensions.Net9.Packages.props" />
     <File Path="..\mrploch-development\dependencies\Serilog.Logging.Packages.props" />
@@ -48,7 +50,7 @@
       <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
   </Folder>
     <Folder Name="/src/Apps/">
-        <Project Path="src\Common.Apps\Shared\Ploch.Common.Apps.Shared.csproj" Type="Classic C#">
+        <Project Path="src\Common.Apps\Shared\Ploch.Common.Apps.Shared.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -60,8 +62,7 @@
     </Project>
     </Folder>
     <Folder Name="/src/Apps/Actions/">
-        <Project Path="src\Common.Apps\Apps.Actions\Actions.Model\Ploch.Common.Apps.Actions.Model.csproj"
-                 Type="Classic C#">
+        <Project Path="src\Common.Apps\Apps.Actions\Actions.Model\Ploch.Common.Apps.Actions.Model.csproj">
             <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -81,7 +82,8 @@
   </Folder>
     <Folder Name="/testing-support/">
         <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
-        <Project Path="src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" Type="Classic C#">
+      <Project Path="src/TestingSupport.XUnit2.Dependencies/Ploch.TestingSupport.XUnit2.Dependencies.csproj" />
+        <Project Path="src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj">
             <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -91,8 +93,7 @@
             <Configuration Solution="Release|x64" Project="Release|Any CPU" />
             <Configuration Solution="Release|x86" Project="Release|Any CPU" />
         </Project>
-        <Project Path="src\TestingSupport.XUnit3.Dependencies\Ploch.TestingSupport.XUnit3.Dependencies.csproj"
-                 Type="Classic C#">
+        <Project Path="src\TestingSupport.XUnit3.Dependencies\Ploch.TestingSupport.XUnit3.Dependencies.csproj">
             <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -102,7 +103,7 @@
             <Configuration Solution="Release|x64" Project="Release|Any CPU" />
             <Configuration Solution="Release|x86" Project="Release|Any CPU" />
         </Project>
-        <Project Path="src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj" Type="Classic C#">
+        <Project Path="src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -115,7 +116,8 @@
     </Folder>
     <Folder Name="/tests/">
         <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
-    <Project Path="tests\Common.Apps\Apps.Model.Tests\Ploch.Common.Apps.Model.Tests.csproj" Type="Classic C#">
+      <Project Path="tests/Common.Net6.Tests/Ploch.Common.Net6.Tests.csproj" />
+    <Project Path="tests\Common.Apps\Apps.Model.Tests\Ploch.Common.Apps.Model.Tests.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -126,7 +128,7 @@
       <Configuration Solution="Release|x86" Project="Release|Any CPU" />
     </Project>
     <Project Path="tests\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj" />
-    <Project Path="tests\Common.DawnGuard.Tests\Ploch.Common.DawnGuard.Tests.csproj" Type="Classic C#">
+    <Project Path="tests\Common.DawnGuard.Tests\Ploch.Common.DawnGuard.Tests.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -139,7 +141,7 @@
     <Project Path="tests\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Net9.Tests\Ploch.Common.Net9.Tests.csproj" />
     <Project Path="tests\Common.Tests\Ploch.Common.Tests.csproj" />
-    <Project Path="tests\TestingSupport.FluentAssertions.Tests\Ploch.TestingSupport.FluentAssertions.Tests.csproj" Type="Classic C#">
+    <Project Path="tests\TestingSupport.FluentAssertions.Tests\Ploch.TestingSupport.FluentAssertions.Tests.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -149,7 +151,7 @@
       <Configuration Solution="Release|x64" Project="Release|Any CPU" />
       <Configuration Solution="Release|x86" Project="Release|Any CPU" />
     </Project>
-        <Project Path="tests\TestingSupport.XUnit3.Tests\Ploch.TestingSupport.XUnit3.Tests.csproj" Type="Classic C#">
+        <Project Path="tests\TestingSupport.XUnit3.Tests\Ploch.TestingSupport.XUnit3.Tests.csproj">
             <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
             <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
@@ -171,7 +173,7 @@
   <Folder Name="/Tests/TestAssemblies/">
     <Project Path="tests\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
     <Project Path="tests\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj" />
-    <Project Path="tests\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj" Type="Classic C#">
+    <Project Path="tests\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />

@@ -9,6 +9,7 @@
         <!--<TargetFramework>net7.0</TargetFramework>-->
         <FileVersion>2.0.0</FileVersion>
         <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+        <Platforms>AnyCPU;x64</Platforms>
         <!--<TargetFramework>netstandard2.0</TargetFramework>-->
         <!--    <BuildTarget>3</BuildTarget>
     

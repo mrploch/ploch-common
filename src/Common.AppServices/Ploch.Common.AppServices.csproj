@@ -6,6 +6,7 @@
         <Title>Ploch.Common.AppServices Library</Title>
         <Description>Ploch.Common.AppServices, part of Ploch.Common utility library, provides interfaces for common application services that can be implemented by various providers.</Description>
         <PackageTags>common;utility;common-library;core</PackageTags>
+        <Platforms>AnyCPU;x64</Platforms>
     </PropertyGroup>
 
     <PropertyGroup>
