@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Xunit.v3;
 
-namespace Ploch.TestingSupport.XUnit3.Dependencies;
+namespace Ploch.TestingSupport.XUnit3;
 
 /// <summary>
 ///     The <c>SupportedOSAttribute</c> is a custom attribute that specifies which operating systems

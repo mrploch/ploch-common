@@ -1,4 +1,4 @@
-namespace Ploch.TestingSupport.XUnit3.Dependencies;
+namespace Ploch.TestingSupport.XUnit3;
 
 /// <summary>
 ///     Represents an enumeration of operating systems that can be explicitly targeted for compatibility or support.

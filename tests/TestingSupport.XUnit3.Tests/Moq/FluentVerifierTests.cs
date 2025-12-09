@@ -41,13 +41,13 @@ public class FluentVerifierTests
                                  x.DoSomethingAsyncWithResultAsync(It.Is<TestRecord1>(rec1 =>
                                                                                           FluentVerifier.VerifyFluentAssertion(() => rec1.IntProperty.Should()
                                                                                                                                          .Be(testRecord1A
-                                                                                                                                                 .IntProperty))),
+                                                                                                                                                 .IntProperty, "test", 1))),
                                                                    It.Is<TestRecord2>(rec2 =>
                                                                                           FluentVerifier.VerifyFluentAssertion(() => rec2.RecordProperty1
                                                                                                                                          .IntProperty.Should()
                                                                                                                                          .Be(testRecord2A
                                                                                                                                              .RecordProperty1
-                                                                                                                                             .IntProperty)))),
+                                                                                                                                             .IntProperty, "test", 2)))),
                              Times.Once);
     }
 

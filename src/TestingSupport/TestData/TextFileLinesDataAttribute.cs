@@ -1,40 +1,45 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ploch.Common;
 
 namespace Ploch.TestingSupport.TestData;
 
 /// <summary>
-///     Provides a data source for a data theory, with the data coming from a text file where each line represents a test case.
-///     This attribute allows loading test data from text files for use with xUnit theories, treating each line as a separate test input.
+///   Provides a data source for a data theory, with the data coming from a text file where each line represents a test case.
+///   This attribute allows loading test data from text files for use with xUnit theories, treating each line as a separate test input.
 /// </summary>
 /// <remarks>
-///     Initializes a new instance of the <see cref="TextFileLinesDataAttribute" /> class.
-///     Load data from a text file as the data source for a theory, with each line being a separate test case.
+///   Initializes a new instance of the <see cref="TextFileLinesDataAttribute" /> class.
+///   Load data from a text file as the data source for a theory, with each line being a separate test case.
 /// </remarks>
 /// <param name="filePath">The absolute or relative path to the text file to load.</param>
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
 {
-    /// <summary>
-    ///     Processes the raw text data from the file by splitting it into lines, each representing a separate test case.
-    /// </summary>
-    /// <param name="fileData">The raw content of the text file as a string.</param>
-    /// <returns>
-    ///     An enumerable collection of object arrays, where each array contains a single string element
-    ///     representing one line from the text file. Each array corresponds to one test case execution.
-    /// </returns>
-    protected override IEnumerable<object?[]> ProcessFileData(string fileData)
+  public override bool SupportsDiscoveryEnumeration() => false;
+
+  /// <summary>
+  ///   Processes the specified file data and returns an enumerable collection of object arrays, each containing a line
+  ///   from the file.
+  /// </summary>
+  /// <remarks>
+  ///   Empty or whitespace-only lines are excluded from the result if the removeEmptyEntries option is
+  ///   enabled.
+  /// </remarks>
+  /// <param name="fileData">The contents of the file to process. Each line in the string is treated as a separate entry. Cannot be null.</param>
+  /// <returns>
+  ///   An enumerable collection of object arrays, where each array contains a single line from the file data. If the file
+  ///   data is empty, the collection will be empty.
+  /// </returns>
+  protected override IEnumerable<object?[]> ProcessFileData(string fileData)
+  {
+    var lines = fileData.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+
+    if (removeEmptyEntries)
     {
-        // Split the file data into lines and return as object arrays
-        IEnumerable<string> lines = fileData.Split([ Environment.NewLine ], StringSplitOptions.None);
-
-        if (removeEmptyEntries)
-        {
-            // Remove any empty lines from the collection
-            lines = lines.Where(line => line.IsNotNullOrEmpty());
-        }
-
-        return lines.Select(line => new object?[] { line });
+      lines = lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
     }
+
+    return lines.Select(line => new object?[] { line });
+  }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Ploch.TestingSupport.XUnit3.Dependencies</id>
+        <version>1.0.0</version>
+        <authors>Krzysztof Ploch</authors>
+        <owners>Krzysztof Ploch</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A metapackage that bundles common dependencies.</description>
+        <dependencies>
+            <dependency id="AutoFixture.AutoMoq" version="4.18.1" />
+            <dependency id="AutoFixture.Xunit3" version="4.19.0" />
+            <dependency id="coverlet.msbuild" version="6.0.4" />
+            <dependency id="FluentAssertions" version="8.6.0" />
+            <dependency id="FluentAssertions.Analyzers" version="0.34.1" />
+            <dependency id="Microsoft.NET.Test.Sdk" version="17.14.1" />
+            <dependency id="coverlet.collector" version="6.0.4" />
+            <dependency id="Moq.Analyzers" version="0.3.1" />
+            <dependency id="xunit.analyzers" version="1.24.0" />
+            <dependency id="xunit.v3" version="3.2.0" />
+            <dependency id="xunit.runner.visualstudio" version="3.1.5" />
+        </dependencies>
+        <contentFiles>
+            <files include="xunit.runner.json"
+                   buildAction="None"
+                   copyToOutput="true" />
+        </contentFiles>
+    </metadata>
+</package>
