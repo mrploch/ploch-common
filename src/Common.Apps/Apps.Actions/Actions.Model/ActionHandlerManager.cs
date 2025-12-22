@@ -49,7 +49,7 @@ public class ActionHandlerManager<TSystemApplication, TActionInfo, TSystemAction
     /// </returns>
     public override async Task<ActionHandlerManagerResult<TSystemApplication>> ExecuteAsync(TActionInfo actionInfo, CancellationToken cancellationToken)
     {
-        actionInfo.NotNull();
+        actionInfo.NotNull(nameof(actionInfo));
 
         var results = new List<ActionHandlerResult<TSystemApplication>>();
         foreach (var actionHandler in _handlers)

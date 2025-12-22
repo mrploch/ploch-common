@@ -30,7 +30,7 @@ public class ActionHandlerManagerResult<TSystemApplication>(bool isSuccess,
     /// <value>
     ///     A collection of <see cref="ActionHandlerResult{TSystemApplication}" /> objects. This collection is guaranteed to be non-null.
     /// </value>
-    public IEnumerable<ActionHandlerResult<TSystemApplication>> HandlerResults { get; } = handlerResults.NotNull();
+    public IEnumerable<ActionHandlerResult<TSystemApplication>> HandlerResults { get; } = handlerResults.NotNull(nameof(handlerResults));
 }
 
 /// <summary>

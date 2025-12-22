@@ -1,6 +1,8 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
+using JetBrains.Annotations;
 using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
@@ -8,6 +10,10 @@ namespace Ploch.Common;
 /// <summary>
 ///     Extension methods for <see cref="string" /> and related.
 /// </summary>
+[SuppressMessage("ReSharper",
+                 "RedundantCallerArgumentExpressionDefaultValue",
+                 Justification = "The project is also built for .NET Standard 2.0 which requires arg names to be passed.")]
+[SuppressMessage("Sonarqube", "S3236", Justification = "The project is also built for .NET Standard 2.0 which requires arg names to be passed.")]
 public static class StringExtensions
 {
     /// <summary>
@@ -16,6 +22,7 @@ public static class StringExtensions
     /// <param name="str">The string to check.</param>
     /// <returns><c>true</c> if the string is not <c>null</c> or empty; otherwise, <c>false</c>.</returns>
 #pragma warning disable SA1202
+    [ContractAnnotation("str:null => false")]
     public static bool IsNotNullOrEmpty(this string? str) => !str.IsNullOrEmpty();
 #pragma warning restore SA1202
 
@@ -136,8 +143,8 @@ public static class StringExtensions
     /// <returns>The provided string with a new value at the beginning or the original <paramref name="str" />.</returns>
     public static string ReplaceStart(this string str, string oldValue, string newValue, StringComparison stringComparison = StringComparison.InvariantCulture)
     {
-        str.NotNull(nameof(str));
         newValue.NotNull(nameof(newValue));
+        str.NotNull(nameof(str));
         oldValue.NotNull(nameof(oldValue));
 
         if (!str.StartsWith(oldValue, stringComparison))
