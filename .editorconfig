@@ -292,9 +292,10 @@ dotnet_diagnostic.rcs0023.severity = warning # Add parentheses to make the order
 dotnet_diagnostic.rcs0022 = false # Add parentheses according to operator precedence.
 
 ## Properties: 'dotnet_diagnostic.s'
+dotnet_diagnostic.s1309.severity = none
 dotnet_diagnostic.s1451.severity = none
-dotnet_diagnostic.s4487.severity = none
 dotnet_diagnostic.s3236.severity = none # Caller information arguments should not be provided explicitly - gives false positives for use of .net standard version of the Guard class
+dotnet_diagnostic.s4487.severity = none
 
 ## Properties: 'dotnet_diagnostic.sa'
 dotnet_diagnostic.sa0001.severity = none # XML comment analysis is disabled due to project configuration
