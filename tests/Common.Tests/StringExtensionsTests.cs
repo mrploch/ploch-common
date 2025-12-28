@@ -7,13 +7,74 @@ public class StringExtensionsTests
 {
     [Theory]
     [AutoMockData]
-    public void IsNullOrEmptyTest(string str)
+    public void IsNotNullOrEmpty_should_return_true_if_string_is_not_null_or_empty(string str)
+    {
+        str.IsNotNullOrEmpty().Should().BeTrue();
+    }
+
+    [Fact]
+    public void IsNotNullOrEmpty_should_return_false_if_string_is_null_or_empty()
+    {
+        ((string?)null).IsNotNullOrEmpty().Should().BeFalse();
+        string.Empty.IsNotNullOrEmpty().Should().BeFalse();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void IsNullOrEmpty_should_return_false_if_string_is_not_null_or_empty(string str)
     {
         str.IsNullOrEmpty().Should().BeFalse();
-        string nullString = null;
-        nullString.IsNullOrEmpty().Should().BeTrue();
+    }
 
+    [Fact]
+    public void IsNullOrEmpty_should_return_true_if_string_is_null_or_empty()
+    {
+        ((string?)null).IsNullOrEmpty().Should().BeTrue();
         string.Empty.IsNullOrEmpty().Should().BeTrue();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void IsNullOrWhiteSpace_should_return_false_if_string_is_not_null_or_white_space(string str)
+    {
+        str.IsNullOrWhiteSpace().Should().BeFalse();
+    }
+
+    [Fact]
+    public void IsNullOrWhiteSpace_should_return_true_if_string_is_null_or_white_space()
+    {
+        ((string?)null).IsNullOrWhiteSpace().Should().BeTrue();
+        string.Empty.IsNullOrWhiteSpace().Should().BeTrue();
+        "   ".IsNullOrWhiteSpace().Should().BeTrue();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void NullIfEmpty_should_return_original_string_if_not_empty(string str)
+    {
+        str.NullIfEmpty().Should().Be(str);
+    }
+
+    [Fact]
+    public void NullIfEmpty_should_return_null_if_empty_or_null()
+    {
+        ((string?)null).NullIfEmpty().Should().BeNull();
+        string.Empty.NullIfEmpty().Should().BeNull();
+    }
+
+    [Theory]
+    [AutoMockData]
+    public void NullIfWhiteSpace_should_return_original_string_if_not_white_space(string str)
+    {
+        str.NullIfWhiteSpace().Should().Be(str);
+    }
+
+    [Fact]
+    public void NullIfWhiteSpace_should_return_null_if_white_space_empty_or_null()
+    {
+        ((string?)null).NullIfWhiteSpace().Should().BeNull();
+        string.Empty.NullIfWhiteSpace().Should().BeNull();
+        "   ".NullIfWhiteSpace().Should().BeNull();
     }
 
     [Theory]
@@ -177,5 +238,69 @@ public class StringExtensionsTests
 
         result.Should().BeFalse();
         int64.Should().Be(0);
+    }
+
+    [Fact]
+    public void ContainsAny_params_should_return_true_if_string_contains_any_of_the_substrings()
+    {
+        "test string".ContainsAny("test", "other").Should().BeTrue();
+        "test string".ContainsAny("string", "other").Should().BeTrue();
+        "test string".ContainsAny("not here", "string").Should().BeTrue();
+    }
+
+    [Fact]
+    public void ContainsAny_params_should_return_false_if_string_does_not_contain_any_of_the_substrings()
+    {
+        "test string".ContainsAny("not here", "other").Should().BeFalse();
+    }
+
+    [Fact]
+    public void ContainsAny_params_comparison_should_return_true_if_string_contains_any_of_the_substrings()
+    {
+        "test string".ContainsAny(StringComparison.Ordinal, "test", "other").Should().BeTrue();
+    }
+
+    [Fact]
+    public void ContainsAny_params_comparison_should_return_false_if_string_does_not_contain_any_of_the_substrings()
+    {
+        "test string".ContainsAny(StringComparison.Ordinal, "not here", "other").Should().BeFalse();
+    }
+
+    [Fact]
+    public void ContainsAny_enumerable_should_return_true_if_string_contains_any_of_the_substrings()
+    {
+        "test string".ContainsAny((IEnumerable<string>)["test", "other"]).Should().BeTrue();
+    }
+
+    [Fact]
+    public void ContainsAny_enumerable_should_return_false_if_string_does_not_contain_any_of_the_substrings()
+    {
+        "test string".ContainsAny((IEnumerable<string>)["not here", "other"]).Should().BeFalse();
+    }
+
+    [Fact]
+    public void ContainsAny_enumerable_comparison_should_return_true_if_string_contains_any_of_the_substrings()
+    {
+        "test string".ContainsAny(StringComparison.Ordinal, (IEnumerable<string>)["test", "other"]).Should().BeTrue();
+    }
+
+    [Fact]
+    public void ContainsAny_enumerable_comparison_should_return_false_if_string_does_not_contain_any_of_the_substrings()
+    {
+        "test string".ContainsAny(StringComparison.Ordinal, (IEnumerable<string>)["not here", "other"]).Should().BeFalse();
+    }
+
+    [Fact]
+    public void ContainsAny_should_respect_string_comparison()
+    {
+        "test string".ContainsAny(StringComparison.Ordinal, "TEST").Should().BeFalse();
+        "test string".ContainsAny(StringComparison.OrdinalIgnoreCase, "TEST").Should().BeTrue();
+    }
+
+    [Fact]
+    public void ContainsAny_should_return_false_if_no_substrings_provided()
+    {
+        "test string".ContainsAny(StringComparison.Ordinal).Should().BeFalse();
+        "test string".ContainsAny().Should().BeFalse();
     }
 }
