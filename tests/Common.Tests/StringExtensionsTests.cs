@@ -197,6 +197,18 @@ public class StringExtensionsTests
         int32.Should().Be(expected);
     }
 
+    [Fact]
+    public void TryConvertToInt32_with_provider_should_convert_string_to_int32_if_can_convert()
+    {
+        var expected = 123456;
+        var intStr = expected.ToString(CultureInfo.InvariantCulture);
+
+        var result = intStr.TryConvertToInt32(CultureInfo.InvariantCulture, out var int32);
+
+        result.Should().BeTrue();
+        int32.Should().Be(expected);
+    }
+
     [Theory]
     [AutoMockData]
     public void TryConvertToInt32_should_return_false_if_cannot_convert(string str)
@@ -205,6 +217,22 @@ public class StringExtensionsTests
 
         result.Should().BeFalse();
         int32.Should().Be(0);
+    }
+
+    [Fact]
+    public void TryConvertToInt32_with_provider_should_return_false_if_cannot_convert()
+    {
+        var result = "not-an-int".TryConvertToInt32(CultureInfo.InvariantCulture, out var int32);
+
+        result.Should().BeFalse();
+        int32.Should().Be(0);
+    }
+
+    [Fact]
+    public void TryConvertToInt32_should_throw_if_string_is_null()
+    {
+        Action act = () => ((string)null!).TryConvertToInt32(out _);
+        act.Should().Throw<ArgumentNullException>();
     }
 
     [Theory]

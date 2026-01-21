@@ -16,6 +16,8 @@ namespace Ploch.Common;
                  "RedundantCallerArgumentExpressionDefaultValue",
                  Justification = "The project is also built for .NET Standard 2.0 which requires arg names to be passed.")]
 [SuppressMessage("Sonarqube", "S3236", Justification = "The project is also built for .NET Standard 2.0 which requires arg names to be passed.")]
+
+// ReSharper disable once ClassTooBig
 public static class StringExtensions
 {
     /// <summary>
@@ -125,8 +127,8 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Replaces the <paramref name="oldValue" /> with <paramref name="newValue" /> in the string
-    /// <paramref name="str" /> if the string starts with <paramref name="oldValue" /> .
+    ///     Replaces the <paramref name="oldValue" /> with <paramref name="newValue" /> in the string
+    ///     <paramref name="str" /> if the string starts with <paramref name="oldValue" /> .
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="oldValue">The old value to replace.</param>
@@ -140,7 +142,6 @@ public static class StringExtensions
     ///     The provided string with a new value at the beginning or the original <paramref name="str" />.
     /// </returns>
     public static string ReplaceStart(this string str, string oldValue, string newValue, StringComparison stringComparison = StringComparison.InvariantCulture)
-
     {
         newValue.NotNull(nameof(newValue));
         str.NotNull(nameof(str));
