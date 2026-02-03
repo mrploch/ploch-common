@@ -30,6 +30,51 @@ public class GuardNet7Tests
     }
 
     [Fact]
+    public void RequiredNotNull_struct_should_throw_InvalidOperationException_when_argument_is_null_with_provided_message()
+    {
+        int? val = null;
+        var action = () => val.RequiredNotNull("Custom message for {0}");
+
+        action.Should().Throw<InvalidOperationException>().WithMessage($"Custom message for {nameof(val)}");
+    }
+
+    [Fact]
+    public void RequiredNotNull_struct_should_return_value_when_argument_is_not_null()
+    {
+        int? val = 123;
+        var result = val.RequiredNotNull();
+
+        result.Should().Be(123);
+    }
+
+    [Fact]
+    public void RequiredNotNull_class_should_return_value_when_argument_is_not_null()
+    {
+        var obj = new TestClass();
+        var result = obj.RequiredNotNull();
+
+        result.Should().Be(obj);
+    }
+
+    [Fact]
+    public void RequiredNotNull_class_should_throw_InvalidOperationException_with_default_message_when_argument_is_null()
+    {
+        TestClass? obj = null;
+        var action = () => obj.RequiredNotNull();
+
+        action.Should().Throw<InvalidOperationException>().WithMessage($"Variable {nameof(obj)} cannot be null.");
+    }
+
+    [Fact]
+    public void RequiredNotNull_struct_should_throw_InvalidOperationException_with_default_message_when_argument_is_null()
+    {
+        int? val = null;
+        var action = () => val.RequiredNotNull();
+
+        action.Should().Throw<InvalidOperationException>().WithMessage($"Variable {nameof(val)} cannot be null.");
+    }
+
+    [Fact]
     public void RequiredTrue_should_throw_exception_when_condition_is_false()
     {
         // Act & Assert

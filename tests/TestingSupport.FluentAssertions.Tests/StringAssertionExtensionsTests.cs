@@ -1,6 +1,8 @@
+using System.Globalization;
+
 namespace Ploch.TestingSupport.FluentAssertions.Tests;
 
-public class StringAssertionExtensionsTests(ITestOutputHelper output)
+public class StringAssertionExtensionsTests
 {
     [Fact]
     public void ContainAllEquivalentOf_should_throw_if_no_values_are_provided()
@@ -23,7 +25,13 @@ public class StringAssertionExtensionsTests(ITestOutputHelper output)
     [AutoData]
     public void ContainAllEquivalentOf_should_pass_if_all_of_the_strings_are_found_in_any_case(string str1, string str2)
     {
-        $"message with {str1.ToLower()} and {str2.ToUpper()}".Should().ContainAllEquivalentOf(str1.ToUpper(), str2.ToLower());
+        $"message with {str1.ToLower(CultureInfo.InvariantCulture)} and {str2.ToUpper(CultureInfo.InvariantCulture)}".Should()
+                                                                                                                     .ContainAllEquivalentOf(str1
+                                                                                                                                                 .ToUpper(CultureInfo
+                                                                                                                                                              .InvariantCulture),
+                                                                                                                                             str2
+                                                                                                                                                 .ToLower(CultureInfo
+                                                                                                                                                              .InvariantCulture));
     }
 
     [Theory]

@@ -1,5 +1,4 @@
-﻿<wpf:ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib"
-                        xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve">
+﻿<wpf:ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve">
 	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=ArgumentsStyleAnonymousFunction/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=ArgumentsStyleLiteral/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=ArgumentsStyleNamedExpression/@EntryIndexedValue">WARNING</s:String>
@@ -17,8 +16,7 @@
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=InternalOrPrivateMemberNotDocumented/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=RemoveRedundantBraces/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=SuggestVarOrType_005FBuiltInTypes/@EntryIndexedValue">WARNING</s:String>
-  <s:String
-    x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=SuggestVarOrType_005FDeconstructionDeclarations/@EntryIndexedValue">WARNING</s:String>
+  <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=SuggestVarOrType_005FDeconstructionDeclarations/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=SuggestVarOrType_005FElsewhere/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=SuggestVarOrType_005FSimpleTypes/@EntryIndexedValue">WARNING</s:String>
   <s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=TabsAreDisallowed/@EntryIndexedValue">WARNING</s:String>
@@ -266,17 +264,13 @@
   &lt;/TypePattern&gt;
 &lt;/Patterns&gt;
 </s:String>
-  <s:Boolean
-    x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=extension_003A_003Acom_002Eintellij_002Erider_002Emnemonics_002Dtemplates_002EDotSettings/@KeyIndexDefined">True</s:Boolean>
-  <s:Double
-    x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=extension_003A_003Acom_002Eintellij_002Erider_002Emnemonics_002Dtemplates_002EDotSettings/RelativePriority/@EntryValue">1</s:Double>
-  <s:Boolean
-    x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002EMemberReordering_002EMigrations_002ECSharpFileLayoutPatternRemoveIsAttributeUpgrade/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=OS/@EntryIndexedValue">OS</s:String>
+  <s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=extension_003A_003Acom_002Eintellij_002Erider_002Emnemonics_002Dtemplates_002EDotSettings/@KeyIndexDefined">True</s:Boolean>
+  <s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=extension_003A_003Acom_002Eintellij_002Erider_002Emnemonics_002Dtemplates_002EDotSettings/RelativePriority/@EntryValue">1</s:Double>
+  <s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002EMemberReordering_002EMigrations_002ECSharpFileLayoutPatternRemoveIsAttributeUpgrade/@EntryIndexedValue">True</s:Boolean>
   <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/@KeyIndexDefined">True</s:Boolean>
-  <s:Boolean
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
-  <s:String
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Categories/=mnemonics/@EntryIndexedValue">mnemonics</s:String>
+  <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+  <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Categories/=mnemonics/@EntryIndexedValue">mnemonics</s:String>
   <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Description/@EntryValue">A fact method.</s:String>
   <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Field/=explain/@KeyIndexDefined">True</s:Boolean>
   <s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Field/=explain/Order/@EntryValue">1</s:Int64>
@@ -284,21 +278,14 @@
   <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Field/=methodname/Expression/@EntryValue">constant("MyMethod")</s:String>
   <s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Field/=methodname/Order/@EntryValue">0</s:Int64>
   <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Reformat/@EntryValue">True</s:Boolean>
-  <s:Boolean
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=558F05AA0DE96347816FF785232CFB2A/@KeyIndexDefined">True</s:Boolean>
-  <s:String
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=558F05AA0DE96347816FF785232CFB2A/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
-  <s:String
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=558F05AA0DE96347816FF785232CFB2A/Type/@EntryValue">InCSharpTypeAndNamespace</s:String>
-  <s:Boolean
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/@KeyIndexDefined">True</s:Boolean>
-  <s:String
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
-  <s:String
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/Type/@EntryValue">InCSharpTypeMember</s:String>
+  <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=558F05AA0DE96347816FF785232CFB2A/@KeyIndexDefined">True</s:Boolean>
+  <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=558F05AA0DE96347816FF785232CFB2A/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+  <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=558F05AA0DE96347816FF785232CFB2A/Type/@EntryValue">InCSharpTypeAndNamespace</s:String>
+  <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/@KeyIndexDefined">True</s:Boolean>
+  <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+  <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/Type/@EntryValue">InCSharpTypeMember</s:String>
   <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Shortcut/@EntryValue">fa</s:String>
-  <s:Boolean
-    x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+  <s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
   <s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=2D9E0F5B8D0F94429760CF9B043FF6BD/Text/@EntryValue">[Xunit.FactAttribute] public void $methodname$_should_$explain$(){$END$}</s:String>
   <s:Boolean x:Key="/Default/UserDictionary/Words/=enduser/@EntryIndexedValue">True</s:Boolean>
   <s:Boolean x:Key="/Default/UserDictionary/Words/=liveness/@EntryIndexedValue">True</s:Boolean>

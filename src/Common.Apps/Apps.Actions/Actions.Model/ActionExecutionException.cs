@@ -27,7 +27,7 @@ public class ActionExecutionException(IActionInfo actionInfo, string? message, E
     /// <param name="actionType">The type of service action that failed.</param>
     /// <param name="applicationName">The name of the application on which the action was performed.</param>
     /// <param name="message">The message that describes the error.</param>
-    public ActionExecutionException(IActionInfo actionInfoe, string? message) : this(actionInfoe, message, null)
+    public ActionExecutionException(IActionInfo actionInfo, string? message) : this(actionInfo, message, null)
     { }
 
     /// <summary>

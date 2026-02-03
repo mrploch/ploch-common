@@ -12,6 +12,12 @@ resharper_formatter_off_tag = @formatter:off
 resharper_formatter_on_tag = @formatter:on
 resharper_formatter_tags_enabled = true
 
+# Microsoft .NET properties
+csharp_new_line_before_open_brace = all
+
+# ReSharper properties
+resharper_csharp_case_block_braces = next_line_shifted_2
+
 [{*.har,*.jsb2,*.jsb3,*.jsonc,*.postman_collection,*.postman_collection.json,*.postman_environment,*.postman_environment.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,.ws-context,jest.config}]
 indent_size = 2
 
@@ -207,7 +213,7 @@ dotnet_diagnostic.cc0031.severity = none # Verify delegate is not null - gives f
 dotnet_diagnostic.cc0091.severity = none # Make method static - gives false positives and marks methods that use instance members
 dotnet_diagnostic.cc0108.severity = warning
 dotnet_diagnostic.cc0057.severity = none # Unused parameter - gives false positives
-dotnet_diagnostic.cc0072.severity = none # 
+dotnet_diagnostic.cc0072.severity = none #
 ## Properties: 'dotnet_diagnostic.cs'
 ### Nullability
 dotnet_diagnostic.cs1591.severity = warning # Missing XML comment for publicly visible type or member 'Type_or_Member'
@@ -355,7 +361,7 @@ dotnet_diagnostic.ph2026.severity = none
 dotnet_diagnostic.ph2021.severity = none
 dotnet_diagnostic.ph2075.severity = none
 dotnet_diagnostic.ph2031.severity = suggestion
-dotnet_code_quality.PH2075.assembly_version =
+dotnet_code_quality.ph2075.assembly_version = 
 2.0.1.0
 dotnet_diagnostic.av2217.severity = none
 dotnet_diagnostic.av1706.severity = none
@@ -452,20 +458,20 @@ dotnet_naming_rule.types_should_be_pascal_case.symbols = types
 # Properties: 'dotnet_naming_style'
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
 dotnet_naming_style.begins_with_i.required_prefix = I
-dotnet_naming_style.begins_with_i.required_suffix =
-dotnet_naming_style.begins_with_i.word_separator =
+dotnet_naming_style.begins_with_i.required_suffix = 
+dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.i_upper_camel_case_style.capitalization = pascal_case
 dotnet_naming_style.i_upper_camel_case_style.required_prefix = I
 dotnet_naming_style.lower_camel_case_style.capitalization = camel_case
 dotnet_naming_style.lower_camel_case_style.required_prefix = _
 dotnet_naming_style.pascal_case.capitalization = pascal_case
-dotnet_naming_style.pascal_case.required_prefix =
-dotnet_naming_style.pascal_case.required_suffix =
-dotnet_naming_style.pascal_case.word_separator =
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
 dotnet_naming_style.prefixedcamelcase.capitalization = camel_case
 dotnet_naming_style.prefixedcamelcase.required_prefix = _
-dotnet_naming_style.prefixedcamelcase.required_suffix =
-dotnet_naming_style.prefixedcamelcase.word_separator =
+dotnet_naming_style.prefixedcamelcase.required_suffix = 
+dotnet_naming_style.prefixedcamelcase.word_separator = 
 dotnet_naming_style.t_upper_camel_case_style.capitalization = pascal_case
 dotnet_naming_style.t_upper_camel_case_style.required_prefix = T
 dotnet_naming_style.upper_camel_case_style.capitalization = pascal_case
@@ -477,7 +483,7 @@ dotnet_naming_symbols.interface_should_be_begins_with_i_symbols.resharper_applic
 dotnet_naming_symbols.interface_should_be_begins_with_i_symbols.resharper_required_modifiers = any
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
 dotnet_naming_symbols.interface.applicable_kinds = interface
-dotnet_naming_symbols.interface.required_modifiers =
+dotnet_naming_symbols.interface.required_modifiers = 
 dotnet_naming_symbols.interfaces_symbols.applicable_accessibilities = *
 dotnet_naming_symbols.interfaces_symbols.applicable_kinds = interface
 dotnet_naming_symbols.interfaces_symbols.resharper_applicable_kinds = interface
@@ -488,7 +494,7 @@ dotnet_naming_symbols.non_field_members_should_be_pascal_case_symbols.resharper_
 dotnet_naming_symbols.non_field_members_should_be_pascal_case_symbols.resharper_required_modifiers = any
 dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
 dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
-dotnet_naming_symbols.non_field_members.required_modifiers =
+dotnet_naming_symbols.non_field_members.required_modifiers = 
 dotnet_naming_symbols.private_constants_symbols.applicable_accessibilities = private
 dotnet_naming_symbols.private_constants_symbols.applicable_kinds = field
 dotnet_naming_symbols.private_constants_symbols.required_modifiers = const
@@ -507,7 +513,7 @@ dotnet_naming_symbols.private_or_internal_field_should_be_prefixedcamelcase_symb
 dotnet_naming_symbols.private_or_internal_field_should_be_prefixedcamelcase_symbols.resharper_required_modifiers = any
 dotnet_naming_symbols.private_or_internal_field.applicable_accessibilities = internal, private, private_protected
 dotnet_naming_symbols.private_or_internal_field.applicable_kinds = field
-dotnet_naming_symbols.private_or_internal_field.required_modifiers =
+dotnet_naming_symbols.private_or_internal_field.required_modifiers = 
 dotnet_naming_symbols.private_static_fields_symbols.applicable_accessibilities = private
 dotnet_naming_symbols.private_static_fields_symbols.applicable_kinds = field
 dotnet_naming_symbols.private_static_fields_symbols.required_modifiers = static
@@ -536,7 +542,7 @@ dotnet_naming_symbols.types_should_be_pascal_case_symbols.resharper_applicable_k
 dotnet_naming_symbols.types_should_be_pascal_case_symbols.resharper_required_modifiers = any
 dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
 dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
-dotnet_naming_symbols.types.required_modifiers =
+dotnet_naming_symbols.types.required_modifiers = 
 
 # Various settings
 dotnet_remove_unnecessary_suppression_exclusions = none
@@ -647,8 +653,8 @@ resharper_indent_anonymous_method_block = true
 resharper_indent_primary_constructor_decl_pars = outside_and_inside
 
 resharper_inheritdoc_consider_usage_highlighting = none
-resharper_initializer_braces = pico
-resharper_instance_members_qualify_declared_in =
+resharper_initializer_braces = next_line
+resharper_instance_members_qualify_declared_in = 
 resharper_invalid_xml_doc_comment_highlighting = warning
 resharper_keep_existing_declaration_block_arrangement = false
 resharper_keep_existing_declaration_parens_arrangement = false
@@ -723,7 +729,7 @@ resharper_wrap_before_first_type_parameter_constraint = false
 
 # ReSharper properties
 resharper_csharp_case_block_braces = next_line_shifted_2
-resharper_csharp_indent_size = 2
+resharper_csharp_indent_size = 4
 resharper_csharp_keep_existing_declaration_parens_arrangement = true
 resharper_csharp_keep_existing_embedded_arrangement = true
 resharper_csharp_keep_existing_enum_arrangement = true
@@ -740,8 +746,8 @@ resharper_wrap_before_primary_constructor_declaration_rpar = false
 resharper_wrap_object_and_collection_initializer_style = chop_always
 
 # Microsoft .NET properties
-csharp_new_line_before_members_in_object_initializers = false
+csharp_new_line_before_members_in_object_initializers = true
 indent_style = space
-indent_size = 2
+indent_size = 4
 tab_width = 4
 csharp_new_line_before_open_brace = all

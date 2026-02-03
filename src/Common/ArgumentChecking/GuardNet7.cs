@@ -137,16 +137,16 @@ public static partial class Guard
     /// </remarks>
     /// <typeparam name="T">The underlying value type of the nullable argument.</typeparam>
     /// <param name="argument">The nullable value type argument to check.</param>
-    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <param name="messageFormat">The exception message format.</param>
+    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <returns>The non-null value of the argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [return: NotNullIfNotNull(nameof(argument))]
     [AssertionMethod]
     public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this T? argument,
+                                       string? messageFormat = null,
                                        [CallerArgumentExpression(nameof(argument))]
-                                       string? memberName = null,
-                                       string? messageFormat = null) where T : struct
+                                       string? memberName = null) where T : struct
     {
         if (!argument.HasValue)
         {
@@ -166,7 +166,7 @@ public static partial class Guard
     /// </remarks>
     /// <typeparam name="T">The reference type of the argument.</typeparam>
     /// <param name="argument">The reference type argument to check.</param>
-    /// <param name="message">The exception message if argument is null.</param>
+    /// <param name="messageFormat">The exception message if argument is null.</param>
     /// <param name="memberName">The name of the variable (automatically captured from the caller).</param>
     /// <returns>The non-null argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
@@ -174,7 +174,7 @@ public static partial class Guard
     [AssertionMethod]
     public static T RequiredNotNull<T>(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] [JetBrains.Annotations.NotNull] this T? argument,
-        string? message = null,
+        string? messageFormat = null,
         [CallerArgumentExpression(nameof(argument))]
         string? memberName = null) where T : class
     {
@@ -183,7 +183,7 @@ public static partial class Guard
             return argument;
         }
 
-        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, message ?? CannotBeNullMessageFormat, memberName));
+        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeNullMessageFormat, memberName));
     }
 
     [return: NotNullIfNotNull(nameof(argument))]
@@ -254,7 +254,7 @@ public static partial class Guard
     ///     from the calling code, reducing the need for string literals.
     /// </remarks>
     /// <param name="argument">The string argument to validate.</param>
-    /// <param name="message">The exception message if argument is null.</param>
+    /// <param name="messageFormat">The exception message if argument is null.</param>
     /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
     /// <returns>The validated string argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null or empty.</exception>
@@ -262,18 +262,18 @@ public static partial class Guard
     [AssertionMethod]
     public static string RequiredNotNullOrEmpty(
         [AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [System.Diagnostics.CodeAnalysis.NotNull] this string? argument,
-        string? message = null,
+        string? messageFormat = null,
         [CallerArgumentExpression(nameof(argument))]
         string? memberName = null)
     {
-        argument.RequiredNotNull(message, memberName);
+        argument.RequiredNotNull(messageFormat, memberName);
 
         if (!string.IsNullOrEmpty(argument))
         {
             return argument;
         }
 
-        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, message ?? CannotBeEmptyMessageFormat, memberName));
+        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeEmptyMessageFormat, memberName));
     }
 
     /// <summary>

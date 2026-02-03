@@ -59,6 +59,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj" />
         <ProjectReference Include="..\..\src\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj" />
+        <ProjectReference Include="..\..\src\TestingSupport.MockConsoleApp\Ploch.TestingSupport.MockConsoleApp.csproj" />
         <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
         <ProjectReference Include="..\..\src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj" />
         <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />

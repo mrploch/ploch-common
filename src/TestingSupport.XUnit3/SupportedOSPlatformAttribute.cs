@@ -28,14 +28,17 @@ namespace Ploch.TestingSupport.XUnit3;
 ///     If this test is executed on Windows or FreeBSD, it will be dynamically skipped with a
 ///     message indicating the current OS is not supported.
 /// </example>
+[AttributeUsage(AttributeTargets.Method)]
 public sealed class SupportedOSPlatformAttribute(params SupportedOS[] supportedOSes) :
     BeforeAfterTestAttribute
 {
-    private static readonly Dictionary<SupportedOS, OSPlatform> osMappings = new()
-                                                                             { { SupportedOS.FreeBSD, OSPlatform.Create("FreeBSD") },
-                                                                               { SupportedOS.Linux, OSPlatform.Linux },
-                                                                               { SupportedOS.macOS, OSPlatform.OSX },
-                                                                               { SupportedOS.Windows, OSPlatform.Windows } };
+    private static readonly Dictionary<SupportedOS, OSPlatform> OSMappings = new()
+                                                                             {
+                                                                                 { SupportedOS.FreeBSD, OSPlatform.Create("FreeBSD") },
+                                                                                 { SupportedOS.Linux, OSPlatform.Linux },
+                                                                                 { SupportedOS.macOS, OSPlatform.OSX },
+                                                                                 { SupportedOS.Windows, OSPlatform.Windows }
+                                                                             };
 
     /// <inheritdoc />
     public override void Before(MethodInfo methodUnderTest, IXunitTest test)
@@ -44,9 +47,9 @@ public sealed class SupportedOSPlatformAttribute(params SupportedOS[] supportedO
 
         foreach (var supportedOS in supportedOSes)
         {
-            if (!osMappings.TryGetValue(supportedOS, out var osPlatform))
+            if (!OSMappings.TryGetValue(supportedOS, out var osPlatform))
             {
-                throw new ArgumentException($"Supported OS value '{supportedOS}' is not a known OS", nameof(supportedOSes));
+                throw new NotSupportedException($"Supported OS value '{supportedOS}' is not a known OS");
             }
 
             if (RuntimeInformation.IsOSPlatform(osPlatform))
@@ -61,7 +64,7 @@ public sealed class SupportedOSPlatformAttribute(params SupportedOS[] supportedO
         // when it's not running on one of the targeted OSes
         if (!match)
         {
-            throw new($"$XunitDynamicSkip$This test is not supported on {RuntimeInformation.OSDescription}");
+            throw new NotSupportedException($"$XunitDynamicSkip$This test is not supported on {RuntimeInformation.OSDescription}");
         }
     }
 }
