@@ -113,19 +113,19 @@ public static class EnumerableExtensions
         return source.JoinWithFinalSeparator(separator, finalSeparator, static v => v?.ToString());
     }
 
-    /// <summary>
-    ///     Joins the elements of a sequence by a separator, with a final separator for the last two elements.
-    /// </summary>
-    /// <typeparam name="TValue">The type of the elements in the sequence.</typeparam>
-    /// <typeparam name="TResult">The type of the result after applying the valueSelector function.</typeparam>
-    /// <param name="source">The sequence to join.</param>
-    /// <param name="separator">The separator to be used between elements.</param>
-    /// <param name="finalSeparator">The separator to be used between the last two elements.</param>
-    /// <param name="valueSelector">A function to select a result value from each element.</param>
-    /// <returns>A string that consists of the joined elements with the separators.</returns>
-    public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
-                                                                 string separator,
-                                                                 string finalSeparator,
+  /// <summary>
+  ///     Joins the elements of a sequence by a separator, with a final separator for the last two elements.
+  /// </summary>
+  /// <typeparam name="TValue">The type of the elements in the sequence.</typeparam>
+  /// <typeparam name="TResult">The type of the result after applying the valueSelector function.</typeparam>
+  /// <param name="source">The sequence to join.</param>
+  /// <param name="separator">The separator to be used between elements.</param>
+  /// <param name="finalSeparator">The separator to be used between the last two elements.</param>
+  /// <param name="valueSelector">A function to select a result value from each element.</param>
+  /// <returns>A string that consists of the joined elements with the separators.</returns>
+  public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
+                                                               string separator,
+                                                               string finalSeparator,
                                                                  Func<TValue, TResult> valueSelector)
     {
         source.NotNull(nameof(source));

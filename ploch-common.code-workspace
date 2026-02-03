@@ -23,6 +23,10 @@
 			"Agoda",
 			"Ploch"
 		],
-		"powershell.cwd": "ploch-common"
+		"powershell.cwd": "ploch-common",
+		"dotrush.roslyn.projectOrSolutionFiles": [
+			"/Users/krzysztof.ploch/dev/github/mrploch/ploch-common/Ploch.Common.slnx"
+		],
+		"dotnet.defaultSolution": "disable"
 	}
 }

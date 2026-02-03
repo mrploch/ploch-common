@@ -18,7 +18,7 @@ namespace Ploch.Common.ArgumentChecking;
 public static partial class Guard
 {
     private const string CannotBeEmptyMessageFormat = "Variable {0} cannot be empty.";
-    private const string CannotBeNullMessageFormat = "Variable {0} cannot be null.";
+    private const string wCannotBeNullMessageFormat = "Variable {0} cannot be null.";
     private const string ConditionRequiredTrueMessageFormat = "Condition {0} is required to be true in {1}, {2} at {3}";
 #pragma warning disable IDE1006
     private const string EnumNotDefinedMessageFormat = "Value {0} is not defined in enum {1}.";
