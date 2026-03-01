@@ -4,9 +4,8 @@ using System.IO.Abstractions;
 using System.Linq;
 using FluentAssertions;
 using FluentAssertions.Collections;
-using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
 
+// TODO: Needs fixing, removing from the project for now.
 namespace TestingSupport.FluentAssertions.IOAbstractions
 {
     public class FileSystemInfoAssertions<TItems> : GenericCollectionAssertions<TItems> where TItems: IFileSystemInfo

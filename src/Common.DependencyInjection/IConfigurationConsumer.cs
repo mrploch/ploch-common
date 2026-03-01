@@ -19,7 +19,7 @@ public interface IConfigurationConsumer
     ///     Provides access to an <see cref="IConfiguration" /> instance used to manage application settings and configuration data.
     /// </summary>
     /// <remarks>
-    ///     This property returns an <see cref="IConfiguration" /> object, which can be used to retrieve configuration
+    ///     This property sets the configuration <see cref="IConfiguration" /> object, which can be used to retrieve configuration
     ///     information sourced from various providers like JSON files, environment variables, or other custom sources.
     ///     Primarily utilized within dependency injection scenarios, this property facilitates centralized handling
     ///     and retrieval of configurations for services or components within an application.

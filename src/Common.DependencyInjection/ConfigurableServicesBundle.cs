@@ -22,7 +22,7 @@ public abstract class ConfigurableServicesBundle : ServicesBundle
             throw new InvalidOperationException($"{GetType().Name} is a configurable service bundle, but configuration was not initialized.");
         }
 
-        Configure(Configuration.RequiredNotNull(nameof(Configuration)));
+        Configure(Configuration);
     }
 
     /// <summary>

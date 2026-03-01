@@ -168,7 +168,7 @@
   <Folder Name="/Tests/Serialization/">
     <Project Path="tests\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Serialization.NewtonsoftJson.Tests\Ploch.Common.Serialization.NewtonsoftJson.Tests.csproj" />
-    <Project Path="tests\Common.Serialization.SystemTextJson..Tests\Ploch.Common.Serialization.SystemTextJson.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.SystemTextJson.Tests\Ploch.Common.Serialization.SystemTextJson.Tests.csproj" />
     <Project Path="tests\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
   </Folder>
