@@ -12,10 +12,7 @@ public class NameOfExtension : IMarkupExtension
 
     public object ProvideValue(IServiceProvider serviceProvider)
     {
-        if (serviceProvider == null)
-        {
-            throw new ArgumentNullException(nameof(serviceProvider));
-        }
+        ArgumentNullException.ThrowIfNull(serviceProvider);
 
         if (Type == null)
         {
@@ -27,7 +24,7 @@ public class NameOfExtension : IMarkupExtension
             return Type.Name;
         }
 
-        if (string.IsNullOrEmpty(Member) || Member.Contains("."))
+        if (string.IsNullOrEmpty(Member) || Member.Contains('.'))
         {
             throw new ArgumentException("Syntax for x:NameOf is Type={x:Type [className]} Member=[propertyName]");
         }

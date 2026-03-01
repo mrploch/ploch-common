@@ -63,7 +63,6 @@ public static class CrudEndpointsMapper
                     .WithDescription($"Gets a list of {typeof(TEntity).Name}")
                     .WithName(GetFormattedName<TEntity>(methodName));
 
-
         return groupBuilder;
     }
 
