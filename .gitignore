@@ -410,3 +410,4 @@ codestream.xml
 /src/Common.AppServices/Ploch.Common.AppServices.xml
 /.sonarqube/
 .DS_Store
+/.contextstream
