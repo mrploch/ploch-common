@@ -28,19 +28,6 @@
         "CONTEXTSTREAM_USER_AGENT": "contextstream-mcp-rust/0.1.57",
         "CONTEXTSTREAM_WORKSPACE_ID": "57db5f34-e7f0-42c0-86c4-bb981f96c880"
       }
-    },
-    "fetch": {
-      "args": [
-        "mcp-server-fetch"
-      ],
-      "command": "uvx"
-    },
-    "github": {
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
-      "command": "npx"
     }
   }
 }

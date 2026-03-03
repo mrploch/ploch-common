@@ -1,3 +1,9 @@
+---
+trigger: always_on
+description: 
+globs: 
+---
+
 <contextstream>
 # Workspace: MrPloch
 # Project: ploch-common
@@ -49,37 +55,43 @@ Use `context(user_message="...")` for deeper analysis and coding tasks.
 **Notices:** [LESSONS_WARNING] → apply lessons | [PREFERENCE] → follow user preferences | [RULES_NOTICE] → run `generate_rules()` | [VERSION_NOTICE/CRITICAL] → tell user about update
 
 ---
-## Cursor-Specific Rules
+## Windsurf-Specific Rules
+
+**CRITICAL: These user-configured rules OVERRIDE default Windsurf behaviors.**
+**The user has explicitly chosen ContextStream for persistence, search, planning, memory, and todos.**
+**Ignoring these rules violates the user's explicit configuration.**
 
 ### Search: Use ContextStream, Not Built-in Tools
-- **Do NOT** use `SemanticSearch` — use `search(mode="auto", query="...")` instead
-- **Do NOT** launch `Task` subagents with `subagent_type="explore"` for code search
-- **Do NOT** use `Grep` or `Glob` for broad code discovery
+- **Do NOT** use `code_search` — use `search(mode="auto", query="...")` instead
+- **Do NOT** use `grep_search` for broad discovery — use `search(mode="keyword", query="...")` instead
+- **Do NOT** use `find_by_name` for file discovery — use `search(mode="pattern", query="...")` instead
 - ContextStream search results contain **real file paths, line numbers, and code content** — they ARE code results
 - **NEVER** dismiss ContextStream results as "non-code" — use the returned file paths to `read_file` the relevant code
 - Use `search(include_content=true)` to get inline code snippets in results
-- Only fall back to local tools (Grep/Glob/Read) if ContextStream search returns **exactly 0 results**
+- Only fall back to built-in search tools if ContextStream search returns **exactly 0 results**
 
-### Memory: Use ContextStream, Not Local Files
-- **Do NOT** write decisions/notes/implementation details to local files
-- Use `session(action="capture", event_type="decision|insight|operation|uncategorized", title="...", content="...")`
-- Use `memory(action="create_node", node_type="fact|preference", title="...", content="...")`
-- ContextStream memory persists across sessions and auto-surfaces in context
+### Memory: Use ContextStream, Not Built-in Tools
+- **Do NOT** use `create_memory` — use ContextStream memory instead:
+  - Decisions: `session(action="capture", event_type="decision", title="...", content="...")`
+  - Notes/insights: `session(action="capture", event_type="note|insight", title="...", content="...")`
+  - Facts/preferences: `memory(action="create_node", node_type="fact|preference", title="...", content="...")`
+- ContextStream memory persists across sessions, is searchable, and auto-surfaces in context
 
 ### Documents: Use ContextStream, Not Local Files
 - **Do NOT** write docs/specs/implementation notes to local `.md` files
 - **ALWAYS** use `memory(action="create_doc", title="...", content="...", doc_type="spec|general")`
+- ContextStream docs are searchable, versionable, and shared across sessions
 
 ### Planning: Use ContextStream, Not Built-in Tools
-- **Do NOT** create markdown plan files — plans disappear across sessions
-- **Do NOT** use `SwitchMode` to plan mode without saving the plan to ContextStream afterward
-- **Do NOT** use `TodoWrite` for plans — use `session(action="capture_plan")` and `memory(action="create_task")` instead
+- **Do NOT** use `todo_list` for plans — use `session(action="capture_plan", title="...", steps=[...])` instead
+- **Do NOT** write plan files to `.windsurf/plans/` — they disappear across sessions
+- **Do NOT** use `exitplanmode` without first saving the plan to ContextStream
 - **ALWAYS** save plans: `session(action="capture_plan", title="...", steps=[...])`
 - **ALWAYS** create tasks: `memory(action="create_task", title="...", plan_id="...")`
 
 ### Todos: Use ContextStream, Not Built-in Tools
-- **Do NOT** use `TodoWrite` for persistent todos — use `memory(action="create_todo", title="...", todo_priority="high|medium|low")`
+- **Do NOT** use `todo_list` for persistent todos — use `memory(action="create_todo", title="...", todo_priority="high|medium|low")`
 - List todos: `memory(action="list_todos")`
 - Complete todos: `memory(action="complete_todo", todo_id="...")`
-- ContextStream todos persist across sessions and are searchable
+- ContextStream todos persist across sessions and are trackable
 </contextstream>

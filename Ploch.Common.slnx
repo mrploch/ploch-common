@@ -13,6 +13,21 @@
     <File Path="README.md" />
     <File Path="release-notes.md" />
   </Folder>
+  <Folder Name="/repository/ai/">
+    <File Path=".ai_config.toml" />
+    <File Path=".cursorrules" />
+    <File Path=".mcp.json" />
+    <File Path=".syncignore" />
+    <File Path="CLAUDE.md" />
+    <File Path="CLAUDE.md-pre-contextstream" />
+    <File Path="dotnet-releaser.toml" />
+    <File Path="GEMINI.md" />
+    <File Path="grial-settings.json" />
+    <File Path="omnisharp.json" />
+    <File Path="post--original-complehensive.md" />
+    <File Path="temp.md" />
+    <File Path="TESTING_INSTRUCTIONS.md" />
+  </Folder>
   <Folder Name="/repository/config/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />

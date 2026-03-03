@@ -1,5 +1,4 @@
 {
-  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Bash(dotnet *)",
@@ -164,7 +163,13 @@
       "AskUserQuestion(*)",
       "Task(*)",
       "Skill(*)",
-      "EnterWorktree(*)"
+      "EnterWorktree(*)",
+      "Bash(python3:*)",
+      "Bash(\"C:/Users/krzys/AppData/Local/ContextStream/contextstream-mcp.exe\":*)",
+      "Bash(\"C:/Users/krzys/AppData/Local/ContextStream/contextstream-mcp.exe\" ingest:*)",
+      "Bash(\"C:/Users/krzys/AppData/Local/ContextStream/contextstream-mcp.exe\" update-configs:*)",
+      "Bash(\"C:/Users/krzys/AppData/Local/ContextStream/contextstream-mcp.exe\" hook:*)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true
 }

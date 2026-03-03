@@ -411,3 +411,6 @@ codestream.xml
 /.sonarqube/
 .DS_Store
 /.contextstream
+
+# My custom temp files not for checkin
+__x_*
