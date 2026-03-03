@@ -1,4 +1,5 @@
-﻿using Ploch.TestingSupport.XUnit3.AutoMoq;
+﻿using FluentAssertions;
+using Ploch.TestingSupport.XUnit3.AutoMoq;
 
 namespace Ploch.Common.Apps.Shared.Tests;
 
