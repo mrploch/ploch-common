@@ -1,11 +1,9 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ploch.Common.Extensions.Configuration;
 using Ploch.Common.Linq;
 
-namespace Common.Extensions.Configuration;
+namespace Ploch.Common.Extensions.Configuration;
 
 public static class ConfigurationOptionsExtensions
 {

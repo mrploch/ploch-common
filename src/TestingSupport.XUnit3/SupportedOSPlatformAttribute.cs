@@ -1,7 +1,3 @@
-using System.Reflection;
-using System.Runtime.InteropServices;
-using Xunit.v3;
-
 namespace Ploch.TestingSupport.XUnit3;
 
 /// <summary>
