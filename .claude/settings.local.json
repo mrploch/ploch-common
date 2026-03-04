@@ -171,5 +171,8 @@
       "Bash(\"C:/Users/krzys/AppData/Local/ContextStream/contextstream-mcp.exe\" hook:*)"
     ]
   },
-  "enableAllProjectMcpServers": true
+  "enableAllProjectMcpServers": true,
+  "enabledPlugins": {
+    "react-native-best-practices@callstack-agent-skills": true
+  }
 }

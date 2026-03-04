@@ -29,9 +29,9 @@ public readonly struct CommandLineInfo(string? applicationPath, IEnumerable<stri
     /// <example>
     ///     The following demonstrates how this property might be utilized:
     ///     Suppose the command-line string is:
-    ///     <c>"C:\Test\MyApp.exe" -arg1 value1</c>.
+    ///     <c>"C:\Test\Ploch.MyApp.exe" -arg1 value1</c>.
     ///     In this case, the <c>ApplicationPath</c> property will return:
-    ///     <c>"C:\Test\MyApp.exe"</c>.
+    ///     <c>"C:\Test\Ploch.MyApp.exe"</c>.
     /// </example>
     public string? ApplicationPath => applicationPath;
 
@@ -51,9 +51,9 @@ public readonly struct CommandLineInfo(string? applicationPath, IEnumerable<stri
     /// <example>
     ///     The following example demonstrates accessing the arguments property:
     ///     Suppose the command-line string is:
-    ///     <c>"C:\Program Files\MyApp\MyApp.exe" -arg1 value1 -arg2 value2</c>.
+    ///     <c>"C:\Program Files\Ploch.MyApp\Ploch.MyApp.exe" -arg1 value1 -arg2 value2</c>.
     ///     In this case:
-    ///     <c>ApplicationPath</c> will be <c>"C:\Program Files\MyApp\MyApp.exe"</c>,
+    ///     <c>ApplicationPath</c> will be <c>"C:\Program Files\Ploch.MyApp\Ploch.MyApp.exe"</c>,
     ///     and the <c>Arguments</c> property will contain <c>["-arg1", "value1", "-arg2", "value2"]</c>.
     /// </example>
     public IEnumerable<string> Arguments => arguments;
