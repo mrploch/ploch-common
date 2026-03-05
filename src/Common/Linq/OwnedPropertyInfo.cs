@@ -60,7 +60,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     /// <inheritdoc />
     public void SetValue(TProperty? value)
     {
-        SetValue((object?)value);
+        base.SetValue((object?)value);
     }
 
     /// <inheritdoc />
@@ -72,7 +72,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     /// <inheritdoc />
     void IOwnedPropertyInfo.SetValue(object? value)
     {
-        SetValue(value);
+        base.SetValue(value);
     }
 
     /// <inheritdoc />
