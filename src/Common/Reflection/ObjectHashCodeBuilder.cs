@@ -57,7 +57,7 @@ public static class ObjectHashCodeBuilder
             // Prevent cycles for reference types
             if (!type.IsValueType && !visited.Add(value))
             {
-                return unchecked((int)0x9E3779B9); // golden ratio constant, forced to int
+                return (int)0x9E3779B9; // golden ratio constant, forced to int
             }
 
             // Handle sequences (but not string which is IEnumerable<char>)

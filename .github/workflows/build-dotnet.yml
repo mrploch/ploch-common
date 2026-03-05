@@ -24,7 +24,7 @@ jobs:
       - name: Build, test and scan
         uses: mrploch/ploch-github-actions/build-test-sonar@main            
         with:
-          solution-path: './Ploch.Common.sln'
+          solution-path: './Ploch.Common.slnx'
           sonar-project-key: ${{ env.SONAR_PROJECT_KEY }}
           sonar-organization: ${{ env.SONAR_ORGANIZATION }}
           sonar-token: ${{ secrets.SONAR_TOKEN }}
