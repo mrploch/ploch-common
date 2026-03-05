@@ -415,3 +415,5 @@ codestream.xml
 # My custom temp files not for checkin
 __x_*
 .claude/settings.local.json
+.claude/settings.json
+identifier.sqlite
