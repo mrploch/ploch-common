@@ -1,11 +1,12 @@
-﻿name: Qodana
+name: Qodana
 on:
   workflow_dispatch:
-#  pull_request:
-#  push:
-#    branches:
-#      - master
-#      - 'releases/*'
+  pull_request:
+  push:
+    branches: # Specify your branches here
+      - master # The 'main' branch
+      - 'releases/*' # The release branches
+
 jobs:
   qodana:
     runs-on: ubuntu-latest
@@ -22,6 +23,7 @@ jobs:
         uses: JetBrains/qodana-action@v2025.2
         with:
           pr-mode: false
+          args: --baseline,qodana.sarif.json,--solution,Ploch.Common.sln
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           QODANA_ENDPOINT: 'https://qodana.cloud'

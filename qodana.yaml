@@ -1,8 +1,10 @@
 version: "1.0"
-linter: jetbrains/qodana-dotnet:latest
-dotnet:
-  solution: Ploch.Common.sln
+linter: jetbrains/qodana-cdnet:2025.2-eap
+profile:
+  name: qodana.recommended
+include:
+  - name: CheckDependencyLicenses
 exclude:
   - name: All
     paths:
-      - src/**/*Tests/**
+      - src/**/*Tests
