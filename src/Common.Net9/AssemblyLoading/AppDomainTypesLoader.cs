@@ -196,11 +196,6 @@ public class AppDomainTypesLoader
                 }
             }
 
-            if (_baseTypes?.Any(baseType => type.IsSubclassOf(baseType)) == false)
-            {
-                var sc = true; // Skip types that do not match the base types
-            }
-
             if (_baseTypes?.Any(baseType => baseType.IsAssignableFrom(type)) == false)
             {
                 continue; // Skip types that do not match the base types
@@ -208,8 +203,7 @@ public class AppDomainTypesLoader
 
             lock (_lock)
             {
-                var add = _types.Add(type);
-                var b = _types.Add(type);
+                _types.Add(type);
             }
         }
     }
