@@ -20,10 +20,7 @@ jobs:
       - run: echo "The branch name is ${{ github.repository }}"
       - uses: actions/checkout@v4
       - name: Clone mrploch-development (shared build config)
-        uses: actions/checkout@v4
-        with:
-          repository: mrploch/mrploch-development
-          path: ../mrploch-development
+        run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
       - name: Copy documentation files
         run: cp ./README.md ./DocumentationSite/index.md
       - name: Build, test and scan
