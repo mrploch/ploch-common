@@ -55,65 +55,62 @@ public static class ObjectHashCodeBuilder
             }
 
             // Prevent cycles for reference types
-            if (!type.IsValueType)
+            if (!type.IsValueType && !visited.Add(value))
             {
-                if (!visited.Add(value))
-                {
-                    // Already processed this reference; inject a marker and stop.
-                    return unchecked((int)0x9E3779B9); // golden ratio constant, forced to int
-                }
+                return unchecked((int)0x9E3779B9); // golden ratio constant, forced to int
             }
 
             // Handle sequences (but not string which is IEnumerable<char>)
             if (value is IEnumerable enumerable && value is not string)
             {
-                var h = type.GetHashCode(); // seed with a sequence type
-                foreach (var item in enumerable)
-                {
-                    var itemHash = ComputeValueHash(item, visited);
-                    h = Combine(h, itemHash);
-                }
-
-                return h;
+                return ComputeSequenceHash(enumerable, type, visited);
             }
 
-            // Fallback: reflect over readable, non-indexed instance properties in name order for determinism
-            var props = type
-                        .GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                        .Where(p => p.CanRead && p.GetIndexParameters().Length == 0)
-                        .OrderBy(p => p.Name, StringComparer.Ordinal)
-                        .ToArray();
-
-            if (props.Length == 0)
-            {
-                // If no properties, base the hash on the type itself to keep it stable.
-                return type.GetHashCode();
-            }
-
-            var hash = type.GetHashCode(); // include type to distinguish different types with same property values
-
-            foreach (var p in props)
-            {
-                object? propValue;
-                try
-                {
-                    propValue = p.GetValue(value);
-                }
-                catch
-                {
-                    // In case property getter throws, incorporate property name to maintain determinism
-                    hash = Combine(hash, p.Name.GetHashCode());
-
-                    continue;
-                }
-
-                hash = Combine(hash, p.Name.GetHashCode());
-                var propHash = ComputeValueHash(propValue, visited);
-                hash = Combine(hash, propHash);
-            }
-
-            return hash;
+            return ComputePropertyHash(value, type, visited);
         }
+    }
+
+    private static int ComputeSequenceHash(IEnumerable enumerable, Type type, HashSet<object> visited)
+    {
+        var h = type.GetHashCode();
+        foreach (var item in enumerable)
+        {
+            h = Combine(h, ComputeValueHash(item, visited));
+        }
+
+        return h;
+    }
+
+    private static int ComputePropertyHash(object value, Type type, HashSet<object> visited)
+    {
+        var props = type
+                    .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                    .Where(p => p.CanRead && p.GetIndexParameters().Length == 0)
+                    .OrderBy(p => p.Name, StringComparer.Ordinal)
+                    .ToArray();
+
+        if (props.Length == 0)
+        {
+            return type.GetHashCode();
+        }
+
+        var hash = type.GetHashCode();
+
+        foreach (var p in props)
+        {
+            hash = Combine(hash, p.Name.GetHashCode());
+
+            try
+            {
+                hash = Combine(hash, ComputeValueHash(p.GetValue(value), visited));
+            }
+            catch
+            {
+                // Property getter threw; name hash already incorporated above.
+            }
+        }
+
+        return hash;
     }
 
     private static int Combine(int h1, int h2) => unchecked((h1 * 31) ^ h2);
