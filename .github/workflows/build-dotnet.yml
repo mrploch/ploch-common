@@ -8,7 +8,7 @@ on:
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:
-env: 
+env:
   SONAR_PROJECT_KEY: mrploch_ploch-common
   SONAR_ORGANIZATION: ${{ vars.SONAR_ORGANIZATION }}
 jobs:
@@ -23,13 +23,44 @@ jobs:
         run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
       - name: Copy documentation files
         run: cp ./README.md ./DocumentationSite/index.md
-      - name: Build, test and scan
-        uses: mrploch/ploch-github-actions/build-test-sonar@main            
+
+      # Setup Java (required for SonarScanner)
+      - uses: actions/setup-java@v4
         with:
-          solution-path: './Ploch.Common.slnx'
-          sonar-project-key: ${{ env.SONAR_PROJECT_KEY }}
-          sonar-organization: ${{ env.SONAR_ORGANIZATION }}
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+
+      # Restore
+      - name: Restore dependencies
+        run: dotnet restore ./Ploch.Common.slnx
+
+      # SonarCloud setup (non-blocking)
+      - name: Install SonarCloud Scanner
+        run: dotnet tool install --global dotnet-sonarscanner
+        continue-on-error: true
+      - name: Install dotnet-coverage
+        run: dotnet tool install --global dotnet-coverage
+      - name: SonarScanner Begin
+        id: sonar-begin
+        run: dotnet sonarscanner begin /k:"${{ env.SONAR_PROJECT_KEY }}" /o:"${{ env.SONAR_ORGANIZATION }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io"
+        continue-on-error: true
+
+      # Build and Test (always runs regardless of SonarCloud status)
+      - name: Build
+        run: dotnet build ./Ploch.Common.slnx --no-restore
+      - name: Test
+        run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.xml" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
+
+      # SonarCloud end (only if begin succeeded)
+      - name: SonarScanner End
+        if: steps.sonar-begin.outcome == 'success'
+        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        continue-on-error: true
+
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
@@ -38,7 +69,7 @@ jobs:
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: '**/CoverageResults/coverage.opencover.xml'
           # or a comma-separated list for multiple reports
-          # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>      
+          # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         if: success() || failure()
