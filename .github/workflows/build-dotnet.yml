@@ -21,13 +21,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Clone mrploch-development (shared build config)
         run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
-      - name: Verify shared build config
-        run: |
-          echo "Workspace: $GITHUB_WORKSPACE"
-          echo "PWD: $(pwd)"
-          ls -la ../mrploch-development/dependencies/
-          echo "--- Directory.Packages.props ---"
-          cat Directory.Packages.props
       - name: Copy documentation files
         run: cp ./README.md ./DocumentationSite/index.md
       - name: Build, test and scan
