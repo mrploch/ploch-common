@@ -94,11 +94,13 @@ jobs:
           path: |
             **/CoverageResults/*.xml
       - name: Build documentation
+        id: docfx
         if: always()
+        continue-on-error: true
         run: dotnet tool update -g docfx && docfx DocumentationSite/docfx.json
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: github.ref == 'refs/heads/master' && steps.docfx.outcome == 'success'
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./DocumentationSite/_site
@@ -106,8 +108,11 @@ jobs:
       # Use --skip-duplicate to prevent errors if a package with the same version already exists.
       # If you retry a failed workflow, already published packages will be skipped without error.
       - name: Add GitHub Packages source
+        if: always()
         run: dotnet nuget add source --username kploch --password ${{secrets.GH_PACKAGES_TOKEN}} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
       - name: Options for publishing of NuGet packages
+        if: always()
         run: echo "dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}"
       - name: Publish NuGet package
+        if: always()
         run: dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}
