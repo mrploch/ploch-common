@@ -63,17 +63,15 @@ jobs:
         continue-on-error: true
 
       - name: Run codacy-coverage-reporter
+        if: always()
+        continue-on-error: true
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          # or
-          # api-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: '**/CoverageResults/coverage.opencover.xml'
-          # or a comma-separated list for multiple reports
-          # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>
       - name: Upload Test Results
+        if: always()
         uses: actions/upload-artifact@v4
-        if: success() || failure()
         with:
           name: test-results
           path: |
@@ -81,21 +79,23 @@ jobs:
             **/TestResults/*.trx
       - name: Test Report
         uses: phoenix-actions/test-reporting@v8
-        id: test-report               # Set ID reference for step
-        if: success() || failure()    # run this step even if previous step failed
+        id: test-report
+        if: always()
+        continue-on-error: true
         with:
           name: DotNet Tests
           path: '**/*.trx'
           reporter: dotnet-trx
       - name: Upload Coverage Results
+        if: always()
         uses: actions/upload-artifact@v4
-        if: success() || failure()
         with:
           name: code-coverage
           path: |
             **/CoverageResults/*.xml
-      - run: dotnet tool update -g docfx
-      - run: docfx DocumentationSite/docfx.json
+      - name: Build documentation
+        if: always()
+        run: dotnet tool update -g docfx && docfx DocumentationSite/docfx.json
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
