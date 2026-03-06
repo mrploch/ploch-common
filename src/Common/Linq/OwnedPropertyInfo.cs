@@ -78,7 +78,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     /// <inheritdoc />
     void IOwnedPropertyInfo.SetValue(object? value, object[] index)
     {
-        SetValue(value, index);
+        base.SetValue(value, index);
     }
 
     /// <inheritdoc />

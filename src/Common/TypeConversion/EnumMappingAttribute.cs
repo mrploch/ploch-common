@@ -105,7 +105,7 @@ public sealed class EnumMappingAttribute(params string?[] names) : Attribute
     ///     mappings should consider case sensitivity in name matching.
     /// </example>
     /// <seealso cref="EnumMappingAttribute" />
-    public CaseSensitivity CaseSensitive { get; set; } = CaseSensitivity.Unspecified;
+    public CaseSensitivity CaseSensitive { get; set; }
 
     /// <summary>
     ///     Gets or sets a value indicating whether the actual enumeration field name
