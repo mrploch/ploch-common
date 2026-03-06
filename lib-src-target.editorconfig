@@ -4,7 +4,6 @@ root = true
 indent_style = space
 insert_final_newline = true
 max_line_length = 160
-max_line_lengtheditorconfig = 160
 resharper_csharp_max_line_length = 160
 trim_trailing_whitespace = true
 end_of_line = crlf
@@ -20,7 +19,7 @@ indent_size = 2
 [{*.yaml,*.yml}]
 indent_size = 2
 
-[{*.sarif,*.sarif*.json,*.sarif.json}]
+[{*.sarif,*.sarif.json}]
 indent_size = 2
 
 [{*.csproj,*.xml,*.props,*.DotSettings,*.slnx}]
@@ -48,7 +47,7 @@ csharp_new_line_before_open_brace = all
 csharp_new_line_between_query_expression_clauses = true
 
 # Order
-csharp_preferred_modifier_order = public, private, protected, internal, static, extern, abstract, virtual, new, sealed, override, readonly, unsafe, volatile, async, file, required:none
+csharp_preferred_modifier_order = public, private, protected, internal, file, static, extern, new, virtual, abstract, sealed, override, readonly, unsafe, required, volatile, async:none
 csharp_prefer_braces = true:silent
 csharp_prefer_simple_default_expression = true:suggestion
 csharp_prefer_simple_using_statement = true:suggestion
@@ -103,7 +102,6 @@ csharp_style_expression_bodied_indexers = when_on_single_line:silent
 csharp_style_expression_bodied_lambdas = when_on_single_line:silent
 csharp_style_expression_bodied_local_functions = when_on_single_line:silent
 csharp_style_expression_bodied_methods = when_on_single_line:silent
-csharp_style_expression_bodied_operators = true:when_on_single_line
 csharp_style_expression_bodied_operators = when_on_single_line:silent
 csharp_style_expression_bodied_properties = when_on_single_line:silent
 
@@ -248,7 +246,7 @@ dotnet_diagnostic.faa0002.severity = warning
 
 ## Properties: 'dotnet_diagnostic.IDE'
 dotnet_diagnostic.IDE0001.severity = suggestion # Simplify name
-dotnet_diagnostic.IDE0002.severity = true:error # Simplify name
+dotnet_diagnostic.IDE0002.severity = error # Simplify name
 dotnet_diagnostic.IDE0018.severity = warning # Inline variable declaration
 
 ## Properties: 'dotnet_diagnostic.nu'
