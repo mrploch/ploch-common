@@ -233,19 +233,14 @@ public class ObjectReflectionExtensionsTests
     [Fact]
     public void GetStaticFieldValues_should_return_only_static_fields()
     {
-        var staticStrField1 = Guid.NewGuid().ToString();
-        var staticStrField2 = Guid.NewGuid().ToString();
-        var staticIntField1 = 1;
-        var staticIntField2 = 2;
-
         var staticFieldValues = TypeHelper.GetStaticFieldValues<ClassWithStaticMembers>(BindingFlags.Public | BindingFlags.NonPublic);
 
         staticFieldValues.Should().HaveCount(6);
         staticFieldValues.Should()
-                         .Contain(new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticStrField1), staticStrField1),
-                                  new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticStrField2), staticStrField2),
-                                  new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticIntField1), staticIntField1),
-                                  new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticIntField2), staticIntField2),
+                         .Contain(new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticStrField1), ClassWithStaticMembers.StaticStrField1),
+                                  new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticStrField2), ClassWithStaticMembers.StaticStrField2),
+                                  new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticIntField1), ClassWithStaticMembers.StaticIntField1),
+                                  new KeyValuePair<string, object?>(nameof(ClassWithStaticMembers.StaticIntField2), ClassWithStaticMembers.StaticIntField2),
                                   new KeyValuePair<string, object?>("StaticField", "static field value"),
                                   new KeyValuePair<string, object?>("<StaticProperty>k__BackingField", "static property value"));
     }

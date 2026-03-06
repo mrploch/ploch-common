@@ -61,17 +61,35 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
       throw new ArgumentException("JSON data must be an array.", nameof(filePath));
     }
 
+    var parameters = testMethod.GetParameters();
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     var theoryDataRows = new List<ITheoryDataRow>();
     foreach (var element in dataElement.EnumerateArray())
     {
-      var data = JsonSerializer.Deserialize<object[]>(element.GetRawText());
-
-      if (data == null)
+      if (element.ValueKind != JsonValueKind.Array)
       {
-        throw new InvalidOperationException("Failed to deserialize JSON data into test data.");
+        throw new InvalidOperationException("Each test data row must be a JSON array.");
       }
 
-      theoryDataRows.Add(new TheoryDataRow(data));
+      var rowElements = new List<JsonElement>();
+      foreach (var item in element.EnumerateArray())
+      {
+        rowElements.Add(item);
+      }
+
+      if (rowElements.Count != parameters.Length)
+      {
+        throw new InvalidOperationException(
+          $"JSON data row has {rowElements.Count} elements but test method has {parameters.Length} parameters.");
+      }
+
+      var data = new object?[parameters.Length];
+      for (var i = 0; i < parameters.Length; i++)
+      {
+        data[i] = JsonSerializer.Deserialize(rowElements[i].GetRawText(), parameters[i].ParameterType, options);
+      }
+
+      theoryDataRows.Add(new TheoryDataRow(data!));
     }
 
     return theoryDataRows;

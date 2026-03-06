@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics;
+using Ploch.TestingSupport.XUnit3;
 
 namespace Ploch.Common.Diagnostics.Tests;
 
 public class ProcessExtensionsTests
 {
     [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows)]
     public void SetSingleProcessorAffinity_should_set_affinity_mask_for_valid_processor_number()
     {
         var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");

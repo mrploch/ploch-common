@@ -144,7 +144,12 @@ public static class PathUtils
 
         var currentExtension = Path.GetExtension(path);
 
-        if (!currentExtension.Equals(extension, comparison) && replaceExistingExtension)
+        if (currentExtension.Equals(extension, comparison))
+        {
+            return path;
+        }
+
+        if (replaceExistingExtension)
         {
             path = GetFullPathWithoutExtension(path);
         }
@@ -172,6 +177,9 @@ public static class PathUtils
     /// <exception cref="ArgumentException">Thrown when <paramref name="path" /> is empty.</exception>
     public static string GetFullPathWithoutExtension(string path)
     {
+        // Remove trailing directory separators before processing
+        path = path.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar, '\\');
+
         var directory = Path.GetDirectoryName(path);
         var fileNameWithoutExt = Path.GetFileNameWithoutExtension(path);
 

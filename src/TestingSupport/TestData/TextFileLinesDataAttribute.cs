@@ -33,7 +33,7 @@ public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries
   /// </returns>
   protected override IEnumerable<object?[]> ProcessFileData(string fileData)
   {
-    var lines = fileData.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+    var lines = fileData.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
     if (removeEmptyEntries)
     {
