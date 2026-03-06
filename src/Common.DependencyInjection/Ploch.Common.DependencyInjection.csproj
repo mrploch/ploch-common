@@ -1,14 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Dawn.Guard" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Platforms>AnyCPU;x64</Platforms>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Dawn.Guard" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" />
+        <PackageReference Include="Testably.Abstractions.FileSystem.Interface" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Common\Ploch.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EditorConfigFiles Remove=".editorconfig" />
+    </ItemGroup>
 </Project>

@@ -6,6 +6,15 @@ namespace Ploch.Common.DawnGuard;
 /// <summary>
 ///     Provides utility methods for type guards.
 /// </summary>
+/// <remarks>
+/// This class is deprecated and no longer maintained. It'll be removed in new versions of the library.
+/// It is recommended to use the new helpers for argument validation available in the <c>Ploch.Common</c> package, specifically in the <c>Ploch.Common.ArgumentChecking</c> namespace.
+/// <seealso cref="Ploch.Common.ArgumentChecking.Guard"/>
+/// <seealso cref="Ploch.Common.ArgumentChecking.PathGuard"/>
+/// </remarks>
+[Obsolete($"The DawnGuard library is deprecated and no longer maintained. " +
+          $"New helpers for argument validation are available in the {nameof(Ploch)}.{nameof(Common)} package, {nameof(ArgumentChecking)} namespace. " +
+          $"For example the {nameof(ArgumentChecking.Guard)}.")]
 public static class TypeGuards
 {
     /// <summary>
@@ -34,10 +43,8 @@ public static class TypeGuards
     /// <param name="argument">The type to check.</param>
     /// <typeparam name="TExpected">The type to check against.</typeparam>
     /// <returns>The original argument info for method chaining.</returns>
-    public static ref readonly Guard.ArgumentInfo<Type> AssignableTo<TExpected>(in this Guard.ArgumentInfo<Type> argument)
-    {
-        return ref AssignableTo(argument, typeof(TExpected));
-    }
+    public static ref readonly Guard.ArgumentInfo<Type> AssignableTo<TExpected>(in this Guard.ArgumentInfo<Type> argument) =>
+        ref AssignableTo(argument, typeof(TExpected));
 
     /// <summary>
     ///     Checks if the value of the argument is assignable to the specified type.
@@ -73,8 +80,6 @@ public static class TypeGuards
     ///     The original argument value if the type is assignable to the expected type;
     ///     otherwise, a default (null) value of <see cref="Guard.ArgumentInfo{Type}" />.
     /// </returns>
-    public static ref readonly Guard.ArgumentInfo<Type> AssignableToOrNull<TExpected>(in this Guard.ArgumentInfo<Type> argument)
-    {
-        return ref AssignableToOrNull(argument, typeof(TExpected));
-    }
+    public static ref readonly Guard.ArgumentInfo<Type> AssignableToOrNull<TExpected>(in this Guard.ArgumentInfo<Type> argument) =>
+        ref AssignableToOrNull(argument, typeof(TExpected));
 }

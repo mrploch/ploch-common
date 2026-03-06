@@ -31,8 +31,6 @@ public static class QueryableExtensions
     /// <param name="action">The query action to perform on <paramref name="queryable" />.</param>
     /// <typeparam name="T">The enumerable value type.</typeparam>
     /// <returns>The resulting enumerable.</returns>
-    public static IQueryable<T> If<T>(this IQueryable<T> queryable, bool condition, Func<IQueryable<T>, IQueryable<T>> action)
-    {
-        return queryable.If<IQueryable<T>, T>(condition, action);
-    }
+    public static IQueryable<T> If<T>(this IQueryable<T> queryable, bool condition, Func<IQueryable<T>, IQueryable<T>> action) =>
+        queryable.If<IQueryable<T>, T>(condition, action);
 }

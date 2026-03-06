@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
+        <Platforms>AnyCPU;x64</Platforms>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <ShouldCreateLogs>True</ShouldCreateLogs>
+        <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+        <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+        <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+        <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+        <UpdatePackageVersion>False</UpdatePackageVersion>
+        <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+        <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+        <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <ShouldCreateLogs>True</ShouldCreateLogs>
+      <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+      <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+      <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+      <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+      <UpdatePackageVersion>False</UpdatePackageVersion>
+      <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+      <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+      <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <ShouldCreateLogs>True</ShouldCreateLogs>
+        <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+        <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+        <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+        <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+        <UpdatePackageVersion>False</UpdatePackageVersion>
+        <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+        <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+        <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <ShouldCreateLogs>True</ShouldCreateLogs>
+      <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+      <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+      <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+      <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+      <UpdatePackageVersion>False</UpdatePackageVersion>
+      <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+      <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+      <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Update="commandLines.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Remove="CoverageResults\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj" />
+        <ProjectReference Include="..\..\src\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj" />
+        <ProjectReference Include="..\..\src\TestingSupport.MockConsoleApp\Ploch.TestingSupport.MockConsoleApp.csproj" />
+        <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
+        <ProjectReference Include="..\..\src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj" />
+        <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
+        <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj" />
+        <ProjectReference Include="..\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Agoda.Analyzers" />
+        <PackageReference Include="JetBrains.Annotations" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="CoverageResults\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Remove="CoverageResults\**" />
+    </ItemGroup>
+</Project>

@@ -3,19 +3,23 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kris Ploch</Authors>
-    <Nullable>warnings</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AutoFixture" />
-    <PackageReference Include="AutoFixture.AutoMoq" />
     <PackageReference Include="AutoFixture.SeedExtensions" />
+    <PackageReference Include="FluentAssertions" />
     <PackageReference Include="Moq" />
     <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="System.ComponentModel" />
     <PackageReference Include="System.ComponentModel.TypeConverter" />
-    <PackageReference Include="System.IO.Abstractions" />
+    <PackageReference Include="TestableIO.System.IO.Abstractions" />
+    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="xunit.v3.extensibility.core" />
     <None Include=".\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Ploch.Common.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,13 @@
+# .ai_config.toml
+
+[test]
+# Custom test instructions
+include = ["**/*Tests.cs"]
+timeout = 120
+parallel = true
+
+[custom]
+instruction = "When writing tests, use xUnit and FluentAssertions. Try to use [Theory] whenever possible. Ensure that your tests cover edge cases and handle exceptions appropriately. Use the following naming convention for method names: MethodName_should_explain_what_it_should_do()"
+
+[test_instructions]
+instructions = "When writing tests, use xUnit and FluentAssertions. Try to use [Theory] whenever possible. Ensure that your tests cover edge cases and handle exceptions appropriately. Use the following naming convention for method names: MethodName_should_explain_what_it_should_do()"

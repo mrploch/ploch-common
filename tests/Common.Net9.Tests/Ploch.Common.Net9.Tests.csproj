@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Ploch.Common</RootNamespace>
+      <OutputType>Exe</OutputType>
+      <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <ProjectReference Include="..\..\src\Common.Net9\Ploch.Common.Net9.csproj" />
+      <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj" />
+      <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
+  </ItemGroup>
+
+</Project>

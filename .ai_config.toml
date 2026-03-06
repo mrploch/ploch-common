@@ -1,0 +1,9 @@
+[file_filters]
+include = ['src/**/*.cs', '**/*.md', '**.toml', '**/*.yaml', '**/*.json']
+exclude = ['**/obj/**', '**/bin/**']
+[tags]
+project_type = "library"
+languages = ["csharp"]
+
+[test_instructions]
+instructions = "When writing tests, use xUnit and FluentAssertions. Try to use [Theory] whenever possible. Ensure that your tests cover edge cases and handle exceptions appropriately. Use the following naming convention for method names: MethodName_should_explain_what_it_should_do()"

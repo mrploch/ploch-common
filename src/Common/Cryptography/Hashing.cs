@@ -18,7 +18,9 @@ public static class Hashing
     public static string ToHashString(this Stream stream, HashAlgorithm algorithm)
     {
         var hashBytes = algorithm.ComputeHash(stream);
-
+#if NET6_0_OR_GREATER
+        return Convert.ToHexString(hashBytes).Replace("-", string.Empty, StringComparison.Ordinal);
+#endif
         return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
     }
 
@@ -30,9 +32,13 @@ public static class Hashing
     public static string ToMD5HashString(this Stream stream)
     {
 #pragma warning disable CA5351 // Do not use insecure cryptographic algorithm MD5 - it's not supposed to be secure here.
-        var hashBytes = MD5.Create().ComputeHash(stream);
+        using var md5 = MD5.Create();
+        var hashBytes = md5.ComputeHash(stream);
 #pragma warning restore CA5351
 
+#if NET6_0_OR_GREATER
+        return Convert.ToHexString(hashBytes).Replace("-", string.Empty, StringComparison.Ordinal);
+#endif
         return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
     }
 }

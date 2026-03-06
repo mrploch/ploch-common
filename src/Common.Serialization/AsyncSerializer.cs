@@ -22,10 +22,7 @@ public abstract class AsyncSerializer<TSettings, TDataJsonObject> : Serializer<T
     public abstract ValueTask<TTargetType?> DeserializeAsync<TTargetType>(Stream stream, CancellationToken cancellationToken = default);
 
     /// <inheritdoc />
-    public async Task SerializeAsync(Stream stream, object obj, Action<TSettings>? configuration, CancellationToken cancellationToken = default)
-    {
-        await SerializeAsync(stream, obj, GetSettings(configuration), cancellationToken).ConfigureAwait(false);
-    }
+    public Task SerializeAsync(Stream stream, object obj, Action<TSettings>? configuration, CancellationToken cancellationToken = default) => SerializeAsync(stream, obj, GetSettings(configuration), cancellationToken);
 
     /// <inheritdoc />
     public ValueTask<object?> DeserializeAsync(Stream stream, Type type, Action<TSettings>? configuration, CancellationToken cancellationToken = default)

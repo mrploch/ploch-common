@@ -11,9 +11,9 @@ public static class ThreadSafeRandom
 
 #pragma warning disable SA1008 // Bracket should not be preceded by space - false/positive
 #pragma warning disable SA1306 // naming of the static field should be in PascalCase (fix this in the next iteration)
-#pragma warning restore SA1008
-    [ThreadStatic] private static Random? LocalRandom;
-#pragma warning restore SA1306
+    [ThreadStatic]
+    private static Random? LocalRandom;
+#pragma warning restore SA1134, SA1306
 
     /// <summary>
     ///     Gets the shared instance of the random number generator.
@@ -29,16 +29,21 @@ public static class ThreadSafeRandom
     {
         get
         {
-            if (LocalRandom is null)
+            if (LocalRandom is not null)
             {
-                int seed;
-                lock (Global)
-                {
-                    seed = Global.Next();
-                }
-
-                LocalRandom = new Random(seed);
+                return LocalRandom;
             }
+
+            int seed;
+            lock (Global)
+            {
+// this random is not required to be safe for cryptographic use
+#pragma warning disable CA5394
+                seed = Global.Next();
+#pragma warning restore CA5394
+            }
+
+            LocalRandom = new(seed);
 
             return LocalRandom;
         }

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Ploch.Common.AppServices.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:51270;http://localhost:51271"
+    }
+  }
+}

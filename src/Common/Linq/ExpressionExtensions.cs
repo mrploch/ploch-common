@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Linq;
 
@@ -23,14 +23,12 @@ public static class ExpressionExtensions
     /// <exception cref="ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
     public static string GetMemberName(this Expression<Action> expression)
     {
-        Guard.Argument(expression, nameof(expression)).NotNull();
+        expression.NotNull(nameof(expression));
 
         return expression.Body switch
-               {
-                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
-                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
-                   _ => throw new InvalidOperationException("Not a member expression!")
-               };
+               { MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                 MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+                 _ => throw new InvalidOperationException("Not a member expression!") };
     }
 
     /// <summary>
@@ -43,14 +41,12 @@ public static class ExpressionExtensions
     /// <exception cref="ArgumentNullException"><paramref name="expression" /> value is <c>null</c>.</exception>
     public static string GetMemberName<TMember>(this Expression<Func<TMember>> expression)
     {
-        Guard.Argument(expression, nameof(expression)).NotNull();
+        expression.NotNull(nameof(expression));
 
         return expression.Body switch
-               {
-                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
-                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
-                   _ => throw new InvalidOperationException("Not a member expression!")
-               };
+               { MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                 MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+                 _ => throw new InvalidOperationException("Not a member expression!") };
     }
 
     /// <summary>
@@ -67,17 +63,15 @@ public static class ExpressionExtensions
     /// </exception>
     public static string GetMemberName<TType, TMember>(this Expression<Func<TType, TMember>> expression)
     {
-        Guard.Argument(expression, nameof(expression)).NotNull();
+        expression.NotNull(nameof(expression));
 
         return expression.Body switch
-               {
-                   MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
-                   MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
+               { MemberExpression memberExpressionBody => memberExpressionBody.Member.Name,
+                 MethodCallExpression methodCallExpression => methodCallExpression.Method.Name,
 
-                   // Might be an implicit cast
-                   UnaryExpression { Operand: MemberExpression memberExpression } => memberExpression.Member.Name,
-                   _ => throw new InvalidOperationException("Not a member expression and not unary expression for member.")
-               };
+                 // Might be an implicit cast
+                 UnaryExpression { Operand: MemberExpression memberExpression } => memberExpression.Member.Name,
+                 _ => throw new InvalidOperationException("Not a member expression and not unary expression for member.") };
     }
 
     /// <summary>
@@ -94,14 +88,23 @@ public static class ExpressionExtensions
     /// </exception>
     public static IOwnedPropertyInfo<TType, TMember> GetProperty<TType, TMember>(this TType obj, Expression<Func<TType, TMember>> propertySelector)
     {
-        Guard.Argument(propertySelector, nameof(propertySelector)).NotNull();
+        propertySelector.NotNull(nameof(propertySelector));
 
         if (propertySelector.Body is not MemberExpression memberExpression)
         {
+            if (propertySelector.Body is MethodCallExpression bc && bc.Method.IsSpecialName && bc.Method.Name.StartsWith("get_", StringComparison.Ordinal))
+            {
+                var pi = typeof(TType).GetProperty(bc.Method.Name.Substring(4))
+                                      .RequiredNotNull("typeof(TType).GetProperty(bc.Method.Name.Substring(4)) != null");
+
+                return new OwnedPropertyInfo<TType, TMember>(pi, obj);
+            }
+
             throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
         }
 
-        var propertyInfo = memberExpression.Member as PropertyInfo ?? throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
+        var propertyInfo = memberExpression.Member as PropertyInfo ??
+                           throw new InvalidOperationException($"Provided {propertySelector} is not a property expression.");
 
         return new OwnedPropertyInfo<TType, TMember>(propertyInfo, obj);
     }

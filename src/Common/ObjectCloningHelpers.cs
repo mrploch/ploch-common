@@ -18,7 +18,7 @@ public static class ObjectCloningHelpers
     /// <typeparam name="T">The object type.</typeparam>
     public static void CopyProperties<T>(this T source, T target)
     {
-        CopyPropertiesIncludeOnly(source, target, null);
+        source.CopyPropertiesIncludeOnly(target, null);
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public static class ObjectCloningHelpers
     /// <typeparam name="T">The object type.</typeparam>
     public static void CopyPropertiesIncludeOnly<T>(this T source, T target, params string[]? includedProperties)
     {
-        CopyProperties(source, target, includedProperties, null);
+        source.CopyProperties(target, includedProperties, null);
     }
 
     /// <summary>
@@ -44,7 +44,7 @@ public static class ObjectCloningHelpers
     /// <typeparam name="T">The object type.</typeparam>
     public static void CopyPropertiesExcluding<T>(this T source, T target, params string[]? excludedProperties)
     {
-        CopyProperties(source, target, null, excludedProperties);
+        source.CopyProperties(target, null, excludedProperties);
     }
 
     private static void CopyProperties<T>(this T source, T target, IEnumerable<string>? includedProperties, params string[]? excludedProperties)
@@ -52,7 +52,7 @@ public static class ObjectCloningHelpers
         var properties = typeof(T).GetProperties();
         var includedPropertiesSet = includedProperties != null ? new HashSet<string>(includedProperties) : null;
 
-        var excludedPropertiesSet = excludedProperties != null ? new HashSet<string>(excludedProperties) : new HashSet<string>();
+        var excludedPropertiesSet = excludedProperties != null ? new(excludedProperties) : new HashSet<string>();
 
         foreach (var property in properties)
         {

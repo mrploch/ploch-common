@@ -19,13 +19,16 @@ Here is an example of use:
 ```csharp
 bool result = "value".ValueIn(StringComparer.OrdinalIgnoreCase, "VALUE");
 ```
-In this example, `result` will be `true` because "value" is in the list of provided values, using a case-insensitive comparison.
+
+In this example, `result` will be `true` because "value" is in the list of provided values, using a case-insensitive
+comparison.
 
 ### ValueIn
 
 ```csharp
 public static bool ValueIn<TValue>(this TValue value, params TValue[] values)
 ```
+
 Checks if a set of `values` contain the provided `value` using default comparer.
 
 Example:
@@ -33,7 +36,9 @@ Example:
 ```csharp
 bool result = "value".ValueIn("value", "anotherValue");
 ```
-In this case, `result` will be `true` because "value" is in the list of provided values, using the default string comparer.
+
+In this case, `result` will be `true` because "value" is in the list of provided values, using the default string
+comparer.
 
 ### None
 
@@ -44,10 +49,12 @@ public static bool None<TSource>(this IEnumerable<TSource> source, Func<TSource,
 Verifies that none of the items in the `source` collection matches the provided `predicate`.
 
 Example:
+
 ```csharp
 IEnumerable<int> source = new[] {1, 2, 3};
 bool result = source.None(x => x > 3);
 ```
+
 In this case, `result` will be `true` because none of the values in the `source` collection are greater than 3.
 
 ### Join
@@ -56,7 +63,8 @@ In this case, `result` will be `true` because none of the values in the `source`
 public static string Join<TValue>(this IEnumerable<TValue> source, string separator)
 ```
 
-Joins the elements of the `source` collection using the provided `separator`, calling `ToString` on each element of the collection.
+Joins the elements of the `source` collection using the provided `separator`, calling `ToString` on each element of the
+collection.
 
 Example:
 
@@ -64,9 +72,11 @@ Example:
 IEnumerable<int> source = new[] {1, 2, 3};
 string result = source.Join(", ");
 ```
+
 In this case, `result` will be `"1, 2, 3"`.
 
-In all examples above, `TValue` and `TSource` are placeholder type names. Replace them with the actual types when using the methods.
+In all examples above, `TValue` and `TSource` are placeholder type names. Replace them with the actual types when using
+the methods.
 
 ### Join
 
@@ -77,6 +87,7 @@ public static string Join<TValue, TResult>(this IEnumerable<TValue> source, stri
 Joins the elements of the `source` collection using the provided `separator`, calling `valueSelector` on each element.
 
 Example:
+
 ```csharp
 IEnumerable<int> source = new[] {1, 2, 3};
 string result = source.Join(", ", num => $"Item {num}");
@@ -84,23 +95,23 @@ string result = source.Join(", ", num => $"Item {num}");
 
 In this case, `result` will be `"Item 1, Item 2, Item 3"`.
 
-
 ### JoinWithFinalSeparator
 
 ```csharp
 public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source, string separator, string finalSeparator)
 ```
 
-Joins the elements of the `source` collection using the provided `separator`, calling `ToString` on each element of the collection. The last element is joined using the `finalSeparator`.
+Joins the elements of the `source` collection using the provided `separator`, calling `ToString` on each element of the
+collection. The last element is joined using the `finalSeparator`.
 
 Example:
+
 ```csharp
 IEnumerable<int> source = new[] {1, 2, 3};
 string result = source.JoinWithFinalSeparator(", ", " and ");
 ```
 
 In this case, `result` will be `"1, 2 and 3"`.
-
 
 ### Shuffle
 
@@ -111,6 +122,7 @@ public static IEnumerable<TValue> Shuffle<TValue>(this IEnumerable<TValue> sourc
 Randomly shuffles the elements of the `source` enumerable.
 
 Example:
+
 ```csharp
 IEnumerable<int> source = new[] {1, 2, 3};
 IEnumerable<int> shuffled = source.Shuffle();
@@ -127,10 +139,12 @@ public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> so
 Takes random `count` amount of items from the `source` enumerable.
 
 Example:
+
 ```csharp
 IEnumerable<int> source = new[] {1, 2, 3};
 IEnumerable<int> randomTwo = source.TakeRandom(2);
 ```
+
 The `randomTwo` variable will contain two random elements from the source collection.
 
 Please note that `TValue` is a placeholder type. Replace it with the actual type when using the methods.
@@ -141,9 +155,11 @@ Please note that `TValue` is a placeholder type. Replace it with the actual type
 public static IEnumerable<T> If<T>(this IEnumerable<T> enumerable, bool condition, Func<IEnumerable<T>, IEnumerable<T>> action)
 ```
 
-This method is used to conditionally perform an action on the `enumerable`. If the `condition` is `true`, the `action` is performed on the `enumerable`.
+This method is used to conditionally perform an action on the `enumerable`. If the `condition` is `true`, the `action`
+is performed on the `enumerable`.
 
 Example:
+
 ```csharp
 IEnumerable<int> numbers = new[] {1, 2, 3, 4, 5};
 var hasFilterCondition = true;

@@ -1,5 +1,5 @@
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Linq;
 
@@ -13,8 +13,8 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     /// <param name="owner">The object that owns the property.</param>
     protected OwnedPropertyInfo(PropertyInfo propertyInfo, object owner)
     {
-        Guard.Argument(propertyInfo, nameof(propertyInfo));
-        Guard.Argument(owner, nameof(owner));
+        propertyInfo.NotNull(nameof(propertyInfo));
+        owner.NotNull(nameof(owner));
 
         PropertyInfo = propertyInfo;
         Owner = owner;
@@ -42,60 +42,25 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
     }
 
     /// <inheritdoc />
-    public object? GetValue()
-    {
-        return PropertyInfo.GetValue(Owner);
-    }
+    public object? GetValue() => PropertyInfo.GetValue(Owner);
 
     /// <inheritdoc />
-    public object? GetValue(object[] index)
-    {
-        return PropertyInfo.GetValue(Owner, index);
-    }
+    public object? GetValue(object[] index) => PropertyInfo.GetValue(Owner, index);
 }
 
-/// <inheritdoc cref="IOwnedPropertyInfo{TType, TProperty}" />
-public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedPropertyInfo<TType, TProperty>
+/// <inheritdoc cref="IOwnedPropertyInfo{TProperty}" />
+public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner), IOwnedPropertyInfo<TProperty>
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="OwnedPropertyInfo{TType,TProperty}" /> class.
-    /// </summary>
-    /// <param name="propertyInfo">The property info delegate.</param>
-    /// <param name="owner">The object that owns the property.</param>
-    public OwnedPropertyInfo(PropertyInfo propertyInfo, TType owner) : base(propertyInfo, owner!)
-    { }
+    /// <inheritdoc />
+    public new TProperty? GetValue() => (TProperty?)base.GetValue();
 
     /// <inheritdoc />
-    public new TType Owner => (TType)base.Owner;
-
-    /// <inheritdoc />
-    public new TProperty? GetValue()
-    {
-        return (TProperty?)base.GetValue();
-    }
-
-    /// <inheritdoc />
-    public new TProperty? GetValue(object[] index)
-    {
-        return (TProperty?)base.GetValue(index);
-    }
-
-    /// <inheritdoc />
-    void IOwnedPropertyInfo.SetValue(object? value)
-    {
-        SetValue(value);
-    }
-
-    /// <inheritdoc />
-    void IOwnedPropertyInfo.SetValue(object? value, object[] index)
-    {
-        SetValue(value, index);
-    }
+    public new TProperty? GetValue(object[] index) => (TProperty?)base.GetValue(index);
 
     /// <inheritdoc />
     public void SetValue(TProperty? value)
     {
-        SetValue((object?)value);
+        base.SetValue((object?)value);
     }
 
     /// <inheritdoc />
@@ -105,8 +70,30 @@ public class OwnedPropertyInfo<TType, TProperty> : OwnedPropertyInfo, IOwnedProp
     }
 
     /// <inheritdoc />
-    object? IOwnedPropertyInfo.GetValue()
+    void IOwnedPropertyInfo.SetValue(object? value)
     {
-        return base.GetValue();
+        base.SetValue(value);
     }
+
+    /// <inheritdoc />
+    void IOwnedPropertyInfo.SetValue(object? value, object[] index)
+    {
+        SetValue(value, index);
+    }
+
+    /// <inheritdoc />
+    object? IOwnedPropertyInfo.GetValue() => base.GetValue();
+}
+
+/// <inheritdoc cref="IOwnedPropertyInfo{TType, TProperty}" />
+/// <summary>
+///     Initializes a new instance of the <see cref="OwnedPropertyInfo{TType,TProperty}" /> class.
+/// </summary>
+/// <param name="propertyInfo">The property info delegate.</param>
+/// <param name="owner">The object that owns the property.</param>
+public class OwnedPropertyInfo<TType, TProperty>(PropertyInfo propertyInfo, TType owner)
+    : OwnedPropertyInfo<TProperty>(propertyInfo, owner!), IOwnedPropertyInfo<TType, TProperty>
+{
+    /// <inheritdoc />
+    public new TType Owner => (TType)base.Owner;
 }

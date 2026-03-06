@@ -1,46 +1,88 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Linq;
 using System.Text;
-using Dawn;
+using JetBrains.Annotations;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
 
 /// <summary>
 ///     Extension methods for <see cref="string" /> and related.
 /// </summary>
+[SuppressMessage("ReSharper",
+                 "RedundantCallerArgumentExpressionDefaultValue",
+                 Justification = "The project is also built for .NET Standard 2.0 which requires arg names to be passed.")]
+[SuppressMessage("Sonarqube", "S3236", Justification = "The project is also built for .NET Standard 2.0 which requires arg names to be passed.")]
+
+// ReSharper disable once ClassTooBig
 public static class StringExtensions
 {
+    /// <summary>
+    ///     Extension method that determines if a string is not <c>null</c> or empty.
+    /// </summary>
+    /// <param name="str">The string to check.</param>
+    /// <returns><c>true</c> if the string is not <c>null</c> or empty; otherwise, <c>false</c>.</returns>
+#pragma warning disable SA1202
+    [ContractAnnotation("str:null => false")]
+    public static bool IsNotNullOrEmpty(this string? str) => !str.IsNullOrEmpty();
+#pragma warning restore SA1202
+
     /// <summary>
     ///     Extension method version of <see cref="string.IsNullOrEmpty" />.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if string is <c>null</c> or empty; otherwise, <c>false</c>.</returns>
-    public static bool IsNullOrEmpty(this string str)
-    {
-        return string.IsNullOrEmpty(str);
-    }
+    public static bool IsNullOrEmpty(this string? str) => string.IsNullOrEmpty(str);
+
+    /// <summary>
+    ///     Extension method version of <see cref="string.IsNullOrWhiteSpace" />.
+    ///     Extension method version of <see cref="string.IsNullOrWhiteSpace" />.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <returns><c>true</c> if string is <c>null</c>, empty, or white-space; otherwise, <c>false</c>.</returns>
+    public static bool IsNullOrWhiteSpace(this string? str) => string.IsNullOrWhiteSpace(str);
+
+    /// <summary>
+    ///     Extension method that returns <c>null</c> if the given string is empty; otherwise, returns the string itself.
+    /// </summary>
+    /// <param name="str">The string to check.</param>
+    /// <returns><c>null</c> if the string is empty; otherwise, the original string.</returns>
+    public static string? NullIfEmpty(this string? str) => str.IsNullOrEmpty() ? null : str;
+
+    /// <summary>
+    ///     Extension method that returns <c>null</c> if a string is <c>null</c>, empty,
+    ///     or consists only of white-space characters; otherwise, returns the original string.
+    /// </summary>
+    /// <param name="str">The string to check.</param>
+    /// <returns>
+    ///     The original string if it is not <c>null</c>, empty, or consists only of white-space characters;
+    ///     otherwise, <c>null</c>.
+    /// </returns>
+    public static string? NullIfWhiteSpace(this string? str) => str.IsNullOrWhiteSpace() ? null : str;
 
     /// <summary>
     ///     Encodes a string as base64 string using <see cref="Encoding.UTF8" />.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>Encoded version of supplied string.</returns>
-    public static string ToBase64String(this string str)
-    {
-        return ToBase64String(str, Encoding.UTF8);
-    }
+    public static string ToBase64String(this string str) => str.ToBase64String(Encoding.UTF8);
 
     /// <summary>
-    ///     Encodes a string as base64 string.
+    ///     Encodes a string as a base64 string.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="encoding">The encoding to use.</param>
     /// <returns>Encoded version of supplied string.</returns>
     public static string ToBase64String(this string str, Encoding encoding)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
+#pragma warning disable S3236
+        str.NotNull(nameof(str));
+#pragma warning restore S3236
 
-        return Convert.ToBase64String(encoding.GetBytes(str));
+        return Convert.ToBase64String(encoding.NotNull(nameof(encoding)).GetBytes(str));
     }
 
     /// <summary>
@@ -48,10 +90,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="str">The base64 encoded string.</param>
     /// <returns>The decoded base64 string.</returns>
-    public static string FromBase64String(this string str)
-    {
-        return FromBase64String(str, Encoding.UTF8);
-    }
+    public static string FromBase64String(this string str) => str.FromBase64String(Encoding.UTF8);
 
     /// <summary>
     ///     Decodes a base64 string using provided encoding.
@@ -61,17 +100,17 @@ public static class StringExtensions
     /// <returns>The decoded base64 string.</returns>
     public static string FromBase64String(this string str, Encoding encoding)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
+        str.NotNull(nameof(str));
 
-        return encoding.GetString(Convert.FromBase64String(str));
+        return encoding.NotNull(nameof(encoding)).GetString(Convert.FromBase64String(str));
     }
 
     /// <summary>
-    ///     Compare two strings ignoring case.
+    ///     Compare two strings ignoring the case.
     /// </summary>
     /// <param name="str">The first string to compare.</param>
     /// <param name="other">The second string to compare.</param>
-    /// <returns><c>true</c> if strings are equal ignoring case, <c>false</c> otherwise.</returns>
+    /// <returns><c>true</c> if strings are equal ignoring the case, <c>false</c> otherwise.</returns>
     public static bool EqualsIgnoreCase(this string? str, string? other)
     {
         if (str == null && other == null)
@@ -88,29 +127,25 @@ public static class StringExtensions
     }
 
     /// <summary>
-    ///     Replaces the
-    ///     <param name="oldValue"></param>
-    ///     with
-    ///     <param name="newValue"></param>
-    ///     in the string
-    ///     <param name="str"></param>
-    ///     if the string starts with
-    ///     <param name="oldValue"></param>
-    ///     .
+    ///     Replaces the <paramref name="oldValue" /> with <paramref name="newValue" /> in the string
+    ///     <paramref name="str" /> if the string starts with <paramref name="oldValue" /> .
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="oldValue">The old value to replace.</param>
     /// <param name="newValue">The new value to replace the old value with.</param>
     /// <param name="stringComparison">
     ///     The string comparison to use when checking if the <paramref name="str" /> starts with
-    ///     <paramref name="oldValue" />. If not provided, then <see cref="StringComparison.InvariantCulture" /> will be used.
+    ///     <paramref name="oldValue" />. If not provided, then <see cref="StringComparison.InvariantCulture" /> will be
+    ///     used.
     /// </param>
-    /// <returns>The provided string with a new value at the beginning or the original <paramref name="str" />.</returns>
+    /// <returns>
+    ///     The provided string with a new value at the beginning or the original <paramref name="str" />.
+    /// </returns>
     public static string ReplaceStart(this string str, string oldValue, string newValue, StringComparison stringComparison = StringComparison.InvariantCulture)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
-        Guard.Argument(newValue, nameof(newValue)).NotNull();
-        Guard.Argument(oldValue, nameof(oldValue)).NotNull();
+        newValue.NotNull(nameof(newValue));
+        str.NotNull(nameof(str));
+        oldValue.NotNull(nameof(oldValue));
 
         if (!str.StartsWith(oldValue, stringComparison))
         {
@@ -123,50 +158,45 @@ public static class StringExtensions
     /// <summary>
     ///     Converts the string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
-    /// <param name="str">The string to convert.</param>
+    /// <param name="str">The string.</param>
     /// <returns>
     ///     The 32-bit signed integer equivalent to the number contained in the string.
     /// </returns>
     public static int ToInt32(this string str)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
+        str.NotNull(nameof(str));
 
-        return int.Parse(str, NumberStyles.Integer, CultureInfo.InvariantCulture);
+        return int.Parse(str, CultureInfo.InvariantCulture);
     }
 
     /// <summary>
     ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
-    /// <param name="str">The string to convert.</param>
+    /// <param name="str">The string.</param>
     /// <param name="result">
-    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
-    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number contained in
+    ///     <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
     ///     uninitialized.
     /// </param>
-    /// <returns>
-    ///     true if the conversion succeeded; otherwise, false.
-    /// </returns>
-    public static bool TryConvertToInt32(this string str, out int result)
-    {
-        return TryConvertToInt32(str, CultureInfo.InvariantCulture, out result);
-    }
+    /// <returns>true if the conversion succeeded; otherwise, false.</returns>
+    public static bool TryConvertToInt32(this string str, out int result) => str.TryConvertToInt32(CultureInfo.InvariantCulture, out result);
 
     /// <summary>
     ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
-    /// <param name="str">The string to convert.</param>
-    /// <param name="provider">An object that supplies culture-specific formatting information about <paramref name="str" />.</param>
+    /// <param name="str">The string.</param>
+    /// <param name="provider">
+    ///     An object that supplies culture-specific formatting information about <paramref name="str" />.
+    /// </param>
     /// <param name="result">
-    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
-    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number contained in
+    ///     <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
     ///     uninitialized.
     /// </param>
-    /// <returns>
-    ///     true if the conversion succeeded; otherwise, false.
-    /// </returns>
+    /// <returns>true if the conversion succeeded; otherwise, false.</returns>
     public static bool TryConvertToInt32(this string str, IFormatProvider provider, out int result)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
+        str.NotNull(nameof(str));
 
         return int.TryParse(str, NumberStyles.Integer, provider, out result);
     }
@@ -174,51 +204,92 @@ public static class StringExtensions
     /// <summary>
     ///     Converts the string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
-    /// <param name="str">The string to convert.</param>
+    /// <param name="str">The string.</param>
     /// <returns>
     ///     The 32-bit signed integer equivalent to the number contained in the string.
     /// </returns>
     public static long ToInt64(this string str)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
+        str.NotNull(nameof(str));
 
-        return long.Parse(str, NumberStyles.Integer, CultureInfo.InvariantCulture);
+        return long.Parse(str, CultureInfo.InvariantCulture);
     }
 
     /// <summary>
     ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
-    /// <param name="str">The string to convert.</param>
+    /// <param name="str">The string.</param>
     /// <param name="result">
-    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
-    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number contained in
+    ///     <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
     ///     uninitialized.
     /// </param>
-    /// <returns>
-    ///     true if the conversion succeeded; otherwise, false.
-    /// </returns>
-    public static bool TryConvertToInt64(this string str, out long result)
-    {
-        return TryConvertToInt64(str, CultureInfo.InvariantCulture, out result);
-    }
+    /// <returns>true if the conversion succeeded; otherwise, false.</returns>
+    public static bool TryConvertToInt64(this string str, out long result) => str.TryConvertToInt64(CultureInfo.InvariantCulture, out result);
 
     /// <summary>
     ///     Tries to convert the specified string representation of a number to its 32-bit signed integer equivalent.
     /// </summary>
-    /// <param name="str">The string to convert.</param>
-    /// <param name="provider">An object that supplies culture-specific formatting information about <paramref name="str" />.</param>
+    /// <param name="str">The string.</param>
+    /// <param name="provider">
+    ///     An object that supplies culture-specific formatting information about <paramref name="str" />.
+    /// </param>
     /// <param name="result">
-    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number
-    ///     contained in <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
+    ///     When this method returns, contains the 32-bit signed integer value equivalent to the number contained in
+    ///     <paramref name="str" />, if the conversion succeeded; otherwise, zero. This parameter is passed
     ///     uninitialized.
     /// </param>
-    /// <returns>
-    ///     true if the conversion succeeded; otherwise, false.
-    /// </returns>
+    /// <returns>true if the conversion succeeded; otherwise, false.</returns>
     public static bool TryConvertToInt64(this string str, IFormatProvider provider, out long result)
     {
-        Guard.Argument(str, nameof(str)).NotNull();
+        str.NotNull(nameof(str));
 
         return long.TryParse(str, NumberStyles.Integer, provider, out result);
+    }
+
+    /// <summary>
+    ///     Extension method that determines if the given string contains any of the specified substrings, using the
+    ///     <see cref="StringComparison.InvariantCulture" /> string comparison options.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <param name="strings">The array of substrings to check within the string.</param>
+    /// <returns>
+    ///     <c>true</c> if the string contains at least one of the specified substrings; otherwise, <c>false</c>.
+    /// </returns>
+    public static bool ContainsAny(this string str, params string[] strings) => str.ContainsAny(StringComparison.InvariantCulture, strings);
+
+    /// <summary>
+    ///     Extension method that determines if the given string contains any of the specified substrings, using the
+    ///     specified string comparison option.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <param name="comparison">The comparison option to use when searching for substrings.</param>
+    /// <param name="strings">The array of substrings to check within the string.</param>
+    /// <returns>
+    ///     <c>true</c> if the string contains at least one of the specified substrings; otherwise, <c>false</c>.
+    /// </returns>
+    public static bool ContainsAny(this string str, StringComparison comparison, params string[] strings) =>
+        str.ContainsAny(comparison, (IEnumerable<string>)strings);
+
+    /// <summary>
+    ///     Determines whether the given string contains any of the specified substrings using the
+    ///     <see cref="StringComparison.InvariantCulture" /> string comparison options.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <param name="strings">The collection of substrings to search for.</param>
+    /// <returns><c>true</c> if any of the substrings are found in the string; otherwise, <c>false</c>.</returns>
+    public static bool ContainsAny(this string str, IEnumerable<string> strings) => str.ContainsAny(StringComparison.InvariantCulture, strings);
+
+    /// <summary>
+    ///     Determines whether the given string contains any of the specified substrings using the specified string
+    ///     comparison options.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <param name="comparison">The string comparison option to use for the search.</param>
+    /// <param name="strings">The collection of substrings to search for.</param>
+    /// <returns><c>true</c> if any of the substrings are found in the string; otherwise, <c>false</c>.</returns>
+    public static bool ContainsAny(this string str, StringComparison comparison, IEnumerable<string> strings)
+    {
+        return strings.Any(s => str.IndexOf(s, comparison) >= 0);
     }
 }

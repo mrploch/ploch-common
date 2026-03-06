@@ -2,7 +2,31 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../mrploch-development"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/.retool_types/**": true,
+			"**/*tsconfig.json": true,
+			".cache": true,
+			"retool.config.json": true
+		},
+		"cSpell.words": [
+			"Agoda",
+			"Ploch"
+		],
+		"powershell.cwd": "ploch-common",
+		"dotrush.roslyn.projectOrSolutionFiles": [
+			"/Users/krzysztof.ploch/dev/github/mrploch/ploch-common/Ploch.Common.slnx"
+		],
+		"dotnet.defaultSolution": "disable"
+	}
 }

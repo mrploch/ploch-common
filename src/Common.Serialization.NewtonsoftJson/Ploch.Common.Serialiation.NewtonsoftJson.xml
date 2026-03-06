@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ploch.Common.Serialiation.NewtonsoftJson</name>
+    </assembly>
+    <members>
+        <member name="T:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer">
+            <summary>
+            Newtonsoft.Json based implementation of <see cref="T:Ploch.Common.Serialization.ISerializer"/>.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer"/> class.
+            </summary>
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.#ctor(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer"/> class.
+            </summary>
+            <param name="settings">The serializer settings.</param>
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Serialize(System.Object,Newtonsoft.Json.JsonSerializerSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize(System.String,System.Type,Newtonsoft.Json.JsonSerializerSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.Deserialize``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.DeserializeObject(Newtonsoft.Json.Linq.JObject,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ploch.Common.Serialiation.NewtonsoftJson.NewtonsoftJsonObjectSerializer.GetSettings(System.Action{Newtonsoft.Json.JsonSerializerSettings})">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

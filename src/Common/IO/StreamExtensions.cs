@@ -15,12 +15,10 @@ public static class StreamExtensions
     /// <returns>An enumerable byte array representing the contents of the stream.</returns>
     public static IEnumerable<byte> ToBytes(this Stream stream)
     {
-        using (var ms = new MemoryStream())
-        {
-            stream.Position = 0;
-            stream.CopyTo(ms);
+        using var ms = new MemoryStream();
+        stream.Position = 0;
+        stream.CopyTo(ms);
 
-            return ms.ToArray();
-        }
+        return ms.ToArray();
     }
 }

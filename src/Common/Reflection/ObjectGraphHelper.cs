@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
-using Dawn;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Reflection;
 
@@ -42,7 +43,7 @@ public static class ObjectGraphHelper
     /// <param name="action">The action to execute on properties.</param>
     public static void ExecuteOnProperties(this object? root, Action<object> action)
     {
-        Guard.Argument(action, nameof(action)).NotNull();
+        action.NotNull(nameof(action));
 
         if (root == null)
         {
@@ -51,21 +52,15 @@ public static class ObjectGraphHelper
 
         var visited = new HashSet<object>();
 
-        ProcessProperties(root, action, visited);
+        root.ProcessProperties(action, visited);
     }
 
     private static void ProcessProperties(this object current, Action<object> action, HashSet<object> visited)
     {
         visited.Add(current);
         action.Invoke(current);
-        foreach (var property in GetProperties(current))
+        foreach (var value in GetProperties(current).Select(property => property.GetValue(current)).OfType<object>())
         {
-            var value = property.GetValue(current);
-            if (value == null)
-            {
-                continue;
-            }
-
             visited.Add(value);
 
             action.Invoke(value);
@@ -76,7 +71,7 @@ public static class ObjectGraphHelper
             }
             else
             {
-                ProcessProperties(value, action, visited);
+                value.ProcessProperties(action, visited);
             }
         }
     }
@@ -85,7 +80,7 @@ public static class ObjectGraphHelper
     {
         foreach (var item in enumerable)
         {
-            ProcessProperties(item, action, visited);
+            item.ProcessProperties(action, visited);
         }
     }
 

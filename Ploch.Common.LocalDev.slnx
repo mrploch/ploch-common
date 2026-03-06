@@ -1,0 +1,194 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="ARM" />
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/mrploch-root/">
+    <File Path=".ai/mcp/mcp.json" />
+  </Folder>
+  <Folder Name="/repository/">
+    <File Path="README.md" />
+    <File Path="release-notes.md" />
+  </Folder>
+  <Folder Name="/repository/config/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="dotnet-releaser.toml" />
+    <File Path="qodana.sarif.json" />
+    <File Path="qodana.yaml" />
+    <File Path="Ploch.Common.slnx.DotSettings" />
+    <File Path="../mrploch-development/dependencies/Common.Packages.props" /> <!-- TODO: Change other references to use forward-slash for compatibility, just test it works first -->
+    <File Path="../mrploch-development/dependencies/Ploch.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\Analyzers.Global.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\MicrosoftExtensions.Net9.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\Serilog.Logging.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\Testing.Packages.props" />
+  </Folder>
+  <Folder Name="/repository/docs/">
+    <File Path="docs\README.md" />
+  </Folder>
+  <Folder Name="/repository/github/" />
+  <Folder Name="/repository/scripts/">
+    <File Path="Clean-DocFx.ps1" />
+    <File Path="run-sonar-build-test.ps1" />
+  </Folder>
+  <Folder Name="/repository/shared/">
+    <File Path="..\mrploch-development\dependencies\Analyzers.Global.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\MicrosoftExtensions.Net9.Packages.props" />
+    <File Path="..\mrploch-development\dependencies\Testing.Packages.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Common.AppServices.Web/Ploch.Common.AppServices.Web.csproj" />
+    <Project Path="src/Common.AppServices/Ploch.Common.AppServices.csproj" />
+    <Project Path="src/Common.DataAnnotations/Ploch.Common.DataAnnotations.csproj" />
+    <Project Path="src/Common.DawnGuard/Ploch.Common.DawnGuard.csproj" />
+    <Project Path="src/Common.DependencyInjection/Ploch.Common.DependencyInjection.csproj" />
+    <Project Path="src/Common.WebUI/Ploch.Common.WebUI.csproj" />
+    <Project Path="src/Common/Ploch.Common.csproj" />
+      <Project Path="src\Common.Net9\Ploch.Common.Net9.csproj" />
+  </Folder>
+    <Folder Name="/src/Apps/">
+        <Project Path="src\Common.Apps\Shared\Ploch.Common.Apps.Shared.csproj">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    </Folder>
+    <Folder Name="/src/Apps/Actions/">
+        <Project Path="src\Common.Apps\Apps.Actions\Actions.Model\Ploch.Common.Apps.Actions.Model.csproj">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
+  </Folder>
+  <Folder Name="/src/Serialization/">
+    <Project Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
+    <Project Path="src/Common.Serialization.NewtonsoftJson/Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
+    <Project Path="src/Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj" />
+    <Project Path="src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj" />
+    <Project Path="src/Common.Serialization/Ploch.Common.Serialization.csproj" />
+  </Folder>
+    <Folder Name="/testing-support/">
+        <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
+      <Project Path="src/TestingSupport.XUnit2.Dependencies/Ploch.TestingSupport.XUnit2.Dependencies.csproj" />
+      <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
+        <Project Path="src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
+        <Project Path="src\TestingSupport.XUnit3.Dependencies\Ploch.TestingSupport.XUnit3.Dependencies.csproj">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
+        <Project Path="src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    </Folder>
+    <Folder Name="/tests/">
+        <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
+      <Project Path="tests/Common.Net6.Tests/Ploch.Common.Net6.Tests.csproj" />
+      <Project Path="tests/TestingSupport.Tests/Ploch.TestingSupport.Tests.csproj" />
+    <Project Path="tests\Common.Apps\Apps.Model.Tests\Ploch.Common.Apps.Model.Tests.csproj">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    <Project Path="tests\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj" />
+    <Project Path="tests\Common.DawnGuard.Tests\Ploch.Common.DawnGuard.Tests.csproj">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    <Project Path="tests\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj" />
+    <Project Path="tests\Common.Net9.Tests\Ploch.Common.Net9.Tests.csproj" />
+    <Project Path="tests\Common.Tests\Ploch.Common.Tests.csproj" />
+    <Project Path="tests\TestingSupport.FluentAssertions.Tests\Ploch.TestingSupport.FluentAssertions.Tests.csproj">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+        <Project Path="tests\TestingSupport.XUnit3.Tests\Ploch.TestingSupport.XUnit3.Tests.csproj">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
+    <File Path="tests\.editorconfig" />
+  </Folder>
+  <Folder Name="/Tests/Serialization/">
+    <Project Path="tests\Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.NewtonsoftJson.Tests\Ploch.Common.Serialization.NewtonsoftJson.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.SystemTextJson.Tests\Ploch.Common.Serialization.SystemTextJson.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests\Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests.csproj" />
+    <Project Path="tests\Common.Serialization.Tests\Ploch.Common.Serialization.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Tests/TestAssemblies/">
+    <Project Path="tests\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
+    <Project Path="tests\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj" />
+    <Project Path="tests\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj">
+      <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+      <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+      <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+      <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+      <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+    </Project>
+    <File Path="tests\TestAssemblies\.editorconfig" />
+  </Folder>
+  <Project Path="DocumentationSite/DocumentationSite.csproj" />
+</Solution>
