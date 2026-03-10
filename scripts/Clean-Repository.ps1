@@ -36,6 +36,6 @@ function Clear-Solution( [Parameter(Mandatory=$true)] [string] $solutionDirector
     }
     Remove-Folders -path $solutionDirectory -folderNames obj,bin,CoverageResults -excludeWildcards $excludeWildcards
 }
-Write-Host "Cleaning repository..."
+Write-Output "Cleaning repository..."
 Clear-Solution -solutionDirectory $PSScriptRoot/.. -excludeWildcards "*\data-mgmt-agent\Install\Installers\*"
-Write-Host "Repository cleaned."
+Write-Output "Repository cleaned."
