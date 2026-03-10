@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+      <PackageReference Include="coverlet.msbuild">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
       <ProjectReference Include="..\..\src\Common.DataAnnotations\Ploch.Common.DataAnnotations.csproj" />
       <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
   </ItemGroup>
