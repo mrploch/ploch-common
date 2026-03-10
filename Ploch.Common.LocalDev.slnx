@@ -85,7 +85,6 @@
   </Folder>
     <Folder Name="/testing-support/">
         <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
-      <Project Path="src/TestingSupport.XUnit2.Dependencies/Ploch.TestingSupport.XUnit2.Dependencies.csproj" />
       <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
         <Project Path="src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj">
             <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
@@ -120,7 +119,6 @@
     </Folder>
     <Folder Name="/tests/">
         <Project Path="src/Common.WebUI.Tests/Ploch.Common.WebUI.Tests.csproj" />
-      <Project Path="tests/Common.Net6.Tests/Ploch.Common.Net6.Tests.csproj" />
       <Project Path="tests/TestingSupport.Tests/Ploch.TestingSupport.Tests.csproj" />
     <Project Path="tests\Common.Apps\Apps.Model.Tests\Ploch.Common.Apps.Model.Tests.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />

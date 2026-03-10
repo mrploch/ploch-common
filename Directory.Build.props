@@ -16,7 +16,7 @@
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <VersionPrefix>2.0.1</VersionPrefix>
-        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmm"))</BuildNumber>
+        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHH"))</BuildNumber>
         <!-- Development versions -->
         <VersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">-prerelease</VersionSuffix>
         <FullVersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
@@ -26,7 +26,7 @@
         <FileVersion>$(InformationalVersion)</FileVersion>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
-        <NoWarn>$(NoWarn);NU1507;CS9057</NoWarn>
+        <NoWarn>$(NoWarn);NU1507;CS9057;NU1603</NoWarn>
         <TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
