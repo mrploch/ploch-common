@@ -28,6 +28,7 @@ namespace Ploch.TestingSupport.TestData;
 public class JsonFileDataAttribute(string filePath, string? propertyName = null) : DataAttribute
 #pragma warning restore CC0023
 {
+#pragma warning disable CA2208 // paramNames reference primary constructor parameters, not method parameters
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
   {
     if (testMethod == null)
@@ -37,7 +38,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     if (string.IsNullOrWhiteSpace(filePath))
     {
-      throw new ArgumentException("File path cannot be null or empty.", nameof(testMethod));
+      throw new ArgumentException("File path cannot be null or empty.", nameof(filePath));
     }
 
     var fileContent = File.ReadAllText(filePath);
@@ -48,7 +49,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
     {
       if (!jsonData.RootElement.TryGetProperty(propertyName!, out dataElement))
       {
-        throw new ArgumentException($"Property '{propertyName}' not found in JSON file.", nameof(testMethod));
+        throw new ArgumentException($"Property '{propertyName}' not found in JSON file.", nameof(propertyName));
       }
     }
     else
@@ -58,7 +59,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     if (dataElement.ValueKind != JsonValueKind.Array)
     {
-      throw new ArgumentException("JSON data must be an array.", nameof(testMethod));
+      throw new ArgumentException("JSON data must be an array.", nameof(filePath));
     }
 
     var parameters = testMethod.GetParameters();
@@ -94,6 +95,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     return theoryDataRows;
   }
+#pragma warning restore CA2208
 
   public override bool SupportsDiscoveryEnumeration() => false;
 }

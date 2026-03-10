@@ -80,14 +80,14 @@ public static class ActionHandlerResult
 
     /// <summary>
     ///     Creates an instance of <see cref="ActionHandlerResult{TActionTargetDescriptor}" /> representing a failure
-    ///     along with the provided <paramref name="executionId" /> and a collection of detailed error information.
+    ///     along with the provided <paramref name="executionId" /> and an error message.
     /// </summary>
     /// <typeparam name="TActionTargetDescriptor">The type of the action target descriptor that implements <see cref="IActionTargetDescriptor" />.</typeparam>
     /// <param name="executionId">The identifier associated with the execution of an action.</param>
     /// <param name="message">The error message describing the failure.</param>
     /// <returns>
     ///     An <see cref="ActionHandlerResult{TActionTargetDescriptor}" /> indicating a failed action execution,
-    ///     containing the provided <paramref name="executionId" /> and associated errors.
+    ///     containing the provided <paramref name="executionId" /> and the error message wrapped in an <see cref="ErrorInfo" />.
     /// </returns>
     public static ActionHandlerResult<TActionTargetDescriptor> Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor> executionId,
                                                                                                 string message)
