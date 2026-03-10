@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using Xunit;
 
 namespace Ploch.Common.DependencyInjection.Tests;
@@ -154,6 +155,29 @@ public class ScopedServiceTests
         scopedService.Dispose();
 
         resolvedService.IsDisposed.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task DisposeAsync_should_fall_back_to_sync_dispose_when_scope_is_not_async_disposable()
+    {
+        // Create a mock scope that implements IDisposable but NOT IAsyncDisposable
+        var mockScope = new Mock<IServiceScope>();
+        var mockServiceProvider = new Mock<IServiceProvider>();
+        mockServiceProvider.Setup(p => p.GetService(typeof(ITestService)))
+                           .Returns(new TestService());
+        mockScope.Setup(s => s.ServiceProvider).Returns(mockServiceProvider.Object);
+
+        var outerProvider = new Mock<IServiceProvider>();
+        var mockScopeFactory = new Mock<IServiceScopeFactory>();
+        mockScopeFactory.Setup(f => f.CreateScope()).Returns(mockScope.Object);
+        outerProvider.Setup(p => p.GetService(typeof(IServiceScopeFactory)))
+                     .Returns(mockScopeFactory.Object);
+
+        var scopedService = new ScopedService(outerProvider.Object, typeof(ITestService));
+
+        await scopedService.DisposeAsync();
+
+        mockScope.Verify(s => s.Dispose(), Times.Once);
     }
 
     private interface ITestService

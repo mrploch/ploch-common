@@ -21,6 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Common\Ploch.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Common.Apps\Apps.Actions\Actions.Model\Ploch.Common.Apps.Actions.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
