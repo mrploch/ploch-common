@@ -83,6 +83,53 @@ public class ScopedServiceTests
     }
 
     [Fact]
+    public async Task DisposeAsync_after_Dispose_should_not_throw()
+    {
+        var services = new ServiceCollection();
+        services.AddScoped<ITestService, TestService>();
+        var provider = services.BuildServiceProvider();
+
+        var scopedService = new ScopedService(provider, typeof(ITestService));
+
+        scopedService.Dispose();
+
+        // DisposeAsync after Dispose should be safe (idempotent)
+        var act = async () => await scopedService.DisposeAsync();
+        await act.Should().NotThrowAsync();
+    }
+
+    [Fact]
+    public async Task Dispose_after_DisposeAsync_should_not_throw()
+    {
+        var services = new ServiceCollection();
+        services.AddScoped<ITestService, TestService>();
+        var provider = services.BuildServiceProvider();
+
+        var scopedService = new ScopedService(provider, typeof(ITestService));
+
+        await scopedService.DisposeAsync();
+
+        // Dispose after DisposeAsync should be safe (idempotent)
+        var act = () => scopedService.Dispose();
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public async Task GenericScopedService_should_dispose_scope_async()
+    {
+        var services = new ServiceCollection();
+        services.AddScoped<ITestService, TestService>();
+        var provider = services.BuildServiceProvider();
+
+        var scopedService = new ScopedService<ITestService>(provider);
+        var resolvedService = (TestService)scopedService.Service;
+
+        await scopedService.DisposeAsync();
+
+        resolvedService.IsDisposed.Should().BeTrue();
+    }
+
+    [Fact]
     public void GenericScopedService_should_resolve_typed_service()
     {
         var services = new ServiceCollection();
