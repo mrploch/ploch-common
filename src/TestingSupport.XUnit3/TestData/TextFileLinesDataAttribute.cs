@@ -13,7 +13,7 @@ namespace Ploch.TestingSupport.XUnit3.TestData;
 ///     Load data from a text file as the data source for a theory, with each line being a separate test case.
 /// </remarks>
 /// <param name="filePath">The absolute or relative path to the text file to load.</param>
-public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
+public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
 {
     public override bool SupportsDiscoveryEnumeration() => true;
 

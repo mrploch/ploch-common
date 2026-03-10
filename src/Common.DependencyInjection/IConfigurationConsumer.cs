@@ -24,5 +24,7 @@ public interface IConfigurationConsumer
     ///     Primarily utilized within dependency injection scenarios, this property facilitates centralized handling
     ///     and retrieval of configurations for services or components within an application.
     /// </remarks>
+#pragma warning disable S2376 // Write-only properties should not be used - intentional design for dependency injection
     IConfiguration? Configuration { set; }
+#pragma warning restore S2376
 }

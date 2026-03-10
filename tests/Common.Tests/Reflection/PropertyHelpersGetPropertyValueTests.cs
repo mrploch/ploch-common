@@ -353,7 +353,7 @@ public class PropertyHelpersGetPropertyValueTests
         testObject.GetPropertyValue(nameof(MyTestClass.StringProp)).Should().Be(stringProp);
     }
 
-    private class TestClass
+    private sealed class TestClass
     {
         public string Name { get; set; } = "TestName";
 

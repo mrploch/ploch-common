@@ -19,5 +19,6 @@ public class PropertyIndexerMismatchException(string message, Exception? innerEx
     /// </summary>
     /// <param name="message">The error message that explains the reason for the exception.</param>
     public PropertyIndexerMismatchException(string message) : this(message, null)
-    { }
+    {
+    }
 }

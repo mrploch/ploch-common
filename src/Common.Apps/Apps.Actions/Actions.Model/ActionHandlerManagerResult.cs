@@ -19,9 +19,6 @@ public class ActionHandlerManagerResult<TSystemApplication>(bool isSuccess,
     /// <summary>
     ///     Gets the results of all individual action handlers that were executed during the action management process.
     /// </summary>
-    /// <typeparam name="TSystemApplication">
-    ///     The type of the system application implementing the <see cref="IActionTargetDescriptor" /> interface.
-    /// </typeparam>
     /// <remarks>
     ///     The property contains a collection of <see cref="ActionHandlerResult{TSystemApplication}" /> objects.
     ///     Each element in the collection represents the result of a specific action handler execution,

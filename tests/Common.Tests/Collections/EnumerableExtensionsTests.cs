@@ -424,7 +424,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
         return (list, result);
     }
 
-    private class DisposableEnumerableStub(IEnumerable items) : IEnumerable
+    private sealed class DisposableEnumerableStub(IEnumerable items) : IEnumerable
     {
         public bool WasDisposed { get; private set; }
 
@@ -434,7 +434,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
             return new DisposableEnumeratorStub(items.GetEnumerator(), () => WasDisposed = true);
         }
 
-        private class DisposableEnumeratorStub(IEnumerator innerEnumerator, Action onDispose) : IEnumerator, IDisposable
+        private sealed class DisposableEnumeratorStub(IEnumerator innerEnumerator, Action onDispose) : IEnumerator, IDisposable
         {
             public object? Current => innerEnumerator.Current;
 
@@ -450,12 +450,12 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
         }
     }
 
-    private class NonDisposableEnumerableStub(IEnumerable items) : IEnumerable
+    private sealed class NonDisposableEnumerableStub(IEnumerable items) : IEnumerable
     {
         // ReSharper disable once GenericEnumeratorNotDisposed
         public IEnumerator GetEnumerator() => new NonDisposableEnumeratorStub(items.GetEnumerator());
 
-        private class NonDisposableEnumeratorStub(IEnumerator innerEnumerator) : IEnumerator
+        private sealed class NonDisposableEnumeratorStub(IEnumerator innerEnumerator) : IEnumerator
         {
             public object? Current => innerEnumerator.Current;
 
@@ -465,7 +465,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
         }
     }
 
-    private class EnumerableAndDisposableStub : IEnumerable, IDisposable, IEnumerator
+    private sealed class EnumerableAndDisposableStub : IEnumerable, IDisposable, IEnumerator
     {
         private readonly IEnumerator _enumerator;
         private readonly IEnumerable _items;
@@ -489,7 +489,7 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
         public void Reset() => _enumerator.Reset();
     }
 
-    private class MultipleEnumerableInterfacesCollection(int[] items) : IReadOnlyCollection<int>
+    private sealed class MultipleEnumerableInterfacesCollection(int[] items) : IReadOnlyCollection<int>
     {
         public int Count => items.Length;
 

@@ -9,7 +9,7 @@
 /// </remarks>
 /// <param name="priority">The priority value for the test method. Lower values indicate higher priority.</param>
 [AttributeUsage(AttributeTargets.Method)]
-public class TestPriorityAttribute(int priority) : Attribute
+public sealed class TestPriorityAttribute(int priority) : Attribute
 {
     /// <summary>
     ///     Gets the priority value of the test method.

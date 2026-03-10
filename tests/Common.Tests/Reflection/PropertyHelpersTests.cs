@@ -454,19 +454,19 @@ public class PropertyHelpersTests
         public string BaseProperty { get; set; } = string.Empty;
     }
 
-    private class DerivedClass : BaseClass
+    private sealed class DerivedClass : BaseClass
     {
         public string DerivedProperty { get; set; } = string.Empty;
     }
 
-    public class ClassWithNullableProperties
+    public sealed class ClassWithNullableProperties
     {
         public string NonNullProperty { get; set; } = string.Empty;
 
         public string? NullableProperty { get; set; }
     }
 
-    private class ClassWithPrivateProperties
+    private sealed class ClassWithPrivateProperties
     {
         public string PublicProperty { get; set; } = string.Empty;
 
@@ -475,12 +475,12 @@ public class PropertyHelpersTests
         public void SetPrivatePropertyValue(string value) => PrivateProperty = value;
     }
 
-    private class NestedClass
+    private sealed class NestedClass
     {
         public string Value { get; set; } = string.Empty;
     }
 
-    private class ClassWithComplexProperties
+    private sealed class ClassWithComplexProperties
     {
         public int Id { get; set; }
 
@@ -491,7 +491,7 @@ public class PropertyHelpersTests
         public List<string> ListProperty { get; set; } = new();
     }
 
-    private class ClassWithIndexer
+    private sealed class ClassWithIndexer
     {
         private readonly Dictionary<int, string> _items = new();
 

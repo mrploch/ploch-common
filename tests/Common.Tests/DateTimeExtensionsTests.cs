@@ -5,7 +5,7 @@ public class DateTimeExtensionsTests
   [Fact]
   public void ToEpochSeconds_should_convert_non_nullable_DateTime()
   {
-    var sut = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+    var sut = DateTime.UnixEpoch;
     sut.ToEpochSeconds().Should().Be(0);
   }
 

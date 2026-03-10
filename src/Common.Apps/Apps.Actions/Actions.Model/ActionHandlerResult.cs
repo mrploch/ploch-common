@@ -20,9 +20,6 @@ public class ActionHandlerResult<TActionTargetDescriptor>(bool isSuccess,
     ///     It encapsulates details about the action and the handler executed. This property is immutable and provides tracking
     ///     for the specific instance of the action's execution.
     /// </remarks>
-    /// <typeparam name="TActionTargetDescriptor">
-    ///     The type representing the action's target. This type must implement <see cref="IActionTargetDescriptor" />.
-    /// </typeparam>
     /// <value>
     ///     An object of type <see cref="ActionExecutionId{TActionTargetDescriptor}" /> that uniquely identifies the execution of the action handler.
     /// </value>
@@ -87,7 +84,7 @@ public static class ActionHandlerResult
     /// </summary>
     /// <typeparam name="TActionTargetDescriptor">The type of the action target descriptor that implements <see cref="IActionTargetDescriptor" />.</typeparam>
     /// <param name="executionId">The identifier associated with the execution of an action.</param>
-    /// <param name="errors">An optional collection of <see cref="ErrorInfo" /> objects detailing the errors encountered.</param>
+    /// <param name="message">The error message describing the failure.</param>
     /// <returns>
     ///     An <see cref="ActionHandlerResult{TActionTargetDescriptor}" /> indicating a failed action execution,
     ///     containing the provided <paramref name="executionId" /> and associated errors.

@@ -391,7 +391,7 @@ public class ObjectReflectionExtensionsTests
     }
 
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Used for reflection tests")]
-    private class ClassWithIndexedProperty
+    private sealed class ClassWithIndexedProperty
     {
         private readonly Dictionary<int, string> _storage = new();
 
@@ -403,7 +403,7 @@ public class ObjectReflectionExtensionsTests
     }
 
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Used for reflection tests")]
-    private class ClassWithIndexedProperty2
+    private sealed class ClassWithIndexedProperty2
     {
         private new readonly Dictionary<string, string> _dict = new();
 
@@ -415,7 +415,7 @@ public class ObjectReflectionExtensionsTests
     }
 
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Used for reflection tests")]
-    private class ClassWithIndexedWriteOnlyProperty
+    private sealed class ClassWithIndexedWriteOnlyProperty
     {
         private readonly int[,] _numbers = new int[100, 100];
         private int[,] _itmWriteOnly = new int[100, 100];
@@ -452,7 +452,7 @@ public class ObjectReflectionExtensionsTests
     }
 
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
-    private class ChildWithProperties : ParentWithProperties
+    private sealed class ChildWithProperties : ParentWithProperties
     {
         private readonly string _childPrivateField;
 
@@ -477,7 +477,7 @@ public class ObjectReflectionExtensionsTests
 
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "This is required for this test.")]
-    private class ClassWithStaticMembers
+    private sealed class ClassWithStaticMembers
     {
         private static readonly string StaticField = "static field value";
 
@@ -495,7 +495,7 @@ public class ObjectReflectionExtensionsTests
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "This is required for this test.")]
     [SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "It doesn't matter for this test.")]
-    private class TestType
+    private sealed class TestType
     {
         private static string? PrivateStaticField;
         private readonly string _privateField;
@@ -512,14 +512,14 @@ public class ObjectReflectionExtensionsTests
     }
 
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Local", Justification = "Used for reflection tests")]
-    private class ObjectWithNoFields
+    private sealed class ObjectWithNoFields
     {
         // This class has no fields, only a property
         public string SomeProperty { get; set; } = string.Empty;
     }
 
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
-    private class TypeWithComplexFields
+    private sealed class TypeWithComplexFields
     {
 #pragma warning disable S1144
         private readonly List<int> _listField = [1, 2, 3];
@@ -543,7 +543,7 @@ public class ObjectReflectionExtensionsTests
     }
 
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
-    private class ChildClass : ParentClass
+    private sealed class ChildClass : ParentClass
     {
         private readonly string _childPrivateField;
 
@@ -553,7 +553,7 @@ public class ObjectReflectionExtensionsTests
 
     [SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Fields are accessed via reflection")]
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "This is required for this test.")]
-    private class ClassWithFieldsAndProperties
+    private sealed class ClassWithFieldsAndProperties
     {
         private readonly string _privateField = "private field value";
         public readonly string PublicField = "field value";

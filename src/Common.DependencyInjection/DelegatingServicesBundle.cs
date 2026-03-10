@@ -84,7 +84,7 @@ public class DelegatingServicesBundle : ConfigurableServicesBundle
     ///     </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException">
-    ///     Thrown when the <see cref="ConfigurableServicesBundle.Services" /> property is <c>null</c>.
+    ///     Thrown when the <see cref="ServicesBundle.Services" /> property is <c>null</c>.
     /// </exception>
     /// <exception cref="Exception">
     ///     Thrown when any of the registered configuration action delegates throws an exception.

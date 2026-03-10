@@ -235,6 +235,6 @@ public class TypeExtensionsTests
     where TTestArg1 : TestClass1 where TTestArg2 : TestClass2 where TGenericTestArg : TestGenericClass3<int>
   { }
 
-  private class TestClass4 : TestGenericClass3<int>
+  private sealed class TestClass4 : TestGenericClass3<int>
   { }
 }

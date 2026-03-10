@@ -37,7 +37,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     if (string.IsNullOrWhiteSpace(filePath))
     {
-      throw new ArgumentException("File path cannot be null or empty.", nameof(filePath));
+      throw new ArgumentException("File path cannot be null or empty.", nameof(testMethod));
     }
 
     var fileContent = File.ReadAllText(filePath);
@@ -48,7 +48,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
     {
       if (!jsonData.RootElement.TryGetProperty(propertyName!, out dataElement))
       {
-        throw new ArgumentException($"Property '{propertyName}' not found in JSON file.", nameof(propertyName));
+        throw new ArgumentException($"Property '{propertyName}' not found in JSON file.", nameof(testMethod));
       }
     }
     else
@@ -58,7 +58,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     if (dataElement.ValueKind != JsonValueKind.Array)
     {
-      throw new ArgumentException("JSON data must be an array.", nameof(filePath));
+      throw new ArgumentException("JSON data must be an array.", nameof(testMethod));
     }
 
     var parameters = testMethod.GetParameters();
