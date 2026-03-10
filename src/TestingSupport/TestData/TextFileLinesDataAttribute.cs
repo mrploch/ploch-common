@@ -14,7 +14,7 @@ namespace Ploch.TestingSupport.TestData;
 /// </remarks>
 /// <param name="filePath">The absolute or relative path to the text file to load.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
+public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
 {
   public override bool SupportsDiscoveryEnumeration() => false;
 

@@ -6,7 +6,7 @@
 - Auto-accept the tools usage
 - Create a commit per task
 - When creating a commit message, use the Conventional Commit, as described in rules
-- Allways analyze and review the code for potential issues, including best practices, conventions and other problems
+- Always analyze and review the code for potential issues, including best practices, conventions and other problems
 - Always build and try to resolve all new warnings (and obviously the errors)
 - Use the output from static code analyzers configured for this project
 - You can use the JetBrains Rider MCP server which should be available

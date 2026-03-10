@@ -34,6 +34,7 @@ public interface IScopedService<out TService> : IScopedService where TService : 
 public class ScopedService : IScopedService
 {
     private readonly IServiceScope _scope;
+    private bool _disposed;
 
     /// <summary>
     ///     Initialises a new instance of the <see cref="ScopedService" /> class.
@@ -52,13 +53,26 @@ public class ScopedService : IScopedService
     /// <inheritdoc />
     public void Dispose()
     {
-        Dispose(true);
+        if (_disposed)
+        {
+            return;
+        }
+
+        _disposed = true;
+        _scope.Dispose();
         GC.SuppressFinalize(this);
     }
 
     /// <inheritdoc />
     public async ValueTask DisposeAsync()
     {
+        if (_disposed)
+        {
+            return;
+        }
+
+        _disposed = true;
+
         if (_scope is IAsyncDisposable scopeAsyncDisposable)
         {
             await scopeAsyncDisposable.DisposeAsync();
@@ -69,18 +83,6 @@ public class ScopedService : IScopedService
         }
 
         GC.SuppressFinalize(this);
-    }
-
-    /// <summary>
-    ///     Releases the managed resources used by this instance.
-    /// </summary>
-    /// <param name="disposing"><c>true</c> to release managed resources; otherwise, <c>false</c>.</param>
-    protected virtual void Dispose(bool disposing)
-    {
-        if (disposing)
-        {
-            _scope.Dispose();
-        }
     }
 }
 

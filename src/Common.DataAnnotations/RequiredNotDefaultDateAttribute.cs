@@ -15,7 +15,7 @@ namespace Ploch.Common.DataAnnotations;
 ///     </para>
 /// </remarks>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter)]
-public sealed class RequiredNotDefaultDateAttribute : ValidationAttribute
+public class RequiredNotDefaultDateAttribute : ValidationAttribute
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="RequiredNotDefaultDateAttribute" /> class.

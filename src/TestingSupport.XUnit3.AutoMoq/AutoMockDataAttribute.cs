@@ -26,7 +26,7 @@ namespace Ploch.TestingSupport.XUnit3.AutoMoq;
 ///         // act/assert ...
 ///         }
 /// </example>
-public sealed class AutoMockDataAttribute : AutoDataAttribute
+public class AutoMockDataAttribute : AutoDataAttribute
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="AutoMockDataAttribute" /> class

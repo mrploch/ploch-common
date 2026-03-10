@@ -2,7 +2,7 @@
 
 ## Summary
 
-Addressed a significant number of static code analysis warnings across the solution, reducing the total warning count from ~2268 to ~1726 (a reduction of ~542 warnings).
+Addressed a significant number of static code analysis warnings across the solution, reducing the total warning count from ~2268 to ~1686 (a reduction of ~582 warnings).
 
 ## Changes
 

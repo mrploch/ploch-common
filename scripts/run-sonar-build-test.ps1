@@ -1,4 +1,4 @@
-./Clean-Repository.ps1
+"$PSScriptRoot/Clean-Repository.ps1"
 $sonarToken = $env:SONAR_TOKEN
 cd $PSScriptRoot/..
 dotnet tool install --global dotnet-sonarscanner
