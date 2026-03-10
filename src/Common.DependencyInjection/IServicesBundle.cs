@@ -15,7 +15,9 @@ namespace Ploch.Common.DependencyInjection;
 /// </remarks>
 public interface IServicesBundle : IOptionalConfigurationProvider
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     Gets the configuration instance used by this services bundle.
+    /// </summary>
     new IConfiguration? Configuration { get; }
 
     /// <summary>

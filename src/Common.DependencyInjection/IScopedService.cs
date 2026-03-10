@@ -37,7 +37,7 @@ public class ScopedService : IScopedService
     private bool _disposed;
 
     /// <summary>
-    ///     Initialises a new instance of the <see cref="ScopedService" /> class.
+    ///     Initializes a new instance of the <see cref="ScopedService" /> class.
     /// </summary>
     /// <param name="serviceProvider">The service provider used to create a new scope.</param>
     /// <param name="serviceType">The type of service to resolve from the scope.</param>
@@ -94,7 +94,7 @@ public class ScopedService : IScopedService
 public class ScopedService<TService> : ScopedService, IScopedService<TService> where TService : notnull
 {
     /// <summary>
-    ///     Initialises a new instance of the <see cref="ScopedService{TService}" /> class.
+    ///     Initializes a new instance of the <see cref="ScopedService{TService}" /> class.
     /// </summary>
     /// <param name="serviceProvider">The service provider used to create a new scope.</param>
     public ScopedService(IServiceProvider serviceProvider) : base(serviceProvider, typeof(TService))
