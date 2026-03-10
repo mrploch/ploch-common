@@ -115,4 +115,4 @@ jobs:
         run: echo "dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}"
       - name: Publish NuGet package
         if: always()
-        run: dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}
+        run: dotnet nuget push **/*.nupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}}
