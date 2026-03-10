@@ -83,7 +83,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: DotNet Tests
+          name: Test Results
           path: '**/*.trx'
           reporter: dotnet-trx
       - name: Upload Coverage Results
