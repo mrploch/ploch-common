@@ -155,7 +155,11 @@ public class JsonFileDataAttributeTests
           File.Delete(tempFile);
         }
       }
-      catch
+      catch (IOException)
+      {
+        // best-effort cleanup for test temp files
+      }
+      catch (UnauthorizedAccessException)
       {
         // best-effort cleanup for test temp files
       }
