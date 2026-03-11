@@ -1,7 +1,12 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Ploch.TestingSupport.TestData;
 using Ploch.TestingSupport.Tests.Models;
 using Xunit;
+using Xunit.Sdk;
 
 namespace Ploch.TestingSupport.Tests;
 #pragma warning disable xUnit1003 // Theory must have test data - doesn't recognize custom data attributes
@@ -73,6 +78,71 @@ public class JsonFileDataAttributeTests
     }
 
     students.Should().NotBeNull();
+  }
+
+  [Theory]
+  [InlineData(null)]
+  [InlineData("")]
+  [InlineData(" ")]
+  public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? filePath)
+  {
+    var methodInfo = typeof(JsonFileDataAttributeTests)
+      .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
+
+    var attribute = new JsonFileDataAttribute(filePath!, "Student");
+
+    Func<Task> act = async () => _ = await attribute.GetData(methodInfo, new DisposalTracker());
+
+    var exception = await act.Should().ThrowAsync<ArgumentException>();
+    exception.Which.ParamName.Should().Be("filePath");
+  }
+
+  [Fact]
+  public async Task GetData_should_throw_when_property_is_missing()
+  {
+    var methodInfo = typeof(JsonFileDataAttributeTests)
+      .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
+
+    var tempFile = Path.GetTempFileName();
+    File.WriteAllText(tempFile, "{ \"Existing\": [] }");
+
+    try
+    {
+      var attribute = new JsonFileDataAttribute(tempFile, "MissingProperty");
+      Func<Task> act = async () => _ = await attribute.GetData(methodInfo, new DisposalTracker());
+
+      var exception = await act.Should().ThrowAsync<ArgumentException>();
+      exception.Which.ParamName.Should().Be("propertyName");
+    }
+    finally
+    {
+      File.Delete(tempFile);
+    }
+  }
+
+  [Theory]
+  [InlineData("Student")]
+  [InlineData("Group")]
+  public async Task GetData_should_throw_when_property_is_not_array(string propertyName)
+  {
+    var methodInfo = typeof(JsonFileDataAttributeTests)
+      .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
+
+    var tempFile = Path.GetTempFileName();
+    File.WriteAllText(tempFile, "{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }");
+
+    try
+    {
+      var attribute = new JsonFileDataAttribute(tempFile, propertyName);
+      Func<Task> act = async () => _ = await attribute.GetData(methodInfo, new DisposalTracker());
+
+      var exception = await act.Should().ThrowAsync<ArgumentException>();
+      exception.Which.ParamName.Should().Be("propertyName");
+    }
+    finally
+    {
+      File.Delete(tempFile);
+    }
   }
 }
 #pragma warning restore xUnit1003

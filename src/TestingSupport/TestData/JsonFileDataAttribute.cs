@@ -58,7 +58,11 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     if (dataElement.ValueKind != JsonValueKind.Array)
     {
-      throw new ArgumentException("JSON data must be an array.", nameof(filePath));
+      var paramName = string.IsNullOrEmpty(propertyName)
+        ? nameof(filePath)
+        : nameof(propertyName);
+
+      throw new ArgumentException("JSON data must be an array.", paramName);
     }
 
     var parameters = testMethod.GetParameters();
