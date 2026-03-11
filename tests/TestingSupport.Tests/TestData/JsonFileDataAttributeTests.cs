@@ -12,7 +12,7 @@ namespace Ploch.TestingSupport.Tests;
 #pragma warning disable xUnit1003 // Theory must have test data - doesn't recognize custom data attributes
 public class JsonFileDataAttributeTests
 {
-  private static readonly MethodInfo EnrollStudentMethodInfo = typeof(JsonFileDataAttributeTests)
+  private static readonly MethodInfo TestMethodInfo = typeof(JsonFileDataAttributeTests)
     .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
 
   [Theory, JsonFileData("TestData/TestData.json", "Student")] 
@@ -87,11 +87,11 @@ public class JsonFileDataAttributeTests
   [InlineData(null)]
   [InlineData("")]
   [InlineData(" ")]
-  public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? filePath)
+  public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? invalidFilePath)
   {
-    var attribute = new JsonFileDataAttribute(filePath ?? string.Empty, "Student");
+    var attribute = new JsonFileDataAttribute(invalidFilePath ?? string.Empty, "Student");
 
-    Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
+    Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
 
     var exception = await act.Should().ThrowAsync<ArgumentException>();
     exception.Which.ParamName.Should().Be("filePath");
@@ -103,7 +103,7 @@ public class JsonFileDataAttributeTests
     await WithTempFileAsync("{ \"Existing\": [] }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, "MissingProperty");
-      Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
+      Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
@@ -118,7 +118,7 @@ public class JsonFileDataAttributeTests
     await WithTempFileAsync("{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, propertyName);
-      Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
+      Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
@@ -127,6 +127,7 @@ public class JsonFileDataAttributeTests
 
   private static async Task InvokeGetDataAsync(JsonFileDataAttribute attribute, MethodInfo methodInfo)
   {
+    // DisposalTracker is required by the xUnit v3 data source contract to capture disposable resources.
     await using var disposalTracker = new DisposalTracker();
     await attribute.GetData(methodInfo, disposalTracker).AsTask();
   }
