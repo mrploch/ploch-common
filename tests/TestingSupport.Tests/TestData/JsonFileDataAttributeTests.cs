@@ -12,8 +12,9 @@ namespace Ploch.TestingSupport.Tests;
 #pragma warning disable xUnit1003 // Theory must have test data - doesn't recognize custom data attributes
 public class JsonFileDataAttributeTests
 {
-  private static readonly MethodInfo TestMethodInfo = typeof(JsonFileDataAttributeTests)
-    .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
+  private static readonly MethodInfo TestMethodInfo =
+    typeof(JsonFileDataAttributeTests).GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)
+    ?? throw new InvalidOperationException("Expected test method to exist.");
 
   [Theory, JsonFileData("TestData/TestData.json", "Student")] 
   public void EnrollStudent_Success(Student student, int id)
@@ -89,7 +90,9 @@ public class JsonFileDataAttributeTests
   [InlineData(" ")]
   public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? invalidFilePath)
   {
-    var attribute = new JsonFileDataAttribute(invalidFilePath ?? string.Empty, "Student");
+    var attribute = invalidFilePath is null
+      ? new JsonFileDataAttribute(null!, "Student")
+      : new JsonFileDataAttribute(invalidFilePath, "Student");
 
     Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
 
@@ -129,7 +132,7 @@ public class JsonFileDataAttributeTests
   {
     // DisposalTracker is required by the xUnit v3 data source contract to capture disposable resources.
     await using var disposalTracker = new DisposalTracker();
-    await attribute.GetData(methodInfo, disposalTracker).AsTask();
+    _ = await attribute.GetData(methodInfo, disposalTracker);
   }
 
   private static async Task WithTempFileAsync(string content, Func<string, Task> action)
