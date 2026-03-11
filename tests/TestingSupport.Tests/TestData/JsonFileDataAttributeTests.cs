@@ -159,8 +159,5 @@ public class JsonFileDataAttributeTests
       }
     }
   }
-
-  private static readonly MethodInfo EnrollStudentMethodInfo = typeof(JsonFileDataAttributeTests)
-    .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
 }
 #pragma warning restore xUnit1003
