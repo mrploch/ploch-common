@@ -1,10 +1,12 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <DependenciesRoot Condition="'$(DependenciesRoot)' == '' and Exists('$(MSBuildThisFileDirectory)dependencies')">$(MSBuildThisFileDirectory)dependencies</DependenciesRoot>
+        <DependenciesRoot Condition="'$(DependenciesRoot)' == '' and Exists('$(MSBuildThisFileDirectory)..\\mrploch-development\\dependencies')">$(MSBuildThisFileDirectory)..\mrploch-development\dependencies</DependenciesRoot>
     </PropertyGroup>
-    <Import Project="../mrploch-development/dependencies/MicrosoftExtensions.Net9.Packages.props" />
-    <Import Project="../mrploch-development/dependencies/Ploch.Packages.props" />
-    <Import Project="../mrploch-development/dependencies/Common.Packages.props" />
-    <Import Project="../mrploch-development/dependencies/Testing.Packages.props" />
-    <Import Project="../mrploch-development/dependencies/Analyzers.Global.Packages.props" />
+    <Import Project="$(DependenciesRoot)/MicrosoftExtensions.Net9.Packages.props" Condition=" '$(DependenciesRoot)' != '' and Exists('$(DependenciesRoot)/MicrosoftExtensions.Net9.Packages.props')" />
+    <Import Project="$(DependenciesRoot)/Ploch.Packages.props" Condition=" '$(DependenciesRoot)' != '' and Exists('$(DependenciesRoot)/Ploch.Packages.props')" />
+    <Import Project="$(DependenciesRoot)/Common.Packages.props" Condition=" '$(DependenciesRoot)' != '' and Exists('$(DependenciesRoot)/Common.Packages.props')" />
+    <Import Project="$(DependenciesRoot)/Testing.Packages.props" Condition=" '$(DependenciesRoot)' != '' and Exists('$(DependenciesRoot)/Testing.Packages.props')" />
+    <Import Project="$(DependenciesRoot)/Analyzers.Global.Packages.props" Condition=" '$(DependenciesRoot)' != '' and Exists('$(DependenciesRoot)/Analyzers.Global.Packages.props')" />
 </Project>
