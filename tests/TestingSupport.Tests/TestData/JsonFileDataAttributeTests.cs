@@ -86,12 +86,9 @@ public class JsonFileDataAttributeTests
   [InlineData(" ")]
   public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? filePath)
   {
-    var methodInfo = typeof(JsonFileDataAttributeTests)
-      .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
-
     var attribute = new JsonFileDataAttribute(filePath!, "Student");
 
-    Func<Task> act = () => InvokeGetDataAsync(attribute, methodInfo);
+    Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
 
     var exception = await act.Should().ThrowAsync<ArgumentException>();
     exception.Which.ParamName.Should().Be("filePath");
@@ -100,13 +97,10 @@ public class JsonFileDataAttributeTests
   [Fact]
   public async Task GetData_should_throw_when_property_is_missing()
   {
-    var methodInfo = typeof(JsonFileDataAttributeTests)
-      .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
-
     await WithTempFileAsync("{ \"Existing\": [] }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, "MissingProperty");
-      Func<Task> act = () => InvokeGetDataAsync(attribute, methodInfo);
+      Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
@@ -118,13 +112,10 @@ public class JsonFileDataAttributeTests
   [InlineData("Group")]
   public async Task GetData_should_throw_when_property_is_not_array(string propertyName)
   {
-    var methodInfo = typeof(JsonFileDataAttributeTests)
-      .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
-
     await WithTempFileAsync("{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, propertyName);
-      Func<Task> act = () => InvokeGetDataAsync(attribute, methodInfo);
+      Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
@@ -140,7 +131,7 @@ public class JsonFileDataAttributeTests
   private static async Task WithTempFileAsync(string content, Func<string, Task> action)
   {
     var tempFile = Path.GetTempFileName();
-    File.WriteAllText(tempFile, content);
+    await File.WriteAllTextAsync(tempFile, content);
 
     try
     {
@@ -165,5 +156,8 @@ public class JsonFileDataAttributeTests
       }
     }
   }
+
+  private static readonly MethodInfo EnrollStudentMethodInfo = typeof(JsonFileDataAttributeTests)
+    .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
 }
 #pragma warning restore xUnit1003
