@@ -91,7 +91,7 @@ public class JsonFileDataAttributeTests
 
     var attribute = new JsonFileDataAttribute(filePath!, "Student");
 
-    Func<Task> act = async () => _ = await attribute.GetData(methodInfo, new DisposalTracker());
+    Func<Task> act = () => InvokeGetDataAsync(attribute, methodInfo);
 
     var exception = await act.Should().ThrowAsync<ArgumentException>();
     exception.Which.ParamName.Should().Be("filePath");
@@ -103,21 +103,14 @@ public class JsonFileDataAttributeTests
     var methodInfo = typeof(JsonFileDataAttributeTests)
       .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
 
-    var tempFile = Path.GetTempFileName();
-    File.WriteAllText(tempFile, "{ \"Existing\": [] }");
-
-    try
+    await WithTempFileAsync("{ \"Existing\": [] }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, "MissingProperty");
-      Func<Task> act = async () => _ = await attribute.GetData(methodInfo, new DisposalTracker());
+      Func<Task> act = () => InvokeGetDataAsync(attribute, methodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
-    }
-    finally
-    {
-      File.Delete(tempFile);
-    }
+    });
   }
 
   [Theory]
@@ -128,16 +121,27 @@ public class JsonFileDataAttributeTests
     var methodInfo = typeof(JsonFileDataAttributeTests)
       .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
 
-    var tempFile = Path.GetTempFileName();
-    File.WriteAllText(tempFile, "{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }");
-
-    try
+    await WithTempFileAsync("{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, propertyName);
-      Func<Task> act = async () => _ = await attribute.GetData(methodInfo, new DisposalTracker());
+      Func<Task> act = () => InvokeGetDataAsync(attribute, methodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
+    });
+  }
+
+  private static Task InvokeGetDataAsync(JsonFileDataAttribute attribute, MethodInfo methodInfo) =>
+    attribute.GetData(methodInfo, new DisposalTracker()).AsTask();
+
+  private static async Task WithTempFileAsync(string content, Func<string, Task> action)
+  {
+    var tempFile = Path.GetTempFileName();
+    File.WriteAllText(tempFile, content);
+
+    try
+    {
+      await action(tempFile);
     }
     finally
     {
