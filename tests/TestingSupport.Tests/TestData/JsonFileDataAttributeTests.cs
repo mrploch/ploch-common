@@ -90,11 +90,8 @@ public class JsonFileDataAttributeTests
   [InlineData(" ")]
   public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? invalidFilePath)
   {
-    // Pass through invalidFilePath (including null) to exercise the guard clauses.
-    var attribute = (JsonFileDataAttribute)Activator.CreateInstance(
-      typeof(JsonFileDataAttribute),
-      invalidFilePath,
-      "Student")!;
+    // Constructor requires non-null, but the guard treats null the same as empty.
+    var attribute = new JsonFileDataAttribute(invalidFilePath ?? string.Empty, "Student");
 
     Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
 
@@ -105,7 +102,7 @@ public class JsonFileDataAttributeTests
   [Fact]
   public async Task GetData_should_throw_when_property_is_missing()
   {
-    await WithTempFileAsync("{ \"Existing\": [] }", async tempFile =>
+    await UseTempFileAsync("{ \"Existing\": [] }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, "MissingProperty");
       Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
@@ -120,7 +117,7 @@ public class JsonFileDataAttributeTests
   [InlineData("Group")]
   public async Task GetData_should_throw_when_property_is_not_array(string propertyName)
   {
-    await WithTempFileAsync("{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }", async tempFile =>
+    await UseTempFileAsync("{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, propertyName);
       Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
@@ -137,7 +134,7 @@ public class JsonFileDataAttributeTests
     _ = await attribute.GetData(methodInfo, disposalTracker);
   }
 
-  private static async Task WithTempFileAsync(string content, Func<string, Task> action)
+  private static async Task UseTempFileAsync(string content, Func<string, Task> action)
   {
     var tempFile = Path.GetTempFileName();
     await File.WriteAllTextAsync(tempFile, content);
