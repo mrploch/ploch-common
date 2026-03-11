@@ -90,9 +90,8 @@ public class JsonFileDataAttributeTests
   [InlineData(" ")]
   public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? invalidFilePath)
   {
-    var attribute = invalidFilePath is null
-      ? new JsonFileDataAttribute(null!, "Student")
-      : new JsonFileDataAttribute(invalidFilePath, "Student");
+    // Pass through invalidFilePath (including null) to exercise the guard clauses.
+    var attribute = new JsonFileDataAttribute(invalidFilePath!, "Student");
 
     Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
 
@@ -153,11 +152,7 @@ public class JsonFileDataAttributeTests
           File.Delete(tempFile);
         }
       }
-      catch (IOException)
-      {
-        // best-effort cleanup for test temp files
-      }
-      catch (UnauthorizedAccessException)
+      catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
       {
         // best-effort cleanup for test temp files
       }
