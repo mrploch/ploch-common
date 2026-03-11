@@ -12,6 +12,9 @@ namespace Ploch.TestingSupport.Tests;
 #pragma warning disable xUnit1003 // Theory must have test data - doesn't recognize custom data attributes
 public class JsonFileDataAttributeTests
 {
+  private static readonly MethodInfo EnrollStudentMethodInfo = typeof(JsonFileDataAttributeTests)
+    .GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)!;
+
   [Theory, JsonFileData("TestData/TestData.json", "Student")] 
   public void EnrollStudent_Success(Student student, int id)
   {
@@ -86,7 +89,7 @@ public class JsonFileDataAttributeTests
   [InlineData(" ")]
   public async Task GetData_should_throw_when_filePath_is_null_or_whitespace(string? filePath)
   {
-    var attribute = new JsonFileDataAttribute(filePath!, "Student");
+    var attribute = new JsonFileDataAttribute(filePath ?? string.Empty, "Student");
 
     Func<Task> act = () => InvokeGetDataAsync(attribute, EnrollStudentMethodInfo);
 
