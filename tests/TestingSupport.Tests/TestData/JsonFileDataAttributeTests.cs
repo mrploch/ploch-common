@@ -12,7 +12,7 @@ namespace Ploch.TestingSupport.Tests;
 #pragma warning disable xUnit1003 // Theory must have test data - doesn't recognize custom data attributes
 public class JsonFileDataAttributeTests
 {
-  private static readonly MethodInfo TestMethodInfo =
+  private static readonly MethodInfo _testMethodInfo =
     typeof(JsonFileDataAttributeTests).GetMethod(nameof(EnrollStudent_Success), BindingFlags.Public | BindingFlags.Instance)
     ?? throw new InvalidOperationException("Expected test method to exist.");
 
@@ -93,7 +93,7 @@ public class JsonFileDataAttributeTests
     // Constructor requires non-null, but the guard treats null the same as empty.
     var attribute = new JsonFileDataAttribute(invalidFilePath ?? string.Empty, "Student");
 
-    Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
+    Func<Task> act = () => InvokeGetDataAsync(attribute, _testMethodInfo);
 
     var exception = await act.Should().ThrowAsync<ArgumentException>();
     exception.Which.ParamName.Should().Be("filePath");
@@ -105,7 +105,7 @@ public class JsonFileDataAttributeTests
     await UseTempFileAsync("{ \"Existing\": [] }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, "MissingProperty");
-      Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
+      Func<Task> act = () => InvokeGetDataAsync(attribute, _testMethodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
@@ -120,7 +120,7 @@ public class JsonFileDataAttributeTests
     await UseTempFileAsync("{ \"Student\": { \"FirstName\": \"John\" }, \"Group\": { \"Key\": 1 } }", async tempFile =>
     {
       var attribute = new JsonFileDataAttribute(tempFile, propertyName);
-      Func<Task> act = () => InvokeGetDataAsync(attribute, TestMethodInfo);
+      Func<Task> act = () => InvokeGetDataAsync(attribute, _testMethodInfo);
 
       var exception = await act.Should().ThrowAsync<ArgumentException>();
       exception.Which.ParamName.Should().Be("propertyName");
@@ -131,6 +131,7 @@ public class JsonFileDataAttributeTests
   {
     // DisposalTracker is required by the xUnit v3 data source contract to capture disposable resources.
     await using var disposalTracker = new DisposalTracker();
+    // The returned data is not needed here; we only assert on thrown exceptions.
     _ = await attribute.GetData(methodInfo, disposalTracker);
   }
 
