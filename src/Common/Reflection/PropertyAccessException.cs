@@ -19,8 +19,7 @@ public class PropertyAccessException : Exception
     /// <param name="propertyName">The name of the property that caused the exception.</param>
     /// <param name="message">The error message that explains the reason for the exception.</param>
     public PropertyAccessException(string propertyName, string message) : this(propertyName, message, null)
-    {
-    }
+    { }
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PropertyAccessException" /> class with the specified property name, error message, and a reference

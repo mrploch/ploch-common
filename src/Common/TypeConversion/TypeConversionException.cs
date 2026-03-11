@@ -28,8 +28,7 @@ public class TypeConversionException(string? message, object convertedValue, Typ
     /// <param name="convertedValue">Converted value.</param>
     /// <param name="targetType">Type conversion target type.</param>
     public TypeConversionException(object convertedValue, Type targetType) : this(convertedValue, targetType, null)
-    {
-    }
+    { }
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="TypeConversionException" /> class with a specified converted value, target type
@@ -43,8 +42,7 @@ public class TypeConversionException(string? message, object convertedValue, Typ
     /// <param name="innerException">The inner exception.</param>
     public TypeConversionException(object convertedValue, Type targetType, Exception? innerException) :
         this($"Failed to convert value '{convertedValue}' to type '{targetType}'.", convertedValue, targetType, innerException)
-    {
-    }
+    { }
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="TypeConversionException" /> class with a specified error message, converted value and target type.
@@ -53,8 +51,7 @@ public class TypeConversionException(string? message, object convertedValue, Typ
     /// <param name="convertedValue">Converted value.</param>
     /// <param name="targetType">Type conversion target type.</param>
     public TypeConversionException(string? message, object convertedValue, Type targetType) : this(message, convertedValue, targetType, null)
-    {
-    }
+    { }
 
     /// <summary>
     ///     Gets the value that was attempted to be converted when the type conversion exception occurred.

@@ -98,8 +98,7 @@ public class ScopedService<TService> : ScopedService, IScopedService<TService> w
     /// </summary>
     /// <param name="serviceProvider">The service provider used to create a new scope.</param>
     public ScopedService(IServiceProvider serviceProvider) : base(serviceProvider, typeof(TService))
-    {
-    }
+    { }
 
     /// <inheritdoc />
     public new TService Service => (TService)base.Service;

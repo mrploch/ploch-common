@@ -34,6 +34,5 @@ public class AutoMockDataAttribute : AutoDataAttribute
     /// </summary>
     /// <param name="ignoreVirtualMembers">Whether to ignore virtual members during specimen generation.</param>
     public AutoMockDataAttribute(bool ignoreVirtualMembers = false) : base(() => new Fixture().Customize(new AutoDataCommonCustomization(ignoreVirtualMembers)))
-    {
-    }
+    { }
 }

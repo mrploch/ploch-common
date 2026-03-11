@@ -24,6 +24,5 @@ public class PropertyReadOnlyException(string propertyName, string message, Exce
     /// </summary>
     /// <param name="propertyName">The name of the read-only property that caused the exception.</param>
     public PropertyReadOnlyException(string propertyName) : this(propertyName, $"Property {propertyName} is read-only.")
-    {
-    }
+    { }
 }

@@ -17,8 +17,7 @@ public class ActionExecutionException(IActionInfo actionInfo, string? message, E
     /// </summary>
     /// <param name="actionInfo">The information about the action that failed.</param>
     public ActionExecutionException(IActionInfo actionInfo) : this(actionInfo, null)
-    {
-    }
+    { }
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="ActionExecutionException" /> class with the specified action information and error message.
@@ -26,8 +25,7 @@ public class ActionExecutionException(IActionInfo actionInfo, string? message, E
     /// <param name="actionInfo">The information about the action that failed.</param>
     /// <param name="message">The message that describes the error.</param>
     public ActionExecutionException(IActionInfo actionInfo, string? message) : this(actionInfo, message, null)
-    {
-    }
+    { }
 
     /// <summary>
     ///     Gets the type of service action that failed.

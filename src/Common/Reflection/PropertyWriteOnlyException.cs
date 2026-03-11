@@ -20,6 +20,5 @@ public class PropertyWriteOnlyException(string propertyName, string message, Exc
     /// </summary>
     /// <param name="propertyName">The name of the write-only property that caused the exception.</param>
     public PropertyWriteOnlyException(string propertyName) : this(propertyName, $"Property {propertyName} is write-only.")
-    {
-    }
+    { }
 }
