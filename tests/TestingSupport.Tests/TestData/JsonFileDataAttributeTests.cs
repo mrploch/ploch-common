@@ -131,8 +131,11 @@ public class JsonFileDataAttributeTests
     });
   }
 
-  private static Task InvokeGetDataAsync(JsonFileDataAttribute attribute, MethodInfo methodInfo) =>
-    attribute.GetData(methodInfo, new DisposalTracker()).AsTask();
+  private static async Task InvokeGetDataAsync(JsonFileDataAttribute attribute, MethodInfo methodInfo)
+  {
+    await using var disposalTracker = new DisposalTracker();
+    await attribute.GetData(methodInfo, disposalTracker).AsTask();
+  }
 
   private static async Task WithTempFileAsync(string content, Func<string, Task> action)
   {
@@ -145,7 +148,17 @@ public class JsonFileDataAttributeTests
     }
     finally
     {
-      File.Delete(tempFile);
+      try
+      {
+        if (File.Exists(tempFile))
+        {
+          File.Delete(tempFile);
+        }
+      }
+      catch
+      {
+        // best-effort cleanup for test temp files
+      }
     }
   }
 }
