@@ -135,14 +135,14 @@ public class JsonFileDataAttributeTests
     _ = await attribute.GetData(methodInfo, disposalTracker);
   }
 
-  private static async Task UseTempFileAsync(string content, Func<string, Task> action)
+  private static async Task UseTempFileAsync(string content, Func<string, Task> fileAction)
   {
     var tempFile = Path.GetTempFileName();
     await File.WriteAllTextAsync(tempFile, content);
 
     try
     {
-      await action(tempFile);
+      await fileAction(tempFile);
     }
     finally
     {
