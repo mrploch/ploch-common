@@ -28,6 +28,7 @@ namespace Ploch.TestingSupport.TestData;
 public class JsonFileDataAttribute(string filePath, string? propertyName = null) : DataAttribute
 #pragma warning restore CC0023
 {
+#pragma warning disable CA2208 // paramNames reference primary constructor parameters, not method parameters
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
   {
     if (testMethod == null)
@@ -94,6 +95,7 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
 
     return theoryDataRows;
   }
+#pragma warning restore CA2208
 
   public override bool SupportsDiscoveryEnumeration() => false;
 }

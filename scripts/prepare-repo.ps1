@@ -1,4 +1,5 @@
 $loc = Get-Location
+cd $PSScriptRoot/..
 # Ensure posh-git module is installed or updated
 if (-not (Get-Module -ListAvailable -Name posh-git))
 {

@@ -199,12 +199,12 @@ public class ErrorInfoTests
     }
 
     // Helper classes for edge cases
-    private class ExceptionWithNullMessage : Exception
+    private sealed class ExceptionWithNullMessage : Exception
     {
         public override string Message => null!;
     }
 
-    private class MyCustomException : Exception
+    private sealed class MyCustomException : Exception
     {
         public MyCustomException(string message) : base(message)
         { }

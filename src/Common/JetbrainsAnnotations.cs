@@ -25,7 +25,7 @@ SOFTWARE. */
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-#pragma warning disable 1591, S101
+#pragma warning disable 1591, S101, SA1623, SA1602, SA1124, SA1629, S2344, CA1200, CA1069, CA1019, S4070, S1133, IDE0290, SA1028
 
 // ReSharper disable UnusedType.Global
 // ReSharper disable UnusedMember.Global
@@ -48,7 +48,7 @@ namespace JetBrains.Annotations;
 /// <example>
 ///     <code>
 /// [CanBeNull] object Test() => null;
-/// 
+///
 /// void UseTest() {
 ///   var p = Test();
 ///   var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
@@ -129,7 +129,7 @@ internal sealed class ItemCanBeNullAttribute : Attribute
 ///     <code>
 /// [StringFormatMethod("message")]
 /// void ShowError(string message, params object[] args) { /* do something */ }
-/// 
+///
 /// void Foo() {
 ///   ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
 /// }
@@ -156,7 +156,7 @@ internal sealed class StringFormatMethodAttribute([NotNull] string formatParamet
 /// <example>
 ///     <code>
 /// void LogInfo([StructuredMessageTemplate]string message, params object[] args) { /* do something */ }
-/// 
+///
 /// void Foo() {
 ///   LogInfo("User created: {username}"); // Warning: Non-existing argument in format string
 /// }
@@ -182,12 +182,12 @@ internal sealed class StructuredMessageTemplateAttribute : Attribute
 ///     public static int INT_CONST = 1;
 ///     public const string STRING_CONST = "1";
 ///   }
-/// 
+///
 ///   public class Class1
 ///   {
 ///     [ValueProvider("TestNamespace.Constants")] public int myField;
 ///     public void Foo([ValueProvider("TestNamespace.Constants")] string str) { }
-/// 
+///
 ///     public void Test()
 ///     {
 ///       Foo(/*try completion here*/);//
@@ -309,12 +309,12 @@ internal sealed class InvokerParameterNameAttribute : Attribute
 ///     <code>
 /// public class Foo : INotifyPropertyChanged {
 ///   public event PropertyChangedEventHandler PropertyChanged;
-/// 
+///
 ///   [NotifyPropertyChangedInvocator]
 ///   protected virtual void NotifyChanged(string propertyName) { ... }
-/// 
+///
 ///   string _name;
-/// 
+///
 ///   public string Name {
 ///     get { return _name; }
 ///     set { _name = value; NotifyChanged("LastName"); /* Warning */ }
@@ -450,7 +450,7 @@ internal sealed class LocalizationRequiredAttribute(bool required) : Attribute
 ///     <code>
 /// [CannotApplyEqualityOperator]
 /// class NoEquality { }
-/// 
+///
 /// class UsesNoEquality {
 ///   void Test() {
 ///     var ca1 = new NoEquality();
@@ -481,20 +481,20 @@ internal sealed class CannotApplyEqualityOperatorAttribute : Attribute
 /// <example>
 ///     <code>
 /// struct StructWithDefaultEquality { }
-/// 
+///
 /// class MySet&lt;[DefaultEqualityUsage] T&gt; { }
-/// 
+///
 /// static class Extensions {
 ///     public static MySet&lt;T&gt; ToMySet&lt;[DefaultEqualityUsage] T&gt;(this IEnumerable&lt;T&gt; items) =&gt; new();
 /// }
-/// 
+///
 /// class MyList&lt;T&gt; { public int IndexOf([DefaultEqualityUsage] T item) =&gt; 0; }
-/// 
+///
 /// class UsesDefaultEquality {
 ///     void Test() {
 ///         var list = new MyList&lt;StructWithDefaultEquality&gt;();
 ///         list.IndexOf(new StructWithDefaultEquality()); // Warning: Default equality of struct 'StructWithDefaultEquality' is used
-/// 
+///
 ///         var set = new MySet&lt;StructWithDefaultEquality&gt;(); // Warning: Default equality of struct 'StructWithDefaultEquality' is used
 ///         var set2 = new StructWithDefaultEquality[1].ToMySet(); // Warning: Default equality of struct 'StructWithDefaultEquality' is used
 ///     }
@@ -514,7 +514,7 @@ internal sealed class DefaultEqualityUsageAttribute : Attribute
 ///     <code>
 /// [BaseTypeRequired(typeof(IComponent)] // Specify requirement
 /// class ComponentAttribute : Attribute { }
-/// 
+///
 /// [Component] // ComponentAttribute requires implementing IComponent interface
 /// class MyComponent : IComponent { }
 /// </code>
@@ -538,13 +538,13 @@ internal sealed class BaseTypeRequiredAttribute([NotNull] Type baseType) : Attri
 ///     <code>
 /// [UsedImplicitly]
 /// public class TypeConverter {}
-/// 
+///
 /// public class SummaryData
 /// {
 ///   [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 ///   public SummaryData() {}
 /// }
-/// 
+///
 /// [UsedImplicitly(ImplicitUseTargetFlags.WithInheritors | ImplicitUseTargetFlags.Default)]
 /// public interface IService {}
 /// </code>
@@ -693,7 +693,7 @@ internal sealed class InstantHandleAttribute : Attribute
 /// <example>
 ///     <code>
 /// [Pure] int Multiply(int x, int y) => x * y;
-/// 
+///
 /// void M() {
 ///   Multiply(123, 42); // Warning: Return value of pure method is not used
 /// }
@@ -817,7 +817,7 @@ internal sealed class RequireStaticDelegateAttribute : Attribute
 ///     <code>
 /// class Foo {
 ///   [ProvidesContext] IBarService _barService = ...;
-/// 
+///
 ///   void ProcessNode(INode node) {
 ///     DoSomething(node, node.GetGlobalServices().Bar);
 ///     //              ^ Warning: use value of '_barService' field
@@ -1089,7 +1089,7 @@ internal sealed class LinqTunnelAttribute : Attribute
 /// {
 ///   // custom check for null but no enumeration
 /// }
-/// 
+///
 /// void Foo(IEnumerable&lt;string&gt; values)
 /// {
 ///   ThrowIfNull(values, nameof(values));
@@ -2097,7 +2097,7 @@ internal sealed class TestSubjectAttribute([NotNull] Type subject) : Attribute
 /// {
 ///   protected T Component { get; }
 /// }
-/// 
+///
 /// public class CalculatorAdditionTests : BaseTestClass&lt;Calculator&gt;
 /// {
 ///   [Test]

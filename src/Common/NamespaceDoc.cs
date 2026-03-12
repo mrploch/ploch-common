@@ -6,4 +6,5 @@ namespace Ploch.Common;
 ///     Ploch.Common namespace contains extension methods and utility classes for classes in the System namespace.
 /// </summary>
 [CompilerGenerated]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Used for namespace documentation.")]
 internal class NamespaceDoc;

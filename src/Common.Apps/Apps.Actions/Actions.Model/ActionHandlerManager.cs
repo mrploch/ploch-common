@@ -47,7 +47,7 @@ public class ActionHandlerManager<TSystemApplication, TActionInfo, TSystemAction
     ///     The result contains an <see cref="ActionHandlerManagerResult{TSystemApplication}" /> indicating
     ///     the execution outcome (success or failure) and any related results or errors from the handlers used.
     /// </returns>
-    public override async Task<ActionHandlerManagerResult<TSystemApplication>> ExecuteAsync(TActionInfo actionInfo, CancellationToken cancellationToken)
+    public override async Task<ActionHandlerManagerResult<TSystemApplication>> ExecuteAsync(TActionInfo actionInfo, CancellationToken cancellationToken = default)
     {
         actionInfo.NotNull();
 

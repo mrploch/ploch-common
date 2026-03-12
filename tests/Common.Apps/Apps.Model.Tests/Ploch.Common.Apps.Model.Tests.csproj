@@ -11,9 +11,18 @@
   <ItemGroup>
 
     <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="coverlet.msbuild">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="xunit.runner.visualstudio" />
     <PackageReference Include="xunit.v3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Common\Ploch.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Common.Apps\Apps.Actions\Actions.Model\Ploch.Common.Apps.Actions.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>

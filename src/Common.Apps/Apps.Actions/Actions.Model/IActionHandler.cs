@@ -37,9 +37,6 @@ public interface IActionHandler<TActionTargetDescriptor, in TActionInfo, TResult
     /// <summary>
     ///     Executes the specified action asynchronously and returns the result.
     /// </summary>
-    /// <typeparam name="TActionTargetDescriptor">The type of the action target descriptor.</typeparam>
-    /// <typeparam name="TActionInfo">The type of the action information.</typeparam>
-    /// <typeparam name="TResult">The type of the result returned by the action handler.</typeparam>
     /// <param name="actionInfo">The information describing the action to be executed.</param>
     /// <param name="cancellationToken">
     ///     A <see cref="System.Threading.CancellationToken" /> instance that can be used to observe cancellation requests.

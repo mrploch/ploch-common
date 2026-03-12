@@ -19,10 +19,6 @@ public class ActionInfo<TActionTargetDescriptor>(TActionTargetDescriptor systemA
     ///     The descriptor of type <typeparamref name="TActionTargetDescriptor" />
     ///     that contains the details of the target system application linked to the action.
     /// </value>
-    /// <typeparam name="TActionTargetDescriptor">
-    ///     Defines the type of system application descriptor, ensuring it implements
-    ///     the <see cref="IActionTargetDescriptor" /> interface.
-    /// </typeparam>
     public TActionTargetDescriptor Descriptor => systemApplication;
 
     /// <summary>

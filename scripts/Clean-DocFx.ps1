@@ -1,4 +1,4 @@
-cd $PSScriptRoot
+cd $PSScriptRoot/..
 Remove-Item docfx_project/bin -Force
 Remove-Item docfx_project/obj -Force
 Remove-Item docfx_project/_site -Force
@@ -12,3 +12,4 @@ if ($error)
     Write-Host $error
     Read-Host Completed with errors. Press enter.
 }
+cd $PSScriptRoot

@@ -332,7 +332,7 @@ dotnet_diagnostic.sa1649.severity = warning # File name should match first type 
 
 dotnet_diagnostic.sa1500.severity = none # this one controls braces on the same line
 dotnet_diagnostic.sa1501.severity = warning # Statement should not be on a single line.
-dotnet_diagnostic.sa1502.severity = warning # Element must not be on a single line.
+dotnet_diagnostic.sa1502.severity = none # Element must not be on a single line - allow single-line empty bodies.
 dotnet_diagnostic.sa1503.severity = warning #  Braces should not be omitted.
 dotnet_diagnostic.sa1504.severity = warning # All accessors must be single-line or multi-line.
 dotnet_diagnostic.sa1505.severity = warning # Opening braces should not be followed by blank lines.

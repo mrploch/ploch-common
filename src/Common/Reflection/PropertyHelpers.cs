@@ -143,7 +143,7 @@ public static class PropertyHelpers
     ///     <code>
     /// var person = new { Name = "John", Age = 30, City = "New York" };
     /// var propertyValues = person.GetPropertyValues();
-    /// 
+    ///
     /// foreach (var (name, value) in propertyValues)
     /// {
     ///     Console.WriteLine($"{name}: {value}");
@@ -294,9 +294,11 @@ public static class PropertyHelpers
         var valueObj = GetStaticPropertyValue(type, propertyName);
 
         return valueObj switch
-               { null => default,
-                 TValue value => value,
-                 _ => throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type") };
+        {
+            null => default,
+            TValue value => value,
+            _ => throw new InvalidOperationException($"Static property {propertyName} in {type} is not of {typeof(TValue)} type")
+        };
     }
 
     /// <summary>

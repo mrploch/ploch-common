@@ -94,6 +94,56 @@ public class ExpressionExtensionsTests
         property.Owner.Should().Be(obj);
     }
 
+    [Fact]
+    public void GetMemberName_Action_should_throw_for_unsupported_expression()
+    {
+        // BinaryExpression (addition) is not a MemberExpression or MethodCallExpression
+        Expression<Action> expression = Expression.Lambda<Action>(
+            Expression.Block(Expression.Constant(0)),
+            Array.Empty<ParameterExpression>());
+
+        var act = () => expression.GetMemberName();
+
+        act.Should().Throw<InvalidOperationException>();
+    }
+
+    [Fact]
+    public void GetMemberName_Func_should_throw_for_unsupported_expression()
+    {
+        // Constant expression is not a MemberExpression or MethodCallExpression
+        Expression<Func<int>> expression = Expression.Lambda<Func<int>>(
+            Expression.Constant(42),
+            Array.Empty<ParameterExpression>());
+
+        var act = () => expression.GetMemberName();
+
+        act.Should().Throw<InvalidOperationException>();
+    }
+
+    [Fact]
+    public void GetMemberName_typed_should_throw_for_unsupported_expression()
+    {
+        // Constant expression is not a MemberExpression, MethodCallExpression, or UnaryExpression
+        var param = Expression.Parameter(typeof(TestType), "x");
+        Expression<Func<TestType, int>> expression = Expression.Lambda<Func<TestType, int>>(
+            Expression.Constant(42),
+            param);
+
+        var act = () => expression.GetMemberName();
+
+        act.Should().Throw<InvalidOperationException>();
+    }
+
+    [Fact]
+    public void GetProperty_should_throw_for_non_property_expression()
+    {
+        var obj = new TestType();
+
+        var act = () => obj.GetProperty<TestType, int>(o => o.IntProp + 1);
+
+        act.Should().Throw<InvalidOperationException>();
+    }
+
 #pragma warning disable CA1822
 #pragma warning disable CC0091
 #pragma warning disable S1186

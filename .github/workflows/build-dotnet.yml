@@ -46,7 +46,7 @@ jobs:
         run: dotnet tool install --global dotnet-coverage
       - name: SonarScanner Begin
         id: sonar-begin
-        run: dotnet sonarscanner begin /k:"${{ env.SONAR_PROJECT_KEY }}" /o:"${{ env.SONAR_ORGANIZATION }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io"
+        run: dotnet sonarscanner begin /k:"${{ env.SONAR_PROJECT_KEY }}" /o:"${{ env.SONAR_ORGANIZATION }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage.opencover.xml /d:sonar.host.url="https://sonarcloud.io" /d:sonar.coverage.exclusions="**/*.ps1,**/JetbrainsAnnotations.cs,**/*.Tests/**,**/*.Tests.csproj"
         continue-on-error: true
 
       # Build and Test (always runs regardless of SonarCloud status)
@@ -83,7 +83,7 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          name: DotNet Tests
+          name: Test Results
           path: '**/*.trx'
           reporter: dotnet-trx
       - name: Upload Coverage Results
@@ -115,4 +115,4 @@ jobs:
         run: echo "dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}"
       - name: Publish NuGet package
         if: always()
-        run: dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}
+        run: dotnet nuget push **/*.nupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}}
