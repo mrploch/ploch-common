@@ -15,22 +15,20 @@
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-        <VersionPrefix>2.0.1</VersionPrefix>
-        <BuildNumber>$([System.DateTime]::UtcNow.ToString("yyMMddHHmm"))</BuildNumber>
-        <!-- Development versions -->
-        <VersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">-prerelease</VersionSuffix>
-        <FullVersionSuffix Condition="'$(RELEASEVERSION)' != 'true'">$(VersionSuffix)-$(BuildNumber)</FullVersionSuffix>
-        <Version Condition="'$(RELEASEVERSION)' != 'true'">$(VersionPrefix)$(FullVersionSuffix)</Version>
-        <!-- Release versions -->
-        <Version Condition="'$(RELEASEVERSION)' == 'true'">$(VersionPrefix)</Version>
-        <FileVersion>$(InformationalVersion)</FileVersion>
-        <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
+        <!-- Versioning is handled by Nerdbank.GitVersioning (version.json) -->
+        <!-- SourceLink: enables source debugging for consumers -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <!-- Deterministic builds for CI -->
+        <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
         <NoWarn>$(NoWarn);NU1507;CS9057;NU1603</NoWarn>
         <TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <DebugType>embedded</DebugType>
+        <DebugType>portable</DebugType>
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
     <PropertyGroup Condition="$(IsTestProject)">
@@ -56,19 +54,13 @@
         <Message Text="GenerateDocumentationFile -> '$(GenerateDocumentationFile)' " Importance="high" />
         <Message Text="IsPackable -> '$(IsPackable)' " Importance="high" />
     </Target>
-    <!--  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('Tests'))">-->
-    <!--    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>-->
-    <!--    <GenerateDocumentationFile>false</GenerateDocumentationFile>-->
-    <!--    <IsPackable>false</IsPackable>-->
-    <!--    <IsTestProject>true</IsTestProject>-->
-    <!--  </PropertyGroup>-->
-    <!--  <PropertyGroup Condition="!$(MSBuildProjectName.EndsWith('Tests'))">-->
-    <!--    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
-    <!--    <GenerateDocumentationFile>true</GenerateDocumentationFile>-->
-    <!--    <IsTestProject>false</IsTestProject>-->
-    <!--  </PropertyGroup>-->
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
+    <!-- Nerdbank.GitVersioning and SourceLink for all projects -->
+    <ItemGroup>
+        <PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
+    </ItemGroup>
 </Project>

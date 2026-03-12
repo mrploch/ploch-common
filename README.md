@@ -1,3 +1,5 @@
+[![NuGet](https://img.shields.io/nuget/v/Ploch.Common.svg)](https://www.nuget.org/packages/Ploch.Common)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Ploch.Common.svg)](https://www.nuget.org/packages/Ploch.Common)
 [![Build, Test and Analyze .NET](https://github.com/mrploch/ploch-common/actions/workflows/build-dotnet.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/build-dotnet.yml)
 [![pages-build-deployment](https://github.com/mrploch/ploch-common/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/pages/pages-build-deployment)
 [![Qodana](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml)

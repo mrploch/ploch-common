@@ -19,6 +19,8 @@ jobs:
     steps:
       - run: echo "The branch name is ${{ github.repository }}"
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Clone mrploch-development (shared build config)
         run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
       - name: Copy documentation files
@@ -30,9 +32,12 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
+
+      - name: Restore .NET tools
+        run: dotnet tool restore
 
       # Restore
       - name: Restore dependencies
@@ -104,15 +109,13 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./DocumentationSite/_site
-      # Publish all NuGet packages to NuGet.org
-      # Use --skip-duplicate to prevent errors if a package with the same version already exists.
-      # If you retry a failed workflow, already published packages will be skipped without error.
+      # Publish prerelease NuGet packages to GitHub Packages
+      # Release packages are published to nuget.org via the release workflow
       - name: Add GitHub Packages source
         if: always()
         run: dotnet nuget add source --username kploch --password ${{secrets.GH_PACKAGES_TOKEN}} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
-      - name: Options for publishing of NuGet packages
+      - name: Publish NuGet packages to GitHub Packages
         if: always()
-        run: echo "dotnet nuget push **/*.nupkg --source github -k ${{secrets.GH_PACKAGES_TOKEN}}"
-      - name: Publish NuGet package
-        if: always()
-        run: dotnet nuget push **/*.nupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}}
+        run: |
+          dotnet nuget push **/*.nupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}}
+          dotnet nuget push **/*.snupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}} || true

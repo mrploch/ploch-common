@@ -1,79 +1,41 @@
-# Release Notes - PR #161
+# Release Notes
 
-## Various Project Improvements and Testing Enhancements
+## v2.1 — NBGV Versioning and Release Pipeline
 
 ### Overview
-This release brings significant improvements to the Ploch.Common library suite, focusing on enhanced IDE integration, richer reflection utilities, and more robust collection handling with comprehensive test coverage.
+
+This release introduces automated versioning via Nerdbank.GitVersioning (NBGV) and a fully automated release pipeline for publishing packages to nuget.org.
 
 ### What's New
 
-#### JetBrains Annotations Integration
-- Bundled JetBrains.Annotations into the project
-- IDEs now receive nullability, purity, and intent hints for all project symbols
-- Improved code analysis and IntelliSense experience
+#### Automated Versioning (Nerdbank.GitVersioning)
 
-#### Enhanced Reflection Utilities
-Added comprehensive reflection helpers in `Ploch.Common.Reflection`:
-- Indexer property name constant for consistent indexer handling
-- New property access overloads supporting multiple target types
-- Support for assignable and inherited types in property lookups
-- Typed and indexer-aware `GetPropertyValue` overloads
-- `GetPropertyValues` method returning name/value pairs
-- `Try/Get` static property helper methods
-- `HasProperty` and `IsStatic` utility methods
-- New `PropertyNotFoundException` for better error handling
+- Replaced manual `VersionPrefix`/`RELEASEVERSION` env var approach with NBGV
+- Version is now derived from `version.json` and git commit height
+- Development builds produce prerelease packages (e.g., `2.1.5-prerelease`)
+- Release builds produce stable packages (e.g., `3.0.0`)
 
-#### Collection Extensions Improvements
-Renamed and enhanced collection helper methods:
-- `NullOrEmpty` → `IsNullOrEmpty` for clarity
-- Added `IsEmpty` for non-null collections
-- Expanded test coverage for:
-  - Arrays
-  - Strings
-  - Custom non-disposable enumerables
-  - IDisposable enumerators with proper disposal
-  - Yield-return sequences
-  - Types implementing multiple enumerable interfaces
-- Proper enumerator disposal in `IsEmpty` operations
-- Shared separator constants in join operations
+#### Release Pipeline
 
-#### Project Infrastructure
-- Added `CLAUDE.md` documentation for AI-assisted development
-- Migrated from `.sln` to `.slnx` solution format
-- Added MCP configuration for AI tooling integration
-- Added API reference generation script
-- Updated VS Code workspace configuration
+- New GitHub Actions workflow (`release.yml`) for one-click releases
+- Accepts a version number, builds, tests, and publishes to nuget.org
+- Automatically creates git tags and GitHub Releases with release notes
+- Bumps the version for the next development cycle after release
 
-#### Code Quality Improvements
-- Fixed parameter naming in `ActionExecutionException`
-- Removed redundant null checks in `ConfigurableServicesBundle`
-- Updated XML documentation for better clarity
-- Applied consistent code formatting
+#### Open-Source Publishing Enhancements
 
-### Impact
+- Packages are now published to **nuget.org** for releases
+- **SourceLink** enabled — consumers can step into library source code during debugging
+- **Symbol packages** (`.snupkg`) published to the NuGet symbol server
+- **Deterministic builds** enabled in CI for reproducible packages
+- Development/PR packages continue to publish to GitHub Packages
 
-✅ **Clearer IDE nullability and code-analysis hints**
-Better developer experience with improved IntelliSense and static analysis
+### Migration Notes
 
-✅ **Easier indexed and typed property access via reflection**
-Simplified reflection operations with type-safe property access
+- The `RELEASEVERSION` environment variable is no longer used
+- Version is controlled via `version.json` at the repository root
+- Use the `nbgv` dotnet tool (`dotnet tool restore && dotnet nbgv get-version`) to inspect the current version locally
 
-✅ **Safer collection emptiness checks across enumerable and disposal scenarios**
-Proper resource management and comprehensive edge case handling
+### Previous Release
 
-### Testing
-- Added comprehensive unit tests for all new functionality
-- Expanded test coverage for enumerable scenarios
-- Added disposal verification tests
-- Included indexer-aware property access tests
-
-### Files Changed
-- **481 files** changed
-- **29,466 additions**, **4,316 deletions**
-- **448 review comments** addressed
-
-### Pull Request
-[#161 - Various project improvements, include testing](https://github.com/mrploch/ploch-common/pull/161)
-
----
-*Generated with Claude Code*
+See [PR #161](https://github.com/mrploch/ploch-common/pull/161) for the previous release notes covering JetBrains Annotations, enhanced reflection utilities, and collection extension improvements.
