@@ -4,7 +4,7 @@
 
 ## Summary
 
-Switched project versioning from manual `VersionPrefix`/`RELEASEVERSION` to Nerdbank.GitVersioning (NBGV) and added a fully automated release pipeline for publishing packages to nuget.org.
+Switched project versioning from manual `VersionPrefix`/`RELEASEVERSION` to Nerdbank.GitVersioning (NBGV) and added a fully automated release pipeline for publishing packages to NuGet.org.
 
 ## Changes
 
@@ -20,7 +20,7 @@ Switched project versioning from manual `VersionPrefix`/`RELEASEVERSION` to Nerd
 - Created `.github/workflows/release.yml` — a `workflow_dispatch` workflow that:
   - Accepts a version number (e.g., `3.0`)
   - Updates `version.json`, builds in Release mode, runs tests
-  - Publishes `.nupkg` and `.snupkg` to nuget.org
+  - Publishes `.nupkg` and `.snupkg` to NuGet.org
   - Creates a git tag and GitHub Release with auto-generated release notes
   - Bumps version to next development cycle (e.g., `3.1-prerelease`)
 

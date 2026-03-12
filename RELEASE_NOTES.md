@@ -4,7 +4,7 @@
 
 ### Overview
 
-This release introduces automated versioning via Nerdbank.GitVersioning (NBGV) and a fully automated release pipeline for publishing packages to nuget.org.
+This release introduces automated versioning via Nerdbank.GitVersioning (NBGV) and a fully automated release pipeline for publishing packages to NuGet.org.
 
 ### What's New
 
@@ -18,13 +18,13 @@ This release introduces automated versioning via Nerdbank.GitVersioning (NBGV) a
 #### Release Pipeline
 
 - New GitHub Actions workflow (`release.yml`) for one-click releases
-- Accepts a version number, builds, tests, and publishes to nuget.org
+- Accepts a version number, builds, tests, and publishes to NuGet.org
 - Automatically creates git tags and GitHub Releases with release notes
 - Bumps the version for the next development cycle after release
 
 #### Open-Source Publishing Enhancements
 
-- Packages are now published to **nuget.org** for releases
+- Packages are now published to **NuGet.org** for releases
 - **SourceLink** enabled — consumers can step into library source code during debugging
 - **Symbol packages** (`.snupkg`) published to the NuGet symbol server
 - **Deterministic builds** enabled in CI for reproducible packages

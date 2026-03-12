@@ -25,12 +25,19 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Validate version format
+      - name: Validate inputs
         run: |
           VERSION="${{ inputs.release_version }}"
           if [[ ! "$VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
-            echo "::error::Version must be in major.minor format (e.g. 3.0) without leading zeros"
+            echo "::error::release_version must be in major.minor format (e.g. 3.0) without leading zeros"
             exit 1
+          fi
+          NEXT="${{ inputs.next_version }}"
+          if [ -n "$NEXT" ]; then
+            if [[ ! "$NEXT" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+              echo "::error::next_version must be in major.minor format (e.g. 3.1) without leading zeros"
+              exit 1
+            fi
           fi
 
       - name: Checkout
@@ -90,7 +97,9 @@ jobs:
             **/TestResults/*.xml
             **/TestResults/*.trx
 
-      # Create tag BEFORE publishing packages to avoid orphaned packages on nuget.org
+      # Tag is created BEFORE publishing packages intentionally.
+      # Rationale: orphaned packages on NuGet.org cannot be deleted (only unlisted),
+      # while tags can be deleted and re-created easily. Tag-first is the safer default.
       - name: Create and push tag
         id: tag
         if: success()
@@ -100,7 +109,7 @@ jobs:
           git push origin "$TAG"
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
-      - name: Publish NuGet packages to nuget.org
+      - name: Publish NuGet packages to NuGet.org
         if: success()
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
@@ -110,7 +119,7 @@ jobs:
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY"
           done
 
-      - name: Publish symbol packages to nuget.org
+      - name: Publish symbol packages to NuGet.org
         if: success()
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
@@ -119,6 +128,34 @@ jobs:
             echo "Publishing symbols $pkg"
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY" || true
           done
+
+      # Generate release notes BEFORE archiving change-log entries,
+      # so only the current release's entries are included.
+      - name: Generate release notes
+        id: release-notes
+        if: success()
+        run: |
+          NOTES=""
+          if [ -d "change-log" ] && [ "$(ls -A change-log/*.md 2>/dev/null)" ]; then
+            NOTES=$(cat change-log/*.md)
+          fi
+          if [ -z "$NOTES" ]; then
+            NOTES="Release ${{ steps.version.outputs.nuget_version }}"
+          fi
+          cat > /tmp/release-notes.md <<EOF
+          $NOTES
+
+          ---
+
+          ## NuGet Packages
+
+          All packages are available on [NuGet.org](https://www.nuget.org/profiles/mrploch) with version \`${{ steps.version.outputs.nuget_version }}\`.
+
+          Install via:
+          \`\`\`bash
+          dotnet add package Ploch.Common --version ${{ steps.version.outputs.nuget_version }}
+          \`\`\`
+          EOF
 
       - name: Compute next development version
         id: next
@@ -153,33 +190,6 @@ jobs:
           git add change-log/ || true
           git commit -m "chore(release): Bump version to ${{ steps.next.outputs.next_version }}-prerelease for development"
           git push origin master
-
-      - name: Generate release notes
-        id: release-notes
-        if: success()
-        run: |
-          NOTES=""
-          if [ -d "change-log/archive" ] && [ "$(ls -A change-log/archive/*.md 2>/dev/null)" ]; then
-            NOTES=$(cat change-log/archive/*.md)
-          fi
-          if [ -z "$NOTES" ]; then
-            NOTES="Release ${{ steps.version.outputs.nuget_version }}"
-          fi
-          # Write to file for the GitHub Release body
-          cat > /tmp/release-notes.md <<ENDOFNOTES
-          $NOTES
-
-          ---
-
-          ## NuGet Packages
-
-          All packages are available on [nuget.org](https://www.nuget.org/profiles/mrploch) with version \`${{ steps.version.outputs.nuget_version }}\`.
-
-          Install via:
-          \`\`\`bash
-          dotnet add package Ploch.Common --version ${{ steps.version.outputs.nuget_version }}
-          \`\`\`
-          ENDOFNOTES
 
       - name: Create GitHub Release
         if: success()
