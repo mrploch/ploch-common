@@ -121,5 +121,5 @@ jobs:
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          dotnet nuget push **/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
-          dotnet nuget push **/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+          dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
+          dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
