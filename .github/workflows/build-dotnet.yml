@@ -113,9 +113,13 @@ jobs:
       # Release packages are published to nuget.org via the release workflow
       - name: Add GitHub Packages source
         if: always()
-        run: dotnet nuget add source --username kploch --password ${{secrets.GH_PACKAGES_TOKEN}} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
+        env:
+          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+        run: dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
       - name: Publish NuGet packages to GitHub Packages
         if: always()
+        env:
+          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
-          dotnet nuget push **/*.nupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}}
-          dotnet nuget push **/*.snupkg --source github --skip-duplicate -k ${{secrets.GH_PACKAGES_TOKEN}} || true
+          dotnet nuget push **/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
+          dotnet nuget push **/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
