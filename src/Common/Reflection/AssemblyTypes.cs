@@ -26,23 +26,6 @@ public static class AssemblyTypes
     }
 
     /// <summary>
-    ///     Returns all types from an assembly that can be loaded, gracefully handling
-    ///     <see cref="ReflectionTypeLoadException" /> for assemblies containing types
-    ///     that cannot be resolved (e.g. dynamic proxy assemblies).
-    /// </summary>
-    private static IEnumerable<Type> GetLoadableTypes(Assembly assembly)
-    {
-        try
-        {
-            return assembly.GetTypes();
-        }
-        catch (ReflectionTypeLoadException ex)
-        {
-            return ex.Types.Where(static t => t != null)!;
-        }
-    }
-
-    /// <summary>
     ///     Retrieves all types that implement or inherit from the specified generic base type within the provided assemblies.
     /// </summary>
     /// <typeparam name="TBaseType">The generic base type to search for implementations of.</typeparam>
@@ -91,4 +74,22 @@ public static class AssemblyTypes
     /// <returns>A collection of types that implement or inherit from the specified generic base type.</returns>
     public static IEnumerable<Type> GetAppDomainImplementations<TBaseType>(bool concreteOnly = true) =>
         GetImplementations<TBaseType>(concreteOnly, AppDomain.CurrentDomain.GetAssemblies());
+
+    /// <summary>
+    ///     Returns all types from an assembly that can be loaded, gracefully handling
+    ///     <see cref="ReflectionTypeLoadException" /> for assemblies containing types
+    ///     that cannot be resolved (e.g. dynamic proxy assemblies).
+    /// </summary>
+    /// <param name="assembly">The assembly to load types from.</param>
+    private static IEnumerable<Type> GetLoadableTypes(Assembly assembly)
+    {
+        try
+        {
+            return assembly.GetTypes();
+        }
+        catch (ReflectionTypeLoadException ex)
+        {
+            return ex.Types.Where(static t => t != null)!;
+        }
+    }
 }
