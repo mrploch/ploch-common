@@ -147,7 +147,7 @@ jobs:
         run: |
           find . -name '*.snupkg' -not -path '*/test*' -not -path '*/Test*' | while read pkg; do
             echo "Publishing symbols $pkg"
-            dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY" || true
+            dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY"
           done
 
       # Generate release notes BEFORE archiving change-log entries,
