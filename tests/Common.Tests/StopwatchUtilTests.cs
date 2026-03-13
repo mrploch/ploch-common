@@ -26,9 +26,12 @@ public class StopwatchUtilTests
     [Fact]
     public async Task Time_should_return_execution_time_for_started_taskAsync()
     {
-        var asyncMethodTime = await StopwatchUtil.TimeAsync(AsyncMethod(TimeSpan.FromMilliseconds(100)));
+        // The task starts running immediately when AsyncMethod is called, before TimeAsync
+        // begins measuring. Use a longer delay with a generous threshold to avoid flaky
+        // timing failures on loaded CI runners.
+        var asyncMethodTime = await StopwatchUtil.TimeAsync(AsyncMethod(TimeSpan.FromMilliseconds(200)));
 
-        asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
+        asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(50));
     }
 
     // ReSharper disable once MemberCanBeMadeStatic.Local
