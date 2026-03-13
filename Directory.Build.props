@@ -25,7 +25,7 @@
         <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
         <NoWarn>$(NoWarn);NU1507;CS9057;NU1603</NoWarn>
-        <TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>net10.0</TargetFrameworkVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
         <DebugType>portable</DebugType>

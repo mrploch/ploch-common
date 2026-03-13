@@ -14,6 +14,7 @@ A comprehensive collection of .NET utility libraries providing extension methods
 
 - [Overview](#overview)
 - [Installation](#installation)
+- [Versioning and Releases](#versioning-and-releases)
 - [Core Library (Ploch.Common)](#core-library-plochcommon)
   - [String Extensions](#string-extensions)
   - [Collection Extensions](#collection-extensions)
@@ -49,6 +50,30 @@ dotnet add package Ploch.Common.DependencyInjection
 dotnet add package Ploch.Common.Serialization
 dotnet add package Ploch.Common.Serialization.SystemTextJson
 dotnet add package Ploch.TestingSupport
+```
+
+## Versioning and Releases
+
+This project uses [Nerdbank.GitVersioning (NBGV)](https://github.com/dotnet/Nerdbank.GitVersioning) for automatic
+version computation from `version.json` and git commit history.
+
+- **Stable releases** are published to [NuGet.org](https://www.nuget.org/profiles/mrploch) via the Release workflow
+- **Prerelease packages** are published to GitHub Packages on every push to `master`
+- **SourceLink** is enabled — step into library source code during debugging
+- **Symbol packages** (`.snupkg`) are published to the NuGet symbol server
+
+### Cutting a Release
+
+1. Go to **Actions** → **Release** workflow → **Run workflow**
+2. Enter the release version (e.g. `3.0`) — the patch version is computed by NBGV
+3. Optionally enter the next development version (defaults to minor increment)
+4. The workflow builds, tests, publishes to NuGet.org, creates a GitHub Release, and bumps the version
+
+### Checking the Current Version Locally
+
+```bash
+dotnet tool restore
+dotnet nbgv get-version
 ```
 
 ## Core Library (Ploch.Common)
