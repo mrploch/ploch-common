@@ -323,25 +323,88 @@ After modifying code files:
 - Pull requests target `master` branch
 - CI/CD runs on push to master and on pull requests
 
-## CI/CD Pipeline
+## Versioning
 
-GitHub Actions workflow (`.github/workflows/build-dotnet.yml`):
-1. Build solution
-2. Run tests with code coverage
-3. SonarCloud analysis
-4. Publish test results and coverage reports
-5. Deploy documentation to GitHub Pages (on master)
-6. Publish NuGet packages to GitHub Packages
+Version numbers are managed by **Nerdbank.GitVersioning (NBGV)**, configured in `version.json` at the repository root.
+
+### How It Works
+
+- `version.json` declares the base version (e.g. `2.1-prerelease`).
+- NBGV computes the full version from the base version + git commit height (number of commits since the version was
+  set).
+- **Development builds** produce prerelease packages: e.g. `2.1.42-prerelease` (where `42` is the commit height).
+- **Release builds** produce stable packages: e.g. `2.1.0` (commit height becomes the patch version).
+- The `publicReleaseRefSpec` in `version.json` controls which refs produce public (non-prerelease) versions: `master`
+  branch and version tags (`v*.*.*`).
+
+### Inspecting the Current Version
+
+```bash
+dotnet tool restore
+dotnet nbgv get-version
+dotnet nbgv get-version --variable NuGetPackageVersion
+```
+
+### Key Files
+
+| File                        | Purpose                                                                        |
+|-----------------------------|--------------------------------------------------------------------------------|
+| `version.json`              | NBGV configuration (base version, prerelease tag, public release refs)         |
+| `.config/dotnet-tools.json` | Registers `nbgv` as a local dotnet tool                                        |
+| `Directory.Build.props`     | References `Nerdbank.GitVersioning` and `Microsoft.SourceLink.GitHub` packages |
+| `Directory.Packages.props`  | Pins NBGV and SourceLink package versions                                      |
+
+### Migration Note
+
+The previous versioning approach using `VersionPrefix`, `BuildNumber`, `VersionSuffix`, and `RELEASEVERSION` environment
+variable has been removed. Version is now driven entirely by `version.json` and git history.
+
+## CI/CD Pipelines
+
+### Build Pipeline (`.github/workflows/build-dotnet.yml`)
+
+Runs on every push to `master` and on pull requests:
+
+1. Checkout with full history (`fetch-depth: 0` — required by NBGV)
+2. Restore, build, and test with Coverlet code coverage
+3. SonarCloud analysis and Codacy coverage reporting
+4. Publish test results and coverage report artifacts
+5. Deploy API documentation to GitHub Pages (on `master` only)
+6. Publish **prerelease** NuGet packages (`.nupkg` and `.snupkg`) to GitHub Packages
+
+### Release Pipeline (`.github/workflows/release.yml`)
+
+Manually triggered (`workflow_dispatch`) from the `master` branch to cut a release:
+
+1. Accepts `release_version` (e.g. `3.0`) and optional `next_version` (e.g. `3.1`)
+2. Sets the version in `version.json` via `dotnet nbgv set-version`
+3. Builds in Release mode, runs full test suite
+4. Creates an annotated git tag (`v<version>`)
+5. Publishes **stable** NuGet packages (`.nupkg` and `.snupkg`) to **NuGet.org**
+6. Generates release notes from `change-log/*.md` entries
+7. Creates a GitHub Release with the release notes
+8. Archives consumed change-log entries to `change-log/archive/`
+9. Bumps `version.json` to the next development version (e.g. `3.1-prerelease`) and pushes
+
+**Required secrets:** `NUGET_API_KEY` (NuGet.org API key), `GH_TOKEN` (PAT that can trigger subsequent workflows).
+
+### Open-Source Package Enhancements
+
+- **SourceLink** enabled — consumers can step into library source code during debugging
+- **Symbol packages** (`.snupkg`) published alongside `.nupkg` to the NuGet symbol server
+- **Deterministic builds** enabled in CI (`ContinuousIntegrationBuild`) for reproducible packages
 
 ## Project Configuration
 
 ### Global Settings
 Defined in `Directory.Build.props`:
-- Version: `2.0.1` (prerelease builds append `-prerelease-<timestamp>`)
+
+- Versioning handled by Nerdbank.GitVersioning (`version.json`)
 - Target frameworks: netstandard2.0, net8.0, net9.0 (varies by project)
 - Test projects: Automatically detected (ends with "Tests")
 - Package generation: Enabled for non-test projects
 - XML documentation: Generated for non-test projects
+- SourceLink and symbol packages enabled for all library projects
 
 ### Multi-Targeting
 Core library (`Ploch.Common`) targets both:

@@ -1,235 +1,104 @@
 # Ploch.Common Documentation Hub
 
-Welcome to the comprehensive documentation for Ploch.Common - a suite of .NET utility libraries that simplify everyday development tasks.
+Welcome to the comprehensive documentation for Ploch.Common — a suite of .NET utility libraries that simplify everyday
+development tasks.
 
 ## Documentation Guide
 
-Choose the documentation that best fits your needs:
+| Resource                                    | Best For                                                |
+|---------------------------------------------|---------------------------------------------------------|
+| [Getting Started Guide](GETTING_STARTED.md) | New users — installation, first steps, common use cases |
+| [Quick Reference](QUICK_REFERENCE.md)       | Experienced users — method signatures, cheat sheet      |
+| [API Reference](API_REFERENCE.md)           | Complete method reference organised by namespace        |
+| [Main README](../README.md)                 | Full feature overview with in-depth examples            |
 
-### For New Users
+## Library Documentation
 
-**[Getting Started Guide](GETTING_STARTED.md)**
-- Installation instructions
-- First steps with the library
-- Common use cases
-- Best practices
-- Troubleshooting tips
+Per-library documentation with overviews, key types, usage examples, and configuration guidance.
 
-Perfect for developers who are new to Ploch.Common and want a guided introduction.
+### Core Foundation
 
-### For Quick Lookups
+| Library                      | Description                                                                          | Docs                                                               |
+|------------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| Ploch.Common                 | Extension methods for strings, collections, types, paths, guard clauses, randomisers | [common.md](libraries/common.md)                                   |
+| Ploch.Common.Net9            | .NET 9+ specific extensions (AppDomainTypesLoader)                                   | [common-net9.md](libraries/common-net9.md)                         |
+| Ploch.Common.DataAnnotations | Custom validation attributes (RequiredNotDefaultDate)                                | [common-data-annotations.md](libraries/common-data-annotations.md) |
+| Ploch.Common.ObjectBuilder   | WMI/COM object-to-POCO conversion pipeline                                           | [common-object-builder.md](libraries/common-object-builder.md)     |
+| Ploch.Common.Ardalis.Result  | Result-to-HTTP status code mapping extensions                                        | [common-ardalis-result.md](libraries/common-ardalis-result.md)     |
 
-**[Quick Reference](QUICK_REFERENCE.md)**
-- Condensed API reference
-- Common patterns cheat sheet
-- Quick code examples
-- Method signatures at a glance
-- Namespace reference
+### Serialization
 
-Ideal for experienced users who need a quick reminder of method signatures or patterns.
+| Library                                                                 | Description                                                       | Docs                                                                                                 |
+|-------------------------------------------------------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Ploch.Common.Serialization                                              | Abstract serialisation interfaces (ISerializer, IAsyncSerializer) | [common-serialization.md](libraries/common-serialization.md)                                         |
+| Ploch.Common.Serialization.SystemTextJson                               | System.Text.Json implementation (sync + async)                    | [common-serialization-system-text-json.md](libraries/common-serialization-system-text-json.md)       |
+| Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection | DI registration for System.Text.Json serialiser                   | [common-serialization-system-text-json-di.md](libraries/common-serialization-system-text-json-di.md) |
+| Ploch.Common.Serialization.NewtonsoftJson                               | Newtonsoft.Json implementation (sync only)                        | [common-serialization-newtonsoft-json.md](libraries/common-serialization-newtonsoft-json.md)         |
+| Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection | DI registration for Newtonsoft.Json serialiser                    | [common-serialization-newtonsoft-json-di.md](libraries/common-serialization-newtonsoft-json-di.md)   |
 
-### For Comprehensive Examples
+### Dependency Injection
 
-**[Main README](../README.md)**
-- Complete feature overview
-- In-depth code examples
-- Real-world scenarios
-- Extended libraries documentation
-- Advanced usage patterns
+| Library                                  | Description                                      | Docs                                                                                       |
+|------------------------------------------|--------------------------------------------------|--------------------------------------------------------------------------------------------|
+| Ploch.Common.DependencyInjection         | ServicesBundle pattern — modular DI registration | [common-dependency-injection.md](libraries/common-dependency-injection.md)                 |
+| Ploch.Common.DependencyInjection.Autofac | Autofac container integration                    | [common-dependency-injection-autofac.md](libraries/common-dependency-injection-autofac.md) |
+| Ploch.Common.DependencyInjection.Hosting | IHostBuilder integration for ServicesBundle      | [common-dependency-injection-hosting.md](libraries/common-dependency-injection-hosting.md) |
+| Ploch.Common.Extensions.Configuration    | Configuration section binding extensions         | [common-extensions-configuration.md](libraries/common-extensions-configuration.md)         |
+| Ploch.Common.Dependencies                | Meta-package for shared dependencies             | [common-dependencies.md](libraries/common-dependencies.md)                                 |
 
-Best for understanding the full capabilities and seeing detailed examples.
+### Web, API, and Applications
 
-### For API Details
+| Library                                  | Description                                                     | Docs                                                             |
+|------------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------|
+| Ploch.Common.WebApi                      | CRUD endpoint builders, AutoMapper integration, FastEndpoints   | [common-webapi.md](libraries/common-webapi.md)                   |
+| Ploch.Common.Web                         | Swagger/OpenAPI configuration helpers                           | [common-web.md](libraries/common-web.md)                         |
+| Ploch.Common.WebUI                       | Razor/MVC page utilities (AppPage, SelectListHelper)            | [common-webui.md](libraries/common-webui.md)                     |
+| Ploch.Common.AppServices                 | Application service abstractions (IUserInfoProvider)            | [common-appservices.md](libraries/common-appservices.md)         |
+| Ploch.Common.AppServices.Web             | HTTP context user info provider                                 | [common-appservices-web.md](libraries/common-appservices-web.md) |
+| Ploch.Common.Apps                        | Action handler framework (IActionHandler, ActionHandlerManager) | [common-apps.md](libraries/common-apps.md)                       |
+| Ploch.Common.UseCases                    | Use case abstractions (placeholder)                             | [common-usecases.md](libraries/common-usecases.md)               |
+| Ploch.Common.NSwag                       | NSwag operation name generator                                  | [common-nswag.md](libraries/common-nswag.md)                     |
+| Ploch.Common.Maui                        | MAUI MVVM bases, view discovery, font management                | [common-maui.md](libraries/common-maui.md)                       |
+| Ploch.Common.Windows                     | Windows-specific utilities (placeholder)                        | [common-windows.md](libraries/common-windows.md)                 |
+| Ploch.Common.Windows.DependencyInjection | Windows DI registration (placeholder)                           | [common-windows-di.md](libraries/common-windows-di.md)           |
 
-**[API Reference](API_REFERENCE.md)**
-- Complete method reference
-- Parameter documentation
-- Return types
-- Organized by namespace
-- Links to source code
+### Testing Support
 
-Essential for developers who need detailed API information.
+| Library                                              | Description                                                                  | Docs                                                                                         |
+|------------------------------------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| Ploch.TestingSupport                                 | Base testing utilities, test data attributes, FluentVerifier                 | [testing-support.md](libraries/testing-support.md)                                           |
+| Ploch.TestingSupport.XUnit3                          | xUnit v3 integration with custom data attributes and OS-conditional skipping | [testing-support-xunit3.md](libraries/testing-support-xunit3.md)                             |
+| Ploch.TestingSupport.XUnit3.AutoMoq                  | AutoFixture + Moq integration for xUnit v3                                   | [testing-support-xunit3-automoq.md](libraries/testing-support-xunit3-automoq.md)             |
+| Ploch.TestingSupport.FluentAssertions                | Custom FluentAssertions extensions                                           | [testing-support-fluent-assertions.md](libraries/testing-support-fluent-assertions.md)       |
+| Ploch.TestingSupport.FluentAssertions.IOAbstractions | IO Abstractions FluentAssertions extensions                                  | [testing-support-fluent-assertions-io.md](libraries/testing-support-fluent-assertions-io.md) |
+| Ploch.TestingSupport.MockConsoleApp                  | Stub executable for process-launch integration tests                         | [testing-support-mock-console-app.md](libraries/testing-support-mock-console-app.md)         |
+| Ploch.TestingSupport.Dependencies.MetaPackages       | Meta-package .nuspec repository                                              | [testing-support-meta-packages.md](libraries/testing-support-meta-packages.md)               |
+| Ploch.TestingSupport.XUnit3.Dependencies             | xUnit v3 testing dependency meta-package                                     | [testing-support-xunit3-dependencies.md](libraries/testing-support-xunit3-dependencies.md)   |
+| Ploch.TestingSupport.XUnit2.Dependencies             | xUnit v2 testing dependency meta-package (legacy)                            | [testing-support-xunit2-dependencies.md](libraries/testing-support-xunit2-dependencies.md)   |
 
-## Library Organization
+### Build Configuration
 
-### Core Libraries
-
-| Library | Purpose | Documentation |
-|---------|---------|---------------|
-| **Ploch.Common** | Core extensions and utilities | [README](../README.md#core-library-plochcommon) |
-| **Ploch.Common.Reflection** | Type inspection and reflection | [README](../README.md#type-extensions-reflection) |
-| **Ploch.Common.IO** | File and path utilities | [README](../README.md#path-utilities) |
-| **Ploch.Common.Collections** | Collection extensions | [README](../README.md#collection-extensions) |
-
-### Extended Libraries
-
-| Library | Purpose | Documentation |
-|---------|---------|---------------|
-| **Ploch.Common.DependencyInjection** | DI container extensions | [README](../README.md#plochcommondependencyinjection) |
-| **Ploch.Common.Serialization** | Serialization abstraction | [README](../README.md#plochcommonserialization) |
-| **Ploch.TestingSupport** | Testing utilities | [README](../README.md#plochtestingsupport) |
+| Resource                      | Description                                                        | Docs                                             |
+|-------------------------------|--------------------------------------------------------------------|--------------------------------------------------|
+| Build Configuration (MSBuild) | Directory.Build.props, Central Package Management, NBGV versioning | [common-msbuild.md](libraries/common-msbuild.md) |
 
 ## Quick Navigation by Feature
 
-### String Operations
-- [String Extensions Overview](../README.md#string-extensions)
-- [String API Reference](API_REFERENCE.md#string-extensions)
-- [Quick Reference](QUICK_REFERENCE.md#string-extensions)
-
-### Collection Operations
-- [Collection Extensions Overview](../README.md#collection-extensions)
-- [Collection API Reference](API_REFERENCE.md#collection-extensions)
-- [Quick Reference](QUICK_REFERENCE.md#collection-extensions)
-
-### Parameter Validation
-- [Guard Clauses Overview](../README.md#guard-clauses-parameter-validation)
-- [Guard API Reference](API_REFERENCE.md#guard-parameter-validation)
-- [Quick Reference](QUICK_REFERENCE.md#guard-clauses)
-
-### Type Inspection
-- [Type Extensions Overview](../README.md#type-extensions-reflection)
-- [Type API Reference](API_REFERENCE.md#type-extensions)
-- [Quick Reference](QUICK_REFERENCE.md#type-extensions-reflection)
-
-### Path Management
-- [Path Utilities Overview](../README.md#path-utilities)
-- [Path API Reference](API_REFERENCE.md#path-utilities)
-- [Quick Reference](QUICK_REFERENCE.md#path-utilities)
-
-### Random Data Generation
-- [Randomizers Overview](../README.md#randomizers)
-- [Randomizers API Reference](API_REFERENCE.md#plochcommonrandomizers)
-- [Quick Reference](QUICK_REFERENCE.md#randomizers)
-
-## Learning Paths
-
-### Path 1: Essential Developer
-
-For developers who want to use the most common features:
-
-1. Read [Getting Started](GETTING_STARTED.md) - Sections 1-2
-2. Learn [String Extensions](../README.md#string-extensions)
-3. Learn [Guard Clauses](../README.md#guard-clauses-parameter-validation)
-4. Practice with [Example 1: Input Validation](../README.md#example-1-input-validation)
-5. Keep [Quick Reference](QUICK_REFERENCE.md) handy
-
-### Path 2: Collection Master
-
-For developers working extensively with collections:
-
-1. Read [Getting Started](GETTING_STARTED.md) - Sections 1-2
-2. Learn [Collection Extensions](../README.md#collection-extensions)
-3. Learn [IsIn Extensions](../README.md#isin-extensions)
-4. Practice with [Example 4: Data Processing](../README.md#example-4-data-processing-with-collections)
-5. Review [Collection API Reference](API_REFERENCE.md#collection-extensions)
-
-### Path 3: Architecture & Reflection
-
-For developers building frameworks or dynamic systems:
-
-1. Read [Getting Started](GETTING_STARTED.md)
-2. Learn [Type Extensions](../README.md#type-extensions-reflection)
-3. Learn [Type Loader](API_REFERENCE.md#type-loader)
-4. Practice with [Example 2: Type Discovery](../README.md#example-2-configuration-with-type-discovery)
-5. Explore [Assembly Loading](../README.md#plochcommonreflection-assembly-loading)
-
-### Path 4: Full Stack
-
-For developers who want to master all features:
-
-1. Read [Getting Started](GETTING_STARTED.md) completely
-2. Read [Main README](../README.md) completely
-3. Review [API Reference](API_REFERENCE.md)
-4. Implement all [Real-World Examples](../README.md#real-world-examples)
-5. Contribute to the project!
-
-## Code Examples Index
-
-### By Difficulty
-
-**Beginner Examples**
-- [String Null Checking](GETTING_STARTED.md#example-1-simple-string-validation)
-- [Parameter Validation](GETTING_STARTED.md#example-2-parameter-validation)
-- [Using IsIn](GETTING_STARTED.md#example-4-using-isin-extensions)
-
-**Intermediate Examples**
-- [Collection Operations](GETTING_STARTED.md#example-3-working-with-collections)
-- [Conditional Queries](GETTING_STARTED.md#use-case-2-building-dynamic-queries)
-- [Path Operations](../README.md#example-3-safe-path-operations)
-
-**Advanced Examples**
-- [Type Discovery](../README.md#example-2-configuration-with-type-discovery)
-- [Service Registration](GETTING_STARTED.md#use-case-3-service-discovery-and-registration)
-- [Data Processing Pipeline](../README.md#example-4-data-processing-with-collections)
-
-### By Use Case
-
-**Web Development**
-- [API Request Validation](GETTING_STARTED.md#use-case-1-api-request-validation)
-- [Dynamic Queries](GETTING_STARTED.md#use-case-2-building-dynamic-queries)
-- [Service Discovery](GETTING_STARTED.md#use-case-3-service-discovery-and-registration)
-
-**Data Processing**
-- [Collection Processing](../README.md#example-4-data-processing-with-collections)
-- [Data Export](GETTING_STARTED.md#use-case-4-data-export-formatting)
-
-**Testing**
-- [Random Data Generation](GETTING_STARTED.md#example-test-with-random-data)
-- [Parameter Validation Tests](GETTING_STARTED.md#example-test-with-random-data)
-
-## Common Questions
-
-### How do I...
-
-**Validate method parameters?**
-→ See [Guard Clauses](../README.md#guard-clauses-parameter-validation)
-
-**Check if a value is in a set?**
-→ See [IsIn Extensions](../README.md#isin-extensions) or [ValueIn](QUICK_REFERENCE.md#collection-extensions)
-
-**Work with collections safely?**
-→ See [Collection Extensions](../README.md#collection-extensions)
-
-**Discover types at runtime?**
-→ See [Type Loader](API_REFERENCE.md#type-loader)
-
-**Generate test data?**
-→ See [Randomizers](../README.md#randomizers)
-
-**Handle file paths cross-platform?**
-→ See [Path Utilities](../README.md#path-utilities)
-
-## Contributing to Documentation
-
-Found an error or want to improve the documentation?
-
-1. Visit the [GitHub repository](https://github.com/mrploch/ploch-common)
-2. Open an issue or submit a pull request
-3. Help make the documentation better for everyone!
-
-## Version Information
-
-This documentation is for Ploch.Common targeting:
-- .NET Standard 2.0
-- .NET 8.0 and later
+| Feature              | Getting Started             | Quick Reference                                         | API Reference                                          | Library Docs                                          |
+|----------------------|-----------------------------|---------------------------------------------------------|--------------------------------------------------------|-------------------------------------------------------|
+| String operations    | [Guide](GETTING_STARTED.md) | [Cheat sheet](QUICK_REFERENCE.md#string-extensions)     | [API](API_REFERENCE.md#string-extensions)              | [Ploch.Common](libraries/common.md)                   |
+| Collections          | [Guide](GETTING_STARTED.md) | [Cheat sheet](QUICK_REFERENCE.md#collection-extensions) | [API](API_REFERENCE.md#collection-extensions)          | [Ploch.Common](libraries/common.md)                   |
+| Guard clauses        | [Guide](GETTING_STARTED.md) | [Cheat sheet](QUICK_REFERENCE.md#guard-clauses)         | [API](API_REFERENCE.md#guard-parameter-validation)     | [Ploch.Common](libraries/common.md)                   |
+| Serialisation        | [Guide](GETTING_STARTED.md) | —                                                       | [API](API_REFERENCE.md#plochcommonserialization)       | [Serialization](libraries/common-serialization.md)    |
+| Dependency injection | [Guide](GETTING_STARTED.md) | —                                                       | [API](API_REFERENCE.md#plochcommondependencyinjection) | [DI](libraries/common-dependency-injection.md)        |
+| Testing              | [Guide](GETTING_STARTED.md) | —                                                       | —                                                      | [TestingSupport](libraries/testing-support-xunit3.md) |
 
 ## External Resources
 
 - [GitHub Repository](https://github.com/mrploch/ploch-common)
-- [NuGet Package](https://www.nuget.org/packages/Ploch.Common)
+- [NuGet Packages](https://www.nuget.org/packages?q=Ploch.Common)
 - [Issue Tracker](https://github.com/mrploch/ploch-common/issues)
 
-## Documentation Feedback
-
-We value your feedback! If you have suggestions for improving this documentation:
-
-1. [Open an issue](https://github.com/mrploch/ploch-common/issues/new)
-2. Tag it with `documentation`
-3. Describe what could be improved
-
 ---
-
-**Last Updated**: 2026-01-28
-**Documentation Version**: 1.0
 
 [Back to Main README](../README.md)
