@@ -6,8 +6,6 @@
 
         <Description>Utility and extension methods for the core .NET types and common development tasks.</Description>
         <PackageTags>common;utility;common-library;core</PackageTags>
-        <!--<TargetFramework>net7.0</TargetFramework>-->
-        <FileVersion>2.0.0</FileVersion>
         <Platforms>AnyCPU;x64</Platforms>
         <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
         <!--<TargetFramework>netstandard2.0</TargetFramework>-->

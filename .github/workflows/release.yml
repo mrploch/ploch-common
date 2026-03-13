@@ -40,6 +40,8 @@ jobs:
             fi
           fi
 
+      # GH_TOKEN (a PAT) is used instead of github.token because the default
+      # GITHUB_TOKEN cannot trigger subsequent workflows when pushing commits.
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -67,10 +69,12 @@ jobs:
           dotnet nbgv set-version ${{ inputs.release_version }}
           echo "Release version set to ${{ inputs.release_version }}"
 
+      # Idempotent commit: only commit if version.json actually changed
       - name: Commit release version
         run: |
           git add version.json
-          git commit -m "chore(release): Set version to ${{ inputs.release_version }}"
+          git diff --cached --quiet && echo "version.json unchanged, skipping commit" || \
+            git commit -m "chore(release): Set version to ${{ inputs.release_version }}"
 
       - name: Get computed NuGet version
         id: version
@@ -100,13 +104,25 @@ jobs:
       # Tag is created BEFORE publishing packages intentionally.
       # Rationale: orphaned packages on NuGet.org cannot be deleted (only unlisted),
       # while tags can be deleted and re-created easily. Tag-first is the safer default.
+      # Retry-safe: re-uses existing tag if it already points at HEAD.
       - name: Create and push tag
         id: tag
         if: success()
         run: |
           TAG="v${{ steps.version.outputs.nuget_version }}"
-          git tag -a "$TAG" -m "Release ${{ steps.version.outputs.nuget_version }}"
-          git push origin "$TAG"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists, verifying it points to HEAD"
+            EXISTING=$(git rev-parse "$TAG^{}")
+            CURRENT=$(git rev-parse HEAD)
+            if [ "$EXISTING" != "$CURRENT" ]; then
+              echo "::error::Tag $TAG exists but points to a different commit. Delete it manually to retry."
+              exit 1
+            fi
+            echo "Tag $TAG already points to HEAD, reusing it"
+          else
+            git tag -a "$TAG" -m "Release ${{ steps.version.outputs.nuget_version }}"
+            git push origin "$TAG"
+          fi
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Publish NuGet packages to NuGet.org
@@ -114,7 +130,12 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          find . -name '*.nupkg' -not -path '*/test*' | while read pkg; do
+          PKGS=$(find . -name '*.nupkg' -not -path '*/test*' -not -path '*/Test*')
+          if [ -z "$PKGS" ]; then
+            echo "::error::No .nupkg files were produced by the build."
+            exit 1
+          fi
+          echo "$PKGS" | while read pkg; do
             echo "Publishing $pkg"
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY"
           done
@@ -124,7 +145,7 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          find . -name '*.snupkg' | while read pkg; do
+          find . -name '*.snupkg' -not -path '*/test*' -not -path '*/Test*' | while read pkg; do
             echo "Publishing symbols $pkg"
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY" || true
           done
@@ -142,7 +163,7 @@ jobs:
           if [ -z "$NOTES" ]; then
             NOTES="Release ${{ steps.version.outputs.nuget_version }}"
           fi
-          cat > /tmp/release-notes.md <<EOF
+          cat > /tmp/release-notes.md <<ENDOFNOTES
           $NOTES
 
           ---
@@ -155,7 +176,7 @@ jobs:
           \`\`\`bash
           dotnet add package Ploch.Common --version ${{ steps.version.outputs.nuget_version }}
           \`\`\`
-          EOF
+          ENDOFNOTES
 
       - name: Compute next development version
         id: next
@@ -183,12 +204,14 @@ jobs:
             mv change-log/*.md change-log/archive/ 2>/dev/null || true
           fi
 
+      # Idempotent commit: only commit if there are staged changes
       - name: Commit and push next development version
         if: success()
         run: |
           git add version.json
           git add change-log/ || true
-          git commit -m "chore(release): Bump version to ${{ steps.next.outputs.next_version }}-prerelease for development"
+          git diff --cached --quiet && echo "No changes to commit" || \
+            git commit -m "chore(release): Bump version to ${{ steps.next.outputs.next_version }}-prerelease for development"
           git push origin master
 
       - name: Create GitHub Release
@@ -200,4 +223,3 @@ jobs:
           body_path: /tmp/release-notes.md
           draft: false
           prerelease: false
-          generate_release_notes: true

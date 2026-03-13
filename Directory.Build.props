@@ -27,7 +27,7 @@
         <NoWarn>$(NoWarn);NU1507;CS9057;NU1603</NoWarn>
         <TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
         <DebugType>portable</DebugType>
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
