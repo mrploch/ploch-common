@@ -51,7 +51,9 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Clone mrploch-development (shared build config)
-        run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: git clone --depth 1 https://x-access-token:${GH_TOKEN}@github.com/mrploch/mrploch-development.git ../mrploch-development
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
