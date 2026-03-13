@@ -20,9 +20,26 @@ public static class AssemblyTypes
     /// <returns>A collection of types that implement or inherit from the specified base type.</returns>
     public static IEnumerable<Type> GetImplementations(Type baseType, bool concreteOnly, params IEnumerable<Assembly> assemblies)
     {
-        return assemblies.Select(assembly => assembly.GetTypes()
+        return assemblies.Select(assembly => GetLoadableTypes(assembly)
                                                      .Where(t => t.IsImplementing(baseType, concreteOnly)))
                          .SelectMany(static t => t);
+    }
+
+    /// <summary>
+    ///     Returns all types from an assembly that can be loaded, gracefully handling
+    ///     <see cref="ReflectionTypeLoadException" /> for assemblies containing types
+    ///     that cannot be resolved (e.g. dynamic proxy assemblies).
+    /// </summary>
+    private static IEnumerable<Type> GetLoadableTypes(Assembly assembly)
+    {
+        try
+        {
+            return assembly.GetTypes();
+        }
+        catch (ReflectionTypeLoadException ex)
+        {
+            return ex.Types.Where(static t => t != null)!;
+        }
     }
 
     /// <summary>
