@@ -23,18 +23,20 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
+    # Pass workflow inputs via env vars to avoid script injection (githubactions:S7635)
+    env:
+      RELEASE_VERSION: ${{ inputs.release_version }}
+      NEXT_VERSION_INPUT: ${{ inputs.next_version }}
 
     steps:
       - name: Validate inputs
         run: |
-          VERSION="${{ inputs.release_version }}"
-          if [[ ! "$VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+          if [[ ! "$RELEASE_VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
             echo "::error::release_version must be in major.minor format (e.g. 3.0) without leading zeros"
             exit 1
           fi
-          NEXT="${{ inputs.next_version }}"
-          if [ -n "$NEXT" ]; then
-            if [[ ! "$NEXT" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+          if [ -n "$NEXT_VERSION_INPUT" ]; then
+            if [[ ! "$NEXT_VERSION_INPUT" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
               echo "::error::next_version must be in major.minor format (e.g. 3.1) without leading zeros"
               exit 1
             fi
@@ -66,15 +68,15 @@ jobs:
 
       - name: Set release version
         run: |
-          dotnet nbgv set-version ${{ inputs.release_version }}
-          echo "Release version set to ${{ inputs.release_version }}"
+          dotnet nbgv set-version "$RELEASE_VERSION"
+          echo "Release version set to $RELEASE_VERSION"
 
       # Idempotent commit: only commit if version.json actually changed
       - name: Commit release version
         run: |
           git add version.json
           git diff --cached --quiet && echo "version.json unchanged, skipping commit" || \
-            git commit -m "chore(release): Set version to ${{ inputs.release_version }}"
+            git commit -m "chore(release): Set version to $RELEASE_VERSION"
 
       - name: Get computed NuGet version
         id: version
@@ -109,7 +111,8 @@ jobs:
         id: tag
         if: success()
         run: |
-          TAG="v${{ steps.version.outputs.nuget_version }}"
+          NUGET_VERSION="${{ steps.version.outputs.nuget_version }}"
+          TAG="v${NUGET_VERSION}"
           if git rev-parse "$TAG" >/dev/null 2>&1; then
             echo "Tag $TAG already exists, verifying it points to HEAD"
             EXISTING=$(git rev-parse "$TAG^{}")
@@ -120,7 +123,7 @@ jobs:
             fi
             echo "Tag $TAG already points to HEAD, reusing it"
           else
-            git tag -a "$TAG" -m "Release ${{ steps.version.outputs.nuget_version }}"
+            git tag -a "$TAG" -m "Release ${NUGET_VERSION}"
             git push origin "$TAG"
           fi
           echo "tag=$TAG" >> $GITHUB_OUTPUT
@@ -155,13 +158,15 @@ jobs:
       - name: Generate release notes
         id: release-notes
         if: success()
+        env:
+          NUGET_VERSION: ${{ steps.version.outputs.nuget_version }}
         run: |
           NOTES=""
           if [ -d "change-log" ] && [ "$(ls -A change-log/*.md 2>/dev/null)" ]; then
             NOTES=$(cat change-log/*.md)
           fi
           if [ -z "$NOTES" ]; then
-            NOTES="Release ${{ steps.version.outputs.nuget_version }}"
+            NOTES="Release ${NUGET_VERSION}"
           fi
           cat > /tmp/release-notes.md <<ENDOFNOTES
           $NOTES
@@ -170,11 +175,11 @@ jobs:
 
           ## NuGet Packages
 
-          All packages are available on [NuGet.org](https://www.nuget.org/profiles/mrploch) with version \`${{ steps.version.outputs.nuget_version }}\`.
+          All packages are available on [NuGet.org](https://www.nuget.org/profiles/mrploch) with version \`${NUGET_VERSION}\`.
 
           Install via:
           \`\`\`bash
-          dotnet add package Ploch.Common --version ${{ steps.version.outputs.nuget_version }}
+          dotnet add package Ploch.Common --version ${NUGET_VERSION}
           \`\`\`
           ENDOFNOTES
 
@@ -182,10 +187,10 @@ jobs:
         id: next
         if: success()
         run: |
-          NEXT="${{ inputs.next_version }}"
+          NEXT="$NEXT_VERSION_INPUT"
           if [ -z "$NEXT" ]; then
-            MAJOR=$(echo "${{ inputs.release_version }}" | cut -d. -f1)
-            MINOR=$(echo "${{ inputs.release_version }}" | cut -d. -f2)
+            MAJOR=$(echo "$RELEASE_VERSION" | cut -d. -f1)
+            MINOR=$(echo "$RELEASE_VERSION" | cut -d. -f2)
             NEXT="$MAJOR.$((MINOR + 1))"
           fi
           echo "next_version=$NEXT" >> $GITHUB_OUTPUT
@@ -193,8 +198,10 @@ jobs:
 
       - name: Set next development version
         if: success()
+        env:
+          NEXT_DEV_VERSION: ${{ steps.next.outputs.next_version }}
         run: |
-          dotnet nbgv set-version "${{ steps.next.outputs.next_version }}-prerelease"
+          dotnet nbgv set-version "${NEXT_DEV_VERSION}-prerelease"
 
       - name: Archive consumed change-log entries
         if: success()
@@ -207,11 +214,13 @@ jobs:
       # Idempotent commit: only commit if there are staged changes
       - name: Commit and push next development version
         if: success()
+        env:
+          NEXT_DEV_VERSION: ${{ steps.next.outputs.next_version }}
         run: |
           git add version.json
           git add change-log/ || true
           git diff --cached --quiet && echo "No changes to commit" || \
-            git commit -m "chore(release): Bump version to ${{ steps.next.outputs.next_version }}-prerelease for development"
+            git commit -m "chore(release): Bump version to ${NEXT_DEV_VERSION}-prerelease for development"
           git push origin master
 
       - name: Create GitHub Release
