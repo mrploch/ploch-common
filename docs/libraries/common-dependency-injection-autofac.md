@@ -1,7 +1,6 @@
 # Ploch.Common.DependencyInjection.Autofac
 
 > Autofac container integration for the ServicesBundle pattern.
-
 > **This package is currently a stub.** The Autofac project file (`Plocch.Common.DependencyInjection.Autofac.csproj` — note the typo in the filename) references `Ploch.Common.DependencyInjection` and `Autofac.Extensions.DependencyInjection` but contains no additional source files beyond the project definition. The usage examples below are aspirational/planned and are not based on existing source code. Check the repository for the current state before depending on this package in production.
 
 ## Overview

@@ -20,7 +20,7 @@ dotnet add package Ploch.Common.Net9
 
 | Type | Namespace | Description |
 |------|-----------|-------------|
-| `AppDomainTypesLoader` | `Ploch.Common.AssemblyLoading` | Scans all `AssemblyLoadContext` instances in the current `AppDomain` and filters types by base types, assembly name globs, and type name globs. Also subscribes to `AppDomain.AssemblyLoad` to capture assemblies loaded after construction. |
+| `AppDomainTypesLoader` | `Ploch.Common.AssemblyLoading` | Scans all `AssemblyLoadContext` instances in the current `AppDomain` and filters types by base types, assembly name globs, and type name globs. Dynamic assembly tracking starts when `ProcessAllAssemblies()` is called — this method subscribes to `AppDomain.AssemblyLoad` to capture assemblies loaded after that point. |
 | `TypeLoadingConfiguration` | `Ploch.Common.AssemblyLoading` | Immutable record that configures `AppDomainTypesLoader`. Accepts optional `Action<Matcher>` delegates for assembly and type name glob patterns, plus an array of base types. |
 
 ## Usage Examples

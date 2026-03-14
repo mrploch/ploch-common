@@ -16,7 +16,7 @@ The library also provides `ScopedService<T>`, a small utility that resolves a se
 dotnet add package Ploch.Common.DependencyInjection
 ```
 
-The package targets `netstandard2.0` and is compatible with .NET 8 and later.
+The package targets `netstandard2.0` and is compatible with .NET Framework 4.6.1+, .NET Core 2.0+, and all modern .NET versions.
 
 ## Key Types
 
@@ -135,10 +135,10 @@ No additional configuration is required. The two `AddServicesBundle` extension m
 
 ```csharp
 // By type (requires a public parameterless constructor)
-services.AddServicesBundle<TBundle>(configuration?);
+services.AddServicesBundle<TBundle>(configuration);
 
 // By instance
-services.AddServicesBundle(bundleInstance, configuration?);
+services.AddServicesBundle(bundleInstance, configuration);
 ```
 
 Both overloads return `IServiceCollection` for fluent chaining.

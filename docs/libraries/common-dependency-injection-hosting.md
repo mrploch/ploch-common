@@ -10,7 +10,7 @@ This is the idiomatic integration point when configuring a .NET Generic Host (`H
 
 ## Installation
 
-```
+```shell
 dotnet add package Ploch.Common.DependencyInjection.Hosting
 ```
 

@@ -23,13 +23,13 @@ dotnet add package Ploch.Common.ObjectBuilder
 | Type | Description |
 |------|-------------|
 | `ISourceObject` | Abstraction over a loosely-typed property bag: `GetPropertyNames()`, `GetPropertyValue(string)`, `GetProperties()`. Implement this to wrap any property source. |
-| `IObjectTypeConverter` | Converter interface with `Order`, `CanHandle(value, targetType)`, and `ConvertValue(value, targetType)`. Lower `Order` values are tried first. |
+| `ITypeConverter` | Converter interface with `Order`, `CanHandle(value, targetType)`, and `ConvertValue(value, targetType)`. Lower `Order` values are tried first. |
 | `ObjectConverter` | Static class with `BuildObject<TManagementObject>(ISourceObject)`. Orchestrates the converter pipeline to populate a new `TManagementObject` instance. |
 | `ObjectPropertyAttribute` | Apply to target POCO properties to remap a differently-named source property. |
 | `ManagementObjectDateTimeOffsetTypeConverter` | Converts WMI date strings to `DateTimeOffset`. **Note:** This converter is not yet implemented; it currently throws `NotImplementedException`. |
 | `ManagementObjectDateTimeTypeConverter` | Converts WMI date strings to `DateTime` (UTC). |
 | `DotNetTypeConverterWrapper` | Wraps a `System.ComponentModel.TypeConverter` as an `ITypeConverter`. |
-| `DefaultConverter` | Fallback converter that delegates to the registered converter chain and finally to `System.Convert.ChangeType`. |
+| `DefaultConverter` | Fallback converter (`CanHandle` always returns `true`). **Note:** `ConvertValue` currently throws `NotImplementedException`; only the `CanHandle(Type, Type)` overload is functional, which checks registered converters and `TypeDescriptor`. |
 
 ## Usage Examples
 
@@ -116,7 +116,7 @@ public string MyProperty { get; set; } = string.Empty;
 3. `EnumConverter` (converts string values to nullable enum types by field name)
 4. `DefaultConverter` (falls back to `System.Convert.ChangeType` and registered `TypeConverter`s)
 
-Converters are tried in `Order` sequence. The first converter where `CanHandle` returns `true` performs the conversion. If no converter handles the value, a `TypeConversionException` is thrown.
+Converters are tried in `Order` sequence. The first converter where `CanHandle` returns `true` performs the conversion. If no converter handles the value, the implementation falls back to `null` (for null input) or `Convert.ChangeType`; conversion failures may then throw.
 
 ## Extending the Pipeline
 

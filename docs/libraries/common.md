@@ -138,6 +138,12 @@ dotnet add package Ploch.Common
 |------|-------------|
 | `Hashing` | `ToHashString(HashAlgorithm)` and `ToMD5HashString()` extension methods on `Stream`. |
 
+### Enum Parsing (`Ploch.Common`)
+
+| Type | Description |
+|------|-------------|
+| `EnumerationConverter` | Static class with `ParseToEnum<TEnum>(string)`, `ParseToEnum<TEnum>(int)`, `SafeParseToEnum<TEnum>(string?)`, and `SafeParseToEnum<TEnum>(int?)` extension methods for type-safe enum conversion. |
+
 ### Other Utilities
 
 | Type | Description |
@@ -147,7 +153,7 @@ dotnet add package Ploch.Common
 | `ContentSizes` | Constants for common content size thresholds. |
 | `ObjectCloningHelpers` | Deep-clone utilities. |
 | `OperatingSystemExtensions` | Extensions on `OperatingSystem`. |
-| `EnvironmentUtilities` / `EnvironmentVariables` | Helpers for reading environment state. |
+| `EnvironmentUtilities` / `EnvironmentVariables` | Helpers for reading environment state: `GetCurrentAppPath()`, `GetEnvironmentCommandLine()`, `GetString(name)`, `GetBool(name)`, `GetEnumValue<TEnum>(name)`. |
 | `AssemblyInformation` / `AssemblyInformationProvider` | Reads version and metadata from assemblies. |
 
 ## Usage Examples
@@ -339,6 +345,55 @@ DateTime restored = epochSeconds.ToDateTime();
 
 // Handles both epoch seconds and epoch milliseconds automatically
 DateTime fromMillis = 1700000000000L.ToDateTime();
+```
+
+### Enum Parsing
+
+```csharp
+using Ploch.Common;
+
+public enum Status { Active, Inactive, Pending }
+
+// Parse string to enum (throws on failure)
+Status status = "Active".ParseToEnum<Status>();
+Status caseInsensitive = "active".ParseToEnum<Status>(ignoreCase: true);
+
+// Parse int to enum
+Status fromInt = 1.ParseToEnum<Status>();
+
+// Safe parse — returns null instead of throwing
+Status? maybe = "Unknown".SafeParseToEnum<Status>(); // null
+Status? valid = "Pending".SafeParseToEnum<Status>();  // Status.Pending
+```
+
+### Cryptography / Hashing
+
+```csharp
+using Ploch.Common.Cryptography;
+using System.Security.Cryptography;
+
+using var stream = File.OpenRead("data.bin");
+
+// Compute an MD5 hash string
+string md5 = stream.ToMD5HashString();
+
+// Use any HashAlgorithm
+stream.Position = 0;
+string sha256 = stream.ToHashString(SHA256.Create());
+```
+
+### Environment Utilities
+
+```csharp
+using Ploch.Common;
+
+// Read typed environment variables
+string? apiKey = EnvironmentVariables.GetString("API_KEY");
+bool? debug = EnvironmentVariables.GetBool("DEBUG_MODE");
+Status? envStatus = EnvironmentVariables.GetEnumValue<Status>("APP_STATUS");
+
+// Get the current application path
+string appPath = EnvironmentUtilities.GetCurrentAppPath();
 ```
 
 ## Related Libraries

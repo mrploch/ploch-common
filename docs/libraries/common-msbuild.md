@@ -183,7 +183,7 @@ All analyser packages are configured with `PrivateAssets=all` so they are build-
 
 `Directory.Build.props` includes a `PrintSettings` target that runs before every build and logs key MSBuild property values at high importance. This aids in diagnosing unexpected build behaviour in CI:
 
-```
+```text
 Building Ploch.Common with settings:
 MSBuildProjectName -> 'Ploch.Common'
 Configuration -> 'Release'
