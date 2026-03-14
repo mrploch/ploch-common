@@ -10,9 +10,7 @@ The package is intentionally narrow: it does not introduce middleware beyond wha
 
 ## Installation
 
-```shell
-dotnet add package Ploch.Common.Web
-```
+> **Note:** This module does not have its own `.csproj` or NuGet package. The source files live under `src/Common.Web/` and are compiled as part of the consuming project or a parent package. Reference the source directly or use `Ploch.Common.WebApi` for a packaged alternative.
 
 ## Key Types
 

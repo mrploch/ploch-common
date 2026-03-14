@@ -51,7 +51,7 @@ dotnet add package Ploch.Common.Maui.Fonts
 
 | Type | Kind | Description |
 |---|---|---|
-| `FontMapping` | Record | Associates a font family name with its file name. Optionally holds a `FontConstantsType` for glyph lookup. `GetGlyphValue(glyphName)` and `GetAllGlypns()` use reflection with internal caching. |
+| `FontMapping` | Record | Associates a font family name with its file name. Optionally holds a `FontConstantsType` for glyph lookup. `GetGlyphValue(glyphName)` and `GetAllGlypns()` (note: the method name is misspelled in the source code) use reflection with internal caching. |
 | `IconFontMapping<TFontIconNames>` | Record | Specialisation of `FontMapping` for icon fonts; carries a glyph-constants type as a generic parameter. |
 | `IFontsBuilder` | Interface | Fluent API for registering font mappings: `AddFont(fileName, family, setter)`. |
 | `IFontsProvider` | Interface | Font lookup: `GetFonts()`, `GetFont(family)`, `TryGetFont(family, out mapping)`, `GetGlyph(family, glyphName)`. |

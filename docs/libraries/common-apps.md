@@ -75,18 +75,18 @@ public class ShellLaunchHandler : ActionHandler<SystemApplication, LaunchActionI
 {
     public override int Priority => 10; // tried second
 
-    public override async Task<ActionHandlerResult<SystemApplication>> ExecuteAsync(
+    public override Task<ActionHandlerResult<SystemApplication>> ExecuteAsync(
         LaunchActionInfo actionInfo, CancellationToken ct)
     {
         var id = GetExecutionId(actionInfo);
         try
         {
             Process.Start(actionInfo.Descriptor.ExecutablePath, actionInfo.Arguments);
-            return ActionHandlerResult.Success(id);
+            return Task.FromResult(ActionHandlerResult.Success(id));
         }
         catch (Exception ex)
         {
-            return ActionHandlerResult.Failure(id, ex);
+            return Task.FromResult(ActionHandlerResult.Failure(id, ex));
         }
     }
 }
@@ -95,12 +95,12 @@ public class ApiLaunchHandler : ActionHandler<SystemApplication, LaunchActionInf
 {
     public override int Priority => 0; // tried first (lower value = higher priority)
 
-    public override async Task<ActionHandlerResult<SystemApplication>> ExecuteAsync(
+    public override Task<ActionHandlerResult<SystemApplication>> ExecuteAsync(
         LaunchActionInfo actionInfo, CancellationToken ct)
     {
         var id = GetExecutionId(actionInfo);
         // ... call a system API ...
-        return ActionHandlerResult.Success(id);
+        return Task.FromResult(ActionHandlerResult.Success(id));
     }
 }
 ```

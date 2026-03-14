@@ -12,9 +12,7 @@ When your application uses Autofac as its DI container (typically registered via
 
 ## Installation
 
-```
-dotnet add package Ploch.Common.DependencyInjection.Autofac
-```
+> **Note:** The project file is named `Plocch.Common.DependencyInjection.Autofac.csproj` (with a typo — `Plocch` instead of `Ploch`). Since no `<PackageId>` is set, the NuGet package ID inherits this misspelling. Until the project is renamed or a `PackageId` override is added, the actual install command would use the misspelled name. Given that this package is currently a stub, this is not yet actionable.
 
 ## Key Types
 
