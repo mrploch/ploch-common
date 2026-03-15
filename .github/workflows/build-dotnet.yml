@@ -49,6 +49,13 @@ jobs:
         run: |
           # Sanitize branch name for NuGet SemVer2 prerelease identifiers [a-zA-Z0-9-]
           SANITIZED=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//' | cut -c1-20 | sed 's/-$//')
+          # Guard against empty or purely-numeric identifiers (invalid in SemVer2)
+          if [ -z "$SANITIZED" ]; then
+            SANITIZED="branch"
+          fi
+          if echo "$SANITIZED" | grep -Eq '^[0-9]+$'; then
+            SANITIZED="b-${SANITIZED}"
+          fi
           # Read current major.minor from NBGV
           CURRENT_VERSION=$(dotnet nbgv get-version --variable SimpleVersion)
           BASE=$(echo "$CURRENT_VERSION" | cut -d. -f1-2)
@@ -141,6 +148,7 @@ jobs:
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master' && steps.docfx.outcome == 'success'
+        continue-on-error: true
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./DocumentationSite/_site
