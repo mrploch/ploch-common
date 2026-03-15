@@ -54,6 +54,11 @@ jobs:
           BASE=$(echo "$CURRENT_VERSION" | cut -d. -f1-2)
           # Override the prerelease tag to include PR number and branch name
           dotnet nbgv set-version "${BASE}-pr.${PR_NUMBER}.${SANITIZED}"
+          # NBGV reads version.json from the committed git state, so we must
+          # commit the change for it to take effect. This ephemeral commit is
+          # never pushed — it only exists on the CI runner.
+          git add version.json
+          git -c user.name="ci" -c user.email="ci@ci" commit -m "ci: PR version" --no-verify
           COMPUTED=$(dotnet nbgv get-version --variable NuGetPackageVersion)
           echo "PR NuGet package version: $COMPUTED"
 
