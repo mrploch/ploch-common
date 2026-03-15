@@ -39,6 +39,24 @@ jobs:
       - name: Restore .NET tools
         run: dotnet tool restore
 
+      # For PR builds, embed the PR number and branch name in the prerelease tag
+      # so packages are clearly identifiable (e.g. 3.1.1-pr.42.fix-serialization)
+      - name: Configure PR package version
+        if: github.event_name == 'pull_request'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BRANCH_NAME: ${{ github.head_ref }}
+        run: |
+          # Sanitize branch name for NuGet SemVer2 prerelease identifiers [a-zA-Z0-9-]
+          SANITIZED=$(echo "$BRANCH_NAME" | sed 's/[^a-zA-Z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//' | cut -c1-20 | sed 's/-$//')
+          # Read current major.minor from NBGV
+          CURRENT_VERSION=$(dotnet nbgv get-version --variable SimpleVersion)
+          BASE=$(echo "$CURRENT_VERSION" | cut -d. -f1-2)
+          # Override the prerelease tag to include PR number and branch name
+          dotnet nbgv set-version "${BASE}-pr.${PR_NUMBER}.${SANITIZED}"
+          COMPUTED=$(dotnet nbgv get-version --variable NuGetPackageVersion)
+          echo "PR NuGet package version: $COMPUTED"
+
       # Restore
       - name: Restore dependencies
         run: dotnet restore ./Ploch.Common.slnx
@@ -67,10 +85,9 @@ jobs:
 
       # Build and Test (always runs regardless of SonarCloud status)
       - name: Build
-        run: dotnet build ./Ploch.Common.slnx --no-restore
+        run: dotnet build ./Ploch.Common.slnx --no-restore -c Release
       - name: Test
-        run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build --logger "trx;LogFileName=TestOutputResults.trx" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
-        continue-on-error: true
+        run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build -c Release --logger "trx;LogFileName=TestOutputResults.trx" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
 
       # SonarCloud end (runs even after test failures, only if begin succeeded)
       - name: SonarScanner End
@@ -125,14 +142,29 @@ jobs:
       # Publish prerelease NuGet packages to GitHub Packages
       # Release packages are published to nuget.org via the release workflow
       - name: Add GitHub Packages source
-        if: always()
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
       - name: Publish NuGet packages to GitHub Packages
-        if: always()
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
+          dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
+          dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+
+      # Publish PR packages to GitHub Packages for testing/validation
+      # PR packages include branch name in the prerelease tag (configured above)
+      - name: Publish PR packages to GitHub Packages
+        if: success() && github.event_name == 'pull_request'
+        env:
+          GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+        run: |
+          if [ -z "$GH_PACKAGES_TOKEN" ]; then
+            echo "::warning::GH_PACKAGES_TOKEN not available, skipping PR package publish"
+            exit 0
+          fi
+          dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
           dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
           dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
