@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Ploch.Common.Tests.TestTypes.TestingTypes;
 
 namespace Ploch.Common.Tests;
 
@@ -65,5 +66,60 @@ public class IsInExtensionsTests
                                                                                                            params string?[] strings)
     {
         value.In(IgnoringSymbolsComparer, strings).Should().Be(expectedResult);
+    }
+
+    [Fact]
+    public void In_should_return_true_if_enum_is_in_the_list()
+    {
+        TestEnum.FirstValue.In(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeTrue();
+        var bool1 = TestEnum.FirstValue.In(TestEnum.FirstValue, TestEnum.SecondValue);
+        var bool2 = TestEnum.ThirdValue.In(TestEnum.FirstValue, TestEnum.SecondValue);
+        Console.WriteLine(bool1);
+        Console.WriteLine(bool2);
+    }
+
+    [Fact]
+    public void In_should_return_false_if_enum_is_not_in_the_list()
+    {
+        TestEnum.ThirdValue.In(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeFalse();
+    }
+
+    [Theory]
+    [InlineData("test", false, "t1", "t2", "test")]
+    [InlineData("test", false, "t1", "t2", "TeSt")]
+    [InlineData("test", false, null, null, null, null, "test")]
+    [InlineData(null, false, "t1", "t2", "t3", null, "t4")]
+    [InlineData("test", true, "t1", "t2", "t3")]
+    [InlineData("test", true, "t1", "t2", "Te_St")]
+    [InlineData("", true, "t1", "t2", "t3", null, "t4")]
+    public void NotIn_should_return_if_matching_string_is_not_found_with_case_insensitive_matching(string? value, bool expectedResult, params string?[] strings)
+    {
+        value.NotIn(StringComparer.OrdinalIgnoreCase, strings).Should().Be(expectedResult);
+    }
+
+    [Theory]
+    [InlineData("test", false, "t1", "t2", "te!st")]
+    [InlineData("test", true, "t1", "t2", "TeSt")]
+    [InlineData("test", false, null, null, null, null, "te%st")]
+    [InlineData(null, false, "t1", "t2", "t3", null, "t4")]
+    [InlineData("test", true, "t1", "t2", "t3")]
+    [InlineData("", true, "t1", "t2", "t3", null, "t4")]
+    public void NotIn_should_return_if_matching_string_is_not_found_with_case_sensitive_ignoring_symbols_matching(string? value,
+                                                                                                                  bool expectedResult,
+                                                                                                                  params string?[] strings)
+    {
+        value.NotIn(IgnoringSymbolsComparer, strings).Should().Be(expectedResult);
+    }
+
+    [Fact]
+    public void NotIn_should_return_false_if_enum_is_in_the_list()
+    {
+        TestEnum.FirstValue.NotIn(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeFalse();
+    }
+
+    [Fact]
+    public void NotIn_should_return_true_if_enum_is_not_in_the_list()
+    {
+        TestEnum.ThirdValue.NotIn(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeTrue();
     }
 }
