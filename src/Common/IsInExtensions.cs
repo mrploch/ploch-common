@@ -64,7 +64,7 @@ public static class IsInExtensions
     /// </returns>
     public static bool In<TValue>(this TValue? value, IComparer<TValue?> comparer, IEnumerable<TValue?> values)
     {
-        comparer.NotNull(nameof(comparer));
+        _ = comparer.NotNull(nameof(comparer));
         values.NotNull(nameof(values));
 
         return values.Any(v => comparer.Compare(v, value) == 0);
