@@ -122,4 +122,67 @@ public class IsInExtensionsTests
     {
         TestEnum.ThirdValue.NotIn(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeTrue();
     }
+
+    [Fact]
+    public void In_with_IEnumerable_should_return_true_if_value_is_in_the_list()
+    {
+        var values = new List<string> { "t1", "t2", "test" };
+        "test".In(values).Should().BeTrue();
+    }
+
+    [Fact]
+    public void In_with_IEnumerable_should_return_false_if_value_is_not_in_the_list()
+    {
+        var values = new List<string> { "t1", "t2" };
+        "test".In(values).Should().BeFalse();
+    }
+
+    [Fact]
+    public void In_with_IEnumerable_should_handle_null_values()
+    {
+        var values = new List<string?> { "t1", null, "t2" };
+        ((string?)null).In(values).Should().BeTrue();
+    }
+
+    [Fact]
+    public void NotIn_with_IEnumerable_should_return_true_if_value_is_not_in_the_list()
+    {
+        var values = new List<string> { "t1", "t2" };
+        "test".NotIn(values).Should().BeTrue();
+    }
+
+    [Fact]
+    public void NotIn_with_IEnumerable_should_return_false_if_value_is_in_the_list()
+    {
+        var values = new List<string> { "t1", "t2", "test" };
+        "test".NotIn(values).Should().BeFalse();
+    }
+
+    [Fact]
+    public void In_with_IComparer_and_IEnumerable_should_return_true_if_matching_value_is_found()
+    {
+        var values = new List<string> { "t1", "t2", "TeSt" };
+        "test".In(StringComparer.OrdinalIgnoreCase, values).Should().BeTrue();
+    }
+
+    [Fact]
+    public void In_with_IComparer_and_IEnumerable_should_return_false_if_matching_value_is_not_found()
+    {
+        var values = new List<string> { "t1", "t2", "t3" };
+        "test".In(StringComparer.OrdinalIgnoreCase, values).Should().BeFalse();
+    }
+
+    [Fact]
+    public void NotIn_with_IComparer_and_IEnumerable_should_return_true_if_matching_value_is_not_found()
+    {
+        var values = new List<string> { "t1", "t2", "t3" };
+        "test".NotIn(StringComparer.OrdinalIgnoreCase, values).Should().BeTrue();
+    }
+
+    [Fact]
+    public void NotIn_with_IComparer_and_IEnumerable_should_return_false_if_matching_value_is_found()
+    {
+        var values = new List<string> { "t1", "t2", "TeSt" };
+        "test".NotIn(StringComparer.OrdinalIgnoreCase, values).Should().BeFalse();
+    }
 }
