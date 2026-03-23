@@ -68,20 +68,12 @@ public class IsInExtensionsTests
         value.In(IgnoringSymbolsComparer, strings).Should().Be(expectedResult);
     }
 
-    [Fact]
-    public void In_should_return_true_if_enum_is_in_the_list()
+    [Theory]
+    [InlineData(TestEnum.FirstValue, true)]
+    [InlineData(TestEnum.ThirdValue, false)]
+    public void In_should_return_expected_result_for_enum_values(TestEnum value, bool expectedResult)
     {
-        TestEnum.FirstValue.In(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeTrue();
-        var bool1 = TestEnum.FirstValue.In(TestEnum.FirstValue, TestEnum.SecondValue);
-        var bool2 = TestEnum.ThirdValue.In(TestEnum.FirstValue, TestEnum.SecondValue);
-        Console.WriteLine(bool1);
-        Console.WriteLine(bool2);
-    }
-
-    [Fact]
-    public void In_should_return_false_if_enum_is_not_in_the_list()
-    {
-        TestEnum.ThirdValue.In(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeFalse();
+        value.In(TestEnum.FirstValue, TestEnum.SecondValue).Should().Be(expectedResult);
     }
 
     [Theory]
@@ -111,16 +103,12 @@ public class IsInExtensionsTests
         value.NotIn(IgnoringSymbolsComparer, strings).Should().Be(expectedResult);
     }
 
-    [Fact]
-    public void NotIn_should_return_false_if_enum_is_in_the_list()
+    [Theory]
+    [InlineData(TestEnum.FirstValue, false)]
+    [InlineData(TestEnum.ThirdValue, true)]
+    public void NotIn_should_return_expected_result_for_enum_values(TestEnum value, bool expectedResult)
     {
-        TestEnum.FirstValue.NotIn(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeFalse();
-    }
-
-    [Fact]
-    public void NotIn_should_return_true_if_enum_is_not_in_the_list()
-    {
-        TestEnum.ThirdValue.NotIn(TestEnum.FirstValue, TestEnum.SecondValue).Should().BeTrue();
+        value.NotIn(TestEnum.FirstValue, TestEnum.SecondValue).Should().Be(expectedResult);
     }
 
     [Fact]
