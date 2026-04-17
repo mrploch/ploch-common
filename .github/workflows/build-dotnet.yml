@@ -138,8 +138,9 @@ jobs:
           name: code-coverage
           path: |
             **/CoverageResults/*.xml
-      # Build the docs site as a quality gate. Deployment happens in publish-docs.yml.
-      - name: Build documentation
+      # Smoke-test the docs build on PRs (non-blocking). Deployment happens in publish-docs.yml.
+      # `continue-on-error` is retained until #190 tightens the build with --warningsAsErrors.
+      - name: Build documentation (smoke test)
         id: docfx
         if: always()
         continue-on-error: true

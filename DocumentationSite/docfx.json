@@ -18,10 +18,7 @@
       "namespaceLayout": "nested",
       "includePrivateMembers": false,
       "disableGitFeatures": false,
-      "disableDefaultFilter": false,
-      "properties": {
-        "TargetFramework": "net9.0"
-      }
+      "disableDefaultFilter": false
     }
   ],
   "build": {
