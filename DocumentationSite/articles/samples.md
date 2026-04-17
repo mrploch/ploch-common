@@ -51,5 +51,5 @@ A few examples of the enumerable extensions:
   // result will be true
 ```
 
-More examples available [here](./collection-samples.md) and in
+More examples available [here](./collections-samples.md) and in
 the [tests](https://github.com/mrploch/ploch-common/tree/master/src/Common.Tests).

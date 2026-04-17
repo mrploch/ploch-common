@@ -23,8 +23,6 @@ jobs:
           fetch-depth: 0
       - name: Clone mrploch-development (shared build config)
         run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
-      - name: Copy documentation files
-        run: cp ./README.md ./DocumentationSite/index.md
 
       # Setup Java (required for SonarScanner)
       - uses: actions/setup-java@v4
@@ -140,18 +138,13 @@ jobs:
           name: code-coverage
           path: |
             **/CoverageResults/*.xml
+      # Build the docs site as a quality gate. Deployment happens in publish-docs.yml.
       - name: Build documentation
         id: docfx
         if: always()
         continue-on-error: true
-        run: dotnet tool update -g docfx && docfx DocumentationSite/docfx.json
-      - name: Deploy GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master' && steps.docfx.outcome == 'success'
-        continue-on-error: true
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./DocumentationSite/_site
+        run: dotnet docfx DocumentationSite/docfx.json
+
       # Publish prerelease NuGet packages to GitHub Packages
       # Release packages are published to nuget.org via the release workflow
       - name: Add GitHub Packages source
