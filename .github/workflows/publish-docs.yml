@@ -1,13 +1,14 @@
-﻿# Your GitHub workflow file under .github/workflows/
-# Trigger the action on push to main
+name: Publish Docs
+
 on:
-  #  push:
-  #    branches:
-  #      - master
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
+  contents: read
   actions: read
   pages: write
   id-token: write
@@ -26,20 +27,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Dotnet Setup
-        uses: actions/setup-dotnet@v3
+        uses: actions/checkout@v4
         with:
-          dotnet-version: 9.x
+          fetch-depth: 0 # NBGV needs full history
 
-      - run: dotnet tool update -g docfx
-      - run: docfx DocumentationSite/docfx.json
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore .NET tools (docfx is pinned in .config/dotnet-tools.json)
+        run: dotnet tool restore
+
+      - name: Build documentation site
+        run: dotnet docfx DocumentationSite/docfx.json
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: 'DocumentationSite/_site'
+          path: DocumentationSite/_site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

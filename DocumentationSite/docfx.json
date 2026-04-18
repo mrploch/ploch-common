@@ -3,17 +3,20 @@
     {
       "src": [
         {
+          "src": "../src",
           "files": [
-            "**/**.csproj"
+            "**/*.csproj"
           ],
           "exclude": [
-            "**/**Tests/**",
+            "**/*Tests/**",
             "**/obj/**"
-          ],
-          "src": "../src"
+          ]
         }
       ],
       "dest": "api",
+      "memberLayout": "separatePages",
+      "namespaceLayout": "nested",
+      "includePrivateMembers": false,
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -22,18 +25,16 @@
     "content": [
       {
         "files": [
-          "../README.md",
           "api/**.yml",
           "api/index.md"
         ]
       },
       {
         "files": [
-          "../**.md",
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
-          "*.md"
+          "index.md"
         ]
       }
     ],
@@ -47,7 +48,6 @@
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md",
           "namespaces/**.md"
         ],
         "exclude": [
@@ -57,10 +57,21 @@
       }
     ],
     "dest": "_site",
+    "globalMetadata": {
+      "_appName": "Ploch.Common",
+      "_appTitle": "Ploch.Common — .NET Utility Libraries",
+      "_enableSearch": true,
+      "_disableContribution": false,
+      "_gitContribute": {
+        "repo": "https://github.com/mrploch/ploch-common",
+        "branch": "master"
+      }
+    },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",

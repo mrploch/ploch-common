@@ -203,5 +203,4 @@
     </Project>
     <File Path="tests\TestAssemblies\.editorconfig" />
   </Folder>
-  <Project Path="DocumentationSite/DocumentationSite.csproj" />
 </Solution>
