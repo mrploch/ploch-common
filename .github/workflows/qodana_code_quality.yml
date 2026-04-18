@@ -22,7 +22,7 @@ jobs:
       - name: Clone mrploch-development (shared build config)
         run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v2025.3.1
+        uses: JetBrains/qodana-action@v2025.2
         with:
           pr-mode: false
           args: --baseline,qodana.sarif.json,--solution,Ploch.Common.slnx
