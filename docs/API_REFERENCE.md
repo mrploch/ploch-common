@@ -11,7 +11,6 @@ Complete reference documentation for all public APIs in the Ploch.Common library
   - [IsIn Extensions](#isin-extensions)
 - [Ploch.Common.Reflection](#plochcommonreflection)
   - [Type Extensions](#type-extensions)
-  - [Assembly Extensions](#assembly-extensions)
   - [Type Loader](#type-loader)
 - [Ploch.Common.IO](#plochcommonio)
   - [Path Utilities](#path-utilities)
@@ -27,7 +26,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common`
 **Class**: `StringExtensions`
-**File**: [src/Common/StringExtensions.cs](../src/Common/StringExtensions.cs)
+**File**: [src/Common/StringExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/StringExtensions.cs)
 
 #### Null/Empty Checking Methods
 
@@ -80,7 +79,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Collections`
 **Class**: `EnumerableExtensions`
-**File**: [src/Common/Collections/EnumerableExtensions.cs](../src/Common/Collections/EnumerableExtensions.cs)
+**File**: [src/Common/Collections/EnumerableExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs)
 
 #### Value Checking Methods
 
@@ -135,7 +134,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.ArgumentChecking`
 **Class**: `Guard`
-**File**: [src/Common/ArgumentChecking/Guard.cs](../src/Common/ArgumentChecking/Guard.cs)
+**File**: [src/Common/ArgumentChecking/Guard.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/ArgumentChecking/Guard.cs)
 
 #### Null Validation (throws ArgumentNullException)
 
@@ -173,7 +172,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common`
 **Class**: `IsInExtensions`
-**File**: [src/Common/IsInExtensions.cs](../src/Common/IsInExtensions.cs)
+**File**: [src/Common/IsInExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/IsInExtensions.cs)
 
 #### In Methods
 
@@ -201,7 +200,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Reflection`
 **Class**: `TypeExtensions`
-**File**: [src/Common/Reflection/TypeExtensions.cs](../src/Common/Reflection/TypeExtensions.cs)
+**File**: [src/Common/Reflection/TypeExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeExtensions.cs)
 
 #### Type Checking Methods
 
@@ -226,7 +225,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Reflection`
 **Classes**: `TypeLoader`, `TypeLoaderConfigurator`
-**Files**: [src/Common/Reflection/TypeLoader.cs](../src/Common/Reflection/TypeLoader.cs)
+**Files**: [src/Common/Reflection/TypeLoader.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeLoader.cs)
 
 #### Configuration Methods
 
@@ -246,7 +245,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.IO`
 **Class**: `PathUtils`
-**File**: [src/Common/IO/PathUtils.cs](../src/Common/IO/PathUtils.cs)
+**File**: [src/Common/IO/PathUtils.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/IO/PathUtils.cs)
 
 #### Path Manipulation Methods
 
@@ -266,7 +265,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Randomizers`
 **Class**: `Randomizer`
-**File**: [src/Common/Randomizers/Randomizer.cs](../src/Common/Randomizers/Randomizer.cs)
+**File**: [src/Common/Randomizers/Randomizer.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Randomizers/Randomizer.cs)
 
 ### Randomizer Factory Methods
 
@@ -296,7 +295,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 ## Ploch.Common.DependencyInjection
 
 **Namespace**: `Ploch.Common.DependencyInjection`
-**Files**: [src/Common.DependencyInjection/](../src/Common.DependencyInjection/)
+**Files**: [src/Common.DependencyInjection/](https://github.com/mrploch/ploch-common/tree/master/src/Common.DependencyInjection/)
 
 ### Service Bundle
 
@@ -310,7 +309,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 ## Ploch.Common.Serialization
 
 **Namespace**: `Ploch.Common.Serialization`
-**Files**: [src/Common.Serialization/](../src/Common.Serialization/)
+**Files**: [src/Common.Serialization/](https://github.com/mrploch/ploch-common/tree/master/src/Common.Serialization/)
 
 ### Serializer Interface
 
@@ -330,7 +329,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 ## Navigation
 
-- [Home](../README.md)
+- [Home](https://github.com/mrploch/ploch-common#readme)
 - [Getting Started](GETTING_STARTED.md)
 - [Quick Reference](QUICK_REFERENCE.md)
 

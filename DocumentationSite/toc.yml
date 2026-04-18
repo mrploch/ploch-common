@@ -1,8 +1,15 @@
 - name: Home
   href: index.md
+- name: Getting Started
+  href: ../docs/GETTING_STARTED.md
+- name: Quick Reference
+  href: ../docs/QUICK_REFERENCE.md
+- name: Libraries
+  href: ../docs/
+  homepage: ../docs/INDEX.md
 - name: Articles
   href: articles/
-- name: Api Documentation
+- name: API Documentation
   href: api/
   homepage: api/index.md
 - name: GitHub

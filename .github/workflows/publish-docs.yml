@@ -40,7 +40,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Build documentation site
-        run: dotnet docfx DocumentationSite/docfx.json
+        run: dotnet docfx DocumentationSite/docfx.json --warningsAsErrors
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
