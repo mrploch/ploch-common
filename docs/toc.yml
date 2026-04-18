@@ -1,5 +1,7 @@
 - name: Overview
   href: INDEX.md
+- name: API Reference
+  href: API_REFERENCE.md
 - name: Core Foundation
   items:
     - name: Ploch.Common

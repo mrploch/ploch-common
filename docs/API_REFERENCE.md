@@ -225,7 +225,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Reflection`
 **Classes**: `TypeLoader`, `TypeLoaderConfigurator`
-**Files**: [src/Common/Reflection/TypeLoader.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeLoader.cs)
+**Files**: [src/Common/Reflection/TypeLoader.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeLoader.cs), [src/Common/Reflection/TypeLoaderConfigurator.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeLoaderConfigurator.cs)
 
 #### Configuration Methods
 
@@ -295,7 +295,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 ## Ploch.Common.DependencyInjection
 
 **Namespace**: `Ploch.Common.DependencyInjection`
-**Files**: [src/Common.DependencyInjection/](https://github.com/mrploch/ploch-common/tree/master/src/Common.DependencyInjection/)
+**Source**: [src/Common.DependencyInjection/](https://github.com/mrploch/ploch-common/tree/master/src/Common.DependencyInjection/)
 
 ### Service Bundle
 
@@ -309,7 +309,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 ## Ploch.Common.Serialization
 
 **Namespace**: `Ploch.Common.Serialization`
-**Files**: [src/Common.Serialization/](https://github.com/mrploch/ploch-common/tree/master/src/Common.Serialization/)
+**Source**: [src/Common.Serialization/](https://github.com/mrploch/ploch-common/tree/master/src/Common.Serialization/)
 
 ### Serializer Interface
 
