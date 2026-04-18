@@ -2,9 +2,6 @@
 
 A suite of .NET utility libraries targeting `netstandard2.0` and `net8.0+`, providing extension methods, helpers, and abstractions that simplify everyday development.
 
-> [!NOTE]
-> Full per-library documentation is available in the [docs folder](https://github.com/mrploch/ploch-common/tree/master/docs) of the repository. Integration with this site is tracked in [issue #190](https://github.com/mrploch/ploch-common/issues/190).
-
 ## Install
 
 ```bash
@@ -57,6 +54,9 @@ Abstract `ISerializer` / `IAsyncSerializer` interfaces plus implementations:
 
 ## Navigating the docs
 
+- [**Getting Started**](../docs/GETTING_STARTED.md) — installation, first steps, common use cases.
+- [**Quick Reference**](../docs/QUICK_REFERENCE.md) — cheat sheet of method signatures and common operations.
+- [**Libraries**](../docs/INDEX.md) — per-library overviews, key types, usage examples, and configuration guidance for every package in the suite.
 - [**API**](api/index.md) — auto-generated reference for every public type.
 - [**Articles**](articles/intro.md) — worked examples and usage patterns.
 - [**README** on GitHub](https://github.com/mrploch/ploch-common#readme) — comprehensive code examples and real-world scenarios.

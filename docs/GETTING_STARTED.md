@@ -463,7 +463,7 @@ public decimal CalculateDiscount(decimal price, int quantity)
 
 ## Next Steps
 
-1. **Explore the full API**: Check out the [README.md](../README.md) for comprehensive examples
+1. **Explore the full API**: Check out the [README.md](https://github.com/mrploch/ploch-common#readme) for comprehensive examples
 2. **Use the Quick Reference**: Keep [QUICK_REFERENCE.md](QUICK_REFERENCE.md) handy for common operations
 3. **Review Real-World Examples**: See practical applications in the main documentation
 4. **Experiment**: Try the extensions in your own projects
@@ -497,7 +497,7 @@ value.RequiredNotNull(nameof(value));
 
 ## Additional Resources
 
-- [Full Documentation](../README.md)
+- [Full Documentation](https://github.com/mrploch/ploch-common#readme)
 - [Quick Reference Guide](QUICK_REFERENCE.md)
 - [GitHub Repository](https://github.com/mrploch/ploch-common)
 - [Issue Tracker](https://github.com/mrploch/ploch-common/issues)
