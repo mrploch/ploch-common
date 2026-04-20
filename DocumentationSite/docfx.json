@@ -9,6 +9,8 @@
           ],
           "exclude": [
             "**/*Tests/**",
+            "**/*.Tests.TestAssembly*/**",
+            "**/Common.WebApi/**",
             "**/obj/**"
           ]
         }
