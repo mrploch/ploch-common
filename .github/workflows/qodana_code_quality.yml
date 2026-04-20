@@ -1,11 +1,16 @@
 name: Qodana
+# Automatic triggers are disabled while #194 tracks a durable fix.
+# qodana-cdnet (the Community image we are entitled to) ships EAP-only
+# tags with rolling licence expiry, so any fixed pin breaks CI on a
+# ~4-7 week cycle. Option A (qodana-dotnet stable) was confirmed
+# unavailable — the Qodana Cloud project has only a Community licence.
+# Option B (use-nightly) is deprecated and 404s. Until #194 decides
+# between option C (automated bump workflow) and option D (drop Qodana
+# in favour of SonarCloud/Codacy/DeepSource/CodeFactor/CodeRabbit/
+# Sourcery, which already run and pass on every PR), Qodana runs only
+# on manual dispatch.
 on:
   workflow_dispatch:
-  pull_request:
-  push:
-    branches: # Specify your branches here
-      - master # The 'main' branch
-      - 'releases/*' # The release branches
 
 jobs:
   qodana:
