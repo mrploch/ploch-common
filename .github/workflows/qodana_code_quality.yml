@@ -25,6 +25,11 @@ jobs:
         uses: JetBrains/qodana-action@v2025.3.2
         with:
           pr-mode: false
+          # use-nightly pulls the freshest EAP cdnet image — qodana-cdnet only
+          # ships EAP tags with rolling licence expiry, so pinning a single tag
+          # recurrently breaks CI (see #194). Overrides the linter pin in
+          # qodana.yaml for this run.
+          use-nightly: true
           args: --baseline,qodana.sarif.json,--solution,Ploch.Common.slnx
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
