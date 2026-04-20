@@ -1,0 +1,88 @@
+- name: Overview
+  href: INDEX.md
+- name: API Reference
+  href: API_REFERENCE.md
+- name: Core Foundation
+  items:
+    - name: Ploch.Common
+      href: libraries/common.md
+    - name: Ploch.Common.Net9
+      href: libraries/common-net9.md
+    - name: Ploch.Common.DataAnnotations
+      href: libraries/common-data-annotations.md
+    - name: Ploch.Common.ObjectBuilder
+      href: libraries/common-object-builder.md
+    - name: Ploch.Common.Ardalis.Result
+      href: libraries/common-ardalis-result.md
+- name: Serialization
+  items:
+    - name: Ploch.Common.Serialization
+      href: libraries/common-serialization.md
+    - name: Ploch.Common.Serialization.SystemTextJson
+      href: libraries/common-serialization-system-text-json.md
+    - name: Ploch.Common.Serialization.SystemTextJson.DI
+      href: libraries/common-serialization-system-text-json-di.md
+    - name: Ploch.Common.Serialization.NewtonsoftJson
+      href: libraries/common-serialization-newtonsoft-json.md
+    - name: Ploch.Common.Serialization.NewtonsoftJson.DI
+      href: libraries/common-serialization-newtonsoft-json-di.md
+- name: Dependency Injection
+  items:
+    - name: Ploch.Common.DependencyInjection
+      href: libraries/common-dependency-injection.md
+    - name: Ploch.Common.DependencyInjection.Autofac
+      href: libraries/common-dependency-injection-autofac.md
+    - name: Ploch.Common.DependencyInjection.Hosting
+      href: libraries/common-dependency-injection-hosting.md
+    - name: Ploch.Common.Extensions.Configuration
+      href: libraries/common-extensions-configuration.md
+    - name: Ploch.Common.Dependencies
+      href: libraries/common-dependencies.md
+- name: Web, API & Applications
+  items:
+    - name: Ploch.Common.WebApi
+      href: libraries/common-webapi.md
+    - name: Ploch.Common.Web
+      href: libraries/common-web.md
+    - name: Ploch.Common.WebUI
+      href: libraries/common-webui.md
+    - name: Ploch.Common.AppServices
+      href: libraries/common-appservices.md
+    - name: Ploch.Common.AppServices.Web
+      href: libraries/common-appservices-web.md
+    - name: Ploch.Common.Apps
+      href: libraries/common-apps.md
+    - name: Ploch.Common.UseCases
+      href: libraries/common-usecases.md
+    - name: Ploch.Common.NSwag
+      href: libraries/common-nswag.md
+    - name: Ploch.Common.Maui
+      href: libraries/common-maui.md
+    - name: Ploch.Common.Windows
+      href: libraries/common-windows.md
+    - name: Ploch.Common.Windows.DependencyInjection
+      href: libraries/common-windows-di.md
+- name: Testing Support
+  items:
+    - name: Ploch.TestingSupport
+      href: libraries/testing-support.md
+    - name: Ploch.TestingSupport.XUnit3
+      href: libraries/testing-support-xunit3.md
+    - name: Ploch.TestingSupport.XUnit3.AutoMoq
+      href: libraries/testing-support-xunit3-automoq.md
+    - name: Ploch.TestingSupport.FluentAssertions
+      href: libraries/testing-support-fluent-assertions.md
+    - name: Ploch.TestingSupport.FluentAssertions.IOAbstractions
+      href: libraries/testing-support-fluent-assertions-io.md
+    - name: Ploch.TestingSupport.MockConsoleApp
+      href: libraries/testing-support-mock-console-app.md
+    - name: Ploch.TestingSupport.Dependencies.MetaPackages
+      href: libraries/testing-support-meta-packages.md
+    - name: Ploch.TestingSupport.XUnit3.Dependencies
+      href: libraries/testing-support-xunit3-dependencies.md
+    - name: Ploch.TestingSupport.XUnit2.Dependencies
+      href: libraries/testing-support-xunit2-dependencies.md
+- name: Build Configuration
+  items:
+    - name: MSBuild, Packages, Versioning
+      href: libraries/common-msbuild.md

@@ -36,6 +36,16 @@
           "toc.yml",
           "index.md"
         ]
+      },
+      {
+        "src": "..",
+        "files": [
+          "docs/**/*.md",
+          "docs/**/toc.yml"
+        ],
+        "exclude": [
+          "docs/README.md"
+        ]
       }
     ],
     "resource": [

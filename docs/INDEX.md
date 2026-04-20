@@ -10,7 +10,7 @@ development tasks.
 | [Getting Started Guide](GETTING_STARTED.md) | New users — installation, first steps, common use cases |
 | [Quick Reference](QUICK_REFERENCE.md)       | Experienced users — method signatures, cheat sheet      |
 | [API Reference](API_REFERENCE.md)           | Complete method reference organised by namespace        |
-| [Main README](../README.md)                 | Full feature overview with in-depth examples            |
+| [Main README](https://github.com/mrploch/ploch-common#readme)                 | Full feature overview with in-depth examples            |
 
 ## Library Documentation
 
@@ -101,4 +101,4 @@ Per-library documentation with overviews, key types, usage examples, and configu
 
 ---
 
-[Back to Main README](../README.md)
+[Back to Main README](https://github.com/mrploch/ploch-common#readme)

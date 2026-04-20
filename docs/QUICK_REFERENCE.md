@@ -288,6 +288,6 @@ foreach (var type in types.Where(t => t.IsConcreteImplementation<IService>()))
 
 ## Getting Help
 
-- Full documentation: [README.md](../README.md)
+- Full documentation: [README.md](https://github.com/mrploch/ploch-common#readme)
 - Source code: [GitHub Repository](https://github.com/mrploch/ploch-common)
 - Report issues: [GitHub Issues](https://github.com/mrploch/ploch-common/issues)
