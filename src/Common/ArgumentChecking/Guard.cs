@@ -32,6 +32,47 @@ public static partial class Guard
 
         return argument;
     }
+
+    private static bool IsFlagsEnum<TEnum>() where TEnum : struct, Enum
+    {
+        return typeof(TEnum).IsDefined(typeof(FlagsAttribute), false);
+    }
+
+    private static bool HasOnlyDefinedFlagValues<TEnum>(TEnum value) where TEnum : struct, Enum
+    {
+        var ulongValue = ToUInt64(value);
+        var mask = GetEnumValuesMask<TEnum>();
+
+        return (ulongValue & ~mask) == 0;
+    }
+
+    private static ulong GetEnumValuesMask<TEnum>() where TEnum : struct, Enum
+    {
+        ulong mask = 0;
+
+        foreach (TEnum enumValue in Enum.GetValues(typeof(TEnum)))
+        {
+            mask |= ToUInt64(enumValue);
+        }
+
+        return mask;
+    }
+
+    private static ulong ToUInt64<TEnum>(TEnum value) where TEnum : struct, Enum
+    {
+        return Type.GetTypeCode(Enum.GetUnderlyingType(typeof(TEnum))) switch
+        {
+            TypeCode.SByte => unchecked((ulong)(sbyte)(object)value),
+            TypeCode.Byte => (byte)(object)value,
+            TypeCode.Int16 => unchecked((ulong)(short)(object)value),
+            TypeCode.UInt16 => (ushort)(object)value,
+            TypeCode.Int32 => unchecked((ulong)(int)(object)value),
+            TypeCode.UInt32 => (uint)(object)value,
+            TypeCode.Int64 => unchecked((ulong)(long)(object)value),
+            TypeCode.UInt64 => (ulong)(object)value,
+            _ => throw new InvalidOperationException("Unexpected enum underlying type.")
+        };
+    }
 #if NETSTANDARD2_0
     /// <summary>
     ///     Ensures that the given boolean condition evaluates to <c>true</c>. Throws an <see cref="InvalidOperationException" /> if the condition is <c>false</c>.
@@ -269,14 +310,19 @@ public static partial class Guard
     public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument, string argumentName)
         where TEnum : struct, Enum
     {
-        if (!Enum.IsDefined(typeof(TEnum), argument))
+        if (Enum.IsDefined(typeof(TEnum), argument))
         {
-            throw new ArgumentOutOfRangeException(argumentName,
-                                                  argument,
-                                                  string.Format(CultureInfo.InvariantCulture, EnumNotDefinedMessageFormat, argument, typeof(TEnum).Name));
+            return argument;
         }
 
-        return argument;
+        if (IsFlagsEnum<TEnum>() && HasOnlyDefinedFlagValues(argument))
+        {
+            return argument;
+        }
+
+        throw new ArgumentOutOfRangeException(argumentName,
+                                              argument,
+                                              string.Format(CultureInfo.InvariantCulture, EnumNotDefinedMessageFormat, argument, typeof(TEnum).Name));
     }
 
     /// <summary>
