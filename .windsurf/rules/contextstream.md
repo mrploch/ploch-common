@@ -150,10 +150,3 @@ Prefer `recall` first (it already fuses transcripts + snapshots + docs + decisio
 - Complete todos: `memory(action="complete_todo", todo_id="...")`
 - ContextStream todos persist across sessions and are trackable
 </contextstream>
-
-
----
-trigger: always_on
-description: 
-globs: 
----

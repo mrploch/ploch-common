@@ -50,7 +50,7 @@
     <File Path="docs/GETTING_STARTED.md" />
     <File Path="docs/INDEX.md" />
     <File Path="docs/QUICK_REFERENCE.md" />
-    <File Path="docs\README.md" />
+    <File Path="docs/README.md" />
   </Folder>
   <Folder Name="/repository/docs/libraries/">
     <File Path="docs/libraries/common-apps.md" />
