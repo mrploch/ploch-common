@@ -1,12 +1,21 @@
 # Performing Tasks from TODO.md
 
-- When performing a task from the `TODO.md`, always validate it is resolved / fixed - for example re-run the problematic code / command and validate output.
-- If a task is a coding task, always add a comprehensive set of unit tests according to the configured .NET testing rules.
-- Where possible, run the tasks in parallel, maybe using sub-agents
-- Auto-accept the tools usage
-- Create a commit per task
-- When creating a commit message, use the Conventional Commit, as described in rules
-- Always analyze and review the code for potential issues, including best practices, conventions and other problems
-- Always build and try to resolve all new warnings (and obviously the errors)
-- Use the output from static code analyzers configured for this project
-- You can use the JetBrains Rider MCP server which should be available
+**Skill:** Use `/execute-todo` to run the full workflow. See `~/.claude/skills/execute-todo/SKILL.md`.
+
+## Principles
+
+These principles guide TODO task execution. The skill handles the workflow; these rules explain *why*.
+
+- **Autonomous execution** — research before asking. Use web search, sibling repos, docs to resolve uncertainties. Only
+  ask the user when truly blocked.
+- **End-to-end quality** — every task must build, pass tests, pass static analysis, and survive self-review before
+  committing.
+- **Zero new warnings** — treat analyser output (StyleCop, Roslynator, SonarAnalyzer) as requirements, not suggestions.
+- **Comprehensive tests** — coding tasks require unit tests (xUnit v3, FluentAssertions, AutoFixture) per the .NET
+  testing rules.
+- **Conventional Commits** — one commit per task, following `commits.md` rules.
+- **PR check gate** — when pushing, wait for all CI checks to pass. Resolve failures and PR comments before marking
+  complete.
+- **Parallel where possible** — independent tasks should be dispatched to parallel agents.
+- **Non-blocking issues** — collect questions and suggestions in `TODO-important.md`. Only ask if truly blocking.
+- **For common libraries** (Ploch.Common, Ploch.Data, Ploch.Web, etc.) — provide code documentation and README files.
