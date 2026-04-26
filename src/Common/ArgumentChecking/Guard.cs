@@ -310,12 +310,7 @@ public static partial class Guard
     public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument, string argumentName)
         where TEnum : struct, Enum
     {
-        if (Enum.IsDefined(typeof(TEnum), argument))
-        {
-            return argument;
-        }
-
-        if (IsFlagsEnum<TEnum>() && HasOnlyDefinedFlagValues(argument))
+        if (Enum.IsDefined(typeof(TEnum), argument) || (IsFlagsEnum<TEnum>() && HasOnlyDefinedFlagValues(argument)))
         {
             return argument;
         }
