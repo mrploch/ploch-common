@@ -10,66 +10,23 @@ namespace Ploch.Common.Tests.ArgumentChecking;
 public class GuardFlagsEnumTests
 {
     [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_sbyte_underlying_enum()
+    public void NotOutOfRange_should_accept_combined_flags_across_all_underlying_types()
     {
-        var combined = SByteFlags.A | SByteFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
+        // Single test exercising every TypeCode arm of ToUInt64. Each underlying type requires its
+        // own typed enum, so Theory + InlineData cannot parameterise these cleanly across distinct
+        // generic arguments; a generic helper keeps the assertions DRY while covering all eight arms.
+        AssertCombinedFlagsAreAccepted(SByteFlags.A | SByteFlags.B);
+        AssertCombinedFlagsAreAccepted(ByteFlags.A | ByteFlags.B);
+        AssertCombinedFlagsAreAccepted(ShortFlags.A | ShortFlags.B);
+        AssertCombinedFlagsAreAccepted(UShortFlags.A | UShortFlags.B);
+        AssertCombinedFlagsAreAccepted(IntFlags.A | IntFlags.B);
+        AssertCombinedFlagsAreAccepted(UIntFlags.A | UIntFlags.B);
+        AssertCombinedFlagsAreAccepted(LongFlags.A | LongFlags.B);
+        AssertCombinedFlagsAreAccepted(ULongFlags.A | ULongFlags.B);
     }
 
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_byte_underlying_enum()
+    private static void AssertCombinedFlagsAreAccepted<TEnum>(TEnum combined) where TEnum : struct, Enum
     {
-        var combined = ByteFlags.A | ByteFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
-    }
-
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_short_underlying_enum()
-    {
-        var combined = ShortFlags.A | ShortFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
-    }
-
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_ushort_underlying_enum()
-    {
-        var combined = UShortFlags.A | UShortFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
-    }
-
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_int_underlying_enum()
-    {
-        var combined = IntFlags.A | IntFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
-    }
-
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_uint_underlying_enum()
-    {
-        var combined = UIntFlags.A | UIntFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
-    }
-
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_long_underlying_enum()
-    {
-        var combined = LongFlags.A | LongFlags.B;
-
-        combined.NotOutOfRange().Should().Be(combined);
-    }
-
-    [Fact]
-    public void NotOutOfRange_should_accept_combined_flags_for_ulong_underlying_enum()
-    {
-        var combined = ULongFlags.A | ULongFlags.B;
-
         combined.NotOutOfRange().Should().Be(combined);
     }
 
