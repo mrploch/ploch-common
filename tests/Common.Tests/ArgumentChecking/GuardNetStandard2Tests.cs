@@ -42,4 +42,24 @@ public class GuardNetStandard2Tests
 
         act.Should().Throw<InvalidOperationException>().WithMessage($"Empty value for {nameof(argument)}");
     }
+
+    [Fact]
+    public void RequiredNotNull_should_return_argument_when_not_null()
+    {
+        var testClass = new TestClass();
+
+        var result = testClass.RequiredNotNull(nameof(testClass));
+
+        result.Should().BeSameAs(testClass);
+    }
+
+    [Fact]
+    public void RequiredNotNullOrEmpty_should_return_argument_when_not_empty()
+    {
+        var argument = "valid";
+
+        var result = argument.RequiredNotNullOrEmpty(nameof(argument));
+
+        result.Should().Be(argument);
+    }
 }
