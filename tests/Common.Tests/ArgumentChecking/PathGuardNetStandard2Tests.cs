@@ -32,8 +32,8 @@ public class PathGuardNetStandard2Tests
     [Fact]
     public void RequireValidPath_should_throw_InvalidOperationException_when_path_contains_invalid_characters()
     {
-        var invalidChar = Path.GetInvalidPathChars().First(c => c != '\0');
-        var invalidPath = Path.Combine(Path.GetTempPath(), "bad" + invalidChar + "file.txt");
+        // '\0' is the only path char invalid on every platform (Linux returns just [\0] from GetInvalidPathChars).
+        var invalidPath = Path.Combine(Path.GetTempPath(), "bad\0file.txt");
 
         var act = () => invalidPath.RequireValidPath(nameof(invalidPath));
 
@@ -93,8 +93,8 @@ public class PathGuardNetStandard2Tests
     [Fact]
     public void IsValidPath_should_throw_when_path_contains_invalid_characters()
     {
-        var invalidChar = Path.GetInvalidPathChars().First(c => c != '\0');
-        var invalidPath = "test" + invalidChar + "file.txt";
+        // '\0' is the only path char invalid on every platform (Linux returns just [\0] from GetInvalidPathChars).
+        var invalidPath = "test\0file.txt";
 
         var act = () => invalidPath.IsValidPath(nameof(invalidPath));
 
