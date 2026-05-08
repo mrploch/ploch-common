@@ -1,0 +1,9 @@
+{
+  "mcp": {
+    "contextstream": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.contextstream.io/mcp?default_context_mode=fast"
+    }
+  }
+}

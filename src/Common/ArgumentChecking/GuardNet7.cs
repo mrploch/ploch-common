@@ -280,9 +280,6 @@ public static partial class Guard
     ///     Ensures that the provided enum value is a defined value within its respective enumeration type.
     ///     If the value is not defined, an <see cref="ArgumentOutOfRangeException" /> is thrown.
     /// </summary>
-    /// <remarks>
-    ///     This method does not handle flags - https://github.com/mrploch/ploch-common/issues/159.
-    /// </remarks>
     /// <param name="argument">The enum value to validate.</param>
     /// <param name="argumentName">
     ///     The name of the argument being validated, captured automatically using
@@ -297,14 +294,19 @@ public static partial class Guard
                                              [CallerArgumentExpression(nameof(argument))]
                                              string? argumentName = null) where TEnum : struct, Enum
     {
-        if (!Enum.IsDefined(argument))
+        if (Enum.IsDefined(argument))
         {
-            throw new ArgumentOutOfRangeException(argumentName,
-                                                  argument,
-                                                  string.Format(CultureInfo.InvariantCulture, EnumNotDefinedMessageFormat, argument, typeof(TEnum).Name));
+            return argument;
         }
 
-        return argument;
+        if (IsFlagsEnum<TEnum>() && HasOnlyDefinedFlagValues(argument))
+        {
+            return argument;
+        }
+
+        throw new ArgumentOutOfRangeException(argumentName,
+                                              argument,
+                                              string.Format(CultureInfo.InvariantCulture, EnumNotDefinedMessageFormat, argument, typeof(TEnum).Name));
     }
 
     public static TValue Positive<TValue>(

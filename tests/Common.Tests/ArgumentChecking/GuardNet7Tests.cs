@@ -266,7 +266,7 @@ public class GuardNet7Tests
     }
 
     // bug: https://github.com/mrploch/ploch-common/issues/159
-    [Fact(Skip = "Handling of flags is currently not supported.")]
+    [Fact]
     public void NotOutOfRange_should_work_with_flags_enum_combined_values()
     {
         // Arrange

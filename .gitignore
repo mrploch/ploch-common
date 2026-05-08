@@ -415,3 +415,28 @@ __x_*
 .claude/settings.local.json
 .claude/settings.json
 identifier.sqlite
+
+# ---------------------------------------------------------------------------
+# Claude Code / agentic tooling — personal config
+#
+# These directories are populated locally (typically as symlinks/junctions
+# pointing into ../mrploch-development/.claude/) and must NOT be committed.
+# Symlinks committed to a public repo break on any other machine.
+# A canonical sync strategy is being designed in mrploch-development; until
+# then, ignore the directories but keep the explicitly tracked real files.
+# ---------------------------------------------------------------------------
+.claude/agents
+.claude/agents/
+.claude/skills/
+.github/skills/
+
+.claude/rules/*
+!.claude/rules/change-log.md
+!.claude/rules/todo-tasks-execution.md
+
+# Local research/scratch files
+Writerside2.iml
+Writerside2/
+pdfSourceP.html
+pdfSourceP.pdf
+/.mcp.json
