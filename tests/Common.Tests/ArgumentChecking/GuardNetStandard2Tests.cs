@@ -4,7 +4,7 @@
 // The corresponding net7+ semantics are covered in GuardNet7Tests.cs.
 // See issues #207 (multi-target test coverage) and #210 (the parameter-order divergence).
 using Ploch.Common.ArgumentChecking;
-using Ploch.Common.Tests.TestTypes.TestingTypes;
+using Ploch.Common.Tests.TestTypes;
 
 // ReSharper disable MissingXmlDoc
 namespace Ploch.Common.Tests.ArgumentChecking;
