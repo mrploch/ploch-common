@@ -51,32 +51,26 @@ public class GuardTests
     [InlineData(char.MinValue)]
     public void Positive_should_throw_exception_when_number_is_negative(double argumentXyz)
     {
-        var act = () => argumentXyz.Positive();
+        var act = () => argumentXyz.Positive(nameof(argumentXyz));
         act.Should().Throw<ArgumentOutOfRangeException>().WithParameterName(nameof(argumentXyz));
     }
 
-    [Fact]
-    public void RequiredNotNull_should_throw_InvalidOperationException_if_argument_is_null()
-    {
-        TestClass? testClass = null;
-
-        var act = () => testClass.RequiredNotNull("This is the exception message for {0}");
-
-        act.Should().Throw<InvalidOperationException>().WithMessage("This is the exception message for testClass");
-    }
+    // Net7+ message-format semantics (single positional arg = format template) are tested in GuardNet7Tests.cs.
+    // The netstandard2.0 partial inverts the parameter order (memberName first, message second), so the
+    // single-positional-arg call has different semantics on that binary. See issue #207.
 
     [Fact]
     public void NotNullOrEmpty_should_return_enumerable_when_not_null_or_empty()
     {
         var list = new List<int> { 1 };
-        list.NotNullOrEmpty().Should().BeSameAs(list);
+        list.NotNullOrEmpty(nameof(list)).Should().BeSameAs(list);
     }
 
     [Fact]
     public void NotNullOrEmpty_should_throw_for_null_enumerable()
     {
         List<int>? list = null;
-        Action act = () => list.NotNullOrEmpty();
+        Action act = () => list.NotNullOrEmpty(nameof(list));
         act.Should().Throw<ArgumentNullException>().WithParameterName(nameof(list));
     }
 
@@ -84,7 +78,7 @@ public class GuardTests
     public void NotNullOrEmpty_should_throw_for_empty_enumerable()
     {
         var list = new List<int>();
-        Action act = () => list.NotNullOrEmpty();
+        Action act = () => list.NotNullOrEmpty(nameof(list));
         act.Should().Throw<ArgumentException>().WithMessage("Argument cannot be null or empty.*");
     }
 
@@ -98,14 +92,16 @@ public class GuardTests
     public void NotNullOrEmpty_should_throw_for_null_string()
     {
         string? str = null;
-        Action act = () => str.NotNullOrEmpty();
+        Action act = () => str.NotNullOrEmpty(nameof(str));
         act.Should().Throw<ArgumentNullException>().WithParameterName(nameof(str));
     }
 
     [Fact]
     public void NotNullOrEmpty_should_throw_for_empty_string()
     {
+        // Wildcard kept lenient: net7+ raises "The value cannot be an empty string.",
+        // netstandard2.0 raises "Argument cannot be null or empty." (issue #207).
         Action act = () => string.Empty.NotNullOrEmpty("str");
-        act.Should().Throw<ArgumentException>().WithMessage("*empty string*");
+        act.Should().Throw<ArgumentException>().WithMessage("*empty*");
     }
 }
