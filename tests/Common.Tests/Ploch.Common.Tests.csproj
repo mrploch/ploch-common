@@ -102,6 +102,7 @@
     -->
     <ItemGroup Condition="'$(TargetFramework)' != 'net8.0'">
         <Compile Remove="ArgumentChecking\PathGuardNetStandard2Tests.cs" />
+        <Compile Remove="ArgumentChecking\GuardNetStandard2Tests.cs" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Agoda.Analyzers" />
