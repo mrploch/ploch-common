@@ -3,7 +3,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
-        <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
+        <!--
+            Multi-target so we exercise both Ploch.Common assets shipped in the package:
+              net10.0 leg → resolves the net8.0 binary (NET7_0_OR_GREATER paths)
+              net8.0  leg → forced to resolve the netstandard2.0 binary (see conditional ProjectReference below)
+            See issue #207.
+        -->
+        <TargetFrameworks>$(TargetFrameworkVersion);net8.0</TargetFrameworks>
         <Platforms>AnyCPU;x64</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -57,7 +63,18 @@
         <None Remove="CoverageResults\**" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj" />
+        <!--
+            Conditional Ploch.Common reference per TFM leg.
+            On the net8.0 leg, force consumption of the netstandard2.0 asset so the
+            #if NETSTANDARD2_0 production code (Guard, PathGuard, Hashing fall-throughs)
+            is what the tests actually load and execute. See issue #207.
+        -->
+        <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj"
+                          Condition="'$(TargetFramework)' != 'net8.0'" />
+        <ProjectReference Include="..\..\src\Common\Ploch.Common.csproj"
+                          SetTargetFramework="TargetFramework=netstandard2.0"
+                          Condition="'$(TargetFramework)' == 'net8.0'" />
+
         <ProjectReference Include="..\..\src\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj" />
         <ProjectReference Include="..\..\src\TestingSupport.MockConsoleApp\Ploch.TestingSupport.MockConsoleApp.csproj" />
         <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
@@ -65,6 +82,27 @@
         <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
         <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly2\Ploch.Common.Tests.TestAssembly2.csproj" />
         <ProjectReference Include="..\TestAssemblies\Common.Tests.TestTypes\Ploch.Common.Tests.TestTypes.csproj" />
+    </ItemGroup>
+
+    <!--
+        On the net8.0 leg we link against the netstandard2.0 binary of Ploch.Common,
+        which does not contain the #if NET7_0_OR_GREATER members. Exclude tests
+        that depend on those members to avoid build failures.
+    -->
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+        <Compile Remove="ArgumentChecking\GuardNet7Tests.cs" />
+        <Compile Remove="ArgumentChecking\PathGuardNet7Tests.cs" />
+        <Compile Remove="Collections\EnumerableQueriesTests.cs" />
+    </ItemGroup>
+
+    <!--
+        Inverse: tests that exist ONLY on the netstandard2.0 surface
+        (e.g. PathGuard.RequireValidPath was renamed in the net7+ partial).
+        Excluded from the net10 leg, where they would fail to compile.
+    -->
+    <ItemGroup Condition="'$(TargetFramework)' != 'net8.0'">
+        <Compile Remove="ArgumentChecking\PathGuardNetStandard2Tests.cs" />
+        <Compile Remove="ArgumentChecking\GuardNetStandard2Tests.cs" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Agoda.Analyzers" />

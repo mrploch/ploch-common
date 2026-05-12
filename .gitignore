@@ -414,6 +414,7 @@ codestream.xml
 __x_*
 .claude/settings.local.json
 .claude/settings.json
+.claude/*.lock
 identifier.sqlite
 
 # ---------------------------------------------------------------------------

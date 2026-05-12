@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
+        <!-- Multi-target so that Common.Tests can reference this from its net8.0 leg (issue #207). -->
+        <TargetFrameworks>$(TargetFrameworkVersion);net8.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>

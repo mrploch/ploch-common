@@ -27,7 +27,7 @@ public class GuardFlagsEnumTests
 
     private static void AssertCombinedFlagsAreAccepted<TEnum>(TEnum combined) where TEnum : struct, Enum
     {
-        combined.NotOutOfRange().Should().Be(combined);
+        combined.NotOutOfRange(nameof(combined)).Should().Be(combined);
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class GuardFlagsEnumTests
     {
         var invalid = (IntFlags)((int)IntFlags.A | 0x10);
 
-        var action = () => invalid.NotOutOfRange();
+        var action = () => invalid.NotOutOfRange(nameof(invalid));
 
         action.Should().Throw<ArgumentOutOfRangeException>().WithMessage($"*{invalid}*not defined*{nameof(IntFlags)}*");
     }
@@ -48,7 +48,7 @@ public class GuardFlagsEnumTests
         // bits set by sign-extension fail the (value & ~mask) == 0 check and the value is rejected as expected.
         var invalid = (IntFlags)(-1);
 
-        var action = () => invalid.NotOutOfRange();
+        var action = () => invalid.NotOutOfRange(nameof(invalid));
 
         action.Should().Throw<ArgumentOutOfRangeException>();
     }
@@ -58,7 +58,7 @@ public class GuardFlagsEnumTests
     {
         var combined = (PlainEnum)((int)PlainEnum.A | (int)PlainEnum.B);
 
-        var action = () => combined.NotOutOfRange();
+        var action = () => combined.NotOutOfRange(nameof(combined));
 
         action.Should().Throw<ArgumentOutOfRangeException>();
     }
@@ -66,7 +66,7 @@ public class GuardFlagsEnumTests
     [Fact]
     public void NotOutOfRange_should_accept_zero_value_when_zero_is_defined_for_flags_enum()
     {
-        IntFlags.None.NotOutOfRange().Should().Be(IntFlags.None);
+        IntFlags.None.NotOutOfRange(nameof(IntFlags.None)).Should().Be(IntFlags.None);
     }
 
     [Fact]
@@ -76,7 +76,7 @@ public class GuardFlagsEnumTests
         // with no bits set is treated as "no flags chosen", matching C# conventions for flags enums.
         var noFlags = default(FlagsWithoutZero);
 
-        noFlags.NotOutOfRange().Should().Be(noFlags);
+        noFlags.NotOutOfRange(nameof(noFlags)).Should().Be(noFlags);
     }
 
     [Fact]
@@ -86,7 +86,7 @@ public class GuardFlagsEnumTests
         // value of 0 on an enum without [Flags] and without a 0 member is still out of range.
         var zero = default(NonFlagsWithoutZero);
 
-        var action = () => zero.NotOutOfRange();
+        var action = () => zero.NotOutOfRange(nameof(zero));
 
         action.Should().Throw<ArgumentOutOfRangeException>();
     }
