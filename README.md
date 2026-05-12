@@ -14,7 +14,7 @@ A comprehensive collection of .NET utility libraries providing extension methods
 ## Table of Contents
 
 - [Overview](#overview)
-- [Support](#support)
+- [Support the Project](#support-the-project)
 - [Installation](#installation)
 - [Versioning and Releases](#versioning-and-releases)
 - [Core Library (Ploch.Common)](#core-library-plochcommon)
@@ -41,7 +41,7 @@ Ploch.Common is a suite of .NET libraries targeting `netstandard2.0` and `net8.0
 - **Serialization** abstractions (JSON, XML)
 - And much more...
 
-## Support
+## Support the Project
 
 If `Ploch.Common` saves you time or makes your projects nicer, please consider supporting its development. Every coffee directly funds time spent on maintenance, bug fixes, and new features.
 
