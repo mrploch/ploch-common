@@ -210,7 +210,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Ploch.Common is a comprehensive suite of .NET utility libraries targeting `netstandard2.0` and `net8.0+`, providing extension methods, helpers, and utilities to simplify everyday development tasks.
+Ploch.Common is a comprehensive suite of .NET utility libraries targeting `netstandard2.0`, `net8.0`, and `net10.0` (varies by project), providing extension methods, helpers, and utilities to simplify everyday development tasks.
 
 **Solution File:** `Ploch.Common.slnx`
 
@@ -225,13 +225,13 @@ dotnet build Ploch.Common.slnx
 dotnet build src/Common/Ploch.Common.csproj
 
 # Build in Release mode
-dotnet build -c Release
+dotnet build Ploch.Common.slnx -c Release
 ```
 
 ### Running Tests
 ```bash
 # Run all tests
-dotnet test
+dotnet test Ploch.Common.slnx
 
 # Run tests for a specific project
 dotnet test tests/Common.Tests/Ploch.Common.Tests.csproj
@@ -243,13 +243,13 @@ dotnet test --filter "FullyQualifiedName~MethodName_should_explain_what_it_shoul
 dotnet test --filter "FullyQualifiedName~Ploch.Common.Tests.Collections"
 
 # Run with coverage (if configured)
-dotnet test --collect:"XPlat Code Coverage"
+dotnet test Ploch.Common.slnx --collect:"XPlat Code Coverage"
 ```
 
 ### Restore and Clean
 ```bash
-dotnet restore
-dotnet clean
+dotnet restore Ploch.Common.slnx
+dotnet clean Ploch.Common.slnx
 ```
 
 ## Architecture Overview
@@ -451,11 +451,11 @@ Version numbers are managed by **Nerdbank.GitVersioning (NBGV)**, configured in 
 
 ### How It Works
 
-- `version.json` declares the base version (e.g. `2.1-prerelease`).
+- `version.json` declares the base version (e.g. `3.1-prerelease`).
 - NBGV computes the full version from the base version + git commit height (number of commits since the version was
   set).
-- **Development builds** produce prerelease packages: e.g. `2.1.42-prerelease` (where `42` is the commit height).
-- **Release builds** produce stable packages: e.g. `2.1.0` (commit height becomes the patch version).
+- **Development builds** produce prerelease packages: e.g. `3.1.42-prerelease` (where `42` is the commit height).
+- **Release builds** produce stable packages: e.g. `3.1.0` (commit height becomes the patch version).
 - The `publicReleaseRefSpec` in `version.json` controls which refs produce public (non-prerelease) versions: `master`
   branch and version tags (`v*.*.*`).
 
@@ -522,7 +522,7 @@ Manually triggered (`workflow_dispatch`) from the `master` branch to cut a relea
 Defined in `Directory.Build.props`:
 
 - Versioning handled by Nerdbank.GitVersioning (`version.json`)
-- Target frameworks: netstandard2.0, net8.0, net9.0 (varies by project)
+- Target frameworks: netstandard2.0, net8.0, net10.0 (varies by project)
 - Test projects: Automatically detected (ends with "Tests")
 - Package generation: Enabled for non-test projects
 - XML documentation: Generated for non-test projects

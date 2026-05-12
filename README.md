@@ -5,6 +5,7 @@
 [![Qodana](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mrploch/ploch-common/actions/workflows/code_quality.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mrploch_ploch-common&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mrploch_ploch-common)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mrploch_ploch-common&metric=coverage)](https://sonarcloud.io/summary/new_code?id=mrploch_ploch-common)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/krisploch)
 
 # Ploch.Common Libraries
 
