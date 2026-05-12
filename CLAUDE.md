@@ -212,7 +212,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Ploch.Common is a comprehensive suite of .NET utility libraries targeting `netstandard2.0` and `net8.0+`, providing extension methods, helpers, and utilities to simplify everyday development tasks.
 
-**Solution File:** `Ploch.Common.Serialization.sln` (traditional) or `Ploch.Common.slnx` (XML-based)
+**Solution File:** `Ploch.Common.slnx`
 
 ## Build and Test Commands
 
