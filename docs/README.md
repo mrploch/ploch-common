@@ -61,6 +61,14 @@ Welcome to the comprehensive documentation for **Ploch.Common** - a collection o
 - Quick answers to common questions
 - Links to all documentation resources
 
+### 🏛️ Architecture Decision Records
+
+**[ADR Index](adr/README.md)**
+
+- One decision per ADR — what we picked, why, and what we rejected
+- Captures architectural reasoning that outlives PRs and issues
+- Use when you need to understand *why* the codebase is shaped the way it is
+
 ## What's in Ploch.Common?
 
 ### Core Features
