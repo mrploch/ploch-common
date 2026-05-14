@@ -89,7 +89,7 @@ jobs:
           /d:sonar.host.url="https://sonarcloud.io"
           /d:sonar.projectBaseDir="${{ github.workspace }}"
           /d:sonar.scm.provider=git
-          /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage.opencover.xml
+          /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage*.opencover.xml
           /d:sonar.coverage.exclusions="**/*.ps1,**/JetbrainsAnnotations.cs,**/*.Tests/**,**/*.Tests.csproj"
         continue-on-error: true
 
@@ -113,7 +113,7 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: '**/CoverageResults/coverage.opencover.xml'
+          coverage-reports: '**/CoverageResults/coverage*.opencover.xml'
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
