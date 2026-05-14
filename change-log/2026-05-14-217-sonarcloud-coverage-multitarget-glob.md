@@ -6,7 +6,7 @@
 
 ### Why
 
-After #207 / #209 multi-targeted `Ploch.Common.Tests` to `net10.0;net8.0` (so CI exercises both the `net8.0` and `netstandard2.0` builds of `Ploch.Common`), Coverlet started emitting per-TFM filenames for that project:
+After #207 / #209, `Ploch.Common.Tests` was multi-targeted to `net10.0;net8.0` (so CI exercises both the `net8.0` and `netstandard2.0` builds of `Ploch.Common`), and Coverlet started emitting per-TFM filenames for that project:
 
 - `tests/Common.Tests/CoverageResults/coverage.net10.0.opencover.xml`
 - `tests/Common.Tests/CoverageResults/coverage.net8.0.opencover.xml`
