@@ -22,14 +22,18 @@ The rule also fires on numerous other intentional fluent-API discards in the cod
 - `_ = method();` discards at every call site (130+ sites; impractical to apply retroactively, and noisy on every new call going forward), or
 - Per-file `[SuppressMessage]` / `#pragma warning disable IDE0058` (same problem at scale).
 
-### Why this is safe
+### Trade-off
 
-`IDE0058` catches nothing that other analysers don't already catch on a tighter scope:
+Other analysers cover most of the cases `IDE0058` does, but on a **narrower scope**:
 
-- **`csharpsquid:S2201`** ("Return values from functions without side effects should not be ignored") — Sonar's equivalent rule, but it correctly recognises that side-effecting methods like `Guard.NotNull` are fine to call without using the return value.
-- **`CA1806`** ("Do not ignore method results") — similar Roslyn rule, fires only on pure / no-side-effect methods.
+- **`csharpsquid:S2201`** ("Return values from functions without side effects should not be ignored") — Sonar's nearest equivalent. Correctly recognises that side-effecting methods like `Guard.NotNull` are fine to call without using the return value, which is why it does not fire on the false-positive cases.
+- **`CA1806`** ("Do not ignore method results") — fires only on a specific list of known pure / no-side-effect APIs (string methods, `Immutable*` types, etc.).
 
-The codebase already declared the preference at `csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion`, so the `_ = method()` discard remains the documented refactoring suggestion in the IDE if anyone wants it. We just don't enforce it.
+The genuine residual risk is **lazy-LINQ chains**: something like `myList.Where(x => x.Active)` with no `.ToList()` / no assignment is a real bug that `IDE0058` would catch but `S2201` and `CA1806` will not. We accept this trade-off because:
+
+1. The rule produced 137+ false positives on master at the time of this change, almost all on intentional fluent / side-effect discards. Signal-to-noise is too low to be useful.
+2. The wider Sonar issue list — surfaced after the coverage-instrumentation fixes (#218 / #219 / #220) — is what motivated this; the rule was actively obscuring the genuine code smells in the project.
+3. The existing IDE preference `csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion` (line 163 of `.editorconfig`) is **left in place**, so `_ = method()` remains the documented refactoring suggestion when anyone wants it. The hint just no longer fails / clutters Sonar.
 
 ### Verification
 

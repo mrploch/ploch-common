@@ -174,18 +174,6 @@ dotnet_code_quality.points_to_analysis_kind = Complete
 
 # Properties: 'dotnet_diagnostic'
 
-## IDE rules
-# IDE0058 ("Expression value is never used") is suppressed: ArgumentChecking
-# extension methods (Guard.NotNull, PathGuard.RequireValidPath, etc.) return the
-# argument for fluent-chaining but their primary purpose is the validation
-# side-effect, so callers idiomatically discard the result. The rule also
-# fires extensively on fluent helpers (StringBuilder.Append, ICollection.Add
-# returning bool, LINQ chains, TestingSupport setup helpers). With no built-in
-# C# attribute to mark a method "return value optional", per-call-site
-# `_ = method()` discards across 130+ sites are impractical, and the rule
-# catches nothing that other analysers (S2201, CA1806) do not already cover.
-dotnet_diagnostic.IDE0058.severity = none
-
 ## XML Documentation headers
 dotnet_diagnostic.classdocumentationheader.severity = warning # XML documentation header for class - use in apps and tests
 dotnet_diagnostic.interfacedocumentationheader.severity = warning
@@ -295,6 +283,16 @@ dotnet_diagnostic.faa0002.severity = warning
 dotnet_diagnostic.ide0001.severity = suggestion # Simplify name
 dotnet_diagnostic.ide0002.severity = error # Simplify name
 dotnet_diagnostic.ide0018.severity = warning # Inline variable declaration
+# IDE0058 ("Expression value is never used") is intentionally disabled: ArgumentChecking
+# extension methods (Guard.NotNull, PathGuard.RequireValidPath, etc.) return the argument
+# for fluent-chaining but their primary purpose is the validation side-effect, so callers
+# idiomatically discard the result. The rule also fires on many other fluent / side-effect
+# helpers in the codebase (StringBuilder.Append chains, ISet<T>.Add returning bool, LINQ
+# helpers, TestingSupport setup methods). C# has no attribute that lets a method declare
+# "discarding my return value is allowed", so per-call-site `_ = method()` discards across
+# 130+ sites would be impractical. See change-log entry 2026-05-15-disable-ide0058-* for
+# the full rationale and the trade-off (lazy-LINQ misuse is no longer caught by IDE0058).
+dotnet_diagnostic.ide0058.severity = none
 
 ## Properties: 'dotnet_diagnostic.nu'
 dotnet_diagnostic.nu1507.severity = none # Use nameof operator
