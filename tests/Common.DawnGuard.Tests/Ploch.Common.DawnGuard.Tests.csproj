@@ -5,12 +5,6 @@
       <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-      <PackageReference Include="coverlet.msbuild">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
       <ProjectReference Include="..\..\src\Common.DawnGuard\Ploch.Common.DawnGuard.csproj" />
       <ProjectReference Include="..\..\src\TestingSupport.XUnit3.Dependencies\Ploch.TestingSupport.XUnit3.Dependencies.csproj" />
   </ItemGroup>

@@ -63,4 +63,14 @@
         <PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="all" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
     </ItemGroup>
+    <!--
+        Inject Coverlet's MSBuild instrumentation into every test project so
+        `dotnet test /p:CollectCoverage=true` produces an OpenCover report.
+        Without this, the CI coverage flag is a silent no-op for any test
+        project missing a manual coverlet.msbuild reference, and SonarCloud
+        reports artificially low coverage. See issue #217.
+    -->
+    <ItemGroup Condition="$(IsTestProject)">
+        <PackageReference Include="coverlet.msbuild" PrivateAssets="all" />
+    </ItemGroup>
 </Project>
