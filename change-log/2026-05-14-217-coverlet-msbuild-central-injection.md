@@ -34,7 +34,7 @@ Used the same property to inject the package once for every test project:
 </ItemGroup>
 ```
 
-`coverlet.msbuild` is already pinned at `8.0.0` in `mrploch-development/dependencies/Common.Packages.props`, so Central Package Management handles the version. The 8 test projects that already had a manual reference are now redundant but harmless (CPM dedupes) — leaving them in place to keep the diff minimal; they can be cleaned up in a follow-up.
+`coverlet.msbuild` is already pinned at `8.0.0` in `mrploch-development/dependencies/Common.Packages.props`, so Central Package Management handles the version. The 10 test/test-support projects that previously declared `coverlet.msbuild` manually have had those references removed to avoid `NU1504` duplicate-`PackageReference` warnings; the central injection in `Directory.Build.props` is now the single declaration site. `src/Common.WebUI.Tests/` already had its reference commented out and was left untouched.
 
 ### Local verification
 
