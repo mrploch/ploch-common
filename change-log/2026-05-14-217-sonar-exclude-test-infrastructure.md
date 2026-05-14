@@ -29,9 +29,10 @@ Neither set of files should drag the coverage badge down: build tooling is not c
 
 With these exclusions in place, the next master analysis should report:
 
-- Covered lines: `1283` (unchanged)
+- Covered lines: `1283 - 77 = 1206`  
+  (the 77 covered lines come from `tests/TestAssemblies/`, which previously contributed `112` lines with `35` uncovered; `scripts/` contributed `0` covered lines so it has no effect here)
 - Total lines: `1870 - 427 - 112 = 1331`
-- Line coverage: **`1283 / 1331 ≈ 90.6 %`**
+- Line coverage: **`1206 / 1331 ≈ 90.6 %`**
 
 That brings SonarCloud in line with the local `dotnet-reportgenerator` numbers (with-filter `88.7 %`, no-filter `86.2 %`) and the Rider DotCover figure (`~86 %`).
 
