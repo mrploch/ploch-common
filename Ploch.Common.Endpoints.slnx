@@ -76,7 +76,6 @@
   <Folder Name="/repository/github/" />
   <Folder Name="/repository/scripts/">
     <File Path="Clean-DocFx.ps1" />
-    <File Path="run-sonar-build-test.ps1" />
   </Folder>
   <Folder Name="/Serialization/">
     <Project Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
