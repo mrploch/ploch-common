@@ -35,7 +35,6 @@
   <Folder Name="/repository/github/" />
   <Folder Name="/repository/scripts/">
     <File Path="Clean-DocFx.ps1" />
-    <File Path="run-sonar-build-test.ps1" />
   </Folder>
   <Folder Name="/repository/shared/">
     <File Path="..\mrploch-development\dependencies\Analyzers.Global.Packages.props" />
