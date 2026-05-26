@@ -24,10 +24,14 @@ Surfaced while reviewing #117 (Feb 2024 stale PR that tried to *change* `<Docume
 
 The `PrintSettings` target was useful when diagnosing the unexpected build behaviour that motivated the central `GenerateDocumentationFile=true` switch (see issue #117 history), but on a clean configuration it adds only log noise. Gating it behind `PrintBuildSettings` preserves the diagnostic capability for on-demand use without polluting every CI build.
 
+### Follow-ups picked up during review
+
+- **Orphaned `<None Remove="*.xml" />` directives.** The original cleanup left companion `<None Remove="Ploch.<Name>.xml" />` items in six library `.csproj` files (`Ploch.Common`, `Ploch.Common.AppServices`, `Ploch.Common.AppServices.Web`, `Ploch.Common.Serialization.SystemTextJson`, `Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection`, `Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection`). The SDK writes the XML doc to `bin/<tfm>/` (not the project source root), so the default `<None>` glob never picked them up and the Remove directives have been no-ops since the SDK switch. Flagged by Bito review; swept in a follow-up commit on this PR.
+- **Design-time build guard on `PrintSettings`.** Gemini Code Assist suggested extending the opt-in condition with `And '$(DesignTimeBuild)' != 'true'` so the diagnostic dump never fires during IDE IntelliSense / restore passes even if `PrintBuildSettings=true` is set globally (env var / system `Directory.Build.props` override). Applied.
+
 ### Out of scope
 
 - DocFX-driven API site (`DocumentationSite/docfx.json`) is unaffected — it extracts metadata from `*.csproj` source via Roslyn, not from `bin/*.xml`. The published site at <https://common.github.ploch.dev/> continues to work.
-- Several library `.csproj` files still carry `<None Remove="Ploch.<Name>.xml" />` items. These were companion workarounds for the explicit `<DocumentationFile>` paths; with the SDK now writing XML to the intermediate output directory they are likely no-ops, but verifying and removing them is a follow-up cleanup, not part of this issue's scope.
 - `templates/Directory.Build.props` is a frozen legacy template (uses the pre-NBGV `VersionPrefix`/`BuildNumber` pattern) and was not modified.
 
 ### Verification
