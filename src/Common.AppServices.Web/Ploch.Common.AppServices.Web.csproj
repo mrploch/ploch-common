@@ -29,7 +29,6 @@
 
     <ItemGroup>
         <None Include=".\README.md" Pack="true" PackagePath="\" />
-        <None Remove="Ploch.Common.AppServices.Web.xml" />
     </ItemGroup>
 
     <ItemGroup>
