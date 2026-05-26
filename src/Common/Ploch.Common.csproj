@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
         <Title>Ploch.Common Library</Title>
 
         <Description>Utility and extension methods for the core .NET types and common development tasks.</Description>

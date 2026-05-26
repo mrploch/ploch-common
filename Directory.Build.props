@@ -42,7 +42,12 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IsTestProject>false</IsTestProject>
     </PropertyGroup>
-    <Target Name="PrintSettings" BeforeTargets="Build">
+    <!--
+        Optional MSBuild settings dump. Set `-p:PrintBuildSettings=true` on the dotnet CLI
+        (or define the property in a Directory.Build.props override) to enable it for a
+        targeted diagnostic build. Off by default so CI logs stay readable.
+    -->
+    <Target Name="PrintSettings" BeforeTargets="Build" Condition="'$(PrintBuildSettings)' == 'true'">
         <Message Text="Building $(MSBuildProjectName) with settings:" Importance="high" />
         <Message Text="MSBuildProjectName -> '$(MSBuildProjectName)'" Importance="high" />
         <Message Text="Configuration -> '$(Configuration)' " Importance="high" />
