@@ -4,7 +4,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kris Ploch</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   <ItemGroup>

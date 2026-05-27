@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Platforms>AnyCPU;x64</Platforms>
     </PropertyGroup>
@@ -12,6 +11,5 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
         <None Include=".\README.md" Pack="true" PackagePath="\" />
-        <None Remove="Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.xml" />
     </ItemGroup>
 </Project>

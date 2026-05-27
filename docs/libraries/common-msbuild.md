@@ -181,7 +181,13 @@ All analyser packages are configured with `PrivateAssets=all` so they are build-
 
 ## Build Diagnostics Target
 
-`Directory.Build.props` includes a `PrintSettings` target that runs before every build and logs key MSBuild property values at high importance. This aids in diagnosing unexpected build behaviour in CI:
+`Directory.Build.props` includes an opt-in `PrintSettings` target that logs key MSBuild property values at high importance before each project builds. It is gated behind the `PrintBuildSettings` property and is off by default so CI logs stay readable. Enable it for a targeted diagnostic build:
+
+```bash
+dotnet build Ploch.Common.slnx -p:PrintBuildSettings=true
+```
+
+Sample output:
 
 ```text
 Building Ploch.Common with settings:
