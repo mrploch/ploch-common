@@ -196,7 +196,7 @@ public static class PropertyHelpers
         var propertyInfo = obj!.GetType().GetPropertyInfo(propertyName, true);
         PropertyAccessValidators.ValidatePropertyInfoForGetValue(propertyInfo, propertyName, index);
 
-        return propertyInfo.RequiredNotNull(nameof(propertyInfo)).GetValue(obj, index);
+        return propertyInfo.RequiredNotNull(memberName: nameof(propertyInfo)).GetValue(obj, index);
     }
 
     /// <summary>

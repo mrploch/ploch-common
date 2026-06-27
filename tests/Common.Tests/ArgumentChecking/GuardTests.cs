@@ -99,9 +99,8 @@ public class GuardTests
     [Fact]
     public void NotNullOrEmpty_should_throw_for_empty_string()
     {
-        // Wildcard kept lenient: net7+ raises "The value cannot be an empty string.",
-        // netstandard2.0 raises "Argument cannot be null or empty." (issue #207).
+        // Both targets now raise the BCL message "The value cannot be an empty string." (issues #207, #211).
         Action act = () => string.Empty.NotNullOrEmpty("str");
-        act.Should().Throw<ArgumentException>().WithMessage("*empty*");
+        act.Should().Throw<ArgumentException>().WithMessage("The value cannot be an empty string.*").WithParameterName("str");
     }
 }

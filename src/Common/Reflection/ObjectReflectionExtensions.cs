@@ -142,7 +142,7 @@ public static class ObjectReflectionExtensions
         }
 
         bindingFlags &= ~BindingFlags.DeclaredOnly;
-        var memberInfos = type.RequiredNotNull(nameof(type)).GetMembers(bindingFlags).Where(m => memberTypes.HasFlag(m.MemberType));
+        var memberInfos = type.RequiredNotNull(memberName: nameof(type)).GetMembers(bindingFlags).Where(m => memberTypes.HasFlag(m.MemberType));
         foreach (var memberInfo in memberInfos)
         {
             if (memberInfo.IsIndexer())
