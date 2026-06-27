@@ -253,11 +253,11 @@ public static partial class Guard
                                                 string? messageFormat = null,
                                                 string? memberName = null)
     {
-        argument.RequiredNotNull(messageFormat, memberName);
+        var validated = argument.RequiredNotNull(messageFormat, memberName);
 
-        if (!string.IsNullOrEmpty(argument))
+        if (!string.IsNullOrEmpty(validated))
         {
-            return argument!;
+            return validated;
         }
 
         throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeEmptyMessageFormat, memberName));

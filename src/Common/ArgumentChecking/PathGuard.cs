@@ -34,7 +34,7 @@ public static partial class PathGuard
     /// </exception>
     public static string RequireValidPath(this string? path, string parameterName)
     {
-        path.RequiredNotNullOrEmpty(memberName: nameof(path));
+        path.RequiredNotNullOrEmpty(memberName: parameterName);
 
         if (!Path.IsPathRooted(path))
         {
