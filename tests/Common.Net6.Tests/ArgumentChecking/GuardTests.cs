@@ -60,8 +60,8 @@ public class GuardTests
     public void RequiredNotNull_should_throw_for_null_struct()
     {
         int? value = null;
-        Action act = () => value.RequiredNotNull(nameof(value));
-        act.Should().Throw<InvalidOperationException>().WithMessage("Variable value does not have value.");
+        Action act = () => value.RequiredNotNull(memberName: nameof(value));
+        act.Should().Throw<InvalidOperationException>().WithMessage("Variable value cannot be null.");
     }
 
     [Fact]
@@ -75,7 +75,7 @@ public class GuardTests
     public void RequiredNotNull_should_throw_for_null_reference_with_message()
     {
         object? obj = null;
-        Action act = () => obj.RequiredNotNull(nameof(obj), "Custom error: {0}");
+        Action act = () => obj.RequiredNotNull("Custom error: {0}", nameof(obj));
         act.Should().Throw<InvalidOperationException>().WithMessage("Custom error: obj");
     }
 
@@ -97,7 +97,7 @@ public class GuardTests
     public void NotNullOrEmpty_should_throw_for_empty_string()
     {
         Action act = () => string.Empty.NotNullOrEmpty("str");
-        act.Should().Throw<ArgumentException>().WithMessage("Argument cannot be null or empty.*");
+        act.Should().Throw<ArgumentException>().WithMessage("The value cannot be an empty string.*");
     }
 
     [Fact]
@@ -133,15 +133,15 @@ public class GuardTests
     public void RequiredNotNullOrEmpty_should_throw_for_null_string_with_message()
     {
         string? str = null;
-        Action act = () => str.RequiredNotNullOrEmpty(nameof(str), "Custom error: {0}");
+        Action act = () => str.RequiredNotNullOrEmpty("Custom error: {0}", nameof(str));
         act.Should().Throw<InvalidOperationException>().WithMessage("Custom error: str");
     }
 
     [Fact]
     public void RequiredNotNullOrEmpty_should_throw_for_empty_string_with_default_message()
     {
-        Action act = () => string.Empty.RequiredNotNullOrEmpty("str");
-        act.Should().Throw<InvalidOperationException>().WithMessage("Variable str is empty.");
+        Action act = () => string.Empty.RequiredNotNullOrEmpty(memberName: "str");
+        act.Should().Throw<InvalidOperationException>().WithMessage("Variable str cannot be empty.");
     }
 
     [Fact]
