@@ -10,7 +10,7 @@ public class FluentVerifierTests
 {
     [Theory]
     [AutoMockData]
-    public async Task VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
+    public void VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
                                                                                               TestRecord1 testRecord1A,
                                                                                               TestRecord2 testRecord2A,
                                                                                               TestRecord1 testRecord1B,
@@ -25,7 +25,7 @@ public class FluentVerifierTests
 
     [Theory]
     [AutoMockData]
-    public async Task VerifyFluentAssertionAsync_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
+    public async Task VerifyFluentAssertionAsync_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock, // skipcq: CS-R1073 - repo test-naming convention (_should_); method awaits so async is required
                                                                                                    TestRecord1 testRecord1A,
                                                                                                    TestRecord2 testRecord2A,
                                                                                                    TestRecord1 testRecord1B,
