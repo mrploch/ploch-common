@@ -32,7 +32,7 @@ public class MemberInfoExtensionsTests
         var testObject = new ClassWithFieldsAndProperties();
 
         // Get a MethodInfo which is neither FieldInfo nor PropertyInfo
-        MemberInfo? member = testObject.GetType().GetMethod("ToString");
+        MemberInfo? member = testObject.GetType().GetMethod(nameof(ToString));
 
         // Act & Assert
         member.GetValue(testObject).Should().BeNull();

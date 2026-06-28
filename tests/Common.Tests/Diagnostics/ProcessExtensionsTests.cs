@@ -19,21 +19,6 @@ public class ProcessExtensionsTests
         enabledProcessors = process.GetEnabledProcessors();
         enabledProcessors.Should().HaveCount(1);
         enabledProcessors.Should().Contain(Environment.ProcessorCount - 1);
-
-        // Environment.ProcessorCount
-        // process.Aff
-
-        // // Arrange
-        // var processMock = new Mock<Process>();
-        // var processorNumber = 2;
-        // var expectedMask = 1L << processorNumber;
-        // processMock.SetupProperty(p => p.ProcessorAffinity);
-        //
-        // // Act
-        // processMock.Object.SetSingleProcessorAffinity(processorNumber);
-        //
-        // // Assert
-        // processMock.Object.ProcessorAffinity.Should().Be((IntPtr)expectedMask);
     }
 
     [Theory]

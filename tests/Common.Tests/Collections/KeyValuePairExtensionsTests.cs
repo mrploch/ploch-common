@@ -8,7 +8,7 @@ public class KeyValuePairExtensionsTests
     {
         dictionary.Should().NotBeEmpty();
 
-        foreach (var (key, value) in dictionary)
+        foreach (var (key, _) in dictionary)
         {
             key.Should().NotBeNull();
         }

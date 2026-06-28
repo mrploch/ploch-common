@@ -9,7 +9,7 @@ public class TestTypeWithMixedSettersAndGetter
     public string? _stringPropNoGetter;
 
 #pragma warning disable 649 //  [CS0649] Field 'TestTypes.TestTypeWithMixedSettersAndGetter._stringPropNoSetter' is never assigned to, and will always have its default value null
-    [SuppressMessage("ReSharper", "UnassignedField.Global")]
+    [SuppressMessage("ReSharper", "UnassignedField.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
     public string? _stringPropNoSetter;
 #pragma warning restore 649
 

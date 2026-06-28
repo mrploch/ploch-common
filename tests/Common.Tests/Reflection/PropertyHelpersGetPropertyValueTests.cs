@@ -232,7 +232,6 @@ public class PropertyHelpersGetPropertyValueTests
         var propertyInfo = typeof(ClassWithIndexer).GetProperty(PropertyHelpers.IndexerPropertyName);
 
         // Act
-
         Action action = () => testObject.GetPropertyValue(propertyInfo!, ["a"]);
 
         // Assert
@@ -283,9 +282,7 @@ public class PropertyHelpersGetPropertyValueTests
     public void GetPropertyValue_should_handle_properties_from_structs(int testValue)
     {
         // Arrange
-        var testStruct = new TestStruct(testValue,
-                                        new()
-                                            { IntProperty = testValue, StringProperty = Guid.NewGuid().ToString() });
+        var testStruct = new TestStruct(testValue, new() { IntProperty = testValue, StringProperty = Guid.NewGuid().ToString() });
 
         // Act
         var result = testStruct.GetPropertyValue(x => x.StructProperty);

@@ -86,14 +86,4 @@ public class TypeLoaderTests
         // Assert
         act.Should().Throw<ArgumentNullException>().WithParameterName("configurator");
     }
-
-    [Fact]
-    public void Constructor_throws_ArgumentNullException_when_configuration_is_null()
-    {
-        // Act
-        Action act = () => TypeLoader.Configure(null!);
-
-        // Assert
-        act.Should().Throw<ArgumentNullException>().WithParameterName("configurator");
-    }
 }

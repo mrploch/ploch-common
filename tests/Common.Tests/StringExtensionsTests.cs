@@ -171,7 +171,7 @@ public class StringExtensionsTests
                            .Be("My very long replacement awesome string...");
         "test string where result should be the same".ReplaceStart("est string", "not important").Should().Be("test string where result should be the same");
 
-        "".ReplaceStart("", "My awesome", StringComparison.OrdinalIgnoreCase).Should().Be("My awesome");
+        string.Empty.ReplaceStart(string.Empty, "My awesome", StringComparison.OrdinalIgnoreCase).Should().Be("My awesome");
     }
 
     [Theory]

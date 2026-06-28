@@ -335,7 +335,7 @@ public class PropertyHelpersTests
 
         // Assert
         result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.StringProp) && (string)item.Item2! == StringPropValue);
-        result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.StringProp2) && item.Item2 == StringProp2Value);
+        result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.StringProp2) && (string)item.Item2! == StringProp2Value);
         result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.NullableIntProp) && (int?)item.Item2 == nullableIntPropValue);
         result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.NullableIntProp2) && (int?)item.Item2 == nullableIntProp2Value);
     }
@@ -445,7 +445,7 @@ public class PropertyHelpersTests
 
         result.Should().Contain(item => item.Item1 == "Id" && (int)item.Item2! == 42);
         result.Should().Contain(item => item.Item1 == "Name" && (string)item.Item2! == "Anonymous");
-        result.Should().Contain(item => item.Item1 == "IsActive" && (bool)item.Item2! == true);
+        result.Should().Contain(item => item.Item1 == "IsActive" && (bool)item.Item2!);
         result.Should().Contain(item => item.Item1 == "CreatedDate" && item.Item2 is DateTime);
     }
 

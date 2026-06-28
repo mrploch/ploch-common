@@ -17,11 +17,7 @@ public class FluentVerifierTests
   {
     myServiceMock.Object.DoSomething(testRecord1A, testRecord2A);
 
-    FluentVerifier.VerifyFluentAssertion(() =>
-                                         {
-                                           var x = 1;
-                                           var y = 2;
-                                         });
+    FluentVerifier.VerifyFluentAssertion(() => { });
     myServiceMock.Verify(x => x.DoSomething(It.Is<TestRecord1>(rec1 => Verify(rec1, testRecord1A)),
                                             It.Is<TestRecord2>(rec2 => Verify(rec2, testRecord2A))));
   }

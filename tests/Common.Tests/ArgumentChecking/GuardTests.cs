@@ -58,7 +58,6 @@ public class GuardTests
     // Net7+ message-format semantics (single positional arg = format template) are tested in GuardNet7Tests.cs.
     // The netstandard2.0 partial inverts the parameter order (memberName first, message second), so the
     // single-positional-arg call has different semantics on that binary. See issue #207.
-
     [Fact]
     public void NotNullOrEmpty_should_return_enumerable_when_not_null_or_empty()
     {

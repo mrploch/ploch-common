@@ -23,8 +23,8 @@ public class CollectionExtensionsTests
         var act = static () =>
                   {
                       List<KeyValuePair<string, string>>? list = null;
-#pragma warning disable CS8604 Possible null reference argument. - this is the point of the test
-#pragma warning disable CS8620 Argument cannot be used for parameter due to differences in the nullability of reference types. - this is the point of the test
+#pragma warning disable CS8604 // Possible null reference argument. - this is the point of the test
+#pragma warning disable CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types. - this is the point of the test
                       list.Add("a", "b");
 #pragma warning restore CS8620
 #pragma warning restore CS8604
@@ -56,7 +56,7 @@ public class CollectionExtensionsTests
 
         var collection = target.AddMany(items);
         target.Should().HaveCount(4);
-        target.Should().Contain(["itme1", "item2"], "item3", "item4");
+        target.Should().Contain(["itme1", "item2", "item3", "item4"]);
 
         collection.Should().BeSameAs(target);
     }
@@ -160,7 +160,7 @@ public class CollectionExtensionsTests
                   };
 
         // Assert
-        act.Should().Throw<ArgumentNullException>().WithParameterName("collection");
+        act.Should().Throw<ArgumentNullException>().WithParameterName(nameof(collection));
     }
 
     [Fact]

@@ -8,5 +8,5 @@ public class Attribute2Attribute(string name) : Attribute
 
     public int PropInt { get; set; }
 
-    public string Test() => "Test";
+    public string Test() => nameof(Test);
 }

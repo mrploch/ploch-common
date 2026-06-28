@@ -7,7 +7,7 @@ namespace Ploch.TestingSupport.Tests;
 #pragma warning disable xUnit1003 // Theory must have test data - doesn't recognize custom data attributes
 public class JsonFileDataAttributeTests
 {
-  [Theory, JsonFileData("TestData/TestData.json", "Student")]
+  [Theory, JsonFileData("TestData/TestData.json", nameof(Student))]
   public void EnrollStudent_Success(Student student, int id)
   {
     if (id == 0)

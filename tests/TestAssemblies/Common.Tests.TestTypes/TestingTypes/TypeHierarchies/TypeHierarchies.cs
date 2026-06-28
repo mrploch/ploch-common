@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 // ReSharper disable InconsistentNaming
-
 namespace Ploch.Common.Tests.Reflection;
 
 #pragma warning disable CS8603
-[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
 public static class TypeHierarchies
 {
     public static class HierarchyOne

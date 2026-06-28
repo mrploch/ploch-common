@@ -23,11 +23,11 @@ public class EnumerableQueriesTests
     [Fact]
     public void GetWithEmptyProperty_should_return_items_with_empty_string_properties()
     {
-        var items = new[] { new TestItem("1", string.Empty), new TestItem("2", "not empty"), new TestItem("3", "") };
+        var items = new[] { new TestItem("1", string.Empty), new TestItem("2", "not empty"), new TestItem("3", string.Empty) };
         var result = items.GetWithEmptyProperty(x => x.Value2);
         result.Should().HaveCount(2);
         result.Should().Contain(ti => ti.Value1 == "1" && ti.Value2 == string.Empty);
-        result.Should().Contain(ti => ti.Value1 == "3" && ti.Value2 == "");
+        result.Should().Contain(ti => ti.Value1 == "3" && ti.Value2 == string.Empty);
     }
 
     private record TestItem(string? Value1, string? Value2);

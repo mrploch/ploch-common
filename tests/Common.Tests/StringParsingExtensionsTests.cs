@@ -7,7 +7,7 @@ public class StringParsingExtensionsTests
     {
         string nullString = null;
         nullString.ParseToBool().Should().BeNull();
-        "".ParseToBool().Should().BeNull();
+        string.Empty.ParseToBool().Should().BeNull();
         "   ".ParseToBool().Should().BeNull();
     }
 
@@ -48,7 +48,7 @@ public class StringParsingExtensionsTests
     {
         string nullString = null;
         nullString.ParseToInt32().Should().BeNull();
-        "".ParseToInt32().Should().BeNull();
+        string.Empty.ParseToInt32().Should().BeNull();
         "   ".ParseToInt32().Should().BeNull();
     }
 
@@ -76,7 +76,7 @@ public class StringParsingExtensionsTests
     {
         string nullString = null;
         nullString.ParseToInt64().Should().BeNull();
-        "".ParseToInt64().Should().BeNull();
+        string.Empty.ParseToInt64().Should().BeNull();
         "   ".ParseToInt64().Should().BeNull();
     }
 

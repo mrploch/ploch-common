@@ -8,7 +8,7 @@ namespace Ploch.TestingSupport.XUnit3.Tests.TestData;
 public class JsonFileDataAttributeTests
 {
     [Theory]
-    [JsonFileData("TestData/TestData.json", "Student")]
+    [JsonFileData("TestData/TestData.json", nameof(Student))]
     public void EnrollStudent_Success(Student student, int id)
     {
         if (id == 0)

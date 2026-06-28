@@ -75,7 +75,7 @@ public class AppDomainTypesLoaderTests
         var loader = new AppDomainTypesLoader(new TypeLoadingConfiguration());
 
         // Act
-        var act = () => loader.ProcessAllAssemblies();
+        var act = loader.ProcessAllAssemblies;
 
         // Assert
         act.Should().NotThrow();
