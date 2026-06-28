@@ -46,7 +46,7 @@ public class ServicesBundleTests
         protected override IEnumerable<IServicesBundle>? Dependencies => [ new ServiceBundleB(), new ServiceBundleC() ];
     }
 
-    public class ServiceBundleB : TestServicesBundle;
+    public class ServiceBundleB : TestServicesBundle { }
 
-    public class ServiceBundleC : TestServicesBundle;
+    public class ServiceBundleC : TestServicesBundle { }
 }

@@ -2,14 +2,13 @@
 
 namespace Ploch.Common.Tests.TestTypes.TestingTypes;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
-[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-[SuppressMessage("ReSharper", "UnusedMember.Global")]
-[SuppressMessage("ReSharper", "UnusedMember.Global")]
-[SuppressMessage("ReSharper", "NotAccessedField.Local")]
-[SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Global")]
-[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public enum ByteEnum : byte
+[SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
+[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
+[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
+[SuppressMessage("ReSharper", "NotAccessedField.Local", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
+[SuppressMessage("ReSharper", "PropertyCanBeMadeInitOnly.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
+public enum ByteEnum : byte // skipcq: CS-P1021 - byte backing type is the subject under test
 {
     Value1 = 1,
     Value2 = 2,

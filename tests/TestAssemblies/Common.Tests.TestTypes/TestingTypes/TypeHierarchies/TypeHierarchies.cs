@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 // ReSharper disable InconsistentNaming
-
 namespace Ploch.Common.Tests.Reflection;
 
 #pragma warning disable CS8603
-[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Test fixture - intentional shape for reflection/serialization tests")]
 public static class TypeHierarchies
 {
     public static class HierarchyOne
@@ -37,20 +36,20 @@ public static class TypeHierarchies
         public class ConcreteClass_IHierarchiesTestInterface : IHierarchiesTestInterface
         { }
 
-        public abstract class AbstractClass_IHierarchiesTestInterface : IHierarchiesTestInterface
+        public abstract class AbstractClass_IHierarchiesTestInterface : IHierarchiesTestInterface // skipcq: CS-R1078 - intentional abstract reflection-test fixture
         { }
     }
 
     public static class HierarchyThree
     {
         // Test classes for abstract class inheritance
-        public abstract class AbstractBaseClass
+        public abstract class AbstractBaseClass // skipcq: CS-R1078 - intentional abstract reflection-test fixture
         { }
 
         public class ConcreteChildClass : AbstractBaseClass
         { }
 
-        public abstract class AbstractChildClass : AbstractBaseClass
+        public abstract class AbstractChildClass : AbstractBaseClass // skipcq: CS-R1078 - intentional abstract reflection-test fixture
         { }
     }
 
@@ -88,7 +87,7 @@ public static class TypeHierarchies
             public class NestedImplementor : INestedTypeInterface
             { }
 
-            public abstract class AbstractNestedImplementor : INestedTypeInterface
+            public abstract class AbstractNestedImplementor : INestedTypeInterface // skipcq: CS-R1078 - intentional abstract reflection-test fixture
             { }
         }
     }

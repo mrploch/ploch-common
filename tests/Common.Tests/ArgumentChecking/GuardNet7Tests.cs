@@ -329,7 +329,7 @@ public class GuardNet7Tests
     public void NotNullOrDefault_should_throw_if_argument_is_default_value()
     {
         // Arrange
-        int argXyz = default;
+        var argXyz = default(int);
 
         // Act
         Action act = () => argXyz.NotNullOrDefault();
@@ -343,7 +343,7 @@ public class GuardNet7Tests
     {
         // Arrange
         string? nullArg = null;
-        int defaultArg = default;
+        var defaultArg = default(int);
 
         // Act
         Action nullAct = () => nullArg.NotNullOrDefault();

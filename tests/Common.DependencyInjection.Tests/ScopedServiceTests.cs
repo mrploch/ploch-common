@@ -48,7 +48,7 @@ public class ScopedServiceTests
         scopedService.Dispose();
 
         // Second dispose should not throw
-        var act = () => scopedService.Dispose();
+        var act = scopedService.Dispose;
         act.Should().NotThrow();
     }
 
@@ -111,7 +111,7 @@ public class ScopedServiceTests
         await scopedService.DisposeAsync();
 
         // Dispose after DisposeAsync should be safe (idempotent)
-        var act = () => scopedService.Dispose();
+        var act = scopedService.Dispose;
         act.Should().NotThrow();
     }
 

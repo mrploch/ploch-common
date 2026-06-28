@@ -213,7 +213,7 @@ public class ObjectReflectionExtensionsTests
         publicFields.Should().HaveCount(1);
     }
 
-    [Fact(Skip = "TODO: Needs fixing")] //TODO: Fix this test
+    [Fact(Skip = "TODO: Needs fixing")] // TODO: Fix this test
     public void GetFieldValues_should_throw_appropriate_exception_when_invalid_binding_flags_are_provided()
     {
         // Arrange
@@ -366,7 +366,7 @@ public class ObjectReflectionExtensionsTests
     [Fact]
     public void GetMemberValues_should_correctly_return_indexed_properties()
     {
-        //TODO
+        // TODO
         // Arrange
         var testObject = new ClassWithIndexedProperty2();
         testObject["key1"] = "value1";
@@ -481,8 +481,8 @@ public class ObjectReflectionExtensionsTests
     {
         private static readonly string StaticField = "static field value";
 
-        public static readonly string StaticStrField1 = nameof(StaticStrField1) + "Value";
-        public static readonly string StaticStrField2 = nameof(StaticStrField2) + "Value";
+        public static readonly string StaticStrField1 = nameof(StaticStrField1) + "FieldValue";
+        public static readonly string StaticStrField2 = nameof(StaticStrField2) + "FieldValue";
         public static readonly int StaticIntField1 = 1;
         public static readonly int StaticIntField2 = 2;
         public readonly string PublicField = "instance field value";

@@ -308,7 +308,6 @@ public class AssemblyExtensionsTests
 #pragma warning disable S2326
 
 // ReSharper disable once UnusedTypeParameter
-
 #pragma warning restore SA1201
 #pragma warning restore S2094
 #pragma warning restore RCS1102

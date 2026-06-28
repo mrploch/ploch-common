@@ -98,7 +98,7 @@ public class ExpressionExtensionsTests
     public void GetMemberName_Action_should_throw_for_unsupported_expression()
     {
         // BinaryExpression (addition) is not a MemberExpression or MethodCallExpression
-        Expression<Action> expression = Expression.Lambda<Action>(
+        var expression = Expression.Lambda<Action>(
             Expression.Block(Expression.Constant(0)),
             Array.Empty<ParameterExpression>());
 
@@ -111,7 +111,7 @@ public class ExpressionExtensionsTests
     public void GetMemberName_Func_should_throw_for_unsupported_expression()
     {
         // Constant expression is not a MemberExpression or MethodCallExpression
-        Expression<Func<int>> expression = Expression.Lambda<Func<int>>(
+        var expression = Expression.Lambda<Func<int>>(
             Expression.Constant(42),
             Array.Empty<ParameterExpression>());
 
@@ -125,7 +125,7 @@ public class ExpressionExtensionsTests
     {
         // Constant expression is not a MemberExpression, MethodCallExpression, or UnaryExpression
         var param = Expression.Parameter(typeof(TestType), "x");
-        Expression<Func<TestType, int>> expression = Expression.Lambda<Func<TestType, int>>(
+        var expression = Expression.Lambda<Func<TestType, int>>(
             Expression.Constant(42),
             param);
 

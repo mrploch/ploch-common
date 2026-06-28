@@ -9,7 +9,7 @@ namespace Ploch.TestingSupport.Tests.Moq;
 public class FluentVerifierTests
 {
   [Theory, AutoMockData]
-  public async Task VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
+  public void VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
                                                                                             TestRecord1 testRecord1A,
                                                                                             TestRecord2 testRecord2A,
                                                                                             TestRecord1 testRecord1B,
@@ -17,11 +17,7 @@ public class FluentVerifierTests
   {
     myServiceMock.Object.DoSomething(testRecord1A, testRecord2A);
 
-    FluentVerifier.VerifyFluentAssertion(() =>
-                                         {
-                                           var x = 1;
-                                           var y = 2;
-                                         });
+    FluentVerifier.VerifyFluentAssertion(() => { });
     myServiceMock.Verify(x => x.DoSomething(It.Is<TestRecord1>(rec1 => Verify(rec1, testRecord1A)),
                                             It.Is<TestRecord2>(rec2 => Verify(rec2, testRecord2A))));
   }

@@ -77,7 +77,7 @@ public class ErrorInfoTests
         var act = () => ErrorInfo.Create(exception!);
 
         // Assert
-        act.Should().Throw<ArgumentNullException>().WithParameterName("exception");
+        act.Should().Throw<ArgumentNullException>().WithParameterName(nameof(exception));
     }
 
     [Fact]

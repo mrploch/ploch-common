@@ -10,7 +10,7 @@ public class FluentVerifierTests
 {
     [Theory]
     [AutoMockData]
-    public async Task VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
+    public void VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
                                                                                               TestRecord1 testRecord1A,
                                                                                               TestRecord2 testRecord2A,
                                                                                               TestRecord1 testRecord1B,
@@ -18,11 +18,7 @@ public class FluentVerifierTests
     {
         myServiceMock.Object.DoSomething(testRecord1A, testRecord2A);
 
-        FluentVerifier.VerifyFluentAssertion(() =>
-                                             {
-                                                 var x = 1;
-                                                 var y = 2;
-                                             });
+        FluentVerifier.VerifyFluentAssertion(() => { });
         myServiceMock.Verify(x => x.DoSomething(It.Is<TestRecord1>(rec1 => Verify(rec1, testRecord1A)),
                                                 It.Is<TestRecord2>(rec2 => Verify(rec2, testRecord2A))));
     }
@@ -41,13 +37,13 @@ public class FluentVerifierTests
                                  x.DoSomethingAsyncWithResultAsync(It.Is<TestRecord1>(rec1 =>
                                                                                           FluentVerifier.VerifyFluentAssertion(() => rec1.IntProperty.Should()
                                                                                                                                          .Be(testRecord1A
-                                                                                                                                                 .IntProperty, "test", 1))),
+                                                                                                                                                 .IntProperty))),
                                                                    It.Is<TestRecord2>(rec2 =>
                                                                                           FluentVerifier.VerifyFluentAssertion(() => rec2.RecordProperty1
                                                                                                                                          .IntProperty.Should()
                                                                                                                                          .Be(testRecord2A
                                                                                                                                              .RecordProperty1
-                                                                                                                                             .IntProperty, "test", 2)))),
+                                                                                                                                             .IntProperty)))),
                              Times.Once);
     }
 

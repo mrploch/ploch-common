@@ -22,8 +22,14 @@ dotnet_diagnostic.cs8600.severity = suggestion # Converting null literal or poss
 dotnet_diagnostic.cs8603.severity = suggestion # Possible null reference return
 dotnet_diagnostic.cs8604.severity = suggestion # Possible null reference argument for parameter.
 
-dotnet_diagnostic.IDE0051.severity = warning # Remove unused private members
-dotnet_diagnostic.IDE0052.severity = warning # Remove unused private members
+# IDE0051/IDE0052 were previously 'warning' for test code, but this suite is dominated by
+# reflection/serialization fixtures whose private members are only ever read via reflection;
+# static analysis reports them as unused/unread (false positives). Per issue #233 these are
+# scoped off for test code rather than removed (removal would break the tests) or suppressed
+# per-line. Trade-off: a genuinely-dead private member in future test logic will no longer be
+# flagged at build time. See the "issue #233" block at the end of this file for the full set.
+dotnet_diagnostic.IDE0051.severity = none # Remove unused private member - reflection fixtures (see #233)
+dotnet_diagnostic.IDE0052.severity = none # Remove unread private member - reflection fixtures (see #233)
 
 # SonarAnalyzer settings
 dotnet_diagnostic.s4487.severity = none # Unread "private" fields should be removed
@@ -63,3 +69,151 @@ dotnet_naming_symbols.unity_serialized_field_symbols.resharper_required_modifier
 resharper_lambda_expression_can_be_made_static_highlighting = none
 
 resharper_possible_multiple_enumeration_highlighting = none
+
+# =====================================================================================
+# Test-project analyzer scoping (issue #233)
+# -------------------------------------------------------------------------------------
+# Test assemblies are never published as NuGet packages and form no part of any public
+# API surface. The rules below target shipping-library concerns (public-API hygiene,
+# documentation, micro-performance, async-naming conventions) or describe deliberately-
+# shaped reflection/serialization fixtures - in both cases they add noise without value
+# in test code. They are scoped down here, for test projects only; the same rules remain
+# fully active for src/ library code. Library (src/) warnings are tracked in issue #242.
+#
+# This block deliberately does NOT silence rules that catch real defects in test logic
+# (unused locals, redundant code, format-string bugs, reference comparisons, string.Empty,
+# nameof, member ordering, etc.) - those are fixed in code per #233's "prefer real fixes".
+# =====================================================================================
+
+# -- Documentation: test code is not documented (GenerateDocumentationFile=false) --
+dotnet_diagnostic.sa1602.severity = none # Enumeration items should be documented - test enums are not public API
+dotnet_diagnostic.sa1648.severity = none # inheritdoc should be used with inheriting class - test types are not documented
+
+# -- Async / lifecycle conventions that do not apply to xUnit test & fixture code --
+dotnet_diagnostic.vsthrd200.severity = none # "Async" suffix - xUnit discovers test methods by attribute, not name
+dotnet_diagnostic.vsthrd103.severity = none # Call async methods - synchronous Dispose in test teardown is acceptable
+dotnet_diagnostic.s6966.severity = none # Await DisposeAsync - same rationale as VSTHRD103 for test lifecycle teardown
+dotnet_diagnostic.ag0023.severity = none # Thread.Sleep - legitimately used to exercise timing/concurrency behaviour in tests
+
+# -- Globalisation: test inputs are fixed, deterministic literals; culture is irrelevant --
+dotnet_diagnostic.ca1305.severity = none # Specify IFormatProvider - test string building uses deterministic data
+
+# -- Exceptions: tests routinely throw/expect the base exception type to simulate failures --
+dotnet_diagnostic.ca2201.severity = none # Do not raise reserved exception types - tests throw System.Exception to simulate failures
+# Private, test-internal helper exception types (e.g. ExceptionWithNullMessage in ErrorInfoTests)
+# are never part of any public API surface, so shipping-exception visibility/naming conventions
+# do not apply to them.
+dotnet_diagnostic.s3871.severity = none # Exception should be public - test-internal helper exceptions are private by design
+dotnet_diagnostic.s3376.severity = none # Name should end with 'Exception' - test-internal helper exceptions
+
+# -- Tests deliberately combine non-[Flags] enum values (e.g. DayOfWeek.Monday | DayOfWeek.Wednesday)
+# to exercise flag-handling extension methods such as GetFlags(); the bitwise operation is the
+# subject under test, not an accidental misuse. --
+dotnet_diagnostic.s3265.severity = none # Bitwise operation on non-[Flags] enum - intentional in flag-handling tests
+
+# -- False positive on collection expressions passed as a NAMED params argument: when a record/method
+# has leading optional parameters before its params parameter (e.g. TypeLoadingConfiguration), the
+# collection MUST be supplied via a named argument (BaseTypes: [ ... ]) and cannot use params-expansion
+# syntax, so the array/collection creation cannot be removed. --
+dotnet_diagnostic.s3878.severity = none # Remove array creation and pass elements - not possible for named params arguments
+
+# -- Micro-performance: irrelevant in test code --
+dotnet_diagnostic.ca1859.severity = none # Use concrete types for performance - not a concern in tests
+dotnet_diagnostic.ca1861.severity = none # Avoid constant arrays as arguments - not a concern in tests
+dotnet_diagnostic.ca1852.severity = none # Seal internal types - test classes/fixtures are commonly inherited; perf is irrelevant
+
+# -- Static-member suggestions: test/fixture instance members must remain instance for xUnit --
+dotnet_diagnostic.ca1822.severity = none # Mark members as static - xUnit fixtures and reflection targets must stay instance members
+dotnet_diagnostic.s2325.severity = none # Make method/property static - same rationale as CA1822
+
+# -- Public-API design rules meaningless for non-shipping assemblies --
+dotnet_diagnostic.ag0018.severity = none # Publicly exposed IEnumerable - test types are not a consumed public API
+
+# -- Tests deliberately exercise deprecated/obsolete APIs to verify their behaviour --
+dotnet_diagnostic.cs0618.severity = none # Obsolete member usage - tests verify behaviour of deprecated APIs
+
+# -- Generic-overload preference: tests deliberately exercise the non-generic, Type-accepting
+# overloads of these APIs (e.g. JsonSerializer.Convert(Type, object), TypeGuards.AssignableTo(Type),
+# AppDomainTypesLoader.GetTypesImplementing(Type), Randomizer.GetRandomizer(Type)). Several tests
+# are explicitly named *_NotGeneric or are paired with a separate generic test; rewriting them to
+# the generic overload would no longer cover the non-generic code path. --
+dotnet_diagnostic.ca2263.severity = none # Prefer generic overload - tests intentionally cover the non-generic overloads
+
+# -- Member ordering is not enforced in test code, consistent with the pre-existing
+# 'sa1201.severity = none' (Elements should appear in the correct order) above. --
+dotnet_diagnostic.sa1202.severity = none # 'public' members should come before 'protected'/'private' - ordering not enforced in tests
+dotnet_diagnostic.sa1204.severity = none # Static members should appear before non-static members - ordering not enforced in tests
+
+# -- Style preference not enforced in tests --
+dotnet_diagnostic.ide0290.severity = none # Use primary constructor - fixtures and test classes vary; not enforced in tests
+
+# -- TODO comments stay visible in the IDE but do not fail the build --
+dotnet_diagnostic.s1135.severity = suggestion # Complete the task associated to this TODO - informational in test code
+
+# -- Crashing analyzer: StyleCop SA1508 throws a NullReferenceException on some test files,
+# surfaced as a file-less "CSC : warning AD0001". AD0001 cannot be configured via .editorconfig
+# (it has no associated source file), so the root cause is addressed instead: SA1508 is
+# disabled for test code, which makes Roslyn skip the analyzer for test-project compilations -
+# no execution, no crash, no AD0001. SA1508 remains enabled (severity=warning) for src/.
+dotnet_diagnostic.sa1508.severity = none # Closing brace should not be preceded by blank line - analyzer NRE on test files (see #233)
+
+# -------------------------------------------------------------------------------------
+# Reflection / serialization test-fixture shapes
+# -------------------------------------------------------------------------------------
+# Across this test suite (the dedicated tests/TestAssemblies/ projects AND fixture types
+# nested directly inside *.Tests files such as ObjectReflectionExtensionsTests,
+# TypeExtensionsTests, GuardFlagsEnumTests) there are types whose ENTIRE PURPOSE is to be
+# an awkwardly-shaped reflection/serialization target: public mutable fields, write-only
+# properties, members read only via reflection, enums and attributes with deliberately
+# unconventional names, generic type parameters declared to test type-loading, and so on.
+# "Fixing" these (renaming, removing "unused" members, making fields private) would break
+# the very tests that reflect over the shapes - the member IS used, just not in a way
+# static analysis can see. These rules remain fully active for src/ library code.
+
+# Field accessibility / mutability - fixtures expose fields of every shape for reflection
+dotnet_diagnostic.ca1051.severity = none # Do not declare visible instance fields
+dotnet_diagnostic.s1104.severity = none # Fields should not have public accessibility
+dotnet_diagnostic.sa1401.severity = none # Fields should be private
+dotnet_diagnostic.s2223.severity = none # Change visibility or make const/readonly
+dotnet_diagnostic.ca2211.severity = none # Non-constant fields should not be visible
+dotnet_diagnostic.s2933.severity = none # Make field readonly - fixtures are mutated/inspected via reflection
+
+# Type, enum and generic design - deliberately unconventional fixture shapes
+dotnet_diagnostic.ca1711.severity = none # Identifiers should not have incorrect suffix (e.g. ByteEnum)
+dotnet_diagnostic.s2344.severity = none # Enum name should not have 'Enum' suffix
+dotnet_diagnostic.s101.severity = none # Type name should match pascal case (e.g. Attribute1_1Attribute)
+dotnet_diagnostic.s2326.severity = none # Unused type parameter - fixtures test generic type loading
+dotnet_diagnostic.s3400.severity = none # Method should be replaced with a constant - fixture surface
+
+# Property shapes exercised by reflection tests
+dotnet_diagnostic.s2376.severity = none # Write-only property - fixture exercises write-only reflection
+dotnet_diagnostic.s2292.severity = none # Use auto-property - fixture deliberately uses a backing field
+
+# Custom test attributes
+dotnet_diagnostic.s3993.severity = none # Specify AttributeUsage - fixture attributes test attribute discovery
+dotnet_diagnostic.rcs1203.severity = none # Use AttributeUsageAttribute
+dotnet_diagnostic.ca1018.severity = none # Specify AttributeUsage on attribute
+dotnet_diagnostic.cc0023.severity = none # Mark attribute as sealed
+
+# Class design of fixture/utility types
+dotnet_diagnostic.rcs1102.severity = none # Make class static - fixtures are instantiated/reflected
+dotnet_diagnostic.s1118.severity = none # Add private constructor or static - fixture surface
+
+# "Unused" members are reflection targets that static analysis cannot see being used
+# (IDE0051/IDE0052 are set to none above, near the original declarations)
+dotnet_diagnostic.s1144.severity = none # Remove unused private member - reflection target
+dotnet_diagnostic.cs0414.severity = none # Field assigned but never used - reflection target
+dotnet_diagnostic.cs0628.severity = none # New protected member in sealed type - fixture surface
+dotnet_diagnostic.cs0109.severity = none # Member does not hide an accessible member ('new' not required)
+
+# Unused parameters on fixture / interface-implementing signatures
+dotnet_diagnostic.ide0060.severity = none # Remove unused parameter
+dotnet_diagnostic.s1172.severity = none # Remove unused method parameter
+
+# Member naming - names are reflection targets asserted on by tests
+dotnet_diagnostic.sa1300.severity = none # Element should begin with an uppercase letter
+dotnet_diagnostic.sa1306.severity = none # Field should begin with a lower-case letter
+
+# Empty marker / placeholder types and methods used as fixtures
+dotnet_diagnostic.s2094.severity = none # Remove empty class - empty fixture/marker types
+dotnet_diagnostic.s1186.severity = none # Add a body/comment to empty method - empty fixture methods

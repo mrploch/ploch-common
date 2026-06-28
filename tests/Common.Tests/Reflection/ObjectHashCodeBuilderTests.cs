@@ -13,7 +13,6 @@ public class ObjectHashCodeBuilderTests
     [Fact]
     public void GetHashCode_should_return_type_hash_code_for_object_with_no_properties()
     {
-        var sut = new TestTypes.NoPropertiesObject();
         var obj = new TestTypes.NoPropertiesObject();
         ObjectHashCodeBuilder.GetHashCode(obj).Should().Be(typeof(TestTypes.NoPropertiesObject).GetHashCode());
     }

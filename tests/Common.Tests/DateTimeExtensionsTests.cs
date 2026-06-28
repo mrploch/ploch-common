@@ -20,16 +20,16 @@ public class DateTimeExtensionsTests
   public void ToDateTime_should_convert_any_number_to_DateTime()
   {
     long longSeconds = 0;
-    longSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+    longSeconds.ToDateTime().Should().Be(DateTime.UnixEpoch);
 
     var intSeconds = 0;
-    intSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+    intSeconds.ToDateTime().Should().Be(DateTime.UnixEpoch);
 
     float floatSeconds = 0;
-    floatSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+    floatSeconds.ToDateTime().Should().Be(DateTime.UnixEpoch);
 
     sbyte sbyteSeconds = 0;
-    sbyteSeconds.ToDateTime().Should().Be(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+    sbyteSeconds.ToDateTime().Should().Be(DateTime.UnixEpoch);
 
     sbyteSeconds.ToDateTime().ToEpochSeconds().Should().Be(0);
   }

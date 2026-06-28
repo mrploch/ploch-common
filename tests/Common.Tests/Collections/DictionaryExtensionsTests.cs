@@ -32,7 +32,7 @@ public class DictionaryExtensionsTests
         // Act & Assert
         var action = () => dictionary!.AddMany(entries);
 
-        action.Should().Throw<ArgumentNullException>().WithParameterName("dictionary");
+        action.Should().Throw<ArgumentNullException>().WithParameterName(nameof(dictionary));
     }
 
     [Fact]
@@ -45,7 +45,7 @@ public class DictionaryExtensionsTests
         // Act & Assert
         var action = () => dictionary.AddMany(items!);
 
-        action.Should().Throw<ArgumentNullException>().WithParameterName("items");
+        action.Should().Throw<ArgumentNullException>().WithParameterName(nameof(items));
     }
 
     [Fact]
