@@ -53,7 +53,7 @@ public class ScopedServiceTests
     }
 
     [Fact]
-    public async Task DisposeAsync_should_dispose_scope()
+    public async Task DisposeAsync_should_dispose_scope() // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
     {
         var services = new ServiceCollection();
         services.AddScoped<ITestService, TestService>();
@@ -68,7 +68,7 @@ public class ScopedServiceTests
     }
 
     [Fact]
-    public async Task DisposeAsync_should_be_idempotent()
+    public async Task DisposeAsync_should_be_idempotent() // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
     {
         var services = new ServiceCollection();
         services.AddScoped<ITestService, TestService>();
@@ -84,7 +84,7 @@ public class ScopedServiceTests
     }
 
     [Fact]
-    public async Task DisposeAsync_after_Dispose_should_not_throw()
+    public async Task DisposeAsync_after_Dispose_should_not_throw() // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
     {
         var services = new ServiceCollection();
         services.AddScoped<ITestService, TestService>();
@@ -100,7 +100,7 @@ public class ScopedServiceTests
     }
 
     [Fact]
-    public async Task Dispose_after_DisposeAsync_should_not_throw()
+    public async Task Dispose_after_DisposeAsync_should_not_throw() // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
     {
         var services = new ServiceCollection();
         services.AddScoped<ITestService, TestService>();
@@ -116,7 +116,7 @@ public class ScopedServiceTests
     }
 
     [Fact]
-    public async Task GenericScopedService_should_dispose_scope_async()
+    public async Task GenericScopedService_should_dispose_scope_async() // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
     {
         var services = new ServiceCollection();
         services.AddScoped<ITestService, TestService>();
@@ -158,7 +158,7 @@ public class ScopedServiceTests
     }
 
     [Fact]
-    public async Task DisposeAsync_should_fall_back_to_sync_dispose_when_scope_is_not_async_disposable()
+    public async Task DisposeAsync_should_fall_back_to_sync_dispose_when_scope_is_not_async_disposable() // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
     {
         // Create a mock scope that implements IDisposable but NOT IAsyncDisposable
         var mockScope = new Mock<IServiceScope>();

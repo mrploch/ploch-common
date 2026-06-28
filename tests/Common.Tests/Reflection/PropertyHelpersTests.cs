@@ -335,7 +335,7 @@ public class PropertyHelpersTests
 
         // Assert
         result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.StringProp) && (string)item.Item2! == StringPropValue);
-        result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.StringProp2) && (string)item.Item2! == StringProp2Value);
+        result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.StringProp2) && (string?)item.Item2 == StringProp2Value);
         result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.NullableIntProp) && (int?)item.Item2 == nullableIntPropValue);
         result.Should().Contain(item => item.Item1 == nameof(TestClassWithNullableProperties.NullableIntProp2) && (int?)item.Item2 == nullableIntProp2Value);
     }

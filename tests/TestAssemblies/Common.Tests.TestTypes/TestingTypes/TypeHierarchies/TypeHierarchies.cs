@@ -36,20 +36,20 @@ public static class TypeHierarchies
         public class ConcreteClass_IHierarchiesTestInterface : IHierarchiesTestInterface
         { }
 
-        public abstract class AbstractClass_IHierarchiesTestInterface : IHierarchiesTestInterface
+        public abstract class AbstractClass_IHierarchiesTestInterface : IHierarchiesTestInterface // skipcq: CS-R1078 - intentional abstract reflection-test fixture
         { }
     }
 
     public static class HierarchyThree
     {
         // Test classes for abstract class inheritance
-        public abstract class AbstractBaseClass
+        public abstract class AbstractBaseClass // skipcq: CS-R1078 - intentional abstract reflection-test fixture
         { }
 
         public class ConcreteChildClass : AbstractBaseClass
         { }
 
-        public abstract class AbstractChildClass : AbstractBaseClass
+        public abstract class AbstractChildClass : AbstractBaseClass // skipcq: CS-R1078 - intentional abstract reflection-test fixture
         { }
     }
 
@@ -87,7 +87,7 @@ public static class TypeHierarchies
             public class NestedImplementor : INestedTypeInterface
             { }
 
-            public abstract class AbstractNestedImplementor : INestedTypeInterface
+            public abstract class AbstractNestedImplementor : INestedTypeInterface // skipcq: CS-R1078 - intentional abstract reflection-test fixture
             { }
         }
     }

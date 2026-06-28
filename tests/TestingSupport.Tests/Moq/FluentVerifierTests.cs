@@ -9,7 +9,7 @@ namespace Ploch.TestingSupport.Tests.Moq;
 public class FluentVerifierTests
 {
   [Theory, AutoMockData]
-  public async Task VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock,
+  public async Task VerifyFluentAssertion_should_match_verification_using_fluent_assertions(Mock<IMyService1> myServiceMock, // skipcq: CS-R1073 - repo test-naming convention (_should_); Async suffix intentionally omitted
                                                                                             TestRecord1 testRecord1A,
                                                                                             TestRecord2 testRecord2A,
                                                                                             TestRecord1 testRecord1B,
