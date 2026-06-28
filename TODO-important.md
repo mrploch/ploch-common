@@ -1,20 +1,28 @@
 # Important Notes
 
-## Issue #210 / #211: Guard cross-TFM alignment
+The follow-ups originally captured here from the #210 / #211 Guard cross-TFM alignment work are
+now tracked as GitHub issues. This file points at them so nothing is lost.
 
-- **[Release]:** Binary-breaking change to the `netstandard2.0` asset of `Ploch.Common` (parameter order of
-  `Guard.RequiredNotNull<T>` and `Guard.RequiredNotNullOrEmpty` changed). `version.json` bumped
-  `3.1-prerelease` → `4.0-prerelease`; NBGV now computes `4.0.0-prerelease.*`. When cutting the release via
-  `release.yml`, use `release_version=4.0`. See `change-log/2026-06-27-210-211-guard-cross-tfm-alignment.md`.
+## Tracked follow-ups (from #210 / #211 cleanup)
 
-- **[Pre-existing tech debt — out of scope]:** A full `dotnet build Ploch.Common.slnx` emits ~814 analyzer
-  warnings, all in **test** projects and all pre-existing on `master` (none from this change — the files
-  touched here build clean). CI does not treat test-project warnings as errors. Worth a dedicated cleanup pass.
+- **#232** — *release:* Cut `Ploch.Common` v4.0 stable. Binary-breaking change to the `netstandard2.0`
+  asset (parameter order of `Guard.RequiredNotNull<T>` / `Guard.RequiredNotNullOrEmpty` changed).
+  `version.json` is on `4.0-prerelease`; when cutting the release via `release.yml`, use
+  `release_version=4.0`. See `change-log/2026-06-27-210-211-guard-cross-tfm-alignment.md`.
 
-- **[Orphaned project — out of scope]:** `tests/Common.Net6.Tests` (net6.0, xUnit v2) is **not** referenced by
-  `Ploch.Common.slnx` and is not built by CI. It still contains old-order `RequiredNotNull(nameof(x), "...")`
-  call sites. Left untouched; consider re-wiring it into the solution and updating its call sites, or deleting it.
+- **#233** — *test:* Clean up the ~814 pre-existing analyzer warnings across the test projects (all
+  pre-existing on `master`, none from the #210/#211 change; CI does not fail on test-project warnings).
 
-- **[Repo hygiene — out of scope]:** `src/Common/Ploch.Common.xml` is a generated XML-doc file tracked in
-  source control and appears stale. Likely a leftover from before PR #228 removed `DocumentationFile`. Consider
-  untracking it. Untracked `*.cs.bak` files also linger under `tests/Common.Tests/ArgumentChecking/`.
+- **#234** — *chore:* Untrack the stale generated `src/Common/Ploch.Common.xml` and remove leftover
+  `*.cs.bak` files under `tests/Common.Tests/ArgumentChecking/`.
+
+- **#235** — *test:* Remove the orphaned `tests/Common.Net6.Tests` project — **being done now** (this PR).
+  The project was not in any solution and never built by CI; its coverage is duplicated by the maintained
+  xUnit v3 suites (`Common.Tests/ArgumentChecking/GuardTests.cs`, `Common.Tests/Collections/EnumerableExtensionsTests.cs`).
+  Note: PR #231 (commit `1e236a6`) had already updated its `Guard` call sites to the new order, so the
+  earlier "stale old-order call sites" framing no longer applied — the orphan status is the reason for removal.
+
+- **#236** — *chore:* Decide the fate of `src/TestingSupport.XUnit2.Dependencies` (a published xUnit v2
+  meta-package). Surfaced by #235: it is not in any solution and, once `Common.Net6.Tests` is gone, has no
+  in-repo consumers. Either delete it (if unpublished/unused) or re-home it into `Ploch.Common.slnx` so CI
+  builds and packs it.
