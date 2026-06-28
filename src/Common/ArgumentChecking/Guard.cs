@@ -105,21 +105,28 @@ public static partial class Guard
     ///     Ensures that a nullable value type argument is not null, throwing an <see cref="InvalidOperationException" /> if it is.
     /// </summary>
     /// <remarks>
-    ///     This method uses <see cref="CallerArgumentExpressionAttribute" /> to automatically capture the argument name
-    ///     from the calling code, reducing the need for string literals.
+    ///     On the <c>netstandard2.0</c> target the <paramref name="memberName" /> must be supplied explicitly: unlike the
+    ///     <c>net7.0+</c> build, this target cannot auto-capture it via <c>CallerArgumentExpression</c>. The parameter order
+    ///     <c>(messageFormat, memberName)</c> is identical across all targets so positional call sites behave the same way.
     /// </remarks>
     /// <typeparam name="T">The underlying value type of the nullable argument.</typeparam>
     /// <param name="argument">The nullable value type argument to check.</param>
-    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
+    /// <param name="messageFormat">
+    ///     An optional composite format string for the exception message. <c>{0}</c> is substituted with
+    ///     <paramref name="memberName" />. When <see langword="null" /> a default message is used.
+    /// </param>
+    /// <param name="memberName">The name of the argument used to format the exception message.</param>
     /// <returns>The non-null value of the argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [AssertionMethod]
     [method: NotNull]
-    public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument, string memberName) where T : struct
+    public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument,
+                                       string? messageFormat = null,
+                                       string? memberName = null) where T : struct
     {
         if (!argument.HasValue)
         {
-            throw new InvalidOperationException($"Variable {memberName} does not have value.");
+            throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeNullMessageFormat, memberName));
         }
 
         return argument.Value;
@@ -130,36 +137,31 @@ public static partial class Guard
     ///     if the argument is null.
     /// </summary>
     /// <remarks>
-    ///     This method uses <see cref="CallerArgumentExpressionAttribute" /> to automatically capture the parameter name
-    ///     from the calling code, reducing the need for string literals.
+    ///     On the <c>netstandard2.0</c> target the <paramref name="memberName" /> must be supplied explicitly: unlike the
+    ///     <c>net7.0+</c> build, this target cannot auto-capture it via <c>CallerArgumentExpression</c>. The parameter order
+    ///     <c>(messageFormat, memberName)</c> is identical across all targets so positional call sites behave the same way.
     /// </remarks>
     /// <typeparam name="T">The reference type of the argument.</typeparam>
     /// <param name="argument">The reference type argument to check.</param>
-    /// <param name="memberName">The name of the variable (automatically captured from the caller).</param>
-    /// <param name="message">The exception message if argument is null.</param>
+    /// <param name="messageFormat">
+    ///     An optional composite format string for the exception message. <c>{0}</c> is substituted with
+    ///     <paramref name="memberName" />. When <see langword="null" /> a default message is used.
+    /// </param>
+    /// <param name="memberName">The name of the variable used to format the exception message.</param>
     /// <returns>The non-null argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null.</exception>
     [AssertionMethod]
     [method: NotNull]
     public static T RequiredNotNull<T>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this T? argument,
-                                       string? memberName,
-                                       string? message = null) where T : class
+                                       string? messageFormat = null,
+                                       string? memberName = null) where T : class
     {
         if (argument != null)
         {
             return argument;
         }
 
-        if (memberName is null && message is null)
-        {
-            throw new InvalidOperationException("Both memberName and message arguments cannot be null at the same time.");
-        }
-
-        var format = message != null ?
-            string.Format(CultureInfo.InvariantCulture, message, memberName) :
-            $"Variable {memberName} is null, but was expected to not be null.";
-
-        throw new InvalidOperationException(format);
+        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeNullMessageFormat, memberName));
     }
 
     /// <summary>
@@ -185,7 +187,8 @@ public static partial class Guard
 
         if (string.IsNullOrEmpty(argument))
         {
-            throw new ArgumentException("Argument cannot be null or empty.", parameterName);
+            // Message text aligned with the BCL's ArgumentException.ThrowIfNullOrEmpty used by the net7.0+ partial (issue #211).
+            throw new ArgumentException("The value cannot be an empty string.", parameterName);
         }
 
         return argument;
@@ -232,30 +235,32 @@ public static partial class Guard
     ///     Ensures that a string argument is not null or empty, throwing an exception if the condition is not met.
     /// </summary>
     /// <remarks>
-    ///     This method uses <see cref="CallerArgumentExpressionAttribute" /> to automatically capture the argument name
-    ///     from the calling code, reducing the need for string literals.
+    ///     On the <c>netstandard2.0</c> target the <paramref name="memberName" /> must be supplied explicitly: unlike the
+    ///     <c>net7.0+</c> build, this target cannot auto-capture it via <c>CallerArgumentExpression</c>. The parameter order
+    ///     <c>(messageFormat, memberName)</c> is identical across all targets so positional call sites behave the same way.
     /// </remarks>
     /// <param name="argument">The string argument to validate.</param>
-    /// <param name="memberName">The name of the argument (automatically captured from the caller).</param>
-    /// <param name="message">The exception message if argument is null.</param>
+    /// <param name="messageFormat">
+    ///     An optional composite format string for the exception message. <c>{0}</c> is substituted with
+    ///     <paramref name="memberName" />. When <see langword="null" /> a default message is used.
+    /// </param>
+    /// <param name="memberName">The name of the argument used to format the exception message.</param>
     /// <returns>The validated string argument.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the argument is null or empty.</exception>
     [AssertionMethod]
     [method: NotNull]
     public static string RequiredNotNullOrEmpty([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this string? argument,
-                                                string memberName,
-                                                string? message = null)
+                                                string? messageFormat = null,
+                                                string? memberName = null)
     {
-        argument.RequiredNotNull(memberName, message);
+        var validated = argument.RequiredNotNull(messageFormat, memberName);
 
-        if (string.IsNullOrEmpty(argument))
+        if (!string.IsNullOrEmpty(validated))
         {
-            var format = message != null ? string.Format(CultureInfo.InvariantCulture, message, memberName) : $"Variable {memberName} is empty.";
-
-            throw new InvalidOperationException(format);
+            return validated;
         }
 
-        return argument!;
+        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, messageFormat ?? CannotBeEmptyMessageFormat, memberName));
     }
 
     /// <summary>
