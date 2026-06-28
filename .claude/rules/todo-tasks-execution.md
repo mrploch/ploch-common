@@ -17,5 +17,5 @@ These principles guide TODO task execution. The skill handles the workflow; thes
 - **PR check gate** — when pushing, wait for all CI checks to pass. Resolve failures and PR comments before marking
   complete.
 - **Parallel where possible** — independent tasks should be dispatched to parallel agents.
-- **Non-blocking issues** — collect questions and suggestions in `TODO-important.md`. Only ask if truly blocking.
+- **Non-blocking issues** — record out-of-scope questions, suggestions, and follow-ups as GitHub issues (labelling genuinely high-priority ones as `important`), rather than in a `TODO-important.md` file. Only ask the user if truly blocking.
 - **For common libraries** (Ploch.Common, Ploch.Data, Ploch.Web, etc.) — provide code documentation and README files.
