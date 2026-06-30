@@ -8,24 +8,16 @@ namespace Ploch.Common.Serialiation.NewtonsoftJson;
 /// <summary>
 /// Newtonsoft.Json based implementation of <see cref="ISerializer"/>.
 /// </summary>
-public class NewtonsoftJsonObjectSerializer : Serializer<JsonSerializerSettings, JObject>
+/// <param name="settings">The serializer settings.</param>
+public class NewtonsoftJsonObjectSerializer(JsonSerializerSettings? settings) : Serializer<JsonSerializerSettings, JObject>
 {
-    private readonly JsonSerializerSettings _settings;
+    private readonly JsonSerializerSettings _settings = settings ?? new JsonSerializerSettings();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NewtonsoftJsonObjectSerializer"/> class.
     /// </summary>
     public NewtonsoftJsonObjectSerializer() : this(null)
     { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="NewtonsoftJsonObjectSerializer"/> class.
-    /// </summary>
-    /// <param name="settings">The serializer settings.</param>
-    public NewtonsoftJsonObjectSerializer(JsonSerializerSettings? settings)
-    {
-        _settings = settings ?? new JsonSerializerSettings();
-    }
 
     /// <inheritdoc />
     public override string Serialize(object obj)

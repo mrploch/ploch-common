@@ -43,7 +43,7 @@ public static class StopwatchUtil
 
         var sw = Stopwatch.StartNew();
         var task = asyncAction();
-        await task;
+        await task.ConfigureAwait(false);
         sw.Stop();
 
         return sw.Elapsed;
@@ -73,11 +73,7 @@ public static class StopwatchUtil
     /// </example>
     public static async Task<TimeSpan> TimeAsync(Task task)
     {
-#pragma warning disable VSTHRD110
-        task.NotNull(nameof(task));
-#pragma warning restore VSTHRD110
-
-        var configuredTaskAwaitable = task.ConfigureAwait(false);
+        var configuredTaskAwaitable = task.NotNull(nameof(task)).ConfigureAwait(false);
 
         var sw = Stopwatch.StartNew();
         await configuredTaskAwaitable;

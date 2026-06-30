@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using FluentAssertions.Execution;
 
@@ -7,7 +8,7 @@ namespace Ploch.TestingSupport.Moq;
 /// <summary>
 ///     Provides utility methods for verifying fluent assertions within a scoped assertion context.
 /// </summary>
-public class FluentVerifier
+public static class FluentVerifier
 {
     /// <summary>
     ///     Allows using FluentAssertions within Moq verification.
@@ -27,6 +28,7 @@ public class FluentVerifier
     /// </summary>
     /// <param name="assertion">A function representing the asynchronous assertion to evaluate.</param>
     /// <returns>A task that represents the asynchronous operation. The task result is true if the assertion passed without any failures; otherwise, false.</returns>
+    [SuppressMessage("Usage", "VSTHRD200", Justification = "Public fluent-verifier API; renaming would break consumers.")]
     public static async Task<bool> VerifyFluentAssertion(Func<Task> assertion)
     {
         using var assertionScope = new AssertionScope();

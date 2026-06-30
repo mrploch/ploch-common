@@ -13,8 +13,14 @@ namespace Ploch.TestingSupport.XUnit3.TestData;
 ///     Load data from a text file as the data source for a theory, with each line being a separate test case.
 /// </remarks>
 /// <param name="filePath">The absolute or relative path to the text file to load.</param>
-public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
+/// <param name="removeEmptyEntries">When <see langword="true" />, lines that are empty or whitespace are excluded from the test data.</param>
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
 {
+    /// <summary>
+    ///     Gets a value indicating whether the data rows can be pre-enumerated during test discovery.
+    /// </summary>
+    /// <returns>Always <see langword="true" />, as each line of the text file is a discoverable test case.</returns>
     public override bool SupportsDiscoveryEnumeration() => true;
 
     /// <summary>

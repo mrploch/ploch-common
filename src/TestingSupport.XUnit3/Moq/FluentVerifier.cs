@@ -6,7 +6,7 @@ namespace Ploch.TestingSupport.XUnit3.Moq;
 /// <summary>
 ///     Provides utility methods for verifying fluent assertions within a scoped assertion context.
 /// </summary>
-public class FluentVerifier
+public static class FluentVerifier
 {
     /// <summary>
     ///     Allows using FluentAssertions within Moq verification.

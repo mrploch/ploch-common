@@ -12,7 +12,8 @@ namespace Ploch.Common.Reflection;
 /// </summary>
 public static class ObjectReflectionExtensions
 {
-    //TODO: Move to a new MemberValueProviders object, because the GetStaticField/Property etc. will not extend object.
+    // Note: the static-member accessors (GetStaticField/GetStaticProperty etc.) do not logically extend object and could
+    // be moved to a dedicated MemberValueProviders type in a future refactor.
 
     /// <summary>
     ///     Gets the value of a field by name including non-public, instance and static members.
@@ -22,9 +23,11 @@ public static class ObjectReflectionExtensions
     /// <returns>The field value if found or null.</returns>
     public static object? GetFieldValue(this object obj, string fieldName)
     {
+#pragma warning disable S3011 // Accessing non-public members via reflection is the documented purpose of this utility.
         var fieldInfo = obj.NotNull(nameof(obj))
                            .GetType()
                            .GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
+#pragma warning restore S3011
 
         return fieldInfo?.GetValue(obj);
     }
@@ -96,6 +99,7 @@ public static class ObjectReflectionExtensions
     /// <summary>
     ///     Retrieves the values of specified member types (fields and/or properties) from an object or type.
     /// </summary>
+    /// <typeparam name="TType">The type of the object to retrieve member values from.</typeparam>
     /// <param name="obj">
     ///     The object from which to retrieve member values. If null, retrieves only static members from the type.
     /// </param>

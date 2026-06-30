@@ -1,4 +1,6 @@
-﻿namespace Ploch.Common;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Ploch.Common;
 
 /// <summary>
 ///     The <c>DateTimeFormats</c> class provides a collection of standardized date and time format strings
@@ -8,7 +10,7 @@
 ///     This class includes both general date-time formats and specific date-only formats,
 ///     making it useful for scenarios where consistency in date and time string representation is required.
 /// </remarks>
-public class DateTimeFormats
+public static class DateTimeFormats
 {
     /// <summary>
     ///     A constant string representing the date-time format "yyyyMMddHHmmss".
@@ -64,6 +66,7 @@ public class DateTimeFormats
     ///     This class focuses on date-only representations and is designed to ensure consistency when working with
     ///     date strings in both compact and human-readable formats. It includes formats both with and without delimiters.
     /// </remarks>
+    [SuppressMessage("Design", "CA1034:Nested types should not be visible", Justification = "DateOnly is an intentional logical grouping of date-only format constants accessed as DateTimeFormats.DateOnly.*; promoting it to a top-level type would clash with System.DateOnly and break the public API.")]
     public static class DateOnly
     {
         /// <summary>

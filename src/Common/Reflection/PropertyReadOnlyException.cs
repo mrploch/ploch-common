@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Ploch.Common.Reflection;
 
@@ -16,6 +17,7 @@ namespace Ploch.Common.Reflection;
 /// <param name="propertyName">The name of the read-only property that caused the exception.</param>
 /// <param name="message">The error message that explains the reason for the exception.</param>
 /// <param name="innerException">The exception that is the cause of the current exception, or null if no inner exception is specified.</param>
+[SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "This exception is always constructed from a property name; the parameterless and message-only constructors are intentionally omitted because it is derived from PropertyAccessException and is not meaningful without the property context.")]
 public class PropertyReadOnlyException(string propertyName, string message, Exception? innerException = null)
     : PropertyAccessException(propertyName, message, innerException)
 {

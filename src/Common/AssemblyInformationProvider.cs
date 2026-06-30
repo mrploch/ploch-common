@@ -1,4 +1,5 @@
 ﻿using System;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common;
 
@@ -12,12 +13,22 @@ public static class AssemblyInformationProvider
     /// </summary>
     /// <param name="obj">The object to get the assembly information for.</param>
     /// <returns>The <see cref="AssemblyInformation" /> representing the assembly information.</returns>
-    public static AssemblyInformation GetAssemblyInformation(this object obj) => new(obj.GetType().Assembly);
+    public static AssemblyInformation GetAssemblyInformation(this object obj)
+    {
+        obj.NotNull(nameof(obj));
+
+        return new(obj.GetType().Assembly);
+    }
 
     /// <summary>
     ///     Gets the assembly information for the specified <paramref name="type" />.
     /// </summary>
     /// <param name="type">The type to retrieve the assembly information for.</param>
     /// <returns>An instance of <see cref="AssemblyInformation" /> containing the assembly information.</returns>
-    public static AssemblyInformation GetAssemblyInformation(this Type type) => new(type.Assembly);
+    public static AssemblyInformation GetAssemblyInformation(this Type type)
+    {
+        type.NotNull(nameof(type));
+
+        return new(type.Assembly);
+    }
 }

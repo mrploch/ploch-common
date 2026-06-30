@@ -60,7 +60,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     /// <inheritdoc />
     public void SetValue(TProperty? value)
     {
-        base.SetValue((object?)value);
+        SetValue((object?)value);
     }
 
     /// <inheritdoc />
@@ -72,7 +72,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     /// <inheritdoc />
     void IOwnedPropertyInfo.SetValue(object? value)
     {
-        base.SetValue(value);
+        SetValue(value);
     }
 
     /// <inheritdoc />
@@ -91,8 +91,10 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
 /// </summary>
 /// <param name="propertyInfo">The property info delegate.</param>
 /// <param name="owner">The object that owns the property.</param>
+#pragma warning disable PCA0001 // 'owner' is forwarded to the base constructor via the null-forgiving operator (the base performs the runtime null check); it is not mutated.
 public class OwnedPropertyInfo<TType, TProperty>(PropertyInfo propertyInfo, TType owner)
     : OwnedPropertyInfo<TProperty>(propertyInfo, owner!), IOwnedPropertyInfo<TType, TProperty>
+#pragma warning restore PCA0001
 {
     /// <inheritdoc />
     public new TType Owner => (TType)base.Owner;

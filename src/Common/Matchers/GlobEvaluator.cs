@@ -4,7 +4,11 @@ using Microsoft.Extensions.FileSystemGlobbing;
 using Ploch.Common.Collections;
 
 namespace Ploch.Common.Matchers;
+
+#pragma warning disable S1135 // Tracked as a future enhancement.
+
 // TODO: I think this should be moved to a separate project due to the dependency on Microsoft.Extensions.FileSystemGlobbing.
+#pragma warning restore S1135
 
 /// <summary>
 ///     Evaluates strings against a list of glob patterns to determine if they match.

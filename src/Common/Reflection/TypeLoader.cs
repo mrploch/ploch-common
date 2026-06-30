@@ -28,7 +28,7 @@ public class TypeLoader
         configuration.NotNull(nameof(configuration));
 
         _configuration = configuration;
-        _hasBaseTypes = configuration.BaseTypes.Any();
+        _hasBaseTypes = configuration.BaseTypes.Count > 0;
     }
 
     /// <summary>

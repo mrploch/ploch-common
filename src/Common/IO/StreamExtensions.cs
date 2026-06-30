@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.IO;
 
@@ -15,6 +16,8 @@ public static class StreamExtensions
     /// <returns>An enumerable byte array representing the contents of the stream.</returns>
     public static IEnumerable<byte> ToBytes(this Stream stream)
     {
+        stream.NotNull(nameof(stream));
+
         using var ms = new MemoryStream();
         stream.Position = 0;
         stream.CopyTo(ms);

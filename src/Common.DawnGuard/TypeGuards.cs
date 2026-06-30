@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Dawn;
 
 namespace Ploch.Common.DawnGuard;
@@ -15,6 +16,7 @@ namespace Ploch.Common.DawnGuard;
 [Obsolete($"The DawnGuard library is deprecated and no longer maintained. " +
           $"New helpers for argument validation are available in the {nameof(Ploch)}.{nameof(Common)} package, {nameof(ArgumentChecking)} namespace. " +
           $"For example the {nameof(ArgumentChecking.Guard)}.")]
+[SuppressMessage("Major Code Smell", "S1133", Justification = "Intentional public deprecation; the [Obsolete] member is retained for backwards compatibility until the next major version.")]
 public static class TypeGuards
 {
     /// <summary>

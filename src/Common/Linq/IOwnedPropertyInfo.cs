@@ -83,6 +83,7 @@ public interface IOwnedPropertyInfo
 ///     </para>
 /// </example>
 /// <seealso cref="PropertyInfo" />
+/// <typeparam name="TProperty">The type of the property value.</typeparam>
 public interface IOwnedPropertyInfo<TProperty> : IOwnedPropertyInfo
 {
     /// <inheritdoc cref="IOwnedPropertyInfo.GetValue()" />

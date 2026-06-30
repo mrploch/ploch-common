@@ -40,8 +40,8 @@ public class TypeConversionException(string? message, object convertedValue, Typ
     /// <param name="convertedValue">Converted value.</param>
     /// <param name="targetType">Type conversion target type.</param>
     /// <param name="innerException">The inner exception.</param>
-    public TypeConversionException(object convertedValue, Type targetType, Exception? innerException) :
-        this($"Failed to convert value '{convertedValue}' to type '{targetType}'.", convertedValue, targetType, innerException)
+    public TypeConversionException(object convertedValue, Type targetType, Exception? innerException)
+        : this($"Failed to convert value '{convertedValue}' to type '{targetType}'.", convertedValue, targetType, innerException)
     { }
 
     /// <summary>

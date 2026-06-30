@@ -53,25 +53,50 @@ public class ScopedService : IScopedService
     /// <inheritdoc />
     public void Dispose()
     {
-        if (_disposed)
-        {
-            return;
-        }
-
-        _disposed = true;
-        _scope.Dispose();
+        Dispose(true);
         GC.SuppressFinalize(this);
     }
 
     /// <inheritdoc />
     public async ValueTask DisposeAsync()
     {
+        await DisposeAsyncCore();
+        Dispose(false);
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    ///     Releases the resources used by the <see cref="ScopedService" />.
+    /// </summary>
+    /// <param name="disposing">
+    ///     <see langword="true" /> to release both managed and unmanaged resources;
+    ///     <see langword="false" /> to release only unmanaged resources.
+    /// </param>
+    protected virtual void Dispose(bool disposing)
+    {
         if (_disposed)
         {
             return;
         }
 
+        if (disposing)
+        {
+            _scope.Dispose();
+        }
+
         _disposed = true;
+    }
+
+    /// <summary>
+    ///     Asynchronously releases the managed resources used by the <see cref="ScopedService" />.
+    /// </summary>
+    /// <returns>A <see cref="ValueTask" /> that represents the asynchronous dispose operation.</returns>
+    protected virtual async ValueTask DisposeAsyncCore()
+    {
+        if (_disposed)
+        {
+            return;
+        }
 
         if (_scope is IAsyncDisposable scopeAsyncDisposable)
         {
@@ -82,7 +107,7 @@ public class ScopedService : IScopedService
             _scope.Dispose();
         }
 
-        GC.SuppressFinalize(this);
+        _disposed = true;
     }
 }
 
@@ -91,15 +116,11 @@ public class ScopedService : IScopedService
 ///     from a dedicated <see cref="IServiceScope" /> and disposes the scope when the wrapper is disposed.
 /// </summary>
 /// <typeparam name="TService">The type of service to resolve.</typeparam>
-public class ScopedService<TService> : ScopedService, IScopedService<TService> where TService : notnull
+/// <param name="serviceProvider">The service provider used to create a new scope.</param>
+public class ScopedService<TService>(IServiceProvider serviceProvider)
+    : ScopedService(serviceProvider, typeof(TService)), IScopedService<TService>
+    where TService : notnull
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="ScopedService{TService}" /> class.
-    /// </summary>
-    /// <param name="serviceProvider">The service provider used to create a new scope.</param>
-    public ScopedService(IServiceProvider serviceProvider) : base(serviceProvider, typeof(TService))
-    { }
-
     /// <inheritdoc />
     public new TService Service => (TService)base.Service;
 }

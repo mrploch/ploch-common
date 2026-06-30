@@ -152,7 +152,11 @@ public static class StringExtensions
             return str;
         }
 
+#if NET6_0_OR_GREATER
+        return string.Concat(newValue, str.AsSpan(oldValue.Length, str.Length - oldValue.Length));
+#else
         return newValue + str.Substring(oldValue.Length, str.Length - oldValue.Length);
+#endif
     }
 
     /// <summary>
@@ -290,6 +294,10 @@ public static class StringExtensions
     /// <returns><c>true</c> if any of the substrings are found in the string; otherwise, <c>false</c>.</returns>
     public static bool ContainsAny(this string str, StringComparison comparison, IEnumerable<string> strings)
     {
+#if NET6_0_OR_GREATER
+        return strings.Any(s => str.Contains(s, comparison));
+#else
         return strings.Any(s => str.IndexOf(s, comparison) >= 0);
+#endif
     }
 }

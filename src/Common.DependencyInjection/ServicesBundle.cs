@@ -16,6 +16,15 @@ namespace Ploch.Common.DependencyInjection;
 public abstract class ServicesBundle : IServicesBundle, IConfigurationConsumer
 {
     /// <summary>
+    ///     Gets or sets the configuration made available to the bundle during service registration.
+    /// </summary>
+    /// <remarks>
+    ///     The configuration is assigned by <see cref="ServicesBundleRegistration" /> when the bundle is registered
+    ///     and can be consumed by derived classes within <see cref="DoConfigure" />.
+    /// </remarks>
+    public IConfiguration? Configuration { get; set; }
+
+    /// <summary>
     ///     Gets the service collection for registering services.
     /// </summary>
     /// <remarks>
@@ -32,8 +41,6 @@ public abstract class ServicesBundle : IServicesBundle, IConfigurationConsumer
     ///     Override this property to specify dependencies on other service bundles.
     /// </remarks>
     protected virtual IEnumerable<IServicesBundle>? Dependencies { get; }
-
-    public IConfiguration? Configuration { get; set; }
 
     /// <summary>
     ///     Configures the service collection by first configuring dependencies and then calling <see cref="DoConfigure" />.

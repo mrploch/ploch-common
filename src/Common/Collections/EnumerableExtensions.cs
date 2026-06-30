@@ -6,6 +6,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Ploch.Common.ArgumentChecking;
 
@@ -113,19 +114,19 @@ public static class EnumerableExtensions
         return source.JoinWithFinalSeparator(separator, finalSeparator, static v => v?.ToString());
     }
 
-  /// <summary>
-  ///     Joins the elements of a sequence by a separator, with a final separator for the last two elements.
-  /// </summary>
-  /// <typeparam name="TValue">The type of the elements in the sequence.</typeparam>
-  /// <typeparam name="TResult">The type of the result after applying the valueSelector function.</typeparam>
-  /// <param name="source">The sequence to join.</param>
-  /// <param name="separator">The separator to be used between elements.</param>
-  /// <param name="finalSeparator">The separator to be used between the last two elements.</param>
-  /// <param name="valueSelector">A function to select a result value from each element.</param>
-  /// <returns>A string that consists of the joined elements with the separators.</returns>
-  public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
-                                                               string separator,
-                                                               string finalSeparator,
+    /// <summary>
+    ///     Joins the elements of a sequence by a separator, with a final separator for the last two elements.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the elements in the sequence.</typeparam>
+    /// <typeparam name="TResult">The type of the result after applying the valueSelector function.</typeparam>
+    /// <param name="source">The sequence to join.</param>
+    /// <param name="separator">The separator to be used between elements.</param>
+    /// <param name="finalSeparator">The separator to be used between the last two elements.</param>
+    /// <param name="valueSelector">A function to select a result value from each element.</param>
+    /// <returns>A string that consists of the joined elements with the separators.</returns>
+    public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
+                                                                 string separator,
+                                                                 string finalSeparator,
                                                                  Func<TValue, TResult> valueSelector)
     {
         source.NotNull(nameof(source));
@@ -144,6 +145,9 @@ public static class EnumerableExtensions
     /// <param name="source">The collection to shuffle.</param>
     /// <typeparam name="TValue">The type of values in the enumerable.</typeparam>
     /// <returns>Randomly shuffled enumerable.</returns>
+    [SuppressMessage("Security",
+                     "CA5394:Do not use insecure randomness",
+                     Justification = "Shuffling a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
     public static IEnumerable<TValue> Shuffle<TValue>(this IEnumerable<TValue> source)
     {
         var list = source.ToList();
@@ -165,6 +169,9 @@ public static class EnumerableExtensions
     /// <param name="count">The number of values to take.</param>
     /// <typeparam name="TValue">The enumerable value type.</typeparam>
     /// <returns>The random items from the source enumerable.</returns>
+    [SuppressMessage("Security",
+                     "CA5394:Do not use insecure randomness",
+                     Justification = "Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
     public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> source, int count)
     {
         var list = source.ToList();
@@ -215,8 +222,13 @@ public static class EnumerableExtensions
     /// <param name="action">The query action to perform on <paramref name="enumerable" />.</param>
     /// <typeparam name="T">The enumerable value type.</typeparam>
     /// <returns>The resulting enumerable.</returns>
-    public static IEnumerable<T> If<T>(this IEnumerable<T> enumerable, bool condition, Func<IEnumerable<T>, IEnumerable<T>> action) =>
-        If<IEnumerable<T>, T>(enumerable, condition, action);
+    public static IEnumerable<T> If<T>(this IEnumerable<T> enumerable, bool condition, Func<IEnumerable<T>, IEnumerable<T>> action)
+    {
+        enumerable.NotNull(nameof(enumerable));
+        action.NotNull(nameof(action));
+
+        return If<IEnumerable<T>, T>(enumerable, condition, action);
+    }
 
     /// <summary>
     ///     Performs the specified action on each element of the <paramref name="enumerable" />.

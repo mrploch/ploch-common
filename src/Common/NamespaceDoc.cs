@@ -7,4 +7,5 @@ namespace Ploch.Common;
 /// </summary>
 [CompilerGenerated]
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Used for namespace documentation.")]
-internal class NamespaceDoc;
+internal sealed class NamespaceDoc
+{ }

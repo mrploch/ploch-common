@@ -96,7 +96,7 @@ public readonly struct CommandLineInfo(string? applicationPath, IEnumerable<stri
     {
         unchecked
         {
-            return ((ApplicationPath != null ? ApplicationPath.GetHashCode() : 0) * 397) ^ (Arguments != null ? Arguments.GetHashCode() : 0);
+            return ((ApplicationPath != null ? StringComparer.Ordinal.GetHashCode(ApplicationPath) : 0) * 397) ^ (Arguments != null ? Arguments.GetHashCode() : 0);
         }
     }
 }

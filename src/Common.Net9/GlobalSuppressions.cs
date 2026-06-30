@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 
 [assembly:
@@ -18,12 +17,3 @@ using System.Diagnostics.CodeAnalysis;
                     "SA1633:File header company name text should match",
                     Justification = "We don't use the header",
                     Scope = "module")]
-
-[assembly:
-    SuppressMessage("Security",
-                    "CA5394:Do not use insecure randomness",
-                    Justification = "The randomizers generate non-security-sensitive sample/test data. Cryptographically secure randomness is unnecessary here and would degrade performance.",
-                    Scope = "namespaceanddescendants",
-                    Target = "~N:Ploch.Common.Randomizers")]
-
-[assembly: CLSCompliant(true)]

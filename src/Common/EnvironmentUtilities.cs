@@ -17,8 +17,11 @@ public static class EnvironmentUtilities
   /// <returns>The current application's directory path.</returns>
   public static string GetCurrentAppPath()
   {
+#pragma warning disable S1135 // Tracked as a future enhancement.
+
 // TODO: This actually needs to be reviewed - I should probably comply with this rule.
 // "Avoid the method Assembly.GetEntryAssembly(), as it might not give expected results when your code runs under test from a test runner."
+#pragma warning restore S1135
 #pragma warning disable PH2143
     return Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location.NullIfEmpty() ?? AppDomain.CurrentDomain.BaseDirectory) ??
 #pragma warning restore PH2143
