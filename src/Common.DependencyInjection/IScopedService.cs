@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -91,6 +92,7 @@ public class ScopedService : IScopedService
     ///     Asynchronously releases the managed resources used by the <see cref="ScopedService" />.
     /// </summary>
     /// <returns>A <see cref="ValueTask" /> that represents the asynchronous dispose operation.</returns>
+    [SuppressMessage("Naming", "CC0061:Asynchronous method can be terminated with the 'Async' keyword", Justification = "DisposeAsyncCore is the canonical name from the Microsoft asynchronous dispose pattern; it intentionally does not carry an Async suffix.")]
     protected virtual async ValueTask DisposeAsyncCore()
     {
         if (_disposed)

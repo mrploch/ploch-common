@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Ploch.Common.ArgumentChecking;
 
@@ -58,9 +59,10 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     public new TProperty? GetValue(object[] index) => (TProperty?)base.GetValue(index);
 
     /// <inheritdoc />
+    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1100:Do not prefix calls with base unless local implementation exists", Justification = "base. explicitly targets the base implementation; without it, overload resolution for a closed generic where TProperty is object would bind to this method and recurse.")]
     public void SetValue(TProperty? value)
     {
-        SetValue((object?)value);
+        base.SetValue((object?)value);
     }
 
     /// <inheritdoc />
@@ -70,9 +72,10 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     }
 
     /// <inheritdoc />
+    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1100:Do not prefix calls with base unless local implementation exists", Justification = "base. explicitly targets the base implementation; without it, overload resolution for a closed generic where TProperty is object would bind to the derived SetValue(TProperty?) and recurse.")]
     void IOwnedPropertyInfo.SetValue(object? value)
     {
-        SetValue(value);
+        base.SetValue(value);
     }
 
     /// <inheritdoc />

@@ -15,7 +15,7 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly:
     SuppressMessage("StyleCop.CSharp.DocumentationRules",
-                    "SA1633:File header company name text should match",
+                    "SA1633:The file header is missing or not located at the top of the file",
                     Justification = "We don't use the header",
                     Scope = "module")]
 

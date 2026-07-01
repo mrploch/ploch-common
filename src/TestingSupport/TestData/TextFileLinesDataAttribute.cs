@@ -19,7 +19,7 @@ namespace Ploch.TestingSupport.TestData;
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
 {
-  private static readonly string[] LineSeparators = { "\r\n", "\n" };
+  private static readonly string[] LineSeparators = ["\r\n", "\n"];
 
   /// <summary>
   ///   Indicates whether this data attribute supports discovery-time enumeration of test cases.

@@ -23,7 +23,7 @@ public static class Hashing
 
         var hashBytes = algorithm.ComputeHash(stream);
 #if NET6_0_OR_GREATER
-        return Convert.ToHexString(hashBytes).Replace("-", string.Empty, StringComparison.Ordinal);
+        return Convert.ToHexString(hashBytes);
 #else
         return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
 #endif
@@ -44,7 +44,7 @@ public static class Hashing
 #pragma warning restore CA5351
 
 #if NET6_0_OR_GREATER
-        return Convert.ToHexString(hashBytes).Replace("-", string.Empty, StringComparison.Ordinal);
+        return Convert.ToHexString(hashBytes);
 #else
         return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
 #endif

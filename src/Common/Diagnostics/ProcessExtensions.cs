@@ -32,7 +32,9 @@ public static class ProcessExtensions
         }
 
         var affinityMask = 1L << processorNumber;
-        process.ProcessorAffinity = checked((IntPtr)affinityMask);
+#pragma warning disable CA2020 // Unchecked is intentional: the affinity bitmask's high bit (e.g. processor 31 on a 32-bit process) must wrap to the native pointer pattern, not throw OverflowException.
+        process.ProcessorAffinity = unchecked((IntPtr)affinityMask);
+#pragma warning restore CA2020
     }
 
     /// <summary>
@@ -69,7 +71,9 @@ public static class ProcessExtensions
             affinityMask |= 1L << number;
         }
 
-        process.ProcessorAffinity = checked((IntPtr)affinityMask);
+#pragma warning disable CA2020 // Unchecked is intentional: the affinity bitmask's high bit (e.g. processor 31 on a 32-bit process) must wrap to the native pointer pattern, not throw OverflowException.
+        process.ProcessorAffinity = unchecked((IntPtr)affinityMask);
+#pragma warning restore CA2020
     }
 
     /// <summary>
@@ -87,13 +91,18 @@ public static class ProcessExtensions
     {
         process.NotNull(nameof(process));
 
+        // Materialise eagerly (rather than a yield iterator) so the argument guard above throws at
+        // call time instead of being deferred until the sequence is enumerated.
         var affinityMask = process.ProcessorAffinity.ToInt64();
+        var enabledProcessors = new List<int>();
         for (var i = 0; i < Environment.ProcessorCount; i++)
         {
             if ((affinityMask & (1L << i)) != 0)
             {
-                yield return i;
+                enabledProcessors.Add(i);
             }
         }
+
+        return enabledProcessors;
     }
 }

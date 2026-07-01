@@ -10,7 +10,9 @@ namespace Ploch.Common;
 ///     This class includes both general date-time formats and specific date-only formats,
 ///     making it useful for scenarios where consistency in date and time string representation is required.
 /// </remarks>
-public static class DateTimeFormats
+#pragma warning disable CA1052, S1118, RCS1102 // DateTimeFormats is an existing public (non-static) type; converting it to a static class (or adding a private constructor) would change the public type shape and be a breaking change for consumers.
+public class DateTimeFormats
+#pragma warning restore CA1052, S1118, RCS1102
 {
     /// <summary>
     ///     A constant string representing the date-time format "yyyyMMddHHmmss".

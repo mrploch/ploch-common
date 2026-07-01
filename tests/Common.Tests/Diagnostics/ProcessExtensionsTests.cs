@@ -49,4 +49,38 @@ public class ProcessExtensionsTests
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>();
     }
+
+    [Fact]
+    public void SetSingleProcessorAffinity_should_throw_for_null_process()
+    {
+        var act = () => ((Process)null!).SetSingleProcessorAffinity(0);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void SetEnabledProcessors_should_throw_for_null_process()
+    {
+        var act = () => ((Process)null!).SetEnabledProcessors(0);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void SetEnabledProcessors_should_throw_when_no_processor_numbers_are_specified()
+    {
+        var process = new Process();
+
+        var act = () => process.SetEnabledProcessors();
+
+        act.Should().Throw<ArgumentException>();
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_throw_for_null_process()
+    {
+        var act = () => ((Process)null!).GetEnabledProcessors();
+
+        act.Should().Throw<ArgumentNullException>();
+    }
 }
