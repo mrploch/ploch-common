@@ -64,6 +64,21 @@ public class CommandLineInfoTests
     }
 
     [Fact]
+    public void GetHashCode_should_be_equal_for_equal_instances_with_distinct_argument_sequences()
+    {
+        // Arrange
+        var args1 = new List<string> { "-a", "1", "-b", "two" };
+        var args2 = new[] { "-a", "1", "-b", "two" }; // same content, different sequence instance
+
+        var left = new CommandLineInfo(@"C:\x\y.exe", args1);
+        var right = new CommandLineInfo(@"C:\x\y.exe", args2);
+
+        // Act / Assert - equal instances must produce equal hash codes (Equals/GetHashCode contract)
+        left.Equals(right).Should().BeTrue();
+        left.GetHashCode().Should().Be(right.GetHashCode());
+    }
+
+    [Fact]
     public void Equals_should_handle_null_applicationPath_values()
     {
         // Arrange

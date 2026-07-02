@@ -38,7 +38,7 @@ public static class StringAssertionExtensions
         var array = values.Where(v => !Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)).ToArray();
 
         assertions.CurrentAssertionChain
-                  .ForCondition(values != null && values.Any())
+                  .ForCondition(values.Any())
                   .FailWith("You have to provide at least one value to check for.")
                   .Then
                   .ForCondition(values.All(v => Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)))
@@ -61,20 +61,4 @@ public static class StringAssertionExtensions
     private static bool Contains(string? actual,
                                  string? expected,
                                  StringComparison comparison) => (actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0;
-
-    /*
-     *   public static bool Contains(this StringAssertions assertions,
-                                string? actual,
-                                string? expected,
-                                StringComparison comparison,
-                                string because = "",
-                                params object[] becauseArgs)
-    {
-        assertions.CurrentAssertionChain.ForCondition((actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0)
-                  .BecauseOf(because, becauseArgs)
-                  .FailWith("Expected {context:string} {0} to contain the strings ignoring case: {1}{reason}.", assertions.Subject, array)
-
-        return (actual ?? string.Empty).IndexOf(expected ?? string.Empty, comparison) >= 0;
-    }
-     */
 }

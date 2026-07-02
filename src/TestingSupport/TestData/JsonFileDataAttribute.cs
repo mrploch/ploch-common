@@ -24,10 +24,22 @@ namespace Ploch.TestingSupport.TestData;
 /// <param name="filePath">The absolute or relative path to the JSON file to load.</param>
 /// <param name="propertyName">The name of the property on the JSON file that contains the data for the test.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-#pragma warning disable CC0023 - Mark attribute as sealed - this attribute might be a candidate for extension.
+#pragma warning disable CC0023 // Attribute is intentionally not sealed; it may be subclassed for extension.
 public class JsonFileDataAttribute(string filePath, string? propertyName = null) : DataAttribute
 #pragma warning restore CC0023
 {
+  /// <summary>
+  ///   Returns the test data loaded from the configured JSON file for the specified test method.
+  /// </summary>
+  /// <param name="testMethod">The test method for which the data is being supplied.</param>
+  /// <param name="disposalTracker">The disposal tracker used to manage the lifetime of created objects.</param>
+  /// <returns>
+  ///   A task that represents the asynchronous operation. The task result contains the collection of theory data rows
+  ///   parsed from the JSON file.
+  /// </returns>
+  /// <exception cref="ArgumentNullException">Thrown when <paramref name="testMethod" /> is <see langword="null" />.</exception>
+  /// <exception cref="ArgumentException">Thrown when the file path is empty, the property is missing, or the JSON data is not an array.</exception>
+  /// <exception cref="InvalidOperationException">Thrown when a data row is not a JSON array or its element count does not match the method parameters.</exception>
 #pragma warning disable CA2208 // paramNames reference primary constructor parameters, not method parameters
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
   {
@@ -97,5 +109,11 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
   }
 #pragma warning restore CA2208
 
+  /// <summary>
+  ///   Indicates whether this data attribute supports discovery-time enumeration of test cases.
+  /// </summary>
+  /// <returns>
+  ///   Always <see langword="false" />, because the data is loaded from a file at execution time rather than during discovery.
+  /// </returns>
   public override bool SupportsDiscoveryEnumeration() => false;
 }

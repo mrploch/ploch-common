@@ -21,10 +21,11 @@ public class AlphabeticalOrderer : ITestCaseOrderer
   {
     var result = testCases.ToList();
     result.Sort((x, y) =>
-                  StringComparer.OrdinalIgnoreCase.Compare(x.TestMethod?.MethodName ??
-                                                           throw new InvalidOperationException("TestMethod MethodName cannot be null"),
-                                                           y.TestMethod?.MethodName ??
-                                                           throw new InvalidOperationException("TestMethod MethodName cannot be null")));
+    {
+      var xName = x.TestMethod?.MethodName ?? throw new InvalidOperationException("TestMethod MethodName cannot be null");
+      var yName = y.TestMethod?.MethodName ?? throw new InvalidOperationException("TestMethod MethodName cannot be null");
+      return StringComparer.OrdinalIgnoreCase.Compare(xName, yName);
+    });
 
     return result;
   }

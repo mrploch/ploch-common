@@ -26,7 +26,7 @@ public class TypeLoaderConfigurator : ITypeLoaderConfigurator
     public HashSet<Type> BaseTypes { get; } = [];
 
     /// <summary>
-    ///     Indicates whether abstract types should be included during type loading or matching operations.
+    ///     Gets a value indicating whether abstract types should be included during type loading or matching operations.
     /// </summary>
     /// <remarks>
     ///     When set to <c>true</c>, abstract types will be considered in operations that involve determining
@@ -47,7 +47,7 @@ public class TypeLoaderConfigurator : ITypeLoaderConfigurator
     public Matcher? AssemblyMatcher { get; private set; }
 
     /// <summary>
-    ///     Represents an internal matcher used to configure pattern-based filtering for type names
+    ///     Gets the matcher used to configure pattern-based filtering for type names
     ///     in assembly scanning or other reflection-based operations.
     /// </summary>
     /// <remarks>

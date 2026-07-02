@@ -26,12 +26,8 @@ public abstract class SingleSourceTargetTypeConverter<TSourceType, TTargetType>(
     ///     Converts a value of the source type to the target type.
     /// </summary>
     /// <param name="value">The source value to be converted. May be null.</param>
-    /// <typeparam name="TTarget">
-    ///     The specific type of the target to which the value should be converted. Must inherit from or implement
-    ///     <typeparamref name="TTargetType" />.
-    /// </typeparam>
     /// <returns>
-    ///     The converted value of type <typeparamref name="TTarget" />, or null if the conversion could not be performed.
+    ///     The converted value of type <typeparamref name="TTargetType" />, or null if the conversion could not be performed.
     /// </returns>
     public TTargetType? ConvertValue(TSourceType? value) => ConvertValue<TTargetType>(value);
 
@@ -68,6 +64,9 @@ public abstract class SingleSourceTargetTypeConverter<TSourceType, TTargetType>(
     }
 
     /// <inheritdoc />
+    public override object? ConvertValue(object? value, Type targetType) => ConvertValue((TSourceType?)value, targetType);
+
+    /// <inheritdoc />
     public override bool CanHandleSourceType(Type sourceType) =>
         TypeConverterHelper.CanHandleType(canHandleDerivedSourceTypes, typeof(TSourceType), sourceType);
 
@@ -77,9 +76,6 @@ public abstract class SingleSourceTargetTypeConverter<TSourceType, TTargetType>(
 
     /// <inheritdoc />
     public TTargetType? ConvertValueToTargetType(object? value) => (TTargetType?)ConvertValue(value, typeof(TTargetType));
-
-    /// <inheritdoc />
-    public override object? ConvertValue(object? value, Type targetType) => ConvertValue((TSourceType?)value, targetType);
 
     /// <summary>
     ///     Performs the conversion of the source value of type <typeparamref name="TSourceType" /> to the target type <typeparamref name="TTargetType" />.

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.Cryptography;
 
@@ -17,11 +18,15 @@ public static class Hashing
     /// <returns>A string representation of the computed hash.</returns>
     public static string ToHashString(this Stream stream, HashAlgorithm algorithm)
     {
+        stream.NotNull(nameof(stream));
+        algorithm.NotNull(nameof(algorithm));
+
         var hashBytes = algorithm.ComputeHash(stream);
 #if NET6_0_OR_GREATER
-        return Convert.ToHexString(hashBytes).Replace("-", string.Empty, StringComparison.Ordinal);
-#endif
+        return Convert.ToHexString(hashBytes);
+#else
         return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+#endif
     }
 
     /// <summary>
@@ -31,14 +36,17 @@ public static class Hashing
     /// <returns>The MD5 hash string of the input Stream.</returns>
     public static string ToMD5HashString(this Stream stream)
     {
+        stream.NotNull(nameof(stream));
+
 #pragma warning disable CA5351 // Do not use insecure cryptographic algorithm MD5 - it's not supposed to be secure here.
         using var md5 = MD5.Create();
         var hashBytes = md5.ComputeHash(stream);
 #pragma warning restore CA5351
 
 #if NET6_0_OR_GREATER
-        return Convert.ToHexString(hashBytes).Replace("-", string.Empty, StringComparison.Ordinal);
-#endif
+        return Convert.ToHexString(hashBytes);
+#else
         return BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+#endif
     }
 }

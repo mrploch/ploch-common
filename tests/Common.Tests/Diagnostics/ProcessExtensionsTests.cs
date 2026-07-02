@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using Ploch.TestingSupport.XUnit3;
 
 namespace Ploch.Common.Diagnostics.Tests;
 
+[SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "These tests deliberately exercise the Windows/Linux-only processor-affinity APIs; the custom [SupportedOSPlatform(SupportedOS.Windows)] trait skips them on unsupported platforms at run time.")]
 public class ProcessExtensionsTests
 {
     [Fact]
@@ -46,5 +48,39 @@ public class ProcessExtensionsTests
 
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>();
+    }
+
+    [Fact]
+    public void SetSingleProcessorAffinity_should_throw_for_null_process()
+    {
+        var act = () => ((Process)null!).SetSingleProcessorAffinity(0);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void SetEnabledProcessors_should_throw_for_null_process()
+    {
+        var act = () => ((Process)null!).SetEnabledProcessors(0);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void SetEnabledProcessors_should_throw_when_no_processor_numbers_are_specified()
+    {
+        var process = new Process();
+
+        var act = () => process.SetEnabledProcessors();
+
+        act.Should().Throw<ArgumentException>();
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_throw_for_null_process()
+    {
+        var act = () => ((Process)null!).GetEnabledProcessors();
+
+        act.Should().Throw<ArgumentNullException>();
     }
 }

@@ -135,6 +135,8 @@ public static class TypeExtensions
   /// </returns>
   public static string GetReadableTypeName(this Type t)
   {
+    t.NotNull(nameof(t));
+
     var elementType = t.GetElementType();
     if (t.IsArray && elementType != null)
     {

@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Ploch.Common.Reflection;
 
 /// <summary>
 ///     Represents an exception that is thrown when there is an error accessing a property.
 /// </summary>
+[SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "This exception is always constructed from a property name; the parameterless and message-only constructors are intentionally omitted because the single-string overload already carries property-name semantics and the exception is not meaningful without the property context.")]
 public class PropertyAccessException : Exception
 {
     /// <summary>

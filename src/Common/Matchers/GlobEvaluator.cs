@@ -4,7 +4,9 @@ using Microsoft.Extensions.FileSystemGlobbing;
 using Ploch.Common.Collections;
 
 namespace Ploch.Common.Matchers;
-// TODO: I think this should be moved to a separate project due to the dependency on Microsoft.Extensions.FileSystemGlobbing.
+
+// Note: this type could be moved to a separate project to isolate the dependency on
+// Microsoft.Extensions.FileSystemGlobbing — a possible future enhancement.
 
 /// <summary>
 ///     Evaluates strings against a list of glob patterns to determine if they match.

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Ploch.Common.ArgumentChecking;
 
@@ -49,7 +50,7 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
 }
 
 /// <inheritdoc cref="IOwnedPropertyInfo{TProperty}" />
-public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner), IOwnedPropertyInfo<TProperty>
+public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner), IOwnedPropertyInfo<TProperty> // skipcq: CS-R1103 - intentional generic specialization of the base type
 {
     /// <inheritdoc />
     public new TProperty? GetValue() => (TProperty?)base.GetValue();
@@ -58,6 +59,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     public new TProperty? GetValue(object[] index) => (TProperty?)base.GetValue(index);
 
     /// <inheritdoc />
+    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1100:Do not prefix calls with base unless local implementation exists", Justification = "base. explicitly targets the base implementation; without it, overload resolution for a closed generic where TProperty is object would bind to this method and recurse.")]
     public void SetValue(TProperty? value)
     {
         base.SetValue((object?)value);
@@ -70,6 +72,7 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
     }
 
     /// <inheritdoc />
+    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1100:Do not prefix calls with base unless local implementation exists", Justification = "base. explicitly targets the base implementation; without it, overload resolution for a closed generic where TProperty is object would bind to the derived SetValue(TProperty?) and recurse.")]
     void IOwnedPropertyInfo.SetValue(object? value)
     {
         base.SetValue(value);
@@ -91,8 +94,10 @@ public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owne
 /// </summary>
 /// <param name="propertyInfo">The property info delegate.</param>
 /// <param name="owner">The object that owns the property.</param>
+#pragma warning disable PCA0001 // 'owner' is forwarded to the base constructor via the null-forgiving operator (the base performs the runtime null check); it is not mutated.
 public class OwnedPropertyInfo<TType, TProperty>(PropertyInfo propertyInfo, TType owner)
     : OwnedPropertyInfo<TProperty>(propertyInfo, owner!), IOwnedPropertyInfo<TType, TProperty>
+#pragma warning restore PCA0001
 {
     /// <inheritdoc />
     public new TType Owner => (TType)base.Owner;

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -9,9 +10,13 @@ using System.Runtime.CompilerServices;
 namespace Ploch.Common.ArgumentChecking;
 
 // ReSharper disable once MismatchedFileName - this file is specifically for .NET 7.0 and later versions, file name is changed intentionally.
+
 /// <summary>
 ///     Provides utilities for validating file system paths and their properties.
 /// </summary>
+[SuppressMessage("Performance",
+                 "CA1863:Use 'CompositeFormat'",
+                 Justification = "CompositeFormat is unavailable on netstandard2.0; caching it for these call sites is not worth the multi-target complexity.")]
 public static partial class PathGuard
 {
     private const string InvalidPathMessageFormat = "The provided path contains invalid characters: {0}, parameter name: {1}";

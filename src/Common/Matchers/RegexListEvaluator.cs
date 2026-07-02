@@ -24,12 +24,12 @@ public class RegexListEvaluator(IEnumerable<string> regexList, bool nullValueMat
     ///     Determines whether the specified string matches any of the regular expressions in the collection.
     /// </summary>
     /// <remarks>
-    ///     If the input string is null, the method returns the value of <see cref="nullValueMatchResult" />.
+    ///     If the input string is null, the method returns the value of <c>nullValueMatchResult</c>.
     ///     Otherwise, it checks if the string matches any of the compiled regular expressions.
     /// </remarks>
     /// <param name="value">The string to match against the regular expressions.</param>
     /// <returns>
-    ///     <c>true</c> if the string matches any of the regular expressions; if value is null then the value of <see cref="nullValueMatchResult" />; otherwise,
+    ///     <c>true</c> if the string matches any of the regular expressions; if value is null then the value of <c>nullValueMatchResult</c>; otherwise,
     ///     <c>false</c>.
     /// </returns>
     public bool IsMatch(string? value) => value == null ? nullValueMatchResult : _matchers.Any(regex => regex.IsMatch(value));

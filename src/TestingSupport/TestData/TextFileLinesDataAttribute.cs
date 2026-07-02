@@ -13,9 +13,20 @@ namespace Ploch.TestingSupport.TestData;
 ///   Load data from a text file as the data source for a theory, with each line being a separate test case.
 /// </remarks>
 /// <param name="filePath">The absolute or relative path to the text file to load.</param>
+/// <param name="removeEmptyEntries">
+///   When <see langword="true" />, empty or whitespace-only lines are excluded from the generated test data.
+/// </param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
+public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
 {
+  private static readonly string[] LineSeparators = ["\r\n", "\n"];
+
+  /// <summary>
+  ///   Indicates whether this data attribute supports discovery-time enumeration of test cases.
+  /// </summary>
+  /// <returns>
+  ///   Always <see langword="false" />, because the data is loaded from a file at execution time rather than during discovery.
+  /// </returns>
   public override bool SupportsDiscoveryEnumeration() => false;
 
   /// <summary>
@@ -33,7 +44,7 @@ public class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries
   /// </returns>
   protected override IEnumerable<object?[]> ProcessFileData(string fileData)
   {
-    var lines = fileData.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+    var lines = fileData.Split(LineSeparators, StringSplitOptions.None);
 
     if (removeEmptyEntries)
     {

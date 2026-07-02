@@ -135,9 +135,12 @@ public static class PathUtils
         path.NotNull(nameof(path));
         extension.NotNull(nameof(extension));
 
-        // Cannot use patterns here because this library is built for .NET Standard 2.0
         // ReSharper disable once UsePattern
+#if NET6_0_OR_GREATER
+        if (!extension.StartsWith('.'))
+#else
         if (!extension.StartsWith(".", StringComparison.Ordinal))
+#endif
         {
             extension = "." + extension;
         }
@@ -154,11 +157,16 @@ public static class PathUtils
             path = GetFullPathWithoutExtension(path);
         }
 
-        // Cannot use patterns here because this library is built for .NET Standard 2.0
         // ReSharper disable once UsePattern
+#if NET6_0_OR_GREATER
+        if (path.EndsWith('.'))
+#else
         if (path.EndsWith(".", StringComparison.Ordinal))
+#endif
         {
-            path = path.Substring(0, path.Length - 1);
+#pragma warning disable IDE0057 // range operator unavailable on netstandard2.0
+            path = path.Substring(0, path.Length - 1); // skipcq: CS-R1037 - range operator unavailable on netstandard2.0
+#pragma warning restore IDE0057
         }
 
         return $"{path}{extension}";
@@ -177,6 +185,8 @@ public static class PathUtils
     /// <exception cref="ArgumentException">Thrown when <paramref name="path" /> is empty.</exception>
     public static string GetFullPathWithoutExtension(string path)
     {
+        path.NotNull(nameof(path));
+
         // Remove trailing directory separators before processing
         path = path.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar, '\\');
 

@@ -15,7 +15,7 @@ namespace Ploch.TestingSupport.XUnit3.TestData;
 /// <param name="filePath">The absolute or relative path to the JSON file to load.</param>
 /// <param name="propertyName">The name of the property on the JSON file that contains the data for the test.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-#pragma warning disable CC0023 - Mark attribute as sealed - this attribute might be a candidate for extension.
+#pragma warning disable CC0023 // Mark attribute as sealed - this attribute might be a candidate for extension.
 public class JsonFileDataAttribute(string filePath, string? propertyName = null) : DataAttribute
 #pragma warning restore CC0023
 {
@@ -23,10 +23,10 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
     ///     Returns the data to be used to test the theory.
     /// </summary>
     /// <param name="testMethod">The method that is being tested.</param>
-    /// <param name="disposalTracker"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    /// <exception cref="ArgumentException"></exception>
+    /// <param name="disposalTracker">The disposal tracker used to register disposable test data for cleanup.</param>
+    /// <returns>A task that resolves to the read-only collection of theory data rows loaded from the JSON file.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="testMethod" /> is <see langword="null" />.</exception>
+    /// <exception cref="ArgumentException">Thrown when the JSON file cannot be found or the configured property is missing.</exception>
     public override ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
     {
         testMethod.NotNull();
@@ -48,6 +48,11 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
         return ValueTask.FromResult((IReadOnlyCollection<ITheoryDataRow>)readOnlyCollection);
     }
 
+    /// <summary>
+    ///     Gets a value indicating whether the data rows can be pre-enumerated during test discovery.
+    /// </summary>
+    /// <returns>This member is not supported and always throws.</returns>
+    /// <exception cref="NotImplementedException">Always thrown, as discovery enumeration is not supported for JSON file data.</exception>
     public override bool SupportsDiscoveryEnumeration() => throw new NotImplementedException();
 
     private static List<object?[]> GetRootJsonData(string fileData, string filePath) => JsonConvert.DeserializeObject<List<object?[]>>(fileData) ??
