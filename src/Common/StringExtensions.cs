@@ -170,7 +170,7 @@ public static class StringExtensions
     {
         str.NotNull(nameof(str));
 
-        return int.Parse(str, CultureInfo.InvariantCulture);
+        return int.Parse(str, CultureInfo.InvariantCulture); // skipcq: CS-R1004 - ToInt32 intentionally throws on invalid input; a TryParse variant is provided separately
     }
 
     /// <summary>

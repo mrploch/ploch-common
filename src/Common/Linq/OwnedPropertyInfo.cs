@@ -50,7 +50,7 @@ public abstract class OwnedPropertyInfo : IOwnedPropertyInfo
 }
 
 /// <inheritdoc cref="IOwnedPropertyInfo{TProperty}" />
-public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner), IOwnedPropertyInfo<TProperty>
+public class OwnedPropertyInfo<TProperty>(PropertyInfo propertyInfo, object owner) : OwnedPropertyInfo(propertyInfo, owner), IOwnedPropertyInfo<TProperty> // skipcq: CS-R1103 - intentional generic specialization of the base type
 {
     /// <inheritdoc />
     public new TProperty? GetValue() => (TProperty?)base.GetValue();

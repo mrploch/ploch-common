@@ -38,7 +38,7 @@ public static class StringAssertionExtensions
         var array = values.Where(v => !Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)).ToArray();
 
         assertions.CurrentAssertionChain
-                  .ForCondition(values != null && values.Any())
+                  .ForCondition(values.Any())
                   .FailWith("You have to provide at least one value to check for.")
                   .Then
                   .ForCondition(values.All(v => Contains(assertions.Subject, v, StringComparison.OrdinalIgnoreCase)))

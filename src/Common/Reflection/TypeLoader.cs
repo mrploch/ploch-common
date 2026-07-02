@@ -120,7 +120,7 @@ public class TypeLoader
     {
         type.NotNull(nameof(type));
 
-        if (_hasBaseTypes && !_configuration.BaseTypes.Any(baseType => type.IsImplementing(baseType, !_configuration.IncludeAbstract)))
+        if (_hasBaseTypes && _configuration.BaseTypes.All(baseType => !type.IsImplementing(baseType, !_configuration.IncludeAbstract)))
         {
             return false;
         }

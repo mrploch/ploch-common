@@ -13,7 +13,7 @@ public static class AssemblyInformationProvider
     /// </summary>
     /// <param name="obj">The object to get the assembly information for.</param>
     /// <returns>The <see cref="AssemblyInformation" /> representing the assembly information.</returns>
-    public static AssemblyInformation GetAssemblyInformation(this object obj)
+    public static AssemblyInformation GetAssemblyInformation(this object obj) // skipcq: CS-R1112 - general-purpose extension intentionally defined on object
     {
         obj.NotNull(nameof(obj));
 

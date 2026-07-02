@@ -13,7 +13,7 @@ namespace Ploch.Common.DawnGuard;
 /// <seealso cref="Ploch.Common.ArgumentChecking.Guard"/>
 /// <seealso cref="Ploch.Common.ArgumentChecking.PathGuard"/>
 /// </remarks>
-[Obsolete($"The DawnGuard library is deprecated and no longer maintained. " +
+[Obsolete("The DawnGuard library is deprecated and no longer maintained. " +
           $"New helpers for argument validation are available in the {nameof(Ploch)}.{nameof(Common)} package, {nameof(ArgumentChecking)} namespace. " +
           $"For example the {nameof(ArgumentChecking.Guard)}.")]
 [SuppressMessage("Major Code Smell", "S1133", Justification = "Intentional public deprecation; the [Obsolete] member is retained for backwards compatibility until the next major version.")]
@@ -26,7 +26,7 @@ public static class TypeGuards
     /// <param name="type">The type to which the argument should be assignable.</param>
     /// <returns>The original argument info for method chaining.</returns>
     /// <exception cref="ArgumentNullException">If the argument is null.</exception>
-    public static ref readonly Guard.ArgumentInfo<Type> AssignableTo(in this Guard.ArgumentInfo<Type> argument, Type type)
+    public static ref readonly Guard.ArgumentInfo<Type> AssignableTo(in this Guard.ArgumentInfo<Type> argument, Type type) // skipcq: CS-R1138 - 'in this' extension receiver must be the first parameter
     {
         Guard.Argument(type, nameof(type)).NotNull();
 
@@ -58,7 +58,7 @@ public static class TypeGuards
     ///     The exception message contains the argument name and the type information.
     /// </exception>
     /// <returns>The reference to the <paramref name="argument" /> object.</returns>
-    public static ref readonly Guard.ArgumentInfo<Type> AssignableToOrNull(in this Guard.ArgumentInfo<Type> argument, Type type)
+    public static ref readonly Guard.ArgumentInfo<Type> AssignableToOrNull(in this Guard.ArgumentInfo<Type> argument, Type type) // skipcq: CS-R1138 - 'in this' extension receiver must be the first parameter
     {
         Guard.Argument(type, nameof(type)).NotNull();
 

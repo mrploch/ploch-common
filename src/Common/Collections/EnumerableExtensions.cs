@@ -135,7 +135,7 @@ public static class EnumerableExtensions
         var count = arraySource.Length;
 
 #pragma warning disable CC0031
-        return arraySource.Take(count - 1).Join(separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]);
+        return arraySource.Take(count - 1).Join(separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]); // skipcq: CS-R1019 - index-from-end operator unavailable on netstandard2.0
 #pragma warning restore CC0031
     }
 
@@ -265,7 +265,7 @@ public static class EnumerableExtensions
     public static bool AreIntegersSequentialInOrder(this IEnumerable<long> enumerable)
     {
         enumerable.NotNull(nameof(enumerable));
-        var array = enumerable.Select(static v => v).ToArray();
+        var array = enumerable.ToArray();
 
         return array.Skip(1).Select((v, i) => v == array[i] + 1).All(static v => v);
     }
@@ -282,7 +282,7 @@ public static class EnumerableExtensions
     public static bool AreIntegersSequentialInOrder(this IEnumerable<int> enumerable)
     {
         enumerable.NotNull(nameof(enumerable));
-        var array = enumerable.Select(v => v).ToArray();
+        var array = enumerable.ToArray();
 
         return array.Skip(1).Select((v, i) => v == array[i] + 1).All(static v => v);
     }
@@ -305,7 +305,7 @@ public static class EnumerableExtensions
     {
         var enumerator = enumerable.NotNull(nameof(enumerable)).GetEnumerator();
 
-        using var disposable = enumerator as IDisposable;
+        using var disposable = enumerator as IDisposable; // skipcq: CS-W1100 - using declaration disposes the enumerator; the binding is intentional
 
         return !enumerator.MoveNext();
     }

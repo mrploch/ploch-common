@@ -21,7 +21,7 @@ public static class ObjectReflectionExtensions
     /// <param name="obj">The object.</param>
     /// <param name="fieldName">The field name.</param>
     /// <returns>The field value if found or null.</returns>
-    public static object? GetFieldValue(this object obj, string fieldName)
+    public static object? GetFieldValue(this object obj, string fieldName) // skipcq: CS-R1112 - general-purpose reflection extension intentionally defined on object
     {
 #pragma warning disable S3011 // Accessing non-public members via reflection is the documented purpose of this utility.
         var fieldInfo = obj.NotNull(nameof(obj))
@@ -39,7 +39,7 @@ public static class ObjectReflectionExtensions
     /// <param name="fieldName">The field name.</param>
     /// <typeparam name="TValue">The object type.</typeparam>
     /// <returns>The field value if found or default.</returns>
-    public static TValue? GetFieldValue<TValue>(this object obj, string fieldName) => (TValue?)obj.GetFieldValue(fieldName);
+    public static TValue? GetFieldValue<TValue>(this object obj, string fieldName) => (TValue?)obj.GetFieldValue(fieldName); // skipcq: CS-R1112 - general-purpose reflection extension intentionally defined on object
 
     /// <summary>
     ///     Retrieves the values of all fields from an object or type.
@@ -146,7 +146,7 @@ public static class ObjectReflectionExtensions
         }
 
         bindingFlags &= ~BindingFlags.DeclaredOnly;
-        var memberInfos = type.RequiredNotNull(nameof(type)).GetMembers(bindingFlags).Where(m => memberTypes.HasFlag(m.MemberType));
+        var memberInfos = type.RequiredNotNull(nameof(type)).GetMembers(bindingFlags).Where(m => memberTypes.HasFlag(m.MemberType)); // skipcq: CS-W1055 - both operands are System.Reflection.MemberTypes; the flag check is correct
         foreach (var memberInfo in memberInfos)
         {
             if (memberInfo.IsIndexer())

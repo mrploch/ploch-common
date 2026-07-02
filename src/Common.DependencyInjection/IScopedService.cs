@@ -59,7 +59,7 @@ public class ScopedService : IScopedService
     }
 
     /// <inheritdoc />
-    public async ValueTask DisposeAsync()
+    public async ValueTask DisposeAsync() // skipcq: CS-P1001 - GC.SuppressFinalize is required by the IDisposable/IAsyncDisposable pattern (CA1816)
     {
         await DisposeAsyncCore();
         Dispose(false);
@@ -119,7 +119,7 @@ public class ScopedService : IScopedService
 /// </summary>
 /// <typeparam name="TService">The type of service to resolve.</typeparam>
 /// <param name="serviceProvider">The service provider used to create a new scope.</param>
-public class ScopedService<TService>(IServiceProvider serviceProvider)
+public class ScopedService<TService>(IServiceProvider serviceProvider) // skipcq: CS-R1103 - intentional generic specialization of the base type
     : ScopedService(serviceProvider, typeof(TService)), IScopedService<TService>
     where TService : notnull
 {
