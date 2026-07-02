@@ -29,6 +29,7 @@ public static class FluentVerifier
     /// <param name="assertion">A function representing the asynchronous assertion to evaluate.</param>
     /// <returns>A task that represents the asynchronous operation. The task result is true if the assertion passed without any failures; otherwise, false.</returns>
     [SuppressMessage("Usage", "VSTHRD200", Justification = "Public fluent-verifier API; renaming would break consumers.")]
+    [SuppressMessage("Naming", "CC0061", Justification = "Public fluent-verifier API; adding an Async suffix would break consumers.")]
     public static async Task<bool> VerifyFluentAssertion(Func<Task> assertion) // skipcq: CS-R1073 - public API name; adding an Async suffix would be a breaking change
     {
         using var assertionScope = new AssertionScope();

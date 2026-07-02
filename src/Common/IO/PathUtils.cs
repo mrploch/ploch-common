@@ -164,7 +164,9 @@ public static class PathUtils
         if (path.EndsWith(".", StringComparison.Ordinal))
 #endif
         {
+#pragma warning disable IDE0057 // range operator unavailable on netstandard2.0
             path = path.Substring(0, path.Length - 1); // skipcq: CS-R1037 - range operator unavailable on netstandard2.0
+#pragma warning restore IDE0057
         }
 
         return $"{path}{extension}";
