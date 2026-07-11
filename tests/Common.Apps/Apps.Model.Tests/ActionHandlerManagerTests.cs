@@ -11,7 +11,7 @@ public class ActionHandlerManagerTests
         var manager = new ActionHandlerManager<TestDescriptor, TestActionInfo, SuccessHandler>([handler]);
         var actionInfo = new TestActionInfo(new TestDescriptor(), "test-action");
 
-        var result = await manager.ExecuteAsync(actionInfo);
+        var result = await manager.ExecuteAsync(actionInfo, TestContext.Current.CancellationToken);
 
         Assert.True(result.IsSuccess);
     }
@@ -23,7 +23,7 @@ public class ActionHandlerManagerTests
         var manager = new ActionHandlerManager<TestDescriptor, TestActionInfo, FailureHandler>([handler]);
         var actionInfo = new TestActionInfo(new TestDescriptor(), "test-action");
 
-        var result = await manager.ExecuteAsync(actionInfo);
+        var result = await manager.ExecuteAsync(actionInfo, TestContext.Current.CancellationToken);
 
         Assert.False(result.IsSuccess);
     }
