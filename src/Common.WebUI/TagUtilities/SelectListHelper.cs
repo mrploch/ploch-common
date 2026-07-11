@@ -19,11 +19,11 @@ public static class SelectListHelper
     /// <param name="items">The source collection.</param>
     /// <param name="textFunc">
     ///     Function mapping an item to the <see cref="SelectListItem.Text" /> property of a
-    ///     <see cref="SelectListItem" />.
+    ///     <see cref="SelectListItem" />. A <see langword="null" /> result maps to <see cref="string.Empty" />.
     /// </param>
     /// <param name="valueFunc">
     ///     Function mapping an item to the <see cref="SelectListItem.Value" /> property of a
-    ///     <see cref="SelectListItem" />.
+    ///     <see cref="SelectListItem" />. A <see langword="null" /> result maps to <see cref="string.Empty" />.
     /// </param>
     /// <param name="includeNull">
     ///     If <c>True</c> then <c>string.Empty</c> value entry will be added to the result

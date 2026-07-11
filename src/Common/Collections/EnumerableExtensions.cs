@@ -108,7 +108,10 @@ public static class EnumerableExtensions
     /// <param name="separator">The separator.</param>
     /// <param name="finalSeparator">The final separator.</param>
     /// <typeparam name="TValue">The type of the collection element.</typeparam>
-    /// <returns>String from joined elements.</returns>
+    /// <returns>
+    ///     String from joined elements. An empty source yields <see cref="string.Empty" />; a single-element
+    ///     source yields that element without any separator.
+    /// </returns>
     public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source, string separator, string finalSeparator)
     {
         return source.JoinWithFinalSeparator(separator, finalSeparator, static v => v?.ToString());
