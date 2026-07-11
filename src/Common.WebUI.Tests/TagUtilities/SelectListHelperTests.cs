@@ -25,6 +25,18 @@ public class SelectListHelperTests
                         .BeEquivalentTo(expectedItems);
     }
 
+    [Fact]
+    public void CreateFor_should_map_null_delegate_results_to_empty_text_and_value()
+    {
+        var testModels = new List<TestModel> { new() { MyText = null, MyValue = null } };
+
+        var result = SelectListHelper.CreateFor(testModels, m => m.MyText!, m => m.MyValue!);
+
+        result.Should().ContainSingle();
+        result[0].Text.Should().BeEmpty();
+        result[0].Value.Should().BeEmpty();
+    }
+
     public class TestModel
     {
         public string? MyValue { get; set; }
