@@ -15,24 +15,20 @@ namespace Ploch.TestingSupport.XUnit3.AutoMoq;
 ///     <see cref="AutoMoqCustomization" />. You can combine it with <c>[InlineData]</c> or
 ///     other AutoFixture attributes as needed.
 /// </remarks>
+/// <param name="ignoreVirtualMembers">Whether to ignore virtual members during specimen generation.</param>
 /// <example>
+///     <code>
 ///     [Theory]
 ///     [AutoMockData]
-///     public void Service_Uses_Repository(IMyService sut, Mock
-///     <IMyRepository>
-///         repo)
-///         {
+///     public void Service_Uses_Repository(IMyService sut, Mock&lt;IMyRepository&gt; repo)
+///     {
 ///         // arrange via AutoFixture + Moq; use repo.Verify(...) to assert interactions
 ///         // act/assert ...
-///         }
+///     }
+///     </code>
 /// </example>
-public class AutoMockDataAttribute : AutoDataAttribute
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+public sealed class AutoMockDataAttribute(bool ignoreVirtualMembers = false)
+    : AutoDataAttribute(() => new Fixture().Customize(new AutoDataCommonCustomization(ignoreVirtualMembers)))
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="AutoMockDataAttribute" /> class
-    ///     using a fresh <see cref="Fixture" /> customized with <see cref="AutoMoqCustomization" />.
-    /// </summary>
-    /// <param name="ignoreVirtualMembers">Whether to ignore virtual members during specimen generation.</param>
-    public AutoMockDataAttribute(bool ignoreVirtualMembers = false) : base(() => new Fixture().Customize(new AutoDataCommonCustomization(ignoreVirtualMembers)))
-    { }
 }

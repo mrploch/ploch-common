@@ -1,7 +1,7 @@
 ﻿using System;
 using Ploch.Common.ArgumentChecking;
 
-// TODO: Implement types in the Ploch.Common.TypeConversion namespace
+// The remaining types in the Ploch.Common.TypeConversion namespace are tracked by
 // https://github.com/mrploch/ploch-common/issues/158
 namespace Ploch.Common.TypeConversion;
 

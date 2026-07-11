@@ -8,7 +8,7 @@ namespace Ploch.Common;
 public class AssemblyInformation(string product, string description, string version)
 {
     /// <summary>
-    ///     Initializes a new instance of the AssemblyInformation class with the specified assembly.
+    ///     Initializes a new instance of the <see cref="AssemblyInformation" /> class with the specified assembly.
     /// </summary>
     /// <param name="assembly">The assembly to retrieve information from.</param>
     public AssemblyInformation(Assembly assembly) : this(assembly.GetCustomAttribute<AssemblyProductAttribute>()!.Product,

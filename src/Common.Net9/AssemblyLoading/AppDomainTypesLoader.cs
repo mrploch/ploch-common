@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Runtime.Loader;
 using Microsoft.Extensions.FileSystemGlobbing;
+using Ploch.Common.ArgumentChecking;
 using Ploch.Common.Reflection;
 
 namespace Ploch.Common.AssemblyLoading;
@@ -22,9 +23,12 @@ public class AppDomainTypesLoader
     private readonly HashSet<Type> _types = new();
 
     /// <summary>
-    ///     A utility class responsible for loading and filtering types from assemblies in the current AppDomain
-    ///     based on specific configuration rules.
+    ///     Initializes a new instance of the <see cref="AppDomainTypesLoader" /> class.
     /// </summary>
+    /// <param name="configuration">
+    ///     The configuration describing how types should be filtered, such as by assembly names,
+    ///     type names, or base type inheritance.
+    /// </param>
     /// <remarks>
     ///     The <see cref="AppDomainTypesLoader" /> class provides functionality to load types from assemblies based
     ///     on various configurations such as filtering by assembly names, type names, or base type inheritance.
@@ -33,6 +37,8 @@ public class AppDomainTypesLoader
     /// </remarks>
     public AppDomainTypesLoader(TypeLoadingConfiguration configuration)
     {
+        configuration.NotNull(nameof(configuration));
+
         if (configuration.AssemblyNameGlobConfiguration != null)
         {
             _assemblyMatcher = new(StringComparison.Ordinal);
@@ -208,6 +214,9 @@ public class AppDomainTypesLoader
         }
     }
 
+    [SuppressMessage("Design",
+                     "CA1031",
+                     Justification = "Assembly-load callback must not propagate arbitrary load failures; all exceptions are logged/collected.")]
     private void OnAssemblyLoad(object? sender, AssemblyLoadEventArgs args)
     {
         try

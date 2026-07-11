@@ -28,7 +28,7 @@ public class TypeLoader
         configuration.NotNull(nameof(configuration));
 
         _configuration = configuration;
-        _hasBaseTypes = configuration.BaseTypes.Any();
+        _hasBaseTypes = configuration.BaseTypes.Count > 0;
     }
 
     /// <summary>
@@ -120,7 +120,7 @@ public class TypeLoader
     {
         type.NotNull(nameof(type));
 
-        if (_hasBaseTypes && !_configuration.BaseTypes.Any(baseType => type.IsImplementing(baseType, !_configuration.IncludeAbstract)))
+        if (_hasBaseTypes && _configuration.BaseTypes.All(baseType => !type.IsImplementing(baseType, !_configuration.IncludeAbstract)))
         {
             return false;
         }

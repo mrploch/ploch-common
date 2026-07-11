@@ -14,6 +14,8 @@ namespace Ploch.Common.TypeConversion;
 public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<Type> supportedSourceTypes, IEnumerable<Type> supportedTargetTypes)
     : ITypeConverter
 {
+    private readonly bool _canHandleNullSourceValue = canHandleNullSourceValue;
+
     /// <summary>
     ///     Gets the collection of source types that this converter can handle.
     /// </summary>
@@ -49,13 +51,21 @@ public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<T
             return CanHandle(value.GetType(), targetType);
         }
 
-        if (!canHandleNullSourceValue)
+        if (!_canHandleNullSourceValue)
         {
             return false;
         }
 
         return !targetType.IsValueType || targetType.IsNullable();
     }
+
+    /// <summary>
+    ///     Determines whether this converter can handle the conversion from the specified source type to the target type.
+    /// </summary>
+    /// <param name="sourceType">The source type to convert from.</param>
+    /// <param name="targetType">The target type to convert to.</param>
+    /// <returns><c>true</c> if this converter can handle both the source and target types; otherwise, <c>false</c>.</returns>
+    public bool CanHandle(Type sourceType, Type targetType) => CanHandleSourceType(sourceType) && CanHandleTargetType(targetType);
 
     /// <summary>
     ///     Determines whether this converter can handle the specified source type.
@@ -70,14 +80,6 @@ public abstract class TypeConverter(bool canHandleNullSourceValue, IEnumerable<T
     /// <param name="targetType">The target type to check.</param>
     /// <returns><c>true</c> if this converter can handle the target type; otherwise, <c>false</c>.</returns>
     public abstract bool CanHandleTargetType(Type targetType);
-
-    /// <summary>
-    ///     Determines whether this converter can handle the conversion from the specified source type to the target type.
-    /// </summary>
-    /// <param name="sourceType">The source type to convert from.</param>
-    /// <param name="targetType">The target type to convert to.</param>
-    /// <returns><c>true</c> if this converter can handle both the source and target types; otherwise, <c>false</c>.</returns>
-    public bool CanHandle(Type sourceType, Type targetType) => CanHandleSourceType(sourceType) && CanHandleTargetType(targetType);
 
     /// <summary>
     ///     Converts the specified value to the target type.

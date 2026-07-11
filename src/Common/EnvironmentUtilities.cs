@@ -17,8 +17,8 @@ public static class EnvironmentUtilities
   /// <returns>The current application's directory path.</returns>
   public static string GetCurrentAppPath()
   {
-// TODO: This actually needs to be reviewed - I should probably comply with this rule.
-// "Avoid the method Assembly.GetEntryAssembly(), as it might not give expected results when your code runs under test from a test runner."
+// Note: Assembly.GetEntryAssembly() may not give the expected result when running under a test
+// runner; revisiting this resolution path is a possible future enhancement.
 #pragma warning disable PH2143
     return Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location.NullIfEmpty() ?? AppDomain.CurrentDomain.BaseDirectory) ??
 #pragma warning restore PH2143

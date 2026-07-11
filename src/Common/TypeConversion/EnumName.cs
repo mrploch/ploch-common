@@ -31,6 +31,14 @@ public record EnumName(string? Name, bool CaseSensitive = false)
     public static implicit operator EnumName(string? name) => new(name);
 
     /// <summary>
+    ///     Creates an <see cref="EnumName" /> instance from the specified string. This is the named alternative to the
+    ///     implicit <see cref="string" />-to-<see cref="EnumName" /> conversion operator.
+    /// </summary>
+    /// <param name="name">The string to convert.</param>
+    /// <returns>An <see cref="EnumName" /> instance initialized with the specified string.</returns>
+    public static EnumName FromString(string? name) => new(name);
+
+    /// <summary>
     ///     Converts an <see cref="EnumName" /> instance to its string representation.
     /// </summary>
     /// <param name="enumName">The <see cref="EnumName" /> instance to convert. This must not be null.</param>

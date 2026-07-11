@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Ploch.Common.TypeConversion;
 
 /// <summary>
@@ -23,5 +25,6 @@ namespace Ploch.Common.TypeConversion;
 ///     Custom implementations of <see cref="ISourceTypeConverter{TSourceType}" /> would allow for clearly
 ///     scoped and optimized conversion logic tailored to the defined source type.
 /// </example>
+[SuppressMessage("Major Code Smell", "S2326:Unused type parameters should be removed", Justification = "TSourceType is an intentional marker type parameter that specialises the converter by source type and lets the container resolve the correct ISourceTypeConverter<T>; it is deliberately not referenced in the interface body.")]
 public interface ISourceTypeConverter<TSourceType> : ITypeConverter
 { }

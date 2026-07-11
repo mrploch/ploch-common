@@ -33,6 +33,16 @@ public interface ITypeConverter
     bool CanHandle(object? value, Type targetType);
 
     /// <summary>
+    ///     Determines whether the current converter can handle the conversion from the specified source type to the target type.
+    /// </summary>
+    /// <param name="sourceType">The type of the source value that needs to be converted.</param>
+    /// <param name="targetType">The target type to which the value needs to be converted.</param>
+    /// <returns>
+    ///     True if the converter can handle the conversion from the source type to the target type; otherwise, false.
+    /// </returns>
+    bool CanHandle(Type sourceType, Type targetType);
+
+    /// <summary>
     ///     Determines whether the specified source type is supported by the type converter.
     /// </summary>
     /// <param name="sourceType">
@@ -56,16 +66,6 @@ public interface ITypeConverter
     ///     True if the converter can handle the specified target type for conversion; otherwise, false.
     /// </returns>
     bool CanHandleTargetType(Type targetType);
-
-    /// <summary>
-    ///     Determines whether the current converter can handle the conversion from the specified source type to the target type.
-    /// </summary>
-    /// <param name="sourceType">The type of the source value that needs to be converted.</param>
-    /// <param name="targetType">The target type to which the value needs to be converted.</param>
-    /// <returns>
-    ///     True if the converter can handle the conversion from the source type to the target type; otherwise, false.
-    /// </returns>
-    bool CanHandle(Type sourceType, Type targetType);
 
     /// <summary>
     ///     Maps the specified value to the given target type using the conversion logic implemented by the current converter.

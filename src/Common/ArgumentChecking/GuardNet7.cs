@@ -19,12 +19,13 @@ public static partial class Guard
 {
     private const string CannotBeEmptyMessageFormat = "Variable {0} cannot be empty.";
     private const string CannotBeNullMessageFormat = "Variable {0} cannot be null.";
-    private const string ConditionRequiredTrueMessageFormat = "Condition {0} is required to be true in {1}, {2} at {3}";
 #pragma warning disable IDE1006
     private const string EnumNotDefinedMessageFormat = "Value {0} is not defined in enum {1}.";
 #pragma warning restore IDE1006
 
 #if NET7_0_OR_GREATER
+    private const string ConditionRequiredTrueMessageFormat = "Condition {0} is required to be true in {1}, {2} at {3}";
+
     /// <summary>
     ///     Ensures that a given boolean condition is true, throwing an <see cref="InvalidOperationException" /> if it is not.
     /// </summary>
@@ -290,6 +291,9 @@ public static partial class Guard
     /// <exception cref="ArgumentOutOfRangeException">
     ///     Thrown when the provided enum value is not a defined member of the specified enumeration type.
     /// </exception>
+    [SuppressMessage("Performance",
+                     "CA1863:Use 'CompositeFormat'",
+                     Justification = "CompositeFormat is unavailable on netstandard2.0; caching it for one call site is not worth the multi-target complexity.")]
     public static TEnum NotOutOfRange<TEnum>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this TEnum argument,
                                              [CallerArgumentExpression(nameof(argument))]
                                              string? argumentName = null) where TEnum : struct, Enum

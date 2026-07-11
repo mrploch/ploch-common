@@ -9,7 +9,11 @@ namespace Ploch.TestingSupport.XUnit3.AutoMoq;
 ///     virtual properties. This prevents AutoFixture from trying to populate members that
 ///     are intended to be provided by a mocking framework or dynamic proxy.
 /// </summary>
-public class IgnoreVirtualMembersSpecimenBuilder : ISpecimenBuilder
+/// <param name="reflectedType">
+///     Optional filter limiting omission to properties whose <see cref="MemberInfo.ReflectedType" /> equals this type.
+///     When <c>null</c>, virtual properties across all types are omitted.
+/// </param>
+public class IgnoreVirtualMembersSpecimenBuilder(Type? reflectedType) : ISpecimenBuilder
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="IgnoreVirtualMembersSpecimenBuilder" /> class
@@ -20,18 +24,9 @@ public class IgnoreVirtualMembersSpecimenBuilder : ISpecimenBuilder
     { }
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="IgnoreVirtualMembersSpecimenBuilder" /> class.
-    /// </summary>
-    /// <param name="reflectedType">
-    ///     Optional filter limiting omission to properties whose <see cref="MemberInfo.ReflectedType" /> equals this type.
-    ///     When <c>null</c>, virtual properties across all types are omitted.
-    /// </param>
-    public IgnoreVirtualMembersSpecimenBuilder(Type? reflectedType) => ReflectedType = reflectedType;
-
-    /// <summary>
     ///     Gets the optional type filter that restricts omission to a particular <see cref="MemberInfo.ReflectedType" />.
     /// </summary>
-    public Type? ReflectedType { get; }
+    public Type? ReflectedType { get; } = reflectedType;
 
     /// <summary>
     ///     Creates a specimen based on the supplied <paramref name="request" />.

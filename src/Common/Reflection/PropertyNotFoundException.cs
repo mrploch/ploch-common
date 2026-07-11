@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Ploch.Common.Reflection;
 
 /// <summary>
 ///     Represents an exception that is thrown when a property is not found during reflection operations.
 /// </summary>
+[SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "This exception is always constructed from a property name; the parameterless and message-only constructors are intentionally omitted because it is derived from PropertyAccessException and is not meaningful without the property context.")]
 public class PropertyNotFoundException : PropertyAccessException
 {
     /// <summary>

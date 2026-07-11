@@ -8,5 +8,5 @@
 /// </remarks>
 /// <param name="Name">The page name.</param>
 /// <param name="Path">The page path.</param>
+/// <param name="Title">The page title.</param>
 public record AppPage(string Name, string Path, string Title);
-

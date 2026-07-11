@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -98,8 +99,9 @@ public static class ObjectHashCodeBuilder
 
         foreach (var p in props)
         {
-            hash = Combine(hash, p.Name.GetHashCode());
+            hash = Combine(hash, StringComparer.Ordinal.GetHashCode(p.Name));
 
+#pragma warning disable CA1031, CC0004, ERP022 // A property getter may throw arbitrary exceptions; hashing stays resilient by skipping that property (its name hash is already incorporated above).
             try
             {
                 hash = Combine(hash, ComputeValueHash(p.GetValue(value), visited));
@@ -108,6 +110,7 @@ public static class ObjectHashCodeBuilder
             {
                 // Property getter threw; name hash already incorporated above.
             }
+#pragma warning restore CA1031, CC0004, ERP022
         }
 
         return hash;
@@ -119,6 +122,9 @@ public static class ObjectHashCodeBuilder
     {
         public new bool Equals(object? x, object? y) => ReferenceEquals(x, y);
 
+        [SuppressMessage("Major Code Smell",
+                         "S3218:Inner class members should not shadow outer class \"static\" or type members",
+                         Justification = "This method implements IEqualityComparer<object>.GetHashCode and cannot be renamed.")]
         public int GetHashCode(object obj) => RuntimeHelpers.GetHashCode(obj);
     }
 }

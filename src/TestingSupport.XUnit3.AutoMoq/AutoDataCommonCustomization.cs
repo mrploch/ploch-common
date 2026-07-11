@@ -14,18 +14,13 @@ namespace Ploch.TestingSupport.XUnit3.AutoMoq;
 ///     - <see cref="OmitOnRecursionCustomization" /> to omit specimens on recursion instead of throwing.
 ///     Optionally, it can also add <see cref="IgnoreVirtualMembersCustomization" /> to skip virtual properties.
 /// </remarks>
-public class AutoDataCommonCustomization : ICustomization
+/// <param name="ignoreVirtualMembers">Whether to ignore virtual members during specimen generation.</param>
+public class AutoDataCommonCustomization(bool ignoreVirtualMembers) : ICustomization
 {
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="AutoDataCommonCustomization" /> class.
-    /// </summary>
-    /// <param name="ignoreVirtualMembers">Whether to ignore virtual members during specimen generation.</param>
-    public AutoDataCommonCustomization(bool ignoreVirtualMembers) => IgnoreVirtualMembers = ignoreVirtualMembers;
-
     /// <summary>
     ///     Gets a value indicating whether virtual members should be ignored.
     /// </summary>
-    public bool IgnoreVirtualMembers { get; }
+    public bool IgnoreVirtualMembers { get; } = ignoreVirtualMembers;
 
     /// <summary>
     ///     Applies the configured customizations to the provided <paramref name="fixture" />.

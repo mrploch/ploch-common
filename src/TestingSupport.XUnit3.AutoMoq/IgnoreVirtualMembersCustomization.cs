@@ -8,7 +8,11 @@ namespace Ploch.TestingSupport.XUnit3.AutoMoq;
 ///     when generating specimens. This is useful when the object under test exposes
 ///     Moq-virtualized members or lazy-loading proxies that you do not want AutoFixture to populate.
 /// </summary>
-public class IgnoreVirtualMembersCustomization : ICustomization
+/// <param name="reflectedType">
+///     Optional type filter. When provided, only virtual properties whose <see cref="System.Reflection.MemberInfo.ReflectedType" />
+///     matches this value will be omitted. When <c>null</c>, virtual properties on any type are omitted.
+/// </param>
+public class IgnoreVirtualMembersCustomization(Type? reflectedType) : ICustomization
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="IgnoreVirtualMembersCustomization" /> class
@@ -19,18 +23,9 @@ public class IgnoreVirtualMembersCustomization : ICustomization
     { }
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="IgnoreVirtualMembersCustomization" /> class.
-    /// </summary>
-    /// <param name="reflectedType">
-    ///     Optional type filter. When provided, only virtual properties whose <see cref="System.Reflection.MemberInfo.ReflectedType" />
-    ///     matches this value will be omitted. When <c>null</c>, virtual properties on any type are omitted.
-    /// </param>
-    public IgnoreVirtualMembersCustomization(Type? reflectedType) => ReflectedType = reflectedType;
-
-    /// <summary>
     ///     Gets the optional type that limits where virtual members are ignored.
     /// </summary>
-    public Type? ReflectedType { get; }
+    public Type? ReflectedType { get; } = reflectedType;
 
     /// <summary>
     ///     Adds an <see cref="IgnoreVirtualMembersSpecimenBuilder" /> to the fixture to omit values for matching virtual properties.

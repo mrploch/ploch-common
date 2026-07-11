@@ -96,7 +96,20 @@ public readonly struct CommandLineInfo(string? applicationPath, IEnumerable<stri
     {
         unchecked
         {
-            return ((ApplicationPath != null ? ApplicationPath.GetHashCode() : 0) * 397) ^ (Arguments != null ? Arguments.GetHashCode() : 0);
+            // Hash the arguments structurally (ordinal, order-sensitive) so the result stays consistent with
+            // Equals, which compares Arguments via SequenceEqual. Using Arguments.GetHashCode() here would be
+            // reference-based and break the Equals/GetHashCode contract for hash-based collections.
+            var hashCode = ApplicationPath != null ? StringComparer.Ordinal.GetHashCode(ApplicationPath) : 0;
+
+            if (Arguments != null)
+            {
+                foreach (var argument in Arguments)
+                {
+                    hashCode = (hashCode * 397) ^ (argument != null ? StringComparer.Ordinal.GetHashCode(argument) : 0);
+                }
+            }
+
+            return hashCode;
         }
     }
 }

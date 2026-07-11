@@ -8,11 +8,25 @@ using FluentAssertions.Execution;
 
 namespace Ploch.TestingSupport.FluentAssertions;
 
+/// <summary>
+///     Provides assertions for collections of <see cref="PropertyInfo" /> instances.
+/// </summary>
+/// <param name="actualValue">The collection of properties being asserted against.</param>
+/// <param name="chain">The assertion chain used to record the outcome of the assertions.</param>
 public class PropertyInfoCollectionAssertions(IEnumerable<PropertyInfo> actualValue, AssertionChain chain)
     : GenericCollectionAssertions<PropertyInfo>(actualValue, chain)
 {
+    /// <inheritdoc />
     protected override string Identifier => "properties";
 
+    /// <summary>
+    ///     Asserts that the collection contains the property with the specified name declared on the supplied source object.
+    /// </summary>
+    /// <param name="propertyName">The name of the property the collection is expected to contain.</param>
+    /// <param name="sourceObj">The object whose type declares the expected property.</param>
+    /// <param name="because">A formatted phrase explaining why the assertion is needed.</param>
+    /// <param name="becauseArgs">Zero or more objects to format using the placeholders in <paramref name="because" />.</param>
+    /// <returns>An <see cref="AndConstraint{T}" /> that can be used to chain further assertions.</returns>
     [CustomAssertion]
     public AndConstraint<PropertyInfoCollectionAssertions> ContainProperty(string propertyName,
                                                                            object sourceObj,
@@ -31,6 +45,14 @@ public class PropertyInfoCollectionAssertions(IEnumerable<PropertyInfo> actualVa
         return new(this);
     }
 
+    /// <summary>
+    ///     Asserts that the collection contains all properties with the specified names declared on the supplied source object.
+    /// </summary>
+    /// <param name="propertyNames">The names of the properties the collection is expected to contain.</param>
+    /// <param name="sourceObj">The object whose type declares the expected properties.</param>
+    /// <param name="because">A formatted phrase explaining why the assertion is needed.</param>
+    /// <param name="becauseArgs">Zero or more objects to format using the placeholders in <paramref name="because" />.</param>
+    /// <returns>An <see cref="AndConstraint{T}" /> that can be used to chain further assertions.</returns>
     [CustomAssertion]
     public AndConstraint<PropertyInfoCollectionAssertions> ContainProperties(string[] propertyNames,
                                                                              object sourceObj,

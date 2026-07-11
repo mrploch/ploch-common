@@ -33,7 +33,7 @@ public static class ServicesBundleRegistration
     /// <param name="configuration">
     ///     Optional configuration instance to provide to configurable bundles. If the bundle implements
     ///     <see cref="ConfigurableServicesBundle" />, this configuration will be assigned to its
-    ///     <see cref="ConfigurableServicesBundle.Configuration" /> property before configuration.
+    ///     <see cref="ServicesBundle.Configuration" /> property before configuration.
     /// </param>
     /// <returns>
     ///     The same <see cref="IServiceCollection" /> instance to enable method chaining.
@@ -84,7 +84,7 @@ public static class ServicesBundleRegistration
     /// <param name="configuration">
     ///     Optional configuration instance to provide to configurable bundles. If the bundle type implements
     ///     <see cref="ConfigurableServicesBundle" />, this configuration will be assigned to its
-    ///     <see cref="ConfigurableServicesBundle.Configuration" /> property before configuration.
+    ///     <see cref="ServicesBundle.Configuration" /> property before configuration.
     /// </param>
     /// <returns>
     ///     The same <see cref="IServiceCollection" /> instance to enable method chaining.
