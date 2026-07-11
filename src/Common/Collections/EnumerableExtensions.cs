@@ -134,16 +134,16 @@ public static class EnumerableExtensions
     {
         source.NotNull(nameof(source));
         valueSelector.NotNull(nameof(valueSelector));
-        var arraySource = source as TValue[] ?? source.ToArray();
-        var count = arraySource.Length;
+        var listSource = source as IReadOnlyList<TValue> ?? source.ToArray();
+        var count = listSource.Count;
 
         if (count <= 1)
         {
-            return arraySource.Join(separator, valueSelector);
+            return listSource.Join(separator, valueSelector);
         }
 
 #pragma warning disable CC0031, IDE0056 // index-from-end operator unavailable on netstandard2.0
-        return arraySource.Take(count - 1).Join(separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]); // skipcq: CS-R1019 - index-from-end operator unavailable on netstandard2.0
+        return listSource.Take(count - 1).Join(separator, valueSelector) + finalSeparator + valueSelector(listSource[count - 1]); // skipcq: CS-R1019 - index-from-end operator unavailable on netstandard2.0
 #pragma warning restore CC0031, IDE0056
     }
 
