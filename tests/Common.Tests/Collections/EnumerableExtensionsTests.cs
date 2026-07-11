@@ -134,6 +134,32 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     }
 
     [Fact]
+    public void TakeRandom_should_be_able_to_select_every_element_including_the_last()
+    {
+        var sourceList = new[] { 1, 2, 3 };
+
+        var selectedValues = new HashSet<int>();
+        for (var i = 0; i < 300; i++)
+        {
+            selectedValues.Add(sourceList.TakeRandom(1).Single());
+        }
+
+        // With a correct uniform selection, the chance of any element never appearing
+        // in 300 single-item draws from 3 elements is (2/3)^300 - effectively zero.
+        selectedValues.Should().BeEquivalentTo(sourceList);
+    }
+
+    [Fact]
+    public void TakeRandom_should_return_the_only_element_when_source_has_a_single_item()
+    {
+        var sourceList = new[] { 42 };
+
+        var result = sourceList.TakeRandom(1);
+
+        result.Should().ContainSingle().Which.Should().Be(42);
+    }
+
+    [Fact]
     public void JoinWithFinalSeparator_should_use_final_separator_for_last_item()
     {
         var strings = new Fixture().CreateMany<string>(20);
