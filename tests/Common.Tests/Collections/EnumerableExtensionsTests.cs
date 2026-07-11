@@ -144,8 +144,9 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
             selectedValues.Add(sourceList.TakeRandom(1).Single());
         }
 
-        // With a correct uniform selection, the chance of any element never appearing
-        // in 300 single-item draws from 3 elements is (2/3)^300 - effectively zero.
+        // With a correct uniform selection, the chance of any element never appearing in
+        // 300 single-item draws from 3 elements is at most 3 * (2/3)^300 - effectively zero.
+        // With the off-by-one bug this fails deterministically: the last element is unreachable.
         selectedValues.Should().BeEquivalentTo(sourceList);
     }
 

@@ -188,7 +188,7 @@ public static class EnumerableExtensions
 
         for (var i = 0; i < count; i++)
         {
-            var indexesItemNum = ThreadSafeRandom.Shared.Next(0, indexes.Count);
+            var indexesItemNum = ThreadSafeRandom.Shared.Next(indexes.Count);
             var itemIndex = indexes[indexesItemNum];
 
             result.Add(list[itemIndex]);
