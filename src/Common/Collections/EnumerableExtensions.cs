@@ -123,7 +123,10 @@ public static class EnumerableExtensions
     /// <param name="separator">The separator to be used between elements.</param>
     /// <param name="finalSeparator">The separator to be used between the last two elements.</param>
     /// <param name="valueSelector">A function to select a result value from each element.</param>
-    /// <returns>A string that consists of the joined elements with the separators.</returns>
+    /// <returns>
+    ///     A string that consists of the joined elements with the separators. An empty source yields
+    ///     <see cref="string.Empty" />; a single-element source yields that element without any separator.
+    /// </returns>
     public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source,
                                                                  string separator,
                                                                  string finalSeparator,
@@ -133,6 +136,11 @@ public static class EnumerableExtensions
         valueSelector.NotNull(nameof(valueSelector));
         var arraySource = source as TValue[] ?? source.ToArray();
         var count = arraySource.Length;
+
+        if (count <= 1)
+        {
+            return arraySource.Join(separator, valueSelector);
+        }
 
 #pragma warning disable CC0031, IDE0056 // index-from-end operator unavailable on netstandard2.0
         return arraySource.Take(count - 1).Join(separator, valueSelector) + finalSeparator + valueSelector(arraySource[arraySource.Length - 1]); // skipcq: CS-R1019 - index-from-end operator unavailable on netstandard2.0

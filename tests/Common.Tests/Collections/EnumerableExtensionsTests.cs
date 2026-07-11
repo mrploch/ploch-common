@@ -173,6 +173,30 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     }
 
     [Fact]
+    public void JoinWithFinalSeparator_should_return_empty_string_for_empty_source()
+    {
+        var result = Array.Empty<string>().JoinWithFinalSeparator(", ", " and ");
+
+        result.Should().BeEmpty();
+    }
+
+    [Fact]
+    public void JoinWithFinalSeparator_should_return_the_only_element_without_separators_for_single_element_source()
+    {
+        var result = new[] { "only" }.JoinWithFinalSeparator(", ", " and ");
+
+        result.Should().Be("only");
+    }
+
+    [Fact]
+    public void JoinWithFinalSeparator_should_use_only_final_separator_for_two_element_source()
+    {
+        var result = new[] { 1, 2 }.JoinWithFinalSeparator(", ", " and ");
+
+        result.Should().Be("1 and 2");
+    }
+
+    [Fact]
     public void If_should_extend_the_query_with_a_provided_query_if_the_condition_is_met()
     {
         var items = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };

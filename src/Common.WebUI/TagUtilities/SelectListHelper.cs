@@ -45,7 +45,7 @@ public static class SelectListHelper
 
         // ReSharper disable once PossibleMultipleEnumeration - false-positive
 #pragma warning disable CC0031 // Check for null before calling a delegate - false-positive
-        var result = items.Select(item => new SelectListItem(textFunc(item).ToString(), valueFunc(item).ToString())).ToList();
+        var result = items.Select(item => new SelectListItem(textFunc(item)?.ToString() ?? string.Empty, valueFunc(item)?.ToString() ?? string.Empty)).ToList();
 #pragma warning restore CC0031
         if (includeNull)
         {
