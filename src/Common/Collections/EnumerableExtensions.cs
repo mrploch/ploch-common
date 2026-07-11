@@ -134,7 +134,7 @@ public static class EnumerableExtensions
     {
         source.NotNull(nameof(source));
         valueSelector.NotNull(nameof(valueSelector));
-        var listSource = source as IReadOnlyList<TValue> ?? source.ToArray();
+        var listSource = source as IReadOnlyList<TValue> ?? [.. source];
         var count = listSource.Count;
 
         if (count <= 1)
