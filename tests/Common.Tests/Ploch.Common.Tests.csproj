@@ -106,7 +106,9 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Agoda.Analyzers" />
-        <PackageReference Include="JetBrains.Annotations" />
+        <!-- Aliased so the package types do not collide (CS0433) with Ploch.Common's internal JetBrains annotations,
+             which are visible to this assembly via InternalsVisibleTo. -->
+        <PackageReference Include="JetBrains.Annotations" Aliases="JetBrainsAnnotations" />
     </ItemGroup>
     <ItemGroup>
         <Compile Remove="CoverageResults\**" />

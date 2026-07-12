@@ -48,6 +48,9 @@
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
+        <InternalsVisibleTo Include="Ploch.Common.Tests" />
+    </ItemGroup>
+    <ItemGroup>
         <None Include=".\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 </Project>
