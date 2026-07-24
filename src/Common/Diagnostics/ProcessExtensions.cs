@@ -216,9 +216,12 @@ public static class ProcessExtensions
     /// <paramref name="affinityMaskWidth"/>.
     /// </summary>
     /// <param name="processorNumber">The zero-based processor number to validate.</param>
-    /// <param name="affinityMaskWidth">The width, in bits, of the native affinity mask.</param>
+    /// <param name="affinityMaskWidth">The width, in bits, of the native affinity mask. Must be between 1 and 64.</param>
     /// <param name="paramName">The caller's parameter name to report in the exception.</param>
-    /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="processorNumber"/> is not representable.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown if <paramref name="affinityMaskWidth"/> is not between 1 and 64, or if
+    /// <paramref name="processorNumber"/> is not representable.
+    /// </exception>
     /// <remarks>
     /// Internal (rather than private) so the mask-width capping can be unit-tested with limits that do not occur on the
     /// test machine — for example the 32-bit-process mask width. <see cref="Environment.ProcessorCount"/> is deliberately
@@ -229,6 +232,15 @@ public static class ProcessExtensions
     /// </remarks>
     internal static void ValidateProcessorNumber(int processorNumber, int affinityMaskWidth, string paramName)
     {
+        // The unsigned comparison rejects widths below 1 and above 64 in one branch (out-of-range values wrap far
+        // above 63). A relational pattern is C# 9, while the netstandard2.0 target compiles with C# 7.3.
+        if ((uint)(affinityMaskWidth - 1) > 63)
+        {
+            throw new ArgumentOutOfRangeException(nameof(affinityMaskWidth),
+                                                  affinityMaskWidth,
+                                                  "The affinity-mask width must be between 1 and 64 bits.");
+        }
+
         if (processorNumber < 0 || processorNumber >= affinityMaskWidth)
         {
             throw new ArgumentOutOfRangeException(paramName,

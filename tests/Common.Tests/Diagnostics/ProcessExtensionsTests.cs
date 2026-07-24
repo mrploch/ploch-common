@@ -13,14 +13,22 @@ public class ProcessExtensionsTests
     {
         var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");
 
-        var enabledProcessors = process.GetEnabledProcessors();
-        enabledProcessors.Should().HaveCount(Environment.ProcessorCount);
+        try
+        {
+            // The target is taken from the OS-reported mask so the test also works when the allowed set does not
+            // start at CPU 0 or does not span 0..ProcessorCount-1 (e.g. a cpuset-constrained environment).
+            var allowedProcessors = GetAllowedProcessors(process);
+            process.GetEnabledProcessors().Should().Equal(allowedProcessors);
 
-        process.SetSingleProcessorAffinity(Environment.ProcessorCount - 1);
+            var targetProcessor = allowedProcessors[allowedProcessors.Length - 1];
+            process.SetSingleProcessorAffinity(targetProcessor);
 
-        enabledProcessors = process.GetEnabledProcessors();
-        enabledProcessors.Should().HaveCount(1);
-        enabledProcessors.Should().Contain(Environment.ProcessorCount - 1);
+            process.GetEnabledProcessors().Should().Equal(targetProcessor);
+        }
+        finally
+        {
+            KillAndReap(process);
+        }
     }
 
     [Theory]
@@ -218,6 +226,17 @@ public class ProcessExtensionsTests
         var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, affinityMaskWidth, nameof(processorNumber));
 
         act.Should().NotThrow();
+    }
+
+    [Theory]
+    [InlineData(0)] // A zero-width mask can represent no processors at all.
+    [InlineData(65)] // The 1L << n shift would wrap for bit positions of 64 and above.
+    [InlineData(-1)]
+    public void ValidateProcessorNumber_should_throw_for_a_mask_width_that_a_64bit_mask_cannot_represent(int affinityMaskWidth)
+    {
+        var act = () => ProcessExtensions.ValidateProcessorNumber(0, affinityMaskWidth, "processorNumber");
+
+        act.Should().Throw<ArgumentOutOfRangeException>().Which.ParamName.Should().Be(nameof(affinityMaskWidth));
     }
 
     [Theory]
