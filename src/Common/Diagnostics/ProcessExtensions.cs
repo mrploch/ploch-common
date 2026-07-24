@@ -229,8 +229,8 @@ public static class ProcessExtensions
     /// test machine — for example the 32-bit-process mask width. <see cref="Environment.ProcessorCount"/> is deliberately
     /// not part of the validation: it is a processor <i>count</i> (affinity-aware since .NET 6), not an index bound, so
     /// using it would reject valid processor numbers for processes constrained to non-contiguous processor sets.
-    /// Processor numbers for CPUs that do not exist on the machine are rejected by the operating system when the
-    /// affinity is applied.
+    /// Processor numbers for CPUs that do not exist on the machine surface when the affinity is applied — as an
+    /// operating-system error, or via <see cref="VerifyAppliedAffinity"/> where the OS applies an intersection instead.
     /// </remarks>
     internal static void ValidateProcessorNumber(int processorNumber, int affinityMaskWidth, string paramName)
     {
@@ -247,7 +247,7 @@ public static class ProcessExtensions
         {
             throw new ArgumentOutOfRangeException(paramName,
                                                   processorNumber,
-                                                  $"Processor number must be between 0 and {affinityMaskWidth - 1} — the width of the native processor-affinity mask ({affinityMaskWidth} bits). Processor numbers for CPUs that do not exist on this machine are rejected by the operating system when the affinity is applied.");
+                                                  $"Processor number must be between 0 and {affinityMaskWidth - 1} — the exclusive upper bound is the width of the native processor-affinity mask ({affinityMaskWidth} bits).");
         }
     }
 }
