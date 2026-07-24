@@ -39,18 +39,6 @@ public class ProcessExtensionsTests
     }
 
     [Fact]
-    public void SetSingleProcessorAffinity_should_throw_for_processor_number_exceeding_system_processor_count()
-    {
-        var process = new Process();
-
-        // Act
-        var act = () => process.SetSingleProcessorAffinity(Environment.ProcessorCount);
-
-        // Assert
-        act.Should().Throw<ArgumentOutOfRangeException>();
-    }
-
-    [Fact]
     public void SetSingleProcessorAffinity_should_throw_for_processor_number_beyond_native_mask_width()
     {
         var process = new Process();
@@ -191,9 +179,8 @@ public class ProcessExtensionsTests
     {
         // Derived from the raw OS-reported mask (not from GetEnabledProcessors) so it stays independent of the code under test.
         var affinityMask = process.ProcessorAffinity.ToInt64();
-        var maxAddressable = Math.Min(Environment.ProcessorCount, IntPtr.Size * 8);
 
-        return Enumerable.Range(0, maxAddressable).Where(processor => (affinityMask & (1L << processor)) != 0).ToArray();
+        return Enumerable.Range(0, IntPtr.Size * 8).Where(processor => (affinityMask & (1L << processor)) != 0).ToArray();
     }
 
     private static void KillAndReap(Process process)
@@ -208,12 +195,13 @@ public class ProcessExtensionsTests
     }
 
     [Theory]
-    [InlineData(128, 64, 64)] // Machine with >64 logical CPUs, 64-bit process: CPU 64 would wrap the shift count (64 & 63 == 0).
-    [InlineData(128, 64, 127)] // Machine with >64 logical CPUs, 64-bit process: CPU 127 would wrap to bit 63.
-    [InlineData(64, 32, 32)] // 32-bit process on a 64-CPU machine: CPU 32 would be truncated out of the 32-bit mask.
-    public void ValidateProcessorNumber_should_throw_when_processor_number_exceeds_affinity_mask_width(int processorCount, int affinityMaskWidth, int processorNumber)
+    [InlineData(64, 64)] // 64-bit process: CPU 64 would wrap the shift count (64 & 63 == 0).
+    [InlineData(64, 127)] // 64-bit process: CPU 127 would wrap to bit 63.
+    [InlineData(32, 32)] // 32-bit process: CPU 32 would be truncated out of the 32-bit mask.
+    [InlineData(64, -1)] // Negative processor numbers are never valid.
+    public void ValidateProcessorNumber_should_throw_when_processor_number_is_not_representable_in_the_mask(int affinityMaskWidth, int processorNumber)
     {
-        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, processorCount, affinityMaskWidth, nameof(processorNumber));
+        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, affinityMaskWidth, nameof(processorNumber));
 
         act.Should()
            .Throw<ArgumentOutOfRangeException>()
@@ -222,23 +210,24 @@ public class ProcessExtensionsTests
     }
 
     [Theory]
-    [InlineData(128, 64, 63)] // Highest bit representable in a 64-bit mask.
-    [InlineData(64, 32, 31)] // Highest bit representable in a 32-bit mask.
-    [InlineData(4, 64, 3)] // Highest processor when the processor count is the limiting factor.
-    [InlineData(4, 64, 0)]
-    public void ValidateProcessorNumber_should_accept_processor_number_within_processor_count_and_mask_width(int processorCount, int affinityMaskWidth, int processorNumber)
+    [InlineData(64, 63)] // Highest bit representable in a 64-bit mask.
+    [InlineData(32, 31)] // Highest bit representable in a 32-bit mask.
+    [InlineData(64, 0)]
+    public void ValidateProcessorNumber_should_accept_processor_number_within_the_mask_width(int affinityMaskWidth, int processorNumber)
     {
-        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, processorCount, affinityMaskWidth, nameof(processorNumber));
+        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, affinityMaskWidth, nameof(processorNumber));
 
         act.Should().NotThrow();
     }
 
     [Theory]
-    [InlineData(128, 64, 64)] // Machine with >64 logical CPUs, 64-bit process: only the first 64 CPUs are addressable.
-    [InlineData(64, 32, 32)] // 32-bit process on a 64-CPU machine: only the first 32 CPUs are addressable.
-    [InlineData(8, 64, 8)] // Typical machine: the processor count is the limiting factor.
-    public void GetMaxAddressableProcessors_should_cap_at_the_lesser_of_processor_count_and_mask_width(int processorCount, int affinityMaskWidth, int expected)
+    [InlineData(0xFF00L, 64, new[] { 8, 9, 10, 11, 12, 13, 14, 15 })] // Non-contiguous set: processors 8-15 (e.g. a cpuset-constrained process where ProcessorCount == 8).
+    [InlineData(0x1L, 64, new[] { 0 })]
+    [InlineData(0x0L, 64, new int[0])] // No bits set.
+    [InlineData(0x100000000L, 32, new int[0])] // Bit 32 is not representable in a 32-bit mask.
+    [InlineData(unchecked((long)0x8000000000000001UL), 64, new[] { 0, 63 })] // Highest and lowest bits of a 64-bit mask.
+    public void GetEnabledProcessors_should_extract_all_set_bits_within_the_mask_width(long affinityMask, int affinityMaskWidth, int[] expectedProcessors)
     {
-        ProcessExtensions.GetMaxAddressableProcessors(processorCount, affinityMaskWidth).Should().Be(expected);
+        ProcessExtensions.GetEnabledProcessors(affinityMask, affinityMaskWidth).Should().Equal(expectedProcessors);
     }
 }
