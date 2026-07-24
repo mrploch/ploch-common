@@ -243,6 +243,16 @@ public class ProcessExtensionsTests
     }
 
     [Theory]
+    [InlineData(65)] // The 1L << i shift would wrap for bit positions of 64 and above.
+    [InlineData(-1)]
+    public void GetEnabledProcessors_should_throw_for_a_mask_width_that_a_64bit_mask_cannot_represent(int affinityMaskWidth)
+    {
+        var act = () => ProcessExtensions.GetEnabledProcessors(0x1L, affinityMaskWidth);
+
+        act.Should().Throw<ArgumentOutOfRangeException>().Which.ParamName.Should().Be("affinityMaskWidth");
+    }
+
+    [Theory]
     [InlineData(0x3L, 0x3L)] // Everything requested was applied.
     [InlineData(0x1L, 0x3L)] // The OS may report more processors than requested; only the requested ones matter.
     [InlineData(0x80000000L, unchecked((long)0xFFFFFFFF80000000UL))] // 32-bit process: bit 31 applied, read back sign-extended by IntPtr.ToInt64().

@@ -154,8 +154,12 @@ public static class ProcessExtensions
     /// <paramref name="affinityMaskWidth"/> bits.
     /// </summary>
     /// <param name="affinityMask">The affinity bitmask to read.</param>
-    /// <param name="affinityMaskWidth">The width, in bits, of the native affinity mask.</param>
+    /// <param name="affinityMaskWidth">The width, in bits, of the native affinity mask. Must be between 0 and 64.</param>
     /// <returns>The processor numbers whose bits are set, in ascending order.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown if <paramref name="affinityMaskWidth"/> is negative or greater than 64 — the <c>1L &lt;&lt; i</c> shift
+    /// would wrap for bit positions of 64 and above.
+    /// </exception>
     /// <remarks>
     /// Internal (rather than private) so bit extraction can be unit-tested with masks and widths that do not occur on the
     /// test machine — non-contiguous processor sets, or the 32-bit-process mask width. Materialises eagerly (rather than
@@ -163,6 +167,13 @@ public static class ProcessExtensions
     /// </remarks>
     internal static IEnumerable<int> GetEnabledProcessors(long affinityMask, int affinityMaskWidth)
     {
+        if (affinityMaskWidth < 0 || affinityMaskWidth > 64)
+        {
+            throw new ArgumentOutOfRangeException(nameof(affinityMaskWidth),
+                                                  affinityMaskWidth,
+                                                  "The affinity-mask width must be between 0 and 64 bits — bit positions of 64 and above cannot be represented in a 64-bit mask.");
+        }
+
         var enabledProcessors = new List<int>();
         for (var i = 0; i < affinityMaskWidth; i++)
         {
