@@ -20,7 +20,7 @@ public class ProcessExtensionsTests
             var allowedProcessors = GetAllowedProcessors(process);
             process.GetEnabledProcessors().Should().Equal(allowedProcessors);
 
-            var targetProcessor = allowedProcessors[allowedProcessors.Length - 1];
+            var targetProcessor = allowedProcessors[^1];
             process.SetSingleProcessorAffinity(targetProcessor);
 
             process.GetEnabledProcessors().Should().Equal(targetProcessor);
