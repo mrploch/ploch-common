@@ -167,7 +167,9 @@ public static class ProcessExtensions
     /// </remarks>
     internal static IEnumerable<int> GetEnabledProcessors(long affinityMask, int affinityMaskWidth)
     {
-        if (affinityMaskWidth < 0 || affinityMaskWidth > 64)
+        // The unsigned comparison also rejects negative widths (they wrap to values far above 64). A relational
+        // pattern (is < 0 or > 64) is not available in C# 7.3, which the netstandard2.0 target compiles with.
+        if ((uint)affinityMaskWidth > 64)
         {
             throw new ArgumentOutOfRangeException(nameof(affinityMaskWidth),
                                                   affinityMaskWidth,
