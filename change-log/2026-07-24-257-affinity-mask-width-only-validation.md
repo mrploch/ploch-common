@@ -16,6 +16,10 @@ non-contiguous processor sets (for example CPUs 8–15, where `ProcessorCount` i
   rejected by the operating system when the affinity is applied (typically as `Win32Exception`).
 - `GetEnabledProcessors` reports every bit set in the native mask (bounded by the mask width alone), so
   non-contiguous affinity sets are reported correctly.
+- `SetEnabledProcessors` verifies the applied mask after setting it and throws `InvalidOperationException` if the
+  operating system did not enable every requested processor. Linux applies the intersection of the requested mask
+  and the processors available to the process (`sched_setaffinity(2)`) rather than rejecting unavailable ones, so
+  a mixed request would otherwise succeed only partially and silently.
 - XML documentation updated on all three methods to describe the new contract.
 
 ## Behaviour change (breaking)

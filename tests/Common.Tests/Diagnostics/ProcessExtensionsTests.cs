@@ -241,4 +241,25 @@ public class ProcessExtensionsTests
         // Bit 32 is not representable in a 32-bit mask.
         ProcessExtensions.GetEnabledProcessors(0x100000000L, 32).Should().BeEmpty();
     }
+
+    [Theory]
+    [InlineData(0x3L, 0x3L)] // Everything requested was applied.
+    [InlineData(0x1L, 0x3L)] // The OS may report more processors than requested; only the requested ones matter.
+    [InlineData(0x80000000L, unchecked((long)0xFFFFFFFF80000000UL))] // 32-bit process: bit 31 applied, read back sign-extended by IntPtr.ToInt64().
+    public void VerifyAppliedAffinity_should_accept_when_every_requested_processor_was_applied(long requestedMask, long appliedMask)
+    {
+        var act = () => ProcessExtensions.VerifyAppliedAffinity(requestedMask, appliedMask);
+
+        act.Should().NotThrow();
+    }
+
+    [Theory]
+    [InlineData(unchecked((long)0x8000000000000001UL), 0x1L, "63")] // Linux silently drops the unavailable CPU 63 (sched_setaffinity intersects).
+    [InlineData(0x3L, 0x1L, "1")]
+    public void VerifyAppliedAffinity_should_throw_when_a_requested_processor_was_not_applied(long requestedMask, long appliedMask, string expectedMissingProcessor)
+    {
+        var act = () => ProcessExtensions.VerifyAppliedAffinity(requestedMask, appliedMask);
+
+        act.Should().Throw<InvalidOperationException>().WithMessage($"*{expectedMissingProcessor}*");
+    }
 }

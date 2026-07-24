@@ -12,8 +12,8 @@ public static class ProcessExtensions
 {
     /// <summary>
     /// Gets the width, in bits, of the native <see cref="Process.ProcessorAffinity"/> mask for the current process
-    /// (32 in a 32-bit process, 64 in a 64-bit process). This is the exclusive upper bound for addressable
-    /// processor numbers.
+    /// (32 in a 32-bit process, 64 in a 64-bit process). This is the exclusive upper bound for processor numbers
+    /// representable in the mask.
     /// </summary>
     private static int AffinityMaskWidth => IntPtr.Size * 8;
 
@@ -70,6 +70,11 @@ public static class ProcessExtensions
     /// Thrown if any processor number is negative, or not below the native affinity-mask width
     /// (<c>IntPtr.Size * 8</c> — 32 in a 32-bit process, 64 in a 64-bit process).
     /// </exception>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if the operating system did not enable every requested processor. Linux applies the intersection of the
+    /// requested mask and the processors actually available to the process (see <c>sched_setaffinity(2)</c>), so a
+    /// request mixing available and unavailable processors would otherwise succeed only partially and silently.
+    /// </exception>
     /// <remarks>
     /// Processor affinity is only supported on Windows and Linux; calling this on other platforms throws <see cref="PlatformNotSupportedException"/>.
     /// <para>
@@ -110,6 +115,11 @@ public static class ProcessExtensions
 #pragma warning disable CA2020 // Unchecked is intentional: the affinity bitmask's high bit (e.g. processor 31 on a 32-bit process) must wrap to the native pointer pattern, not throw OverflowException.
         process.ProcessorAffinity = unchecked((IntPtr)affinityMask);
 #pragma warning restore CA2020
+
+        // Linux applies the intersection of the requested mask and the CPUs actually available to the process
+        // (sched_setaffinity(2)) instead of rejecting unavailable CPUs, so a mixed request would otherwise succeed
+        // only partially and silently. Windows rejects such masks outright.
+        VerifyAppliedAffinity(affinityMask, process.ProcessorAffinity.ToInt64());
     }
 
     /// <summary>
@@ -163,6 +173,29 @@ public static class ProcessExtensions
         }
 
         return enabledProcessors;
+    }
+
+    /// <summary>
+    /// Verifies that every processor requested in <paramref name="requestedAffinityMask"/> is present in
+    /// <paramref name="appliedAffinityMask"/>, the mask the operating system reports after the affinity was applied.
+    /// </summary>
+    /// <param name="requestedAffinityMask">The affinity mask that was requested.</param>
+    /// <param name="appliedAffinityMask">The affinity mask reported by the operating system after applying.</param>
+    /// <exception cref="InvalidOperationException">Thrown if any requested processor was not enabled.</exception>
+    /// <remarks>
+    /// Internal (rather than private) so the partial-application detection can be unit-tested without a host whose
+    /// processor topology triggers it. Linux applies the intersection of the requested mask and the processors
+    /// available to the process (see <c>sched_setaffinity(2)</c>) rather than rejecting unavailable processors.
+    /// </remarks>
+    internal static void VerifyAppliedAffinity(long requestedAffinityMask, long appliedAffinityMask)
+    {
+        if ((appliedAffinityMask & requestedAffinityMask) == requestedAffinityMask)
+        {
+            return;
+        }
+
+        var missingProcessors = GetEnabledProcessors(requestedAffinityMask & ~appliedAffinityMask, AffinityMaskWidth);
+        throw new InvalidOperationException($"The operating system did not enable the requested processor(s) {string.Join(", ", missingProcessors)} — they do not exist on this machine or are not available to the process.");
     }
 
     /// <summary>
