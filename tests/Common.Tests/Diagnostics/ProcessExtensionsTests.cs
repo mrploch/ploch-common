@@ -11,7 +11,7 @@ public class ProcessExtensionsTests
     [SupportedOSPlatform(SupportedOS.Windows)]
     public void SetSingleProcessorAffinity_should_set_affinity_mask_for_valid_processor_number()
     {
-        var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");
+        using var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");
 
         try
         {
