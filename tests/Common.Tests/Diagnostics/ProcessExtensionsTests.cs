@@ -223,11 +223,22 @@ public class ProcessExtensionsTests
     [Theory]
     [InlineData(0xFF00L, 64, new[] { 8, 9, 10, 11, 12, 13, 14, 15 })] // Non-contiguous set: processors 8-15 (e.g. a cpuset-constrained process where ProcessorCount == 8).
     [InlineData(0x1L, 64, new[] { 0 })]
-    [InlineData(0x0L, 64, new int[0])] // No bits set.
-    [InlineData(0x100000000L, 32, new int[0])] // Bit 32 is not representable in a 32-bit mask.
     [InlineData(unchecked((long)0x8000000000000001UL), 64, new[] { 0, 63 })] // Highest and lowest bits of a 64-bit mask.
     public void GetEnabledProcessors_should_extract_all_set_bits_within_the_mask_width(long affinityMask, int affinityMaskWidth, int[] expectedProcessors)
     {
         ProcessExtensions.GetEnabledProcessors(affinityMask, affinityMaskWidth).Should().Equal(expectedProcessors);
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_return_no_processors_for_an_empty_mask()
+    {
+        ProcessExtensions.GetEnabledProcessors(0L, 64).Should().BeEmpty();
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_ignore_bits_beyond_the_mask_width()
+    {
+        // Bit 32 is not representable in a 32-bit mask.
+        ProcessExtensions.GetEnabledProcessors(0x100000000L, 32).Should().BeEmpty();
     }
 }
