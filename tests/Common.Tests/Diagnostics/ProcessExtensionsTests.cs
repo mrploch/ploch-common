@@ -118,6 +118,72 @@ public class ProcessExtensionsTests
         act.Should().Throw<ArgumentNullException>();
     }
 
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows, SupportedOS.Linux)]
+    public void GetEnabledProcessors_should_report_the_processors_set_in_the_native_affinity_mask()
+    {
+        var process = Process.GetCurrentProcess();
+
+        var enabledProcessors = process.GetEnabledProcessors();
+
+        // Independently extract the expected processor numbers from the OS-reported mask value.
+        var affinityMask = process.ProcessorAffinity.ToInt64();
+        var maxAddressable = Math.Min(Environment.ProcessorCount, IntPtr.Size * 8);
+        var expectedProcessors = Enumerable.Range(0, maxAddressable).Where(processor => (affinityMask & (1L << processor)) != 0);
+        enabledProcessors.Should().NotBeEmpty().And.Equal(expectedProcessors);
+    }
+
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows, SupportedOS.Linux)]
+    public void SetSingleProcessorAffinity_should_enable_only_the_requested_processor()
+    {
+        // A throwaway child process is mutated (never the test host) so parallel test collections are unaffected.
+        using var childProcess = StartShortLivedChildProcess();
+
+        try
+        {
+            childProcess.SetSingleProcessorAffinity(0);
+
+            childProcess.GetEnabledProcessors().Should().Equal(0);
+        }
+        finally
+        {
+            childProcess.Kill();
+        }
+    }
+
+    [Fact]
+    [SupportedOSPlatform(SupportedOS.Windows, SupportedOS.Linux)]
+    public void SetEnabledProcessors_should_enable_exactly_the_requested_processors()
+    {
+        // A throwaway child process is mutated (never the test host) so parallel test collections are unaffected.
+        using var childProcess = StartShortLivedChildProcess();
+        var requestedProcessors = Enumerable.Range(0, Math.Min(2, Environment.ProcessorCount)).ToArray();
+
+        try
+        {
+            childProcess.SetEnabledProcessors(requestedProcessors);
+
+            childProcess.GetEnabledProcessors().Should().Equal(requestedProcessors);
+        }
+        finally
+        {
+            childProcess.Kill();
+        }
+    }
+
+    private static Process StartShortLivedChildProcess()
+    {
+        // Cross-platform idle child: `ping` on Windows, `sleep` on Linux. Killed by the test before it exits on its own.
+        var startInfo = OperatingSystem.IsWindows()
+            ? new ProcessStartInfo("ping", "-n 30 127.0.0.1")
+            : new ProcessStartInfo("sleep", "30");
+        startInfo.CreateNoWindow = true;
+        startInfo.UseShellExecute = false;
+
+        return Process.Start(startInfo)!;
+    }
+
     [Theory]
     [InlineData(128, 64, 64)] // Machine with >64 logical CPUs, 64-bit process: CPU 64 would wrap the shift count (64 & 63 == 0).
     [InlineData(128, 64, 127)] // Machine with >64 logical CPUs, 64-bit process: CPU 127 would wrap to bit 63.

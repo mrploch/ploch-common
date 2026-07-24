@@ -126,7 +126,8 @@ public static class ProcessExtensions
         // call time instead of being deferred until the sequence is enumerated.
         var affinityMask = process.ProcessorAffinity.ToInt64();
         var enabledProcessors = new List<int>();
-        for (var i = 0; i < MaxAddressableProcessors; i++)
+        var maxAddressableProcessors = MaxAddressableProcessors;
+        for (var i = 0; i < maxAddressableProcessors; i++)
         {
             if ((affinityMask & (1L << i)) != 0)
             {
