@@ -206,6 +206,7 @@ public class ProcessExtensionsTests
     [InlineData(64, 64)] // 64-bit process: CPU 64 would wrap the shift count (64 & 63 == 0).
     [InlineData(64, 127)] // 64-bit process: CPU 127 would wrap to bit 63.
     [InlineData(32, 32)] // 32-bit process: CPU 32 would be truncated out of the 32-bit mask.
+    [InlineData(1, 1)] // A single-bit mask can only represent processor 0.
     [InlineData(64, -1)] // Negative processor numbers are never valid.
     public void ValidateProcessorNumber_should_throw_when_processor_number_is_not_representable_in_the_mask(int affinityMaskWidth, int processorNumber)
     {
@@ -221,6 +222,7 @@ public class ProcessExtensionsTests
     [InlineData(64, 63)] // Highest bit representable in a 64-bit mask.
     [InlineData(32, 31)] // Highest bit representable in a 32-bit mask.
     [InlineData(64, 0)]
+    [InlineData(1, 0)] // A single-bit mask can only represent processor 0.
     public void ValidateProcessorNumber_should_accept_processor_number_within_the_mask_width(int affinityMaskWidth, int processorNumber)
     {
         var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, affinityMaskWidth, nameof(processorNumber));
@@ -252,6 +254,13 @@ public class ProcessExtensionsTests
     public void GetEnabledProcessors_should_return_no_processors_for_an_empty_mask()
     {
         ProcessExtensions.GetEnabledProcessors(0L, 64).Should().BeEmpty();
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_return_no_processors_for_a_zero_width_mask()
+    {
+        // A zero-width mask can represent no processors, no matter which bits are set.
+        ProcessExtensions.GetEnabledProcessors(unchecked((long)0xFFFFFFFFFFFFFFFFUL), 0).Should().BeEmpty();
     }
 
     [Fact]

@@ -207,7 +207,9 @@ public static class ProcessExtensions
             return;
         }
 
-        var missingProcessors = GetEnabledProcessors(requestedAffinityMask & ~appliedAffinityMask, AffinityMaskWidth);
+        // The full 64-bit width is used (rather than AffinityMaskWidth) so the error message lists every missing bit
+        // deterministically regardless of process bitness; callers already constrain requested masks to the native width.
+        var missingProcessors = GetEnabledProcessors(requestedAffinityMask & ~appliedAffinityMask, 64);
         throw new InvalidOperationException($"The operating system did not enable the requested processor(s) {string.Join(", ", missingProcessors)} — they do not exist on this machine or are not available to the process.");
     }
 
