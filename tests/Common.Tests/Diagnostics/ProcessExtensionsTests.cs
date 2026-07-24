@@ -127,9 +127,7 @@ public class ProcessExtensionsTests
         var enabledProcessors = process.GetEnabledProcessors();
 
         // Independently extract the expected processor numbers from the OS-reported mask value.
-        var affinityMask = process.ProcessorAffinity.ToInt64();
-        var maxAddressable = Math.Min(Environment.ProcessorCount, IntPtr.Size * 8);
-        var expectedProcessors = Enumerable.Range(0, maxAddressable).Where(processor => (affinityMask & (1L << processor)) != 0);
+        var expectedProcessors = GetAllowedProcessors(process);
         enabledProcessors.Should().NotBeEmpty().And.Equal(expectedProcessors);
     }
 
@@ -142,13 +140,16 @@ public class ProcessExtensionsTests
 
         try
         {
-            childProcess.SetSingleProcessorAffinity(0);
+            // The target is taken from the OS-reported mask so the test also works when CPU 0 is excluded by a cpuset.
+            var targetProcessor = GetAllowedProcessors(childProcess)[0];
 
-            childProcess.GetEnabledProcessors().Should().Equal(0);
+            childProcess.SetSingleProcessorAffinity(targetProcessor);
+
+            childProcess.GetEnabledProcessors().Should().Equal(targetProcessor);
         }
         finally
         {
-            childProcess.Kill();
+            KillAndReap(childProcess);
         }
     }
 
@@ -158,17 +159,19 @@ public class ProcessExtensionsTests
     {
         // A throwaway child process is mutated (never the test host) so parallel test collections are unaffected.
         using var childProcess = StartShortLivedChildProcess();
-        var requestedProcessors = Enumerable.Range(0, Math.Min(2, Environment.ProcessorCount)).ToArray();
 
         try
         {
+            // Targets are taken from the OS-reported mask so the test also works when CPU 0 is excluded by a cpuset.
+            var requestedProcessors = GetAllowedProcessors(childProcess).Take(2).ToArray();
+
             childProcess.SetEnabledProcessors(requestedProcessors);
 
             childProcess.GetEnabledProcessors().Should().Equal(requestedProcessors);
         }
         finally
         {
-            childProcess.Kill();
+            KillAndReap(childProcess);
         }
     }
 
@@ -182,6 +185,26 @@ public class ProcessExtensionsTests
         startInfo.UseShellExecute = false;
 
         return Process.Start(startInfo)!;
+    }
+
+    private static int[] GetAllowedProcessors(Process process)
+    {
+        // Derived from the raw OS-reported mask (not from GetEnabledProcessors) so it stays independent of the code under test.
+        var affinityMask = process.ProcessorAffinity.ToInt64();
+        var maxAddressable = Math.Min(Environment.ProcessorCount, IntPtr.Size * 8);
+
+        return Enumerable.Range(0, maxAddressable).Where(processor => (affinityMask & (1L << processor)) != 0).ToArray();
+    }
+
+    private static void KillAndReap(Process process)
+    {
+        // Kill can race with (or follow) a natural exit; the guard keeps cleanup from throwing and WaitForExit reaps the child.
+        if (!process.HasExited)
+        {
+            process.Kill();
+        }
+
+        process.WaitForExit();
     }
 
     [Theory]
