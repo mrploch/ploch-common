@@ -11,16 +11,24 @@ public class ProcessExtensionsTests
     [SupportedOSPlatform(SupportedOS.Windows)]
     public void SetSingleProcessorAffinity_should_set_affinity_mask_for_valid_processor_number()
     {
-        var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");
+        using var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");
 
-        var enabledProcessors = process.GetEnabledProcessors();
-        enabledProcessors.Should().HaveCount(Environment.ProcessorCount);
+        try
+        {
+            // The target is taken from the OS-reported mask so the test also works when the allowed set does not
+            // start at CPU 0 or does not span 0..ProcessorCount-1 (e.g. a cpuset-constrained environment).
+            var allowedProcessors = GetAllowedProcessors(process);
+            process.GetEnabledProcessors().Should().Equal(allowedProcessors);
 
-        process.SetSingleProcessorAffinity(Environment.ProcessorCount - 1);
+            var targetProcessor = allowedProcessors[^1];
+            process.SetSingleProcessorAffinity(targetProcessor);
 
-        enabledProcessors = process.GetEnabledProcessors();
-        enabledProcessors.Should().HaveCount(1);
-        enabledProcessors.Should().Contain(Environment.ProcessorCount - 1);
+            process.GetEnabledProcessors().Should().Equal(targetProcessor);
+        }
+        finally
+        {
+            KillAndReap(process);
+        }
     }
 
     [Theory]
@@ -33,18 +41,6 @@ public class ProcessExtensionsTests
 
         // Act
         var act = () => process.SetSingleProcessorAffinity(processorNumber);
-
-        // Assert
-        act.Should().Throw<ArgumentOutOfRangeException>();
-    }
-
-    [Fact]
-    public void SetSingleProcessorAffinity_should_throw_for_processor_number_exceeding_system_processor_count()
-    {
-        var process = new Process();
-
-        // Act
-        var act = () => process.SetSingleProcessorAffinity(Environment.ProcessorCount);
 
         // Assert
         act.Should().Throw<ArgumentOutOfRangeException>();
@@ -191,9 +187,8 @@ public class ProcessExtensionsTests
     {
         // Derived from the raw OS-reported mask (not from GetEnabledProcessors) so it stays independent of the code under test.
         var affinityMask = process.ProcessorAffinity.ToInt64();
-        var maxAddressable = Math.Min(Environment.ProcessorCount, IntPtr.Size * 8);
 
-        return Enumerable.Range(0, maxAddressable).Where(processor => (affinityMask & (1L << processor)) != 0).ToArray();
+        return Enumerable.Range(0, IntPtr.Size * 8).Where(processor => (affinityMask & (1L << processor)) != 0).ToArray();
     }
 
     private static void KillAndReap(Process process)
@@ -208,12 +203,14 @@ public class ProcessExtensionsTests
     }
 
     [Theory]
-    [InlineData(128, 64, 64)] // Machine with >64 logical CPUs, 64-bit process: CPU 64 would wrap the shift count (64 & 63 == 0).
-    [InlineData(128, 64, 127)] // Machine with >64 logical CPUs, 64-bit process: CPU 127 would wrap to bit 63.
-    [InlineData(64, 32, 32)] // 32-bit process on a 64-CPU machine: CPU 32 would be truncated out of the 32-bit mask.
-    public void ValidateProcessorNumber_should_throw_when_processor_number_exceeds_affinity_mask_width(int processorCount, int affinityMaskWidth, int processorNumber)
+    [InlineData(64, 64)] // 64-bit process: CPU 64 would wrap the shift count (64 & 63 == 0).
+    [InlineData(64, 127)] // 64-bit process: CPU 127 would wrap to bit 63.
+    [InlineData(32, 32)] // 32-bit process: CPU 32 would be truncated out of the 32-bit mask.
+    [InlineData(1, 1)] // A single-bit mask can only represent processor 0.
+    [InlineData(64, -1)] // Negative processor numbers are never valid.
+    public void ValidateProcessorNumber_should_throw_when_processor_number_is_not_representable_in_the_mask(int affinityMaskWidth, int processorNumber)
     {
-        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, processorCount, affinityMaskWidth, nameof(processorNumber));
+        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, affinityMaskWidth, nameof(processorNumber));
 
         act.Should()
            .Throw<ArgumentOutOfRangeException>()
@@ -222,23 +219,85 @@ public class ProcessExtensionsTests
     }
 
     [Theory]
-    [InlineData(128, 64, 63)] // Highest bit representable in a 64-bit mask.
-    [InlineData(64, 32, 31)] // Highest bit representable in a 32-bit mask.
-    [InlineData(4, 64, 3)] // Highest processor when the processor count is the limiting factor.
-    [InlineData(4, 64, 0)]
-    public void ValidateProcessorNumber_should_accept_processor_number_within_processor_count_and_mask_width(int processorCount, int affinityMaskWidth, int processorNumber)
+    [InlineData(64, 63)] // Highest bit representable in a 64-bit mask.
+    [InlineData(32, 31)] // Highest bit representable in a 32-bit mask.
+    [InlineData(64, 0)]
+    [InlineData(1, 0)] // A single-bit mask can only represent processor 0.
+    public void ValidateProcessorNumber_should_accept_processor_number_within_the_mask_width(int affinityMaskWidth, int processorNumber)
     {
-        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, processorCount, affinityMaskWidth, nameof(processorNumber));
+        var act = () => ProcessExtensions.ValidateProcessorNumber(processorNumber, affinityMaskWidth, nameof(processorNumber));
 
         act.Should().NotThrow();
     }
 
     [Theory]
-    [InlineData(128, 64, 64)] // Machine with >64 logical CPUs, 64-bit process: only the first 64 CPUs are addressable.
-    [InlineData(64, 32, 32)] // 32-bit process on a 64-CPU machine: only the first 32 CPUs are addressable.
-    [InlineData(8, 64, 8)] // Typical machine: the processor count is the limiting factor.
-    public void GetMaxAddressableProcessors_should_cap_at_the_lesser_of_processor_count_and_mask_width(int processorCount, int affinityMaskWidth, int expected)
+    [InlineData(0)] // A zero-width mask can represent no processors at all.
+    [InlineData(65)] // The 1L << n shift would wrap for bit positions of 64 and above.
+    [InlineData(-1)]
+    public void ValidateProcessorNumber_should_throw_for_a_mask_width_that_a_64bit_mask_cannot_represent(int affinityMaskWidth)
     {
-        ProcessExtensions.GetMaxAddressableProcessors(processorCount, affinityMaskWidth).Should().Be(expected);
+        var act = () => ProcessExtensions.ValidateProcessorNumber(0, affinityMaskWidth, "processorNumber");
+
+        act.Should().Throw<ArgumentOutOfRangeException>().Which.ParamName.Should().Be(nameof(affinityMaskWidth));
+    }
+
+    [Theory]
+    [InlineData(0xFF00L, 64, new[] { 8, 9, 10, 11, 12, 13, 14, 15 })] // Non-contiguous set: processors 8-15 (e.g. a cpuset-constrained process where ProcessorCount == 8).
+    [InlineData(0x1L, 64, new[] { 0 })]
+    [InlineData(unchecked((long)0x8000000000000001UL), 64, new[] { 0, 63 })] // Highest and lowest bits of a 64-bit mask.
+    public void GetEnabledProcessors_should_extract_all_set_bits_within_the_mask_width(long affinityMask, int affinityMaskWidth, int[] expectedProcessors)
+    {
+        ProcessExtensions.GetEnabledProcessors(affinityMask, affinityMaskWidth).Should().Equal(expectedProcessors);
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_return_no_processors_for_an_empty_mask()
+    {
+        ProcessExtensions.GetEnabledProcessors(0L, 64).Should().BeEmpty();
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_return_no_processors_for_a_zero_width_mask()
+    {
+        // A zero-width mask can represent no processors, no matter which bits are set.
+        ProcessExtensions.GetEnabledProcessors(unchecked((long)0xFFFFFFFFFFFFFFFFUL), 0).Should().BeEmpty();
+    }
+
+    [Fact]
+    public void GetEnabledProcessors_should_ignore_bits_beyond_the_mask_width()
+    {
+        // Bit 32 is not representable in a 32-bit mask.
+        ProcessExtensions.GetEnabledProcessors(0x100000000L, 32).Should().BeEmpty();
+    }
+
+    [Theory]
+    [InlineData(65)] // The 1L << i shift would wrap for bit positions of 64 and above.
+    [InlineData(-1)]
+    public void GetEnabledProcessors_should_throw_for_a_mask_width_that_a_64bit_mask_cannot_represent(int affinityMaskWidth)
+    {
+        var act = () => ProcessExtensions.GetEnabledProcessors(0x1L, affinityMaskWidth);
+
+        act.Should().Throw<ArgumentOutOfRangeException>().Which.ParamName.Should().Be(nameof(affinityMaskWidth));
+    }
+
+    [Theory]
+    [InlineData(0x3L, 0x3L)] // Everything requested was applied.
+    [InlineData(0x1L, 0x3L)] // The OS may report more processors than requested; only the requested ones matter.
+    [InlineData(0x80000000L, unchecked((long)0xFFFFFFFF80000000UL))] // 32-bit process: bit 31 applied, read back sign-extended by IntPtr.ToInt64().
+    public void VerifyAppliedAffinity_should_accept_when_every_requested_processor_was_applied(long requestedMask, long appliedMask)
+    {
+        var act = () => ProcessExtensions.VerifyAppliedAffinity(requestedMask, appliedMask);
+
+        act.Should().NotThrow();
+    }
+
+    [Theory]
+    [InlineData(unchecked((long)0x8000000000000001UL), 0x1L, "63")] // Linux silently drops the unavailable CPU 63 (sched_setaffinity intersects).
+    [InlineData(0x3L, 0x1L, "1")]
+    public void VerifyAppliedAffinity_should_throw_when_a_requested_processor_was_not_applied(long requestedMask, long appliedMask, string expectedMissingProcessor)
+    {
+        var act = () => ProcessExtensions.VerifyAppliedAffinity(requestedMask, appliedMask);
+
+        act.Should().Throw<InvalidOperationException>().WithMessage($"*{expectedMissingProcessor}*");
     }
 }
