@@ -249,7 +249,7 @@ public class ProcessExtensionsTests
     {
         var act = () => ProcessExtensions.GetEnabledProcessors(0x1L, affinityMaskWidth);
 
-        act.Should().Throw<ArgumentOutOfRangeException>().Which.ParamName.Should().Be("affinityMaskWidth");
+        act.Should().Throw<ArgumentOutOfRangeException>().Which.ParamName.Should().Be(nameof(affinityMaskWidth));
     }
 
     [Theory]
