@@ -135,7 +135,7 @@
   </Folder>
   <Folder Name="/src/Serialization/">
     <Project Path="src/Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.csproj" />
-    <Project Path="src/Common.Serialization.NewtonsoftJson/Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
+    <Project Path="src/Common.Serialization.NewtonsoftJson/Ploch.Common.Serialization.NewtonsoftJson.csproj" />
     <Project Path="src/Common.Serialization.SystemTextJson.ExtensionsDependencyInjection/Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.csproj" />
     <Project Path="src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj" />
     <Project Path="src/Common.Serialization/Ploch.Common.Serialization.csproj" />

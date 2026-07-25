@@ -18,7 +18,7 @@ The library targets `netstandard2.0`.
 dotnet add package Ploch.Common.Serialization.NewtonsoftJson
 ```
 
-> Note: the published NuGet package ID uses the legacy name `Ploch.Common.Serialiation.NewtonsoftJson` (missing the `z` — "Serialiation" instead of "Serialization"). Verify the exact name in your package source when adding the reference.
+> Note: versions before 4.0 were published under the misspelled package ID `Ploch.Common.Serialiation.NewtonsoftJson` (missing the `z`). From 4.0 onwards the package, assembly, and namespace all use the correct `Ploch.Common.Serialization.NewtonsoftJson` name — update your `PackageReference` and `using` directives when upgrading.
 
 ## Key Types
 

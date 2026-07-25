@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using Newtonsoft.Json;
-using Ploch.Common.Serialiation.NewtonsoftJson;
+using Ploch.Common.Serialization.NewtonsoftJson;
 using Ploch.Common.Serialization.Tests;
 
 namespace Ploch.Common.Serialization.NewtonsoftJson.Tests;

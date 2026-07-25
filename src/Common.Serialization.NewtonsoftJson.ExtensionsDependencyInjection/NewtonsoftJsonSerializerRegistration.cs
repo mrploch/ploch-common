@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Ploch.Common.Serialiation.NewtonsoftJson;
 using Ploch.Common.Serialization;
+using Ploch.Common.Serialization.NewtonsoftJson;
 
 namespace Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection;
 

@@ -4,7 +4,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialiation.NewtonsoftJson.csproj" />
+        <ProjectReference Include="..\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialization.NewtonsoftJson.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="FluentAssertions" />
