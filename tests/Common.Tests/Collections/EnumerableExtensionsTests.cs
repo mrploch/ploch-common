@@ -161,6 +161,34 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     }
 
     [Fact]
+    public void TakeRandom_should_return_empty_sequence_when_count_is_negative()
+    {
+        var sourceList = new[] { 1, 2, 3 };
+
+        var result = sourceList.TakeRandom(-5);
+
+        // Matches Enumerable.Take semantics - a negative count yields an empty sequence rather than throwing.
+        result.Should().BeEmpty();
+    }
+
+    [Fact]
+    public void TakeRandom_should_not_select_the_same_item_twice()
+    {
+        var sourceList = new List<int>();
+        for (var i = 0; i < 50; i++)
+        {
+            sourceList.Add(i);
+        }
+
+        for (var i = 0; i < 20; i++)
+        {
+            var result = sourceList.TakeRandom(50).ToList();
+
+            result.Should().OnlyHaveUniqueItems().And.BeEquivalentTo(sourceList);
+        }
+    }
+
+    [Fact]
     public void JoinWithFinalSeparator_should_use_final_separator_for_last_item()
     {
         var strings = new Fixture().CreateMany<string>(20);
