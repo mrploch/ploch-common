@@ -80,8 +80,6 @@
       href: libraries/testing-support-meta-packages.md
     - name: Ploch.TestingSupport.XUnit3.Dependencies
       href: libraries/testing-support-xunit3-dependencies.md
-    - name: Ploch.TestingSupport.XUnit2.Dependencies
-      href: libraries/testing-support-xunit2-dependencies.md
 - name: Build Configuration
   items:
     - name: MSBuild, Packages, Versioning

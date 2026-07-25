@@ -84,7 +84,6 @@
     <File Path="docs/libraries/testing-support-fluent-assertions.md" />
     <File Path="docs/libraries/testing-support-meta-packages.md" />
     <File Path="docs/libraries/testing-support-mock-console-app.md" />
-    <File Path="docs/libraries/testing-support-xunit2-dependencies.md" />
     <File Path="docs/libraries/testing-support-xunit3-automoq.md" />
     <File Path="docs/libraries/testing-support-xunit3-dependencies.md" />
     <File Path="docs/libraries/testing-support-xunit3.md" />
