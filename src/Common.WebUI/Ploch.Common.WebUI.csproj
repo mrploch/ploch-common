@@ -2,6 +2,8 @@
   <PropertyGroup>
     <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Microsoft.NET.Sdk.Web defaults IsPackable to false; this project ships as a NuGet package (see #250). -->
+    <IsPackable>true</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <OutputType>Library</OutputType>
   </PropertyGroup>
