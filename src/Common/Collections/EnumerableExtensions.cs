@@ -177,8 +177,9 @@ public static class EnumerableExtensions
     ///     Takes random <paramref name="count" /> amount of items from the <paramref name="source" /> enumerable.
     /// </summary>
     /// <remarks>
-    ///     Selection is performed with a partial Fisher-Yates shuffle over an index array, giving O(n) setup and
-    ///     O(<paramref name="count" />) selection with uniform selection probability and no duplicate picks.
+    ///     Selection is performed with a partial Fisher-Yates shuffle over a copy of the source, giving O(n) setup and
+    ///     O(<paramref name="count" />) selection with uniform selection probability and no duplicate picks. A
+    ///     non-positive <paramref name="count" /> returns without enumerating <paramref name="source" />.
     /// </remarks>
     /// <param name="source">The source enumerable.</param>
     /// <param name="count">
@@ -192,6 +193,11 @@ public static class EnumerableExtensions
                      Justification = "Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
     public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> source, int count)
     {
+        if (count <= 0)
+        {
+            return [];
+        }
+
         var list = source.ToList();
 
         if (count > list.Count)
@@ -199,26 +205,13 @@ public static class EnumerableExtensions
             count = list.Count;
         }
 
-        if (count <= 0)
-        {
-            return [];
-        }
-
-        var indexes = new int[list.Count];
-        for (var i = 0; i < indexes.Length; i++)
-        {
-            indexes[i] = i;
-        }
-
-        var result = new List<TValue>(count);
         for (var i = 0; i < count; i++)
         {
-            var swapIndex = ThreadSafeRandom.Shared.Next(i, indexes.Length);
-            (indexes[i], indexes[swapIndex]) = (indexes[swapIndex], indexes[i]);
-            result.Add(list[indexes[i]]);
+            var swapIndex = ThreadSafeRandom.Shared.Next(i, list.Count);
+            (list[i], list[swapIndex]) = (list[swapIndex], list[i]);
         }
 
-        return result;
+        return list.GetRange(0, count);
     }
 
     /// <summary>
