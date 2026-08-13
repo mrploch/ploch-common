@@ -211,7 +211,8 @@ public static class EnumerableExtensions
             (list[i], list[swapIndex]) = (list[swapIndex], list[i]);
         }
 
-        return list.GetRange(0, count);
+        // The list is a private copy, so a full-size draw can return it directly without another copy.
+        return count == list.Count ? list : list.GetRange(0, count);
     }
 
     /// <summary>
