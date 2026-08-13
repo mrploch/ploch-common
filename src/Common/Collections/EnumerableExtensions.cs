@@ -188,11 +188,14 @@ public static class EnumerableExtensions
     /// </param>
     /// <typeparam name="TValue">The enumerable value type.</typeparam>
     /// <returns>The random items from the source enumerable.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="source" /> is <see langword="null" />.</exception>
     [SuppressMessage("Security",
                      "CA5394:Do not use insecure randomness",
                      Justification = "Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
     public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> source, int count)
     {
+        source.NotNull(nameof(source));
+
         if (count <= 0)
         {
             return [];

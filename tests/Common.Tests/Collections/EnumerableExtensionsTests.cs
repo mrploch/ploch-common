@@ -171,6 +171,20 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
         result.Should().BeEmpty();
     }
 
+    [Theory]
+    [InlineData(-1)]
+    [InlineData(0)]
+    [InlineData(5)]
+    public void TakeRandom_should_throw_ArgumentNullException_when_source_is_null(int count)
+    {
+        IEnumerable<int> sourceList = null!;
+
+        var act = () => sourceList.TakeRandom(count);
+
+        // Null validation must run before the non-positive-count short-circuit.
+        act.Should().Throw<ArgumentNullException>().WithParameterName("source");
+    }
+
     [Fact]
     public void TakeRandom_should_not_select_the_same_item_twice()
     {
