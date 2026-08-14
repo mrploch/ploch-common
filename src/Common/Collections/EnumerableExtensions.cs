@@ -176,37 +176,46 @@ public static class EnumerableExtensions
     /// <summary>
     ///     Takes random <paramref name="count" /> amount of items from the <paramref name="source" /> enumerable.
     /// </summary>
+    /// <remarks>
+    ///     Selection is performed with a partial Fisher-Yates shuffle over a copy of the source, giving O(n) setup and
+    ///     O(<paramref name="count" />) selection with uniform selection probability and no duplicate picks. A
+    ///     non-positive <paramref name="count" /> returns without enumerating <paramref name="source" />.
+    /// </remarks>
     /// <param name="source">The source enumerable.</param>
-    /// <param name="count">The number of values to take.</param>
+    /// <param name="count">
+    ///     The number of values to take. When greater than the source size, all items are returned; when zero or
+    ///     negative, an empty sequence is returned (matching <see cref="Enumerable.Take{TSource}(IEnumerable{TSource}, int)" /> semantics).
+    /// </param>
     /// <typeparam name="TValue">The enumerable value type.</typeparam>
     /// <returns>The random items from the source enumerable.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="source" /> is <see langword="null" />.</exception>
     [SuppressMessage("Security",
                      "CA5394:Do not use insecure randomness",
                      Justification = "Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
     public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> source, int count)
     {
-        var list = source.ToList();
+        source.NotNull(nameof(source));
 
-        var result = new List<TValue>();
-
-        var indexes = new List<int>(list.Count);
-        for (var i = 0; i < list.Count; i++)
+        if (count <= 0)
         {
-            indexes.Add(i);
+            return [];
         }
 
-        count = count > list.Count ? list.Count : count;
+        var list = source.ToList();
+
+        if (count > list.Count)
+        {
+            count = list.Count;
+        }
 
         for (var i = 0; i < count; i++)
         {
-            var indexesItemNum = ThreadSafeRandom.Shared.Next(indexes.Count);
-            var itemIndex = indexes[indexesItemNum];
-
-            result.Add(list[itemIndex]);
-            indexes.RemoveAt(indexesItemNum);
+            var swapIndex = ThreadSafeRandom.Shared.Next(i, list.Count);
+            (list[i], list[swapIndex]) = (list[swapIndex], list[i]);
         }
 
-        return result;
+        // The list is a private copy, so a full-size draw can return it directly without another copy.
+        return count == list.Count ? list : list.GetRange(0, count);
     }
 
     /// <summary>
