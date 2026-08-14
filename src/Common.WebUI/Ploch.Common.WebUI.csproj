@@ -1,12 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Microsoft.NET.Sdk.Web defaults IsPackable to false; this project ships as a NuGet package (see #250). -->
-    <IsPackable>true</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <OutputType>Library</OutputType>
   </PropertyGroup>
+  <ItemGroup>
+    <!-- Class library with no Razor files using ASP.NET Core APIs; see
+         https://learn.microsoft.com/aspnet/core/fundamentals/target-aspnetcore (#264). -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dawn.Guard" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" />
