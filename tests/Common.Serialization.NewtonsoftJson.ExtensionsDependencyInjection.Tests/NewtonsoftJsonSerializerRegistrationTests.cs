@@ -3,7 +3,7 @@ using FluentAssertions.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Ploch.Common.Serialiation.NewtonsoftJson;
+using Ploch.Common.Serialization.NewtonsoftJson;
 
 namespace Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.Tests;
 

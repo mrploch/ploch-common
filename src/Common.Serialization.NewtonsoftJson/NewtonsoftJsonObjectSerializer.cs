@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Ploch.Common.Serialization;
 
-namespace Ploch.Common.Serialiation.NewtonsoftJson;
+namespace Ploch.Common.Serialization.NewtonsoftJson;
 
 /// <summary>
 /// Newtonsoft.Json based implementation of <see cref="ISerializer"/>.
