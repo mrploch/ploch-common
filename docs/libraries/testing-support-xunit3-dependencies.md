@@ -61,5 +61,4 @@ The versions below reflect the pinned versions in the `.nuspec` manifest at the 
 
 - [Ploch.TestingSupport.XUnit3](testing-support-xunit3.md) — xUnit v3 test helpers that depend on these packages
 - [Ploch.TestingSupport.XUnit3.AutoMoq](testing-support-xunit3-automoq.md) — AutoFixture + AutoMoq integration; also depends on this meta-package
-- [Ploch.TestingSupport.XUnit2.Dependencies](testing-support-xunit2-dependencies.md) — The equivalent meta-package for xUnit v2 (legacy projects)
 - [Ploch.TestingSupport.Dependencies.MetaPackages](testing-support-meta-packages.md) — The `.nuspec` source files used to build this package
