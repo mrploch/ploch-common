@@ -161,6 +161,48 @@ public class EnumerableExtensionsTests(ITestOutputHelper output)
     }
 
     [Fact]
+    public void TakeRandom_should_return_empty_sequence_when_count_is_negative()
+    {
+        var sourceList = new[] { 1, 2, 3 };
+
+        var result = sourceList.TakeRandom(-5);
+
+        // Matches Enumerable.Take semantics - a negative count yields an empty sequence rather than throwing.
+        result.Should().BeEmpty();
+    }
+
+    [Theory]
+    [InlineData(-1)]
+    [InlineData(0)]
+    [InlineData(5)]
+    public void TakeRandom_should_throw_ArgumentNullException_when_source_is_null(int count)
+    {
+        IEnumerable<int> sourceList = null!;
+
+        var act = () => sourceList.TakeRandom(count);
+
+        // Null validation must run before the non-positive-count short-circuit.
+        act.Should().Throw<ArgumentNullException>().WithParameterName("source");
+    }
+
+    [Fact]
+    public void TakeRandom_should_not_select_the_same_item_twice()
+    {
+        var sourceList = new List<int>();
+        for (var i = 0; i < 50; i++)
+        {
+            sourceList.Add(i);
+        }
+
+        for (var i = 0; i < 20; i++)
+        {
+            var result = sourceList.TakeRandom(50).ToList();
+
+            result.Should().OnlyHaveUniqueItems().And.BeEquivalentTo(sourceList);
+        }
+    }
+
+    [Fact]
     public void JoinWithFinalSeparator_should_use_final_separator_for_last_item()
     {
         var strings = new Fixture().CreateMany<string>(20);

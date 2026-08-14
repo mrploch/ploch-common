@@ -74,7 +74,6 @@ Per-library documentation with overviews, key types, usage examples, and configu
 | Ploch.TestingSupport.MockConsoleApp                  | Stub executable for process-launch integration tests                         | [testing-support-mock-console-app.md](libraries/testing-support-mock-console-app.md)         |
 | Ploch.TestingSupport.Dependencies.MetaPackages       | Meta-package .nuspec repository                                              | [testing-support-meta-packages.md](libraries/testing-support-meta-packages.md)               |
 | Ploch.TestingSupport.XUnit3.Dependencies             | xUnit v3 testing dependency meta-package                                     | [testing-support-xunit3-dependencies.md](libraries/testing-support-xunit3-dependencies.md)   |
-| Ploch.TestingSupport.XUnit2.Dependencies             | xUnit v2 testing dependency meta-package (legacy)                            | [testing-support-xunit2-dependencies.md](libraries/testing-support-xunit2-dependencies.md)   |
 
 ### Build Configuration
 

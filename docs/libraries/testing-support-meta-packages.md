@@ -20,4 +20,3 @@ Currently the directory holds the manifest for the xUnit v3 dependency bundle. F
 ## Related Libraries
 
 - [Ploch.TestingSupport.XUnit3.Dependencies](testing-support-xunit3-dependencies.md) — The active, buildable meta-package project for xUnit v3 test dependencies
-- [Ploch.TestingSupport.XUnit2.Dependencies](testing-support-xunit2-dependencies.md) — The equivalent meta-package for xUnit v2 (legacy)
