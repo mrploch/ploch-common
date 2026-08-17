@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Ploch.Common.Apps.Model;
 
 namespace Ploch.Common.Apps.Model.Tests;
@@ -5,7 +6,7 @@ namespace Ploch.Common.Apps.Model.Tests;
 public class ActionHandlerManagerTests
 {
     [Fact]
-    public async Task ExecuteAsync_should_return_success_when_handler_succeeds()
+    public async Task ExecuteAsync_should_return_success_with_handler_execution_id_when_handler_succeeds()
     {
         var handler = new SuccessHandler();
         var manager = new ActionHandlerManager<TestDescriptor, TestActionInfo, SuccessHandler>([handler]);
@@ -13,11 +14,18 @@ public class ActionHandlerManagerTests
 
         var result = await manager.ExecuteAsync(actionInfo, TestContext.Current.CancellationToken);
 
-        Assert.True(result.IsSuccess);
+        result.IsSuccess.Should().BeTrue();
+        result.ExecutionId.ActionInfo.Should().BeSameAs(actionInfo);
+        result.ExecutionId.HandlerType.Should().Be<SuccessHandler>();
+        result.Errors.Should().BeNull();
+
+        var handlerResult = result.HandlerResults.Should().ContainSingle().Subject;
+        handlerResult.IsSuccess.Should().BeTrue();
+        handlerResult.ExecutionId.Should().BeSameAs(result.ExecutionId);
     }
 
     [Fact]
-    public async Task ExecuteAsync_should_return_failure_when_all_handlers_fail()
+    public async Task ExecuteAsync_should_return_failure_with_error_details_when_all_handlers_fail()
     {
         var handler = new FailureHandler();
         var manager = new ActionHandlerManager<TestDescriptor, TestActionInfo, FailureHandler>([handler]);
@@ -25,7 +33,16 @@ public class ActionHandlerManagerTests
 
         var result = await manager.ExecuteAsync(actionInfo, TestContext.Current.CancellationToken);
 
-        Assert.False(result.IsSuccess);
+        result.IsSuccess.Should().BeFalse();
+        result.ExecutionId.ActionInfo.Should().BeSameAs(actionInfo);
+        result.ExecutionId.HandlerType.Should().Be<ActionHandlerManager<TestDescriptor, TestActionInfo, FailureHandler>>();
+        result.Errors.Should().ContainSingle().Which.Message.Should().Be($"All handlers failed to execute {actionInfo}");
+
+        var handlerResult = result.HandlerResults.Should().ContainSingle().Subject;
+        handlerResult.IsSuccess.Should().BeFalse();
+        handlerResult.ExecutionId.ActionInfo.Should().BeSameAs(actionInfo);
+        handlerResult.ExecutionId.HandlerType.Should().Be<FailureHandler>();
+        handlerResult.Errors.Should().ContainSingle().Which.Message.Should().Be("test failure");
     }
 
     private sealed class TestDescriptor : IActionTargetDescriptor
