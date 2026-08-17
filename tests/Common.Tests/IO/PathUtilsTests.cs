@@ -376,10 +376,11 @@ public class PathUtilsTests
         result.Length.Should().Be(longInput.Length);
         result.Should().NotContainAny(Path.GetInvalidFileNameChars().Select(c => c.ToString()));
 
-        // Performance assertion - should process in a reasonable time
-        // Processing 100k characters should be fast on modern hardware
-        // NOTE: This was increased to 100ms due to the increased time it takes to run tests with coverage
-        stopwatch.ElapsedMilliseconds.Should().BeLessThan(100, "processing a 100K string should be reasonably fast");
+        // Performance assertion - guards against pathological complexity regressions (e.g. accidental O(n²)),
+        // not micro-performance. The generous bound keeps the test stable on loaded shared CI runners,
+        // where tight wall-clock assertions flake (see #267); an O(n²) regression on 100K characters
+        // would exceed this bound by orders of magnitude.
+        stopwatch.ElapsedMilliseconds.Should().BeLessThan(1000, "processing a 100K string should not exhibit pathological complexity");
     }
 
     [Fact]
