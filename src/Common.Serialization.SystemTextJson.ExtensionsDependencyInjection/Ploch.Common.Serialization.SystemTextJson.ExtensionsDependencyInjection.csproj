@@ -8,9 +8,11 @@
             package id, shipped versions stay under the limit (master prerelease e.g. 4.0.16-prerelease.gXXXXXXXXXX
             = 196 chars; stable 4.0.0 = 172), but PR-validation builds embed the branch name in the NBGV version
             (e.g. 4.0.17-pr.268.chore-264-webui-plai.gXXXXXXXXXX) and cross the threshold. Those packages are
-            ephemeral test artefacts on GitHub Packages only, so the warning is suppressed. See issue #270.
+            ephemeral test artefacts on GitHub Packages only, so the warning is suppressed for PR builds only —
+            master, release, and local packs keep NU5123 live and would surface a genuine overrun of shipped
+            artefacts. See issue #270.
         -->
-        <NoWarn>$(NoWarn);NU5123</NoWarn>
+        <NoWarn Condition="'$(GITHUB_EVENT_NAME)' == 'pull_request'">$(NoWarn);NU5123</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj" />

@@ -9,8 +9,10 @@ NuGet pack emitted `NU5123` ("path, name, or both are too long") for the
 `lib/netstandard2.0` `.dll` and `.xml` of
 `Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection` and
 `Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection`. The warning
-is now suppressed via a targeted `<NoWarn>` in those two projects only, with the
-rationale documented in each project file.
+is now suppressed via a targeted, **PR-build-only** `<NoWarn>` in those two projects
+(`Condition="'$(GITHUB_EVENT_NAME)' == 'pull_request'"`), with the rationale documented
+in each project file. Master, release, and local packs keep `NU5123` live, so a genuine
+overrun of shipped artefacts would still surface as a warning.
 
 ## Analysis
 
