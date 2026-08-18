@@ -2,6 +2,14 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <!--
+            NU5123 fires when <id>/<version>/<path-in-package> reaches 200 characters. With this 71-character
+            package id, shipped versions stay under the limit (master prerelease e.g. 4.0.16-prerelease.gXXXXXXXXXX
+            = 196 chars; stable 4.0.0 = 172), but PR-validation builds embed the branch name in the NBGV version
+            (e.g. 4.0.17-pr.268.chore-264-webui-plai.gXXXXXXXXXX) and cross the threshold. Those packages are
+            ephemeral test artefacts on GitHub Packages only, so the warning is suppressed. See issue #270.
+        -->
+        <NoWarn>$(NoWarn);NU5123</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialization.NewtonsoftJson.csproj" />
