@@ -30,9 +30,9 @@ public static class DictionaryExtensions
                                                                                DuplicateHandling duplicateHandling = DuplicateHandling.Throw)
         where TDictionary : class, IDictionary<TKey, TValue>
     {
-        _ = dictionary.NotNull(nameof(dictionary));
-        _ = items.NotNull(nameof(items));
-        _ = duplicateHandling.NotOutOfRange(nameof(duplicateHandling));
+        dictionary.NotNull(nameof(dictionary));
+        items.NotNull(nameof(items));
+        duplicateHandling.NotOutOfRange(nameof(duplicateHandling));
 
         foreach (var item in items)
         {
