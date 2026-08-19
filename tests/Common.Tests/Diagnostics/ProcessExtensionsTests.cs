@@ -11,7 +11,7 @@ public class ProcessExtensionsTests
     [SupportedOSPlatform(SupportedOS.Windows)]
     public void SetSingleProcessorAffinity_should_set_affinity_mask_for_valid_processor_number()
     {
-        using var process = Process.Start("../../../../../src/TestingSupport.MockConsoleApp/bin/Debug/net10.0/Ploch.TestingSupport.MockConsoleApp.exe");
+        using var process = StartMockConsoleApp();
 
         try
         {
@@ -169,6 +169,30 @@ public class ProcessExtensionsTests
         {
             KillAndReap(childProcess);
         }
+    }
+
+    private static Process StartMockConsoleApp()
+    {
+        // The stub is staged next to the test binaries by the StageMockConsoleApp target in this
+        // project, and is packed without a native apphost, so it is launched through the dotnet
+        // muxer on every platform. `dotnet <app>.dll` runs the app in the dotnet process itself,
+        // so the returned Process is the one whose affinity these tests manipulate.
+        var mockConsoleApp = Path.Combine(AppContext.BaseDirectory, "MockConsoleApp", "Ploch.TestingSupport.MockConsoleApp.dll");
+
+        File.Exists(mockConsoleApp).Should().BeTrue($"the mock console app should be staged at {mockConsoleApp}");
+
+        var startInfo = new ProcessStartInfo("dotnet", $"\"{mockConsoleApp}\"")
+        {
+            // Redirecting stdin makes the stub wait on Console.ReadLine instead of Console.ReadKey.
+            // The pipe is deliberately left open: ReadLine then blocks, holding the process alive
+            // until KillAndReap ends it, rather than hitting EOF and exiting before it is inspected.
+            RedirectStandardInput = true,
+            RedirectStandardOutput = true,
+            UseShellExecute = false,
+            CreateNoWindow = true,
+        };
+
+        return Process.Start(startInfo)!;
     }
 
     private static Process StartShortLivedChildProcess()

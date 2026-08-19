@@ -141,6 +141,16 @@
   </Folder>
     <Folder Name="/testing-support/">
         <Project Path="src/TestingSupport.FluentAssertions/Ploch.TestingSupport.FluentAssertions.csproj" />
+        <Project Path="src/TestingSupport.MockConsoleApp/Ploch.TestingSupport.MockConsoleApp.csproj">
+            <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x64" Project="Debug|Any CPU" />
+            <Configuration Solution="Debug|x86" Project="Debug|Any CPU" />
+            <Configuration Solution="Release|ARM" Project="Release|Any CPU" />
+            <Configuration Solution="Release|ARM64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x64" Project="Release|Any CPU" />
+            <Configuration Solution="Release|x86" Project="Release|Any CPU" />
+        </Project>
       <Project Path="src/TestingSupport/Ploch.TestingSupport.csproj" />
         <Project Path="src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj">
             <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />

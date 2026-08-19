@@ -76,7 +76,15 @@
                           Condition="'$(TargetFramework)' == 'net8.0'" />
 
         <ProjectReference Include="..\..\src\TestingSupport.FluentAssertions\Ploch.TestingSupport.FluentAssertions.csproj" />
-        <ProjectReference Include="..\..\src\TestingSupport.MockConsoleApp\Ploch.TestingSupport.MockConsoleApp.csproj" />
+        <!--
+            The mock console app is launched as a child process, never compiled against, so no
+            compile reference is taken (that reference to an Exe is what surfaced as CS0006 in the
+            IDE). The ProjectReference remains to guarantee build order and to surface the built
+            output for staging by StageMockConsoleApp below. See issue #275.
+        -->
+        <ProjectReference Include="..\..\src\TestingSupport.MockConsoleApp\Ploch.TestingSupport.MockConsoleApp.csproj"
+                          ReferenceOutputAssembly="false"
+                          OutputItemType="MockConsoleAppBuildOutput" />
         <ProjectReference Include="..\..\src\TestingSupport.XUnit3.AutoMoq\Ploch.TestingSupport.XUnit3.AutoMoq.csproj" />
         <ProjectReference Include="..\..\src\TestingSupport.XUnit3\Ploch.TestingSupport.XUnit3.csproj" />
         <ProjectReference Include="..\TestAssemblies\Common.Tests.TestAssembly1\Ploch.Common.Tests.TestAssembly1.csproj" />
@@ -116,4 +124,25 @@
     <ItemGroup>
         <EmbeddedResource Remove="CoverageResults\**" />
     </ItemGroup>
+
+    <!--
+        Stage the mock console app into MockConsoleApp/ under this project's output directory.
+        This mirrors what the published package's build/*.targets does for PackageReference
+        consumers, so in-repo tests and external consumers resolve the stub identically:
+            Path.Combine(AppContext.BaseDirectory, "MockConsoleApp", "Ploch.TestingSupport.MockConsoleApp.dll")
+        The source directory comes from the resolved build output rather than a guessed
+        bin/$(Configuration)/$(TargetFramework) path, so it survives Release builds and any
+        OutputPath customisation. See issue #275.
+    -->
+    <Target Name="StageMockConsoleApp" AfterTargets="Build" Condition="'@(MockConsoleAppBuildOutput)' != ''">
+        <PropertyGroup>
+            <MockConsoleAppSourceDirectory>@(MockConsoleAppBuildOutput->'%(RootDir)%(Directory)'->Distinct())</MockConsoleAppSourceDirectory>
+        </PropertyGroup>
+        <ItemGroup>
+            <MockConsoleAppPayload Include="$(MockConsoleAppSourceDirectory)**\*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(MockConsoleAppPayload)"
+              DestinationFolder="$(OutDir)MockConsoleApp\%(RecursiveDir)"
+              SkipUnchangedFiles="true" />
+    </Target>
 </Project>

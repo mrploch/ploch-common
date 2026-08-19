@@ -1,0 +1,48 @@
+<Project>
+
+    <!--
+        Imported automatically into any project with a PackageReference to
+        Ploch.TestingSupport.MockConsoleApp.
+
+        Stages the stub application into the consuming project's output directory under
+        MockConsoleApp/, so a test can launch it without knowing anything about the NuGet cache:
+
+            var dll = Path.Combine(AppContext.BaseDirectory, "MockConsoleApp",
+                                   "Ploch.TestingSupport.MockConsoleApp.dll");
+            using var process = Process.Start(new ProcessStartInfo("dotnet", $"\"{dll}\"") { ... });
+
+        The package is built with UseAppHost=false, so the payload is portable managed output and
+        the same layout applies on Windows, Linux and macOS.
+    -->
+
+    <PropertyGroup>
+        <PlochMockConsoleAppToolsRoot>$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)', '..', 'tools'))</PlochMockConsoleAppToolsRoot>
+
+        <!--
+            Pick the highest packaged target framework the consumer can actually run. A net8.0 asset
+            does not roll forward onto a machine that only has the .NET 10 runtime (the default
+            rollForward policy is Minor, which does not cross major versions), so net10.0+ consumers
+            must get the net10.0 asset.
+        -->
+        <PlochMockConsoleAppTargetFramework Condition="'$(PlochMockConsoleAppTargetFramework)' == '' AND '$(TargetFrameworkIdentifier)' == '.NETCoreApp' AND $([MSBuild]::VersionGreaterThanOrEquals($(TargetFrameworkVersion.TrimStart('vV')), '10.0'))">net10.0</PlochMockConsoleAppTargetFramework>
+        <PlochMockConsoleAppTargetFramework Condition="'$(PlochMockConsoleAppTargetFramework)' == ''">net8.0</PlochMockConsoleAppTargetFramework>
+
+        <PlochMockConsoleAppDirectory>$(PlochMockConsoleAppToolsRoot)$(PlochMockConsoleAppTargetFramework)\</PlochMockConsoleAppDirectory>
+    </PropertyGroup>
+
+    <ItemGroup Condition="Exists('$(PlochMockConsoleAppDirectory)')">
+        <None Include="$(PlochMockConsoleAppDirectory)**\*">
+            <Link>MockConsoleApp\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+            <Pack>false</Pack>
+        </None>
+    </ItemGroup>
+
+    <Target Name="PlochMockConsoleAppWarnIfMissing"
+            BeforeTargets="Build"
+            Condition="!Exists('$(PlochMockConsoleAppDirectory)') AND '$(DesignTimeBuild)' != 'true'">
+        <Warning Text="Ploch.TestingSupport.MockConsoleApp: no packaged assets found at '$(PlochMockConsoleAppDirectory)'. The stub will not be staged into the output directory." />
+    </Target>
+
+</Project>
