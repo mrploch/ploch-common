@@ -16,13 +16,27 @@ without depending on a real application artefact.
 
 ## Installation
 
+The package is published to **GitHub Packages**, not NuGet.org. That feed requires
+authentication even for public packages, and the builds published to it are **prereleases**, so
+a bare `dotnet add package` will not find it. Register an authenticated source once:
+
 ```shell
-dotnet add package Ploch.TestingSupport.MockConsoleApp \
-    --source https://nuget.pkg.github.com/mrploch/index.json
+dotnet nuget add source https://nuget.pkg.github.com/mrploch/index.json \
+    --name github \
+    --username <your-github-username> \
+    --password <personal-access-token-with-read:packages> \
+    --store-password-in-clear-text
 ```
 
-The package is published to GitHub Packages, not NuGet.org, so the feed must be configured in
-your `NuGet.Config` or passed with `--source` as above.
+then install, passing `--prerelease` so the prerelease versions on that feed are considered:
+
+```shell
+dotnet add package Ploch.TestingSupport.MockConsoleApp --prerelease
+```
+
+Repositories inside the MrPloch workspace already have this source in the shared
+`NuGet.Config`, authenticated with `MRPLOCH_GITHUB_PACKAGES_TOKEN`, and need only the
+`dotnet add package` step.
 
 The package payload lives under `tools/` and is staged into your project's output directory at
 `MockConsoleApp/` by an auto-imported MSBuild targets file. Nothing is added to your compile
@@ -86,8 +100,9 @@ policy would refuse to cross a major version and a `net9.0`-only machine could n
 stub at all.
 
 `net10.0` and `net8.0`. The targets file stages the `net10.0` asset into `net10.0`-or-later
-consumers and the `net8.0` asset into everything else, because a `net8.0` asset does not roll
-forward onto a machine that only has the .NET 10 runtime.
+consumers and the `net8.0` asset into everything else. That is a preference, not a requirement:
+it picks the closest packaged asset so the host does not have to roll forward at all. Majors
+with no packaged asset - `net9.0` today, `net11.0` later - rely on `RollForward=Major` above.
 
 ## Related
 

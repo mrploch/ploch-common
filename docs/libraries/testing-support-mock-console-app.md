@@ -38,15 +38,23 @@ It is also built with `RollForward=Major`. The default roll-forward policy is `M
 
 ## Installation
 
-```shell
-dotnet add package Ploch.TestingSupport.MockConsoleApp
-```
-
-The package is published to **GitHub Packages** (`https://nuget.pkg.github.com/mrploch`), not to NuGet.org. Add that feed to your `NuGet.Config` (the repositories in this workspace already do, authenticated with `MRPLOCH_GITHUB_PACKAGES_TOKEN`) or pass it explicitly:
+The package is published to **GitHub Packages** (`https://nuget.pkg.github.com/mrploch`), not to NuGet.org. That registry requires authentication even for public packages, and the builds published to it are **prereleases**, so a bare `dotnet add package` resolves nothing on a fresh machine. Register an authenticated source once:
 
 ```shell
-dotnet add package Ploch.TestingSupport.MockConsoleApp --source https://nuget.pkg.github.com/mrploch/index.json
+dotnet nuget add source https://nuget.pkg.github.com/mrploch/index.json \
+    --name github \
+    --username <your-github-username> \
+    --password <personal-access-token-with-read:packages> \
+    --store-password-in-clear-text
 ```
+
+then install with `--prerelease`, so the prerelease versions on that feed are considered:
+
+```shell
+dotnet add package Ploch.TestingSupport.MockConsoleApp --prerelease
+```
+
+Repositories inside the MrPloch workspace already carry this source in the shared `NuGet.Config`, authenticated with `MRPLOCH_GITHUB_PACKAGES_TOKEN`, and need only the `dotnet add package --prerelease` step.
 
 The package payload lives under `tools/<tfm>/` and carries an MSBuild targets file that is imported automatically. On build, the stub is staged into your project's output directory at `MockConsoleApp/`:
 
@@ -56,7 +64,7 @@ bin/Debug/net10.0/MockConsoleApp/Ploch.TestingSupport.MockConsoleApp.deps.json
 bin/Debug/net10.0/MockConsoleApp/Ploch.TestingSupport.MockConsoleApp.runtimeconfig.json
 ```
 
-Nothing is added to your compile references — this package ships a binary to launch, not an API to call. Consumers targeting `net10.0` or later receive the `net10.0` asset; everything else receives the `net8.0` asset, because a `net8.0` asset does not roll forward onto a machine that only has the .NET 10 runtime.
+Nothing is added to your compile references — this package ships a binary to launch, not an API to call. Consumers targeting `net10.0` or later receive the `net10.0` asset; everything else receives the `net8.0` asset. That is a preference rather than a requirement — it picks the closest packaged asset so the host does not need to roll forward at all. Majors with no packaged asset (`net9.0` today, `net11.0` later) rely on `RollForward=Major`, described under [Target frameworks](#target-frameworks).
 
 Projects inside this repository consume the stub via `ProjectReference` instead, but `tests/Common.Tests/Ploch.Common.Tests.csproj` stages it to the same `MockConsoleApp/` location, so the resolution code below is identical either way.
 
