@@ -157,12 +157,18 @@ jobs:
           fi
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
+      # Package selection excludes ./tests/ structurally rather than matching on the name
+      # "Test". A previous `-not -path '*/Test*'` filter also matched ./src/TestingSupport*,
+      # because find -path matches the whole path and * spans /, so every TestingSupport
+      # library was silently dropped from the NuGet.org publish - see issue #278. The one
+      # package that genuinely must not ship is tests/TestAssemblies/Common.Tests.TestTypes,
+      # which is packable only because its name ends in TestTypes rather than Tests.
       - name: Publish NuGet packages to NuGet.org
         if: success()
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          PKGS=$(find . -name '*.nupkg' -not -path '*/test*' -not -path '*/Test*')
+          PKGS=$(find . -name '*.nupkg' -not -path './tests/*')
           if [ -z "$PKGS" ]; then
             echo "::error::No .nupkg files were produced by the build."
             exit 1
@@ -177,7 +183,7 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          find . -name '*.snupkg' -not -path '*/test*' -not -path '*/Test*' | while read pkg; do
+          find . -name '*.snupkg' -not -path './tests/*' | while read pkg; do
             echo "Publishing symbols $pkg"
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY"
           done
