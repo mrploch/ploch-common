@@ -32,7 +32,9 @@ Typical uses include:
 
 `net10.0` and `net8.0`.
 
-The application is packed **without a native apphost**, so a single package behaves identically on Windows, Linux and macOS. There is no `.exe` — launch it through the `dotnet` muxer. Because `dotnet <app>.dll` runs the application inside the `dotnet` process itself, the `Process` handle you get back is the stub's own process, so process inspection and manipulation (affinity, priority, exit codes) behave as expected.
+The application is packed **without a native apphost**, so a single package behaves identically on Windows, Linux and macOS. There is no `.exe` — launch it through the `dotnet` muxer.
+
+It is also built with `RollForward=Major`. The default roll-forward policy is `Minor`, which never crosses a major version, so without this the `net8.0` asset would refuse to start on a machine that has only the .NET 9 runtime. With it, a packaged asset binds to the lowest higher major runtime available, which keeps `net9.0` consumers (and future `net11.0` ones) working from the same two assets. Because `dotnet <app>.dll` runs the application inside the `dotnet` process itself, the `Process` handle you get back is the stub's own process, so process inspection and manipulation (affinity, priority, exit codes) behave as expected.
 
 ## Installation
 
@@ -40,9 +42,15 @@ The application is packed **without a native apphost**, so a single package beha
 dotnet add package Ploch.TestingSupport.MockConsoleApp
 ```
 
+The package is published to **GitHub Packages** (`https://nuget.pkg.github.com/mrploch`), not to NuGet.org. Add that feed to your `NuGet.Config` (the repositories in this workspace already do, authenticated with `MRPLOCH_GITHUB_PACKAGES_TOKEN`) or pass it explicitly:
+
+```shell
+dotnet add package Ploch.TestingSupport.MockConsoleApp --source https://nuget.pkg.github.com/mrploch/index.json
+```
+
 The package payload lives under `tools/<tfm>/` and carries an MSBuild targets file that is imported automatically. On build, the stub is staged into your project's output directory at `MockConsoleApp/`:
 
-```
+```text
 bin/Debug/net10.0/MockConsoleApp/Ploch.TestingSupport.MockConsoleApp.dll
 bin/Debug/net10.0/MockConsoleApp/Ploch.TestingSupport.MockConsoleApp.deps.json
 bin/Debug/net10.0/MockConsoleApp/Ploch.TestingSupport.MockConsoleApp.runtimeconfig.json

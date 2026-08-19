@@ -19,10 +19,13 @@
         <PlochMockConsoleAppToolsRoot>$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)', '..', 'tools'))</PlochMockConsoleAppToolsRoot>
 
         <!--
-            Pick the highest packaged target framework the consumer can actually run. A net8.0 asset
-            does not roll forward onto a machine that only has the .NET 10 runtime (the default
-            rollForward policy is Minor, which does not cross major versions), so net10.0+ consumers
-            must get the net10.0 asset.
+            Prefer an exact major match so the host does not have to roll forward at all: net10.0
+            and later consumers get the net10.0 asset, everything else gets net8.0.
+
+            Majors with no packaged asset (net9.0 today, net11.0 in future) are covered by
+            RollForward=Major on the application itself. Without it the default Minor policy
+            refuses to cross a major version and the staged asset fails to start with
+            "You must install or update .NET to run this application". See PR #276 review.
         -->
         <PlochMockConsoleAppTargetFramework Condition="'$(PlochMockConsoleAppTargetFramework)' == '' AND '$(TargetFrameworkIdentifier)' == '.NETCoreApp' AND $([MSBuild]::VersionGreaterThanOrEquals($(TargetFrameworkVersion.TrimStart('vV')), '10.0'))">net10.0</PlochMockConsoleAppTargetFramework>
         <PlochMockConsoleAppTargetFramework Condition="'$(PlochMockConsoleAppTargetFramework)' == ''">net8.0</PlochMockConsoleAppTargetFramework>

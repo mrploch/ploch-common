@@ -17,8 +17,12 @@ without depending on a real application artefact.
 ## Installation
 
 ```shell
-dotnet add package Ploch.TestingSupport.MockConsoleApp
+dotnet add package Ploch.TestingSupport.MockConsoleApp \
+    --source https://nuget.pkg.github.com/mrploch/index.json
 ```
+
+The package is published to GitHub Packages, not NuGet.org, so the feed must be configured in
+your `NuGet.Config` or passed with `--source` as above.
 
 The package payload lives under `tools/` and is staged into your project's output directory at
 `MockConsoleApp/` by an auto-imported MSBuild targets file. Nothing is added to your compile
@@ -75,6 +79,11 @@ public void ProcessManager_should_detect_running_process()
 ```
 
 ## Target frameworks
+
+The application is built with `RollForward=Major`, so a packaged asset binds to the lowest
+higher major runtime when its own major is not installed. Without it the default `Minor`
+policy would refuse to cross a major version and a `net9.0`-only machine could not start the
+stub at all.
 
 `net10.0` and `net8.0`. The targets file stages the `net10.0` asset into `net10.0`-or-later
 consumers and the `net8.0` asset into everything else, because a `net8.0` asset does not roll

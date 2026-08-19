@@ -10,6 +10,8 @@
 
 - **The NuGet package is now actually consumable.** Build output is packed to `tools/<tfm>/` instead of `lib/`, so a `PackageReference` yields a launchable binary rather than a compile-time reference to an `Exe`. The package carries `build/Ploch.TestingSupport.MockConsoleApp.targets`, imported automatically, which stages the stub into the consumer's output directory at `MockConsoleApp/`. Consumers on `net10.0` or later receive the `net10.0` asset and everything else the `net8.0` asset, because a `net8.0` asset does not roll forward onto a machine that only has the .NET 10 runtime.
 
+- **`RollForward=Major`.** The default roll-forward policy is `Minor`, which never crosses a major runtime version, so the `net8.0` asset would have refused to start on a machine with only the .NET 9 runtime (`You must install or update .NET to run this application`) and the `net10.0` asset would hit the same wall on a future .NET 11-only machine. Per-TFM selection still prefers an exact major where one is packaged; this covers the majors that are not. Safe here because the application has no dependencies and uses only `Console` members.
+
 - **`UseAppHost=false`.** A single package now behaves identically on Windows, Linux and macOS; the stub is launched through the `dotnet` muxer rather than as a platform-specific `.exe`. Previously the packed apphost would have been baked for whichever OS ran the build.
 
 - **`Ploch.Common.Tests` stages the stub to the same `MockConsoleApp/` location** via a `StageMockConsoleApp` target, so in-repo `ProjectReference` consumers and external `PackageReference` consumers resolve it identically. Its reference is now `ReferenceOutputAssembly="false"` — the stub is launched, never compiled against.

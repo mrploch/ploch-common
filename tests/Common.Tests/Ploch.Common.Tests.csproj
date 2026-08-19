@@ -130,16 +130,19 @@
         This mirrors what the published package's build/*.targets does for PackageReference
         consumers, so in-repo tests and external consumers resolve the stub identically:
             Path.Combine(AppContext.BaseDirectory, "MockConsoleApp", "Ploch.TestingSupport.MockConsoleApp.dll")
-        The source directory comes from the resolved build output rather than a guessed
+        Source paths come from the resolved build output rather than a guessed
         bin/$(Configuration)/$(TargetFramework) path, so it survives Release builds and any
         OutputPath customisation. See issue #275.
     -->
     <Target Name="StageMockConsoleApp" AfterTargets="Build" Condition="'@(MockConsoleAppBuildOutput)' != ''">
-        <PropertyGroup>
-            <MockConsoleAppSourceDirectory>@(MockConsoleAppBuildOutput->'%(RootDir)%(Directory)'->Distinct())</MockConsoleAppSourceDirectory>
-        </PropertyGroup>
         <ItemGroup>
-            <MockConsoleAppPayload Include="$(MockConsoleAppSourceDirectory)**\*" />
+            <!--
+                Metadata batching, not an item transform: a transform emits its result as a literal
+                item identity and does NOT re-expand wildcards, so the transform form fails with
+                MSB3030 ("could not copy ...**\* because it was not found"). Batching substitutes the
+                metadata first and then globs, and it still evaluates once per distinct directory.
+            -->
+            <MockConsoleAppPayload Include="%(MockConsoleAppBuildOutput.RootDir)%(MockConsoleAppBuildOutput.Directory)**\*" />
         </ItemGroup>
         <Copy SourceFiles="@(MockConsoleAppPayload)"
               DestinationFolder="$(OutDir)MockConsoleApp\%(RecursiveDir)"

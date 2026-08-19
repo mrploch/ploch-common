@@ -35,8 +35,16 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Description>A minimal console application used as a launch target in process-related integration tests.</Description>
         <PackageTags>testing;test-double;console;process;integration-testing</PackageTags>
-        <!-- Top-level statements expose no public API, so there is nothing to document. -->
-        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <!--
+            Allow the host to bind a newer major runtime. The default rollForward policy is
+            Minor, which never crosses a major version, so the net8.0 asset would refuse to
+            start on a machine that has only .NET 9 ("You must install or update .NET to run
+            this application") and the net10.0 asset would do the same on a future .NET 11-only
+            machine. Per-TFM selection in build/*.targets still picks an exact major where one
+            is packaged; this is the safety net for the majors that are not. Safe here because
+            the app has no dependencies and uses only Console members. See PR #276 review.
+        -->
+        <RollForward>Major</RollForward>
     </PropertyGroup>
 
     <ItemGroup>
@@ -51,7 +59,7 @@
     -->
     <Target Name="PackMockConsoleAppTools">
         <ItemGroup>
-            <TfmSpecificPackageFile Include="$(OutputPath)**\*">
+            <TfmSpecificPackageFile Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*.xml">
                 <PackagePath>tools/$(TargetFramework)/%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
             </TfmSpecificPackageFile>
         </ItemGroup>
