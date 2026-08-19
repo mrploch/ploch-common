@@ -173,7 +173,7 @@ jobs:
             echo "::error::No .nupkg files were produced by the build."
             exit 1
           fi
-          echo "$PKGS" | while read pkg; do
+          echo "$PKGS" | while IFS= read -r pkg; do
             echo "Publishing $pkg"
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY"
           done
@@ -183,7 +183,7 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          find . -name '*.snupkg' -not -path './tests/*' | while read pkg; do
+          find . -name '*.snupkg' -not -path './tests/*' | while IFS= read -r pkg; do
             echo "Publishing symbols $pkg"
             dotnet nuget push "$pkg" --source https://api.nuget.org/v3/index.json --skip-duplicate -k "$NUGET_API_KEY"
           done
