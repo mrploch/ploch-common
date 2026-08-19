@@ -8,4 +8,61 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <!--
+            This package ships a launchable binary, not a compile-time reference to an Exe, so the
+            build output is packed under tools/ instead of lib/ (issue #275).
+
+            Note this is deliberately NOT PackAsTool: that produces a DotnetTool-typed package
+            installed with `dotnet tool install` and invoked by command name, which would break the
+            documented `dotnet add package` workflow. It is also not the `IsTool` property, which
+            flattens every target framework into a single tools/ folder — on a multi-targeted
+            project the second TFM's files collide with the first and are silently dropped (NU5118).
+            The per-TFM layout is produced by PackMockConsoleAppTools below instead.
+        -->
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);PackMockConsoleAppTools</TargetsForTfmSpecificContentInPackage>
+        <!-- Nothing lands in lib/, and this package has no dependencies to declare. -->
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <!-- The .pdb is packed alongside the app under tools/, so a separate symbol package is redundant. -->
+        <IncludeSymbols>false</IncludeSymbols>
+        <!--
+            No native apphost. The apphost is baked for whichever OS packs the project and is dead
+            weight on every other one, so a single package built anywhere behaves identically on
+            Windows, Linux and macOS: consumers launch `dotnet Ploch.TestingSupport.MockConsoleApp.dll`.
+        -->
+        <UseAppHost>false</UseAppHost>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Description>A minimal console application used as a launch target in process-related integration tests.</Description>
+        <PackageTags>testing;test-double;console;process;integration-testing</PackageTags>
+        <!--
+            Allow the host to bind a newer major runtime. The default rollForward policy is
+            Minor, which never crosses a major version, so the net8.0 asset would refuse to
+            start on a machine that has only .NET 9 ("You must install or update .NET to run
+            this application") and the net10.0 asset would do the same on a future .NET 11-only
+            machine. Per-TFM selection in build/*.targets still picks an exact major where one
+            is packaged; this is the safety net for the majors that are not. Safe here because
+            the app has no dependencies and uses only Console members. See PR #276 review.
+        -->
+        <RollForward>Major</RollForward>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath="\" />
+        <!-- Auto-imported by PackageReference consumers; stages the stub into their output directory. -->
+        <None Include="build\Ploch.TestingSupport.MockConsoleApp.targets" Pack="true" PackagePath="build\" />
+    </ItemGroup>
+
+    <!--
+        Runs once per target framework with that TFM's build context, so each leg lands in its own
+        tools/<tfm>/ folder and the two no longer overwrite each other.
+    -->
+    <Target Name="PackMockConsoleAppTools">
+        <ItemGroup>
+            <TfmSpecificPackageFile Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*.xml">
+                <PackagePath>tools/$(TargetFramework)/%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+            </TfmSpecificPackageFile>
+        </ItemGroup>
+    </Target>
+
 </Project>
