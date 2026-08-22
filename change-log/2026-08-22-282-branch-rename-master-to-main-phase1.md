@@ -21,11 +21,6 @@ or package versions are wrong. Nothing is renamed yet and no behaviour on `maste
   `master`. That step is now branch-agnostic and needs no further change after the rename.
 - **`version.json`** — `publicReleaseRefSpec` gains `^refs/heads/main$` alongside
   `^refs/heads/master$`.
-- **`azure-pipelines.yml`** — the legacy Azure DevOps trigger accepts either branch. This
-  pipeline is dead configuration — it targets the deleted `Ploch.Common.sln`, .NET SDK 7.x, and
-  the stale SonarCloud key `ploch_common`, so it cannot run successfully — but `main` was added
-  anyway as zero-cost insurance, so that no branch trigger anywhere in the repository is
-  `master`-only. Retiring the file is tracked separately as #283.
 
 ### Why `version.json` had to change first
 
@@ -57,10 +52,20 @@ No branch was renamed and no documentation, permalink, or agent-instruction file
 are phases 2 and 3 of #282: the rename itself is the repository owner's call, and the cleanup that
 removes these `master` fallbacks must land on `main` afterwards.
 
-Two categories are deliberately left alone. Historical `change-log/` entries that mention `master`
-record what was true at the time and are not rewritten. The `.github-test/workflows/` copies still
-reference `master` only; GitHub reads workflows exclusively from `.github/workflows`, so those
-files are inert and are handled in phase 3.
+Three categories are deliberately left alone. Historical `change-log/` entries that mention
+`master` record what was true at the time and are not rewritten. The `.github-test/workflows/`
+copies still reference `master` only; GitHub reads workflows exclusively from `.github/workflows`,
+so those files are inert and are handled in phase 3.
+
+`azure-pipelines.yml` also keeps its `master`-only trigger, deliberately. It is dead configuration
+— it targets the deleted `Ploch.Common.sln` (the repository uses `Ploch.Common.slnx`), pins .NET
+SDK 7.x, and uses the stale SonarCloud key `ploch_common` rather than `mrploch_ploch-common` — so
+it cannot complete a restore, let alone produce a usable CI result. Adding `main` to it was
+considered and rejected: if the pipeline is no longer wired to an Azure DevOps project the change
+has no effect, and if it *is* still wired it has been failing on every `master` push for years, so
+adding `main` would only add failing runs on a second branch without recovering any signal. Leaving
+the trigger stale means the rename quietly stops it firing at all, which is the desired outcome
+pending its retirement under #283.
 
 ### Refs
 
