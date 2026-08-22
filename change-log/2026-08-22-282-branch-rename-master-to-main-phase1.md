@@ -21,6 +21,11 @@ or package versions are wrong. Nothing is renamed yet and no behaviour on `maste
   `master`. That step is now branch-agnostic and needs no further change after the rename.
 - **`version.json`** — `publicReleaseRefSpec` gains `^refs/heads/main$` alongside
   `^refs/heads/master$`.
+- **`docs/libraries/common-msbuild.md`** — the NBGV section reproduces `version.json` verbatim in a
+  code block, so it is updated to match. Two drifts were corrected: the new `^refs/heads/main$`
+  entry and the accompanying prose (caused by this change), and a pre-existing one where the doc
+  still showed base version `3.1` after the repository moved to `4.0`. The block is now verified
+  byte-equivalent to `version.json`.
 
 ### Why `version.json` had to change first
 
