@@ -4,9 +4,9 @@
 name: Build
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
   workflow_dispatch:
 env:
   SONAR_PROJECT_KEY: mrploch_ploch-common
@@ -161,12 +161,12 @@ jobs:
       # Publish prerelease NuGet packages to GitHub Packages
       # Release packages are published to nuget.org via the release workflow
       - name: Add GitHub Packages source
-        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: success() && github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
       - name: Publish NuGet packages to GitHub Packages
-        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: success() && github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
         run: |
