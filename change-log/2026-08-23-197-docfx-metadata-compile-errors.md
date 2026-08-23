@@ -34,8 +34,8 @@ for the shipping WebApi libraries.
 - **Cleared a high-severity advisory.** The previously resolved `Microsoft.OpenApi` 2.0.0 was subject
   to [GHSA-v5pm-xwqc-g5wc](https://github.com/advisories/GHSA-v5pm-xwqc-g5wc) (NU1903); 2.7.5 is not.
 - The project now builds as a class library (`Microsoft.NET.Sdk` + a framework reference) instead of
-  using the Web SDK, which had silently disabled packaging — so `Ploch.Common.WebApi` produces the
-  NuGet package its documentation advertises.
+  using the Web SDK. Packaging stays explicitly disabled: both CI workflows glob `**/*.nupkg`, so
+  enabling it would publish a package that has never shipped. Whether to ship it is tracked in #285.
 - Removed an unreachable `OperationIdSelector` that was overwritten by the following
   `CustomOperationIds` call, and which referenced a non-existent `ToPascalCase` extension.
 - Added XML documentation and argument guards to `ConfigureOpenApiOptions`.
@@ -48,8 +48,10 @@ for the shipping WebApi libraries.
   `CultureInfo.InvariantCulture`; previously a query string was interpreted differently depending on
   the server's locale (`03/04/2024` meant March in one locale and April in another).
 - Null query values are skipped rather than dereferenced.
-- Added `Ploch.Common.WebApi.Tests` with 13 tests covering every supported property type plus the
-  two regressions above.
+- Added `tests/Common.WebApi.Tests` with 13 tests covering every supported property type plus the
+  two regressions above. The project is registered in `Ploch.Common.slnx`, so CI builds
+  `Ploch.Common.WebApi` and runs these tests — the class of rot behind this issue was precisely that
+  none of these projects were in the solution.
 
 ### `Ploch.Common.WebApi.Endpoints.CrudEndpoints`
 

@@ -210,6 +210,7 @@
     <Project Path="tests\Common.DependencyInjection.Tests\Ploch.Common.DependencyInjection.Tests.csproj" />
     <Project Path="tests\Common.Net9.Tests\Ploch.Common.Net9.Tests.csproj" />
     <Project Path="tests\Common.Tests\Ploch.Common.Tests.csproj" />
+    <Project Path="tests\Common.WebApi.Tests\Ploch.Common.WebApi.Tests.csproj" />
     <Project Path="tests\TestingSupport.FluentAssertions.Tests\Ploch.TestingSupport.FluentAssertions.Tests.csproj">
       <Configuration Solution="Debug|ARM" Project="Debug|Any CPU" />
       <Configuration Solution="Debug|ARM64" Project="Debug|Any CPU" />

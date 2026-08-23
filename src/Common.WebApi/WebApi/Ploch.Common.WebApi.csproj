@@ -4,6 +4,13 @@
         <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <!--
+            Not shipped yet. The library is in the solution only so CI compiles it and runs
+            Ploch.Common.WebApi.Tests; both CI workflows glob **/*.nupkg, so leaving packaging on
+            would publish this package for the first time. Whether to ship it is tracked separately.
+        -->
+        <IsPackable>false</IsPackable>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

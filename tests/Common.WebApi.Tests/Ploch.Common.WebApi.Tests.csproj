@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\WebApi\Ploch.Common.WebApi.csproj" />
+        <ProjectReference Include="..\..\src\Common.WebApi\WebApi\Ploch.Common.WebApi.csproj" />
     </ItemGroup>
 
 </Project>
