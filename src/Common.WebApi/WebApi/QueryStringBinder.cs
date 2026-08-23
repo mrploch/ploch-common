@@ -18,6 +18,9 @@ public static class QueryStringBinder
     /// <exception cref="NotSupportedException">
     /// Thrown when a property of type <typeparamref name="TQuery"/> has a type that is not supported for query string binding.
     /// </exception>
+    /// <exception cref="FormatException">
+    /// Thrown when a query string value cannot be converted to its target property type.
+    /// </exception>
     public static TQuery Bind<TQuery>(HttpContext httpContext)
         where TQuery : new()
     {
@@ -43,6 +46,11 @@ public static class QueryStringBinder
     /// <returns>
     /// True if the query string parameters were successfully parsed into an instance of <typeparamref name="TQuery"/>; otherwise, false.
     /// </returns>
+    /// <exception cref="FormatException">
+    /// Thrown when a query string value cannot be converted to its target property type. A <see langword="false"/>
+    /// return value means the type itself is not bindable; a malformed <em>value</em> for an otherwise supported type
+    /// is reported as an exception naming the property and the expected type.
+    /// </exception>
     public static bool TryParse<TQuery>(IDictionary<string, StringValues> query, out TQuery queryInstance)
         where TQuery : new()
     {
@@ -76,7 +84,7 @@ public static class QueryStringBinder
                 continue;
             }
 
-            property.SetValue(queryInstance, Convert(firstValue, propertyType));
+            property.SetValue(queryInstance, ConvertValue(firstValue, propertyType, property.Name));
         }
 
         return true;
@@ -94,7 +102,9 @@ public static class QueryStringBinder
 
     // Query strings are a culture-neutral wire format, so values are read with the invariant
     // culture. bool and enum values have no culture-sensitive representation.
-    private static object Convert(string value, Type propertyType)
+    //
+    // Named ConvertValue rather than Convert so it does not shadow System.Convert.
+    private static object ConvertValue(string value, Type propertyType, string propertyName)
     {
         if (propertyType == typeof(string))
         {
@@ -103,34 +113,51 @@ public static class QueryStringBinder
 
         if (propertyType == typeof(int))
         {
-            return int.Parse(value, CultureInfo.InvariantCulture);
+            return int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed)
+                       ? parsed
+                       : throw InvalidValue(value, propertyName, propertyType);
         }
 
         if (propertyType == typeof(bool))
         {
-            return bool.Parse(value);
+            return bool.TryParse(value, out var parsed) ? parsed : throw InvalidValue(value, propertyName, propertyType);
         }
 
         if (propertyType == typeof(DateTime))
         {
-            return DateTime.Parse(value, CultureInfo.InvariantCulture);
+            return DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
+                       ? parsed
+                       : throw InvalidValue(value, propertyName, propertyType);
         }
 
         if (propertyType == typeof(DateTimeOffset))
         {
-            return DateTimeOffset.Parse(value, CultureInfo.InvariantCulture);
+            return DateTimeOffset.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
+                       ? parsed
+                       : throw InvalidValue(value, propertyName, propertyType);
         }
 
         if (propertyType == typeof(DateOnly))
         {
-            return DateOnly.Parse(value, CultureInfo.InvariantCulture);
+            return DateOnly.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
+                       ? parsed
+                       : throw InvalidValue(value, propertyName, propertyType);
         }
 
         if (propertyType == typeof(TimeOnly))
         {
-            return TimeOnly.Parse(value, CultureInfo.InvariantCulture);
+            return TimeOnly.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
+                       ? parsed
+                       : throw InvalidValue(value, propertyName, propertyType);
         }
 
-        return Enum.Parse(propertyType, value);
+        return Enum.TryParse(propertyType, value, out var parsedEnum) && parsedEnum is not null
+                   ? parsedEnum
+                   : throw InvalidValue(value, propertyName, propertyType);
     }
+
+    // A malformed value still surfaces as FormatException, as it did when the conversions threw
+    // directly, but now names the property and the expected type instead of only the bad input.
+    private static FormatException InvalidValue(string value, string propertyName, Type propertyType) =>
+        new($"Query string value '{value}' for property '{propertyName}' is not a valid {propertyType.Name}.");
 }

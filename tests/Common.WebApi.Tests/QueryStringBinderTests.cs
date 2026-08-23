@@ -213,6 +213,21 @@ public class QueryStringBinderTests
         act.Should().Throw<NotSupportedException>();
     }
 
+    // A malformed value still throws FormatException as it always did, but the message now names
+    // the property and expected type rather than only echoing the bad input.
+    [Theory]
+    [InlineData("Page", "notanumber", nameof(Int32))]
+    [InlineData("CreatedOn", "definitely-not-a-date", nameof(DateTime))]
+    [InlineData("Direction", "Sideways", nameof(SortDirection))]
+    public void TryParse_should_report_the_property_and_expected_type_when_a_value_is_malformed(string key, string value, string expectedTypeName)
+    {
+        var act = () => QueryStringBinder.TryParse<TestQuery>(Query((key, value)), out _);
+
+        act.Should()
+           .Throw<FormatException>()
+           .WithMessage($"*'{value}'*'{key}'*{expectedTypeName}*");
+    }
+
     private static Dictionary<string, StringValues> Query(params (string Key, string Value)[] values) =>
         values.ToDictionary(v => v.Key, v => new StringValues(v.Value));
 }

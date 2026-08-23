@@ -47,7 +47,14 @@ for the shipping WebApi libraries.
 - **Fixed culture-dependent parsing.** Numbers, dates and times are now parsed with
   `CultureInfo.InvariantCulture`; previously a query string was interpreted differently depending on
   the server's locale (`03/04/2024` meant March in one locale and April in another).
-- Null query values are skipped rather than dereferenced.
+- Null query values are skipped rather than dereferenced, and a blank value (`?page=`) leaves a
+  non-string property at its default instead of throwing `FormatException` from `int.Parse("")`.
+- A property type that cannot be bound is now detected even when the caller omits it from the query
+  string; previously an absent key skipped the check, so `TryParse` reported success for a type it
+  documents as unsupported.
+- Conversions use the `Try*` pattern, so a malformed value raises a `FormatException` naming the
+  property and expected type (`Query string value 'abc' for property 'Page' is not a valid Int32.`)
+  rather than the framework's message, which echoed only the bad input.
 - Added `tests/Common.WebApi.Tests` with 13 tests covering every supported property type plus the
   two regressions above. The project is registered in `Ploch.Common.slnx`, so CI builds
   `Ploch.Common.WebApi` and runs these tests — the class of rot behind this issue was precisely that
