@@ -67,7 +67,11 @@ public static class QueryStringBinder
             }
 
             var firstValue = queryValue[0];
-            if (firstValue is null)
+
+            // An empty value ("?page=") is a supplied-but-blank parameter. It is a legitimate
+            // empty string, but every other conversion would throw FormatException on it, so it
+            // leaves non-string properties at their default instead.
+            if (firstValue is null || (firstValue.Length == 0 && propertyType != typeof(string)))
             {
                 continue;
             }

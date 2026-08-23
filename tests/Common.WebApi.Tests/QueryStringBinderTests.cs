@@ -111,6 +111,31 @@ public class QueryStringBinderTests
         result.Name.Should().BeNull();
     }
 
+    // "?Page=" supplies the key with a blank value. Every non-string conversion would throw
+    // FormatException on an empty string, so those properties keep their default instead.
+    [Fact]
+    public void TryParse_should_skip_a_blank_value_for_a_non_string_property()
+    {
+        var query = new Dictionary<string, StringValues> { ["Page"] = new StringValues(string.Empty) };
+
+        var act = () => QueryStringBinder.TryParse<TestQuery>(query, out _);
+
+        act.Should().NotThrow();
+
+        QueryStringBinder.TryParse<TestQuery>(query, out var result).Should().BeTrue();
+        result.Page.Should().Be(0);
+    }
+
+    [Fact]
+    public void TryParse_should_bind_a_blank_value_to_a_string_property()
+    {
+        var query = new Dictionary<string, StringValues> { ["Name"] = new StringValues(string.Empty) };
+
+        QueryStringBinder.TryParse<TestQuery>(query, out var result).Should().BeTrue();
+
+        result.Name.Should().BeEmpty();
+    }
+
     [Fact]
     public void TryParse_should_return_false_when_a_property_type_is_not_supported()
     {
