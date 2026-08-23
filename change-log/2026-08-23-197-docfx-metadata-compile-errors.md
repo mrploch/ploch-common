@@ -61,5 +61,11 @@ for the shipping WebApi libraries.
 
 ### Documentation build
 
-- `DocumentationSite/docfx.json` no longer excludes `**/Common.WebApi/**`, so all five WebApi
-  libraries are documented again. The test-project excludes remain.
+- `DocumentationSite/docfx.json` no longer excludes `**/Common.WebApi/**`, so `Ploch.Common.WebApi`
+  and `Ploch.Common.WebApi.Endpoints` are documented again.
+- The CrudEndpoints family (`WebApi.Endpoints.CrudEndpoints` and its FastEndpoints and
+  MinimalApiEndpoints integrations) stays excluded for a different reason: those projects
+  `ProjectReference` two projects in the sibling `ploch-data` repository, and no workflow clones it,
+  so DocFX cannot resolve them on a CI runner. Documenting them needs either that clone step or a
+  switch to package references — tracked separately.
+- The test-project excludes remain: test assemblies do not belong in the published API reference.

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi;
+using Ploch.Common.ArgumentChecking;
 
 namespace Ploch.Common.WebApi;
 
@@ -22,7 +23,8 @@ public static class OpenApiConfigurator
     ///     The same <paramref name="services" /> instance, so further calls can be chained.
     /// </returns>
     /// <exception cref="ArgumentNullException">
-    ///     Thrown when <paramref name="services" /> or <paramref name="apiDescription" /> is <see langword="null" />.
+    ///     Thrown when <paramref name="services" /> or <paramref name="apiDescription" /> is <see langword="null" />,
+    ///     or when <paramref name="apiVersionString" /> is <see langword="null" /> or empty.
     /// </exception>
     /// <example>
     ///     <code>
@@ -35,8 +37,9 @@ public static class OpenApiConfigurator
     /// </example>
     public static IServiceCollection ConfigureOpenApiOptions(this IServiceCollection services, OpenApiInfo apiDescription, string apiVersionString = "v1")
     {
-        ArgumentNullException.ThrowIfNull(services);
-        ArgumentNullException.ThrowIfNull(apiDescription);
+        services.NotNull();
+        apiDescription.NotNull();
+        apiVersionString.NotNullOrEmpty();
 
         services.AddOpenApi();
         services.AddEndpointsApiExplorer();

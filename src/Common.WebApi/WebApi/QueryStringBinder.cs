@@ -46,11 +46,21 @@ public static class QueryStringBinder
     public static bool TryParse<TQuery>(IDictionary<string, StringValues> query, out TQuery queryInstance)
         where TQuery : new()
     {
-        var queryType = typeof(TQuery);
-        var queryProperties = queryType.GetProperties();
         queryInstance = new TQuery();
-        foreach (var property in queryProperties)
+
+        foreach (var property in typeof(TQuery).GetProperties())
         {
+            var propertyType = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
+
+            // Whether a type is bindable is a property of the type, not of the request, so it is
+            // checked before the value is looked up. Deciding this only for properties that happen
+            // to appear in the query string would let an unsupported type pass unnoticed whenever
+            // the caller omitted it.
+            if (!IsSupported(propertyType))
+            {
+                return false;
+            }
+
             if (!query.TryGetValue(property.Name, out var queryValue) || queryValue.Count == 0)
             {
                 continue;
@@ -62,50 +72,61 @@ public static class QueryStringBinder
                 continue;
             }
 
-            var propertyType = property.PropertyType;
-            if (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
-            {
-                propertyType = propertyType.GetGenericArguments()[0];
-            }
-
-            if (propertyType == typeof(string))
-            {
-                property.SetValue(queryInstance, firstValue);
-            }
-            else if (propertyType == typeof(int))
-            {
-                property.SetValue(queryInstance, int.Parse(firstValue, CultureInfo.InvariantCulture));
-            }
-            else if (propertyType == typeof(bool))
-            {
-                property.SetValue(queryInstance, bool.Parse(firstValue));
-            }
-            else if (propertyType == typeof(DateTime))
-            {
-                property.SetValue(queryInstance, DateTime.Parse(firstValue, CultureInfo.InvariantCulture));
-            }
-            else if (propertyType == typeof(DateTimeOffset))
-            {
-                property.SetValue(queryInstance, DateTimeOffset.Parse(firstValue, CultureInfo.InvariantCulture));
-            }
-            else if (propertyType == typeof(DateOnly))
-            {
-                property.SetValue(queryInstance, DateOnly.Parse(firstValue, CultureInfo.InvariantCulture));
-            }
-            else if (propertyType == typeof(TimeOnly))
-            {
-                property.SetValue(queryInstance, TimeOnly.Parse(firstValue, CultureInfo.InvariantCulture));
-            }
-            else if (propertyType.IsEnum)
-            {
-                property.SetValue(queryInstance, Enum.Parse(propertyType, firstValue));
-            }
-            else
-            {
-                return false;
-            }
+            property.SetValue(queryInstance, Convert(firstValue, propertyType));
         }
 
         return true;
+    }
+
+    private static bool IsSupported(Type propertyType) =>
+        propertyType == typeof(string) ||
+        propertyType == typeof(int) ||
+        propertyType == typeof(bool) ||
+        propertyType == typeof(DateTime) ||
+        propertyType == typeof(DateTimeOffset) ||
+        propertyType == typeof(DateOnly) ||
+        propertyType == typeof(TimeOnly) ||
+        propertyType.IsEnum;
+
+    // Query strings are a culture-neutral wire format, so values are read with the invariant
+    // culture. bool and enum values have no culture-sensitive representation.
+    private static object Convert(string value, Type propertyType)
+    {
+        if (propertyType == typeof(string))
+        {
+            return value;
+        }
+
+        if (propertyType == typeof(int))
+        {
+            return int.Parse(value, CultureInfo.InvariantCulture);
+        }
+
+        if (propertyType == typeof(bool))
+        {
+            return bool.Parse(value);
+        }
+
+        if (propertyType == typeof(DateTime))
+        {
+            return DateTime.Parse(value, CultureInfo.InvariantCulture);
+        }
+
+        if (propertyType == typeof(DateTimeOffset))
+        {
+            return DateTimeOffset.Parse(value, CultureInfo.InvariantCulture);
+        }
+
+        if (propertyType == typeof(DateOnly))
+        {
+            return DateOnly.Parse(value, CultureInfo.InvariantCulture);
+        }
+
+        if (propertyType == typeof(TimeOnly))
+        {
+            return TimeOnly.Parse(value, CultureInfo.InvariantCulture);
+        }
+
+        return Enum.Parse(propertyType, value);
     }
 }

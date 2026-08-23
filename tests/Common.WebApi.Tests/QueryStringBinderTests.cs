@@ -102,17 +102,46 @@ public class QueryStringBinderTests
     [Fact]
     public void TryParse_should_skip_a_key_whose_first_value_is_null()
     {
-        var query = new Dictionary<string, StringValues> { ["Name"] = new StringValues((string?)null) };
+        // A one-element array containing null gives Count == 1 with a null element, which is the
+        // only way to reach the null-value branch: StringValues((string?)null) reports Count == 0.
+        var query = new Dictionary<string, StringValues> { ["Name"] = new StringValues(new string?[] { null }) };
 
-        var act = () => QueryStringBinder.TryParse<TestQuery>(query, out _);
+        QueryStringBinder.TryParse<TestQuery>(query, out var result).Should().BeTrue();
 
-        act.Should().NotThrow();
+        result.Name.Should().BeNull();
     }
 
     [Fact]
     public void TryParse_should_return_false_when_a_property_type_is_not_supported()
     {
         QueryStringBinder.TryParse<UnsupportedQuery>(Query((nameof(UnsupportedQuery.Endpoint), "https://example.test")), out _).Should().BeFalse();
+    }
+
+    // Whether a type can be bound is a property of the type, not of the request. Deciding it only
+    // for properties present in the query string let an unsupported type pass whenever the caller
+    // omitted it, contradicting the documented contract.
+    [Fact]
+    public void TryParse_should_return_false_for_an_unsupported_property_type_even_when_it_is_absent_from_the_query()
+    {
+        QueryStringBinder.TryParse<UnsupportedQuery>(new Dictionary<string, StringValues>(), out _).Should().BeFalse();
+    }
+
+    [Fact]
+    public void TryParse_should_return_false_for_an_unsupported_property_type_even_when_its_value_is_empty()
+    {
+        var query = new Dictionary<string, StringValues> { [nameof(UnsupportedQuery.Endpoint)] = StringValues.Empty };
+
+        QueryStringBinder.TryParse<UnsupportedQuery>(query, out _).Should().BeFalse();
+    }
+
+    [Fact]
+    public void Bind_should_throw_NotSupportedException_for_an_unsupported_property_type_absent_from_the_query()
+    {
+        var httpContext = new DefaultHttpContext();
+
+        var act = () => QueryStringBinder.Bind<UnsupportedQuery>(httpContext);
+
+        act.Should().Throw<NotSupportedException>();
     }
 
     // Regression: parsing previously used the ambient culture, so a query string is
