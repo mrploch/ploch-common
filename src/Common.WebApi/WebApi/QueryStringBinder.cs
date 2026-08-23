@@ -9,6 +9,27 @@ namespace Ploch.Common.WebApi;
 /// </summary>
 public static class QueryStringBinder
 {
+    // Single source of truth for which property types can be bound and how each is read.
+    // Query strings are a culture-neutral wire format, so values are read with the invariant
+    // culture; bool has no culture-sensitive representation. A converter returns null to mean
+    // "this value could not be parsed", which is unambiguous here because null values are
+    // skipped before conversion and every supported type boxes to a non-null object.
+    private static readonly Dictionary<Type, Func<string, object?>> Converters = new()
+                                                                                 {
+                                                                                     [typeof(string)] = value => value,
+                                                                                     [typeof(int)] = value =>
+                                                                                         int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed) ? parsed : null,
+                                                                                     [typeof(bool)] = value => bool.TryParse(value, out var parsed) ? parsed : null,
+                                                                                     [typeof(DateTime)] = value =>
+                                                                                         DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed) ? parsed : null,
+                                                                                     [typeof(DateTimeOffset)] = value =>
+                                                                                         DateTimeOffset.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed) ? parsed : null,
+                                                                                     [typeof(DateOnly)] = value =>
+                                                                                         DateOnly.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed) ? parsed : null,
+                                                                                     [typeof(TimeOnly)] = value =>
+                                                                                         TimeOnly.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed) ? parsed : null
+                                                                                 };
+
     /// <summary>
     /// Binds HTTP query string parameters from the given HttpContext to a new instance of the specified type.
     /// </summary>
@@ -90,74 +111,23 @@ public static class QueryStringBinder
         return true;
     }
 
-    private static bool IsSupported(Type propertyType) =>
-        propertyType == typeof(string) ||
-        propertyType == typeof(int) ||
-        propertyType == typeof(bool) ||
-        propertyType == typeof(DateTime) ||
-        propertyType == typeof(DateTimeOffset) ||
-        propertyType == typeof(DateOnly) ||
-        propertyType == typeof(TimeOnly) ||
-        propertyType.IsEnum;
+    private static bool IsSupported(Type propertyType) => propertyType.IsEnum || Converters.ContainsKey(propertyType);
 
-    // Query strings are a culture-neutral wire format, so values are read with the invariant
-    // culture. bool and enum values have no culture-sensitive representation.
-    //
     // Named ConvertValue rather than Convert so it does not shadow System.Convert.
     private static object ConvertValue(string value, Type propertyType, string propertyName)
     {
-        if (propertyType == typeof(string))
+        object? converted;
+        if (propertyType.IsEnum)
         {
-            return value;
+            converted = Enum.TryParse(propertyType, value, out var parsedEnum) ? parsedEnum : null;
+        }
+        else
+        {
+            converted = Converters[propertyType](value);
         }
 
-        if (propertyType == typeof(int))
-        {
-            return int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed)
-                       ? parsed
-                       : throw InvalidValue(value, propertyName, propertyType);
-        }
-
-        if (propertyType == typeof(bool))
-        {
-            return bool.TryParse(value, out var parsed) ? parsed : throw InvalidValue(value, propertyName, propertyType);
-        }
-
-        if (propertyType == typeof(DateTime))
-        {
-            return DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
-                       ? parsed
-                       : throw InvalidValue(value, propertyName, propertyType);
-        }
-
-        if (propertyType == typeof(DateTimeOffset))
-        {
-            return DateTimeOffset.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
-                       ? parsed
-                       : throw InvalidValue(value, propertyName, propertyType);
-        }
-
-        if (propertyType == typeof(DateOnly))
-        {
-            return DateOnly.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
-                       ? parsed
-                       : throw InvalidValue(value, propertyName, propertyType);
-        }
-
-        if (propertyType == typeof(TimeOnly))
-        {
-            return TimeOnly.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed)
-                       ? parsed
-                       : throw InvalidValue(value, propertyName, propertyType);
-        }
-
-        return Enum.TryParse(propertyType, value, out var parsedEnum) && parsedEnum is not null
-                   ? parsedEnum
-                   : throw InvalidValue(value, propertyName, propertyType);
+        // A malformed value still surfaces as FormatException, as it did when the conversions threw
+        // directly, but now names the property and the expected type instead of only the bad input.
+        return converted ?? throw new FormatException($"Query string value '{value}' for property '{propertyName}' is not a valid {propertyType.Name}.");
     }
-
-    // A malformed value still surfaces as FormatException, as it did when the conversions threw
-    // directly, but now names the property and the expected type instead of only the bad input.
-    private static FormatException InvalidValue(string value, string propertyName, Type propertyType) =>
-        new($"Query string value '{value}' for property '{propertyName}' is not a valid {propertyType.Name}.");
 }
