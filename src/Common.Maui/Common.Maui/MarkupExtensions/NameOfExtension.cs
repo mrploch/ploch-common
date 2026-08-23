@@ -30,13 +30,17 @@ public class NameOfExtension : IMarkupExtension
         }
 
         var pinfo = Type.GetRuntimeProperties().FirstOrDefault(pi => pi.Name == Member);
-        var finfo = Type.GetRuntimeFields().FirstOrDefault(fi => fi.Name == Member);
-
-        if (pinfo == null && finfo == null)
+        if (pinfo != null)
         {
-            throw new ArgumentException($"No property or field found for {Member} in {Type}");
+            return pinfo.Name;
         }
 
-        return pinfo.Name ?? finfo.Name;
+        var finfo = Type.GetRuntimeFields().FirstOrDefault(fi => fi.Name == Member);
+        if (finfo != null)
+        {
+            return finfo.Name;
+        }
+
+        throw new ArgumentException($"No property or field found for {Member} in {Type}");
     }
 }

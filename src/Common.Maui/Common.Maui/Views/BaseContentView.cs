@@ -27,7 +27,7 @@ public abstract class BaseContentView : ContentView, IView
         base.OnPropertyChanged(propertyName);
         Console.WriteLine(propertyName);
 
-        var navigationPage = Application.Current.MainPage as NavigationPage;
+        var navigationPage = Application.Current?.MainPage as NavigationPage;
         if (propertyName == "Renderer" && IsVisible && !_didAppear)
         {
             _didAppear = true;
@@ -46,7 +46,7 @@ public abstract class BaseContentView : ContentView, IView
     protected virtual void OnViewAppeared()
     {
         BindingContext = ViewModel;
-        ViewModel.OnAppearingAsync().SafeFireAndForget();
+        ViewModel?.OnAppearingAsync().SafeFireAndForget();
     }
 
     protected virtual void OnViewDisappeared()
