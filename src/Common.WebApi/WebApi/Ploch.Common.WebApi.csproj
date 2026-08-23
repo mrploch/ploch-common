@@ -1,11 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <OutputType>Library</OutputType>
     </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
@@ -14,6 +17,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Common\Ploch.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageVersion Update="Swashbuckle.AspNetCore.SwaggerGen" Version="10.2.3" />
     </ItemGroup>
 
     <ItemGroup>

@@ -16,7 +16,7 @@ public abstract class GetByIdEndpointHandler<TEntity, TId, TDto, TGetByIdRequest
 {
     public virtual async Task<Result<TGetByIdResponse>> HandleAsync(TGetByIdRequest request, CancellationToken cancellationToken)
     {
-        if (cache.TryGetValue($"{typeof(TEntity).Name}_{request.Id}", out TEntity cachedEntity))
+        if (cache.TryGetValue($"{typeof(TEntity).Name}_{request.Id}", out TEntity? cachedEntity) && cachedEntity is not null)
         {
             var fromCachedDto = mapper.Map<TDto>(cachedEntity);
 

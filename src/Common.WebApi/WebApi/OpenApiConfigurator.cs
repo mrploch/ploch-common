@@ -1,31 +1,47 @@
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi;
 
 namespace Ploch.Common.WebApi;
 
+/// <summary>
+///     Extension methods that register OpenAPI document generation for a Web API.
+/// </summary>
 public static class OpenApiConfigurator
 {
+    /// <summary>
+    ///     Registers the built-in OpenAPI document provider together with Swagger generation for a single API version.
+    /// </summary>
+    /// <param name="services">The service collection to add the OpenAPI services to.</param>
+    /// <param name="apiDescription">
+    ///     The document metadata (title, version, description, contact, licence) published for the API.
+    /// </param>
+    /// <param name="apiVersionString">
+    ///     The document name the generated Swagger document is registered under. Defaults to <c>v1</c>.
+    /// </param>
+    /// <returns>
+    ///     The same <paramref name="services" /> instance, so further calls can be chained.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    ///     Thrown when <paramref name="services" /> or <paramref name="apiDescription" /> is <see langword="null" />.
+    /// </exception>
+    /// <example>
+    ///     <code>
+    /// builder.Services.ConfigureOpenApiOptions(new OpenApiInfo
+    ///                                          {
+    ///                                              Title = "Orders API",
+    ///                                              Version = "v1"
+    ///                                          });
+    ///     </code>
+    /// </example>
     public static IServiceCollection ConfigureOpenApiOptions(this IServiceCollection services, OpenApiInfo apiDescription, string apiVersionString = "v1")
     {
+        ArgumentNullException.ThrowIfNull(services);
+        ArgumentNullException.ThrowIfNull(apiDescription);
+
         services.AddOpenApi();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
                                {
-                                   string OperationIdSelector(ApiDescription description)
-                                   {
-                                       var name = $"{description.HttpMethod}_{description.HttpMethod}";
-
-                                       name = name.ToPascalCase();
-
-                                       if (name.StartsWith("GetGet", StringComparison.InvariantCultureIgnoreCase))
-                                       {
-                                           name = name[3..];
-                                       }
-
-                                       return name;
-                                   }
-
-                                   options.SwaggerGeneratorOptions.OperationIdSelector = OperationIdSelector;
                                    options.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["controller"]}{e.HttpMethod}");
                                    options.SwaggerDoc(apiVersionString, apiDescription);
                                });

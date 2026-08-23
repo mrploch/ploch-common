@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Primitives;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 
 namespace Ploch.Common.WebApi;
 
@@ -49,13 +51,17 @@ public static class QueryStringBinder
         queryInstance = new TQuery();
         foreach (var property in queryProperties)
         {
-            var queryValue = query[property.Name];
-            if (queryValue.Count == 0)
+            if (!query.TryGetValue(property.Name, out var queryValue) || queryValue.Count == 0)
             {
                 continue;
             }
 
             var firstValue = queryValue[0];
+            if (firstValue is null)
+            {
+                continue;
+            }
+
             var propertyType = property.PropertyType;
             if (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
             {
@@ -68,7 +74,7 @@ public static class QueryStringBinder
             }
             else if (propertyType == typeof(int))
             {
-                property.SetValue(queryInstance, int.Parse(firstValue));
+                property.SetValue(queryInstance, int.Parse(firstValue, CultureInfo.InvariantCulture));
             }
             else if (propertyType == typeof(bool))
             {
@@ -76,19 +82,19 @@ public static class QueryStringBinder
             }
             else if (propertyType == typeof(DateTime))
             {
-                property.SetValue(queryInstance, DateTime.Parse(firstValue));
+                property.SetValue(queryInstance, DateTime.Parse(firstValue, CultureInfo.InvariantCulture));
             }
             else if (propertyType == typeof(DateTimeOffset))
             {
-                property.SetValue(queryInstance, DateTimeOffset.Parse(firstValue));
+                property.SetValue(queryInstance, DateTimeOffset.Parse(firstValue, CultureInfo.InvariantCulture));
             }
             else if (propertyType == typeof(DateOnly))
             {
-                property.SetValue(queryInstance, DateOnly.Parse(firstValue));
+                property.SetValue(queryInstance, DateOnly.Parse(firstValue, CultureInfo.InvariantCulture));
             }
             else if (propertyType == typeof(TimeOnly))
             {
-                property.SetValue(queryInstance, TimeOnly.Parse(firstValue));
+                property.SetValue(queryInstance, TimeOnly.Parse(firstValue, CultureInfo.InvariantCulture));
             }
             else if (propertyType.IsEnum)
             {
@@ -100,6 +106,6 @@ public static class QueryStringBinder
             }
         }
 
-        return  true;
+        return true;
     }
 }
