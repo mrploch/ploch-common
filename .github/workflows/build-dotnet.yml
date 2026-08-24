@@ -82,14 +82,42 @@ jobs:
           echo "nuget_version=$NUGET_VERSION" >> $GITHUB_OUTPUT
           echo "SonarCloud project version: $NUGET_VERSION"
 
-      # SonarCloud setup (non-blocking)
+      # SonarCloud analysis.
+      #
+      # These steps are no longer masked with continue-on-error: a genuine
+      # analysis failure must fail the build, otherwise a silently-skipped
+      # analysis reads as a passing one and the completion gate in
+      # .claude/rules/pr-checks-completion-gate.md is meaningless.
+      #
+      # GitHub withholds secrets from pull requests raised from forks and from
+      # those authored by Dependabot (whose branch lives in this repository, so
+      # a head.repo test alone does not detect it). The scanner steps are
+      # skipped rather than failed in those cases; Build and Test always run.
+      - name: Determine SonarCloud eligibility
+        id: sonar-eligibility
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SECRETS_WITHHELD: ${{ github.event_name == 'pull_request' && (github.event.pull_request.head.repo.full_name != github.repository || github.event.pull_request.user.login == 'dependabot[bot]') }}
+        run: |
+          if [ -n "${SONAR_TOKEN// /}" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "SonarCloud token available; analysis enabled."
+          elif [ "$SECRETS_WITHHELD" = "true" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::No SonarCloud token is available on this pull request (raised from a fork, or authored by Dependabot). Skipping SonarCloud analysis; build and test still run."
+          else
+            echo "::error::SONAR_TOKEN is empty on a run that should have access to it. SonarCloud analysis would run anonymously and then fail post-processing with a misleading 'Not authorized or project not found'."
+            exit 1
+          fi
       - name: Install SonarCloud Scanner
+        if: steps.sonar-eligibility.outputs.enabled == 'true'
         run: dotnet tool install --global dotnet-sonarscanner
-        continue-on-error: true
       - name: Install dotnet-coverage
+        if: steps.sonar-eligibility.outputs.enabled == 'true'
         run: dotnet tool install --global dotnet-coverage
       - name: SonarScanner Begin
         id: sonar-begin
+        if: steps.sonar-eligibility.outputs.enabled == 'true'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
@@ -97,13 +125,12 @@ jobs:
           /k:"${{ env.SONAR_PROJECT_KEY }}"
           /o:"${{ env.SONAR_ORGANIZATION }}"
           /v:"${{ steps.nbgv-version.outputs.nuget_version }}"
-          /d:sonar.login="$SONAR_TOKEN"
+          /d:sonar.token="$SONAR_TOKEN"
           /d:sonar.host.url="https://sonarcloud.io"
           /d:sonar.projectBaseDir="${{ github.workspace }}"
           /d:sonar.scm.provider=git
           /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage*.opencover.xml
           /d:sonar.coverage.exclusions="**/*.ps1,**/JetbrainsAnnotations.cs,**/*.Tests/**,**/*.Tests.csproj,scripts/**,**/TestAssemblies/**"
-        continue-on-error: true
 
       # Build and Test (always runs regardless of SonarCloud status)
       - name: Build
@@ -113,11 +140,10 @@ jobs:
 
       # SonarCloud end (runs even after test failures, only if begin succeeded)
       - name: SonarScanner End
-        if: always() && steps.sonar-begin.outcome == 'success'
+        if: ${{ !cancelled() && steps.sonar-begin.outcome == 'success' }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
-        continue-on-error: true
+        run: dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
 
       - name: Run codacy-coverage-reporter
         if: always()
