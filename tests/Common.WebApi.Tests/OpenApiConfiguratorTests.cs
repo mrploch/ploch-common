@@ -42,13 +42,24 @@ public class OpenApiConfiguratorTests
         act.Should().Throw<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
-    public void ConfigureOpenApiOptions_should_throw_when_the_api_version_string_is_missing(string? apiVersionString)
+    // NotNullOrEmpty delegates to ArgumentException.ThrowIfNullOrEmpty, which distinguishes the two
+    // cases. Asserting only ArgumentException would pass either way, since ArgumentNullException
+    // derives from it, so each case is pinned separately to match the documented contract.
+    [Fact]
+    public void ConfigureOpenApiOptions_should_throw_ArgumentNullException_when_the_api_version_string_is_null()
     {
-        var act = () => new ServiceCollection().ConfigureOpenApiOptions(ApiInfo, apiVersionString!);
+        var act = () => new ServiceCollection().ConfigureOpenApiOptions(ApiInfo, null!);
 
-        act.Should().Throw<ArgumentException>();
+        act.Should().ThrowExactly<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void ConfigureOpenApiOptions_should_throw_ArgumentException_when_the_api_version_string_is_empty()
+    {
+        var act = () => new ServiceCollection().ConfigureOpenApiOptions(ApiInfo, string.Empty);
+
+        // ThrowExactly, not Throw: ArgumentNullException derives from ArgumentException, so the
+        // looser assertion would pass even if the empty case threw the null exception.
+        act.Should().ThrowExactly<ArgumentException>();
     }
 }
