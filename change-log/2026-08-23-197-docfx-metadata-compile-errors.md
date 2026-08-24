@@ -55,8 +55,8 @@ for the shipping WebApi libraries.
 - Conversions use the `Try*` pattern, so a malformed value raises a `FormatException` naming the
   property and expected type (`Query string value 'abc' for property 'Page' is not a valid Int32.`)
   rather than the framework's message, which echoed only the bad input.
-- Added `tests/Common.WebApi.Tests` with 13 tests covering every supported property type plus the
-  two regressions above. The project is registered in `Ploch.Common.slnx`, so CI builds
+- Added `tests/Common.WebApi.Tests` with 27 tests covering every supported property type, each of the
+  defects above, the malformed-value message, and the `ConfigureOpenApiOptions` guards. The project is registered in `Ploch.Common.slnx`, so CI builds
   `Ploch.Common.WebApi` and runs these tests — the class of rot behind this issue was precisely that
   none of these projects were in the solution.
 
