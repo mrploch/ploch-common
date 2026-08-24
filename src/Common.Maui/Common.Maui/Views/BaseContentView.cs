@@ -9,8 +9,10 @@ namespace Ploch.Common.Maui.Views;
 ///     Base class for content views that are driven by an <see cref="IViewModel" />.
 /// </summary>
 /// <remarks>
-///     Setting <see cref="ViewModel" /> also assigns it as the view's <c>BindingContext</c>. The view model's
-///     <see cref="IViewModel.OnAppearingAsync" /> is invoked the first time the view renders.
+///     Setting <see cref="ViewModel" /> also assigns it as the view's <c>BindingContext</c>.
+///     <see cref="IViewModel.OnAppearingAsync" /> is invoked the first time the view renders, and again when a
+///     <em>different</em> view model is assigned to a view that has already appeared — so a model assigned late
+///     still receives its first appearance, while reassigning the same instance does not notify it twice.
 /// </remarks>
 public abstract class BaseContentView : ContentView, IView
 {
@@ -64,10 +66,11 @@ public abstract class BaseContentView : ContentView, IView
         base.OnPropertyChanged(propertyName);
         Console.WriteLine(propertyName);
 
-        // Application.MainPage is deprecated in .NET 9 MAUI. Windows is empty until the first window
-        // is created, so the count is checked rather than indexing blindly; CA1826 rules out LINQ here.
-        var windows = Application.Current?.Windows;
-        var navigationPage = windows is { Count: > 0 } ? windows[0].Page as NavigationPage : null;
+        // Application.MainPage is deprecated in .NET 9 MAUI. The replacement is this view's own
+        // window rather than the application's first one: in a multi-window app the view may be
+        // hosted anywhere, and inspecting Windows[0] would skip OnViewDisappeared for a view whose
+        // window is not the first. Window is null until the view is attached.
+        var navigationPage = Window?.Page as NavigationPage;
         if (propertyName == "Renderer" && IsVisible && !_didAppear)
         {
             _didAppear = true;

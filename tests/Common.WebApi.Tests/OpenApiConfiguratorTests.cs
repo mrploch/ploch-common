@@ -48,7 +48,7 @@ public class OpenApiConfiguratorTests
         var act = () => OpenApiConfigurator.BuildOperationId(apiDescription);
 
         act.Should().NotThrow<KeyNotFoundException>();
-        OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("POST_orders_items");
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().StartWith("POST_orders_items_");
     }
 
     // Braces from a route template would otherwise land in the operationId, which breaks many
@@ -75,10 +75,18 @@ public class OpenApiConfiguratorTests
         OperationIdFor("GET", "orders-/id").Should().NotBe(OperationIdFor("GET", "orders/id"));
     }
 
+    // Separators that normalise alike ("/" and "-") were the third collision case found; every
+    // generated id now carries the route-derived suffix rather than relying on detecting loss.
     [Fact]
-    public void BuildOperationId_should_leave_a_route_without_dropped_characters_undecorated()
+    public void BuildOperationId_should_not_collide_when_two_routes_differ_only_by_separator_character()
     {
-        OperationIdFor("GET", "orders/id").Should().Be("GET_orders_id");
+        OperationIdFor("GET", "orders/items").Should().NotBe(OperationIdFor("GET", "orders-items"));
+    }
+
+    [Fact]
+    public void BuildOperationId_should_prefix_the_generated_id_with_the_method_and_normalised_route()
+    {
+        OperationIdFor("GET", "orders/id").Should().StartWith("GET_orders_id_").And.MatchRegex("^[A-Za-z0-9_]+$");
     }
 
     // The suffix must not depend on per-process hash randomisation, or a generated document would
@@ -94,7 +102,7 @@ public class OpenApiConfiguratorTests
     {
         var apiDescription = new ApiDescription { HttpMethod = "GET", RelativePath = "health", ActionDescriptor = new ActionDescriptor() };
 
-        OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("GET_health");
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().StartWith("GET_health_");
     }
 
     private static string OperationIdFor(string httpMethod, string relativePath) =>

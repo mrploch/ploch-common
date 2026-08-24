@@ -78,24 +78,21 @@ public static class OpenApiConfigurator
             return apiDescription.HttpMethod ?? string.Empty;
         }
 
-        var (name, lossy) = NormaliseRoute(relativePath);
-
-        // Normalisation is not injective: "orders/{id}" and "orders/id" both reduce to "orders_id",
-        // and OpenAPI requires operationIds to be unique or client generation breaks. Only routes
-        // that actually lost characters carry a disambiguator, so ordinary routes stay readable.
-        return lossy
-                   ? $"{apiDescription.HttpMethod}_{name}_{StableSuffix(relativePath)}"
-                   : $"{apiDescription.HttpMethod}_{name}";
+        // Normalisation is many-to-one and there is no reliable local test for when it collided:
+        // "orders/{id}" vs "orders/id" (dropped braces), "orders-/id" vs "orders/id" (collapsed
+        // separators) and "orders/items" vs "orders-items" (separators that normalise alike) all
+        // reduce to the same name by different routes. Rather than enumerate the ways information
+        // is lost — three attempts, three misses — every generated id carries the suffix, so
+        // uniqueness follows from the route itself instead of from spotting every lossy case.
+        return $"{apiDescription.HttpMethod}_{NormaliseRoute(relativePath)}_{StableSuffix(relativePath)}";
     }
 
     // Route templates carry characters an operationId should not: "orders/{id}" would become
     // "orders_{id}", and braces break many OpenAPI client generators. Separators collapse to single
-    // underscores; anything else non-alphanumeric is dropped and reported through Lossy so the
-    // caller can disambiguate.
-    private static (string Name, bool Lossy) NormaliseRoute(string relativePath)
+    // underscores and anything else non-alphanumeric is dropped; the caller restores uniqueness.
+    private static string NormaliseRoute(string relativePath)
     {
         var builder = new StringBuilder(relativePath.Length);
-        var lossy = false;
 
         foreach (var character in relativePath)
         {
@@ -103,30 +100,13 @@ public static class OpenApiConfigurator
             {
                 builder.Append(character);
             }
-            else if (character is '/' or '-' or '.')
+            else if (character is '/' or '-' or '.' && builder.Length > 0 && builder[^1] != '_')
             {
-                if (builder.Length > 0 && builder[^1] != '_')
-                {
-                    builder.Append('_');
-                }
-                else
-                {
-                    // Consecutive separators collapse to a single underscore, and that collapse is
-                    // itself information lost: without this, "orders-/id" and "orders/id" would
-                    // both yield "orders_id" and neither would carry a disambiguator.
-                    lossy = true;
-                }
-            }
-            else
-            {
-                lossy = true;
+                builder.Append('_');
             }
         }
 
-        var name = builder.ToString();
-        var trimmed = name.Trim('_');
-
-        return (trimmed, lossy || trimmed.Length != name.Length);
+        return builder.ToString().Trim('_');
     }
 
     // Deterministic across processes and runs. string.GetHashCode is randomised per process, so a
