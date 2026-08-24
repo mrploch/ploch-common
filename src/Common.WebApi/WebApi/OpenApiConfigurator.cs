@@ -1,3 +1,5 @@
+using System.Text;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi;
 using Ploch.Common.ArgumentChecking;
@@ -48,10 +50,48 @@ public static class OpenApiConfigurator
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
                                {
-                                   options.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["controller"]}{e.HttpMethod}");
+                                   options.CustomOperationIds(BuildOperationId);
                                    options.SwaggerDoc(apiVersionString, apiDescription);
                                });
 
         return services;
+    }
+
+    // ActionDescriptor.RouteValues has no "controller" entry for endpoints registered outside MVC —
+    // Minimal API and FastEndpoints routes among them — and the dictionary indexer throws
+    // KeyNotFoundException on a missing key, so Swagger generation would fail for exactly the
+    // endpoint styles this library exists to support. Falls back to the route itself.
+    internal static string BuildOperationId(ApiDescription apiDescription)
+    {
+        apiDescription.ActionDescriptor.RouteValues.TryGetValue("controller", out var controller);
+
+        if (!string.IsNullOrEmpty(controller))
+        {
+            return $"{controller}{apiDescription.HttpMethod}";
+        }
+
+        // Route templates carry characters an operationId should not: "orders/{id}" would become
+        // "orders_{id}", and braces break many OpenAPI client generators. Separators become
+        // underscores and anything else non-alphanumeric is dropped.
+        var relativePath = apiDescription.RelativePath;
+        if (string.IsNullOrEmpty(relativePath))
+        {
+            return apiDescription.HttpMethod ?? string.Empty;
+        }
+
+        var builder = new StringBuilder(relativePath.Length);
+        foreach (var character in relativePath)
+        {
+            if (char.IsLetterOrDigit(character))
+            {
+                builder.Append(character);
+            }
+            else if (character is '/' or '-' or '.' && builder.Length > 0 && builder[^1] != '_')
+            {
+                builder.Append('_');
+            }
+        }
+
+        return $"{apiDescription.HttpMethod}_{builder.ToString().Trim('_')}";
     }
 }

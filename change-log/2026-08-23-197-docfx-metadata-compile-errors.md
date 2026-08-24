@@ -14,6 +14,12 @@ for the shipping WebApi libraries.
   The lookup now short-circuits on the property and falls through to the field.
 - `BaseContentView` no longer dereferences `Application.Current` (nullable in .NET MAUI) or a
   null `ViewModel` when the view appears.
+- **`BaseContentView` no longer reads the deprecated `Application.MainPage`.** It now inspects
+  `Application.Current.Windows` (guarding the empty case, since no window exists before the first is
+  created). In a multi-window application this observes the first window rather than the single
+  `MainPage`, which is the closest equivalent to the previous behaviour.
+- `BaseContentView.OnPropertyChanged` now matches the base signature's optional parameter.
+- Added the XML documentation these public members were missing.
 
 ### `Ploch.Common.Maui.Tests.TestAssembly1` / `TestAssembly2`
 
@@ -38,6 +44,12 @@ for the shipping WebApi libraries.
   enabling it would publish a package that has never shipped. Whether to ship it is tracked in #285.
 - Removed an unreachable `OperationIdSelector` that was overwritten by the following
   `CustomOperationIds` call, and which referenced a non-existent `ToPascalCase` extension.
+- **Fixed a `KeyNotFoundException` in operation-id generation.** The surviving `CustomOperationIds`
+  delegate read `ActionDescriptor.RouteValues["controller"]` through the dictionary indexer. Endpoints
+  registered outside MVC — Minimal API and FastEndpoints routes, the styles this package family exists
+  to serve — carry no `controller` route value, so Swagger generation threw. Operation ids now fall
+  back to the HTTP method and route, sanitised so route-parameter braces cannot reach the
+  `operationId` and break client generators.
 - Added XML documentation and argument guards to `ConfigureOpenApiOptions`.
 
 ### `QueryStringBinder`
