@@ -28,12 +28,24 @@ public abstract class BaseContentView : ContentView, IView
         {
             BindingContext = value;
             _viewModel = value;
+
+            // The view can render before a view model is assigned. OnViewAppeared has already
+            // marked the appearance handled by then, and no further renderer change follows, so
+            // without this the view model would never receive its first appearance notification.
+            if (value is not null && _didAppear)
+            {
+                value.OnAppearingAsync().SafeFireAndForget();
+            }
         }
     }
 
     /// <summary>
-    ///     Called when a view model has been assigned to the view. The default implementation does nothing.
+    ///     Extension point for derived classes to react to a view model being assigned.
     /// </summary>
+    /// <remarks>
+    ///     The base class does not currently invoke this method; overriding it alone has no effect.
+    ///     A derived class that needs the callback must override <see cref="ViewModel" /> and call it.
+    /// </remarks>
     /// <param name="viewModel">The view model that was assigned.</param>
     protected virtual void OnViewModelSet(IViewModel viewModel)
     { }

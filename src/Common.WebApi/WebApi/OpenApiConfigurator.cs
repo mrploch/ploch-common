@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
@@ -80,18 +81,43 @@ public static class OpenApiConfigurator
         }
 
         var builder = new StringBuilder(relativePath.Length);
+        var lossy = false;
         foreach (var character in relativePath)
         {
             if (char.IsLetterOrDigit(character))
             {
                 builder.Append(character);
             }
-            else if (character is '/' or '-' or '.' && builder.Length > 0 && builder[^1] != '_')
+            else if (character is '/' or '-' or '.')
             {
-                builder.Append('_');
+                if (builder.Length > 0 && builder[^1] != '_')
+                {
+                    builder.Append('_');
+                }
+            }
+            else
+            {
+                // A character the operationId cannot carry (route-parameter braces, most commonly).
+                lossy = true;
             }
         }
 
-        return $"{apiDescription.HttpMethod}_{builder.ToString().Trim('_')}";
+        var name = builder.ToString().Trim('_');
+
+        // Normalisation is not injective: "orders/{id}" and "orders/id" both reduce to "orders_id",
+        // and OpenAPI requires operationIds to be unique or client generation breaks. Only routes
+        // that actually lost characters carry a disambiguator, so ordinary routes stay readable.
+        return lossy
+                   ? $"{apiDescription.HttpMethod}_{name}_{StableSuffix(relativePath)}"
+                   : $"{apiDescription.HttpMethod}_{name}";
+    }
+
+    // Deterministic across processes and runs. string.GetHashCode is randomised per process, so a
+    // generated document would differ between runs and break diffing of committed OpenAPI specs.
+    private static string StableSuffix(string value)
+    {
+        var hash = SHA256.HashData(Encoding.UTF8.GetBytes(value));
+
+        return Convert.ToHexString(hash, 0, 4).ToLowerInvariant();
     }
 }

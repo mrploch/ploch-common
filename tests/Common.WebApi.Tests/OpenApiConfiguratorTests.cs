@@ -56,10 +56,33 @@ public class OpenApiConfiguratorTests
     [Fact]
     public void BuildOperationId_should_strip_route_parameter_braces_from_the_fallback()
     {
-        var apiDescription = new ApiDescription { HttpMethod = "GET", RelativePath = "orders/{id}/items", ActionDescriptor = new ActionDescriptor() };
-
-        OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("GET_orders_id_items");
+        OperationIdFor("GET", "orders/{id}/items").Should().StartWith("GET_orders_id_items").And.MatchRegex("^[A-Za-z0-9_]+$");
     }
+
+    // Regression: normalisation is not injective — "orders/{id}" and "orders/id" both reduce to
+    // "orders_id". OpenAPI requires operationIds to be unique or client generation breaks.
+    [Fact]
+    public void BuildOperationId_should_not_collide_when_two_routes_normalise_to_the_same_name()
+    {
+        OperationIdFor("GET", "orders/{id}").Should().NotBe(OperationIdFor("GET", "orders/id"));
+    }
+
+    [Fact]
+    public void BuildOperationId_should_leave_a_route_without_dropped_characters_undecorated()
+    {
+        OperationIdFor("GET", "orders/id").Should().Be("GET_orders_id");
+    }
+
+    // The suffix must not depend on per-process hash randomisation, or a generated document would
+    // differ between runs and make committed OpenAPI specs undiffable.
+    [Fact]
+    public void BuildOperationId_should_be_deterministic_for_the_same_route()
+    {
+        OperationIdFor("GET", "orders/{id}").Should().Be(OperationIdFor("GET", "orders/{id}"));
+    }
+
+    private static string OperationIdFor(string httpMethod, string relativePath) =>
+        OpenApiConfigurator.BuildOperationId(new ApiDescription { HttpMethod = httpMethod, RelativePath = relativePath, ActionDescriptor = new ActionDescriptor() });
 
     [Fact]
     public void BuildOperationId_should_fall_back_to_the_http_method_when_there_is_no_route_either()
