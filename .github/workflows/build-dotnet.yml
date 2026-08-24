@@ -99,7 +99,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SECRETS_WITHHELD: ${{ github.event_name == 'pull_request' && (github.event.pull_request.head.repo.full_name != github.repository || github.event.pull_request.user.login == 'dependabot[bot]') }}
         run: |
-          if [ -n "${SONAR_TOKEN// /}" ]; then
+          # Strip all whitespace, not just literal spaces, so a token that is
+          # only tabs or newlines is correctly treated as absent.
+          if [ -n "$(printf '%s' "$SONAR_TOKEN" | tr -d '[:space:]')" ]; then
             echo "enabled=true" >> "$GITHUB_OUTPUT"
             echo "SonarCloud token available; analysis enabled."
           elif [ "$SECRETS_WITHHELD" = "true" ]; then
@@ -132,10 +134,19 @@ jobs:
           /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage*.opencover.xml
           /d:sonar.coverage.exclusions="**/*.ps1,**/JetbrainsAnnotations.cs,**/*.Tests/**,**/*.Tests.csproj,scripts/**,**/TestAssemblies/**"
 
-      # Build and Test (always runs regardless of SonarCloud status)
+      # Build and Test always run, regardless of SonarCloud status.
+      #
+      # !cancelled() is load-bearing: without it, a failed eligibility check or
+      # a failed scanner install/begin would halt the job and skip these steps,
+      # losing the compile-and-test signal because of an ancillary tool. The
+      # Sonar failure still fails the job overall — it just no longer suppresses
+      # the result that matters most. This preserves the property the previous
+      # continue-on-error gave us, without also hiding genuine Sonar failures.
       - name: Build
+        if: ${{ !cancelled() }}
         run: dotnet build ./Ploch.Common.slnx --no-restore -c Release
       - name: Test
+        if: ${{ !cancelled() }}
         run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build -c Release --logger "trx;LogFileName=TestOutputResults.trx" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
 
       # SonarCloud end (runs even after test failures, only if begin succeeded)
