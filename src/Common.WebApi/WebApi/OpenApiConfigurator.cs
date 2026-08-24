@@ -72,17 +72,31 @@ public static class OpenApiConfigurator
             return $"{controller}{apiDescription.HttpMethod}";
         }
 
-        // Route templates carry characters an operationId should not: "orders/{id}" would become
-        // "orders_{id}", and braces break many OpenAPI client generators. Separators become
-        // underscores and anything else non-alphanumeric is dropped.
         var relativePath = apiDescription.RelativePath;
         if (string.IsNullOrEmpty(relativePath))
         {
             return apiDescription.HttpMethod ?? string.Empty;
         }
 
+        var (name, lossy) = NormaliseRoute(relativePath);
+
+        // Normalisation is not injective: "orders/{id}" and "orders/id" both reduce to "orders_id",
+        // and OpenAPI requires operationIds to be unique or client generation breaks. Only routes
+        // that actually lost characters carry a disambiguator, so ordinary routes stay readable.
+        return lossy
+                   ? $"{apiDescription.HttpMethod}_{name}_{StableSuffix(relativePath)}"
+                   : $"{apiDescription.HttpMethod}_{name}";
+    }
+
+    // Route templates carry characters an operationId should not: "orders/{id}" would become
+    // "orders_{id}", and braces break many OpenAPI client generators. Separators collapse to single
+    // underscores; anything else non-alphanumeric is dropped and reported through Lossy so the
+    // caller can disambiguate.
+    private static (string Name, bool Lossy) NormaliseRoute(string relativePath)
+    {
         var builder = new StringBuilder(relativePath.Length);
         var lossy = false;
+
         foreach (var character in relativePath)
         {
             if (char.IsLetterOrDigit(character))
@@ -98,19 +112,11 @@ public static class OpenApiConfigurator
             }
             else
             {
-                // A character the operationId cannot carry (route-parameter braces, most commonly).
                 lossy = true;
             }
         }
 
-        var name = builder.ToString().Trim('_');
-
-        // Normalisation is not injective: "orders/{id}" and "orders/id" both reduce to "orders_id",
-        // and OpenAPI requires operationIds to be unique or client generation breaks. Only routes
-        // that actually lost characters carry a disambiguator, so ordinary routes stay readable.
-        return lossy
-                   ? $"{apiDescription.HttpMethod}_{name}_{StableSuffix(relativePath)}"
-                   : $"{apiDescription.HttpMethod}_{name}";
+        return (builder.ToString().Trim('_'), lossy);
     }
 
     // Deterministic across processes and runs. string.GetHashCode is randomised per process, so a
