@@ -64,9 +64,10 @@ public static class OpenApiConfigurator
     // endpoint styles this library exists to support. Falls back to the route itself.
     internal static string BuildOperationId(ApiDescription apiDescription)
     {
-        apiDescription.ActionDescriptor.RouteValues.TryGetValue("controller", out var controller);
-
-        if (!string.IsNullOrEmpty(controller))
+        // ActionDescriptor is settable and not guaranteed populated for every ApiExplorer provider,
+        // and this method exists precisely because the previous version assumed a shape it did not get.
+        var routeValues = apiDescription.ActionDescriptor?.RouteValues;
+        if (routeValues is not null && routeValues.TryGetValue("controller", out var controller) && !string.IsNullOrEmpty(controller))
         {
             return $"{controller}{apiDescription.HttpMethod}";
         }

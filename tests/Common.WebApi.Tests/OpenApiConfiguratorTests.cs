@@ -81,6 +81,14 @@ public class OpenApiConfiguratorTests
         OperationIdFor("GET", "orders/{id}").Should().Be(OperationIdFor("GET", "orders/{id}"));
     }
 
+    [Fact]
+    public void BuildOperationId_should_fall_back_when_the_action_descriptor_has_no_route_values()
+    {
+        var apiDescription = new ApiDescription { HttpMethod = "GET", RelativePath = "health", ActionDescriptor = new ActionDescriptor() };
+
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("GET_health");
+    }
+
     private static string OperationIdFor(string httpMethod, string relativePath) =>
         OpenApiConfigurator.BuildOperationId(new ApiDescription { HttpMethod = httpMethod, RelativePath = relativePath, ActionDescriptor = new ActionDescriptor() });
 
