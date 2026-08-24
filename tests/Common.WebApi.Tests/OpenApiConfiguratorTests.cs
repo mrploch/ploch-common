@@ -67,6 +67,14 @@ public class OpenApiConfiguratorTests
         OperationIdFor("GET", "orders/{id}").Should().NotBe(OperationIdFor("GET", "orders/id"));
     }
 
+    // Regression: collapsing consecutive separators loses information too. Without flagging it,
+    // "orders-/id" and "orders/id" both reduced to "GET_orders_id" with no disambiguator.
+    [Fact]
+    public void BuildOperationId_should_not_collide_when_two_routes_differ_only_by_a_collapsed_separator()
+    {
+        OperationIdFor("GET", "orders-/id").Should().NotBe(OperationIdFor("GET", "orders/id"));
+    }
+
     [Fact]
     public void BuildOperationId_should_leave_a_route_without_dropped_characters_undecorated()
     {

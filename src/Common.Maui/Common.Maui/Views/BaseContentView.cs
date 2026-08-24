@@ -26,13 +26,17 @@ public abstract class BaseContentView : ContentView, IView
         get => _viewModel;
         set
         {
+            var previous = _viewModel;
+
             BindingContext = value;
             _viewModel = value;
 
             // The view can render before a view model is assigned. OnViewAppeared has already
             // marked the appearance handled by then, and no further renderer change follows, so
             // without this the view model would never receive its first appearance notification.
-            if (value is not null && _didAppear)
+            // Only a genuinely new model is notified: reassigning the same instance would
+            // otherwise start its loading or subscription work twice within one appearance.
+            if (value is not null && _didAppear && !ReferenceEquals(previous, value))
             {
                 value.OnAppearingAsync().SafeFireAndForget();
             }

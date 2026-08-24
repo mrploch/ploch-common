@@ -109,6 +109,13 @@ public static class OpenApiConfigurator
                 {
                     builder.Append('_');
                 }
+                else
+                {
+                    // Consecutive separators collapse to a single underscore, and that collapse is
+                    // itself information lost: without this, "orders-/id" and "orders/id" would
+                    // both yield "orders_id" and neither would carry a disambiguator.
+                    lossy = true;
+                }
             }
             else
             {
@@ -116,7 +123,10 @@ public static class OpenApiConfigurator
             }
         }
 
-        return (builder.ToString().Trim('_'), lossy);
+        var name = builder.ToString();
+        var trimmed = name.Trim('_');
+
+        return (trimmed, lossy || trimmed.Length != name.Length);
     }
 
     // Deterministic across processes and runs. string.GetHashCode is randomised per process, so a
