@@ -30,8 +30,6 @@
   items:
     - name: Ploch.Common.DependencyInjection
       href: libraries/common-dependency-injection.md
-    - name: Ploch.Common.DependencyInjection.Autofac
-      href: libraries/common-dependency-injection-autofac.md
     - name: Ploch.Common.DependencyInjection.Hosting
       href: libraries/common-dependency-injection-hosting.md
     - name: Ploch.Common.Extensions.Configuration

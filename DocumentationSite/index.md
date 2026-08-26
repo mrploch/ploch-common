@@ -31,7 +31,6 @@ Abstract `ISerializer` / `IAsyncSerializer` interfaces plus implementations:
 ### Dependency injection
 
 - **`Ploch.Common.DependencyInjection`** — the `ServicesBundle` pattern for modular, ordered DI registration.
-- **`Ploch.Common.DependencyInjection.Autofac`** — Autofac container integration.
 - **`Ploch.Common.DependencyInjection.Hosting`** — `IHostBuilder` integration.
 - **`Ploch.Common.Extensions.Configuration`** — configuration section binding helpers.
 

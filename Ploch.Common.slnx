@@ -59,7 +59,6 @@
     <File Path="docs/libraries/common-ardalis-result.md" />
     <File Path="docs/libraries/common-data-annotations.md" />
     <File Path="docs/libraries/common-dependencies.md" />
-    <File Path="docs/libraries/common-dependency-injection-autofac.md" />
     <File Path="docs/libraries/common-dependency-injection-hosting.md" />
     <File Path="docs/libraries/common-dependency-injection.md" />
     <File Path="docs/libraries/common-extensions-configuration.md" />
