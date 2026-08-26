@@ -64,7 +64,6 @@ public abstract class BaseContentView : ContentView, IView
     protected override void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         base.OnPropertyChanged(propertyName);
-        Console.WriteLine(propertyName);
 
         // Application.MainPage is deprecated in .NET 9 MAUI. The replacement is this view's own
         // window rather than the application's first one: in a multi-window app the view may be
