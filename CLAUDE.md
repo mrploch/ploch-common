@@ -508,7 +508,23 @@ Manually triggered (`workflow_dispatch`) from the `master` branch to cut a relea
 8. Archives consumed change-log entries to `change-log/archive/`
 9. Bumps `version.json` to the next development version (e.g. `3.1-prerelease`) and pushes
 
-**Required secrets:** `NUGET_API_KEY` (NuGet.org API key), `GH_TOKEN` (PAT that can trigger subsequent workflows).
+**Required secrets:** `GH_TOKEN` (PAT that can trigger subsequent workflows; the default
+`GITHUB_TOKEN` cannot).
+
+**Required variables:** `NUGET_USER` (repository or organisation variable holding the
+nuget.org account name — the profile name, **not** the email address).
+
+**Required nuget.org configuration:** a Trusted Publishing policy on the nuget.org account
+named in `NUGET_USER`, scoped to this repository, the `release.yml` workflow, and the
+package glob being published. The workflow requests a GitHub OIDC token (`id-token: write`)
+and `NuGet/login` exchanges it for a short-lived (1 hour) nuget.org API key at push time.
+
+> This workflow no longer reads the `NUGET_API_KEY` secret — the name survives only as the
+> step-scoped env var holding the short-lived key issued by `NuGet/login`. The organisation
+> secret itself is deliberately retained for repositories that have not yet migrated. There
+> is nothing to rotate here: revoke access by editing or deleting the Trusted Publishing
+> policy on nuget.org. The policy matches on the workflow **filename**, so renaming
+> `release.yml` breaks publishing until the policy is updated.
 
 ### Open-Source Package Enhancements
 

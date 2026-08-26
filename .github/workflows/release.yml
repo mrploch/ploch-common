@@ -181,7 +181,9 @@ jobs:
       - name: NuGet login (OIDC)
         id: nuget-login
         if: success()
-        uses: NuGet/login@v1
+        # Pinned to a full commit SHA: the action runs at the publishing boundary with
+        # id-token: write, and the floating v1 tag is mutable (githubactions:S7637).
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
         with:
           user: ${{ vars.NUGET_USER }}
 

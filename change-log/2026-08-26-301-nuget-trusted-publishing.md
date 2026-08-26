@@ -13,9 +13,9 @@ valid for one hour.
 ## Changes
 
 - `permissions` gains `id-token: write`, required for GitHub to issue the OIDC token.
-- A `NuGet/login@v1` step runs **immediately before** the push steps. The returned key is
-  valid for one hour, so requesting it earlier — before a full build and test run — risks
-  expiry mid-release.
+- A `NuGet/login` step, pinned to a full commit SHA, runs **immediately before** the push
+  steps. The returned key is valid for one hour, so requesting it earlier — before a full
+  build and test run — risks expiry mid-release.
 - Both the package and symbol pushes take their key from
   `steps.nuget-login.outputs.NUGET_API_KEY`.
 - A new early validation step fails the run in seconds if the `NUGET_USER` variable is
