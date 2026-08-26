@@ -10,7 +10,7 @@
           "exclude": [
             "**/*Tests/**",
             "**/*.Tests.TestAssembly*/**",
-            "**/Common.WebApi/**",
+            "**/WebApi.Endpoints.CrudEndpoints*/**",
             "**/obj/**"
           ]
         }
