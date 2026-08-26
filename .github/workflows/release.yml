@@ -77,6 +77,14 @@ jobs:
             echo "::error::Repository/organization variable NUGET_USER is not set. It must contain the nuget.org account name (profile name, NOT the email address) that owns the trusted publishing policy."
             exit 1
           fi
+          # Supplying the sign-in email instead of the profile name is the likeliest
+          # misconfiguration, and nuget.org rejects it only at token-exchange time.
+          case "$NUGET_USER" in
+            *@*)
+              echo "::error::NUGET_USER looks like an email address. It must be the nuget.org profile name that owns the trusted publishing policy."
+              exit 1
+              ;;
+          esac
           echo "NuGet Trusted Publishing user: $NUGET_USER"
 
       # Use the default GITHUB_TOKEN for checkout — it always works and has read access.
