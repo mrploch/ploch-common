@@ -160,6 +160,11 @@ jobs:
       # steps.restore.outcome keeps Build tied to what it actually needs — that
       # step is skipped if any earlier prerequisite failed — while leaving it
       # independent of everything in the Sonar block.
+      #
+      # Consequence for future edits: because the gate names its prerequisite
+      # explicitly, a new step inserted between Restore and Build will NOT halt
+      # Build if it fails. Any step Build genuinely depends on must be given an
+      # id and added to this condition.
       - name: Build
         id: build
         if: ${{ !cancelled() && steps.restore.outcome == 'success' }}
@@ -222,12 +227,40 @@ jobs:
         if: success() && github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
-        run: dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
+        run: |
+          # A fork's own master/main push reaches this step now that the SonarCloud
+          # eligibility check skips instead of failing there, so success() is true
+          # and these steps would run with a withheld (empty) token. Skip on a fork,
+          # but still fail loudly upstream: a missing token on the real publishing
+          # path is a misconfiguration, and silently skipping it is exactly the
+          # masking this branch set out to remove.
+          if [ -z "$GH_PACKAGES_TOKEN" ]; then
+            if [ "$IS_UPSTREAM_REPO" = "true" ]; then
+              echo "::error::GH_PACKAGES_TOKEN is empty on a push to upstream master/main. Prerelease packages cannot be published to GitHub Packages."
+              exit 1
+            fi
+            echo "::warning::GH_PACKAGES_TOKEN not available outside mrploch/ploch-common; skipping GitHub Packages source setup."
+            exit 0
+          fi
+          dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
       - name: Publish NuGet packages to GitHub Packages
         if: success() && github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
         env:
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
         run: |
+          # Same three-way guard as the source step above. Unreachable upstream with
+          # an empty token (that step fails first, so success() is false here), but
+          # kept symmetrical so neither step can be read as the lenient one.
+          if [ -z "$GH_PACKAGES_TOKEN" ]; then
+            if [ "$IS_UPSTREAM_REPO" = "true" ]; then
+              echo "::error::GH_PACKAGES_TOKEN is empty on a push to upstream master/main. Prerelease packages cannot be published to GitHub Packages."
+              exit 1
+            fi
+            echo "::warning::GH_PACKAGES_TOKEN not available outside mrploch/ploch-common; skipping prerelease package publish."
+            exit 0
+          fi
           dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
           dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
 
