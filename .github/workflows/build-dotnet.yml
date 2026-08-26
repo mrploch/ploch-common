@@ -69,6 +69,7 @@ jobs:
 
       # Restore
       - name: Restore dependencies
+        id: restore
         run: dotnet restore ./Ploch.Common.slnx
 
       # Capture the NBGV-computed package version so SonarScanner can pass it
@@ -97,11 +98,20 @@ jobs:
         id: sonar-eligibility
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
           SECRETS_WITHHELD: ${{ github.event_name == 'pull_request' && (github.event.pull_request.head.repo.full_name != github.repository || github.event.pull_request.user.login == 'dependabot[bot]') }}
         run: |
+          # A fork's own push and workflow_dispatch runs are not pull requests, so
+          # SECRETS_WITHHELD does not cover them and they would otherwise reach the
+          # error branch below. Skip outright outside the upstream repository: the
+          # project key is upstream's, so a fork could not usefully analyse into it
+          # even if it supplied its own token.
+          if [ "$IS_UPSTREAM_REPO" != "true" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Not running in mrploch/ploch-common; skipping SonarCloud analysis. Build and test still run."
           # Strip all whitespace, not just literal spaces, so a token that is
           # only tabs or newlines is correctly treated as absent.
-          if [ -n "$(printf '%s' "$SONAR_TOKEN" | tr -d '[:space:]')" ]; then
+          elif [ -n "$(printf '%s' "$SONAR_TOKEN" | tr -d '[:space:]')" ]; then
             echo "enabled=true" >> "$GITHUB_OUTPUT"
             echo "SonarCloud token available; analysis enabled."
           elif [ "$SECRETS_WITHHELD" = "true" ]; then
@@ -134,7 +144,7 @@ jobs:
           /d:sonar.cs.opencover.reportsPaths=**/CoverageResults/coverage*.opencover.xml
           /d:sonar.coverage.exclusions="**/*.ps1,**/JetbrainsAnnotations.cs,**/*.Tests/**,**/*.Tests.csproj,scripts/**,**/TestAssemblies/**"
 
-      # Build and Test always run, regardless of SonarCloud status.
+      # Build and Test run regardless of SonarCloud status.
       #
       # !cancelled() is load-bearing: without it, a failed eligibility check or
       # a failed scanner install/begin would halt the job and skip these steps,
@@ -142,11 +152,22 @@ jobs:
       # Sonar failure still fails the job overall — it just no longer suppresses
       # the result that matters most. This preserves the property the previous
       # continue-on-error gave us, without also hiding genuine Sonar failures.
+      #
+      # It is paired with an explicit prerequisite check rather than left bare:
+      # !cancelled() also overrides the implicit success() for *every* earlier
+      # step, so on its own it would run Build after a failed checkout, .NET
+      # setup or restore, producing noise instead of a compile signal. Gating on
+      # steps.restore.outcome keeps Build tied to what it actually needs — that
+      # step is skipped if any earlier prerequisite failed — while leaving it
+      # independent of everything in the Sonar block.
       - name: Build
-        if: ${{ !cancelled() }}
+        id: build
+        if: ${{ !cancelled() && steps.restore.outcome == 'success' }}
         run: dotnet build ./Ploch.Common.slnx --no-restore -c Release
+      # Test uses --no-build, so without this gate a failed Build produces a second,
+      # more confusing failure about missing assemblies instead of the compile error.
       - name: Test
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build -c Release --logger "trx;LogFileName=TestOutputResults.trx" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
 
       # SonarCloud end (runs even after test failures, only if begin succeeded)
