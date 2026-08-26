@@ -1,0 +1,155 @@
+using FluentAssertions;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi;
+
+namespace Ploch.Common.WebApi.Tests;
+
+public class OpenApiConfiguratorTests
+{
+    private static OpenApiInfo ApiInfo => new() { Title = "Orders API", Version = "v1" };
+
+    [Fact]
+    public void ConfigureOpenApiOptions_should_return_the_same_service_collection_to_allow_chaining()
+    {
+        var services = new ServiceCollection();
+
+        services.ConfigureOpenApiOptions(ApiInfo).Should().BeSameAs(services);
+    }
+
+    [Fact]
+    public void ConfigureOpenApiOptions_should_register_the_swagger_generator()
+    {
+        var services = new ServiceCollection();
+
+        services.ConfigureOpenApiOptions(ApiInfo);
+
+        services.Should().Contain(descriptor => descriptor.ServiceType.FullName!.Contains("ISwaggerProvider", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public void BuildOperationId_should_combine_the_controller_and_http_method_for_an_MVC_endpoint()
+    {
+        var apiDescription = new ApiDescription { HttpMethod = "GET", ActionDescriptor = new ActionDescriptor() };
+        apiDescription.ActionDescriptor.RouteValues["controller"] = "Orders";
+
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("OrdersGET");
+    }
+
+    // Regression: this used the dictionary indexer, which throws KeyNotFoundException. Endpoints
+    // registered outside MVC — Minimal API and FastEndpoints routes, the very styles this library
+    // exists to support — carry no "controller" route value, so Swagger generation crashed.
+    [Fact]
+    public void BuildOperationId_should_fall_back_to_the_route_when_there_is_no_controller_route_value()
+    {
+        var apiDescription = new ApiDescription { HttpMethod = "POST", RelativePath = "orders/items", ActionDescriptor = new ActionDescriptor() };
+
+        var act = () => OpenApiConfigurator.BuildOperationId(apiDescription);
+
+        act.Should().NotThrow<KeyNotFoundException>();
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().StartWith("POST_orders_items_");
+    }
+
+    // Braces from a route template would otherwise land in the operationId, which breaks many
+    // OpenAPI client generators.
+    [Fact]
+    public void BuildOperationId_should_strip_route_parameter_braces_from_the_fallback()
+    {
+        OperationIdFor("GET", "orders/{id}/items").Should().StartWith("GET_orders_id_items").And.MatchRegex("^[A-Za-z0-9_]+$");
+    }
+
+    // Regression: normalisation is not injective — "orders/{id}" and "orders/id" both reduce to
+    // "orders_id". OpenAPI requires operationIds to be unique or client generation breaks.
+    [Fact]
+    public void BuildOperationId_should_not_collide_when_two_routes_normalise_to_the_same_name()
+    {
+        OperationIdFor("GET", "orders/{id}").Should().NotBe(OperationIdFor("GET", "orders/id"));
+    }
+
+    // Regression: collapsing consecutive separators loses information too. Without flagging it,
+    // "orders-/id" and "orders/id" both reduced to "GET_orders_id" with no disambiguator.
+    [Fact]
+    public void BuildOperationId_should_not_collide_when_two_routes_differ_only_by_a_collapsed_separator()
+    {
+        OperationIdFor("GET", "orders-/id").Should().NotBe(OperationIdFor("GET", "orders/id"));
+    }
+
+    // Separators that normalise alike ("/" and "-") were the third collision case found; every
+    // generated id now carries the route-derived suffix rather than relying on detecting loss.
+    [Fact]
+    public void BuildOperationId_should_not_collide_when_two_routes_differ_only_by_separator_character()
+    {
+        OperationIdFor("GET", "orders/items").Should().NotBe(OperationIdFor("GET", "orders-items"));
+    }
+
+    [Fact]
+    public void BuildOperationId_should_prefix_the_generated_id_with_the_method_and_normalised_route()
+    {
+        OperationIdFor("GET", "orders/id").Should().StartWith("GET_orders_id_").And.MatchRegex("^[A-Za-z0-9_]+$");
+    }
+
+    // The suffix must not depend on per-process hash randomisation, or a generated document would
+    // differ between runs and make committed OpenAPI specs undiffable.
+    [Fact]
+    public void BuildOperationId_should_be_deterministic_for_the_same_route()
+    {
+        OperationIdFor("GET", "orders/{id}").Should().Be(OperationIdFor("GET", "orders/{id}"));
+    }
+
+    [Fact]
+    public void BuildOperationId_should_fall_back_when_the_action_descriptor_has_no_route_values()
+    {
+        var apiDescription = new ApiDescription { HttpMethod = "GET", RelativePath = "health", ActionDescriptor = new ActionDescriptor() };
+
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().StartWith("GET_health_");
+    }
+
+    private static string OperationIdFor(string httpMethod, string relativePath) =>
+        OpenApiConfigurator.BuildOperationId(new ApiDescription { HttpMethod = httpMethod, RelativePath = relativePath, ActionDescriptor = new ActionDescriptor() });
+
+    [Fact]
+    public void BuildOperationId_should_fall_back_to_the_http_method_when_there_is_no_route_either()
+    {
+        var apiDescription = new ApiDescription { HttpMethod = "DELETE", ActionDescriptor = new ActionDescriptor() };
+
+        OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("DELETE");
+    }
+
+    [Fact]
+    public void ConfigureOpenApiOptions_should_throw_when_the_service_collection_is_null()
+    {
+        var act = () => ((IServiceCollection)null!).ConfigureOpenApiOptions(ApiInfo);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void ConfigureOpenApiOptions_should_throw_when_the_api_description_is_null()
+    {
+        var act = () => new ServiceCollection().ConfigureOpenApiOptions(null!);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    // NotNullOrEmpty delegates to ArgumentException.ThrowIfNullOrEmpty, which distinguishes the two
+    // cases. Asserting only ArgumentException would pass either way, since ArgumentNullException
+    // derives from it, so each case is pinned separately to match the documented contract.
+    [Fact]
+    public void ConfigureOpenApiOptions_should_throw_ArgumentNullException_when_the_api_version_string_is_null()
+    {
+        var act = () => new ServiceCollection().ConfigureOpenApiOptions(ApiInfo, null!);
+
+        act.Should().ThrowExactly<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void ConfigureOpenApiOptions_should_throw_ArgumentException_when_the_api_version_string_is_empty()
+    {
+        var act = () => new ServiceCollection().ConfigureOpenApiOptions(ApiInfo, string.Empty);
+
+        // ThrowExactly, not Throw: ArgumentNullException derives from ArgumentException, so the
+        // looser assertion would pass even if the empty case threw the null exception.
+        act.Should().ThrowExactly<ArgumentException>();
+    }
+}

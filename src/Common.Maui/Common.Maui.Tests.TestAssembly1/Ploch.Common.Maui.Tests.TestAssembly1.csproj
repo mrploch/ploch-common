@@ -11,6 +11,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Common.Maui\Ploch.Common.Maui.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageVersion Update="Roslynator.Analyzers" Version="4.12.11" />
     </ItemGroup>
 

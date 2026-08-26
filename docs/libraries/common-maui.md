@@ -159,6 +159,8 @@ builder.ConfigureFonts(fonts =>
 
 This produces the string `"Greeting"` at runtime, avoiding magic strings for property name bindings.
 
+`Member` resolves either a property or a field on `Type`. Omit it to get the name of the type itself.
+
 ## Related Libraries
 
 - [Ploch.Common.DependencyInjection](common-dependency-injection.md) — ServicesBundle pattern that can complement MAUI DI setup
