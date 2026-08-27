@@ -9,8 +9,8 @@ files at all**. It was absent from every checked-in solution file
 (`Ploch.Common.slnx`, `Ploch.Common.Endpoints.slnx`, `Ploch.Common.LocalDev.slnx`,
 `Ploch.Common.WebApi.Endpoints.slnx`) and no project referenced it, and no checked-in
 script or workflow builds it directly — so no build produced a package from it. (It could
-still be compiled by pointing `dotnet build` at the `.csproj` by hand; nothing in the
-repository does.) One piece of automation *did* touch it: `DocumentationSite/docfx.json`
+still be compiled by pointing `dotnet build` at the `.csproj` by hand, though no build
+script or workflow did so.) One piece of automation *did* touch it: `DocumentationSite/docfx.json`
 globs `../src/**/*.csproj` from the **filesystem** rather than reading a solution, so DocFX
 ran MSBuild over this project on every docs build and logged
 `does not contain any documents`. Deleting it therefore also removes a standing DocFX
@@ -25,7 +25,8 @@ Removed, along with the documentation that advertised it:
 - Entries removed from `docs/INDEX.md`, `docs/toc.yml`, `DocumentationSite/index.md`, and
   the "see also" links in `common-dependency-injection.md` and
   `common-dependency-injection-hosting.md`
-- The stale `<File>` entry in `Ploch.Common.slnx`
+- The stale `<File>` entry in `Ploch.Common.slnx` — that entry listed the **docs page**
+  as a solution item, not the project; the `.csproj` itself was never in any solution
 
 The published documentation site listed `Ploch.Common.DependencyInjection.Autofac` among
 the libraries, so readers could reasonably have believed the package existed. That listing
