@@ -1,13 +1,21 @@
 # Removed the dead `Plocch.Common.DependencyInjection.Autofac` project
 
-**Type:** housekeeping. **No consumer impact** — the package was never published to
-nuget.org or GitHub Packages, so nothing can depend on it.
+**Type:** housekeeping. **No package-consumer impact** — the package was never published
+to nuget.org or GitHub Packages, so no project can depend on it. Documentation readers
+*were* affected: the published docs site listed it as an available library (see below).
 
 `src/Common.DependencyInjection.Autofac/` contained a single `.csproj` and **no source
-files at all**. It was never listed in `Ploch.Common.slnx` and nothing referenced it, so it
-was never compiled by any build — local or CI — and produced no package. Its project file
-also carried a typo'd prefix (`Plocch`, double `c`), which the package ID would have
-inherited had it ever shipped.
+files at all**. It was absent from every checked-in solution file
+(`Ploch.Common.slnx`, `Ploch.Common.Endpoints.slnx`, `Ploch.Common.LocalDev.slnx`,
+`Ploch.Common.WebApi.Endpoints.slnx`) and no project referenced it, and no checked-in
+script or workflow builds it directly — so no build produced a package from it. (It could
+still be compiled by pointing `dotnet build` at the `.csproj` by hand; nothing in the
+repository does.) One piece of automation *did* touch it: `DocumentationSite/docfx.json`
+globs `../src/**/*.csproj` from the **filesystem** rather than reading a solution, so DocFX
+ran MSBuild over this project on every docs build and logged
+`does not contain any documents`. Deleting it therefore also removes a standing DocFX
+warning (see #290). Its project file also carried a typo'd prefix
+(double `c`), which the package ID would have inherited had it ever shipped.
 
 Removed, along with the documentation that advertised it:
 
