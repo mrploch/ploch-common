@@ -41,7 +41,6 @@ Per-library documentation with overviews, key types, usage examples, and configu
 | Library                                  | Description                                      | Docs                                                                                       |
 |------------------------------------------|--------------------------------------------------|--------------------------------------------------------------------------------------------|
 | Ploch.Common.DependencyInjection         | ServicesBundle pattern — modular DI registration | [common-dependency-injection.md](libraries/common-dependency-injection.md)                 |
-| Ploch.Common.DependencyInjection.Autofac | Autofac container integration                    | [common-dependency-injection-autofac.md](libraries/common-dependency-injection-autofac.md) |
 | Ploch.Common.DependencyInjection.Hosting | IHostBuilder integration for ServicesBundle      | [common-dependency-injection-hosting.md](libraries/common-dependency-injection-hosting.md) |
 | Ploch.Common.Extensions.Configuration    | Configuration section binding extensions         | [common-extensions-configuration.md](libraries/common-extensions-configuration.md)         |
 | Ploch.Common.Dependencies                | Meta-package for shared dependencies             | [common-dependencies.md](libraries/common-dependencies.md)                                 |

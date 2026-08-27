@@ -145,6 +145,5 @@ Both overloads return `IServiceCollection` for fluent chaining.
 
 ## Related Libraries
 
-- [Ploch.Common.DependencyInjection.Autofac](common-dependency-injection-autofac.md) — Autofac container integration for ServicesBundle
 - [Ploch.Common.DependencyInjection.Hosting](common-dependency-injection-hosting.md) — `IHostBuilder` extension for registering bundles during Generic Host startup
 - [Ploch.Common.Extensions.Configuration](common-extensions-configuration.md) — Extension methods for binding configuration sections to options classes

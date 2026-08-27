@@ -85,4 +85,3 @@ public static IHostBuilder AddServicesBundle<TBundle>(this IHostBuilder hostBuil
 ## Related Libraries
 
 - [Ploch.Common.DependencyInjection](common-dependency-injection.md) — Core ServicesBundle pattern, `ServicesBundle`, `ConfigurableServicesBundle`, and `IServiceCollection` extensions
-- [Ploch.Common.DependencyInjection.Autofac](common-dependency-injection-autofac.md) — Autofac container integration
