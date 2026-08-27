@@ -18,6 +18,10 @@ env:
 permissions:
   contents: write
   packages: write
+  # Required for NuGet Trusted Publishing: lets the job request a GitHub OIDC
+  # token that NuGet/login exchanges for a short-lived nuget.org API key.
+  # Without this, NuGet/login fails with 403.
+  id-token: write
 
 jobs:
   release:
@@ -61,6 +65,27 @@ jobs:
             exit 1
           fi
           echo "GH_TOKEN is valid"
+
+      # Trusted Publishing needs the nuget.org account name (profile name, not email).
+      # Validated here rather than at push time so a misconfiguration fails in seconds
+      # instead of after a full build+test run.
+      - name: Validate NuGet Trusted Publishing configuration
+        env:
+          NUGET_USER: ${{ vars.NUGET_USER }}
+        run: |
+          if [ -z "$NUGET_USER" ]; then
+            echo "::error::Repository/organization variable NUGET_USER is not set. It must contain the nuget.org account name (profile name, NOT the email address) that owns the trusted publishing policy."
+            exit 1
+          fi
+          # Supplying the sign-in email instead of the profile name is the likeliest
+          # misconfiguration, and nuget.org rejects it only at token-exchange time.
+          case "$NUGET_USER" in
+            *@*)
+              echo "::error::NUGET_USER looks like an email address. It must be the nuget.org profile name that owns the trusted publishing policy."
+              exit 1
+              ;;
+          esac
+          echo "NuGet Trusted Publishing user: $NUGET_USER"
 
       # Use the default GITHUB_TOKEN for checkout — it always works and has read access.
       # GH_TOKEN (PAT) is configured separately before push steps, because it is the
@@ -157,6 +182,19 @@ jobs:
           fi
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
+      # Trusted Publishing (OIDC): exchange a GitHub-signed OIDC token for a
+      # short-lived nuget.org API key. Deliberately placed immediately before the
+      # push steps - the issued key is only valid for 1 hour, so requesting it
+      # earlier (e.g. before build+test) risks expiry on a slow run.
+      - name: NuGet login (OIDC)
+        id: nuget-login
+        if: success()
+        # Pinned to a full commit SHA: the action runs at the publishing boundary with
+        # id-token: write, and the floating v1 tag is mutable (githubactions:S7637).
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
+        with:
+          user: ${{ vars.NUGET_USER }}
+
       # Package selection excludes ./tests/ structurally rather than matching on the name
       # "Test". A previous `-not -path '*/Test*'` filter also matched ./src/TestingSupport*,
       # because find -path matches the whole path and * spans /, so every TestingSupport
@@ -166,7 +204,7 @@ jobs:
       - name: Publish NuGet packages to NuGet.org
         if: success()
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
         run: |
           PKGS=$(find . -name '*.nupkg' -not -path './tests/*')
           if [ -z "$PKGS" ]; then
@@ -181,7 +219,7 @@ jobs:
       - name: Publish symbol packages to NuGet.org
         if: success()
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
         run: |
           find . -name '*.snupkg' -not -path './tests/*' | while IFS= read -r pkg; do
             echo "Publishing symbols $pkg"
