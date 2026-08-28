@@ -8,8 +8,9 @@ summary: *content
 `Ploch.Common.Randomizers` provides a small abstraction over random value generation, so that "produce a random
 value of type `T`" becomes an injectable dependency rather than a direct call to `Random`. The point is
 testability and composition: code that depends on `IRandomizer<T>` can be handed a deterministic stub in a unit
-test, and a container can resolve the right generator for a type without the consuming code knowing which
-concrete implementation is in play.
+test, and the static `Randomizer.GetRandomizer<T>()` factory selects the right generator for a type without the
+consuming code knowing which concrete implementation is in play. The namespace ships no DI registrations of its
+own — register the concrete randomizers yourself if you would rather inject the interface than call the factory.
 
 Implementations are supplied for the types that come up most often — `int`, `bool`, `string`, `DateTime` and
 `DateTimeOffset` — with `IRangedRandomizer<T>` adding bounded generation where a range is meaningful.

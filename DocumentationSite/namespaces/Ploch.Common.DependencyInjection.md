@@ -8,9 +8,10 @@ summary: *content
 `Ploch.Common.DependencyInjection` addresses a gap in `Microsoft.Extensions.DependencyInjection`: it has no
 first-class notion of a *module*. Registration code therefore tends to accumulate as a long list of extension
 method calls in `Program.cs`, with the ordering constraints between them recorded nowhere. The `ServicesBundle`
-pattern here — inspired by Autofac modules — lets a component own its own registrations, declare the bundles it
-depends on, and have those dependencies configured first, exactly once, no matter how many bundles ask for
-them.
+pattern here — inspired by Autofac modules — lets a component own its own registrations and declare the bundles
+it depends on, so that those dependencies are configured before the bundle that needs them. The guarantee is
+ordering only: a bundle named as a dependency by two different parents is configured once per parent, so keep
+`DoConfigure` implementations idempotent (`TryAdd*`) where a bundle may legitimately be reached twice.
 
 `ServicesBundle` is the base for registrations that need nothing external; `ConfigurableServicesBundle` is for
 those that require an `IConfiguration`; and `DelegatingServicesBundle` composes several bundles into one

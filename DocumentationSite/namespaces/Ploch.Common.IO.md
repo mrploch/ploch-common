@@ -6,10 +6,10 @@ summary: *content
 ### Overview
 
 `Ploch.Common.IO` gathers the input/output helpers that `System.IO` leaves to the caller. `PathUtils` handles
-the path manipulations that are easy to write incorrectly — normalising separators, relative-path arithmetic,
-and combining fragments without surprises when one of them is already rooted. `StreamExtensions` covers the
-routine conversions between streams, strings and byte arrays that would otherwise be repeated with a
-hand-rolled buffer loop each time.
+the path manipulations that are easy to write incorrectly — normalising a path with or without a trailing
+separator, relative-path arithmetic, swapping or stripping an extension, and reducing an arbitrary string to a
+safe file name. `StreamExtensions` adds `ToBytes`, which reads a stream out to a byte array instead of the
+hand-rolled buffer loop that would otherwise be repeated at each call site.
 
 The namespace also hosts `CommandLineParser` and `CommandLineInfo`, which turn a raw process command line into
 an executable path plus its arguments. That is deliberately a *parsing* concern rather than a console-framework
