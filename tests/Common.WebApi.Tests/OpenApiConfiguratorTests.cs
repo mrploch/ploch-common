@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi;
 
@@ -58,11 +59,24 @@ public class OpenApiConfiguratorTests
     }
 
     // The suffix must not depend on per-process hash randomisation, or a generated document would
-    // differ between runs and make committed OpenAPI specs undiffable.
+    // differ between runs and make committed OpenAPI specs undiffable. The expected id is the
+    // literal SHA-256 value: comparing two calls in one process would also pass for
+    // string.GetHashCode, which is stable within a process but randomised across processes.
     [Fact]
     public void BuildOperationId_should_be_deterministic_for_the_same_controller_route()
     {
-        ControllerOperationIdFor("GET", "Orders", "orders/{id}").Should().Be(ControllerOperationIdFor("GET", "Orders", "orders/{id}"));
+        // First eight bytes of SHA-256("orders/{id}").
+        ControllerOperationIdFor("GET", "Orders", "orders/{id}").Should().Be("OrdersGET_ef7dbd91889b7768");
+    }
+
+    // Regression: a four-byte suffix left ordinary routes sharing one value — these two truncate to
+    // 61565973 alike — which reintroduced the duplicate id the suffix exists to prevent.
+    [Fact]
+    public void BuildOperationId_should_not_collide_for_routes_that_share_the_first_four_digest_bytes()
+    {
+        ControllerOperationIdFor("GET", "Orders", "orders/collision-32524")
+            .Should()
+            .NotBe(ControllerOperationIdFor("GET", "Orders", "orders/collision-68690"));
     }
 
     [Fact]
@@ -71,8 +85,20 @@ public class OpenApiConfiguratorTests
         ControllerOperationIdFor("GET", "Orders", "orders/{id}").Should().NotBe(ControllerOperationIdFor("DELETE", "Orders", "orders/{id}"));
     }
 
-    // An ApiExplorer provider is not obliged to populate RelativePath. The action name is then the
-    // only route-distinguishing value available, and it is better than nothing.
+    // An ApiExplorer provider is not obliged to populate RelativePath, but the attribute-route
+    // template separates the routes just as well, so it is preferred over the action name.
+    [Fact]
+    public void BuildOperationId_should_fall_back_to_the_attribute_route_template_when_a_controller_endpoint_has_no_route()
+    {
+        var listAll = ControllerOperationIdFor("GET", "Orders", relativePath: null, actionName: "Get", routeTemplate: "orders");
+        var getById = ControllerOperationIdFor("GET", "Orders", relativePath: null, actionName: "Get", routeTemplate: "orders/{id}");
+
+        listAll.Should().StartWith("OrdersGET_");
+        listAll.Should().NotBe(getById);
+    }
+
+    // With neither a route nor a template, the action name is the only route-distinguishing value
+    // left, and it is better than nothing.
     [Fact]
     public void BuildOperationId_should_fall_back_to_the_action_name_when_a_controller_endpoint_has_no_route()
     {
@@ -83,13 +109,18 @@ public class OpenApiConfiguratorTests
         listAll.Should().NotBe(getById);
     }
 
-    private static string ControllerOperationIdFor(string httpMethod, string controllerName, string? relativePath, string? actionName = null)
+    private static string ControllerOperationIdFor(string httpMethod, string controllerName, string? relativePath, string? actionName = null, string? routeTemplate = null)
     {
         var apiDescription = new ApiDescription { HttpMethod = httpMethod, RelativePath = relativePath, ActionDescriptor = new ActionDescriptor() };
         apiDescription.ActionDescriptor.RouteValues["controller"] = controllerName;
         if (actionName is not null)
         {
             apiDescription.ActionDescriptor.RouteValues["action"] = actionName;
+        }
+
+        if (routeTemplate is not null)
+        {
+            apiDescription.ActionDescriptor.AttributeRouteInfo = new AttributeRouteInfo { Template = routeTemplate };
         }
 
         return OpenApiConfigurator.BuildOperationId(apiDescription);
@@ -148,11 +179,14 @@ public class OpenApiConfiguratorTests
     }
 
     // The suffix must not depend on per-process hash randomisation, or a generated document would
-    // differ between runs and make committed OpenAPI specs undiffable.
+    // differ between runs and make committed OpenAPI specs undiffable. Pinning the literal id, not
+    // comparing two calls, is what makes this a guard: string.GetHashCode is stable within a single
+    // process, so a self-comparison would pass even after a regression to it.
     [Fact]
     public void BuildOperationId_should_be_deterministic_for_the_same_route()
     {
-        OperationIdFor("GET", "orders/{id}").Should().Be(OperationIdFor("GET", "orders/{id}"));
+        // First eight bytes of SHA-256("orders/{id}").
+        OperationIdFor("GET", "orders/{id}").Should().Be("GET_orders_id_ef7dbd91889b7768");
     }
 
     [Fact]
