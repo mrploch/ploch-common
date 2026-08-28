@@ -1,7 +1,8 @@
 namespace Ploch.Common.Maui.ViewModels;
 
 /// <summary>
-///     Contract for a view model bound to a view derived from <c>BaseContentPage</c> or <c>BaseContentView</c>.
+///     Contract for a view model bound to a view derived from
+///     <see cref="Ploch.Common.Maui.Views.BaseContentPage" /> or <see cref="Ploch.Common.Maui.Views.BaseContentView" />.
 /// </summary>
 public interface IViewModel
 {
