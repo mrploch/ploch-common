@@ -1,7 +1,6 @@
 using System.Reflection;
 using Ploch.Common.Maui.Views;
 using Ploch.Common.Reflection;
-using Ploch.Lists.UI.MauiUI.ViewModels;
 
 namespace Ploch.Common.Maui.ViewModels;
 
