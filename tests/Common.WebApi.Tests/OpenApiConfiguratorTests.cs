@@ -37,6 +37,64 @@ public class OpenApiConfiguratorTests
         OpenApiConfigurator.BuildOperationId(apiDescription).Should().Be("OrdersGET");
     }
 
+    // The controller name leads the id so a generated client stays readable; only the
+    // disambiguating suffix is appended.
+    [Fact]
+    public void BuildOperationId_should_prefix_a_controller_endpoint_with_the_controller_and_http_method()
+    {
+        ControllerOperationIdFor("GET", "Orders", "orders/{id}").Should().StartWith("OrdersGET_").And.MatchRegex("^[A-Za-z0-9_]+$");
+    }
+
+    // Regression: "OrdersGET" was returned for every GET action on OrdersController, so the ordinary
+    // shape of a REST controller produced duplicate operationIds. OpenAPI requires them to be unique
+    // across the document; duplicates make client generators fail or silently drop endpoints.
+    [Theory]
+    [InlineData("orders", "orders/{id}")]
+    [InlineData("orders/{id}", "orders/{id}/items")]
+    [InlineData("orders/{id}", "orders/id")]
+    public void BuildOperationId_should_not_collide_when_one_controller_has_two_routes_for_the_same_http_method(string firstRoute, string secondRoute)
+    {
+        ControllerOperationIdFor("GET", "Orders", firstRoute).Should().NotBe(ControllerOperationIdFor("GET", "Orders", secondRoute));
+    }
+
+    // The suffix must not depend on per-process hash randomisation, or a generated document would
+    // differ between runs and make committed OpenAPI specs undiffable.
+    [Fact]
+    public void BuildOperationId_should_be_deterministic_for_the_same_controller_route()
+    {
+        ControllerOperationIdFor("GET", "Orders", "orders/{id}").Should().Be(ControllerOperationIdFor("GET", "Orders", "orders/{id}"));
+    }
+
+    [Fact]
+    public void BuildOperationId_should_still_distinguish_controller_endpoints_that_differ_only_by_http_method()
+    {
+        ControllerOperationIdFor("GET", "Orders", "orders/{id}").Should().NotBe(ControllerOperationIdFor("DELETE", "Orders", "orders/{id}"));
+    }
+
+    // An ApiExplorer provider is not obliged to populate RelativePath. The action name is then the
+    // only route-distinguishing value available, and it is better than nothing.
+    [Fact]
+    public void BuildOperationId_should_fall_back_to_the_action_name_when_a_controller_endpoint_has_no_route()
+    {
+        var listAll = ControllerOperationIdFor("GET", "Orders", relativePath: null, actionName: "ListAll");
+        var getById = ControllerOperationIdFor("GET", "Orders", relativePath: null, actionName: "GetById");
+
+        listAll.Should().StartWith("OrdersGET_");
+        listAll.Should().NotBe(getById);
+    }
+
+    private static string ControllerOperationIdFor(string httpMethod, string controllerName, string? relativePath, string? actionName = null)
+    {
+        var apiDescription = new ApiDescription { HttpMethod = httpMethod, RelativePath = relativePath, ActionDescriptor = new ActionDescriptor() };
+        apiDescription.ActionDescriptor.RouteValues["controller"] = controllerName;
+        if (actionName is not null)
+        {
+            apiDescription.ActionDescriptor.RouteValues["action"] = actionName;
+        }
+
+        return OpenApiConfigurator.BuildOperationId(apiDescription);
+    }
+
     // Regression: this used the dictionary indexer, which throws KeyNotFoundException. Endpoints
     // registered outside MVC — Minimal API and FastEndpoints routes, the very styles this library
     // exists to support — carry no "controller" route value, so Swagger generation crashed.

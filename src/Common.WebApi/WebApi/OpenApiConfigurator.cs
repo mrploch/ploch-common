@@ -67,12 +67,32 @@ public static class OpenApiConfigurator
         // ActionDescriptor is settable and not guaranteed populated for every ApiExplorer provider,
         // and this method exists precisely because the previous version assumed a shape it did not get.
         var routeValues = apiDescription.ActionDescriptor?.RouteValues;
+        var relativePath = apiDescription.RelativePath;
+
         if (routeValues is not null && routeValues.TryGetValue("controller", out var controller) && !string.IsNullOrEmpty(controller))
         {
-            return $"{controller}{apiDescription.HttpMethod}";
+            // Controller plus verb is the ordinary shape of a REST controller, not a unique name:
+            // "GET /orders", "GET /orders/{id}" and "GET /orders/{id}/items" all reduced to
+            // "OrdersGET". OpenAPI requires operationId to be unique across the document, and
+            // client generators either fail or silently drop the duplicates. The route-derived
+            // suffix the fallback branch already uses makes the id unique by construction rather
+            // than by detecting collisions, and the controller name stays in front for readability.
+            // The action name is the discriminator only when the route is unavailable, since two
+            // actions can share a name (overloads) but not a route and verb.
+            var discriminator = relativePath;
+            if (string.IsNullOrEmpty(discriminator) && routeValues.TryGetValue("action", out var action))
+            {
+                discriminator = action;
+            }
+
+            if (string.IsNullOrEmpty(discriminator))
+            {
+                return $"{controller}{apiDescription.HttpMethod}";
+            }
+
+            return $"{controller}{apiDescription.HttpMethod}_{StableSuffix(discriminator)}";
         }
 
-        var relativePath = apiDescription.RelativePath;
         if (string.IsNullOrEmpty(relativePath))
         {
             return apiDescription.HttpMethod ?? string.Empty;
