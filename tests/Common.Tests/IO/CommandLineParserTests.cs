@@ -59,7 +59,14 @@ public class CommandLineParserTests(ITestOutputHelper output)
     {
         var exceptionCount = 0;
         var successCount = 0;
-        foreach (var commandLine in File.ReadAllLines("commandLines.txt"))
+
+        // Resolve the data file against the assembly directory rather than the process working
+        // directory: commandLines.txt is copied to the output folder, but a bare relative path is
+        // resolved against whatever working directory the test runner happens to use, which made
+        // this test fail intermittently. See issue #299.
+        var dataFilePath = Path.Combine(AppContext.BaseDirectory, "commandLines.txt");
+
+        foreach (var commandLine in File.ReadAllLines(dataFilePath))
         {
             var applicationPath = CommandLineParser.GetApplicationPath(commandLine);
             output.WriteLine(applicationPath);

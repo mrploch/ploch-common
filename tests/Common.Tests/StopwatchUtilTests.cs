@@ -26,22 +26,26 @@ public class StopwatchUtilTests
     [Fact]
     public async Task Time_should_return_execution_time_for_started_taskAsync()
     {
-        // The task starts running immediately when AsyncMethod is called, before TimeAsync
-        // begins measuring. Use a longer delay with a generous threshold to avoid flaky
-        // timing failures on loaded CI runners.
-        var asyncMethodTime = await StopwatchUtil.TimeAsync(AsyncMethod(TimeSpan.FromMilliseconds(200)));
+        // TimeAsync(Task) starts measuring when it is called, so a task handed to it that is
+        // already counting down a fixed delay can finish before - or shortly after - measurement
+        // begins. Any lower bound derived from that delay is therefore a race against how loaded
+        // the machine is, which is what made this test fail intermittently (see issue #299).
+        //
+        // Gate completion on a signal this test controls instead. TimeAsync runs synchronously up
+        // to its first await, so its stopwatch is already running by the time the call returns a
+        // pending task; everything awaited afterwards falls inside the measurement window. The
+        // bound below can then only be exceeded, never undershot.
+        var completionSignal = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-        asyncMethodTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(50));
+        var timing = StopwatchUtil.TimeAsync(completionSignal.Task);
+
+        await Task.Delay(TimeSpan.FromMilliseconds(200));
+        completionSignal.SetResult(true);
+
+        var startedTaskTime = await timing;
+
+        // Generous margin below the 200 ms actually waited, to absorb timer resolution and any
+        // scheduling delay between the call and the stopwatch starting.
+        startedTaskTime.Should().BeGreaterThanOrEqualTo(TimeSpan.FromMilliseconds(100));
     }
-
-    // ReSharper disable once MemberCanBeMadeStatic.Local
-#pragma warning disable CA1822
-#pragma warning disable CC0091
-#pragma warning disable CC0061
-#pragma warning disable S2325
-    private Task AsyncMethod(TimeSpan delay) => Task.Delay(delay);
-#pragma warning restore S2325
-#pragma warning restore CC0061
-#pragma warning restore CC0091
-#pragma warning restore CA1822
 }

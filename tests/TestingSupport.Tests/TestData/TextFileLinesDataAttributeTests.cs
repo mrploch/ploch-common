@@ -9,7 +9,15 @@ namespace Ploch.TestingSupport.Tests;
 
 public class TextFileLinesDataAttributeTests
 {
+    // Attribute arguments must be compile-time constants, so the relative form is kept for the
+    // [TextFileLinesData] usages below. Those go through TextFileDataAttribute, which resolves
+    // against the working directory rather than the assembly; correcting that is a behaviour
+    // change in a published package and is tracked separately by issue #309.
     private const string TestDataFilePath = "TestData/TextFileLinesDataAttributeTests_TestData.txt";
+
+    // Direct reads resolve against the assembly directory (where the file is copied) rather than
+    // the process working directory, which the test runner is free to change. See issue #299.
+    private static readonly string ResolvedTestDataFilePath = Path.Combine(AppContext.BaseDirectory, TestDataFilePath);
 
     [Theory]
     [TextFileLinesData(TestDataFilePath)]
@@ -24,7 +32,7 @@ public class TextFileLinesDataAttributeTests
     [Fact]
     public void TestTextFileLinesDataAttribute_TestDataLines_should_have_correct_count()
     {
-        var lines = File.ReadAllLines(TestDataFilePath);
+        var lines = File.ReadAllLines(ResolvedTestDataFilePath);
         lines.Should().HaveCount(100);
     }
 
@@ -41,7 +49,7 @@ public class TextFileLinesDataAttributeTests
     [Fact]
     public void TestTextFileLinesDataAttribute_with_removeEmpty_option__TestDataLinesWithoutEmptyLines_should_have_correct_count()
     {
-        var lines = File.ReadAllLines(TestDataFilePath)
+        var lines = File.ReadAllLines(ResolvedTestDataFilePath)
                         .Where(line => !string.IsNullOrWhiteSpace(line))
                         .ToArray();
         lines.Should().HaveCount(100);
