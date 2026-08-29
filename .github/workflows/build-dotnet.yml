@@ -127,7 +127,6 @@ jobs:
         if: steps.sonar-eligibility.outputs.enabled == 'true'
         run: dotnet tool install --global dotnet-sonarscanner
       - name: Install dotnet-coverage
-        if: steps.sonar-eligibility.outputs.enabled == 'true'
         run: dotnet tool install --global dotnet-coverage
       - name: SonarScanner Begin
         id: sonar-begin
@@ -176,6 +175,17 @@ jobs:
       - name: Test
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build -c Release --logger "trx;LogFileName=TestOutputResults.trx" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
+
+      # Merge per-project cobertura reports into a single file for GitHub coverage upload
+      - name: Merge coverage reports
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: dotnet dotnet-coverage merge **/CoverageResults/coverage.cobertura.xml --output coverage.cobertura.xml --output-format cobertura
+      - name: Upload coverage artifact
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report-csharp
+          path: coverage.cobertura.xml
 
       # SonarCloud end (runs even after test failures, only if begin succeeded)
       - name: SonarScanner End
@@ -281,3 +291,21 @@ jobs:
           dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
           dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
           dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+
+  upload-coverage-csharp:
+    needs: build
+    if: ${{ !cancelled() && needs.build.result == 'success' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      code-quality: write
+    steps:
+      - name: Download coverage artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report-csharp
+      - uses: actions/upload-code-coverage@v1
+        with:
+          file: coverage.cobertura.xml
+          language: C#
+          label: code-coverage-agent
