@@ -67,12 +67,42 @@ public static class OpenApiConfigurator
         // ActionDescriptor is settable and not guaranteed populated for every ApiExplorer provider,
         // and this method exists precisely because the previous version assumed a shape it did not get.
         var routeValues = apiDescription.ActionDescriptor?.RouteValues;
+        var relativePath = apiDescription.RelativePath;
+
         if (routeValues is not null && routeValues.TryGetValue("controller", out var controller) && !string.IsNullOrEmpty(controller))
         {
-            return $"{controller}{apiDescription.HttpMethod}";
+            // Controller plus verb is the ordinary shape of a REST controller, not a unique name:
+            // "GET /orders", "GET /orders/{id}" and "GET /orders/{id}/items" all reduced to
+            // "OrdersGET". OpenAPI requires operationId to be unique across the document, and
+            // client generators either fail or silently drop the duplicates. The route-derived
+            // suffix the fallback branch already uses separates the routes without having to detect
+            // which of them collided, and the controller name stays in front for readability.
+            // The action name is the last-resort discriminator, since two actions can share a name
+            // (overloads) but not a route and verb.
+            var discriminator = relativePath;
+            if (string.IsNullOrEmpty(discriminator))
+            {
+                // A provider that leaves RelativePath unset can still carry the attribute-route
+                // template, which separates routes exactly as the path would.
+                discriminator = apiDescription.ActionDescriptor?.AttributeRouteInfo?.Template;
+            }
+
+            if (string.IsNullOrEmpty(discriminator) && routeValues.TryGetValue("action", out var action))
+            {
+                // Same-named actions on one controller still share an id here, but nothing
+                // route-shaped is left to separate them: ActionDescriptor.Id is regenerated per
+                // process, so using it would trade a rare collision for guaranteed non-determinism.
+                discriminator = action;
+            }
+
+            if (string.IsNullOrEmpty(discriminator))
+            {
+                return $"{controller}{apiDescription.HttpMethod}";
+            }
+
+            return $"{controller}{apiDescription.HttpMethod}_{StableSuffix(discriminator)}";
         }
 
-        var relativePath = apiDescription.RelativePath;
         if (string.IsNullOrEmpty(relativePath))
         {
             return apiDescription.HttpMethod ?? string.Empty;
@@ -111,10 +141,14 @@ public static class OpenApiConfigurator
 
     // Deterministic across processes and runs. string.GetHashCode is randomised per process, so a
     // generated document would differ between runs and break diffing of committed OpenAPI specs.
+    // Eight bytes, not four: a 32-bit digest is small enough for two ordinary routes to share one
+    // ("orders/collision-32524" and "orders/collision-68690" both truncate to 61565973), which would
+    // reintroduce the duplicate operationId this suffix exists to prevent. 64 bits keeps the id
+    // readable while making a collision within one document vanishingly unlikely.
     private static string StableSuffix(string value)
     {
         var hash = SHA256.HashData(Encoding.UTF8.GetBytes(value));
 
-        return Convert.ToHexString(hash, 0, 4).ToLowerInvariant();
+        return Convert.ToHexString(hash, 0, 8).ToLowerInvariant();
     }
 }
