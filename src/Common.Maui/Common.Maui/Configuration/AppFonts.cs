@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using Ploch.Common.Maui.Fonts;
-using Ploch.Lists.UI.MauiUI.Common.Fonts;
 
 namespace Ploch.Common.Maui.Configuration;
 

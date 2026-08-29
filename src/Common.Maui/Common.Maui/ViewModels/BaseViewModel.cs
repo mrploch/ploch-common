@@ -1,4 +1,3 @@
-using Ploch.Lists.UI.MauiUI.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Ploch.Common.Maui.ViewModels;

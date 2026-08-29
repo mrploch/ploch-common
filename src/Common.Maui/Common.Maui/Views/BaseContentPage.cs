@@ -1,6 +1,6 @@
 using AsyncAwaitBestPractices;
 using Microsoft.Maui.Controls;
-using Ploch.Lists.UI.MauiUI.ViewModels;
+using Ploch.Common.Maui.ViewModels;
 
 namespace Ploch.Common.Maui.Views;
 

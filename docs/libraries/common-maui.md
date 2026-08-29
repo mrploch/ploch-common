@@ -27,7 +27,7 @@ dotnet add package Ploch.Common.Maui.Fonts
 
 | Type | Kind | Description |
 |---|---|---|
-| `IViewModel` | Interface | Defines `OnAppearingAsync()` — called when the associated view becomes visible. **Note:** currently in namespace `Ploch.Lists.UI.MauiUI.ViewModels` rather than `Ploch.Common.Maui.ViewModels` — this appears to be a leftover from the original project and may be moved in a future release. |
+| `IViewModel` | Interface | Defines `OnAppearingAsync()` — called when the associated view becomes visible. |
 | `BaseViewModel` | Abstract class | Inherits `ObservableObject` (CommunityToolkit.Mvvm). Implements `IViewModel` with a no-op `OnAppearingAsync`. |
 | `IView` | Interface | Marker interface for MAUI views participating in the discovery system. |
 | `BaseContentPage` | Abstract class | Inherits `ContentPage`. Constructor accepts `IViewModel`. Sets `BindingContext` and calls `OnAppearingAsync` on each `OnAppearing` event. |
