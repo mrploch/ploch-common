@@ -17,8 +17,6 @@
         <ProjectReference Include="..\Common.Serialization.NewtonsoftJson\Ploch.Common.Serialization.NewtonsoftJson.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" />
-        <PackageReference Include="FluentAssertions.Json" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     </ItemGroup>
     <ItemGroup>
