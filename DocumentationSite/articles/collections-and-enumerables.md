@@ -337,6 +337,14 @@ public static IDictionary<string, int> Seed(ConcurrentDictionary<string, int> co
     counters.AddMany(new Dictionary<string, int> { ["approved"] = 0, ["rejected"] = 0 }, DuplicateHandling.Ignore);
 ```
 
+> [!WARNING]
+> `AddMany` is **not** an atomic merge. Per pair it tests `ContainsKey` and then calls `Add` (or the
+> indexer) as two separate operations, so on a `ConcurrentDictionary<TKey, TValue>` two threads can both
+> observe the same key as absent and one will then throw from `Add` — despite `DuplicateHandling.Ignore` —
+> and an `Overwrite` can clobber a value another thread wrote in between. Use it on a `ConcurrentDictionary`
+> only for single-threaded seeding, as above; for a genuinely concurrent merge use that type's own atomic
+> `TryAdd`, `GetOrAdd` or `AddOrUpdate`.
+
 `Add` and `AddIfNotNull` operate on `ICollection<KeyValuePair<TKey, TValue?>>` — which every
 `IDictionary<TKey, TValue?>` satisfies — and return the collection, so a set of optional entries becomes
 one chain instead of a run of `if` blocks:
@@ -349,7 +357,8 @@ public static IDictionary<string, string> BuildRequestHeaders(string? correlatio
            .AddIfNotNull("X-Tenant-Id", tenantId)
            .Add("Accept", "application/json");
 
-    return headers.Where(kvp => kvp.Value is not null).ToDictionary(kvp => kvp.Key, kvp => kvp.Value!);
+    // AddIfNotNull has already dropped the null entries, so no filtering is needed here.
+    return headers.ToDictionary(kvp => kvp.Key, kvp => kvp.Value!);
 }
 ```
 
@@ -358,8 +367,9 @@ check `HasValue` and call `Add` yourself.
 
 ## Sampling and shuffling
 
-`Shuffle` returns the source in random order; `TakeRandom` returns a random subset without repeats. Both
-use a Fisher–Yates shuffle over a private copy of the source, so the original is never mutated.
+`Shuffle` returns the source in random order; `TakeRandom` draws a sample *without replacement* — it never
+picks the same **position** twice. Both use a Fisher–Yates shuffle over a private copy of the source, so the
+original is never mutated.
 
 ```csharp
 public static IReadOnlyList<Invoice> PickForManualAudit(IReadOnlyCollection<Invoice> settled, int sampleSize) =>
@@ -374,7 +384,15 @@ public static IEnumerable<Uri> ShuffledEndpoints(IEnumerable<Uri> replicas) => r
 | --- | --- |
 | zero or negative | empty sequence, and the source is not enumerated at all |
 | greater than the source size | every item, in random order |
-| within range | exactly `count` distinct items, uniformly selected |
+| within range | exactly `count` items, drawn from `count` distinct positions, uniformly selected |
+
+> [!IMPORTANT]
+> "Without replacement" is about *positions*, not *values*. `TakeRandom` performs no de-duplication, so a
+> source holding equal values can return them more than once: `new[] { 1, 1, 2 }.TakeRandom(2)` yields
+> `[1, 1]` about a third of the time, because positions `0` and `1` are two distinct draws that happen to
+> hold the same value. When you need distinct *values*, de-duplicate first — `source.Distinct().TakeRandom(count)`
+> — and remember that this also changes the sampling weights, since a value repeated five times in the
+> source is five times likelier to be drawn than a unique one.
 
 A `null` source throws `ArgumentNullException`. Both methods buffer the source into a list, so they are
 `O(n)` in memory and unusable on an infinite sequence.
@@ -455,8 +473,31 @@ database query or a generator.
 | `ExceptItems` | deferred — inherits `Except` semantics |
 | `GetWithEmptyProperty` | deferred — inherits `Where` semantics |
 
-Every method guards its arguments and throws `ArgumentNullException` with the correct parameter name, using
-the same [argument-checking helpers](../../docs/libraries/common.md) as the rest of `Ploch.Common`.
+## Argument guarding is not uniform
+
+Most of these methods validate their arguments with the same
+[argument-checking helpers](../../docs/libraries/common.md) as the rest of `Ploch.Common`, throwing
+`ArgumentNullException` that names their own parameter: `None`, `ValueIn`, `If`, `ForEach`, `Second`,
+`IsEmpty`, `TakeRandom`, `AreIntegersSequentialInOrder`, `JoinWithFinalSeparator`, `AddMany`, `Add`,
+`AddIfNotNull` and `ArrayExtensions.Exists`. (`IsNullOrEmpty` is the deliberate exception: accepting `null`
+is the whole point of it, and it returns `true`.)
+
+Five overloads across four methods add no guard of their own and inherit whatever the BCL call underneath
+does. That still throws in every case but one — but under *LINQ's* parameter name rather than theirs:
+
+| Method | Null argument | What actually happens |
+| --- | --- | --- |
+| `Shuffle` | `source` | `ArgumentNullException`, `ParamName` `"source"` — thrown by `ToList`, and right only because the names coincide |
+| `Join` (both overloads) | `source` | `ArgumentNullException`, `ParamName` `"source"` — thrown by `Select`; likewise a coincidence |
+| `Join` (selector overload) | `valueSelector` | `ArgumentNullException`, `ParamName` **`"selector"`** — `Select`'s parameter, not `Join`'s |
+| `ExceptItems` | `source` | `ArgumentNullException`, `ParamName` **`"first"`** — `Except`'s parameter |
+| `ExceptItems` | `itemsToRemove` | `ArgumentNullException`, `ParamName` **`"second"`** |
+| `GetWithEmptyProperty` | `items` | `ArgumentNullException`, `ParamName` **`"source"`** — `Where`'s parameter |
+| `GetWithEmptyProperty` | `propertySelector` | **`NullReferenceException`, deferred** — the null selector is captured by the `Where` predicate, so nothing fails until the query is enumerated |
+
+The last row is the one worth remembering: it is the only case that yields neither an
+`ArgumentNullException` nor a failure at the call site. None of this affects correct calling code — it
+matters only if you catch `ArgumentNullException` around these calls or branch on `ParamName`.
 
 ## See also
 
