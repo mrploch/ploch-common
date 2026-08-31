@@ -1,4 +1,5 @@
-﻿using Ploch.Common.AppServices.Security;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Ploch.Common.AppServices.Security;
 
 namespace Ploch.Common.AppServices.Web;
 
