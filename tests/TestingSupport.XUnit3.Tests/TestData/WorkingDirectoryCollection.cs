@@ -1,4 +1,4 @@
-using Xunit;
+﻿using Xunit;
 
 namespace Ploch.TestingSupport.XUnit3.Tests.TestData;
 
@@ -17,5 +17,16 @@ public sealed class WorkingDirectoryCollection
     /// <summary>
     ///     The collection name to put on <see cref="CollectionAttribute" />.
     /// </summary>
-    public const string Name = "Working directory";
+    /// <remarks>
+    ///     Must stay a <c>const</c> rather than a static read-only property: both usages are attribute arguments, and
+    ///     the C# specification requires those to be compile-time constants. It is <c>internal</c> because nothing
+    ///     outside this test assembly consumes it.
+    /// </remarks>
+    internal const string Name = "Working directory";
+
+    /// <summary>
+    ///     Prevents instantiation - the type is a marker for xUnit's collection discovery and is never constructed.
+    /// </summary>
+    private WorkingDirectoryCollection()
+    { }
 }

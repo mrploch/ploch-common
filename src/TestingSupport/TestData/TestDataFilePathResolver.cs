@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 
 namespace Ploch.TestingSupport.TestData;
@@ -100,10 +100,15 @@ internal static class TestDataFilePathResolver
             start++;
         }
 
+        // IDE0057 suggests the range indexer (filePath[start..]), which cannot be used here: this file is also
+        // compiled into Ploch.TestingSupport, which targets netstandard2.0 where System.Index and System.Range do
+        // not exist. Using it fails with "error CS0518: Predefined type 'System.Range' is not defined or imported".
+#pragma warning disable IDE0057 // Use range operator
         return start == 0 ? filePath : filePath.Substring(start);
+#pragma warning restore IDE0057
     }
 
     private static bool IsDirectorySeparator(char character) => character == Path.DirectorySeparatorChar || character == Path.AltDirectorySeparatorChar;
 
-    private static bool IsValidDriveChar(char character) => (character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z');
+    private static bool IsValidDriveChar(char character) => character is >= 'A' and <= 'Z' or >= 'a' and <= 'z';
 }
