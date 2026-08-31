@@ -12,7 +12,8 @@ namespace Ploch.TestingSupport.TestData;
 ///   Initializes a new instance of the <see cref="TextFileLinesDataAttribute" /> class.
 ///   Load data from a text file as the data source for a theory, with each line being a separate test case.
 /// </remarks>
-/// <param name="filePath">The absolute or relative path to the text file to load.</param>
+/// <param name="filePath">The absolute or relative path to the text file to load. A relative path is resolved against the
+///   directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working directory.</param>
 /// <param name="removeEmptyEntries">
 ///   When <see langword="true" />, empty or whitespace-only lines are excluded from the generated test data.
 /// </param>

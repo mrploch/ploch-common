@@ -12,7 +12,8 @@ namespace Ploch.TestingSupport.XUnit3.TestData;
 ///     Initializes a new instance of the <see cref="JsonFileDataAttribute" /> class.
 ///     Load data from a JSON file as the data source for a theory.
 /// </remarks>
-/// <param name="filePath">The absolute or relative path to the JSON file to load.</param>
+/// <param name="filePath">The absolute or relative path to the JSON file to load. A relative path is resolved against the
+///     directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working directory.</param>
 /// <param name="propertyName">The name of the property on the JSON file that contains the data for the test.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 #pragma warning disable CC0023 // Mark attribute as sealed - this attribute might be a candidate for extension.
@@ -31,15 +32,15 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
     {
         testMethod.NotNull();
 
-        // Get the absolute path to the JSON file
-        var path = Path.GetFullPath(filePath.NotNullOrEmpty());
+        // Anchor a relative path to the test assembly's directory rather than the process working directory.
+        var path = TestDataFilePathResolver.Resolve(filePath.NotNullOrEmpty());
         if (!File.Exists(path))
         {
             throw new ArgumentException($"Could not find file at path: {path}");
         }
 
         // Load the file
-        var fileData = File.ReadAllText(filePath);
+        var fileData = File.ReadAllText(path);
 
         var jsonData = string.IsNullOrEmpty(propertyName) ? GetRootJsonData(fileData, path) : GetPropertyJsonData(fileData, propertyName!, path);
 

@@ -15,7 +15,8 @@ namespace Ploch.TestingSupport.TestData;
 ///   This abstract class handles the common file loading operations while delegating
 ///   the specific data processing to derived classes.
 /// </summary>
-/// <param name="filePath">The absolute or relative path to the text file to load.</param>
+/// <param name="filePath">The absolute or relative path to the text file to load. A relative path is resolved against the
+///   directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working directory.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 public abstract class TextFileDataAttribute(string filePath) : DataAttribute
 {
@@ -50,7 +51,7 @@ public abstract class TextFileDataAttribute(string filePath) : DataAttribute
       throw new ArgumentNullException(nameof(testMethod));
     }
 
-    var path = Path.GetFullPath(filePath.NotNullOrEmpty(nameof(filePath)));
+    var path = TestDataFilePathResolver.Resolve(filePath.NotNullOrEmpty(nameof(filePath)));
     if (!File.Exists(path))
     {
       throw new ArgumentException($"Could not find file at path: {path}");

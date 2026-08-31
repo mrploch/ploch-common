@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using Ploch.Common;
 using Ploch.TestingSupport.TestData;
 using Xunit;
+using Xunit.Sdk;
 
 namespace Ploch.TestingSupport.Tests;
 
@@ -9,50 +9,63 @@ namespace Ploch.TestingSupport.Tests;
 
 public class TextFileLinesDataAttributeTests
 {
-    // Attribute arguments must be compile-time constants, so the relative form is kept for the
-    // [TextFileLinesData] usages below. Those go through TextFileDataAttribute, which resolves
-    // against the working directory rather than the assembly; correcting that is a behaviour
-    // change in a published package and is tracked separately by issue #309.
+    // A relative path is fine as an attribute argument (which must be a compile-time constant):
+    // TextFileDataAttribute anchors it to the test assembly's directory, where the file is copied.
+    // See issue #309.
     private const string TestDataFilePath = "TestData/TextFileLinesDataAttributeTests_TestData.txt";
 
-    // Direct reads resolve against the assembly directory (where the file is copied) rather than
-    // the process working directory, which the test runner is free to change. See issue #299.
-    private static readonly string ResolvedTestDataFilePath = Path.Combine(AppContext.BaseDirectory, TestDataFilePath);
+    // The fixture holds this many GUID lines plus a few deliberately blank and whitespace-only ones,
+    // so that the removeEmptyEntries option has something to remove.
+    private const int GuidLineCount = 100;
 
     [Theory]
     [TextFileLinesData(TestDataFilePath)]
-    public void TestTextFileLinesDataAttribute_should_provide_lines_from_the_specified_text_file(string line)
+    public void TextFileLinesDataAttribute_should_provide_lines_from_the_specified_text_file(string line)
     {
-        if (line.IsNotNullOrEmpty())
+        if (!string.IsNullOrWhiteSpace(line))
         {
             Guid.Parse(line).Should().NotBeEmpty();
         }
-    }
-
-    [Fact]
-    public void TestTextFileLinesDataAttribute_TestDataLines_should_have_correct_count()
-    {
-        var lines = File.ReadAllLines(ResolvedTestDataFilePath);
-        lines.Should().HaveCount(100);
     }
 
     [Theory]
     [TextFileLinesData(TestDataFilePath, true)]
-    public void TestTextFileLinesDataAttribute_with_removeEmpty_option_should_provide_lines_from_the_specified_text_file_excluding_blank_lines(string line)
+    public void TextFileLinesDataAttribute_with_removeEmptyEntries_should_provide_only_non_blank_lines(string line)
     {
-        if (line.IsNotNullOrEmpty())
-        {
-            Guid.Parse(line).Should().NotBeEmpty();
-        }
+        line.Should().NotBeNullOrWhiteSpace();
+        Guid.Parse(line).Should().NotBeEmpty();
     }
 
     [Fact]
-    public void TestTextFileLinesDataAttribute_with_removeEmpty_option__TestDataLinesWithoutEmptyLines_should_have_correct_count()
+    public async Task GetData_should_return_every_line_including_the_blank_ones()
     {
-        var lines = File.ReadAllLines(ResolvedTestDataFilePath)
-                        .Where(line => !string.IsNullOrWhiteSpace(line))
-                        .ToArray();
-        lines.Should().HaveCount(100);
+        var lines = await GetLinesAsync(new TextFileLinesDataAttribute(TestDataFilePath));
+
+        lines.Should().HaveCountGreaterThan(GuidLineCount);
+        lines.Should().Contain(line => string.IsNullOrWhiteSpace(line));
+    }
+
+    [Fact]
+    public async Task GetData_with_removeEmptyEntries_should_exclude_the_blank_lines()
+    {
+        var allLines = await GetLinesAsync(new TextFileLinesDataAttribute(TestDataFilePath));
+        var nonBlankLines = await GetLinesAsync(new TextFileLinesDataAttribute(TestDataFilePath, true));
+
+        nonBlankLines.Should().HaveCount(GuidLineCount);
+        nonBlankLines.Should().HaveCountLessThan(allLines.Count);
+        nonBlankLines.Should().OnlyContain(line => !string.IsNullOrWhiteSpace(line));
+    }
+
+    private static async Task<IReadOnlyList<string>> GetLinesAsync(TextFileLinesDataAttribute attribute)
+    {
+        // GetData only needs a MethodInfo with a single string parameter; the theory above provides one.
+        var testMethod = typeof(TextFileLinesDataAttributeTests)
+            .GetMethod(nameof(TextFileLinesDataAttribute_should_provide_lines_from_the_specified_text_file))!;
+
+        await using var disposalTracker = new DisposalTracker();
+        var rows = await attribute.GetData(testMethod, disposalTracker);
+
+        return rows.Select(row => (string)row.GetData()[0]!).ToList();
     }
 }
 #pragma warning restore xUnit1003

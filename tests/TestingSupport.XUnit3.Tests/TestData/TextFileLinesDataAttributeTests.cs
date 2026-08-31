@@ -22,10 +22,8 @@ public class TextFileLinesDataAttributeTests
     [TextFileLinesData("TestData/TextFileLinesDataAttributeTests_TestData.txt", true)]
     public void TestTextFileLinesDataAttribute_with_removeEmpty_option_should_provide_lines_from_the_specified_text_file_excluding_blank_lines(string line)
     {
-        if (line.IsNotNullOrEmpty())
-        {
-            Guid.Parse(line).Should().NotBeEmpty();
-        }
+        line.Should().NotBeNullOrEmpty();
+        Guid.Parse(line).Should().NotBeEmpty();
     }
 }
 #pragma warning restore xUnit1003
