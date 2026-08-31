@@ -58,15 +58,15 @@ lambdas keeps it honest under rename:
 ```csharp
 public sealed class SortableFields<TEntity>
 {
-    private readonly HashSet<string> allowed = new(StringComparer.OrdinalIgnoreCase);
+    private readonly HashSet<string> _allowed = new(StringComparer.OrdinalIgnoreCase);
 
     public SortableFields<TEntity> Allow<TMember>(Expression<Func<TEntity, TMember>> field)
     {
-        allowed.Add(field.GetMemberName());
+        _allowed.Add(field.GetMemberName());
         return this;
     }
 
-    public bool IsAllowed(string requestedField) => allowed.Contains(requestedField);
+    public bool IsAllowed(string requestedField) => _allowed.Contains(requestedField);
 }
 ```
 
@@ -116,8 +116,12 @@ Expression<Action> operation = () => customer.ToString();
 operation.GetMemberName();   // "ToString" — ToString() is not called
 ```
 
-That makes the pattern safe for naming operations whose execution would be expensive or has side
-effects, which is the usual reason to prefer it to `MethodBase.GetCurrentMethod()`.
+That makes the pattern safe for naming an operation whose execution would be expensive or has side
+effects: the naive alternative — invoking the method so that something inside it can report its own
+name — actually runs it. Where the target is a method *group* rather than a call, a delegate is
+cheaper and equally side-effect-free: `((Func<string?>)customer.ToString).Method.Name`. The expression
+overload earns its keep when the caller writes a call with arguments, because a method group cannot
+express one.
 
 ### Local variable names
 
@@ -176,31 +180,67 @@ IOwnedPropertyInfo untyped = customer.GetProperty(c => c.Id);
 untyped.GetValue();   // 42, boxed as object
 ```
 
+### The selector must read a property *of the parameter*
+
+`GetProperty` pairs whichever `PropertyInfo` the selector's body resolves to with the `obj` it was
+called on. It does not check that the two belong together, so a selector that reaches past the
+lambda parameter is accepted at construction and only misbehaves on access.
+
+A nested selector picks up the *inner* property and the *outer* owner:
+
+```csharp
+var city = customer.GetProperty(c => c.Address.City);
+
+city.Name;                     // "City"
+city.PropertyInfo.DeclaringType;   // Address
+city.Owner;                    // the Customer — not the Address
+
+city.GetValue();   // throws TargetException:
+                   // "Object type Address does not match target type Customer."
+```
+
+A selector that closes over a *different* instance is worse, because it fails silently:
+
+```csharp
+var other = new Customer { Id = 7 };
+
+customer.GetProperty(c => other.Id).GetValue();   // 42 — customer.Id, not other.Id
+```
+
+Both are compile-clean, so neither is caught for you. Keep selectors to a single member access on
+the lambda parameter — `c => c.City` on the `Address` itself, rather than `c => c.Address.City` on
+the `Customer`.
+
 ### Building an audit trail
 
 Binding the owner in is what keeps a change-tracking helper short: capture the properties once,
 snapshot their values, and compare later, without threading the instance through the API at all.
 
+The snapshot is keyed by the owned property itself rather than by its `Name`, because a name is not
+unique across the set: two owners of the same type both contribute a `Name`, and every indexer is
+called `Item` (see [Indexers](#indexers) below). Keying by name would throw a duplicate-key
+`ArgumentException` from `ToDictionary` in either case.
+
 ```csharp
 public sealed class ChangeSnapshot
 {
-    private readonly IReadOnlyList<IOwnedPropertyInfo> properties;
-    private readonly Dictionary<string, object?> original;
+    private readonly IReadOnlyList<IOwnedPropertyInfo> _properties;
+    private readonly Dictionary<IOwnedPropertyInfo, object?> _original;
 
     public ChangeSnapshot(params IOwnedPropertyInfo[] properties)
     {
-        this.properties = properties;
-        original = properties.ToDictionary(property => property.Name, property => property.GetValue());
+        _properties = properties;
+        _original = properties.ToDictionary(property => property, property => property.GetValue());
     }
 
     public IEnumerable<string> GetChanges()
     {
-        foreach (var property in properties)
+        foreach (var property in _properties)
         {
             var current = property.GetValue();
-            if (!Equals(current, original[property.Name]))
+            if (!Equals(current, _original[property]))
             {
-                yield return $"{property.Name}: '{original[property.Name]}' -> '{current}'";
+                yield return $"{property.Name}: '{_original[property]}' -> '{current}'";
             }
         }
     }
@@ -294,6 +334,14 @@ silently wrong answer, and the messages are worth recognising:
 | `target.GetProperty(t => t.SomeField)` | `InvalidOperationException`: `Provided t => t.SomeField is not a property expression.` — the member resolves to a `FieldInfo`, and only properties are supported. |
 | `((Expression<Func<object>>)(() => customer.Id)).GetMemberName()` | `InvalidOperationException`: `Not a member expression!` — use the two-type-parameter overload. |
 | A `null` expression | `ArgumentNullException`, thrown by the guard clause before the tree is walked. |
+
+Two more get past construction and fail — or lie — only on access; see
+[the selector must read a property of the parameter](#the-selector-must-read-a-property-of-the-parameter):
+
+| Expression | Result |
+|------------|--------|
+| `customer.GetProperty(c => c.Address.City)` | Constructs. `GetValue()` throws `TargetException`: `Object type Address does not match target type Customer.` |
+| `customer.GetProperty(c => other.Id)` | Constructs. `GetValue()` silently reads `customer.Id`, ignoring `other`. |
 
 Assigning an incompatible value through the non-generic interface fails at the reflection layer
 rather than inside `Ploch.Common`:
