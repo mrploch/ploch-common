@@ -37,10 +37,22 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
+    <!--
+        Non-test projects are shipping libraries: state IsPackable explicitly.
+        Without it the property is left empty here, and NuGet.Build.Tasks.Pack.targets
+        later applies its own default:
+            <IsPackable Condition="'$(IsPackable)'=='' AND ('$(IsTestProject)'=='true' OR '$(IsTestingPlatformApplication)'=='true')">false</IsPackable>
+        Any library that references xUnit v3 (the Ploch.TestingSupport.XUnit3 family) inherits
+        IsTestingPlatformApplication=true from the Microsoft.Testing.Platform build props, so the
+        SDK silently marked those shipping packages non-packable. See issue #280.
+        Test projects keep IsPackable=false via the $(IsTestProject) group above, and any project
+        that opts out explicitly in its own .csproj still wins, because this file is imported first.
+    -->
     <PropertyGroup Condition="!$(IsTestProject)">
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IsTestProject>false</IsTestProject>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
     <!--
         Optional MSBuild settings dump. Set `-p:PrintBuildSettings=true` on the dotnet CLI

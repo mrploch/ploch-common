@@ -46,7 +46,21 @@
         <Using Include="Xunit" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" PackageCopyToOutput="true" />
     </ItemGroup>
+
+    <!--
+        Microsoft.NET.Test.Sdk injects testhost.dll and testhost.exe as Content items, and it does so
+        from its own .targets, after this project file has been evaluated - so they can only be
+        excluded from the package by a target that runs before pack collects the files.
+        They must not be packed: NuGet raises NU5100 for an assembly outside lib/, and a consumer of
+        this meta-package already receives the test host through the Microsoft.NET.Test.Sdk dependency
+        declared above. See issue #280.
+    -->
+    <Target Name="ExcludeTestHostFromPackage" BeforeTargets="_GetPackageFiles">
+        <ItemGroup>
+            <Content Update="@(Content)" Pack="false" Condition="'%(Content.Filename)' == 'testhost'" />
+        </ItemGroup>
+    </Target>
 
 </Project>
