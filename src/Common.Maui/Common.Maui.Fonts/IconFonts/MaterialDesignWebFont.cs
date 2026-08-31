@@ -6,6 +6,9 @@ namespace Ploch.Common.Maui.Fonts;
 // If you change the class to 'public' in order to use it outside its assembly
 //  you should also change the fields from 'const' to 'public static readonly'
 
+/// <summary>
+/// Glyph codes for the Material Design web icon font.
+/// </summary>
 [GeneratedCode("IconToCode", "1.0.0.0")]
 public static class MaterialDesignWebFont
 {
