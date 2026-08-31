@@ -38,6 +38,14 @@ create a GitHub Pages deployment at all — the isolation is enforced by the tok
 not by convention. The preview workflows also stay out of the `"pages"` concurrency
 group, and write only into `pr-preview/pr-<N>/` on a separate branch.
 
+The publishing and cleanup jobs do hold `contents: write`, and a `pull_request`
+workflow grants that only to same-repository pull requests — that is, to people who
+already have push access. A contributor who could subvert those jobs by editing the
+workflow could equally push to a branch directly, so this does not widen the trust
+boundary. It is nonetheless why the eligibility gate exists, why the publishing job
+checks nothing out, and why `pull_request_target` is not used: that trigger would
+extend the same write token to forks.
+
 ### Enabling the hosted preview lane
 
 A repository has exactly one GitHub Pages site, and this repository's is fed by the
@@ -47,13 +55,14 @@ posting a URL that would not resolve.
 
 To turn hosted previews on:
 
-1. Choose where the preview branch will be served from. Because this repository's
-   Pages site is already taken by production, that means a second GitHub Pages site
-   in a separate repository, or an external static host pointed at the
-   `gh-pages-previews` branch.
-2. Set the repository variable `DOCS_PREVIEW_BASE_URL` to the base URL of that host
-   — for example `https://mrploch.github.io/ploch-common-previews`. The workflow
-   appends `/pr-preview/pr-<N>/`.
+1. Choose a host that can serve **this repository's** `gh-pages-previews` branch.
+   The workflow pushes into the repository it runs in and has no cross-repository
+   credentials, so a second GitHub repository is only viable with a mirroring step
+   and a token that is not in scope here. An external static host (Cloudflare Pages,
+   Netlify, and similar all support serving an arbitrary branch) is the
+   straightforward option.
+2. Set the repository variable `DOCS_PREVIEW_BASE_URL` to the base URL of that host.
+   The workflow appends `/pr-preview/pr-<N>/`.
 3. Optionally set `DOCS_PREVIEW_BRANCH` if the preview branch should be named
    something other than `gh-pages-previews`.
 

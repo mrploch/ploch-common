@@ -41,6 +41,7 @@ on:
       - 'DocumentationSite/**'
       - '.github/workflows/publish-docs.yml'
       - '.github/workflows/docs-preview.yml'
+      - '.github/workflows/docs-preview-cleanup.yml'
 
 # Least privilege: every job opts in to exactly what it needs.
 permissions: {}
@@ -190,17 +191,36 @@ jobs:
           # our push. Rather than queue behind a concurrency group - which GitHub
           # resolves by cancelling a pending run, losing that preview entirely -
           # re-read the branch and rebuild the commit on each attempt.
-          attempt_push() {
+          #
+          # The body is a subshell with its own `set -e`: a plain function called
+          # under `set +e` (needed to capture the status) would inherit the disabled
+          # errexit, letting a failed git command run on and a later successful push
+          # report success over incomplete content.
+          attempt_push() (
+            set -euo pipefail
             rm -rf preview-branch
             mkdir preview-branch
             cd preview-branch
             git init -q
             git remote add origin "$REMOTE"
-            if git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
+            # Distinguish "the branch does not exist yet" from "the fetch failed".
+            # Treating a transient network error as an absent branch would rewrite
+            # the branch from scratch and delete every other pull request's preview.
+            set +e
+            git ls-remote --exit-code --heads origin "$PREVIEW_BRANCH" >/dev/null
+            ls_status=$?
+            set -e
+            if [ "$ls_status" -eq 0 ]; then
+              git fetch -q --depth 1 origin "$PREVIEW_BRANCH"
               git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
-            else
+            elif [ "$ls_status" -eq 2 ]; then
+              # 2 is git ls-remote --exit-code's "no matching refs", i.e. the branch
+              # genuinely does not exist yet. Any other status is a real failure.
               echo "Preview branch $PREVIEW_BRANCH does not exist yet; creating it as an orphan."
               git checkout -q --orphan "$PREVIEW_BRANCH"
+            else
+              echo "Could not reach the remote to list $PREVIEW_BRANCH (git ls-remote exited $ls_status)."
+              exit 1
             fi
             rm -rf "$TARGET"
             mkdir -p "$TARGET"
@@ -211,30 +231,32 @@ jobs:
             git add -A
             if git diff --cached --quiet; then
               echo "Preview content is unchanged; nothing to push."
-              cd ..
-              return 0
+              exit 0
             fi
             git -c user.name="github-actions[bot]" \
                 -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
                 commit -q -m "docs(preview): Publish preview for PR #${PR_NUMBER} (${HEAD_SHA})"
-            if git push -q origin "HEAD:${PREVIEW_BRANCH}"; then
-              cd ..
-              return 0
+            # Last check before writing: if the pull request closed while this job was
+            # building or retrying, the cleanup workflow has already run (or is about
+            # to) and pushing now would resurrect a preview that nothing will ever
+            # remove, because no second `closed` event follows.
+            PR_STATE=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq .state)
+            if [ "$PR_STATE" != "open" ]; then
+              echo "::notice::Pull request #${PR_NUMBER} is no longer open; abandoning this preview publish so cleanup is not undone."
+              exit 0
             fi
-            cd ..
-            return 1
-          }
+            git push -q origin "HEAD:${PREVIEW_BRANCH}"
+          )
 
           for attempt in 1 2 3 4 5; do
-            # Not `if attempt_push; then`: using a function as an `if` condition
-            # suppresses `set -e` for its entire body, which would let a failed git
-            # command inside it pass unnoticed.
+            # `attempt_push` must not be an `if` condition: that suppresses `set -e`
+            # for the callee. Capture the status explicitly instead.
             set +e
             attempt_push
             status=$?
             set -e
             if [ "$status" -eq 0 ]; then
-              echo "Published $TARGET to $PREVIEW_BRANCH on attempt $attempt."
+              echo "Publish step completed on attempt $attempt."
               exit 0
             fi
             echo "Attempt $attempt did not complete (the preview branch most likely moved); retrying."
@@ -279,10 +301,10 @@ jobs:
             --jq '[.[][] | select(.body | contains($ENV.MARKER)) | .id] | first')
           if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
             gh api --method POST "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
-              -f "body=$(cat preview-comment.md)" --silent
+              -F body=@preview-comment.md --silent
             echo "Posted a new preview comment."
           else
             gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" \
-              -f "body=$(cat preview-comment.md)" --silent
+              -F body=@preview-comment.md --silent
             echo "Updated preview comment ${COMMENT_ID}."
           fi

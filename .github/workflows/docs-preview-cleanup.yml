@@ -15,6 +15,15 @@ on:
 
 permissions: {}
 
+# The same per-PR group docs-preview.yml uses, so closing a pull request cancels any
+# preview publish still in flight for it. Belt and braces with the "is the pull
+# request still open?" check that guards the push in docs-preview.yml: a cancellation
+# can always lose a race, and a resurrected preview would never be cleaned up because
+# no second `closed` event follows.
+concurrency:
+  group: docs-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   cleanup-preview:
     name: Remove docs preview
@@ -52,48 +61,49 @@ jobs:
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           TARGET="pr-preview/pr-${PR_NUMBER}"
 
-          # Mirrors the retry in docs-preview.yml: another pull request may push into
-          # the branch between our fetch and our push, and a shared concurrency group
-          # would resolve that by cancelling a pending run rather than queueing it.
-          attempt_delete() {
+          # Mirrors the retry in docs-preview.yml, including the subshell that keeps
+          # `set -e` alive inside the callee.
+          attempt_delete() (
+            set -euo pipefail
             rm -rf preview-branch
             mkdir preview-branch
             cd preview-branch
             git init -q
             git remote add origin "$REMOTE"
-            if ! git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
+            # As in docs-preview.yml: a transient fetch failure must not be mistaken
+            # for an absent branch, or cleanup would report success while the preview
+            # stayed published forever.
+            set +e
+            git ls-remote --exit-code --heads origin "$PREVIEW_BRANCH" >/dev/null
+            ls_status=$?
+            set -e
+            if [ "$ls_status" -eq 0 ]; then
+              git fetch -q --depth 1 origin "$PREVIEW_BRANCH"
+            elif [ "$ls_status" -eq 2 ]; then
               echo "Preview branch $PREVIEW_BRANCH does not exist; nothing to clean up."
-              cd ..
-              return 0
+              exit 0
+            else
+              echo "Could not reach the remote to list $PREVIEW_BRANCH (git ls-remote exited $ls_status)."
+              exit 1
             fi
             git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
             if [ ! -d "$TARGET" ]; then
               echo "No preview directory at $TARGET; nothing to clean up."
-              cd ..
-              return 0
+              exit 0
             fi
             rm -rf "$TARGET"
             git add -A
             if git diff --cached --quiet; then
               echo "Nothing staged; nothing to clean up."
-              cd ..
-              return 0
+              exit 0
             fi
             git -c user.name="github-actions[bot]" \
                 -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
                 commit -q -m "docs(preview): Remove preview for closed PR #${PR_NUMBER}"
-            if git push -q origin "HEAD:${PREVIEW_BRANCH}"; then
-              cd ..
-              return 0
-            fi
-            cd ..
-            return 1
-          }
+            git push -q origin "HEAD:${PREVIEW_BRANCH}"
+          )
 
           for attempt in 1 2 3 4 5; do
-            # Not `if attempt_delete; then`: using a function as an `if` condition
-            # suppresses `set -e` for its entire body, which would let a failed git
-            # command inside it pass unnoticed.
             set +e
             attempt_delete
             status=$?
@@ -130,5 +140,5 @@ jobs:
             printf 'This pull request is closed, so its documentation preview has been removed.\n'
           } > preview-comment.md
           gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" \
-            -f "body=$(cat preview-comment.md)" --silent
+            -F body=@preview-comment.md --silent
           echo "Updated preview comment ${COMMENT_ID}."
