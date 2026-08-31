@@ -18,6 +18,5 @@ projecting them to names first, and `StringAssertionExtensions` adds the string 
 enough to be worth naming. All of it is opt-in — importing the namespace makes the extensions visible, and the
 equivalency step is registered explicitly where it is wanted.
 
-See the [Ploch.TestingSupport.FluentAssertions library
-guide](../../docs/libraries/testing-support-fluent-assertions.md) for installation instructions and worked
-examples.
+See the [Ploch.TestingSupport.FluentAssertions library guide](../../docs/libraries/testing-support-fluent-assertions.md)
+for installation instructions and worked examples.

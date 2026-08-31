@@ -18,6 +18,5 @@ The namespace is intentionally small: it is a thin, dependency-light convenience
 for it whenever an application binds more than a handful of options classes and you would rather not maintain
 a parallel set of section-name constants.
 
-See the [Ploch.Common.Extensions.Configuration library
-guide](../../docs/libraries/common-extensions-configuration.md) for installation instructions and worked
-examples.
+See the [Ploch.Common.Extensions.Configuration library guide](../../docs/libraries/common-extensions-configuration.md)
+for installation instructions and worked examples.
