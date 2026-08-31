@@ -116,12 +116,11 @@ jobs:
     permissions:
       contents: write        # push the built site to the preview branch
       pull-requests: write   # post/update the sticky preview comment
-    # Every PR writes into the same preview branch, so pushes are serialised
-    # repository-wide. cancel-in-progress is false: cancelling a half-finished push
-    # is what would leave the branch inconsistent.
-    concurrency:
-      group: docs-preview-publish
-      cancel-in-progress: false
+    # Deliberately NOT serialised through a shared concurrency group. GitHub keeps
+    # at most one *pending* run per group and cancels any earlier pending one, so a
+    # busy period would silently drop a preview rather than queue it. Concurrent
+    # writers are handled where the conflict actually happens instead: the push
+    # below re-reads the branch and retries.
     steps:
       # Modelled on "Determine SonarCloud eligibility" in build-dotnet.yml: decide
       # once, in one place, whether this run can do privileged work, and skip with a
@@ -162,12 +161,8 @@ jobs:
             echo "::notice::Repository variable DOCS_PREVIEW_BASE_URL is not set, so there is no hosted preview target yet. Commenting with the downloadable site artifact instead. See docs/docs-preview.md to enable the hosted lane."
           fi
 
-      - name: Checkout
-        if: steps.eligibility.outputs.comment == 'true'
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-        with:
-          fetch-depth: 1
-          persist-credentials: false
+      # No source checkout: nothing in this job reads the repository working tree,
+      # so omitting it removes any possibility of a preview step touching source.
 
       - name: Download built site
         if: steps.eligibility.outputs.publish == 'true'
@@ -186,34 +181,67 @@ jobs:
         run: |
           set -euo pipefail
           # A throwaway clone keeps the preview branch's history entirely separate
-          # from the working checkout, so nothing here can touch the source tree.
+          # from the source tree: this job never checks the repository out, so there
+          # is no working copy for a preview step to disturb.
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          rm -rf preview-branch && mkdir preview-branch && cd preview-branch
-          git init -q
-          git remote add origin "$REMOTE"
-          if git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
-            git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
-          else
-            echo "Preview branch $PREVIEW_BRANCH does not exist yet; creating it as an orphan."
-            git checkout -q --orphan "$PREVIEW_BRANCH"
-          fi
           TARGET="pr-preview/pr-${PR_NUMBER}"
-          rm -rf "$TARGET"
-          mkdir -p "$TARGET"
-          cp -R "../preview-site/." "$TARGET/"
-          # GitHub Pages runs Jekyll over branch sources by default, which would drop
-          # DocFX's underscore-prefixed asset folders.
-          : > .nojekyll
-          git add -A
-          if git diff --cached --quiet; then
-            echo "Preview content is unchanged; nothing to push."
-            exit 0
-          fi
-          git -c user.name="github-actions[bot]" \
-              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-              commit -q -m "docs(preview): Publish preview for PR #${PR_NUMBER} (${HEAD_SHA})"
-          git push -q origin "HEAD:${PREVIEW_BRANCH}"
-          echo "Pushed $TARGET to $PREVIEW_BRANCH."
+
+          # Another pull request may push into the same branch between our fetch and
+          # our push. Rather than queue behind a concurrency group - which GitHub
+          # resolves by cancelling a pending run, losing that preview entirely -
+          # re-read the branch and rebuild the commit on each attempt.
+          attempt_push() {
+            rm -rf preview-branch
+            mkdir preview-branch
+            cd preview-branch
+            git init -q
+            git remote add origin "$REMOTE"
+            if git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
+              git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
+            else
+              echo "Preview branch $PREVIEW_BRANCH does not exist yet; creating it as an orphan."
+              git checkout -q --orphan "$PREVIEW_BRANCH"
+            fi
+            rm -rf "$TARGET"
+            mkdir -p "$TARGET"
+            cp -R "../preview-site/." "$TARGET/"
+            # GitHub Pages runs Jekyll over branch sources by default, which would
+            # drop DocFX's underscore-prefixed asset folders.
+            : > .nojekyll
+            git add -A
+            if git diff --cached --quiet; then
+              echo "Preview content is unchanged; nothing to push."
+              cd ..
+              return 0
+            fi
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                commit -q -m "docs(preview): Publish preview for PR #${PR_NUMBER} (${HEAD_SHA})"
+            if git push -q origin "HEAD:${PREVIEW_BRANCH}"; then
+              cd ..
+              return 0
+            fi
+            cd ..
+            return 1
+          }
+
+          for attempt in 1 2 3 4 5; do
+            # Not `if attempt_push; then`: using a function as an `if` condition
+            # suppresses `set -e` for its entire body, which would let a failed git
+            # command inside it pass unnoticed.
+            set +e
+            attempt_push
+            status=$?
+            set -e
+            if [ "$status" -eq 0 ]; then
+              echo "Published $TARGET to $PREVIEW_BRANCH on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt did not complete (the preview branch most likely moved); retrying."
+            sleep $(( attempt * 5 ))
+          done
+          echo "::error::Could not publish the documentation preview to $PREVIEW_BRANCH after 5 attempts."
+          exit 1
 
       - name: Post or update the preview comment
         if: steps.eligibility.outputs.comment == 'true'
@@ -244,8 +272,11 @@ jobs:
               printf 'Built from `%s`. See `docs/docs-preview.md` for how to enable hosted previews.\n' "$HEAD_SHA"
             fi
           } > preview-comment.md
-          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
-            --jq '[.[] | select(.body | contains($ENV.MARKER)) | .id] | first')
+          # --slurp is required: with --paginate alone, gh applies --jq to each page
+          # separately, so a multi-page conversation would emit one result per page
+          # ("null" then "12345") instead of a single id.
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate --slurp \
+            --jq '[.[][] | select(.body | contains($ENV.MARKER)) | .id] | first')
           if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
             gh api --method POST "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
               -f "body=$(cat preview-comment.md)" --silent

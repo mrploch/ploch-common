@@ -22,11 +22,6 @@ jobs:
     permissions:
       contents: write        # delete the preview directory from the preview branch
       pull-requests: write   # update the sticky preview comment
-    # Shares the publish workflow's group so a delete can never interleave with a
-    # push into the same branch.
-    concurrency:
-      group: docs-preview-publish
-      cancel-in-progress: false
     steps:
       # Same reasoning as the eligibility gate in docs-preview.yml: fork PRs and
       # Dependabot never published a preview in the first place, and their token
@@ -55,30 +50,63 @@ jobs:
         run: |
           set -euo pipefail
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          rm -rf preview-branch && mkdir preview-branch && cd preview-branch
-          git init -q
-          git remote add origin "$REMOTE"
-          if ! git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
-            echo "Preview branch $PREVIEW_BRANCH does not exist; nothing to clean up."
-            exit 0
-          fi
-          git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
           TARGET="pr-preview/pr-${PR_NUMBER}"
-          if [ ! -d "$TARGET" ]; then
-            echo "No preview directory at $TARGET; nothing to clean up."
-            exit 0
-          fi
-          rm -rf "$TARGET"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "Nothing staged; nothing to clean up."
-            exit 0
-          fi
-          git -c user.name="github-actions[bot]" \
-              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-              commit -q -m "docs(preview): Remove preview for closed PR #${PR_NUMBER}"
-          git push -q origin "HEAD:${PREVIEW_BRANCH}"
-          echo "Removed $TARGET from $PREVIEW_BRANCH."
+
+          # Mirrors the retry in docs-preview.yml: another pull request may push into
+          # the branch between our fetch and our push, and a shared concurrency group
+          # would resolve that by cancelling a pending run rather than queueing it.
+          attempt_delete() {
+            rm -rf preview-branch
+            mkdir preview-branch
+            cd preview-branch
+            git init -q
+            git remote add origin "$REMOTE"
+            if ! git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
+              echo "Preview branch $PREVIEW_BRANCH does not exist; nothing to clean up."
+              cd ..
+              return 0
+            fi
+            git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
+            if [ ! -d "$TARGET" ]; then
+              echo "No preview directory at $TARGET; nothing to clean up."
+              cd ..
+              return 0
+            fi
+            rm -rf "$TARGET"
+            git add -A
+            if git diff --cached --quiet; then
+              echo "Nothing staged; nothing to clean up."
+              cd ..
+              return 0
+            fi
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                commit -q -m "docs(preview): Remove preview for closed PR #${PR_NUMBER}"
+            if git push -q origin "HEAD:${PREVIEW_BRANCH}"; then
+              cd ..
+              return 0
+            fi
+            cd ..
+            return 1
+          }
+
+          for attempt in 1 2 3 4 5; do
+            # Not `if attempt_delete; then`: using a function as an `if` condition
+            # suppresses `set -e` for its entire body, which would let a failed git
+            # command inside it pass unnoticed.
+            set +e
+            attempt_delete
+            status=$?
+            set -e
+            if [ "$status" -eq 0 ]; then
+              echo "Cleanup completed on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt did not complete (the preview branch most likely moved); retrying."
+            sleep $(( attempt * 5 ))
+          done
+          echo "::error::Could not remove $TARGET from $PREVIEW_BRANCH after 5 attempts."
+          exit 1
 
       - name: Update the preview comment
         if: steps.eligibility.outputs.enabled == 'true'
@@ -89,8 +117,9 @@ jobs:
           set -euo pipefail
           MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
           export MARKER
-          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
-            --jq '[.[] | select(.body | contains($ENV.MARKER)) | .id] | first')
+          # --slurp is required: with --paginate alone, gh applies --jq per page.
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate --slurp \
+            --jq '[.[][] | select(.body | contains($ENV.MARKER)) | .id] | first')
           if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
             echo "No preview comment to update."
             exit 0
