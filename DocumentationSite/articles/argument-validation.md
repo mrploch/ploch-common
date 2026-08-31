@@ -37,6 +37,11 @@ that most affects how useful your exceptions are:
 | `NotNull`, `NotNullOrEmpty`, `NotNullOrDefault`, `Positive`, `NotOutOfRange`, `IsValidPath`, `EnsureFileExists` | `ArgumentNullException`, `ArgumentException`, `ArgumentOutOfRangeException` | **The caller passed something invalid.** The bug is on the other side of the call. |
 | `RequiredNotNull`, `RequiredNotNullOrEmpty`, `RequiredTrue`, `RequiredFalse`, `RequiredIsValidPath`, `RequiredFileExists` | `InvalidOperationException` | **This object is in a state it should not be in.** Nobody passed anything; something was never initialised, or was initialised wrongly. |
 
+Two of those entries are less tidy than the split suggests: `EnsureFileExists` and `RequiredFileExists`
+each throw from *both* families depending on which check fails, and on `netstandard2.0` `EnsureFileExists`
+does not throw from the `Not*` family at all. See
+[Validating paths with `PathGuard`](#validating-paths-with-pathguard) for the per-branch detail.
+
 That mapping is not decorative. `ArgumentNullException` carries a `ParamName`, and every diagnostic tool,
 log aggregator and human reader treats it as "look at the call site". `InvalidOperationException` carries no
 parameter name and says "look at this object's lifecycle". Pick the wrong one and you send whoever is on call
@@ -119,9 +124,9 @@ public Task<ArchivedDocument> ArchiveAsync(Document document, CancellationToken 
 
 ## Parameter names are captured for you (on .NET 7 and later)
 
-On `net7.0` and later targets — which includes the `net8.0` build of `Ploch.Common` — the name parameter of
-every guard is optional and decorated with `[CallerArgumentExpression]`. You never write the name as a string
-literal, so it cannot go stale when the parameter is renamed:
+On `net7.0` and later targets — which includes the `net8.0` build of `Ploch.Common` — every guard that takes
+a name parameter declares it optional and decorated with `[CallerArgumentExpression]`. You never write the
+name as a string literal, so it cannot go stale when the parameter is renamed:
 
 ```csharp
 public void Send(string recipientAddress)
@@ -135,13 +140,39 @@ Because the attribute captures the *expression*, not just an identifier, richer 
 names. `order.Customer.Email.NotNullOrEmpty()` reports `order.Customer.Email` as the parameter name — usually
 what you want in a log, occasionally surprising if you were expecting a bare identifier.
 
-> [!IMPORTANT]
-> The `netstandard2.0` build has no `CallerArgumentExpression`, so on that target the name parameter is
-> **required and positional**. Code written against the `net8.0` build that omits the name will not compile
-> when retargeted to `netstandard2.0`. If your code multi-targets, pass the name explicitly:
-> `recipientAddress.NotNullOrEmpty(nameof(recipientAddress))`.
+One guard does not honour this on every branch: `PathGuard.RequiredIsValidPath` forwards the captured name
+to its invalid-characters branch but not to its null/empty branch, where the message instead names the
+guard's own internal `path` parameter. That is a library defect, tracked as
+[#325](https://github.com/mrploch/ploch-common/issues/325), not intended behaviour.
 
-The two targets also differ in which members exist at all — see
+> [!IMPORTANT]
+> The `netstandard2.0` build has no `CallerArgumentExpression`, and the consequence is **not** uniform across
+> the guards. There are three distinct cases, and only two of them are compile errors:
+>
+> | Guards | `netstandard2.0` signature | Omitting the name there |
+> |--------|----------------------------|-------------------------|
+> | `NotNull` (both overloads), `NotNullOrEmpty` (both overloads), `Positive`, `NotOutOfRange`, `IsValidPath`, `EnsureFileExists` | name is **required and positional** | **Compile error** — `CS1501` or `CS7036` |
+> | `RequiredNotNull` (both overloads), `RequiredNotNullOrEmpty` | `(string? messageFormat = null, string? memberName = null)` — optional on **both** targets | **Compiles silently**, but nothing captures the name, so the message degrades to `Variable  cannot be null.` with a blank name |
+> | `RequiredTrue` | `(bool argument, string message)` — a **mandatory message**, not a name | **Compile error**, but the argument you must supply is a message; this guard has no name parameter on either target |
+>
+> `RequiredFalse` takes a mandatory `message` on both targets and is unaffected.
+>
+> So the multi-targeting rule is not "always pass the name". It is: pass the name **positionally** to the
+> first row, and **by name** to the second row.
+>
+> ```csharp
+> recipientAddress.NotNullOrEmpty(nameof(recipientAddress));   // first row
+> _entries.RequiredNotNull(memberName: nameof(_entries));      // second row - see the warning below
+> ```
+
+> [!WARNING]
+> The second **positional** parameter of `RequiredNotNull` and `RequiredNotNullOrEmpty` is `messageFormat`,
+> not the member name — on both targets. So `_entries.RequiredNotNull(nameof(_entries))` binds `"_entries"`
+> to `messageFormat`, and since that string contains no `{0}` placeholder the exception message becomes the
+> bare literal `_entries`. Always pass the named argument
+> `RequiredNotNull(memberName: nameof(_entries))`, or supply a genuine format string in first position.
+
+The two targets also differ in which members exist at all, and in what `EnsureFileExists` does — see
 [Target-framework differences](#target-framework-differences) below.
 
 ## Guard reference
@@ -259,7 +290,7 @@ public Stream Export(ExportFormat format)
         ExportFormat.Csv  => ExportCsv(),
         ExportFormat.Xlsx => ExportXlsx(),
         ExportFormat.Pdf  => ExportPdf(),
-        _ => throw new UnreachableException()
+        _ => throw new ArgumentOutOfRangeException(nameof(format))
     };
 }
 ```
@@ -277,9 +308,23 @@ public enum SyncScope { None = 0, Contacts = 1, Calendar = 2, Files = 4 }
 ```
 
 Two consequences worth internalising. First, a `[Flags]` enum with no `None = 0` member still accepts the
-zero value, because "no flags set" is a legitimate state. Second, on a non-flags enum a bitwise combination is
-rejected — `(ExportFormat)(Csv | Xlsx)` is just the undefined value `1`... unless that value happens to be
-defined, which is the classic reason to give non-flags enums explicit, non-overlapping values.
+zero value, because "no flags set" is a legitimate state.
+
+Second — and this is the one that bites — on a *non-flags* enum there is no flags logic to fall back on, so
+the guard accepts a bitwise combination whenever the arithmetic happens to land on a defined member. With the
+default, consecutively-numbered `ExportFormat { Csv, Xlsx, Pdf }` from the example above:
+
+```csharp
+(ExportFormat.Csv | ExportFormat.Xlsx).NotOutOfRange();   // passes: 0 | 1 == 1 == Xlsx, a defined member
+(ExportFormat.Xlsx | ExportFormat.Pdf).NotOutOfRange();   // throws: 1 | 2 == 3, undefined
+```
+
+`Csv | Xlsx` is *not* caught, and it is not caught precisely because consecutive default values overlap in
+binary. `NotOutOfRange` answers "is this value defined?" — never "did the caller mean to combine these?" — so
+a nonsensical combination that collides with a real member sails through the guard and into your `switch` as
+the wrong branch. Guarding an enum parameter buys you protection against `(ExportFormat)42`; it does not buy
+you protection against `|` misused on an enum that was never meant to be combined. Reserve `|` for enums
+actually marked `[Flags]`.
 
 ### `RequiredTrue` and `RequiredFalse`
 
@@ -347,7 +392,9 @@ should have happened first* is what turns a support ticket into a two-minute fix
 ## Validating paths with `PathGuard`
 
 `PathGuard` layers two concerns on top of `Guard`: is this string a syntactically plausible path, and does a
-file actually exist there? The same caller-error/state-error split applies.
+file actually exist there? The caller-error/state-error split applies here too, but **only to the
+does-the-file-exist check** — the input validation that precedes it stays in the `ArgumentException` family
+regardless of which guard you called.
 
 ```csharp
 using Ploch.Common.ArgumentChecking;
@@ -356,7 +403,7 @@ public sealed class ConfigurationImporter
 {
     private string? _lastImportedFile;
 
-    // The caller supplied this path: ArgumentException family.
+    // The caller supplied this path: ArgumentException family throughout (on net7.0+).
     public ImportResult Import(string configurationFilePath)
     {
         configurationFilePath.EnsureFileExists();   // ArgumentException if missing or malformed
@@ -365,47 +412,93 @@ public sealed class ConfigurationImporter
         return ReadAndApply(configurationFilePath);
     }
 
-    // Our own remembered state: InvalidOperationException family.
+    // Our own remembered state - but only the file-missing branch reports it as a state error.
     public ImportResult Reimport()
     {
         var path = _lastImportedFile.RequiredFileExists();
-        // InvalidOperationException if Import was never called, or the file has since been deleted.
+        // Import never called, so _lastImportedFile is null  -> ArgumentNullException
+        // _lastImportedFile is "" or has invalid characters   -> ArgumentException
+        // the file has since been deleted                     -> InvalidOperationException
 
         return ReadAndApply(path);
     }
 }
 ```
 
-| Member | Throws when | Availability |
-|--------|-------------|--------------|
-| `IsValidPath` | Path is null, empty, or contains characters rejected by `Path.GetInvalidPathChars()` | all targets |
-| `EnsureFileExists` | Path is invalid, or no file exists at it | all targets |
-| `RequiredIsValidPath` | Same checks, `InvalidOperationException` instead | `net7.0+` only |
-| `RequiredFileExists` | Same checks, `InvalidOperationException` instead | `net7.0+` only |
-| `RequireValidPath` | Path is invalid **or not rooted** | `netstandard2.0` only |
+That is worth pausing on, because it is the opposite of what the name suggests. `RequiredFileExists`
+delegates its input validation to `IsValidPath`, and `IsValidPath` throws from the `Not*` family. So a
+`Reimport()` on a never-initialised object — the textbook state error — surfaces as `ArgumentNullException`
+naming `_lastImportedFile`, not as `InvalidOperationException`. Catch on the branch you care about, not on
+the guard's prefix.
 
-Two caveats. `EnsureFileExists` accepts relative paths and resolves them against the process's current working
-directory, so a path that exists during a unit test may not exist under a service host with a different
-working directory — pass absolute paths across process boundaries. And `Path.GetInvalidPathChars()` is
-platform-dependent and, on modern .NET, deliberately permissive; `IsValidPath` is a cheap sanity check, not a
-guarantee that the file system will accept the name.
+The exception thrown depends on *which* check fails, so the table is per branch rather than per member:
+
+| Member | Availability | `null` or `""` | Invalid characters | Not rooted | No file at the path |
+|--------|--------------|----------------|--------------------|------------|---------------------|
+| `IsValidPath` | all targets | `ArgumentNullException` / `ArgumentException` | `ArgumentException` | accepted | not checked |
+| `EnsureFileExists` (`net7.0+`) | `net7.0+` | `ArgumentNullException` / `ArgumentException` | `ArgumentException` | accepted | `ArgumentException` |
+| `EnsureFileExists` (`netstandard2.0`) | `netstandard2.0` | `InvalidOperationException` | `InvalidOperationException` | **`InvalidOperationException`** | `ArgumentException` |
+| `RequiredIsValidPath` | `net7.0+` only | `InvalidOperationException` | `InvalidOperationException` | accepted | not checked |
+| `RequiredFileExists` | `net7.0+` only | `ArgumentNullException` / `ArgumentException` | `ArgumentException` | accepted | `InvalidOperationException` |
+| `RequireValidPath` | `netstandard2.0` only | `InvalidOperationException` | `InvalidOperationException` | **`InvalidOperationException`** | not checked |
+
+Three caveats follow from that table.
+
+**`EnsureFileExists` is not portable between the two targets.** On `net7.0+` it accepts relative paths and
+resolves them against the process's current working directory. On `netstandard2.0` it first calls
+`RequireValidPath`, which **rejects every non-rooted path** with `InvalidOperationException` before the file
+system is consulted at all — so a relative path that succeeds on the `net8.0` build throws on the
+`netstandard2.0` build, and a `null` path throws `InvalidOperationException` there rather than
+`ArgumentNullException`. If you multi-target, pass rooted paths and do not depend on the exception type. This
+divergence is a library defect, tracked as
+[#324](https://github.com/mrploch/ploch-common/issues/324).
+
+**Even on `net7.0+`, relative paths are resolved against the current working directory**, so a path that
+exists during a unit test may not exist under a service host with a different working directory. Pass
+absolute paths across process boundaries.
+
+**`IsValidPath` is a sanity check, not a guarantee.** `Path.GetInvalidPathChars()` is platform-dependent and,
+on modern .NET, deliberately permissive; a path that passes may still be rejected by the file system.
+
+> [!NOTE]
+> `RequiredIsValidPath` reports the wrong name on its null/empty branch — the message says `path` (the guard's
+> own parameter) instead of your variable, because the captured `parameterName` is not forwarded to the
+> underlying `RequiredNotNullOrEmpty` call. The invalid-characters branch names your variable correctly.
+> Tracked as [#325](https://github.com/mrploch/ploch-common/issues/325); pass an explicit message elsewhere if
+> you rely on that diagnostic.
 
 ## Target-framework differences
 
 `Ploch.Common` multi-targets `netstandard2.0` and `net8.0`, and the guard surface is not identical between
-them. The table below is the complete list of asymmetries:
+them. These are the asymmetries a caller can observe:
+
+**Members that exist on only one target**
 
 | Member | `netstandard2.0` | `net7.0+` (`net8.0` build) |
 |--------|------------------|----------------------------|
-| Name parameter on every guard | required, positional | optional, auto-captured |
 | `NotNullOrDefault` | not available | available |
 | `RequiredIsValidPath`, `RequiredFileExists` | not available | available |
-| `RequireValidPath` (rooted-path check) | available | not available |
-| `RequiredTrue` default message | not available (message is mandatory) | expression, member, file and line |
+| `RequireValidPath` | available | not available |
+
+**Members present on both, but behaving differently**
+
+| Member | `netstandard2.0` | `net7.0+` (`net8.0` build) |
+|--------|------------------|----------------------------|
+| Name parameter on `NotNull`, `NotNullOrEmpty`, `Positive`, `NotOutOfRange`, `IsValidPath`, `EnsureFileExists` | required, positional | optional, auto-captured |
+| Name parameter on `RequiredNotNull`, `RequiredNotNullOrEmpty` | optional, but never captured — blank name in the message | optional, auto-captured |
+| `RequiredTrue` second parameter | `string message`, **mandatory** | `string? messageFormat`, optional; default message carries expression, member, file and line |
+| `EnsureFileExists` on a **relative** path | rejected — `InvalidOperationException: Path must be rooted` | accepted, resolved against the current working directory |
+| `EnsureFileExists` on `null` / `""` / invalid characters | `InvalidOperationException` | `ArgumentNullException` / `ArgumentException` |
+| `NotNull` (reference overload) message text | hand-written | delegates to `ArgumentNullException.ThrowIfNull`, so matches the BCL exactly |
 | `NotNullOrEmpty` on `IEnumerable` | `ICollection` fast path, then enumerate | always enumerates |
 
+The last two rows of the first table and the `EnsureFileExists` rows above are not deliberate design; the
+`EnsureFileExists` divergence is tracked as
+[#324](https://github.com/mrploch/ploch-common/issues/324).
+
 If you are writing a library that itself multi-targets, write against the `netstandard2.0` shape — pass names
-explicitly, avoid the `net7.0`-only members — and both builds will compile.
+explicitly (positionally to the first group, with `memberName:` to the second), pass rooted paths, avoid the
+`net7.0`-only members — and both builds will compile and behave alike.
 
 ## Migrating from `Ploch.Common.DawnGuard`
 
@@ -441,7 +534,9 @@ once the last call site is converted; the new guards are extension methods, so t
 - Assign the return value; a guard and an assignment are one line.
 - Materialise sequences before calling `NotNullOrEmpty` on them.
 - Always guard enum parameters with `NotOutOfRange` — an enum parameter is not self-validating.
-- On `net7.0+`, omit the parameter name and let the compiler capture the expression.
+- On `net7.0+`, omit the parameter name and let the compiler capture the expression. If you multi-target,
+  see [Target-framework differences](#target-framework-differences) — the name is required positionally on
+  some `netstandard2.0` guards and silently dropped on others.
 
 ## See also
 
