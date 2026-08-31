@@ -99,9 +99,16 @@ public interface IOwnedPropertyInfo<TProperty> : IOwnedPropertyInfo
     void SetValue(TProperty? value, object[] index);
 }
 
+/// <summary>
+///     Represents a strongly-typed property that belongs to a specific instance of a known owner type.
+/// </summary>
+/// <remarks>
+///     This interface extends <see cref="IOwnedPropertyInfo{TProperty}" /> by also typing the owning object,
+///     so that both the property value and its owner can be accessed without casting.
+/// </remarks>
 /// <typeparam name="TType">The object type that owns the property.</typeparam>
 /// <typeparam name="TProperty">The type of the property value.</typeparam>
-/// <inheritdoc />
+/// <seealso cref="IOwnedPropertyInfo{TProperty}" />
 public interface IOwnedPropertyInfo<out TType, TProperty> : IOwnedPropertyInfo<TProperty>
 {
     /// <inheritdoc cref="IOwnedPropertyInfo.Owner" />

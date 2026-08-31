@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using Ploch.Common.AppServices.Security;
 
 namespace Ploch.Common.AppServices.Web;

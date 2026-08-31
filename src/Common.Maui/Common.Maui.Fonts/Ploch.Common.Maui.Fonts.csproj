@@ -1,9 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>$(TargetFrameworkVersion)</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <!--
+          CS1591 (missing XML comment for publicly visible type or member) is disabled for this project only.
+          Every member here is a machine-generated icon-font glyph constant produced by IconFont2Code
+          (see IconFonts/*.cs). There are roughly twelve thousand of them, each one carrying no information
+          beyond the glyph code point it already holds, so per-member documentation would add noise rather
+          than meaning and would swamp the build log.
+
+          NoWarn is project-wide, so it also suppresses CS1591 at type level. The six public types in
+          IconFonts/ therefore carry a hand-written <summary> each, so the API reference still names
+          what every font class is for even though its members are undocumented.
+        -->
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,11 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<!--
+  This is an ASP.NET Core class library, not a web application, so it uses the plain Microsoft.NET.Sdk
+  with a framework reference rather than Microsoft.NET.Sdk.Web. Besides being the documented pattern for
+  libraries, it keeps the Razor SDK - and with it Microsoft.CodeAnalysis.Razor.Compiler - out of the build,
+  which is what made DocFX's older embedded Roslyn emit "FailedToLoadAnalyzer ... ReferencesNewerCompiler"
+  when it loaded this project. The project contains no Razor, views, or static web assets.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <OutputType>Library</OutputType>
-        <IsPackable>true</IsPackable>
         <Platforms>AnyCPU;x64</Platforms>
     </PropertyGroup>
 
@@ -29,6 +34,10 @@
 
     <ItemGroup>
         <None Include=".\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
     <ItemGroup>
