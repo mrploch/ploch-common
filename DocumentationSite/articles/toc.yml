@@ -3,3 +3,5 @@
 - name: Collections Samples
   href: collections-samples.md
 
+- name: Argument Validation
+  href: argument-validation.md
