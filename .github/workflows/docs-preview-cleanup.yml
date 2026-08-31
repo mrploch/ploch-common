@@ -1,0 +1,105 @@
+# Removes a pull request's documentation preview once the pull request is closed
+# or merged, so previews cannot accumulate on the preview branch indefinitely.
+#
+# Deliberately unfiltered by path: a pull request may have dropped its docs changes
+# by the time it closes, and the preview would then never be cleaned up. The job is
+# a cheap no-op when there is nothing to delete.
+#
+# Like docs-preview.yml, this workflow is granted neither `pages: write` nor
+# `id-token: write`, so it cannot touch the production GitHub Pages deployment.
+name: Docs Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions: {}
+
+jobs:
+  cleanup-preview:
+    name: Remove docs preview
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # delete the preview directory from the preview branch
+      pull-requests: write   # update the sticky preview comment
+    # Shares the publish workflow's group so a delete can never interleave with a
+    # push into the same branch.
+    concurrency:
+      group: docs-preview-publish
+      cancel-in-progress: false
+    steps:
+      # Same reasoning as the eligibility gate in docs-preview.yml: fork PRs and
+      # Dependabot never published a preview in the first place, and their token
+      # could not delete one anyway.
+      - name: Determine cleanup eligibility
+        id: eligibility
+        env:
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
+          IS_FORK_PR: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
+          IS_DEPENDABOT: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+        run: |
+          set -euo pipefail
+          if [ "$IS_UPSTREAM_REPO" != "true" ] || [ "$IS_FORK_PR" = "true" ] || [ "$IS_DEPENDABOT" = "true" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No preview was published for this pull request, so there is nothing to clean up."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Delete the preview directory
+        if: steps.eligibility.outputs.enabled == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PREVIEW_BRANCH: ${{ vars.DOCS_PREVIEW_BRANCH || 'gh-pages-previews' }}
+        run: |
+          set -euo pipefail
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          rm -rf preview-branch && mkdir preview-branch && cd preview-branch
+          git init -q
+          git remote add origin "$REMOTE"
+          if ! git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
+            echo "Preview branch $PREVIEW_BRANCH does not exist; nothing to clean up."
+            exit 0
+          fi
+          git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
+          TARGET="pr-preview/pr-${PR_NUMBER}"
+          if [ ! -d "$TARGET" ]; then
+            echo "No preview directory at $TARGET; nothing to clean up."
+            exit 0
+          fi
+          rm -rf "$TARGET"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing staged; nothing to clean up."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "docs(preview): Remove preview for closed PR #${PR_NUMBER}"
+          git push -q origin "HEAD:${PREVIEW_BRANCH}"
+          echo "Removed $TARGET from $PREVIEW_BRANCH."
+
+      - name: Update the preview comment
+        if: steps.eligibility.outputs.enabled == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
+          export MARKER
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '[.[] | select(.body | contains($ENV.MARKER)) | .id] | first')
+          if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
+            echo "No preview comment to update."
+            exit 0
+          fi
+          {
+            printf '%s\n' "$MARKER"
+            printf '### 📖 Documentation preview\n\n'
+            printf 'This pull request is closed, so its documentation preview has been removed.\n'
+          } > preview-comment.md
+          gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" \
+            -f "body=$(cat preview-comment.md)" --silent
+          echo "Updated preview comment ${COMMENT_ID}."

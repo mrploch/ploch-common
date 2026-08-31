@@ -1,0 +1,257 @@
+# Builds the DocFX site for a pull request and publishes it as an isolated
+# per-PR preview, so a reviewer can judge a docs change before it is merged.
+#
+# ISOLATION (the hard requirement of #201)
+# ----------------------------------------
+# Production is deployed by publish-docs.yml through actions/upload-pages-artifact
+# + actions/deploy-pages, which needs `pages: write` and `id-token: write`. Neither
+# permission is granted to any job here, so this workflow is *technically incapable*
+# of creating a GitHub Pages deployment - a mistake in this file cannot overwrite
+# https://github.ploch.dev/ploch-common/. It also never joins the "pages" concurrency
+# group, and it only ever writes into `pr-preview/pr-<N>/` on a dedicated preview
+# branch that production never reads.
+#
+# FORKS AND DEPENDABOT
+# --------------------
+# GitHub withholds write access and secrets from pull requests raised from forks and
+# from those authored by Dependabot (whose branch lives in this repository, so a
+# head.repo test alone does not detect it). Rather than reach for pull_request_target
+# - which would run with a write token against untrusted code - the workflow is split:
+# `build-preview` needs only `contents: read` and therefore runs for everybody,
+# giving fork PRs the same build/validation signal; `publish-preview` carries the
+# write permissions and is skipped, with a notice rather than an error, whenever the
+# token cannot support it. This mirrors the "Determine SonarCloud eligibility" step
+# in build-dotnet.yml.
+#
+# HOSTING
+# -------
+# A repository has exactly one GitHub Pages site, and this repository's is fed by the
+# production artifact, so a preview branch is not served automatically. The hosted
+# lane is therefore opt-in: set the repository variables DOCS_PREVIEW_BASE_URL (and
+# optionally DOCS_PREVIEW_BRANCH) once a Pages site is pointed at the preview branch.
+# Until then the workflow still builds every docs PR and comments with a link to the
+# downloadable site artifact, so nothing here posts a URL that does not resolve.
+name: Docs Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'docs/**'
+      - 'DocumentationSite/**'
+      - '.github/workflows/publish-docs.yml'
+      - '.github/workflows/docs-preview.yml'
+
+# Least privilege: every job opts in to exactly what it needs.
+permissions: {}
+
+# Supersede an in-flight preview for the same PR; never share a group with the
+# production "pages" deployment.
+concurrency:
+  group: docs-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  # Runs for every pull request, including forks and Dependabot: `contents: read`
+  # is all the default token grants there anyway.
+  build-preview:
+    name: Build docs preview
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      artifact-name: ${{ steps.names.outputs.artifact }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0 # NBGV needs full history
+          persist-credentials: false
+
+      - name: Clone mrploch-development (shared build config)
+        run: git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore .NET tools (docfx is pinned in .config/dotnet-tools.json)
+        run: dotnet tool restore
+
+      - name: Generate API metadata
+        # Kept byte-for-byte in step with publish-docs.yml. The metadata phase is
+        # warning-free as of #290 and was re-guarded in #317, so --warningsAsErrors
+        # must stay: dropping it here would let a preview build go green on a change
+        # that then fails production. A preview that is more permissive than
+        # production is worse than no preview at all.
+        run: dotnet docfx metadata DocumentationSite/docfx.json --warningsAsErrors
+
+      - name: Build documentation site
+        # Also matching publish-docs.yml: the build phase is not guarded yet, because
+        # two pre-existing InvalidFileLink warnings (the ADR template's placeholder
+        # link, and a .json example outside the site's content globs) remain. Tracked
+        # in #316. When #316 lands, add --warningsAsErrors here and in publish-docs.yml
+        # together.
+        run: dotnet docfx build DocumentationSite/docfx.json
+
+      - name: Compute artifact name
+        id: names
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: echo "artifact=docs-preview-pr-${PR_NUMBER}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload built site
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: ${{ steps.names.outputs.artifact }}
+          path: DocumentationSite/_site
+          retention-days: 14
+          if-no-files-found: error
+
+  publish-preview:
+    name: Publish docs preview
+    needs: build-preview
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # push the built site to the preview branch
+      pull-requests: write   # post/update the sticky preview comment
+    # Every PR writes into the same preview branch, so pushes are serialised
+    # repository-wide. cancel-in-progress is false: cancelling a half-finished push
+    # is what would leave the branch inconsistent.
+    concurrency:
+      group: docs-preview-publish
+      cancel-in-progress: false
+    steps:
+      # Modelled on "Determine SonarCloud eligibility" in build-dotnet.yml: decide
+      # once, in one place, whether this run can do privileged work, and skip with a
+      # notice instead of failing when it cannot.
+      - name: Determine preview publishing eligibility
+        id: eligibility
+        env:
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
+          IS_FORK_PR: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
+          IS_DEPENDABOT: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+          PREVIEW_BASE_URL: ${{ vars.DOCS_PREVIEW_BASE_URL }}
+        run: |
+          set -euo pipefail
+          # A fork of this repository has no business writing previews, and its PRs
+          # would be judged against a preview branch nobody serves.
+          if [ "$IS_UPSTREAM_REPO" != "true" ]; then
+            echo "comment=false" >> "$GITHUB_OUTPUT"
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Not running in mrploch/ploch-common; skipping docs preview publishing. The site was still built and uploaded as an artifact."
+            exit 0
+          fi
+          # GITHUB_TOKEN is read-only for fork PRs and for Dependabot, so neither the
+          # branch push nor the comment can succeed. This is an expected condition,
+          # not a failure: the build job above already gave the PR its docs signal.
+          if [ "$IS_FORK_PR" = "true" ] || [ "$IS_DEPENDABOT" = "true" ]; then
+            echo "comment=false" >> "$GITHUB_OUTPUT"
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::This pull request was raised from a fork or authored by Dependabot, so GITHUB_TOKEN is read-only. Skipping preview publishing; download the docs-preview artifact from this run to review the site locally."
+            exit 0
+          fi
+          echo "comment=true" >> "$GITHUB_OUTPUT"
+          # Strip all whitespace so a variable set to only spaces counts as unset.
+          if [ -n "$(printf '%s' "$PREVIEW_BASE_URL" | tr -d '[:space:]')" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "Hosted preview lane enabled."
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Repository variable DOCS_PREVIEW_BASE_URL is not set, so there is no hosted preview target yet. Commenting with the downloadable site artifact instead. See docs/docs-preview.md to enable the hosted lane."
+          fi
+
+      - name: Checkout
+        if: steps.eligibility.outputs.comment == 'true'
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Download built site
+        if: steps.eligibility.outputs.publish == 'true'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: ${{ needs.build-preview.outputs.artifact-name }}
+          path: preview-site
+
+      - name: Publish preview to the preview branch
+        if: steps.eligibility.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PREVIEW_BRANCH: ${{ vars.DOCS_PREVIEW_BRANCH || 'gh-pages-previews' }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          # A throwaway clone keeps the preview branch's history entirely separate
+          # from the working checkout, so nothing here can touch the source tree.
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          rm -rf preview-branch && mkdir preview-branch && cd preview-branch
+          git init -q
+          git remote add origin "$REMOTE"
+          if git fetch -q --depth 1 origin "$PREVIEW_BRANCH" 2>/dev/null; then
+            git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
+          else
+            echo "Preview branch $PREVIEW_BRANCH does not exist yet; creating it as an orphan."
+            git checkout -q --orphan "$PREVIEW_BRANCH"
+          fi
+          TARGET="pr-preview/pr-${PR_NUMBER}"
+          rm -rf "$TARGET"
+          mkdir -p "$TARGET"
+          cp -R "../preview-site/." "$TARGET/"
+          # GitHub Pages runs Jekyll over branch sources by default, which would drop
+          # DocFX's underscore-prefixed asset folders.
+          : > .nojekyll
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Preview content is unchanged; nothing to push."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "docs(preview): Publish preview for PR #${PR_NUMBER} (${HEAD_SHA})"
+          git push -q origin "HEAD:${PREVIEW_BRANCH}"
+          echo "Pushed $TARGET to $PREVIEW_BRANCH."
+
+      - name: Post or update the preview comment
+        if: steps.eligibility.outputs.comment == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUBLISHED: ${{ steps.eligibility.outputs.publish }}
+          PREVIEW_BASE_URL: ${{ vars.DOCS_PREVIEW_BASE_URL }}
+          ARTIFACT_NAME: ${{ needs.build-preview.outputs.artifact-name }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # The marker makes the comment sticky: subsequent pushes edit it in place
+          # rather than burying the PR conversation under one comment per commit.
+          MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
+          export MARKER
+          {
+            printf '%s\n' "$MARKER"
+            printf '### 📖 Documentation preview\n\n'
+            if [ "$PUBLISHED" = "true" ]; then
+              BASE="${PREVIEW_BASE_URL%/}"
+              printf '**[Open the preview for this pull request](%s/pr-preview/pr-%s/)**\n\n' "$BASE" "$PR_NUMBER"
+              printf 'Built from `%s`. The preview is served from a branch that is separate from the production site, and it is deleted when this pull request is closed or merged.\n' "$HEAD_SHA"
+            else
+              printf 'No hosted preview target is configured, so the built site is attached to this run instead.\n\n'
+              printf '**[Download `%s` from the workflow run](%s)**, unzip it, and open `index.html`.\n\n' "$ARTIFACT_NAME" "$RUN_URL"
+              printf 'Built from `%s`. See `docs/docs-preview.md` for how to enable hosted previews.\n' "$HEAD_SHA"
+            fi
+          } > preview-comment.md
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '[.[] | select(.body | contains($ENV.MARKER)) | .id] | first')
+          if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
+              -f "body=$(cat preview-comment.md)" --silent
+            echo "Posted a new preview comment."
+          else
+            gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" \
+              -f "body=$(cat preview-comment.md)" --silent
+            echo "Updated preview comment ${COMMENT_ID}."
+          fi
