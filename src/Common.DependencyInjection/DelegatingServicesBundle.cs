@@ -89,7 +89,6 @@ public class DelegatingServicesBundle : ConfigurableServicesBundle
     /// <exception cref="Exception">
     ///     Thrown when any of the registered configuration action delegates throws an exception.
     /// </exception>
-    /// <inheritdoc />
     protected override void Configure(IConfiguration configuration)
     {
         Services.NotNull(nameof(Services));
