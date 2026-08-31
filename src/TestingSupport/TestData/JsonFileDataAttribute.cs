@@ -21,7 +21,10 @@ namespace Ploch.TestingSupport.TestData;
 ///     Initializes a new instance of the <see cref="JsonFileDataAttribute" /> class.
 ///     Load data from a JSON file as the data source for a theory.
 /// </remarks>
-/// <param name="filePath">The absolute or relative path to the JSON file to load.</param>
+/// <param name="filePath">The path to the JSON file to load. A fully qualified path is used as given; any
+///   other form - including a path rooted at the current drive such as <c>"/data/cases.json"</c> - is resolved
+///   against the directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working
+///   directory.</param>
 /// <param name="propertyName">The name of the property on the JSON file that contains the data for the test.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 #pragma warning disable CC0023 // Attribute is intentionally not sealed; it may be subclassed for extension.
@@ -38,7 +41,10 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
   ///   parsed from the JSON file.
   /// </returns>
   /// <exception cref="ArgumentNullException">Thrown when <paramref name="testMethod" /> is <see langword="null" />.</exception>
-  /// <exception cref="ArgumentException">Thrown when the file path is empty, the property is missing, or the JSON data is not an array.</exception>
+  /// <exception cref="ArgumentException">
+  ///   Thrown when the file path is empty, the resolved file does not exist, the property is missing, or the JSON data is not an
+  ///   array.
+  /// </exception>
   /// <exception cref="InvalidOperationException">Thrown when a data row is not a JSON array or its element count does not match the method parameters.</exception>
 #pragma warning disable CA2208 // paramNames reference primary constructor parameters, not method parameters
   public override async ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
@@ -53,7 +59,13 @@ public class JsonFileDataAttribute(string filePath, string? propertyName = null)
       throw new ArgumentException("File path cannot be null or empty.", nameof(filePath));
     }
 
-    var fileContent = File.ReadAllText(filePath);
+    var path = TestDataFilePathResolver.Resolve(filePath);
+    if (!File.Exists(path))
+    {
+      throw new ArgumentException($"Could not find file at path: {path}", nameof(filePath));
+    }
+
+    var fileContent = File.ReadAllText(path);
     var jsonData = JsonDocument.Parse(fileContent);
 
     JsonElement dataElement;
