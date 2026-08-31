@@ -11,9 +11,21 @@ unrelated to it — the ADR template's deliberate placeholder link, and a `.json
 outside the site's content globs. Those are tracked in #316, and `--warningsAsErrors` moves onto
 that step once they are cleared.
 
-The backlog measured on this branch was **8 warnings**, not the 14 the issue recorded — the two
-`NU1903` AutoMapper advisories were resolved by #287 and one of the two `FailedToLoadAnalyzer`
-occurrences had already gone. The remaining eight are addressed as follows.
+The backlog measured on this branch was **8 warnings**, not the 14 the issue recorded. The
+difference is a scope change in `DocumentationSite/docfx.json`, not a fix: #290 was written on
+2026-08-23 against the in-progress #197 branch, which had lifted the DocFX exclude from the whole
+`Common.WebApi` family. PR #291 (commit `887198e`, 2026-08-26) narrowed that exclude to
+`**/WebApi.Endpoints.CrudEndpoints*/**` before merging, which removed the only AutoMapper-referencing
+project in `src/` — `Ploch.Common.WebApi.Endpoints.CrudEndpoints` — from the metadata pass, taking
+its two `NU1903` advisories with it. The same PR also converted `Ploch.Common.WebApi` off
+`Microsoft.NET.Sdk.Web`, which accounts for one of the two `FailedToLoadAnalyzer` occurrences.
+
+**#287 is still open and AutoMapper is still pinned to the vulnerable 14.0.0** in
+`mrploch-development/dependencies/Common.Packages.props`. Nothing in this branch or in #291 resolves
+it; the advisory is merely no longer visible to `docfx metadata`, because the project that pulls
+AutoMapper in is excluded from that pass. Do not read this entry as evidence that #287 is done.
+
+The remaining eight warnings are addressed as follows.
 
 ### `Ploch.Common.Maui.Fonts`: explicit hiding on the `Equals` glyph member (`CS0108` × 3)
 
@@ -33,7 +45,12 @@ regenerated.
 The project produces roughly twelve thousand missing-XML-comment warnings, one per generated glyph
 constant. `CS1591` is now in the project's `NoWarn` with a comment explaining why: a per-glyph
 `<summary>` would repeat the code point the constant already holds, and the volume would swamp the
-build log the moment the project joins the solution. The types themselves stay documented.
+build log the moment the project joins the solution.
+
+`NoWarn` is project-wide, so it suppresses CS1591 at type level as well as on the ~12,000 members.
+The six public types in `IconFonts/` therefore carry a hand-written `<summary>` each, added by this
+change, so the API reference still says what each font class is for. Their glyph members stay
+undocumented deliberately.
 
 ### `Ploch.Common`, `Ploch.Common.DependencyInjection`: duplicate XML documentation tags (× 4)
 
