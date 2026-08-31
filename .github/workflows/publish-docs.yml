@@ -43,10 +43,17 @@ jobs:
       - name: Restore .NET tools (docfx is pinned in .config/dotnet-tools.json)
         run: dotnet tool restore
 
+      - name: Generate API metadata
+        # The metadata phase is warning-free as of #290, so it is guarded with
+        # --warningsAsErrors: a new CS0108, a duplicate XML doc tag, or an analyzer that
+        # DocFX's Roslyn cannot load now fails the build instead of accumulating silently.
+        run: dotnet docfx metadata DocumentationSite/docfx.json --warningsAsErrors
+
       - name: Build documentation site
-        # --warningsAsErrors dropped temporarily: 14 pre-existing docfx warnings
-        # (XML comment crefs, third-party analyzer conflicts) need dedicated cleanup.
-        run: dotnet docfx DocumentationSite/docfx.json
+        # The build phase is not guarded yet: two pre-existing InvalidFileLink warnings
+        # (the ADR template's placeholder link, and a .json example that is outside the
+        # site's content globs) remain. Tracked in #316.
+        run: dotnet docfx build DocumentationSite/docfx.json
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

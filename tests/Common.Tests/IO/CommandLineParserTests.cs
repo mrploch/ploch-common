@@ -26,8 +26,10 @@ public class CommandLineParserTests(ITestOutputHelper output)
         result.Should().Be(expectedPath);
     }
 
+    // DeepSource CS-P1009 recommends Array.Empty<string>() here. That is not possible: an attribute argument must be a
+    // constant expression, typeof expression or array creation expression (CS0182), and a method call is none of those.
     [Theory]
-    [InlineData(@"C:\test\Ploch.MyApp\Ploch.MyApp.exe", @"C:\test\Ploch.MyApp\Ploch.MyApp.exe", new string[0])]
+    [InlineData(@"C:\test\Ploch.MyApp\Ploch.MyApp.exe", @"C:\test\Ploch.MyApp\Ploch.MyApp.exe", new string[0])] // skipcq: CS-P1009
     [InlineData(@"""C:\Program Files\Ploch.MyApp\Ploch.MyApp.exe"" -arg1 -arg2", @"C:\Program Files\Ploch.MyApp\Ploch.MyApp.exe", new[] { "-arg1", "-arg2" })]
     [InlineData(
                    "\"C:\\Program Files\\Microsoft SQL Server\\MSSQL16.MSSQLSERVER\\MSSQL\\Binn\\Polybase\\mpdwsvc.exe\" -dms -Polybase",
@@ -59,7 +61,14 @@ public class CommandLineParserTests(ITestOutputHelper output)
     {
         var exceptionCount = 0;
         var successCount = 0;
-        foreach (var commandLine in File.ReadAllLines("commandLines.txt"))
+
+        // Resolve the data file against the assembly directory rather than the process working
+        // directory: commandLines.txt is copied to the output folder, but a bare relative path is
+        // resolved against whatever working directory the test runner happens to use, which made
+        // this test fail intermittently. See issue #299.
+        var dataFilePath = Path.Combine(AppContext.BaseDirectory, "commandLines.txt");
+
+        foreach (var commandLine in File.ReadAllLines(dataFilePath))
         {
             var applicationPath = CommandLineParser.GetApplicationPath(commandLine);
             output.WriteLine(applicationPath);

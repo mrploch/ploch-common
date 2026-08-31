@@ -10,6 +10,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- Shared with Ploch.TestingSupport so that path resolution cannot drift between the two packages. -->
+        <Compile Include="..\TestingSupport\TestData\TestDataFilePathResolver.cs" Link="TestData\TestDataFilePathResolver.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" />
         <PackageReference Include="xunit.v3.extensibility.core" />
     </ItemGroup>
