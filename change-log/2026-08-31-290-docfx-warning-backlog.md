@@ -1,9 +1,15 @@
-## Documentation build: the DocFX warning backlog is cleared and warnings are errors again
+## Documentation build: the DocFX metadata warning backlog is cleared and warnings are errors again
 
-**`dotnet docfx DocumentationSite/docfx.json` now completes with zero warnings**, and
-`--warningsAsErrors` has been restored to the `Publish Docs` workflow so the documentation build
-cannot regress silently again. PR #202 dropped that flag to let the site publish for the first time
-in months, leaving a backlog of warnings behind it.
+**`dotnet docfx metadata DocumentationSite/docfx.json` now completes with zero warnings**, and
+`--warningsAsErrors` has been restored to that step in the `Publish Docs` workflow so the API
+metadata cannot regress silently again. PR #202 dropped that flag to let the site publish for the
+first time in months, leaving a backlog of warnings behind it.
+
+The site build step, now invoked separately as `dotnet docfx build DocumentationSite/docfx.json`,
+is **not** guarded yet: it still emits two `InvalidFileLink` warnings that predate this work and are
+unrelated to it — the ADR template's deliberate placeholder link, and a `.json` example that sits
+outside the site's content globs. Those are tracked in #316, and `--warningsAsErrors` moves onto
+that step once they are cleared.
 
 The backlog measured on this branch was **8 warnings**, not the 14 the issue recorded — the two
 `NU1903` AutoMapper advisories were resolved by #287 and one of the two `FailedToLoadAnalyzer`
