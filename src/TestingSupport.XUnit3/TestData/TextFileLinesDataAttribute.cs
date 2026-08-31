@@ -1,5 +1,4 @@
-using Ploch.Common;
-using Ploch.Common.ArgumentChecking;
+﻿using Ploch.Common.ArgumentChecking;
 using Xunit;
 
 namespace Ploch.TestingSupport.XUnit3.TestData;
@@ -12,8 +11,10 @@ namespace Ploch.TestingSupport.XUnit3.TestData;
 ///     Initializes a new instance of the <see cref="TextFileLinesDataAttribute" /> class.
 ///     Load data from a text file as the data source for a theory, with each line being a separate test case.
 /// </remarks>
-/// <param name="filePath">The absolute or relative path to the text file to load. A relative path is resolved against the
-///     directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working directory.</param>
+/// <param name="filePath">The path to the text file to load. A fully qualified path is used as given; any
+///     other form - including a path rooted at the current drive such as <c>"/data/cases.txt"</c> - is resolved
+///     against the directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working
+///     directory.</param>
 /// <param name="removeEmptyEntries">When <see langword="true" />, lines that are empty or whitespace are excluded from the test data.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmptyEntries = false) : TextFileDataAttribute(filePath)
@@ -39,8 +40,8 @@ public sealed class TextFileLinesDataAttribute(string filePath, bool removeEmpty
 
         if (removeEmptyEntries)
         {
-            // Remove any empty lines from the collection
-            lines = lines.Where(line => line.IsNotNullOrEmpty());
+            // Drop empty and whitespace-only lines, matching the documented contract and Ploch.TestingSupport.
+            lines = lines.Where(line => !string.IsNullOrWhiteSpace(line));
         }
 
         return lines.Select(line => new TheoryDataRow(line));

@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Ploch.Common.ArgumentChecking;
+using Ploch.TestingSupport.TestData;
 using Xunit;
 using Xunit.Sdk;
 using Xunit.v3;
@@ -11,8 +12,10 @@ namespace Ploch.TestingSupport.XUnit3.TestData;
 ///     This abstract class handles the common file loading operations while delegating
 ///     the specific data processing to derived classes.
 /// </summary>
-/// <param name="filePath">The absolute or relative path to the text file to load. A relative path is resolved against the
-///     directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working directory.</param>
+/// <param name="filePath">The path to the text file to load. A fully qualified path is used as given; any
+///     other form - including a path rooted at the current drive such as <c>"/data/cases.txt"</c> - is resolved
+///     against the directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working
+///     directory.</param>
 public abstract class TextFileDataAttribute(string filePath) : DataAttribute
 {
     /// <summary>

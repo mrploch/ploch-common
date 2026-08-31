@@ -11,7 +11,11 @@ public class StopwatchUtilTests
 
         var actionTime = StopwatchUtil.Time(action);
 
-        actionTime.Should().BeGreaterThanOrEqualTo(TimeSpan.FromMilliseconds(100));
+        // Thread.Sleep is only guaranteed to sleep *about* the requested time: the OS timer granularity is ~15.6 ms on
+        // Windows, so a 100 ms sleep can be measured at ~85 ms. Asserting the full 100 ms is a race, which is part of
+        // what made this class fail intermittently (see issue #299). The bound below still proves the elapsed time
+        // tracks the action rather than being zero or a constant.
+        actionTime.Should().BeGreaterThanOrEqualTo(TimeSpan.FromMilliseconds(50));
     }
 
     [Fact]
@@ -20,7 +24,9 @@ public class StopwatchUtilTests
         static Task TaskAsync() => Task.Delay(TimeSpan.FromMilliseconds(100));
         var taskTime = await StopwatchUtil.TimeAsync(TaskAsync);
 
-        taskTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(90));
+        // Task.Delay fires on a timer whose resolution is ~15.6 ms on Windows, so a 100 ms delay can complete at
+        // ~85 ms; the original 90 ms bound left only 10 ms of slack (see issue #299).
+        taskTime.Should().BeGreaterThan(TimeSpan.FromMilliseconds(50));
     }
 
     [Fact]

@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Ploch.Common.IO;
 using Ploch.TestingSupport.XUnit3;
 
@@ -26,9 +26,9 @@ public class CommandLineParserTests(ITestOutputHelper output)
         result.Should().Be(expectedPath);
     }
 
-    [Theory]
     // DeepSource CS-P1009 recommends Array.Empty<string>() here. That is not possible: an attribute argument must be a
     // constant expression, typeof expression or array creation expression (CS0182), and a method call is none of those.
+    [Theory]
     [InlineData(@"C:\test\Ploch.MyApp\Ploch.MyApp.exe", @"C:\test\Ploch.MyApp\Ploch.MyApp.exe", new string[0])] // skipcq: CS-P1009
     [InlineData(@"""C:\Program Files\Ploch.MyApp\Ploch.MyApp.exe"" -arg1 -arg2", @"C:\Program Files\Ploch.MyApp\Ploch.MyApp.exe", new[] { "-arg1", "-arg2" })]
     [InlineData(

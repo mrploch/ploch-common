@@ -21,8 +21,10 @@ namespace Ploch.TestingSupport.TestData;
 ///     Initializes a new instance of the <see cref="JsonFileDataAttribute" /> class.
 ///     Load data from a JSON file as the data source for a theory.
 /// </remarks>
-/// <param name="filePath">The absolute or relative path to the JSON file to load. A relative path is resolved against the
-///   directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working directory.</param>
+/// <param name="filePath">The path to the JSON file to load. A fully qualified path is used as given; any
+///   other form - including a path rooted at the current drive such as <c>"/data/cases.json"</c> - is resolved
+///   against the directory of the test assembly (<see cref="AppContext.BaseDirectory" />), not the process working
+///   directory.</param>
 /// <param name="propertyName">The name of the property on the JSON file that contains the data for the test.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 #pragma warning disable CC0023 // Attribute is intentionally not sealed; it may be subclassed for extension.

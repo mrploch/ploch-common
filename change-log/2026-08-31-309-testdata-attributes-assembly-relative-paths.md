@@ -8,13 +8,24 @@ content copied next to the assembly by `CopyToOutputDirectory`, so the correct a
 `AppContext.BaseDirectory` — the directory the assembly was loaded from, which does not depend on how
 the test host was launched.
 
-A relative path is now combined with `AppContext.BaseDirectory` before being normalised; a rooted
-path is used unchanged, so callers already passing an absolute path are unaffected.
+Only a **fully qualified** path is now used as given; every other form is anchored to
+`AppContext.BaseDirectory` before being normalised. "Fully qualified" is deliberately stricter than
+"rooted": on Windows `"\TestData\cases.txt"`, `"/TestData/cases.txt"` and the drive-relative
+`"C:cases.txt"` are all rooted yet still resolve against the current drive or that drive's current
+directory — ambient state the test host controls, which is exactly the failure mode this change exists to
+remove. Such a path has its leading root stripped and the remainder anchored to the assembly directory. On
+Unix-like platforms rooted and fully qualified mean the same thing, so a path starting with `/` is used
+unchanged. `Ploch.TestingSupport` targets `netstandard2.0`, where `Path.IsPathFullyQualified` does not
+exist, so the check is a small shim mirroring the framework implementation; the two packages now compile
+one shared copy of the resolver, so they cannot drift apart on it.
 
 | Attribute argument | Resolved (before) | Resolved (after) |
 |---|---|---|
 | `"TestData/cases.txt"` | `<working directory>/TestData/cases.txt` | `<assembly directory>/TestData/cases.txt` |
+| `"/TestData/cases.txt"` (Windows) | `<current drive>\TestData\cases.txt` | `<assembly directory>\TestData\cases.txt` |
+| `"C:cases.txt"` (Windows) | `<C:'s current directory>\cases.txt` | `<assembly directory>\cases.txt` |
 | `"C:\data\cases.txt"` | `C:\data\cases.txt` | `C:\data\cases.txt` |
+| `"/data/cases.txt"` (Linux/macOS) | `/data/cases.txt` | `/data/cases.txt` |
 
 The fault was latent rather than constant because the xUnit v3 runners in common use normalise the
 working directory to the assembly directory before running tests. A host that does not — an IDE
@@ -28,6 +39,12 @@ was invisible; once the anchor moved to the assembly directory they diverged and
 after the check had passed. `Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute` had the same
 divergence and is fixed with it.
 
+**Fixed `Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute` keeping whitespace-only lines when
+`removeEmptyEntries` was set.** Its documentation and constructor parameter both stated that empty *and*
+whitespace lines are excluded, but the filter tested only for an empty string, so a line of spaces or tabs was
+still handed to the theory. It now uses `string.IsNullOrWhiteSpace`, matching its own documented contract and
+the `Ploch.TestingSupport` implementation.
+
 **`Ploch.TestingSupport.TestData.JsonFileDataAttribute` now checks that the file exists** before
 reading it, throwing `ArgumentException` naming the resolved path, which is what the other three
 attributes already did. It previously let `File.ReadAllText` throw `FileNotFoundException`.
@@ -38,6 +55,14 @@ This is consumer-visible. A test suite whose data file sits relative to the *wor
 rather than the test assembly's output directory — and which relied on the old resolution — will now
 fail to find it. Fix such a case by making the file project content with
 `<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>`, or by passing an absolute path,
-which is honoured unchanged. No public API signature changed.
+which is honoured unchanged. A path that is rooted but not fully qualified — a Windows path beginning with a
+separator, or a drive-relative one — is no longer resolved against ambient drive state; make it fully
+qualified if that was intended.
+
+`Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute` with `removeEmptyEntries: true` now
+also drops whitespace-only lines. A suite that depended on those rows reaching the theory will see fewer
+test cases; pass `removeEmptyEntries: false` to keep every line.
+
+No public API signature changed.
 
 Refs: #309, #299
