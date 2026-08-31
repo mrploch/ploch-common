@@ -68,3 +68,10 @@ guard must stay: a preview that is more permissive than production would let a
 change go green here and then fail on `master`. When the remaining `InvalidFileLink`
 warnings are cleared (#316) and the build phase is guarded too, guard it in both
 workflows in the same change.
+
+Because the preview build mirrors production exactly, it also inherits production's
+failures. At the time of writing the metadata guard fails on the CI runner with three
+intermittent `Found project reference without a matching metadata reference`
+warnings, which is why `publish-docs.yml` is red on `master`; that is tracked in
+#329. Fix it in both workflows together — a preview build that is quietly more
+lenient than production defeats the point of having one.
