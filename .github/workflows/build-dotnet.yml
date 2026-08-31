@@ -173,15 +173,56 @@ jobs:
       # Test uses --no-build, so without this gate a failed Build produces a second,
       # more confusing failure about missing assemblies instead of the compile error.
       - name: Test
+        id: test
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: dotnet test ./Ploch.Common.slnx --verbosity normal --no-build -c Release --logger "trx;LogFileName=TestOutputResults.trx" /p:CollectCoverage=true /p:CoverletOutput=./CoverageResults/ "/p:CoverletOutputFormat=cobertura%2copencover"
 
-      # Merge per-project cobertura reports into a single file for GitHub coverage upload
+      # Merge per-project cobertura reports into a single file for GitHub coverage upload.
+      #
+      # dotnet-coverage is installed as a *global* tool, so its command is the
+      # executable `dotnet-coverage`, invoked directly. `dotnet dotnet-coverage`
+      # asks the driver to resolve an executable named `dotnet-dotnet-coverage`,
+      # which does not exist - that was the original failure.
+      #
+      # The glob needs `shopt -s globstar` because GitHub's bash steps do not
+      # enable it by default, and the reports live two levels down
+      # (tests/<Project>/CoverageResults/...). The filename is `coverage*` rather
+      # than an exact match because multi-targeted test projects make Coverlet
+      # emit one file per TFM (coverage.net10.0.cobertura.xml, coverage.net8.0...),
+      # matching the `coverage*` convention already used by the SonarScanner and
+      # Codacy arguments in this file. Paths are `./`-prefixed per SonarCloud
+      # rule githubactions:S6573.
+      #
+      # This step fails the job when it produces nothing, rather than being
+      # marked continue-on-error: it only runs once Test has passed, so zero
+      # coverage files at that point means the coverage configuration itself is
+      # broken - a real regression that should be visible, not an incidental
+      # failure of an auxiliary feature. Gating on the Test step (not just Build)
+      # keeps a genuine test failure from being buried under a confusing
+      # "no coverage found" error, mirroring how Test itself gates on Build.
       - name: Merge coverage reports
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: dotnet dotnet-coverage merge **/CoverageResults/coverage.cobertura.xml --output coverage.cobertura.xml --output-format cobertura
+        if: ${{ !cancelled() && steps.test.outcome == 'success' }}
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          reports=(./**/CoverageResults/coverage*.cobertura.xml)
+          if [ ${#reports[@]} -eq 0 ]; then
+            echo "::error::No Cobertura coverage reports matched ./**/CoverageResults/coverage*.cobertura.xml. Coverage collection is misconfigured."
+            exit 1
+          fi
+          echo "Merging ${#reports[@]} coverage report(s):"
+          printf '  %s\n' "${reports[@]}"
+          dotnet-coverage merge "${reports[@]}" --output ./coverage.cobertura.xml --output-format cobertura
+      # Dependabot pull requests run with a read-only token, so the downstream
+      # upload job cannot obtain `code-quality: write` and would fail on every
+      # one of them. They live on a branch in this repository, so the head-repo
+      # test alone does not exclude them - the same reasoning and the same
+      # `dependabot[bot]` login test as the SonarCloud eligibility step above.
       - name: Upload coverage artifact
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        if: >-
+          github.event_name != 'pull_request'
+          || (github.event.pull_request.head.repo.full_name == github.repository
+          && github.event.pull_request.user.login != 'dependabot[bot]')
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report-csharp
@@ -294,7 +335,14 @@ jobs:
 
   upload-coverage-csharp:
     needs: build
-    if: ${{ !cancelled() && needs.build.result == 'success' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    # Mirrors the artifact step's condition: Dependabot pull requests are
+    # excluded because their downgraded token cannot be granted
+    # `code-quality: write`, so this job would fail on every one of them.
+    if: >-
+      ${{ !cancelled() && needs.build.result == 'success'
+      && (github.event_name != 'pull_request'
+      || (github.event.pull_request.head.repo.full_name == github.repository
+      && github.event.pull_request.user.login != 'dependabot[bot]')) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
