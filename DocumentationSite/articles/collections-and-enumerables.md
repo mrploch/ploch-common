@@ -17,9 +17,7 @@ source. Reach for plain LINQ when you are transforming the data itself.
 
 > [!NOTE]
 > This article is a scenario-led companion to [Collections Samples](collections-samples.md), which is a
-> per-method reference for `EnumerableExtensions` alone. Where the two disagree on a method name, this
-> article is current: `NullOrEmpty` is now `IsNullOrEmpty`, and the generic `AreSequentialInOrder<T>` has
-> been replaced by the `int` and `long` overloads of `AreIntegersSequentialInOrder`.
+> per-method reference for `EnumerableExtensions` alone.
 
 ## Installation
 
@@ -390,9 +388,16 @@ public static IEnumerable<Uri> ShuffledEndpoints(IEnumerable<Uri> replicas) => r
 > "Without replacement" is about *positions*, not *values*. `TakeRandom` performs no de-duplication, so a
 > source holding equal values can return them more than once: `new[] { 1, 1, 2 }.TakeRandom(2)` yields
 > `[1, 1]` about a third of the time, because positions `0` and `1` are two distinct draws that happen to
-> hold the same value. When you need distinct *values*, de-duplicate first — `source.Distinct().TakeRandom(count)`
-> — and remember that this also changes the sampling weights, since a value repeated five times in the
-> source is five times likelier to be drawn than a unique one.
+> hold the same value.
+>
+> Because every *position* is equally likely, a value's chance of being drawn is proportional to how often
+> it occurs: in a ten-item source where one value appears five times and five others appear once each, the
+> repeated value is five times likelier to be drawn than any one of the singletons. That weighting is often
+> what you want — it is how a sample stays representative of the source.
+>
+> When you need distinct *values* instead, de-duplicate first — `source.Distinct().TakeRandom(count)`. Note
+> that this **removes** the occurrence weighting: after `Distinct()` the repeats are gone, so every
+> surviving value is equally likely to be drawn, regardless of how often it appeared in the original source.
 
 A `null` source throws `ArgumentNullException`. Both methods buffer the source into a list, so they are
 `O(n)` in memory and unusable on an infinite sequence.
@@ -420,6 +425,14 @@ which is the usual test for "did we receive every page / sequence number, in ord
 ```csharp
 public static bool PagesAreContiguous(IEnumerable<int> pageNumbers) => pageNumbers.AreIntegersSequentialInOrder();
 ```
+
+> [!WARNING]
+> The successor test is evaluated in **unchecked** arithmetic, so "exactly one greater" is one greater
+> *modulo the integer range* rather than mathematically. At the numeric boundary the comparison therefore
+> wraps: both `new[] { int.MaxValue, int.MinValue }` and `new[] { long.MaxValue, long.MinValue }` are
+> reported as sequential. This only matters for sequence numbers that are allowed to roll over — page
+> numbers and record counters never reach the boundary. If a wrapped sequence must be rejected in your
+> domain, range-check the endpoints yourself before calling.
 
 **`Second`** returns the second element, and throws `InvalidOperationException` if the sequence has fewer
 than two — the same contract as `First`:

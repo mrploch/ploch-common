@@ -39,4 +39,25 @@ A caveat was added that `AddMany` is not an atomic merge and so is unsafe agains
 Every code sample was compiled against the real `Ploch.Common` API, and the documented sampling and
 argument-guarding behaviour was verified by executing it.
 
+## Review corrections
+
+Three points raised in review were verified by execution and corrected:
+
+- **`TakeRandom` sampling weights.** The advice to call `source.Distinct().TakeRandom(count)` for distinct
+  values was followed by a sentence stating that a value repeated five times is five times likelier to be
+  drawn — which describes the behaviour *without* `Distinct()`, and so contradicted the advice it was
+  attached to. The passage now separates the two: occurrence weighting is a property of the raw source,
+  and `Distinct()` removes it, giving every surviving value equal probability. Measured over 200,000
+  trials: without `Distinct()` a five-times-repeated value is drawn 50.2% of the time against 9.9% for a
+  singleton (5.05x); with `Distinct()` both are drawn 16.7% of the time (1.00x).
+- **`AreIntegersSequentialInOrder` numeric wraparound.** The successor test is `array[i] + 1` in unchecked
+  arithmetic, so "exactly one greater" holds only modulo the integer range. Confirmed by execution that
+  both `[int.MaxValue, int.MinValue]` and `[long.MaxValue, long.MinValue]` return `true`. The contract now
+  documents the wraparound instead of overstating the guarantee.
+- **`collections-samples.md` accuracy.** Rather than documenting a disagreement between the two pages, the
+  sibling reference was corrected: `AreSequentialInOrder<T>` → `AreIntegersSequentialInOrder` and
+  `NullOrEmpty` → `IsNullOrEmpty`, with signatures taken from the source. All twelve samples in that file
+  were compiled and executed against the real API. The now-obsolete "where the two disagree" disclaimer was
+  removed from this article. Remaining coverage gaps in that reference are tracked in #332.
+
 No changes to shipped library code — packages are unaffected.
