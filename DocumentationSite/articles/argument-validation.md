@@ -366,8 +366,8 @@ Custom message formats are composite format strings. For `RequiredTrue`, `{0}` i
 
 ### `RequiredNotNull` and `RequiredNotNullOrEmpty`
 
-The `InvalidOperationException` counterparts of `NotNull` and `NotNullOrEmpty`, with the same reference-type
-and `Nullable<T>` overload pair. Their optional `messageFormat` uses `{0}` for the member name:
+The `InvalidOperationException` counterparts of `NotNull` and `NotNullOrEmpty`. Their optional
+`messageFormat` uses `{0}` for the member name:
 
 ```csharp
 public sealed class AuditTrail
@@ -389,12 +389,49 @@ public sealed class AuditTrail
 Omit the format and you get `Variable _entries cannot be null.` — adequate, but a sentence explaining *what
 should have happened first* is what turns a support ticket into a two-minute fix.
 
+The overload sets are **not** symmetric with the `Not*` family, so do not assume a one-to-one mapping:
+
+| Guard | Overloads | Missing counterpart |
+|-------|-----------|---------------------|
+| `NotNull` | reference type and `Nullable<T>` | — |
+| `RequiredNotNull` | reference type and `Nullable<T>` | — |
+| `NotNullOrEmpty` | `string` and `TEnumerable` | — |
+| `RequiredNotNullOrEmpty` | `string` **only** | no collection-emptiness required-state guard |
+
+Only `RequiredNotNull` mirrors its `Not*` counterpart's overload pair. `RequiredNotNullOrEmpty` takes a
+`string?` receiver on both targets, so calling it on a collection is a compile error, not a runtime one:
+
+```csharp
+IList<string>? items = null;
+items.RequiredNotNullOrEmpty();
+// error CS1929: 'IList<string>' does not contain a definition for 'RequiredNotNullOrEmpty' and the best
+// extension method overload 'Guard.RequiredNotNullOrEmpty(string?, string?, string?)' requires a
+// receiver of type 'string?'
+```
+
+For a required-state check on an empty collection, guard the reference with `RequiredNotNull` and test
+emptiness yourself, or use `RequiredTrue`:
+
+```csharp
+var entries = _entries.RequiredNotNull("The audit trail {0} has not been loaded yet.");
+(entries.Count > 0).RequiredTrue("The audit trail is loaded but empty.");
+```
+
 ## Validating paths with `PathGuard`
 
 `PathGuard` layers two concerns on top of `Guard`: is this string a syntactically plausible path, and does a
-file actually exist there? The caller-error/state-error split applies here too, but **only to the
-does-the-file-exist check** — the input validation that precedes it stays in the `ArgumentException` family
-regardless of which guard you called.
+file actually exist there? The caller-error/state-error split applies here too, but it is applied
+**inconsistently**, so the exception family cannot be predicted from the guard's name:
+
+- `EnsureFileExists` and `RequiredFileExists` (both `net7.0+`) delegate their input validation to
+  `IsValidPath`, so a `null`, empty or malformed path throws from the `ArgumentException` family even from
+  the `Required*` guard. Only the file-missing branch differs between the two.
+- `RequiredIsValidPath` (`net7.0+`) validates the input itself and throws `InvalidOperationException` for
+  `null`, empty **and** invalid-character input.
+- On `netstandard2.0`, `RequireValidPath` — and the validation phase of `EnsureFileExists`, which calls it —
+  throws `InvalidOperationException` for every input failure, including a non-rooted path.
+
+Consult the per-branch table below rather than reasoning from the prefix.
 
 ```csharp
 using Ploch.Common.ArgumentChecking;
@@ -516,11 +553,30 @@ value.NotNull();
 ```
 
 Note that the two libraries both expose a type called `Guard`, in `Dawn` and in
-`Ploch.Common.ArgumentChecking` respectively. During a migration, files that reference both need an alias:
+`Ploch.Common.ArgumentChecking` respectively. A partially migrated file that imports both namespaces
+therefore cannot resolve a bare `Guard.Argument(...)` any more:
+
+```
+error CS0104: 'Guard' is an ambiguous reference between
+              'Ploch.Common.ArgumentChecking.Guard' and 'Dawn.Guard'
+```
+
+The alias has to be attached to the name that is still being used unqualified — the **Dawn** one. Aliasing
+the new static class does not help, because the new guards are extension methods and are never named
+explicitly, so the alias goes unused and `Guard` stays ambiguous:
 
 ```csharp
-using PlochGuard = Ploch.Common.ArgumentChecking.Guard;
+using Dawn;
+using Ploch.Common.ArgumentChecking;
+using Guard = Dawn.Guard;             // bare Guard.Argument(...) now binds to Dawn.Guard
+
+Guard.Argument(value, nameof(value)).NotNull();   // old call site, still compiles
+value.NotNull();                                   // new call site, extension method
 ```
+
+If you would rather see at a glance which library a call site belongs to, alias it under a distinct name and
+update the remaining old calls to use it — `using DawnGuard = Dawn.Guard;` plus
+`DawnGuard.Argument(value, nameof(value)).NotNull();` compiles equally well.
 
 The cleanest migration is to remove the `Ploch.Common.DawnGuard` and `Dawn.Guard` package references entirely
 once the last call site is converted; the new guards are extension methods, so the only `using` you need is
