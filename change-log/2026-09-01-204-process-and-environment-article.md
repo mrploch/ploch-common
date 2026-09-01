@@ -62,9 +62,10 @@ Corrections made after review, each re-verified by execution:
   `GetEnumValue` behave identically for a blank value on every platform, and attributed empty-variable
   handling to a Windows/Linux split. Both are wrong. `GetString` forwards `Environment.GetEnvironmentVariable`
   and can return `""`, while the two parsing methods normalise blank input to `null`; and the
-  delete-on-empty behaviour of `Environment.SetEnvironmentVariable(name, "")` is a **.NET 9 breaking change**,
-  identical on Windows and Linux, not a platform difference. Measured on Windows 11 and Ubuntu 24.04 under
-  both `net8.0` and `net9.0`.
+  delete-on-empty behaviour of `Environment.SetEnvironmentVariable(name, "")` is a documented
+  [.NET 9 breaking change](https://learn.microsoft.com/dotnet/core/compatibility/core-libraries/9.0/empty-env-variable),
+  not a platform difference. Measured on Windows 11 under .NET 8.0.30 (deletes) and .NET 9.0.19 (keeps),
+  and on Ubuntu 24.04 under a self-contained `net8.0` build (deletes) and .NET 9.0.14 (keeps).
 - **Linux processor affinity is per-thread** — `Process.ProcessorAffinity` on Linux goes through
   `sched_setaffinity(2)` for the process id, which the kernel treats as the main thread. Threads already
   running keep their old mask, and `GetEnabledProcessors` reports the main thread's mask. A new section

@@ -206,8 +206,10 @@ same branch on the parsing methods.
 How a variable *becomes* empty matters too, because
 [.NET 9 changed it](https://learn.microsoft.com/dotnet/core/compatibility/core-libraries/9.0/empty-env-variable):
 before .NET 9, `Environment.SetEnvironmentVariable(name, "")` deleted the variable; from .NET 9 it
-sets it to an empty value. That is a **runtime-version** difference, not a platform one — measured
-on Windows 11 and on Ubuntu 24.04, with identical results on both:
+sets it to an empty value. That is a **runtime-version** difference, not a platform one: the change
+was made precisely because an empty value is valid on every supported platform. Both columns below
+were measured on both platforms — Windows 11 (8.0.30 and 9.0.19) and Ubuntu 24.04 (a self-contained
+`net8.0` build, and 9.0.14) — with identical results:
 
 | | .NET 8 | .NET 9 and later |
 |---|---|---|
