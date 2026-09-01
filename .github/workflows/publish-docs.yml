@@ -42,6 +42,16 @@ jobs:
       - name: Restore .NET tools (docfx is pinned in .config/dotnet-tools.json)
         run: dotnet tool restore
 
+      - name: Restore all projects DocFX will load
+        # DocFX 2.78.5 has no restore step of its own: its Roslyn MSBuildWorkspace
+        # shells out to `dotnet restore` lazily, from inside the project-load loop, the
+        # first time it meets a project. A ProjectReference whose target is restored
+        # during that same pass has no resolved TargetPath yet when the referencing
+        # project's design-time build runs, so Roslyn cannot match the reference to a
+        # metadata reference and logs a load-phase warning. Restoring everything up
+        # front removes the lazy restore, and with it the warning. See #329.
+        run: find src -name '*.csproj' -print0 | xargs -0 -P 4 -n 1 dotnet restore
+
       - name: Generate API metadata
         # The metadata phase is warning-free as of #290, so it is guarded with
         # --warningsAsErrors: a new CS0108, a duplicate XML doc tag, or an analyzer that
