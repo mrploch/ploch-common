@@ -52,6 +52,17 @@ jobs:
         # front removes the lazy restore, and with it the warning. See #329.
         run: find src -name '*.csproj' -print0 | xargs -0 -P 4 -n 1 dotnet restore
 
+      - name: TEMP diagnostics for #329
+        run: |
+          echo '===== dotnet --info ====='
+          dotnet --version
+          echo '===== ReferencePath of Common.Serialization.SystemTextJson ====='
+          dotnet msbuild src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj             -t:ResolveReferences -p:Configuration=Release -getItem:ReferencePath 2>&1 | grep -iE 'ploch|error' | head -40 || true
+          echo '===== TargetPath of Common.Serialization ====='
+          dotnet msbuild src/Common.Serialization/Ploch.Common.Serialization.csproj             -t:GetTargetPath -p:Configuration=Release -getTargetResult:GetTargetPath 2>&1 | head -40 || true
+          echo '===== docfx verbose ====='
+          dotnet docfx metadata DocumentationSite/docfx.json --logLevel verbose 2>&1             | grep -iE 'matching metadata|Msbuild failed|failed when processing|SystemTextJson|warning|error' | head -80 || true
+
       - name: Generate API metadata
         # The metadata phase is warning-free as of #290, so it is guarded with
         # --warningsAsErrors: a new CS0108, a duplicate XML doc tag, or an analyzer that
