@@ -24,15 +24,26 @@ providing xUnit v3 support is what they are for. The SDK therefore silently clas
 packages as test applications. The repository's own name heuristic was never the trigger; the missing
 `IsPackable` was.
 
-`Directory.Build.props` now states `IsPackable=true` on the non-test branch, so the intent is
-explicit and the SDK default no longer applies. Test projects are unaffected: they take the
-`$(IsTestProject)` branch, which already sets `IsPackable=false`. A project that opts out in its own
-`.csproj` also still wins, because `Directory.Build.props` is imported first.
+`Directory.Build.props` now states `IsPackable=true` on the non-test branch **for projects under
+`src/`**, so the intent is explicit and the SDK default no longer applies to a shipping library. The
+`src/` scope matters: `$(IsTestProject)` is only a project-name heuristic, so a test project not
+named `*Tests` (the projects under `tests/TestAssemblies/` are the existing examples) would otherwise
+have been made unconditionally packable and could be published by accident. Outside `src/` the
+property is still left empty, so the SDK default above continues to switch packing off for anything
+that is a test project or a testing-platform application.
+
+Test projects are unaffected: they take the `$(IsTestProject)` branch, which already sets
+`IsPackable=false`. A project that opts out in its own `.csproj` also still wins, because
+`Directory.Build.props` is imported first.
 
 `Ploch.TestingSupport.XUnit3.Dependencies` additionally excludes the `testhost.dll` / `testhost.exe`
 content items that `Microsoft.NET.Test.Sdk` injects, which would otherwise be packed — raising NU5100
 and shipping a duplicate test host that consumers already receive through the
-`Microsoft.NET.Test.Sdk` dependency the meta-package declares.
+`Microsoft.NET.Test.Sdk` dependency the meta-package declares. The exclusion is hooked on the public
+`$(BeforePack)` extension point (NuGet expands `PackDependsOn` to
+`$(BeforePack);_IntermediatePack;GenerateNuspec;$(AfterPack)`), matches only content injected by
+another build file, and is backed by a `VerifyTestHostIsNotPacked` guard that fails the pack outright
+if a test host file ever reaches the package again.
 
 ### Compatibility
 
