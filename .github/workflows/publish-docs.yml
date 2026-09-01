@@ -5,27 +5,22 @@ on:
     branches:
       - master
       - main
+  pull_request:
   workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  actions: read
-  pages: write
-  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Pull request validation runs are keyed per-ref so they neither queue behind nor block a Pages deployment.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('docs-pr-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  publish-docs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-docs:
     runs-on: ubuntu-latest
+    # Checking out and building the site needs nothing but the repository contents.
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,10 +39,41 @@ jobs:
         run: dotnet tool restore
 
       - name: Generate API metadata
-        # The metadata phase is warning-free as of #290, so it is guarded with
-        # --warningsAsErrors: a new CS0108, a duplicate XML doc tag, or an analyzer that
-        # DocFX's Roslyn cannot load now fails the build instead of accumulating silently.
-        run: dotnet docfx metadata DocumentationSite/docfx.json --warningsAsErrors
+        # The metadata phase carries no genuine warnings as of #290, and every new one
+        # must still fail the build: a new CS0108, a duplicate XML doc tag, or an
+        # analyzer DocFX's Roslyn cannot load.
+        #
+        # `--warningsAsErrors` cannot be used to do that, because DocFX 2.78.5 emits
+        # three unavoidable "Found project reference without a matching metadata
+        # reference" warnings on the Linux runner. They come from Roslyn's
+        # MSBuildWorkspace during project load -- minutes before the first "Processing"
+        # line -- and are not caused by anything in this repository: the reference graph
+        # is consistent, `ReferencePath` resolves to the correct project outputs, and the
+        # same commit on the same SDK (10.0.400) produces zero warnings on Windows,
+        # whether the tree is cold or warm, restored or built. 2.78.5 is the newest DocFX
+        # released, so there is no version to move to. See #329.
+        #
+        # So the guard is applied here instead: any warning other than that one known
+        # DocFX/Roslyn diagnostic fails the step, and the metadata that the warning claims
+        # is missing is asserted to have been generated anyway.
+        run: |
+          set -o pipefail
+          dotnet docfx metadata DocumentationSite/docfx.json 2>&1 | tee "$RUNNER_TEMP/docfx-metadata.log"
+
+          unexpected="$(grep 'warning:' "$RUNNER_TEMP/docfx-metadata.log"             | grep -vF 'Found project reference without a matching metadata reference' || true)"
+          if [ -n "$unexpected" ]; then
+            echo "::error::DocFX metadata emitted warnings beyond the known workspace diagnostic (#329):"
+            echo "$unexpected"
+            exit 1
+          fi
+
+          # The warning is cosmetic only for as long as the metadata is still complete.
+          for namespace in Ploch.Common Ploch.Common.Serialization Ploch.Common.DependencyInjection; do
+            if [ ! -f "DocumentationSite/api/$namespace.yml" ]; then
+              echo "::error::No metadata generated for $namespace - the #329 warning is no longer cosmetic."
+              exit 1
+            fi
+          done
 
       - name: Build documentation site
         # The build phase is not guarded yet: two pre-existing InvalidFileLink warnings
@@ -56,10 +82,26 @@ jobs:
         run: dotnet docfx build DocumentationSite/docfx.json
 
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: DocumentationSite/_site
 
+  deploy-docs:
+    needs: build-docs
+    if: github.event_name != 'pull_request'
+    # The GITHUB_TOKEN write scopes for GitHub Pages are confined to the deploy job:
+    # actions:read downloads the artifact, id-token:write mints the Pages OIDC token.
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
