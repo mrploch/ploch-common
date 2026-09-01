@@ -5,3 +5,5 @@
 - name: Expressions and Owned Property Info
   href: expressions-and-owned-properties.md
 
+- name: Collections and Enumerables
+  href: collections-and-enumerables.md

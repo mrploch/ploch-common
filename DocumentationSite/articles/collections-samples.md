@@ -185,27 +185,34 @@ numbers.ForEach(num => Console.WriteLine(num));
 
 In this example, the `ForEach` method is used to write each number in the console.
 
-### AreSequentialInOrder
+### AreIntegersSequentialInOrder
 
 ```csharp
-public static bool AreSequentialInOrder<T>(this IEnumerable<T> enumerable) where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
+public static bool AreIntegersSequentialInOrder(this IEnumerable<int> enumerable)
+public static bool AreIntegersSequentialInOrder(this IEnumerable<long> enumerable)
 ```
 
-Determines whether the elements in the given `enumerable` are in sequential order.
+Determines whether each element in the given `enumerable` is exactly one greater than the one before it.
+Overloads exist for `IEnumerable<int>` and `IEnumerable<long>` only. An empty or single-element sequence
+returns `true`.
 
 Example:
 
 ```csharp
 IEnumerable<int> numbers = new[] {1, 2, 3, 4, 5};
-bool areSequential = numbers.AreSequentialInOrder();
+bool areSequential = numbers.AreIntegersSequentialInOrder();
 ```
 
 In this example, `areSequential` will be `true` because the numbers are in sequential order.
 
-### NullOrEmpty
+The successor test uses unchecked arithmetic, so it wraps at the numeric boundary: `new[] { int.MaxValue,
+int.MinValue }` is also reported as sequential. See
+[Collections and enumerable extensions](collections-and-enumerables.md) for when that matters.
+
+### IsNullOrEmpty
 
 ```csharp
-public static bool NullOrEmpty<T>(this IEnumerable<T>? enumerable)
+public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable)
 ```
 
 Checks if the specified `enumerable` collection is `null` or empty.
@@ -213,8 +220,8 @@ Checks if the specified `enumerable` collection is `null` or empty.
 Example:
 
 ```csharp
-IEnumerable<int> numbers = null;
-bool isNullOrEmpty = numbers.NullOrEmpty();  
+IEnumerable<int>? numbers = null;
+bool isNullOrEmpty = numbers.IsNullOrEmpty();
 ```
 
 In this example, `isNullOrEmpty` will be `true` because the `numbers` collection is `null`.
