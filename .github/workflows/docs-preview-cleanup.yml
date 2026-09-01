@@ -58,6 +58,19 @@ jobs:
           PREVIEW_BRANCH: ${{ vars.DOCS_PREVIEW_BRANCH || 'gh-pages-previews' }}
         run: |
           set -euo pipefail
+          # SAFETY GATE, identical to the one in docs-preview.yml. This step deletes a
+          # directory tree from $PREVIEW_BRANCH, stages the whole worktree and pushes
+          # with a contents:write token; a repository variable pointing at a branch
+          # somebody else owns would have cleanup mutate it. `contents: write` does
+          # not distinguish branches, so nothing but this check stands between a
+          # mis-set variable and the production branch. Keep both lists in step.
+          case "$PREVIEW_BRANCH" in
+            master|main|gh-pages)
+              echo "::error::Refusing to run preview cleanup against $PREVIEW_BRANCH"
+              exit 1
+              ;;
+          esac
+
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           TARGET="pr-preview/pr-${PR_NUMBER}"
 

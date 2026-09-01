@@ -29,9 +29,14 @@ The production site at `https://github.ploch.dev/ploch-common/` is deployed by
 `publish-docs.yml` through `actions/upload-pages-artifact` and
 `actions/deploy-pages`, which require `pages: write` and `id-token: write`. Neither
 preview workflow is granted either permission, so neither is capable of creating a
-GitHub Pages deployment; the isolation is enforced by the token rather than by
-convention. The preview workflows also stay out of the `"pages"` concurrency group
-and touch no production artefact.
+GitHub Pages deployment; for the Pages deployment the isolation is enforced by the
+token rather than by convention. The preview workflows also stay out of the
+`"pages"` concurrency group and touch no production artefact.
+
+The branch write is a separate concern that the token does *not* constrain —
+`contents: write` covers every branch — so both workflows validate the resolved
+`DOCS_PREVIEW_BRANCH` before touching anything and hard-fail on `master`, `main`
+and `gh-pages`.
 
 ## Hosting is opt-in
 
@@ -49,6 +54,14 @@ read-only `GITHUB_TOKEN`. The build job needs only `contents: read` and therefor
 runs for them, giving the same docs build signal; the publishing job detects the
 condition and skips with a workflow notice rather than failing. No
 `pull_request_target` is used.
+
+## Comment on every outcome
+
+The sticky comment is posted by a separate `if: always()` job, so a pull request
+whose docs build fails still gets a comment saying so and linking the run, instead
+of silence. The body is selected from the observed result of the build and publish
+jobs — including a publish that stood down because the pull request closed mid-run —
+so a preview URL is never advertised unless it was actually written.
 
 ## Notes
 

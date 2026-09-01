@@ -11,6 +11,11 @@
 # group, and it only ever writes into `pr-preview/pr-<N>/` on a dedicated preview
 # branch that production never reads.
 #
+# The branch write is a separate concern from the Pages deployment, and it is *not*
+# protected by the token: `contents: write` can write any branch. The preview branch
+# name is therefore validated against a reserved list before anything is pushed - see
+# the safety gate in "Publish preview to the preview branch".
+#
 # FORKS AND DEPENDABOT
 # --------------------
 # GitHub withholds write access and secrets from pull requests raised from forks and
@@ -80,6 +85,14 @@ jobs:
       - name: Restore .NET tools (docfx is pinned in .config/dotnet-tools.json)
         run: dotnet tool restore
 
+      - name: Compute artifact name
+        # Computed before the build so the comment job can name the artifact even
+        # when a later step fails.
+        id: names
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: echo "artifact=docs-preview-pr-${PR_NUMBER}" >> "$GITHUB_OUTPUT"
+
       - name: Generate API metadata
         # Kept byte-for-byte in step with publish-docs.yml. The metadata phase is
         # warning-free as of #290 and was re-guarded in #317, so --warningsAsErrors
@@ -96,12 +109,6 @@ jobs:
         # together.
         run: dotnet docfx build DocumentationSite/docfx.json
 
-      - name: Compute artifact name
-        id: names
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: echo "artifact=docs-preview-pr-${PR_NUMBER}" >> "$GITHUB_OUTPUT"
-
       - name: Upload built site
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -116,7 +123,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write        # push the built site to the preview branch
-      pull-requests: write   # post/update the sticky preview comment
+    outputs:
+      # true = the preview is live on the branch; abandoned = the pull request closed
+      # mid-publish and nothing was pushed. Empty when this job never published.
+      pushed: ${{ steps.publish.outputs.pushed }}
     # Deliberately NOT serialised through a shared concurrency group. GitHub keeps
     # at most one *pending* run per group and cancels any earlier pending one, so a
     # busy period would silently drop a preview rather than queue it. Concurrent
@@ -138,21 +148,18 @@ jobs:
           # A fork of this repository has no business writing previews, and its PRs
           # would be judged against a preview branch nobody serves.
           if [ "$IS_UPSTREAM_REPO" != "true" ]; then
-            echo "comment=false" >> "$GITHUB_OUTPUT"
             echo "publish=false" >> "$GITHUB_OUTPUT"
             echo "::notice::Not running in mrploch/ploch-common; skipping docs preview publishing. The site was still built and uploaded as an artifact."
             exit 0
           fi
-          # GITHUB_TOKEN is read-only for fork PRs and for Dependabot, so neither the
-          # branch push nor the comment can succeed. This is an expected condition,
-          # not a failure: the build job above already gave the PR its docs signal.
+          # GITHUB_TOKEN is read-only for fork PRs and for Dependabot, so the branch
+          # push cannot succeed. This is an expected condition, not a failure: the
+          # build job above already gave the PR its docs signal.
           if [ "$IS_FORK_PR" = "true" ] || [ "$IS_DEPENDABOT" = "true" ]; then
-            echo "comment=false" >> "$GITHUB_OUTPUT"
             echo "publish=false" >> "$GITHUB_OUTPUT"
             echo "::notice::This pull request was raised from a fork or authored by Dependabot, so GITHUB_TOKEN is read-only. Skipping preview publishing; download the docs-preview artifact from this run to review the site locally."
             exit 0
           fi
-          echo "comment=true" >> "$GITHUB_OUTPUT"
           # Strip all whitespace so a variable set to only spaces counts as unset.
           if [ -n "$(printf '%s' "$PREVIEW_BASE_URL" | tr -d '[:space:]')" ]; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
@@ -173,6 +180,7 @@ jobs:
           path: preview-site
 
       - name: Publish preview to the preview branch
+        id: publish
         if: steps.eligibility.outputs.publish == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -181,11 +189,29 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
+          # SAFETY GATE. Everything below deletes a directory tree, stages the whole
+          # worktree and force-writes $PREVIEW_BRANCH with a contents:write token, so
+          # a repository variable pointing at a branch somebody else owns would have
+          # this lane destroy it. `contents: write` does not distinguish branches, so
+          # nothing but this check stands between a mis-set variable and the
+          # production branch. Keep the list in step with docs-preview-cleanup.yml.
+          case "$PREVIEW_BRANCH" in
+            master|main|gh-pages)
+              echo "::error::Refusing to publish previews to $PREVIEW_BRANCH"
+              exit 1
+              ;;
+          esac
+
           # A throwaway clone keeps the preview branch's history entirely separate
           # from the source tree: this job never checks the repository out, so there
           # is no working copy for a preview step to disturb.
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           TARGET="pr-preview/pr-${PR_NUMBER}"
+          # Written inside the subshell (which runs from another directory, hence the
+          # absolute path) and read by the loop, so the outcome survives the attempt
+          # boundary and reaches $GITHUB_OUTPUT exactly once.
+          RESULT_FILE="${PWD}/publish-result.txt"
+          rm -f "$RESULT_FILE"
 
           # Another pull request may push into the same branch between our fetch and
           # our push. Rather than queue behind a concurrency group - which GitHub
@@ -230,7 +256,10 @@ jobs:
             : > .nojekyll
             git add -A
             if git diff --cached --quiet; then
+              # The branch already carries exactly this content, so the preview is
+              # live and current - a published preview, not a no-op.
               echo "Preview content is unchanged; nothing to push."
+              echo "true" > "$RESULT_FILE"
               exit 0
             fi
             git -c user.name="github-actions[bot]" \
@@ -243,9 +272,11 @@ jobs:
             PR_STATE=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq .state)
             if [ "$PR_STATE" != "open" ]; then
               echo "::notice::Pull request #${PR_NUMBER} is no longer open; abandoning this preview publish so cleanup is not undone."
+              echo "abandoned" > "$RESULT_FILE"
               exit 0
             fi
             git push -q origin "HEAD:${PREVIEW_BRANCH}"
+            echo "true" > "$RESULT_FILE"
           )
 
           for attempt in 1 2 3 4 5; do
@@ -257,6 +288,14 @@ jobs:
             set -e
             if [ "$status" -eq 0 ]; then
               echo "Publish step completed on attempt $attempt."
+              # Every zero-exit path above records its outcome. A missing file means
+              # that contract was broken, so fail loudly rather than let the comment
+              # step advertise a preview URL on a guess.
+              if [ ! -f "$RESULT_FILE" ]; then
+                echo "::error::The publish attempt reported success without recording an outcome."
+                exit 1
+              fi
+              echo "pushed=$(cat "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             echo "Attempt $attempt did not complete (the preview branch most likely moved); retrying."
@@ -265,13 +304,45 @@ jobs:
           echo "::error::Could not publish the documentation preview to $PREVIEW_BRANCH after 5 attempts."
           exit 1
 
+  # A separate job with `if: always()` so the pull request always gets a comment -
+  # including when the docs build itself failed, which is exactly the case a reviewer
+  # most needs to be told about. While the comment lived in `publish-preview` it was
+  # skipped along with that job whenever `needs: build-preview` failed, leaving a
+  # broken docs build with no comment at all.
+  comment-preview:
+    name: Comment with the docs preview
+    needs: [build-preview, publish-preview]
+    if: always() && needs.build-preview.result != 'cancelled'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write   # post/update the sticky preview comment
+    steps:
+      - name: Determine commenting eligibility
+        id: eligibility
+        env:
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
+          IS_FORK_PR: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
+          IS_DEPENDABOT: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+        run: |
+          set -euo pipefail
+          # Same gate as the publishing job: a read-only GITHUB_TOKEN cannot post a
+          # comment either, so skip with a notice rather than fail the run.
+          if [ "$IS_UPSTREAM_REPO" != "true" ] || [ "$IS_FORK_PR" = "true" ] || [ "$IS_DEPENDABOT" = "true" ]; then
+            echo "comment=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GITHUB_TOKEN is read-only for this pull request (a fork, a fork of this repository, or Dependabot), so no preview comment can be posted. The built site is attached to the Docs Preview run as an artifact."
+          else
+            echo "comment=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Post or update the preview comment
         if: steps.eligibility.outputs.comment == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          PUBLISHED: ${{ steps.eligibility.outputs.publish }}
+          BUILD_RESULT: ${{ needs.build-preview.result }}
+          PUBLISH_RESULT: ${{ needs.publish-preview.result }}
+          PUSHED: ${{ needs.publish-preview.outputs.pushed }}
           PREVIEW_BASE_URL: ${{ vars.DOCS_PREVIEW_BASE_URL }}
           ARTIFACT_NAME: ${{ needs.build-preview.outputs.artifact-name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -281,13 +352,27 @@ jobs:
           # rather than burying the PR conversation under one comment per commit.
           MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
           export MARKER
+          # The body is selected from the *observed* outcome of both jobs, never from
+          # eligibility alone: a run that abandoned its push, or failed to push, must
+          # not advertise a preview URL that was never written.
           {
             printf '%s\n' "$MARKER"
             printf '### 📖 Documentation preview\n\n'
-            if [ "$PUBLISHED" = "true" ]; then
+            if [ "$BUILD_RESULT" != "success" ]; then
+              printf '⚠️ **The documentation build failed for this pull request, so there is no preview.**\n\n'
+              printf '**[Open the workflow run](%s)** to see which DocFX step failed.\n\n' "$RUN_URL"
+              printf 'Attempted on `%s`. This comment is rewritten on the next push.\n' "$HEAD_SHA"
+            elif [ "$PUSHED" = "true" ]; then
               BASE="${PREVIEW_BASE_URL%/}"
               printf '**[Open the preview for this pull request](%s/pr-preview/pr-%s/)**\n\n' "$BASE" "$PR_NUMBER"
               printf 'Built from `%s`. The preview is served from a branch that is separate from the production site, and it is deleted when this pull request is closed or merged.\n' "$HEAD_SHA"
+            elif [ "$PUSHED" = "abandoned" ]; then
+              printf 'This pull request closed while its preview was being published, so nothing was published.\n\n'
+              printf '**[Download the built site from the workflow run](%s)** if you still need it.\n' "$RUN_URL"
+            elif [ "$PUBLISH_RESULT" = "failure" ]; then
+              printf '⚠️ **The site built, but publishing the preview failed.**\n\n'
+              printf '**[Open the workflow run](%s)** for the publishing log; the built site is attached to it as `%s`.\n\n' "$RUN_URL" "$ARTIFACT_NAME"
+              printf 'Built from `%s`.\n' "$HEAD_SHA"
             else
               printf 'No hosted preview target is configured, so the built site is attached to this run instead.\n\n'
               printf '**[Download `%s` from the workflow run](%s)**, unzip it, and open `index.html`.\n\n' "$ARTIFACT_NAME" "$RUN_URL"

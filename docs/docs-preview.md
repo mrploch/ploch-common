@@ -11,8 +11,12 @@ Look for the **📖 Documentation preview** comment on the pull request. It is
 rewritten in place on every push, so it always describes the current head commit,
 and it is replaced with a "preview removed" note once the pull request closes.
 
-The comment links to one of two things:
+The comment is posted whatever the outcome — the commenting job runs with
+`if: always()`, so a pull request whose docs build *broke* gets a comment saying so
+and linking the run, rather than silence. It links to one of these:
 
+- **A note that the build failed**, with a link to the workflow run. There is no
+  preview to look at; fix the DocFX failure and push again.
 - **A hosted preview URL**, when the repository has a preview host configured.
   Follow it and walk the site the way a reader would: home page → the Libraries
   entry in the sidebar → an API page → the search box. Sub-path hosting is the
@@ -34,9 +38,26 @@ Previews cannot reach `https://github.ploch.dev/ploch-common/`. Production is
 deployed by `publish-docs.yml` using `actions/upload-pages-artifact` plus
 `actions/deploy-pages`, which requires the `pages: write` and `id-token: write`
 permissions. Neither preview workflow is granted either permission, so neither can
-create a GitHub Pages deployment at all — the isolation is enforced by the token,
-not by convention. The preview workflows also stay out of the `"pages"` concurrency
-group, and write only into `pr-preview/pr-<N>/` on a separate branch.
+create a GitHub Pages deployment at all — for the *Pages deployment* the isolation
+is enforced by the token, not by convention. The preview workflows also stay out of
+the `"pages"` concurrency group, and write only into `pr-preview/pr-<N>/` on a
+separate branch.
+
+The **branch write is a different matter**, and the token does not protect it:
+`contents: write` grants write access to every branch in the repository, so the only
+thing separating the preview lane from a real branch is the value of
+`DOCS_PREVIEW_BRANCH`. Both workflows therefore validate the resolved branch name
+before touching anything and hard-fail on `master`, `main` and `gh-pages`:
+
+```bash
+case "$PREVIEW_BRANCH" in master|main|gh-pages) echo "::error::Refusing to publish previews to $PREVIEW_BRANCH"; exit 1;; esac
+```
+
+This matters because the publishing step does `rm -rf` on the preview directory,
+`git add -A`, and `git push HEAD:$PREVIEW_BRANCH`. Pointing `DOCS_PREVIEW_BRANCH` at
+a branch that anything else serves or reads would overwrite it. Set it only to a
+branch that exists solely for previews, and keep the reserved list in the two
+workflows identical.
 
 The publishing and cleanup jobs do hold `contents: write`, and a `pull_request`
 workflow grants that only to same-repository pull requests — that is, to people who
@@ -64,7 +85,10 @@ To turn hosted previews on:
 2. Set the repository variable `DOCS_PREVIEW_BASE_URL` to the base URL of that host.
    The workflow appends `/pr-preview/pr-<N>/`.
 3. Optionally set `DOCS_PREVIEW_BRANCH` if the preview branch should be named
-   something other than `gh-pages-previews`.
+   something other than `gh-pages-previews`. It **must** name a branch that exists
+   only to carry previews — the workflows rewrite the whole branch on every publish
+   and reject `master`, `main` and `gh-pages` outright (see
+   [How production is protected](#how-production-is-protected)).
 
 Unsetting `DOCS_PREVIEW_BASE_URL` reverts to the artifact-only behaviour; nothing
 else needs changing.
