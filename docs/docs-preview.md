@@ -1,9 +1,13 @@
 # Documentation previews for pull requests
 
-Every pull request that touches `docs/`, `DocumentationSite/`, or either docs
-workflow gets its DocFX site built automatically and a single sticky comment
-pointing at the result, so a change can be judged before it is merged rather than
-after.
+Every pull request gets its DocFX site built automatically and a single sticky
+comment pointing at the result, so a documentation change can be judged before it is
+merged rather than after.
+
+The preview is not limited to pull requests that edit `docs/` or
+`DocumentationSite/`. Most of the site is API reference generated from XML
+documentation comments in the C# sources, so a pull request that touches no Markdown
+at all can still change dozens of pages.
 
 ## For reviewers
 
@@ -28,36 +32,58 @@ and linking the run, rather than silence. It links to one of these:
 Pull requests raised from a fork, and those opened by Dependabot, get no comment:
 GitHub gives those runs a read-only token, so nothing can be posted or published.
 The site is still built and uploaded on those runs — download the
-`docs-preview-pr-<N>` artifact from the **Docs Preview** workflow run instead.
+`docs-preview-pr-<N>` artifact from the **Publish Docs** workflow run instead.
 
 ## For maintainers
+
+### Where the preview lives
+
+Everything is in `.github/workflows/publish-docs.yml`, alongside the production
+build and deployment, plus `.github/workflows/docs-preview-cleanup.yml` for removing
+a preview when its pull request closes.
+
+The preview was originally its own workflow with its own DocFX build. That was
+consolidated in #201 once #330 added a `pull_request` trigger to `publish-docs.yml`:
+two copies of the same build on the same commit is not only twice the runner time,
+it is a copy that goes stale silently. It already had — the preview copy still passed
+`--warningsAsErrors` to `docfx metadata`, the exact flag #330 had to replace with a
+narrower grep-based gate because DocFX 2.78.5 always emits workspace warnings on the
+Linux runner (#329). There is now one build job, `build-docs`, and four jobs total:
+
+| Job | Runs on | Permissions |
+|---|---|---|
+| `build-docs` | every push to `master` and every pull request | `contents: read` |
+| `deploy-docs` | pushes only (`github.event_name != 'pull_request'`) | `pages: write`, `id-token: write`, `actions: read`, `contents: read` |
+| `publish-preview` | pull requests only | `contents: write` |
+| `comment-preview` | pull requests only, `if: always()` | `pull-requests: write` |
 
 ### How production is protected
 
 Previews cannot reach `https://github.ploch.dev/ploch-common/`. Production is
-deployed by `publish-docs.yml` using `actions/upload-pages-artifact` plus
+deployed by `deploy-docs` using `actions/upload-pages-artifact` plus
 `actions/deploy-pages`, which requires the `pages: write` and `id-token: write`
-permissions. Neither preview workflow is granted either permission, so neither can
-create a GitHub Pages deployment at all — for the *Pages deployment* the isolation
-is enforced by the token, not by convention. The preview workflows also stay out of
-the `"pages"` concurrency group, and write only into `pr-preview/pr-<N>/` on a
-separate branch.
+permissions. Neither preview job is granted either permission, and `deploy-docs` is
+itself gated on the event not being a pull request — so for the *Pages deployment*
+the isolation is enforced twice over, by the token and by the trigger, not by
+convention. The preview jobs also stay out of the `"pages"` concurrency group, and
+write only into `pr-preview/pr-<N>/` on a separate branch.
 
 The **branch write is a different matter**, and the token does not protect it:
 `contents: write` grants write access to every branch in the repository, so the only
 thing separating the preview lane from a real branch is the value of
-`DOCS_PREVIEW_BRANCH`. Both workflows therefore validate the resolved branch name
-before touching anything and hard-fail on `master`, `main` and `gh-pages`:
+`DOCS_PREVIEW_BRANCH`. Both `publish-docs.yml` and `docs-preview-cleanup.yml`
+therefore validate the resolved branch name before touching anything and hard-fail on
+`master`, `main` and `gh-pages`:
 
 ```bash
 case "$PREVIEW_BRANCH" in master|main|gh-pages) echo "::error::Refusing to publish previews to $PREVIEW_BRANCH"; exit 1;; esac
 ```
 
-This matters because the publishing step does `rm -rf` on the preview directory,
-`git add -A`, and `git push HEAD:$PREVIEW_BRANCH`. Pointing `DOCS_PREVIEW_BRANCH` at
-a branch that anything else serves or reads would overwrite it. Set it only to a
-branch that exists solely for previews, and keep the reserved list in the two
-workflows identical.
+This matters because the publishing step deletes the preview directory recursively,
+stages the whole worktree with `git add -A`, and runs
+`git push HEAD:$PREVIEW_BRANCH`. Pointing `DOCS_PREVIEW_BRANCH` at a branch that
+anything else serves or reads would overwrite it. Set it only to a branch that exists
+solely for previews, and keep the reserved list in the two workflows identical.
 
 The publishing and cleanup jobs do hold `contents: write`, and a `pull_request`
 workflow grants that only to same-repository pull requests — that is, to people who
@@ -95,16 +121,16 @@ else needs changing.
 
 ### Keeping the preview build honest
 
-The preview build runs the same two DocFX commands as `publish-docs.yml`, including
-`--warningsAsErrors` on the metadata phase (added in #290, restored in #317). That
-guard must stay: a preview that is more permissive than production would let a
-change go green here and then fail on `master`. When the remaining `InvalidFileLink`
-warnings are cleared (#316) and the build phase is guarded too, guard it in both
-workflows in the same change.
+There is nothing to keep in step: the preview *is* the production build. The site a
+reviewer looks at is byte-for-byte the artifact `deploy-docs` would publish, produced
+by the same `docfx metadata` and `docfx build` invocations under the same warning
+gate. A change cannot go green in the preview and then fail on `master`, because
+there is only one build to go green.
 
-Because the preview build mirrors production exactly, it also inherits production's
-failures. At the time of writing the metadata guard fails on the CI runner with three
-intermittent `Found project reference without a matching metadata reference`
-warnings, which is why `publish-docs.yml` is red on `master`; that is tracked in
-#329. Fix it in both workflows together — a preview build that is quietly more
-lenient than production defeats the point of having one.
+That is the property to preserve. If a future change needs the preview to build
+differently from production — a different DocFX configuration, a relaxed warning
+gate, an extra step — treat that as a reason to reconsider the change, not as a
+reason to fork the build job again.
+
+When the remaining `InvalidFileLink` warnings are cleared (#316) and the build phase
+is guarded as well as the metadata phase, that is a single edit to one step.

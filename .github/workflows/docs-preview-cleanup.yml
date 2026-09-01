@@ -5,8 +5,9 @@
 # by the time it closes, and the preview would then never be cleaned up. The job is
 # a cheap no-op when there is nothing to delete.
 #
-# Like docs-preview.yml, this workflow is granted neither `pages: write` nor
-# `id-token: write`, so it cannot touch the production GitHub Pages deployment.
+# Like the preview jobs in publish-docs.yml, this workflow is granted neither
+# `pages: write` nor `id-token: write`, so it cannot touch the production GitHub Pages
+# deployment.
 name: Docs Preview Cleanup
 
 on:
@@ -15,13 +16,16 @@ on:
 
 permissions: {}
 
-# The same per-PR group docs-preview.yml uses, so closing a pull request cancels any
-# preview publish still in flight for it. Belt and braces with the "is the pull
-# request still open?" check that guards the push in docs-preview.yml: a cancellation
-# can always lose a race, and a resurrected preview would never be cleaned up because
-# no second `closed` event follows.
+# The same per-PR group publish-docs.yml uses for its pull request runs, so closing a
+# pull request cancels any preview publish still in flight for it. `github.ref` is
+# `refs/pull/<n>/merge` for every `pull_request` activity type, including `closed`, so
+# the two expressions produce the same group; concurrency groups are shared across
+# workflows in a repository. Belt and braces with the "is the pull request still open?"
+# check that guards the push in publish-docs.yml: a cancellation can always lose a
+# race, and a resurrected preview would never be cleaned up because no second `closed`
+# event follows.
 concurrency:
-  group: docs-preview-${{ github.event.pull_request.number }}
+  group: ${{ format('docs-pr-{0}', github.ref) }}
   cancel-in-progress: true
 
 jobs:
@@ -32,7 +36,7 @@ jobs:
       contents: write        # delete the preview directory from the preview branch
       pull-requests: write   # update the sticky preview comment
     steps:
-      # Same reasoning as the eligibility gate in docs-preview.yml: fork PRs and
+      # Same reasoning as the eligibility gate in publish-docs.yml: fork PRs and
       # Dependabot never published a preview in the first place, and their token
       # could not delete one anyway.
       - name: Determine cleanup eligibility
@@ -58,7 +62,7 @@ jobs:
           PREVIEW_BRANCH: ${{ vars.DOCS_PREVIEW_BRANCH || 'gh-pages-previews' }}
         run: |
           set -euo pipefail
-          # SAFETY GATE, identical to the one in docs-preview.yml. This step deletes a
+          # SAFETY GATE, identical to the one in publish-docs.yml. This step deletes a
           # directory tree from $PREVIEW_BRANCH, stages the whole worktree and pushes
           # with a contents:write token; a repository variable pointing at a branch
           # somebody else owns would have cleanup mutate it. `contents: write` does
@@ -74,7 +78,7 @@ jobs:
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           TARGET="pr-preview/pr-${PR_NUMBER}"
 
-          # Mirrors the retry in docs-preview.yml, including the subshell that keeps
+          # Mirrors the retry in publish-docs.yml, including the subshell that keeps
           # `set -e` alive inside the callee.
           attempt_delete() (
             set -euo pipefail
@@ -83,7 +87,7 @@ jobs:
             cd preview-branch
             git init -q
             git remote add origin "$REMOTE"
-            # As in docs-preview.yml: a transient fetch failure must not be mistaken
+            # As in publish-docs.yml: a transient fetch failure must not be mistaken
             # for an absent branch, or cleanup would report success while the preview
             # stayed published forever.
             set +e
@@ -140,7 +144,7 @@ jobs:
           set -euo pipefail
           MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
           export MARKER
-          # Same lookup as docs-preview.yml: --slurp cannot be combined with --jq, so
+          # Same lookup as publish-docs.yml: --slurp cannot be combined with --jq, so
           # --paginate emits one id per line and `sed -n 1p` takes the first.
           COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
             --jq '.[] | select(.body | contains($ENV.MARKER)) | .id' | sed -n 1p)

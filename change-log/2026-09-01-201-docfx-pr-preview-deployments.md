@@ -6,37 +6,58 @@
 
 ## What changed
 
-Pull requests that touch `docs/`, `DocumentationSite/`, or either documentation
-workflow now get their DocFX site built automatically and a single sticky
+Every pull request now gets its DocFX site built automatically and a single sticky
 **📖 Documentation preview** comment linking to the result. The comment is rewritten
 in place on every push and replaced with a "preview removed" note once the pull
 request closes or merges.
 
-Two new workflows provide this:
+The preview is not restricted to pull requests that edit `docs/` or
+`DocumentationSite/`. Most of the site is API reference generated from XML
+documentation comments in the C# sources, so a pull request that touches no Markdown
+at all can still change dozens of pages.
 
-- `.github/workflows/docs-preview.yml` — builds the site on `pull_request`
-  (`opened`, `synchronize`, `reopened`) and publishes it under
-  `pr-preview/pr-<N>/` on a dedicated preview branch.
-- `.github/workflows/docs-preview-cleanup.yml` — removes that directory on
+The work lives in two places:
+
+- `.github/workflows/publish-docs.yml` gains two pull-request-only jobs —
+  `publish-preview`, which pushes the built site under `pr-preview/pr-<N>/` on a
+  dedicated preview branch, and `comment-preview`, which posts the sticky comment.
+- `.github/workflows/docs-preview-cleanup.yml` (new) removes that directory on
   `pull_request: closed`, so previews cannot accumulate.
 
 A new documentation page, `docs/docs-preview.md`, explains how reviewers use the
 preview and how a maintainer enables the hosted lane.
 
+## One build, not two
+
+The preview was first implemented as a standalone `docs-preview.yml` with its own
+DocFX build. [#330](https://github.com/mrploch/ploch-common/pull/330) then added a
+`pull_request` trigger to `publish-docs.yml`, which made that a second build of the
+same commit producing the same output — and the two copies had already drifted in a
+way that mattered: the preview still passed `--warningsAsErrors` to
+`docfx metadata`, the exact flag #330 had to replace with a narrower gate because
+DocFX 2.78.5 always emits workspace warnings on the Linux runner
+([#329](https://github.com/mrploch/ploch-common/issues/329)).
+
+So the preview jobs were folded into `publish-docs.yml` and `docs-preview.yml` was
+deleted. There is now one `build-docs` job feeding both the production Pages
+deployment and the preview, which halves the runner time on a documentation pull
+request and makes it structurally impossible for a preview to be built under
+different rules from production.
+
 ## Isolation from production
 
-The production site at `https://github.ploch.dev/ploch-common/` is deployed by
-`publish-docs.yml` through `actions/upload-pages-artifact` and
-`actions/deploy-pages`, which require `pages: write` and `id-token: write`. Neither
-preview workflow is granted either permission, so neither is capable of creating a
-GitHub Pages deployment; for the Pages deployment the isolation is enforced by the
-token rather than by convention. The preview workflows also stay out of the
-`"pages"` concurrency group and touch no production artefact.
+The production site at `https://github.ploch.dev/ploch-common/` is deployed by the
+`deploy-docs` job through `actions/upload-pages-artifact` and `actions/deploy-pages`,
+which require `pages: write` and `id-token: write`. Neither preview job is granted
+either permission, and `deploy-docs` is itself gated on
+`github.event_name != 'pull_request'` — so the Pages deployment is protected twice
+over, by the token and by the trigger, rather than by convention. The preview jobs
+also stay out of the `"pages"` concurrency group and touch no production artefact.
 
 The branch write is a separate concern that the token does *not* constrain —
-`contents: write` covers every branch — so both workflows validate the resolved
-`DOCS_PREVIEW_BRANCH` before touching anything and hard-fail on `master`, `main`
-and `gh-pages`.
+`contents: write` covers every branch — so both `publish-docs.yml` and
+`docs-preview-cleanup.yml` validate the resolved `DOCS_PREVIEW_BRANCH` before
+touching anything and hard-fail on `master`, `main` and `gh-pages`.
 
 ## Hosting is opt-in
 
@@ -62,9 +83,3 @@ whose docs build fails still gets a comment saying so and linking the run, inste
 of silence. The body is selected from the observed result of the build and publish
 jobs — including a publish that stood down because the pull request closed mid-run —
 so a preview URL is never advertised unless it was actually written.
-
-## Notes
-
-The preview build runs the same two DocFX commands as `publish-docs.yml`, including
-`--warningsAsErrors` on the metadata phase (added in #290, restored in #317), so a
-preview can never be more permissive than production.
