@@ -93,7 +93,9 @@ vocabulary explicitly:
 ```csharp
 public static bool GetFlag(string variableName, bool defaultValue = false)
 {
-    var raw = EnvironmentVariables.GetString(variableName)?.Trim();
+    // Lower-cased, because GetBool is case-insensitive and the wider vocabulary must be too —
+    // otherwise "ON" would fall through to GetBool, come back null, and silently become the default.
+    var raw = EnvironmentVariables.GetString(variableName)?.Trim().ToLowerInvariant();
 
     return raw switch
     {
@@ -144,24 +146,31 @@ in configuration should be a startup failure rather than a mystery at first use,
 public static TEnum RequireDefinedEnum<TEnum>(string variableName, TEnum defaultValue)
     where TEnum : struct, Enum
 {
-    var value = EnvironmentVariables.GetEnumValue<TEnum>(variableName);
+    // GetEnumValue returns null both for "not configured" and for "configured with rubbish", so the
+    // raw string decides which of the two it is. Only the first may fall back to the default.
+    var raw = EnvironmentVariables.GetString(variableName).NullIfWhiteSpace();
 
-    if (value is null)
+    if (raw is null)
     {
         return defaultValue;
     }
 
-    if (!Enum.IsDefined(typeof(TEnum), value.Value))
+    var value = EnvironmentVariables.GetEnumValue<TEnum>(variableName);
+
+    if (value is null || !Enum.IsDefined(typeof(TEnum), value.Value))
     {
         throw new InvalidOperationException(
-            $"Environment variable '{variableName}' is set to " +
-            $"'{EnvironmentVariables.GetString(variableName)}', which is not a defined value of " +
-            $"{typeof(TEnum).Name}.");
+            $"Environment variable '{variableName}' is set to '{raw}', which is not a defined " +
+            $"value of {typeof(TEnum).Name}. Valid values: {string.Join(", ", Enum.GetNames(typeof(TEnum)))}.");
     }
 
     return value.Value;
 }
 ```
+
+The two-step shape is what makes the difference: reading the raw string first is the only way to
+tell "the operator did not set this" from "the operator set it to `Wrning`", because `GetEnumValue`
+collapses both to `null`.
 
 Two further details are worth knowing.
 
@@ -186,13 +195,37 @@ var maxConcurrency = EnvironmentVariables.GetString("APP_MAX_CONCURRENCY").Parse
                      ?? Environment.ProcessorCount;
 ```
 
-### Empty is not always distinguishable from absent
+### Empty and absent are not the same thing, and .NET 9 changed which is which
 
-On Windows, setting a variable to an empty string deletes it, so `GetString` returns `null` rather
-than `""` for a variable an earlier step "cleared". Because `GetBool` and `GetEnumValue` treat empty
-and whitespace as `null` in any case, all three methods behave identically for a blank value on
-every platform — but do not write code that distinguishes "set to empty" from "not set" and expect
-it to be portable.
+`GetString` forwards `Environment.GetEnvironmentVariable` unchanged, so it returns whatever the
+process environment holds — including an empty string. `GetBool` and `GetEnumValue` do not: both
+treat empty and whitespace as `null` before parsing. **`GetString` is the one that can hand back
+`""`**, so a branch on `GetString(name) is null` meaning "not configured" is not equivalent to the
+same branch on the parsing methods.
+
+How a variable *becomes* empty matters too, because
+[.NET 9 changed it](https://learn.microsoft.com/dotnet/core/compatibility/core-libraries/9.0/empty-env-variable):
+before .NET 9, `Environment.SetEnvironmentVariable(name, "")` deleted the variable; from .NET 9 it
+sets it to an empty value. That is a **runtime-version** difference, not a platform one — measured
+on Windows 11 and on Ubuntu 24.04, with identical results on both:
+
+| | .NET 8 | .NET 9 and later |
+|---|---|---|
+| `Environment.SetEnvironmentVariable(name, "")`, then `GetString(name)` | `null` — the assignment deletes the variable | `""` — the variable is set, and empty |
+| A variable inherited from the parent process as empty, then `GetString(name)` | `""` | `""` |
+| A variable that was never set | `null` | `null` |
+| `GetBool(name)` and `GetEnumValue<TEnum>(name)`, for every row above | `null` | `null` |
+
+The row that applies is the one for the runtime the *application* runs on, not the target
+`Ploch.Common` was compiled for. An inherited empty variable is possible on both platforms and under
+both runtimes, so `GetString` returning `""` is never a case that can be dismissed as unreachable.
+
+Where "present but blank" must be treated as "not configured" everywhere, normalise explicitly —
+`Ploch.Common` has an extension for exactly this:
+
+```csharp
+var endpoint = EnvironmentVariables.GetString("APP_TRACE_ENDPOINT").NullIfWhiteSpace();
+```
 
 ## Locating the running application
 
@@ -505,12 +538,40 @@ exception type the signature suggests:
 The last row is the one that catches people: a default-constructed `Process` is not `null`, so the
 library's guard is satisfied and the failure comes from the BCL when the affinity property is read.
 
+### On Linux this is a *thread* setting, not a process setting
+
+`Process.ProcessorAffinity` is named after the process, and on Windows it behaves that way. On Linux
+it does not, because the syscall underneath — `sched_setaffinity(2)` — is per-thread, and .NET passes
+the process id, which the kernel interprets as the id of the *main thread*.
+
+The difference is observable. A .NET application with four busy threads already running, whose
+affinity is then narrowed to a single processor:
+
+| | Windows | Linux |
+|---|---|---|
+| Threads running *before* the change | Migrated onto the new mask. Four threads that had been observed across all 32 processors reported **only processor 1** from that moment on. | Unaffected. The main thread moved to processor 1; every other thread already in the process — the four workers, and the runtime's own threads alongside them — kept the full `0-31` mask. |
+| Threads created *after* the change | Constrained by the process mask. | Constrained *if created by an already-constrained thread* — a Linux thread inherits its creator's mask. A thread created by the pinned main thread inherited processor 1. |
+| What `GetEnabledProcessors` reports | The process mask. | The **main thread's** mask, which may not be the mask of the thread doing the work. |
+
+That is measured behaviour on both platforms — Windows 11 and Ubuntu 24.04, 32 processors each,
+on `net9.0` — not an inference from the API shape.
+
+Two practical consequences on Linux. First, pinning is only reliable when it happens **before** the
+threads that matter exist — which is why `StartPinnedWorker` above sets the affinity immediately
+after `Process.Start`, while the child is still effectively single-threaded and everything it goes on
+to create will inherit the mask. Applied to a process that has been running for a while, it
+constrains the main thread and leaves the existing thread pool exactly where it was. Second, if
+individual threads must be pinned separately, `Process.ProcessorAffinity` is the wrong API
+altogether: use `sched_setaffinity` on each thread, or start the threads from an already-pinned one.
+
 ### Pinning the current process
 
-Everything above works on `Process.GetCurrentProcess()` too, and there it is a far bigger hammer than
-it looks. The affinity applies to the whole process — every thread, the thread pool, the garbage
-collector — for the remainder of its life, and threads started later inherit it. Confining a server
-process to one processor to "measure something" also confines everything else it is doing.
+Everything above works on `Process.GetCurrentProcess()` too, and on Windows that is a far bigger
+hammer than it looks: the affinity applies to the whole process — every thread, the thread pool, the
+garbage collector — for the remainder of its life, and it moves threads that are *already running*.
+Confining a server process to one processor to "measure something" also confines everything else it
+is doing. On Linux the blast radius is smaller for the reasons above, and so is the benefit: the
+measurement thread is only pinned if it is the main thread or was created after the change.
 
 If you must, capture and restore:
 

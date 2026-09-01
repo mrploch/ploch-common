@@ -53,3 +53,22 @@ command-line splitting output, and the single-file publish path resolution — w
 quoting the real output.
 
 No changes to shipped library code — packages are unaffected.
+
+## Review follow-up (PR #334)
+
+Corrections made after review, each re-verified by execution:
+
+- **Empty vs absent environment variables** — the page originally claimed that `GetString`, `GetBool` and
+  `GetEnumValue` behave identically for a blank value on every platform, and attributed empty-variable
+  handling to a Windows/Linux split. Both are wrong. `GetString` forwards `Environment.GetEnvironmentVariable`
+  and can return `""`, while the two parsing methods normalise blank input to `null`; and the
+  delete-on-empty behaviour of `Environment.SetEnvironmentVariable(name, "")` is a **.NET 9 breaking change**,
+  identical on Windows and Linux, not a platform difference. Measured on Windows 11 and Ubuntu 24.04 under
+  both `net8.0` and `net9.0`.
+- **Linux processor affinity is per-thread** — `Process.ProcessorAffinity` on Linux goes through
+  `sched_setaffinity(2)` for the process id, which the kernel treats as the main thread. Threads already
+  running keep their old mask, and `GetEnabledProcessors` reports the main thread's mask. A new section
+  documents the Windows/Linux split with measured results and the practical consequence for pinning.
+- **`GetFlag` sample** — lower-cases the raw value so `YES`/`ON` are recognised, matching the surrounding text.
+- **`RequireDefinedEnum` sample** — reads the raw string first, so "set to nonsense" throws instead of
+  silently falling back to the default, which is the principle the section argues for.
