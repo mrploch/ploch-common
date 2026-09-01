@@ -443,3 +443,7 @@ pdfSourceP.html
 pdfSourceP.pdf
 /.mcp.json
 AggregatedCoverage/
+
+# Coverage output from dotnet-coverage merge (used by GitHub coverage upload)
+coverage.cobertura.xml
+**/CoverageResults/
