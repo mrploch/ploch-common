@@ -42,32 +42,42 @@ jobs:
       - name: Restore .NET tools (docfx is pinned in .config/dotnet-tools.json)
         run: dotnet tool restore
 
-      - name: Restore all projects DocFX will load
-        # DocFX 2.78.5 has no restore step of its own: its Roslyn MSBuildWorkspace
-        # shells out to `dotnet restore` lazily, from inside the project-load loop, the
-        # first time it meets a project. A ProjectReference whose target is restored
-        # during that same pass has no resolved TargetPath yet when the referencing
-        # project's design-time build runs, so Roslyn cannot match the reference to a
-        # metadata reference and logs a load-phase warning. Restoring everything up
-        # front removes the lazy restore, and with it the warning. See #329.
-        run: find src -name '*.csproj' -print0 | xargs -0 -P 4 -n 1 dotnet restore
-
-      - name: TEMP diagnostics for #329
-        run: |
-          echo '===== dotnet --info ====='
-          dotnet --version
-          echo '===== ReferencePath of Common.Serialization.SystemTextJson ====='
-          dotnet msbuild src/Common.Serialization.SystemTextJson/Ploch.Common.Serialization.SystemTextJson.csproj             -t:ResolveReferences -p:Configuration=Release -getItem:ReferencePath 2>&1 | grep -iE 'ploch|error' | head -40 || true
-          echo '===== TargetPath of Common.Serialization ====='
-          dotnet msbuild src/Common.Serialization/Ploch.Common.Serialization.csproj             -t:GetTargetPath -p:Configuration=Release -getTargetResult:GetTargetPath 2>&1 | head -40 || true
-          echo '===== docfx verbose ====='
-          dotnet docfx metadata DocumentationSite/docfx.json --logLevel verbose 2>&1             | grep -iE 'matching metadata|Msbuild failed|failed when processing|SystemTextJson|warning|error' | head -80 || true
-
       - name: Generate API metadata
-        # The metadata phase is warning-free as of #290, so it is guarded with
-        # --warningsAsErrors: a new CS0108, a duplicate XML doc tag, or an analyzer that
-        # DocFX's Roslyn cannot load now fails the build instead of accumulating silently.
-        run: dotnet docfx metadata DocumentationSite/docfx.json --warningsAsErrors
+        # The metadata phase carries no genuine warnings as of #290, and every new one
+        # must still fail the build: a new CS0108, a duplicate XML doc tag, or an
+        # analyzer DocFX's Roslyn cannot load.
+        #
+        # `--warningsAsErrors` cannot be used to do that, because DocFX 2.78.5 emits
+        # three unavoidable "Found project reference without a matching metadata
+        # reference" warnings on the Linux runner. They come from Roslyn's
+        # MSBuildWorkspace during project load -- minutes before the first "Processing"
+        # line -- and are not caused by anything in this repository: the reference graph
+        # is consistent, `ReferencePath` resolves to the correct project outputs, and the
+        # same commit on the same SDK (10.0.400) produces zero warnings on Windows,
+        # whether the tree is cold or warm, restored or built. 2.78.5 is the newest DocFX
+        # released, so there is no version to move to. See #329.
+        #
+        # So the guard is applied here instead: any warning other than that one known
+        # DocFX/Roslyn diagnostic fails the step, and the metadata that the warning claims
+        # is missing is asserted to have been generated anyway.
+        run: |
+          set -o pipefail
+          dotnet docfx metadata DocumentationSite/docfx.json 2>&1 | tee "$RUNNER_TEMP/docfx-metadata.log"
+
+          unexpected="$(grep 'warning:' "$RUNNER_TEMP/docfx-metadata.log"             | grep -vF 'Found project reference without a matching metadata reference' || true)"
+          if [ -n "$unexpected" ]; then
+            echo "::error::DocFX metadata emitted warnings beyond the known workspace diagnostic (#329):"
+            echo "$unexpected"
+            exit 1
+          fi
+
+          # The warning is cosmetic only for as long as the metadata is still complete.
+          for namespace in Ploch.Common Ploch.Common.Serialization Ploch.Common.DependencyInjection; do
+            if [ ! -f "DocumentationSite/api/$namespace.yml" ]; then
+              echo "::error::No metadata generated for $namespace - the #329 warning is no longer cosmetic."
+              exit 1
+            fi
+          done
 
       - name: Build documentation site
         # The build phase is not guarded yet: two pre-existing InvalidFileLink warnings
