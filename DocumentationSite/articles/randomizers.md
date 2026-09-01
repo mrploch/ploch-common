@@ -123,10 +123,40 @@ untyped.GetRandomValue("a", "z");
 ```
 
 `IRandomizer<out TValue>` is covariant, so an `IRandomizer<string>` can be held as an
-`IRandomizer<object>` — useful when collecting heterogeneous generators. `IRangedRandomizer<TValue>`
-is *invariant*, because its `TValue` appears in a parameter position, so the same assignment does
-not compile for the ranged interface. Narrow to `IRandomizer<T>` before putting generators into a
-shared collection.
+`IRandomizer<object>`. `IRangedRandomizer<TValue>` is *invariant*, because its `TValue` appears in a
+parameter position, so the same assignment does not compile for the ranged interface.
+
+Covariance is of less help here than it first appears, though, because **variance conversions apply
+only to reference types** and four of the five supported types are value types:
+
+```csharp
+IRandomizer<object> ok = Randomizer.GetRandomizer<string>();   // fine — string is a reference type
+IRandomizer<object> no = Randomizer.GetRandomizer<int>();
+// error CS0266: Cannot implicitly convert type 'IRangedRandomizer<int>' to 'IRandomizer<object>'
+```
+
+For a collection holding generators for a mix of types, use the **non-generic** `IRandomizer`, which
+is what `GetRandomizer(Type)` returns:
+
+```csharp
+var generators = new Dictionary<Type, IRandomizer>
+{
+    [typeof(int)] = Randomizer.GetRandomizer(typeof(int)),
+    [typeof(string)] = Randomizer.GetRandomizer(typeof(string)),
+    [typeof(bool)] = Randomizer.GetRandomizer(typeof(bool))
+};
+
+foreach (var (type, generator) in generators)
+{
+    Console.WriteLine($"{type.Name}: {generator.GetRandomValue()}");
+}
+// Int32: 273794950
+// String: 905Zt27s
+// Boolean: False
+```
+
+That is the shape to reach for when filling an object's properties by reflection — a generic
+test-data builder, for instance — which is exactly why the non-generic interface exists.
 
 ## `int` — the upper bound is exclusive
 
