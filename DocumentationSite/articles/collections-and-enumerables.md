@@ -392,15 +392,25 @@ public static IEnumerable<Uri> ShuffledEndpoints(IEnumerable<Uri> replicas) => r
 >
 > Because every *position* is equally likely, a value's chance of being drawn is proportional to how often
 > it occurs: in a ten-item source where one value appears five times and five others appear once each, the
-> repeated value is five times likelier to be drawn than any one of the singletons. That weighting is often
-> what you want — it is how a sample stays representative of the source.
+> repeated value accounts for five of the ten positions. Read that ratio per *draw* — it is exact for
+> `TakeRandom(1)`, and it remains exact for the expected number of positions a value occupies in a larger
+> sample. It is **not** the ratio of the probabilities that each value appears *at least once* once `count`
+> exceeds one: that inclusion probability depends on the sample size and saturates as the sample grows,
+> because the five copies get five chances to be picked. That weighting is often what you want — it is how a
+> sample stays representative of the source.
 >
 > When you need distinct *values* instead, de-duplicate first — `source.Distinct().TakeRandom(count)`. Note
 > that this **removes** the occurrence weighting: after `Distinct()` the repeats are gone, so every
 > surviving value is equally likely to be drawn, regardless of how often it appeared in the original source.
 
-A `null` source throws `ArgumentNullException`. Both methods buffer the source into a list, so they are
-`O(n)` in memory and unusable on an infinite sequence.
+A `null` source throws `ArgumentNullException` from both methods, though by different routes: `TakeRandom`
+guards explicitly, before it inspects `count`, so even `TakeRandom(null, 0)` throws; `Shuffle` carries no
+guard of its own and inherits the exception from `Enumerable.ToList` (see
+[Argument guarding is not uniform](#argument-guarding-is-not-uniform) below).
+
+`Shuffle` always buffers the source into a list. `TakeRandom` buffers only for a positive `count` — for zero
+or negative it returns immediately without enumerating, as the table above says. The buffering paths are
+`O(n)` in memory and cannot consume an infinite sequence.
 
 > [!CAUTION]
 > Both methods use `System.Random`, not a cryptographic generator. They are appropriate for load
