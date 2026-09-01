@@ -283,7 +283,9 @@ public static class Require
 
         if (string.IsNullOrWhiteSpace(property.GetValue()))
         {
-            throw new ArgumentException($"{typeof(TTarget).Name}.{property.Name} must not be blank.", property.Name);
+            throw new ArgumentException(
+                $"{typeof(TTarget).GetReadableTypeName()}.{property.Name} must not be blank.",
+                property.Name);
         }
     }
 }
@@ -291,7 +293,16 @@ public static class Require
 
 ```csharp
 Require.NotBlank(customer, c => c.Name);
+
+// Customer.Name must not be blank. (Parameter 'Name')
 ```
+
+Note the <xref:Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName(System.Type)> call rather
+than `typeof(TTarget).Name`. `Type.Name` returns the *metadata* name, which carries the arity
+suffix for a generic type — a guard invoked as `Require.NotBlank(wrapper, w => w.Label)` on a
+`Wrapper<int>` would produce `` Wrapper`1.Label must not be blank. `` The helper renders the same
+type as `Wrapper<Int32>`, which is what belongs in a message that may reach an API consumer. For a
+non-generic type the two are identical, so there is no reason to prefer `Type.Name` here.
 
 The same shape works for a `ValidationResult` that needs a member name, or for a problem-details
 response whose `errors` dictionary is keyed by property name.
