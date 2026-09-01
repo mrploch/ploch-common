@@ -379,11 +379,15 @@ jobs:
               printf 'Built from `%s`. See `docs/docs-preview.md` for how to enable hosted previews.\n' "$HEAD_SHA"
             fi
           } > preview-comment.md
-          # --slurp is required: with --paginate alone, gh applies --jq to each page
-          # separately, so a multi-page conversation would emit one result per page
-          # ("null" then "12345") instead of a single id.
-          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate --slurp \
-            --jq '[.[][] | select(.body | contains($ENV.MARKER)) | .id] | first')
+          # `gh api --slurp` is rejected outright when combined with --jq ("the
+          # --slurp option is not supported with --jq or --template"), so the page
+          # boundary has to be handled on this side instead. With --paginate alone gh
+          # runs --jq per page and concatenates the outputs, so a filter that emits
+          # zero-or-one id per page yields one id per line overall; `sed -n 1p` takes
+          # the first. It reads the whole stream, so it cannot SIGPIPE gh under
+          # `set -o pipefail` the way `head -n 1` could.
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '.[] | select(.body | contains($ENV.MARKER)) | .id' | sed -n 1p)
           if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
             gh api --method POST "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
               -F body=@preview-comment.md --silent

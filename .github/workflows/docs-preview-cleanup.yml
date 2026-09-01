@@ -140,9 +140,10 @@ jobs:
           set -euo pipefail
           MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
           export MARKER
-          # --slurp is required: with --paginate alone, gh applies --jq per page.
-          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate --slurp \
-            --jq '[.[][] | select(.body | contains($ENV.MARKER)) | .id] | first')
+          # Same lookup as docs-preview.yml: --slurp cannot be combined with --jq, so
+          # --paginate emits one id per line and `sed -n 1p` takes the first.
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '.[] | select(.body | contains($ENV.MARKER)) | .id' | sed -n 1p)
           if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
             echo "No preview comment to update."
             exit 0
