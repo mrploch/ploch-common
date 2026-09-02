@@ -499,8 +499,9 @@ while the only legal processor numbers are 8 to 15; validating against the count
 one of them.
 
 The consequence is that a processor number which is in range but does not exist on this machine is
-rejected by the *operating system* rather than by the guard — and the two platforms reject it
-differently.
+caught *after* the guard has passed rather than by it — and what catches it differs by platform:
+Windows refuses the call outright, whereas on Linux the operating system accepts it and the library's
+own read-back check is what fails.
 
 **Windows refuses the whole mask.** Requesting processors 0 and 62 on a 32-processor machine throws
 `System.ComponentModel.Win32Exception: The parameter is incorrect.`, and — verified by re-reading the
@@ -560,11 +561,16 @@ on `net9.0` — not an inference from the API shape.
 
 Two practical consequences on Linux. First, pinning is only reliable when it happens **before** the
 threads that matter exist — which is why `StartPinnedWorker` above sets the affinity immediately
-after `Process.Start`, while the child is still effectively single-threaded and everything it goes on
-to create will inherit the mask. Applied to a process that has been running for a while, it
-constrains the main thread and leaves the existing thread pool exactly where it was. Second, if
-individual threads must be pinned separately, `Process.ProcessorAffinity` is the wrong API
-altogether: use `sched_setaffinity` on each thread, or start the threads from an already-pinned one.
+after `Process.Start`. Treat that as best effort rather than a guarantee: `Process.Start` returns
+once the operating system has created the process, not once the child has reached a known point in
+its own startup, so any thread the child has already created keeps its original mask and only
+threads created after the call inherit the new one. Where every thread must be pinned, the child has
+to set its own affinity at entry, or the parent needs a startup handshake — a named
+`EventWaitHandle`, or a pipe the child writes to — so it can pin before the child creates anything.
+Applied to a process that has been running for a while, it constrains the main thread and leaves the
+existing thread pool exactly where it was. Second, if individual threads must be pinned separately,
+`Process.ProcessorAffinity` is the wrong API altogether: use `sched_setaffinity` on each thread, or
+start the threads from an already-pinned one.
 
 ### Pinning the current process
 
