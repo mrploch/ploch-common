@@ -4,6 +4,11 @@
   href: collections-samples.md
 - name: Expressions and Owned Property Info
   href: expressions-and-owned-properties.md
-
+- name: Collections and Enumerables
+  href: collections-and-enumerables.md
+- name: Argument Validation
+  href: argument-validation.md
+- name: Randomizers
+  href: randomizers.md
 - name: Reflection
   href: reflection.md
