@@ -106,12 +106,15 @@ much broader than the word *simple* suggests:
 | any class or interface, including `List<int>` and `int[]` | `false` |
 
 So a `readonly struct Money(decimal Amount, string Code)` is "simple", and will be treated as an
-atomic value by every consumer in this namespace — including
+atomic value by the members that consult `IsSimpleType` — including
 <xref:Ploch.Common.Reflection.ByValueObjectComparator>, which will compare two `Money` values with
-`Equals` rather than recursing into `Amount` and `Code`. For a struct that implements value equality
-that is correct and fast. For a struct that does *not* override `Equals`, the runtime's default
-structural comparison applies, which is usually still what you want — but it is worth knowing that
-the decision was made for you.
+`Equals` rather than recursing into `Amount` and `Code`. Not everything in this namespace consults
+it: <xref:Ploch.Common.Reflection.ObjectGraphHelper> never checks `IsSimpleType` and recurses into
+any non-enumerable value, so `ExecuteOnProperties` walks a `Money` property into `Amount` and `Code`
+rather than treating it atomically. For a struct that implements value equality that is correct and
+fast. For a struct that does *not* override `Equals`, the runtime's default structural comparison
+applies, which is usually still what you want — but it is worth knowing that the decision was made
+for you.
 
 `(string, int)` being simple is a genuine trap for code that walks tuples expecting to enumerate the
 items.
@@ -326,7 +329,7 @@ well. It is configured once and then fed assemblies:
 
 ```csharp
 var loader = TypeLoader
-    .Configure(c => c.WithBaseTypes(typeof(IMessageHandler), typeof(IHandler<>))
+    .Configure(c => c.WithBaseTypes(typeof(IMessageHandler))
                      .WithAssemblyGlob(m => m.AddInclude("Contoso.*").AddExclude("*.Tests"))
                      .WithTypeNameGlob(m => m.AddInclude("**/*Handler")))
     .LoadTypes<OrderModule>()
@@ -337,6 +340,13 @@ foreach (var handler in loader.LoadedTypes)
     services.AddScoped(typeof(IMessageHandler), handler);
 }
 ```
+
+A single contract is configured here on purpose. Because multiple base types are OR'd (below),
+`WithBaseTypes(typeof(IMessageHandler), typeof(IHandler<>))` would put implementations of *either*
+interface into `LoadedTypes`, and the blanket `AddScoped(typeof(IMessageHandler), handler)` above
+would then register types that do not implement `IMessageHandler` — producing descriptors that only
+fail when something resolves them. With more than one contract, register each type against the
+interface it actually implements.
 
 The details that are not obvious from the fluent API:
 
@@ -389,7 +399,10 @@ answers "where is this assembly on disk?", which is how you locate a configurati
 folder that ships alongside a library rather than alongside the entry point:
 
 ```csharp
-var templates = Path.Combine(typeof(ReportRenderer).Assembly.GetAssemblyDirectory()!, "Templates");
+var directory = typeof(ReportRenderer).Assembly.GetAssemblyDirectory()
+                ?? throw new InvalidOperationException("Assembly has no on-disk location.");
+
+var templates = Path.Combine(directory, "Templates");
 ```
 
 **It returns `null` for an assembly with no on-disk location** — one loaded from a byte array, and
@@ -543,7 +556,7 @@ misread as "the property is null".
 The throwing overloads report through `InvalidOperationException`, not the `PropertyAccessException`
 family:
 
-```
+```text
 Static property Missing was not found in Contoso.Settings
 Static property Region in Contoso.Settings is not of System.Int32 type
 ```
@@ -618,7 +631,7 @@ behaviours will surprise you, and all three show up in the sequence of values th
 passes to the action for a two-level object
 `new Order { Reference = "AB", Line = new Line { Sku = "X" } }`:
 
-```
+```text
 Order  "AB"  'A'  'B'  Line  Line  "X"  'X'
 ```
 
@@ -681,9 +694,10 @@ codes differ — a direct violation of the `IEqualityComparer<T>` contract. Drop
 duplicate is silently kept. For a type whose properties are all simple, `Equals` and `GetHashCode`
 agree and the comparer is sound.
 
-**Cyclic graphs cause a `StackOverflowException`.** `AreEqual` has no cycle detection at all, and
-unlike the two problems above this one is not recoverable — a `StackOverflowException` cannot be
-caught and terminates the process. Never point it at an entity graph with back-references.
+> [!WARNING]
+> **Cyclic graphs cause a `StackOverflowException`.** `AreEqual` has no cycle detection at all, and
+> unlike the two problems above this one is not recoverable — a `StackOverflowException` cannot be
+> caught and terminates the process. Never point it at an entity graph with back-references.
 
 Use it for flat, cycle-free DTOs whose collections you do not need compared. For anything richer,
 write `Equals` or use a structural-comparison library.
@@ -691,8 +705,8 @@ write `Equals` or use a structural-comparison library.
 ### `ObjectHashCodeBuilder`
 
 <xref:Ploch.Common.Reflection.ObjectHashCodeBuilder.GetHashCode(System.Object)> is the sturdiest
-member of this group, and can be used on its own for content-addressed caching — a cache key derived
-from the shape of a request object:
+member of this group, and can be used on its own to derive a best-effort, in-process cache key from
+the shape of a request object:
 
 ```csharp
 var cacheKey = ObjectHashCodeBuilder.GetHashCode(query);
@@ -701,7 +715,12 @@ var cacheKey = ObjectHashCodeBuilder.GetHashCode(query);
 Verified behaviour:
 
 - `null` hashes to `0`.
-- Two distinct instances with equal property values hash equally; changing any value changes the hash.
+- Two distinct instances with equal property values hash equally, and changing a value will normally
+  change the hash — but **this is a 32-bit `int`, not a content address.** Simple values contribute
+  `object.GetHashCode()` and results are combined with unchecked arithmetic, so it is not
+  collision-resistant: distinct request shapes can share a key. Use it to *find* a candidate entry,
+  then confirm with an equality check on the request itself; never as the sole identity of a cached
+  value, and never persisted or shared across processes (string hashing is randomised per process).
 - Sequences contribute their **elements**, so two lists with different contents hash differently.
 - **Cycles are handled.** A reference-identity `visited` set short-circuits a repeat visit with a
   fixed constant, so a self-referencing node hashes without recursing forever.
