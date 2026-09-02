@@ -6,5 +6,9 @@
   href: expressions-and-owned-properties.md
 - name: Collections and Enumerables
   href: collections-and-enumerables.md
+- name: Argument Validation
+  href: argument-validation.md
+- name: Randomizers
+  href: randomizers.md
 - name: Processes and the Environment
   href: process-and-environment.md

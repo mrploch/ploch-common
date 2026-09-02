@@ -46,7 +46,49 @@
         <Using Include="Xunit" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" PackageCopyToOutput="true" />
     </ItemGroup>
+
+    <!--
+        Microsoft.NET.Test.Sdk injects testhost.dll and testhost.exe as Content items, and it does so
+        from Microsoft.TestPlatform.TestHost.props, after this project file has been evaluated - so
+        they can only be excluded from the package by a target that runs before pack collects the files.
+        They must not be packed: NuGet raises NU5100 for an assembly outside lib/, and a consumer of
+        this meta-package already receives the test host through the Microsoft.NET.Test.Sdk dependency
+        declared above. See issue #280.
+
+        $(BeforePack) is the public, documented extension point for this: NuGet builds
+        PackDependsOn as "$(BeforePack);_IntermediatePack;GenerateNuspec;$(AfterPack)", so the target
+        runs before GenerateNuspec collects the package files, on both `dotnet pack` and the
+        GeneratePackageOnBuild path used by the CI build. BeforeTargets on the internal
+        _GetPackageFiles is kept as a redundant second hook; it is harmless if a future SDK renames
+        that target, and VerifyTestHostIsNotPacked below fails the pack loudly if both hooks stop working.
+
+        The condition matches only the two files the Test SDK injects: the name and extension must
+        match, and %(DefiningProjectFullPath) must be some other build file - so a testhost.* content
+        item genuinely declared by this project would be left alone.
+    -->
+    <PropertyGroup>
+        <BeforePack>ExcludeTestHostFromPackage;$(BeforePack)</BeforePack>
+    </PropertyGroup>
+
+    <Target Name="ExcludeTestHostFromPackage" BeforeTargets="_GetPackageFiles">
+        <ItemGroup>
+            <Content Update="@(Content)"
+                     Pack="false"
+                     Condition="'%(Content.Filename)' == 'testhost'
+                                And ('%(Content.Extension)' == '.dll' Or '%(Content.Extension)' == '.exe')
+                                And '%(Content.DefiningProjectFullPath)' != '$(MSBuildProjectFullPath)'" />
+        </ItemGroup>
+    </Target>
+
+    <!--
+        Regression guard: _PackageFiles is fully populated by the time anything hooked on
+        GenerateNuspec runs, so this fails the pack if a test host file ever reaches the package again.
+    -->
+    <Target Name="VerifyTestHostIsNotPacked" BeforeTargets="GenerateNuspec">
+        <Error Condition="'%(_PackageFiles.Filename)' == 'testhost'"
+               Text="'%(_PackageFiles.Filename)%(_PackageFiles.Extension)' would be packed into $(PackageId). The test host is delivered by the Microsoft.NET.Test.Sdk dependency and must not be packed - see ExcludeTestHostFromPackage in this project and issue #280." />
+    </Target>
 
 </Project>
