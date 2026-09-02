@@ -72,7 +72,7 @@ This project uses [Nerdbank.GitVersioning (NBGV)](https://github.com/dotnet/Nerd
 version computation from `version.json` and git commit history.
 
 - **Stable releases** are published to [NuGet.org](https://www.nuget.org/profiles/mrploch) via the Release workflow
-- **Prerelease packages** are published to GitHub Packages on every push to `master`
+- **Prerelease packages** are published to GitHub Packages on every push to `main`
 - **SourceLink** is enabled — step into library source code during debugging
 - **Symbol packages** (`.snupkg`) are published to the NuGet symbol server
 

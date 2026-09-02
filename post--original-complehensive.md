@@ -10,10 +10,10 @@ For Ploch.Data - https://github.ploch.dev/ploch-data/index.html, https://github.
 Overview of Ploch.Common libraries:
 Utility classes and extension methods for common (and uncommon) tasks.
 More details in the repository, for example:
-https://github.com/mrploch/ploch-common/blob/master/src/Common/README.md
-https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/README.md
+https://github.com/mrploch/ploch-common/blob/main/src/Common/README.md
+https://github.com/mrploch/ploch-common/blob/main/src/Common/Collections/README.md
 Lots of examples can be extracted from unit tests, for example here:
-https://github.com/mrploch/ploch-common/tree/master/src/Common.Tests
+https://github.com/mrploch/ploch-common/tree/main/src/Common.Tests
 
 Overview of Ploch.Data (https://github.com/mrploch/ploch-data)
 This repository contains various projects for working with data in .NET.

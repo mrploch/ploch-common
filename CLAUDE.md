@@ -440,10 +440,10 @@ After modifying code files:
 
 ## Git Workflow
 
-- **Main branch:** `master`
+- **Main branch:** `main`
 - **Feature branches:** Typically named `#<issue-number>-description` (e.g., `#135-crud-endpoints`)
-- Pull requests target `master` branch
-- CI/CD runs on push to master and on pull requests
+- Pull requests target `main` branch
+- CI/CD runs on push to main and on pull requests
 
 ## Versioning
 
@@ -456,7 +456,7 @@ Version numbers are managed by **Nerdbank.GitVersioning (NBGV)**, configured in 
   set).
 - **Development builds** produce prerelease packages: e.g. `3.1.42-prerelease` (where `42` is the commit height).
 - **Release builds** produce stable packages: e.g. `3.1.0` (commit height becomes the patch version).
-- The `publicReleaseRefSpec` in `version.json` controls which refs produce public (non-prerelease) versions: `master`
+- The `publicReleaseRefSpec` in `version.json` controls which refs produce public (non-prerelease) versions: `main`
   branch and version tags (`v*.*.*`).
 
 ### Inspecting the Current Version
@@ -485,18 +485,18 @@ variable has been removed. Version is now driven entirely by `version.json` and 
 
 ### Build Pipeline (`.github/workflows/build-dotnet.yml`)
 
-Runs on every push to `master` and on pull requests:
+Runs on every push to `main` and on pull requests:
 
 1. Checkout with full history (`fetch-depth: 0` — required by NBGV)
 2. Restore, build, and test with Coverlet code coverage
 3. SonarCloud analysis and Codacy coverage reporting
 4. Publish test results and coverage report artifacts
-5. Deploy API documentation to GitHub Pages (on `master` only)
+5. Deploy API documentation to GitHub Pages (on `main` only)
 6. Publish **prerelease** NuGet packages (`.nupkg` and `.snupkg`) to GitHub Packages
 
 ### Release Pipeline (`.github/workflows/release.yml`)
 
-Manually triggered (`workflow_dispatch`) from the `master` branch to cut a release:
+Manually triggered (`workflow_dispatch`) from the `main` branch to cut a release:
 
 1. Accepts `release_version` (e.g. `3.0`) and optional `next_version` (e.g. `3.1`)
 2. Sets the version in `version.json` via `dotnet nbgv set-version`

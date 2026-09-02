@@ -14,10 +14,10 @@ Ploch.Common is a collection of utility classes and extension methods aimed at s
   - Comprehensive documentation and examples to help you get started quickly.
 
 For more detailed insights, check out the README files:
-- [General README](https://github.com/mrploch/ploch-common/blob/master/src/Common/README.md)
-- [Collections README](https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/README.md)
+- [General README](https://github.com/mrploch/ploch-common/blob/main/src/Common/README.md)
+- [Collections README](https://github.com/mrploch/ploch-common/blob/main/src/Common/Collections/README.md)
 
-You can also explore numerous examples through the unit tests available in the repository: [Unit Tests](https://github.com/mrploch/ploch-common/tree/master/src/Common.Tests).
+You can also explore numerous examples through the unit tests available in the repository: [Unit Tests](https://github.com/mrploch/ploch-common/tree/main/src/Common.Tests).
 
 #### Ploch.Data
 

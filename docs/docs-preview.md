@@ -54,7 +54,7 @@ Linux runner (#329). There is now one build job, `build-docs`, and four jobs tot
 
 | Job | Runs on | Permissions |
 |---|---|---|
-| `build-docs` | every push to `master`/`main`, every pull request, and `workflow_dispatch` | `contents: read` |
+| `build-docs` | every push to `main`, every pull request, and `workflow_dispatch` | `contents: read` |
 | `deploy-docs` | everything except pull requests (`github.event_name != 'pull_request'`) — pushes and `workflow_dispatch` | `pages: write`, `id-token: write`, `actions: read`, `contents: read` |
 | `publish-preview` | pull requests only | `contents: write` |
 | `comment-preview` | pull requests only, `if: always()` | `pull-requests: write` |
@@ -129,7 +129,7 @@ else needs changing.
 There is nothing to keep in step: the preview *is* the production build. The site a
 reviewer looks at is byte-for-byte the artifact `deploy-docs` would publish, produced
 by the same `docfx metadata` and `docfx build` invocations under the same warning
-gate. A change cannot go green in the preview and then fail on `master`, because
+gate. A change cannot go green in the preview and then fail on `main`, because
 there is only one build to go green.
 
 That is the property to preserve. If a future change needs the preview to build
