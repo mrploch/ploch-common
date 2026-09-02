@@ -8,7 +8,7 @@ A suite of .NET utility libraries targeting `netstandard2.0` and `net8.0+`, prov
 dotnet add package Ploch.Common
 ```
 
-Packages are published to [NuGet.org](https://www.nuget.org/profiles/mrploch); prerelease builds go to GitHub Packages on every push to `master`.
+Packages are published to [NuGet.org](https://www.nuget.org/profiles/mrploch); prerelease builds go to GitHub Packages on every push to `main`.
 
 ## What's included
 

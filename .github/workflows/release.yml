@@ -26,7 +26,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+    if: github.ref == 'refs/heads/main'
     # Pass workflow inputs via env vars to avoid script injection (githubactions:S7635)
     env:
       RELEASE_VERSION: ${{ inputs.release_version }}

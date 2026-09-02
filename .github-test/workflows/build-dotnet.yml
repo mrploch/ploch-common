@@ -4,9 +4,9 @@
 name: Build
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
   workflow_dispatch:
 env: 
   SONAR_PROJECT_KEY: mrploch_ploch-common
@@ -62,7 +62,7 @@ jobs:
 
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./DocumentationSite/_site

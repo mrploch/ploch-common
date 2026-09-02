@@ -1,4 +1,4 @@
-# Builds the DocFX site, deploys it to GitHub Pages on master, and publishes an
+# Builds the DocFX site, deploys it to GitHub Pages on main, and publishes an
 # isolated per-pull-request preview so a reviewer can judge a docs change before it
 # is merged (#201).
 #
@@ -55,7 +55,6 @@ name: Publish Docs
 on:
   push:
     branches:
-      - master
       - main
   pull_request:
   workflow_dispatch:

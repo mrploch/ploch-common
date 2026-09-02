@@ -48,4 +48,4 @@ We use a lightweight variant of [MADR (Markdown Any Decision Records)](https://a
 
 - [adr.github.io](https://adr.github.io/) — overview of ADR practices
 - [MADR project](https://adr.github.io/madr/) — the template family this repo uses
-- The shared [mrploch-development docs-adr template](https://github.com/mrploch/mrploch-development/tree/master/repository-config/docs-adr) — kept in sync with this folder
+- The shared [mrploch-development docs-adr template](https://github.com/mrploch/mrploch-development/tree/main/repository-config/docs-adr) — kept in sync with this folder

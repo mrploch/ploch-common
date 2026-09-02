@@ -26,7 +26,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common`
 **Class**: `StringExtensions`
-**File**: [src/Common/StringExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/StringExtensions.cs)
+**File**: [src/Common/StringExtensions.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/StringExtensions.cs)
 
 #### Null/Empty Checking Methods
 
@@ -79,7 +79,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Collections`
 **Class**: `EnumerableExtensions`
-**File**: [src/Common/Collections/EnumerableExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Collections/EnumerableExtensions.cs)
+**File**: [src/Common/Collections/EnumerableExtensions.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/Collections/EnumerableExtensions.cs)
 
 #### Value Checking Methods
 
@@ -134,7 +134,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.ArgumentChecking`
 **Class**: `Guard`
-**File**: [src/Common/ArgumentChecking/Guard.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/ArgumentChecking/Guard.cs)
+**File**: [src/Common/ArgumentChecking/Guard.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/ArgumentChecking/Guard.cs)
 
 #### Null Validation (throws ArgumentNullException)
 
@@ -172,7 +172,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common`
 **Class**: `IsInExtensions`
-**File**: [src/Common/IsInExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/IsInExtensions.cs)
+**File**: [src/Common/IsInExtensions.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/IsInExtensions.cs)
 
 #### In Methods
 
@@ -200,7 +200,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Reflection`
 **Class**: `TypeExtensions`
-**File**: [src/Common/Reflection/TypeExtensions.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeExtensions.cs)
+**File**: [src/Common/Reflection/TypeExtensions.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/Reflection/TypeExtensions.cs)
 
 #### Type Checking Methods
 
@@ -225,7 +225,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Reflection`
 **Classes**: `TypeLoader`, `TypeLoaderConfigurator`
-**Files**: [src/Common/Reflection/TypeLoader.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeLoader.cs), [src/Common/Reflection/TypeLoaderConfigurator.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Reflection/TypeLoaderConfigurator.cs)
+**Files**: [src/Common/Reflection/TypeLoader.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/Reflection/TypeLoader.cs), [src/Common/Reflection/TypeLoaderConfigurator.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/Reflection/TypeLoaderConfigurator.cs)
 
 #### Configuration Methods
 
@@ -245,7 +245,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.IO`
 **Class**: `PathUtils`
-**File**: [src/Common/IO/PathUtils.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/IO/PathUtils.cs)
+**File**: [src/Common/IO/PathUtils.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/IO/PathUtils.cs)
 
 #### Path Manipulation Methods
 
@@ -265,7 +265,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 
 **Namespace**: `Ploch.Common.Randomizers`
 **Class**: `Randomizer`
-**File**: [src/Common/Randomizers/Randomizer.cs](https://github.com/mrploch/ploch-common/blob/master/src/Common/Randomizers/Randomizer.cs)
+**File**: [src/Common/Randomizers/Randomizer.cs](https://github.com/mrploch/ploch-common/blob/main/src/Common/Randomizers/Randomizer.cs)
 
 ### Randomizer Factory Methods
 
@@ -295,7 +295,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 ## Ploch.Common.DependencyInjection
 
 **Namespace**: `Ploch.Common.DependencyInjection`
-**Source**: [src/Common.DependencyInjection/](https://github.com/mrploch/ploch-common/tree/master/src/Common.DependencyInjection/)
+**Source**: [src/Common.DependencyInjection/](https://github.com/mrploch/ploch-common/tree/main/src/Common.DependencyInjection/)
 
 ### Service Bundle
 
@@ -309,7 +309,7 @@ Complete reference documentation for all public APIs in the Ploch.Common library
 ## Ploch.Common.Serialization
 
 **Namespace**: `Ploch.Common.Serialization`
-**Source**: [src/Common.Serialization/](https://github.com/mrploch/ploch-common/tree/master/src/Common.Serialization/)
+**Source**: [src/Common.Serialization/](https://github.com/mrploch/ploch-common/tree/main/src/Common.Serialization/)
 
 ### Serializer Interface
 
