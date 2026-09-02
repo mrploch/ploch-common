@@ -1,8 +1,10 @@
 # Documentation previews for pull requests
 
-Every pull request gets its DocFX site built automatically and a single sticky
-comment pointing at the result, so a documentation change can be judged before it is
-merged rather than after.
+Every pull request gets its DocFX site built automatically, and every *eligible*
+pull request also gets a single sticky comment pointing at the result, so a
+documentation change can be judged before it is merged rather than after. Pull
+requests from forks and from Dependabot are built like any other, but cannot be
+commented on — see [For reviewers](#for-reviewers).
 
 The preview is not limited to pull requests that edit `docs/` or
 `DocumentationSite/`. Most of the site is API reference generated from XML
@@ -11,7 +13,7 @@ at all can still change dozens of pages.
 
 ## For reviewers
 
-Look for the **📖 Documentation preview** comment on the pull request. It is
+On an eligible pull request, look for the **📖 Documentation preview** comment. It is
 rewritten in place on every push, so it always describes the current head commit,
 and it is replaced with a "preview removed" note once the pull request closes.
 
@@ -52,8 +54,8 @@ Linux runner (#329). There is now one build job, `build-docs`, and four jobs tot
 
 | Job | Runs on | Permissions |
 |---|---|---|
-| `build-docs` | every push to `master` and every pull request | `contents: read` |
-| `deploy-docs` | pushes only (`github.event_name != 'pull_request'`) | `pages: write`, `id-token: write`, `actions: read`, `contents: read` |
+| `build-docs` | every push to `master`/`main`, every pull request, and `workflow_dispatch` | `contents: read` |
+| `deploy-docs` | everything except pull requests (`github.event_name != 'pull_request'`) — pushes and `workflow_dispatch` | `pages: write`, `id-token: write`, `actions: read`, `contents: read` |
 | `publish-preview` | pull requests only | `contents: write` |
 | `comment-preview` | pull requests only, `if: always()` | `pull-requests: write` |
 
@@ -102,7 +104,10 @@ posting a URL that would not resolve.
 
 To turn hosted previews on:
 
-1. Choose a host that can serve **this repository's** `gh-pages-previews` branch.
+1. Choose a host that can serve **this repository's** preview branch — that is
+   `gh-pages-previews` unless `DOCS_PREVIEW_BRANCH` renames it (step 3); the host must
+   serve whichever branch is configured, or the workflow will publish to one branch
+   while the host serves another.
    The workflow pushes into the repository it runs in and has no cross-repository
    credentials, so a second GitHub repository is only viable with a mirroring step
    and a token that is not in scope here. An external static host (Cloudflare Pages,
