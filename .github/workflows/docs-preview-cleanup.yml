@@ -1,0 +1,162 @@
+# Removes a pull request's documentation preview once the pull request is closed
+# or merged, so previews cannot accumulate on the preview branch indefinitely.
+#
+# Deliberately unfiltered by path: a pull request may have dropped its docs changes
+# by the time it closes, and the preview would then never be cleaned up. The job is
+# a cheap no-op when there is nothing to delete.
+#
+# Like the preview jobs in publish-docs.yml, this workflow is granted neither
+# `pages: write` nor `id-token: write`, so it cannot touch the production GitHub Pages
+# deployment.
+name: Docs Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions: {}
+
+# The same per-PR group publish-docs.yml uses for its pull request runs, so closing a
+# pull request cancels any preview publish still in flight for it. `github.ref` is
+# `refs/pull/<n>/merge` for every `pull_request` activity type, including `closed`, so
+# the two expressions produce the same group; concurrency groups are shared across
+# workflows in a repository. Belt and braces with the "is the pull request still open?"
+# check that guards the push in publish-docs.yml: a cancellation can always lose a
+# race, and a resurrected preview would never be cleaned up because no second `closed`
+# event follows.
+concurrency:
+  group: ${{ format('docs-pr-{0}', github.ref) }}
+  cancel-in-progress: true
+
+jobs:
+  cleanup-preview:
+    name: Remove docs preview
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # delete the preview directory from the preview branch
+      pull-requests: write   # update the sticky preview comment
+    steps:
+      # Same reasoning as the eligibility gate in publish-docs.yml: fork PRs and
+      # Dependabot never published a preview in the first place, and their token
+      # could not delete one anyway.
+      - name: Determine cleanup eligibility
+        id: eligibility
+        env:
+          IS_UPSTREAM_REPO: ${{ github.repository == 'mrploch/ploch-common' }}
+          IS_FORK_PR: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
+          IS_DEPENDABOT: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+        run: |
+          set -euo pipefail
+          if [ "$IS_UPSTREAM_REPO" != "true" ] || [ "$IS_FORK_PR" = "true" ] || [ "$IS_DEPENDABOT" = "true" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No preview was published for this pull request, so there is nothing to clean up."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Delete the preview directory
+        if: steps.eligibility.outputs.enabled == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PREVIEW_BRANCH: ${{ vars.DOCS_PREVIEW_BRANCH || 'gh-pages-previews' }}
+        run: |
+          set -euo pipefail
+          # SAFETY GATE, identical to the one in publish-docs.yml. This step deletes a
+          # directory tree from $PREVIEW_BRANCH, stages the whole worktree and pushes
+          # with a contents:write token; a repository variable pointing at a branch
+          # somebody else owns would have cleanup mutate it. `contents: write` does
+          # not distinguish branches, so nothing but this check stands between a
+          # mis-set variable and the production branch. Keep both lists in step.
+          case "$PREVIEW_BRANCH" in
+            master|main|gh-pages)
+              echo "::error::Refusing to run preview cleanup against $PREVIEW_BRANCH"
+              exit 1
+              ;;
+          esac
+
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          TARGET="pr-preview/pr-${PR_NUMBER}"
+
+          # Mirrors the retry in publish-docs.yml, including the subshell that keeps
+          # `set -e` alive inside the callee.
+          attempt_delete() (
+            set -euo pipefail
+            rm -rf preview-branch
+            mkdir preview-branch
+            cd preview-branch
+            git init -q
+            git remote add origin "$REMOTE"
+            # As in publish-docs.yml: a transient fetch failure must not be mistaken
+            # for an absent branch, or cleanup would report success while the preview
+            # stayed published forever.
+            set +e
+            git ls-remote --exit-code --heads origin "$PREVIEW_BRANCH" >/dev/null
+            ls_status=$?
+            set -e
+            if [ "$ls_status" -eq 0 ]; then
+              git fetch -q --depth 1 origin "$PREVIEW_BRANCH"
+            elif [ "$ls_status" -eq 2 ]; then
+              echo "Preview branch $PREVIEW_BRANCH does not exist; nothing to clean up."
+              exit 0
+            else
+              echo "Could not reach the remote to list $PREVIEW_BRANCH (git ls-remote exited $ls_status)."
+              exit 1
+            fi
+            git checkout -q -B "$PREVIEW_BRANCH" FETCH_HEAD
+            if [ ! -d "$TARGET" ]; then
+              echo "No preview directory at $TARGET; nothing to clean up."
+              exit 0
+            fi
+            rm -rf "$TARGET"
+            git add -A
+            if git diff --cached --quiet; then
+              echo "Nothing staged; nothing to clean up."
+              exit 0
+            fi
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                commit -q -m "docs(preview): Remove preview for closed PR #${PR_NUMBER}"
+            git push -q origin "HEAD:${PREVIEW_BRANCH}"
+          )
+
+          for attempt in 1 2 3 4 5; do
+            set +e
+            attempt_delete
+            status=$?
+            set -e
+            if [ "$status" -eq 0 ]; then
+              echo "Cleanup completed on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt did not complete (the preview branch most likely moved); retrying."
+            sleep $(( attempt * 5 ))
+          done
+          echo "::error::Could not remove $TARGET from $PREVIEW_BRANCH after 5 attempts."
+          exit 1
+
+      - name: Update the preview comment
+        if: steps.eligibility.outputs.enabled == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          MARKER="<!-- docs-preview:pr-${PR_NUMBER} -->"
+          export MARKER
+          # Same lookup as publish-docs.yml: --slurp cannot be combined with --jq, so
+          # --paginate emits one id per line and `sed -n 1p` takes the first.
+          COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '.[] | select(.body | contains($ENV.MARKER)) | .id' | sed -n 1p)
+          if [ -z "$COMMENT_ID" ] || [ "$COMMENT_ID" = "null" ]; then
+            echo "No preview comment to update."
+            exit 0
+          fi
+          {
+            printf '%s\n' "$MARKER"
+            printf '### 📖 Documentation preview\n\n'
+            printf 'This pull request is closed, so its documentation preview has been removed.\n'
+          } > preview-comment.md
+          gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" \
+            -F body=@preview-comment.md --silent
+          echo "Updated preview comment ${COMMENT_ID}."

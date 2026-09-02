@@ -82,3 +82,7 @@
   items:
     - name: MSBuild, Packages, Versioning
       href: libraries/common-msbuild.md
+- name: Contributing
+  items:
+    - name: Documentation Previews
+      href: docs-preview.md
