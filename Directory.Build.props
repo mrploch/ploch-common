@@ -24,6 +24,8 @@
         <!-- Deterministic builds for CI -->
         <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
+        <!-- Every shipping library lives under src/. Used to scope IsPackable below. -->
+        <_PlochSourceRoot>$(MSBuildThisFileDirectory)src</_PlochSourceRoot>
         <NoWarn>$(NoWarn);NU1507;CS9057;NU1603</NoWarn>
         <TargetFrameworkVersion>net10.0</TargetFrameworkVersion>
     </PropertyGroup>
@@ -37,10 +39,29 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
+    <!--
+        Shipping libraries under src/ state IsPackable explicitly.
+        Without it the property is left empty here, and NuGet.Build.Tasks.Pack.targets
+        later applies its own default:
+            <IsPackable Condition="'$(IsPackable)'=='' AND ('$(IsTestProject)'=='true' OR '$(IsTestingPlatformApplication)'=='true')">false</IsPackable>
+        Any library that references xUnit v3 (the Ploch.TestingSupport.XUnit3 family) inherits
+        IsTestingPlatformApplication=true from the Microsoft.Testing.Platform build props, so the
+        SDK silently marked those shipping packages non-packable. See issue #280.
+
+        The $(_PlochSourceRoot) guard keeps that SDK default in place everywhere else. $(IsTestProject)
+        above is only a project-name heuristic, so a test project not named *Tests - the projects under
+        tests/TestAssemblies/ are the existing examples - would otherwise be made unconditionally
+        packable here and could be published by accident. Outside src/ the property stays empty and the
+        SDK still switches it off for anything that is a test or a testing-platform application.
+
+        Test projects keep IsPackable=false via the $(IsTestProject) group above, and any project
+        that opts out explicitly in its own .csproj still wins, because this file is imported first.
+    -->
     <PropertyGroup Condition="!$(IsTestProject)">
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IsTestProject>false</IsTestProject>
+        <IsPackable Condition="$(MSBuildProjectDirectory.StartsWith('$(_PlochSourceRoot)'))">true</IsPackable>
     </PropertyGroup>
     <!--
         Optional MSBuild settings dump. Set `-p:PrintBuildSettings=true` on the dotnet CLI
