@@ -8,3 +8,5 @@
   href: collections-and-enumerables.md
 - name: Argument Validation
   href: argument-validation.md
+- name: Randomizers
+  href: randomizers.md
