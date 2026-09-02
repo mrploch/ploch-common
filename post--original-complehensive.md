@@ -13,7 +13,7 @@ More details in the repository, for example:
 https://github.com/mrploch/ploch-common/blob/main/src/Common/README.md
 https://github.com/mrploch/ploch-common/blob/main/src/Common/Collections/README.md
 Lots of examples can be extracted from unit tests, for example here:
-https://github.com/mrploch/ploch-common/tree/main/src/Common.Tests
+https://github.com/mrploch/ploch-common/tree/main/tests/Common.Tests
 
 Overview of Ploch.Data (https://github.com/mrploch/ploch-data)
 This repository contains various projects for working with data in .NET.

@@ -29,7 +29,7 @@ The API reference is available [here](https://github.ploch.dev/ploch-common/).
 ### Examples
 
 The best place to look for examples is
-the [library unit tests project](https://github.com/mrploch/ploch-common/tree/main/src/Common.Tests).
+the [library unit tests project](https://github.com/mrploch/ploch-common/tree/main/tests/Common.Tests).
 
 ### Enumerables
 

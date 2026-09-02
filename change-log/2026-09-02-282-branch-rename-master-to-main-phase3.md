@@ -41,7 +41,36 @@ repository refers to a single default branch.
 The `version.json` excerpt in `docs/libraries/common-msbuild.md` was re-synced and verified
 byte-equal to the real file.
 
+## Breaking change
+
+**CI no longer builds, tests or publishes from a branch named `master`.** Precisely:
+
+- Pushes to `master` no longer run Build, Publish Docs or Qodana.
+- Pull requests *targeting* `master` no longer run Build — which produces three of the four
+  required status checks. Publish Docs and Qodana keep unfiltered `pull_request:` triggers, so
+  they still run on every pull request regardless of its base branch.
+- The release job is restricted to `main`.
+
+The library packages themselves are unchanged — there is no API or behavioural change.
+
+*Who is affected:* any fork or clone still using `master` as its default branch. Pushes to that
+branch silently stop producing build, test, documentation and prerelease-package runs — the
+workflows simply do not fire, so there is no failing check to draw attention to it.
+
+*Migration:* rename the default branch to `main` (GitHub → Settings → Branches → rename), then
+per clone:
+
+```bash
+git branch -m master main
+git fetch origin --prune
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
+Alternatively, add `master` back to the `branches:` filters and ref guards in the affected
+workflows in your fork.
+
 ## Notes
 
-No breaking changes. GitHub redirects `blob/master` and `tree/master` links after a branch
-rename, so the permalinks were stale rather than broken.
+GitHub redirects `blob/master` and `tree/master` links after a branch rename, so the permalinks
+updated here were stale rather than broken.

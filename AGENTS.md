@@ -250,8 +250,9 @@ Version numbers are managed by **Nerdbank.GitVersioning (NBGV)**, configured in 
   set).
 - **Development builds** produce prerelease packages: e.g. `3.1.42-prerelease` (where `42` is the commit height).
 - **Release builds** produce stable packages: e.g. `3.1.0` (commit height becomes the patch version).
-- The `publicReleaseRefSpec` in `version.json` controls which refs produce public (non-prerelease) versions: `main`
-  branch and version tags (`v*.*.*`).
+- The `publicReleaseRefSpec` in `version.json` controls which refs are treated as *public releases* — builds from
+  those refs omit the `.g<commit>` suffix: the `main` branch and version tags (`v*.*.*`). It does not remove the
+  `-prerelease` label, which comes from the `version` field.
 
 ### Inspecting the Current Version
 
@@ -285,7 +286,7 @@ Runs on every push to `main` and on pull requests:
 2. Restore, build, and test with Coverlet code coverage
 3. SonarCloud analysis and Codacy coverage reporting
 4. Publish test results and coverage report artifacts
-5. Deploy API documentation to GitHub Pages (on `main` only)
+5. Smoke-test the DocFX build (non-blocking, `continue-on-error`) — the GitHub Pages deploy is `publish-docs.yml` on push to `main`
 6. Publish **prerelease** NuGet packages (`.nupkg` and `.snupkg`) to GitHub Packages
 
 ### Release Pipeline (`.github/workflows/release.yml`)

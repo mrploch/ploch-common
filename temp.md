@@ -17,7 +17,7 @@ For more detailed insights, check out the README files:
 - [General README](https://github.com/mrploch/ploch-common/blob/main/src/Common/README.md)
 - [Collections README](https://github.com/mrploch/ploch-common/blob/main/src/Common/Collections/README.md)
 
-You can also explore numerous examples through the unit tests available in the repository: [Unit Tests](https://github.com/mrploch/ploch-common/tree/main/src/Common.Tests).
+You can also explore numerous examples through the unit tests available in the repository: [Unit Tests](https://github.com/mrploch/ploch-common/tree/main/tests/Common.Tests).
 
 #### Ploch.Data
 
