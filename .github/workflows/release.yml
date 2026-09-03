@@ -15,6 +15,15 @@ on:
 env:
   DOTNET_VERSION: '9.0.x'
 
+# Serialise runs that release the same version. Two concurrent dispatches would
+# otherwise race on the shared chore/post-release-<version> branch and on the tag,
+# and a release is never something to run twice at once anyway. cancel-in-progress
+# is deliberately false: a run that has already pushed packages to nuget.org must be
+# allowed to finish its bookkeeping rather than be killed part-way.
+concurrency:
+  group: release-${{ inputs.release_version }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   packages: write
@@ -371,12 +380,21 @@ jobs:
                      -m "Refs: #337"
 
           # One branch per released version, so re-running the same release updates the
-          # same pull request instead of accumulating them. The branch carries only
-          # generated bookkeeping and is owned exclusively by this workflow, so
-          # recreating it cannot discard anyone's work.
+          # same pull request instead of accumulating them.
+          #
+          # The head ref is UPDATED IN PLACE, never deleted and recreated. GitHub closes
+          # a pull request automatically when its head ref is deleted, so a delete would
+          # shut the very PR this step is meant to refresh - and the `gh pr list
+          # --state open` lookup below would then miss it and open a duplicate, losing
+          # the original review and check history.
+          #
+          # --force-with-lease rather than --force: the push is rejected if the remote
+          # branch moved since it was fetched, so a concurrent run cannot be silently
+          # overwritten. The branch holds only generated bookkeeping and is owned
+          # exclusively by this workflow, so a rewrite here discards nobody's work.
           BRANCH="chore/post-release-${RELEASED_VERSION}"
-          git push origin --delete "$BRANCH" 2>/dev/null || true
-          git push origin "HEAD:refs/heads/${BRANCH}"
+          git fetch origin "refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}" 2>/dev/null || true
+          git push --force-with-lease origin "HEAD:refs/heads/${BRANCH}"
 
           EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
           if [ -n "$EXISTING" ]; then

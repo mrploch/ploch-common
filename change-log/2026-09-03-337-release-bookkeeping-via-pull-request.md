@@ -24,8 +24,14 @@ PAT with `repo` scope. The token was never the problem.
   opens a PR against the default branch. Opening a PR needs no elevated permission and
   cannot be refused by branch protection, so **the release run now finishes green**.
 - **Re-running the same release updates the same pull request** instead of accumulating
-  them: the branch is named after the released version and recreated on each run. It
-  carries only generated bookkeeping and is owned exclusively by the workflow.
+  them: the branch is named after the released version and its head ref is updated in
+  place with a lease-guarded force push. It is deliberately *not* deleted and recreated
+  — GitHub closes a pull request when its head ref is deleted, which would shut the very
+  PR the re-run is meant to refresh. The branch holds only generated bookkeeping and is
+  owned exclusively by the workflow, so rewriting it discards nobody's work.
+- **Concurrent dispatches of the same release are serialised** by a `concurrency` group
+  keyed on `release_version`, with `cancel-in-progress: false` so a run that has already
+  pushed packages to nuget.org is never killed part-way through its bookkeeping.
 - **`pull-requests: write`** added to the workflow permissions.
 - **`docs/libraries/common-msbuild.md` is re-synced automatically.** It reproduces
   `version.json` verbatim in a fenced block and is required to stay byte-equal to it, but
