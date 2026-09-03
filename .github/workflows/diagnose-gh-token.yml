@@ -1,0 +1,147 @@
+# Throwaway diagnostic for the GH_TOKEN secret (#337).
+#
+# WHY THIS EXISTS
+# ---------------
+# GitHub Actions secrets are write-only: once stored, the value cannot be read back
+# from the UI, the API, or the CLI. So the only way to find out *which* token is in
+# the GH_TOKEN secret is to ask the token to identify itself.
+#
+# release.yml's final step pushes the version bump straight to the default branch and
+# was rejected by branch protection on every run on 2026-03-13. Branch protection on
+# main is classic (not a ruleset) with enforce_admins:false, so a repository *admin*
+# identity already bypasses the required checks. This workflow answers whether the
+# effective GH_TOKEN is such an identity.
+#
+# It also settles a shadowing question: GH_TOKEN exists at BOTH repository and
+# organisation level. Repository secrets win, so the org-level token created on
+# 2026-03-14 (after the failures) has never actually been used.
+#
+# SAFETY
+# ------
+# The token value is never printed. Only the *identity* it authenticates as, the
+# scopes GitHub reports for it, and the repository permissions it holds. All calls
+# are read-only GETs. GITHUB_TOKEN permissions are dropped to nothing, so the job
+# itself has no write access of its own.
+#
+# DELETE THIS FILE once #337 is resolved.
+
+name: Diagnose GH_TOKEN
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  diagnose:
+    name: Identify the GH_TOKEN secret
+    runs-on: ubuntu-latest
+    steps:
+      - name: Identify the token
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::error::GH_TOKEN is empty. Neither the repository nor the organisation secret resolved."
+            exit 1
+          fi
+
+          # --- Who is this token? -------------------------------------------------
+          # -D captures response headers; the token's scopes and expiry are reported
+          # there, not in the body. The body goes to a file so nothing is echoed.
+          HTTP=$(curl -sS -o user.json -D headers.txt -w '%{http_code}' \
+                   -H "Authorization: token ${GH_TOKEN}" \
+                   -H "Accept: application/vnd.github+json" \
+                   https://api.github.com/user)
+
+          if [ "${HTTP}" != "200" ]; then
+            echo "::error::GH_TOKEN is invalid, expired or revoked (HTTP ${HTTP})."
+            echo "Regenerate the PAT and update the secret, then re-run."
+            exit 1
+          fi
+
+          LOGIN=$(grep -oP '(?<="login": ")[^"]+' user.json | head -1)
+          # x-oauth-scopes is returned for CLASSIC tokens only. Its absence means the
+          # token is fine-grained (or a GitHub App installation token).
+          SCOPES=$(grep -i '^x-oauth-scopes:' headers.txt | cut -d: -f2- | tr -d '\r' | sed 's/^ *//')
+          EXPIRY=$(grep -i '^github-authentication-token-expiration:' headers.txt | cut -d: -f2- | tr -d '\r' | sed 's/^ *//')
+
+          if [ -n "${SCOPES}" ]; then
+            KIND="classic PAT"
+          else
+            KIND="fine-grained PAT or App token (no x-oauth-scopes header)"
+          fi
+
+          # --- What can it do to THIS repository? ---------------------------------
+          curl -sS -o repo.json \
+            -H "Authorization: token ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${REPO}"
+
+          # .permissions reflects what the AUTHENTICATED token may do, which is the
+          # question that matters: enforce_admins is false, so an admin identity
+          # bypasses the required status checks that rejected the March pushes.
+          ADMIN=$(grep -oP '"admin":\s*\K(true|false)' repo.json | head -1)
+          PUSH=$(grep -oP '"push":\s*\K(true|false)' repo.json | head -1)
+
+          {
+            echo "## GH_TOKEN diagnostic"
+            echo
+            echo "| Property | Value |"
+            echo "|---|---|"
+            echo "| Authenticates as | \`${LOGIN}\` |"
+            echo "| Token kind | ${KIND} |"
+            echo "| Scopes | \`${SCOPES:-(none reported)}\` |"
+            echo "| Expires | ${EXPIRY:-no expiry reported} |"
+            echo "| Repository admin | \`${ADMIN:-unknown}\` |"
+            echo "| Repository push | \`${PUSH:-unknown}\` |"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "Authenticates as : ${LOGIN}"
+          echo "Token kind       : ${KIND}"
+          echo "Scopes           : ${SCOPES:-(none reported)}"
+          echo "Expires          : ${EXPIRY:-no expiry reported}"
+          echo "Repository admin : ${ADMIN:-unknown}"
+          echo "Repository push  : ${PUSH:-unknown}"
+
+          # --- Verdict ------------------------------------------------------------
+          # The release push needs: admin (to bypass required checks, since
+          # enforce_admins is false) and, for a classic PAT, the repo scope.
+          VERDICT="unknown"
+          if [ "${ADMIN}" = "true" ]; then
+            case "${SCOPES}" in
+              *repo*)  VERDICT="OK - admin identity with repo scope; the release version-bump push should succeed." ;;
+              "")      VERDICT="LIKELY PROBLEM - admin identity, but a fine-grained token. Confirm it grants Contents: write on this repository; fine-grained tokens do not inherit classic admin bypass in the same way." ;;
+              *)       VERDICT="PROBLEM - admin identity but no 'repo' scope. Add repo (and workflow) to the classic PAT." ;;
+            esac
+          else
+            VERDICT="PROBLEM - '${LOGIN}' is not an admin of ${REPO}. enforce_admins is false, so only an admin bypasses the required status checks that rejected the March pushes. Use a token owned by a repository admin."
+          fi
+
+          echo "**Verdict:** ${VERDICT}" >> "$GITHUB_STEP_SUMMARY"
+          echo
+          echo "Verdict: ${VERDICT}"
+
+      - name: Which GH_TOKEN won - repository or organisation?
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          set -uo pipefail
+          # Both a repository and an organisation secret named GH_TOKEN exist. The
+          # repository one always wins, so the org-level token created after the
+          # March failures has never been exercised. This step records a fingerprint
+          # of the effective value so the two can be told apart WITHOUT revealing it:
+          # a truncated SHA-256 is one-way and useless to an attacker, but it changes
+          # if the secret changes.
+          FINGERPRINT=$(printf '%s' "${GH_TOKEN}" | sha256sum | cut -c1-12)
+          echo "Effective GH_TOKEN fingerprint (sha256, first 12 hex): ${FINGERPRINT}"
+          {
+            echo
+            echo "Effective token fingerprint: \`${FINGERPRINT}\` (sha256 prefix — changes if the secret changes)."
+            echo
+            echo "Repository secrets shadow organisation secrets, so this is the repository-level \`GH_TOKEN\` if one is set."
+          } >> "$GITHUB_STEP_SUMMARY"
