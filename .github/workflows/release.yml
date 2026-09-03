@@ -18,6 +18,9 @@ env:
 permissions:
   contents: write
   packages: write
+  # The post-release bookkeeping is landed as a pull request rather than a direct
+  # push, because branch protection forbids the latter (#337).
+  pull-requests: write
   # Required for NuGet Trusted Publishing: lets the job request a GitHub OIDC
   # token that NuGet/login exchanges for a short-lived nuget.org API key.
   # Without this, NuGet/login fails with 403.
@@ -294,14 +297,116 @@ jobs:
             mv change-log/*.md change-log/archive/ 2>/dev/null || true
           fi
 
-      # Idempotent commit: only commit if there are staged changes
-      - name: Commit and push next development version
+      # Keep the version.json excerpt in the MSBuild doc byte-equal to the real file.
+      # docs/libraries/common-msbuild.md reproduces version.json verbatim in a fenced
+      # block and is required to stay identical to it; nothing else updates it, so
+      # without this the doc drifts on every release (#337). Only the fenced block is
+      # rewritten - the surrounding prose is left alone.
+      - name: Re-sync the version.json excerpt in the docs
+        if: success()
+        run: |
+          set -euo pipefail
+          DOC="docs/libraries/common-msbuild.md"
+          if [ ! -f "$DOC" ]; then
+            echo "$DOC not present; nothing to sync."
+            exit 0
+          fi
+          python3 - "$DOC" <<'PYEOF'
+          import io, re, sys
+          doc_path = sys.argv[1]
+          version_json = io.open("version.json", encoding="utf-8").read().strip()
+          doc = io.open(doc_path, encoding="utf-8").read()
+          match = re.search(r"```json\n(\{.*?\n\})\n```", doc, re.S)
+          if not match:
+              print("No fenced version.json block found; leaving the doc untouched.")
+              raise SystemExit(0)
+          if match.group(1).strip() == version_json:
+              print("Doc excerpt already matches version.json.")
+              raise SystemExit(0)
+          io.open(doc_path, "w", encoding="utf-8", newline="\n").write(
+              doc[: match.start(1)] + version_json + doc[match.end(1):]
+          )
+          print("Re-synced the version.json excerpt in", doc_path)
+          PYEOF
+
+      # The bookkeeping lands via a PULL REQUEST, not a direct push.
+      #
+      # WHY (#337): branch protection on the default branch rejects a direct push with
+      #   remote: error: GH006: Protected branch update failed for refs/heads/main.
+      #   remote: - Changes must be made through a pull request.
+      #   remote: - 4 of 4 required status checks are expected.
+      # That first line is the pull-request requirement, and `enforce_admins: false`
+      # does NOT cover it - it is governed separately by `bypass_pull_request_allowances`,
+      # which is unset on this branch, so *nobody* may push directly, admin token or
+      # not. This sank the final step of both the 3.0.0 (2026-03-13) and 4.0.47
+      # (2026-09-03) releases, each time *after* the packages were already published,
+      # leaving the branch claiming the released version and the change-log entries
+      # unarchived - which would duplicate every one of them into the next release's
+      # generated notes.
+      #
+      # Opening a pull request needs no elevated permission and cannot be refused by
+      # branch protection, so the release finishes green and the bookkeeping waits for
+      # a normal review.
+      - name: Open a pull request with the next development version
         if: success()
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NEXT_DEV_VERSION: ${{ steps.next.outputs.next_version }}
+          RELEASED_VERSION: ${{ steps.version.outputs.nuget_version }}
         run: |
+          set -euo pipefail
+
           git add version.json
           git add change-log/ || true
-          git diff --cached --quiet && echo "No changes to commit" || \
-            git commit -m "chore(release): Bump version to ${NEXT_DEV_VERSION}-prerelease for development"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git add docs/libraries/common-msbuild.md || true
+
+          if git diff --cached --quiet; then
+            echo "No bookkeeping changes to land; nothing to open a pull request for."
+            echo "No post-release bookkeeping was required." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          git commit -m "chore(release): Bump version to ${NEXT_DEV_VERSION}-prerelease for development" \
+                     -m "Post-release bookkeeping for ${RELEASED_VERSION}, applied via pull request because branch protection forbids a direct push (#337)." \
+                     -m "Refs: #337"
+
+          # One branch per released version, so re-running the same release updates the
+          # same pull request instead of accumulating them. The branch carries only
+          # generated bookkeeping and is owned exclusively by this workflow, so
+          # recreating it cannot discard anyone's work.
+          BRANCH="chore/post-release-${RELEASED_VERSION}"
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+          git push origin "HEAD:refs/heads/${BRANCH}"
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            PR_URL=$(gh pr view "$EXISTING" --json url --jq .url)
+            echo "Pull request #${EXISTING} was already open for ${BRANCH}; it now carries the update."
+          else
+            BODY=$(printf '%s\n' \
+              "Post-release bookkeeping for **${RELEASED_VERSION}**, opened automatically by the release workflow." \
+              "" \
+              "- \`version.json\` bumped to \`${NEXT_DEV_VERSION}-prerelease\`" \
+              "- Consumed \`change-log/*.md\` entries moved into \`change-log/archive/\`, so they are not duplicated into the next release's generated notes" \
+              "- \`docs/libraries/common-msbuild.md\` re-synced, since its fenced block must stay byte-equal to \`version.json\`" \
+              "" \
+              "This arrives as a pull request rather than a direct push because branch protection requires one - see #337." \
+              "" \
+              "Refs: #337")
+            PR_URL=$(gh pr create \
+              --base "${GITHUB_REF_NAME}" \
+              --head "$BRANCH" \
+              --title "chore(release): Bump version to ${NEXT_DEV_VERSION}-prerelease after ${RELEASED_VERSION}" \
+              --body "$BODY")
+            echo "Opened ${PR_URL}"
+          fi
+
+          {
+            echo "### Post-release bookkeeping"
+            echo
+            echo "Released **${RELEASED_VERSION}**; next development version **${NEXT_DEV_VERSION}-prerelease**."
+            echo
+            echo "Bookkeeping pull request: ${PR_URL}"
+            echo
+            echo "Merge it to bring \`${GITHUB_REF_NAME}\` in line with the published release."
+          } >> "$GITHUB_STEP_SUMMARY"
