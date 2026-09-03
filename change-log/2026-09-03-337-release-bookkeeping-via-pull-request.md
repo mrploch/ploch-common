@@ -5,7 +5,7 @@ change-log entries straight to the default branch. Branch protection rejects tha
 step failed on **every** release run — 3.0.0 on 2026-03-13 and 4.0.47 on 2026-09-03 — each
 time *after* the packages had already been published to nuget.org.
 
-```
+```text
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: - Changes must be made through a pull request.
 remote: - 4 of 4 required status checks are expected.
