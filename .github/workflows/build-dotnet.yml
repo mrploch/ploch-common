@@ -297,6 +297,12 @@ jobs:
             exit 1
           fi
           dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
+      # Package selection matches release.yml exactly, so both workflows agree on what is
+      # publishable. ./tests/ is excluded structurally rather than by matching on the name
+      # "Test" - a `-not -path '*/Test*'` filter also swallows ./src/TestingSupport*, because
+      # find -path matches the whole path and * spans /, which is what issue #278 was.
+      # Directory.Build.props now also keeps everything under tests/ unpackable (issue #279);
+      # this filter is the second line of defence, not the only one.
       - name: Publish NuGet packages to GitHub Packages
         if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
@@ -315,11 +321,23 @@ jobs:
             echo "::error::GH_PACKAGES_TOKEN is empty on a push to upstream main. Prerelease packages cannot be published to GitHub Packages."
             exit 1
           fi
-          dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
-          dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+          PKGS=$(find . -name '*.nupkg' -not -path './tests/*')
+          if [ -z "$PKGS" ]; then
+            echo "::error::No .nupkg files were produced by the build."
+            exit 1
+          fi
+          echo "$PKGS" | while IFS= read -r pkg; do
+            echo "Publishing $pkg"
+            dotnet nuget push "$pkg" --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
+          done
+          find . -name '*.snupkg' -not -path './tests/*' | while IFS= read -r pkg; do
+            echo "Publishing symbols $pkg"
+            dotnet nuget push "$pkg" --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+          done
 
       # Publish PR packages to GitHub Packages for testing/validation
       # PR packages include branch name in the prerelease tag (configured above)
+      # Same ./tests/ exclusion as the push step above - see the comment there.
       - name: Publish PR packages to GitHub Packages
         if: success() && github.event_name == 'pull_request'
         env:
@@ -330,8 +348,19 @@ jobs:
             exit 0
           fi
           dotnet nuget add source --username kploch --password "$GH_PACKAGES_TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mrploch/index.json"
-          dotnet nuget push ./**/*.nupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
-          dotnet nuget push ./**/*.snupkg --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+          PKGS=$(find . -name '*.nupkg' -not -path './tests/*')
+          if [ -z "$PKGS" ]; then
+            echo "::error::No .nupkg files were produced by the build."
+            exit 1
+          fi
+          echo "$PKGS" | while IFS= read -r pkg; do
+            echo "Publishing $pkg"
+            dotnet nuget push "$pkg" --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN"
+          done
+          find . -name '*.snupkg' -not -path './tests/*' | while IFS= read -r pkg; do
+            echo "Publishing symbols $pkg"
+            dotnet nuget push "$pkg" --source github --skip-duplicate -k "$GH_PACKAGES_TOKEN" || true
+          done
 
   upload-coverage-csharp:
     needs: build

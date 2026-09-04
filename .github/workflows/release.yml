@@ -211,8 +211,10 @@ jobs:
       # "Test". A previous `-not -path '*/Test*'` filter also matched ./src/TestingSupport*,
       # because find -path matches the whole path and * spans /, so every TestingSupport
       # library was silently dropped from the NuGet.org publish - see issue #278. The one
-      # package that genuinely must not ship is tests/TestAssemblies/Common.Tests.TestTypes,
-      # which is packable only because its name ends in TestTypes rather than Tests.
+      # package that genuinely must not ship was tests/TestAssemblies/Common.Tests.TestTypes,
+      # which used to pack only because its name ends in TestTypes rather than Tests.
+      # Directory.Build.props now keeps the whole tests/ tree unpackable (issue #279), so this
+      # filter is a second line of defence rather than the only thing standing in the way.
       - name: Publish NuGet packages to NuGet.org
         if: success()
         env:
