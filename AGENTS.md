@@ -301,7 +301,11 @@ Manually triggered (`workflow_dispatch`) from the `main` branch to cut a release
 6. Generates release notes from `change-log/*.md` entries
 7. Creates a GitHub Release with the release notes
 8. Archives consumed change-log entries to `change-log/archive/`
-9. Bumps `version.json` to the next development version (e.g. `3.1-prerelease`) and pushes
+9. Re-syncs the `version.json` excerpt in `docs/libraries/common-msbuild.md`
+10. Bumps `version.json` to the next development version (e.g. `3.1-prerelease`) and opens a
+    **pull request** with that bump plus the archived change-log entries — branch protection
+    forbids pushing to the default branch directly, so the release finishes green and the
+    bookkeeping waits for a normal review (see issue #337)
 
 **Required secrets:** `GH_TOKEN` (PAT that can trigger subsequent workflows; the default
 `GITHUB_TOKEN` cannot).
