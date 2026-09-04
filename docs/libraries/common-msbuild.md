@@ -146,10 +146,10 @@ Version numbers are derived from the git history using [Nerdbank.GitVersioning](
 
 Key points:
 
-- The base version is `4.0`. NBGV appends the commit height as a third segment automatically (e.g. `4.0.42`). The `versionHeightOffset` of `-1` shifts the computed commit height down by one.
+- The base version is whatever the `version` field in the block above declares. NBGV appends the commit height as a third segment automatically, so a base of `X.Y` yields `X.Y.<height>`. The `versionHeightOffset` of `-1` shifts the computed commit height down by one.
 - Builds from `main` or a tag matching `v\d+\.\d+\.\d+` are treated as public releases; all other branches produce pre-release packages.
 - Assembly versions use four-part precision (`Major.Minor.Patch.Revision`).
-- NuGet packages use SemVer 2 format, which enables pre-release metadata such as `4.0.42-prerelease.g1a2b3c4`.
+- NuGet packages use SemVer 2 format, which enables pre-release metadata such as `X.Y.<height>-prerelease.g1a2b3c4`.
 - Cloud build number stamping is enabled so the CI build number reflects the calculated version.
 
 To inspect the current computed version locally:
