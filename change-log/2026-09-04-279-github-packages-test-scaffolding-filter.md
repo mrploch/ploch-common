@@ -78,9 +78,22 @@ their own `.csproj`. `TestTypes` did not, and a `Release` build of it really did
   This filter is the second line of defence. The `Directory.Build.props` guard is the fix;
   the workflow filter is what keeps the workflows honest about agreeing.
 
-- **`scripts/publish-nugetorg.ps1`** — the manual NuGet.org escape hatch — now applies the
-  same `tests/` exclusion, errors when it finds no packages, and restores the caller's
-  working directory even when a push fails. It previously pushed a bare `**/*.nupkg` glob.
+- **`scripts/publish-nugetorg.ps1`** — the manual NuGet.org escape hatch — previously pushed
+  a bare `**/*.nupkg` glob. It now agrees with the workflows on both *what* is published and
+  *what counts as failure*:
+
+  - The `tests/` exclusion is anchored to the repository root and carries a trailing
+    separator, so it matches `./tests/*` exactly. A project under `src/tests/` is still
+    published, as the workflows would, and a sibling such as `tests-integration/` is not
+    excluded by accident.
+  - An empty package set now **exits non-zero**. `Write-Error` writes a *non-terminating*
+    error, so the previous `Write-Error` + `return` reported a failed publish to the caller
+    as exit code 0.
+  - Each push is checked via `$LASTEXITCODE`. `dotnet` is a native command, so a non-zero
+    exit raises no PowerShell error and is invisible to `try`/`catch` and to
+    `$ErrorActionPreference`; without the check, one rejected package was followed by a
+    successful-looking script exit — a partial publish reported as a complete one.
+  - Symbol packages (`.snupkg`) are now pushed too, matching `release.yml`.
 
 - **`release.yml`** — comment only. It stated that `Common.Tests.TestTypes` "is packable
   only because its name ends in TestTypes"; that is now past tense.
