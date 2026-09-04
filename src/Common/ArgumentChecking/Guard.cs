@@ -1,4 +1,4 @@
-// ReSharper disable RedundantUsingDirective
+﻿// ReSharper disable RedundantUsingDirective
 
 using System;
 using System.Collections;
@@ -307,6 +307,105 @@ public static partial class Guard
 
         return argument;
     }
+
+    /// <summary>
+    ///     Ensures that the argument type is assignable to <paramref name="targetType" />.
+    /// </summary>
+    /// <remarks>
+    ///     The check is reflexive: a type is assignable to itself, so passing <paramref name="targetType" />
+    ///     as the argument succeeds. This mirrors <see cref="Type.IsAssignableFrom" /> and differs from
+    ///     <c>Ploch.Common.Reflection.TypeExtensions.IsImplementing</c>, which returns <see langword="false" />
+    ///     for the same type.
+    /// </remarks>
+    /// <param name="argument">The type to check. Must not be <see langword="null" />.</param>
+    /// <param name="targetType">The type the argument must be assignable to.</param>
+    /// <param name="parameterName">The name of the parameter being validated.</param>
+    /// <returns>The validated, non-null <paramref name="argument" />.</returns>
+    /// <exception cref="ArgumentNullException">
+    ///     Thrown when <paramref name="argument" /> or <paramref name="targetType" /> is <see langword="null" />.
+    /// </exception>
+    /// <exception cref="ArgumentException">
+    ///     Thrown when <paramref name="argument" /> is not assignable to <paramref name="targetType" />.
+    /// </exception>
+    /// <example>
+    ///     <code>
+    /// serviceType.AssignableTo(typeof(IMyService), nameof(serviceType));
+    /// </code>
+    /// </example>
+    [AssertionMethod]
+    [method: NotNull]
+    public static Type AssignableTo([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this Type? argument, Type targetType, string parameterName)
+    {
+        targetType.NotNull(nameof(targetType));
+        var validatedArgument = argument.NotNull(parameterName);
+
+        AssignableToOrNull(validatedArgument, targetType, parameterName);
+
+        return validatedArgument;
+    }
+
+    /// <summary>
+    ///     Ensures that the argument type is assignable to <typeparamref name="TTarget" />.
+    /// </summary>
+    /// <typeparam name="TTarget">The type the argument must be assignable to.</typeparam>
+    /// <param name="argument">The type to check. Must not be <see langword="null" />.</param>
+    /// <param name="parameterName">The name of the parameter being validated.</param>
+    /// <returns>The validated, non-null <paramref name="argument" />.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="argument" /> is <see langword="null" />.</exception>
+    /// <exception cref="ArgumentException">
+    ///     Thrown when <paramref name="argument" /> is not assignable to <typeparamref name="TTarget" />.
+    /// </exception>
+    /// <example>
+    ///     <code>
+    /// serviceType.AssignableTo&lt;IMyService&gt;(nameof(serviceType));
+    /// </code>
+    /// </example>
+    [AssertionMethod]
+    [method: NotNull]
+    public static Type AssignableTo<TTarget>([AssertionCondition(AssertionConditionType.IS_NOT_NULL)] [NotNull] this Type? argument, string parameterName) =>
+        AssignableTo(argument, typeof(TTarget), parameterName);
+
+    /// <summary>
+    ///     Ensures that the argument type is assignable to <paramref name="targetType" />, accepting
+    ///     <see langword="null" />.
+    /// </summary>
+    /// <remarks>
+    ///     Unlike <see cref="AssignableTo(Type, Type, string)" />, a <see langword="null" /> argument passes:
+    ///     the assignability check applies only when a value is present. Use this when the argument itself is
+    ///     optional but must be of a compatible type when supplied.
+    /// </remarks>
+    /// <param name="argument">The type to check, or <see langword="null" />.</param>
+    /// <param name="targetType">The type the argument must be assignable to when it is not null.</param>
+    /// <param name="parameterName">The name of the parameter being validated.</param>
+    /// <returns>The <paramref name="argument" />, which may be <see langword="null" />.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="targetType" /> is <see langword="null" />.</exception>
+    /// <exception cref="ArgumentException">
+    ///     Thrown when <paramref name="argument" /> is not null and is not assignable to <paramref name="targetType" />.
+    /// </exception>
+    public static Type? AssignableToOrNull(this Type? argument, Type targetType, string parameterName)
+    {
+        targetType.NotNull(nameof(targetType));
+
+        if (argument is not null && !targetType.IsAssignableFrom(argument))
+        {
+            throw new ArgumentException(NotAssignableMessage(parameterName, argument, targetType), parameterName);
+        }
+
+        return argument;
+    }
+
+    /// <summary>
+    ///     Ensures that the argument type is assignable to <typeparamref name="TTarget" />, accepting
+    ///     <see langword="null" />.
+    /// </summary>
+    /// <typeparam name="TTarget">The type the argument must be assignable to when it is not null.</typeparam>
+    /// <param name="argument">The type to check, or <see langword="null" />.</param>
+    /// <param name="parameterName">The name of the parameter being validated.</param>
+    /// <returns>The <paramref name="argument" />, which may be <see langword="null" />.</returns>
+    /// <exception cref="ArgumentException">
+    ///     Thrown when <paramref name="argument" /> is not null and is not assignable to <typeparamref name="TTarget" />.
+    /// </exception>
+    public static Type? AssignableToOrNull<TTarget>(this Type? argument, string parameterName) => AssignableToOrNull(argument, typeof(TTarget), parameterName);
 
 #endif
 

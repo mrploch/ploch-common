@@ -1,4 +1,4 @@
-# Ploch.Common.DawnGuard
+﻿# Ploch.Common.DawnGuard
 
 > [!WARNING]
 > **This package is deprecated and will not receive further development.**
@@ -37,10 +37,10 @@ itself rather than on a `Guard.Argument(...)` wrapper:
 | Path is well-formed and the file must already exist | `path.EnsureFileExists()` — throws `ArgumentException` |
 | Same, but as a required state | `path.RequiredFileExists()` — throws `InvalidOperationException` (net7.0+ only) |
 
-### `AssignableTo` / `AssignableToOrNull` — no direct replacement yet
+### `AssignableTo` / `AssignableToOrNull`
 
-**These two methods have no equivalent guard in `ArgumentChecking`.** Until one is added
-(tracked in the repository's issue list), replace them by hand:
+`ArgumentChecking` provides both, as extension methods on the `Type` itself. The semantics are
+unchanged, so the migration is mechanical:
 
 ```csharp
 // Before
@@ -48,27 +48,41 @@ using Dawn;
 using Ploch.Common.DawnGuard;
 
 Guard.Argument(myType, nameof(myType)).AssignableTo(typeof(IMyService));
+Guard.Argument(myType, nameof(myType)).AssignableTo<IMyService>();
+Guard.Argument(myType, nameof(myType)).AssignableToOrNull<IMyService>();
 
 // After
 using Ploch.Common.ArgumentChecking;
 
-myType.NotNull(nameof(myType));
-if (!typeof(IMyService).IsAssignableFrom(myType))
-{
-    throw new ArgumentException(
-        $"Instance of type specified in {nameof(myType)} - {myType.FullName} cannot be assigned to an instance of {typeof(IMyService).FullName}.",
-        nameof(myType));
-}
+myType.AssignableTo(typeof(IMyService));
+myType.AssignableTo<IMyService>();
+myType.AssignableToOrNull<IMyService>();
 ```
 
-`AssignableToOrNull` is the same check without the null guard — it accepts a null argument
-and only validates when a value is present.
+On `net7.0` and later the parameter name is captured automatically via
+`CallerArgumentExpression`. On `netstandard2.0` it is passed explicitly, as with every other
+guard in the namespace: `myType.AssignableTo<IMyService>(nameof(myType))`.
+
+Behaviour, unchanged from this package:
+
+- `AssignableTo` throws `ArgumentNullException` when the argument is null, and
+  `ArgumentException` when the type is not assignable.
+- `AssignableToOrNull` accepts a null argument and validates only when a value is present.
+- Both are **reflexive** — passing the target type itself succeeds, matching
+  `Type.IsAssignableFrom`.
+- Both return the argument, so they compose.
+- The `ArgumentException` message for a non-assignable type is unchanged.
+
+The one difference: a null argument now produces `ArgumentNullException` with the framework's
+default message rather than this package's custom `Argument {name} is null.` text. The
+`ParamName` is the same, so code branching on the exception is unaffected — only the wording,
+which now matches every other guard in `ArgumentChecking`.
 
 > [!NOTE]
-> `Ploch.Common.Reflection.TypeExtensions.IsImplementing` looks like a replacement but is
-> **not** a drop-in: it returns a `bool` rather than throwing, and it returns `false` when the
-> type *is* the target type, whereas `AssignableTo` succeeds in that case because
-> `Type.IsAssignableFrom` is reflexive.
+> `Ploch.Common.Reflection.TypeExtensions.IsImplementing` is **not** an equivalent, despite the
+> similar name: it returns a `bool` rather than throwing, and it returns `false` when the type
+> *is* the target type. Use the guards above rather than that predicate when you want an
+> argument check.
 
 ## Support
 
