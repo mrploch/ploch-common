@@ -32,7 +32,10 @@ itself rather than on a `Guard.Argument(...)` wrapper:
 | Required state, not an argument fault | `argument.RequiredNotNull(...)` — throws `InvalidOperationException` |
 | Positive number | `argument.Positive(nameof(argument))` |
 | Enum range | `argument.NotOutOfRange(nameof(argument))` |
-| Path validation | `Ploch.Common.ArgumentChecking.PathGuard` |
+| Path is well-formed | `path.IsValidPath(nameof(path))` — throws `ArgumentException` |
+| Path is well-formed, or fail as a required state (not an argument fault) | `path.RequiredIsValidPath()` — throws `InvalidOperationException` (net7.0+; `PathGuard.RequireValidPath` on netstandard2.0) |
+| Path is well-formed and the file must already exist | `path.EnsureFileExists()` — throws `ArgumentException` |
+| Same, but as a required state | `path.RequiredFileExists()` — throws `InvalidOperationException` (net7.0+ only) |
 
 ### `AssignableTo` / `AssignableToOrNull` — no direct replacement yet
 
