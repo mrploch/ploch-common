@@ -26,6 +26,18 @@
         <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
         <!-- Every shipping library lives under src/. Used to scope IsPackable below. -->
         <_PlochSourceRoot>$(MSBuildThisFileDirectory)src</_PlochSourceRoot>
+        <!--
+            Nothing under tests/ ever ships. Used to default IsPackable off below.
+            No trailing directory separator, matching $(_PlochSourceRoot) above: this is
+            compared with StartsWith against $(MSBuildProjectDirectory), which uses '\' on
+            Windows and '/' on the Linux CI runners, so hard-coding either one would
+            silently stop matching on the other platform. The cost is that a sibling
+            directory whose name merely starts with "tests" (a hypothetical
+            tests-integration/) would also match; that fails safe - it would make a project
+            unpackable, never packable - and $(_PlochSourceRoot) has the same shape. See #343
+            for hardening both with [MSBuild]::EnsureTrailingSlash.
+        -->
+        <_PlochTestRoot>$(MSBuildThisFileDirectory)tests</_PlochTestRoot>
         <NoWarn>$(NoWarn);NU1507;CS9057;NU1603</NoWarn>
         <TargetFrameworkVersion>net10.0</TargetFrameworkVersion>
     </PropertyGroup>
@@ -48,11 +60,21 @@
         IsTestingPlatformApplication=true from the Microsoft.Testing.Platform build props, so the
         SDK silently marked those shipping packages non-packable. See issue #280.
 
-        The $(_PlochSourceRoot) guard keeps that SDK default in place everywhere else. $(IsTestProject)
-        above is only a project-name heuristic, so a test project not named *Tests - the projects under
-        tests/TestAssemblies/ are the existing examples - would otherwise be made unconditionally
-        packable here and could be published by accident. Outside src/ the property stays empty and the
-        SDK still switches it off for anything that is a test or a testing-platform application.
+        The $(_PlochSourceRoot) guard leaves IsPackable empty everywhere else, so the SDK default
+        above decides. That is NOT enough on its own: $(IsTestProject) is only a project-name
+        heuristic, and the group below sets IsTestProject=false for anything not named *Tests.
+        With both halves of the SDK condition false, the empty IsPackable falls through to NuGet's
+        general '' -> true default instead, and GeneratePackageOnBuild=true is set here as well - so
+        a test fixture not named *Tests packs and publishes. That is exactly what happened to
+        tests/TestAssemblies/Common.Tests.TestTypes (issue #279); its two siblings escaped only
+        because they hard-code IsPackable=false in their own .csproj.
+
+        The $(_PlochTestRoot) group further below changes the default for the whole tests/ tree,
+        so a future fixture cannot repeat this by being named the wrong thing. It is a default,
+        not a lock: this file is imported before the .csproj, so a project under tests/ that sets
+        IsPackable=true itself still wins. That is deliberate - the failure mode here is a fixture
+        packing by accident, not one opting in on purpose - and the ./tests/* filter in both
+        publish workflows would still keep such a package off the feeds.
 
         Test projects keep IsPackable=false via the $(IsTestProject) group above, and any project
         that opts out explicitly in its own .csproj still wins, because this file is imported first.
@@ -62,6 +84,23 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <IsTestProject>false</IsTestProject>
         <IsPackable Condition="$(MSBuildProjectDirectory.StartsWith('$(_PlochSourceRoot)'))">true</IsPackable>
+    </PropertyGroup>
+    <!--
+        Nothing under tests/ is packed by default - not the *Tests projects, and not the
+        fixture assemblies under tests/TestAssemblies/ that exist only to be loaded by them.
+
+        This group MUST stay after the !$(IsTestProject) group above, which sets
+        GeneratePackageOnBuild=true for every project not named *Tests. Ordering is the whole
+        point: MSBuild takes the last assignment, so moving this earlier would let that group
+        switch package generation back on.
+
+        IsTestProject is deliberately left alone here. Flipping it to true for the whole tree
+        would pull the test-project tooling (coverage collectors and the like) into the plain
+        fixture assemblies, which is a different change with different consequences.
+    -->
+    <PropertyGroup Condition="$(MSBuildProjectDirectory.StartsWith('$(_PlochTestRoot)'))">
+        <IsPackable>false</IsPackable>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     </PropertyGroup>
     <!--
         Optional MSBuild settings dump. Set `-p:PrintBuildSettings=true` on the dotnet CLI

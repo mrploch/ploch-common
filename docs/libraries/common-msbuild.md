@@ -66,6 +66,29 @@ Test projects have packaging and XML documentation disabled; non-test projects h
 <GenerateDocumentationFile>true</GenerateDocumentationFile>
 ```
 
+Two directory guards sit on top of that name heuristic, because the heuristic alone is not
+sufficient in either direction:
+
+```xml
+<!-- Only libraries under src/ are marked packable outright -->
+<IsPackable Condition="$(MSBuildProjectDirectory.StartsWith('$(_PlochSourceRoot)'))">true</IsPackable>
+
+<!-- Nothing under tests/ is packable, whatever it is called -->
+<PropertyGroup Condition="$(MSBuildProjectDirectory.StartsWith('$(_PlochTestRoot)'))">
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+</PropertyGroup>
+```
+
+The `src/` guard exists because any library referencing xUnit v3 inherits
+`IsTestingPlatformApplication=true` from the Microsoft.Testing.Platform props, which would
+otherwise make the SDK mark shipping packages non-packable (issue #280). The `tests/` guard
+exists because the name heuristic misses a test fixture that is not named `*Tests` — such a
+project lands in the library branch, is given `GeneratePackageOnBuild=true`, and packs
+(issue #279). Neither `_PlochSourceRoot` nor `_PlochTestRoot` carries a trailing directory
+separator: they are compared with `StartsWith` against `$(MSBuildProjectDirectory)`, which
+uses `\` on Windows and `/` on the Linux CI runners.
+
 ### Versioning and source debugging
 
 Every project automatically gets Nerdbank.GitVersioning and SourceLink references via `GlobalPackageReference`:
