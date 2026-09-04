@@ -124,7 +124,7 @@ Version numbers are derived from the git history using [Nerdbank.GitVersioning](
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/dotnet/Nerdbank.GitVersioning/main/src/NerdBank.GitVersioning/version.schema.json",
-  "version": "4.0-prerelease",
+  "version": "4.1-prerelease",
   "assemblyVersion": {
     "precision": "revision"
   },
@@ -146,10 +146,10 @@ Version numbers are derived from the git history using [Nerdbank.GitVersioning](
 
 Key points:
 
-- The base version is `4.0`. NBGV appends the commit height as a third segment automatically (e.g. `4.0.42`). The `versionHeightOffset` of `-1` shifts the computed commit height down by one.
+- The base version is `4.1`. NBGV appends the commit height as a third segment automatically (e.g. `4.1.42`). The `versionHeightOffset` of `-1` shifts the computed commit height down by one.
 - Builds from `main` or a tag matching `v\d+\.\d+\.\d+` are treated as public releases; all other branches produce pre-release packages.
 - Assembly versions use four-part precision (`Major.Minor.Patch.Revision`).
-- NuGet packages use SemVer 2 format, which enables pre-release metadata such as `4.0.42-prerelease.g1a2b3c4`.
+- NuGet packages use SemVer 2 format, which enables pre-release metadata such as `4.1.42-prerelease.g1a2b3c4`.
 - Cloud build number stamping is enabled so the CI build number reflects the calculated version.
 
 To inspect the current computed version locally:
