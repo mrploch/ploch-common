@@ -264,7 +264,10 @@ public class GuardAssignableToNetStandard2Tests
 
     private class TestService1 : ITestService1;
 
-    private abstract class TestService2 : ITestService2;
+    // Not abstract: an abstract class with no members is an anti-pattern (DeepSource CS-R1078),
+    // and abstractness is not load-bearing here - the fixture exists to give TestService12 a
+    // class-inheritance leg alongside its interface, which a concrete base provides equally well.
+    private class TestService2 : ITestService2;
 
     private sealed class TestService12 : TestService2, ITestService1;
 #pragma warning restore SA1201
