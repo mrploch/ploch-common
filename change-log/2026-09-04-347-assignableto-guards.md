@@ -3,13 +3,15 @@
 `Ploch.Common.ArgumentChecking.Guard` gains four assignability guards:
 
 ```csharp
-// net7.0 and later - parameterName is captured via CallerArgumentExpression
+// The net8.0 asset - parameterName is captured via CallerArgumentExpression
 Type  AssignableTo(this Type? argument, Type targetType, string? parameterName = null);
 Type  AssignableTo<TTarget>(this Type? argument, string? parameterName = null);
 Type? AssignableToOrNull(this Type? argument, Type targetType, string? parameterName = null);
 Type? AssignableToOrNull<TTarget>(this Type? argument, string? parameterName = null);
 
-// netstandard2.0 - no CallerArgumentExpression, so the name is required
+// The netstandard2.0 asset - no CallerArgumentExpression, so the name is required.
+// Ploch.Common ships only netstandard2.0 and net8.0, so net7.0 and earlier consumers
+// resolve this asset and must pass the name, despite the #if NET7_0_OR_GREATER guard.
 Type  AssignableTo(this Type? argument, Type targetType, string parameterName);
 Type  AssignableTo<TTarget>(this Type? argument, string parameterName);
 Type? AssignableToOrNull(this Type? argument, Type targetType, string parameterName);
@@ -55,9 +57,10 @@ Deliberately identical to the deprecated `TypeGuards`, so the migration is mecha
 One message deliberately does **not** carry over. `TypeGuards` threw its null-argument
 `ArgumentNullException` with a custom message (`Argument {name} is null.`); these guards
 delegate to `ArgumentChecking.NotNull`, which throws with the framework's default message. The
-`ParamName` is identical either way, so anything branching on the exception is unaffected -
-only the human-readable text differs, and it now matches every other guard in the namespace.
-Preserving the old wording would have made these four the odd ones out.
+exception type and `ParamName` are identical either way, so code branching on either is
+unaffected - but code matching on the message text will need updating. The new wording matches
+every other guard in the namespace; preserving the old text would have made these four the odd
+ones out.
 
 ## Notes
 

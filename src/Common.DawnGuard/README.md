@@ -50,8 +50,15 @@ using Ploch.Common.DawnGuard;
 Guard.Argument(myType, nameof(myType)).AssignableTo(typeof(IMyService));
 Guard.Argument(myType, nameof(myType)).AssignableTo<IMyService>();
 Guard.Argument(myType, nameof(myType)).AssignableToOrNull<IMyService>();
+```
 
-// After
+`Ploch.Common` ships two assets, `netstandard2.0` and `net8.0`, and which one you get decides
+whether the parameter name has to be passed. **Pick the block that matches the asset your
+project resolves to.**
+
+```csharp
+// After - projects resolving the net8.0 asset (target net8.0 or later).
+// CallerArgumentExpression captures the name, so it can be omitted.
 using Ploch.Common.ArgumentChecking;
 
 myType.AssignableTo(typeof(IMyService));
@@ -59,9 +66,19 @@ myType.AssignableTo<IMyService>();
 myType.AssignableToOrNull<IMyService>();
 ```
 
-On `net7.0` and later the parameter name is captured automatically via
-`CallerArgumentExpression`. On `netstandard2.0` it is passed explicitly, as with every other
-guard in the namespace: `myType.AssignableTo<IMyService>(nameof(myType))`.
+```csharp
+// After - projects resolving the netstandard2.0 asset. That includes net7.0 and earlier,
+// which have no dedicated asset here, plus netstandard2.0 consumers themselves.
+// There is no CallerArgumentExpression, so the name is required.
+using Ploch.Common.ArgumentChecking;
+
+myType.AssignableTo(typeof(IMyService), nameof(myType));
+myType.AssignableTo<IMyService>(nameof(myType));
+myType.AssignableToOrNull<IMyService>(nameof(myType));
+```
+
+Passing the name explicitly is valid on both assets, so it is the safe form if you multi-target.
+This is the same split every other guard in the namespace uses.
 
 Behaviour, unchanged from this package:
 
@@ -75,8 +92,9 @@ Behaviour, unchanged from this package:
 
 The one difference: a null argument now produces `ArgumentNullException` with the framework's
 default message rather than this package's custom `Argument {name} is null.` text. The
-`ParamName` is the same, so code branching on the exception is unaffected — only the wording,
-which now matches every other guard in `ArgumentChecking`.
+**exception type and `ParamName` are unchanged**, so code branching on either is unaffected —
+but code that matches on the message text will need updating. The new wording matches every
+other guard in `ArgumentChecking`.
 
 > [!NOTE]
 > `Ploch.Common.Reflection.TypeExtensions.IsImplementing` is **not** an equivalent, despite the

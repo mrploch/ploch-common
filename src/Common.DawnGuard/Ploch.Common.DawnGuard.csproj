@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>[DEPRECATED] Type guard extensions for the third-party Dawn.Guard library. This package is no longer developed - use the Ploch.Common package instead, whose Ploch.Common.ArgumentChecking namespace provides argument validation with no third-party dependency. See the package README for migration notes, including the AssignableTo guards that have no direct replacement yet.</Description>
+    <Description>[DEPRECATED] Type guard extensions for the third-party Dawn.Guard library. This package is no longer developed - use the Ploch.Common package instead, whose Ploch.Common.ArgumentChecking namespace provides argument validation with no third-party dependency. See the package README for migration notes; every guard in this package now has a direct replacement.</Description>
     <PackageTags>common;utility;deprecated;obsolete;argument-validation;guard</PackageTags>
   </PropertyGroup>
   <ItemGroup>

@@ -523,7 +523,10 @@ public class GuardAssignableToNet7Tests
     {
         Type? nullType = null;
 
-        var result = nullType.AssignableToOrNull(typeof(ITestService1));
+        // Static-form invocation: extension-method syntax on a variable known to be null reads as a
+        // null dereference to CodeQL/DeepSource, even though extension methods never dereference the
+        // receiver. The call and the assertion are otherwise identical.
+        var result = Guard.AssignableToOrNull(nullType, typeof(ITestService1));
 
         result.Should().BeNull();
     }

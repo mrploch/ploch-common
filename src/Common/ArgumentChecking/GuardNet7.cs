@@ -358,11 +358,11 @@ public static partial class Guard
         string? parameterName = null)
     {
         targetType.NotNull();
-        argument.NotNull(parameterName);
+        var validatedArgument = argument.NotNull(parameterName);
 
-        AssignableToOrNull(argument, targetType, parameterName);
+        AssignableToOrNull(validatedArgument, targetType, parameterName);
 
-        return argument;
+        return validatedArgument;
     }
 
     /// <summary>
@@ -405,6 +405,7 @@ public static partial class Guard
     /// <exception cref="ArgumentException">
     ///     Thrown when <paramref name="argument" /> is not null and is not assignable to <paramref name="targetType" />.
     /// </exception>
+    [return: NotNullIfNotNull(nameof(argument))]
     public static Type? AssignableToOrNull(this Type? argument,
                                            Type targetType,
                                            [CallerArgumentExpression(nameof(argument))]
@@ -431,6 +432,7 @@ public static partial class Guard
     /// <exception cref="ArgumentException">
     ///     Thrown when <paramref name="argument" /> is not null and is not assignable to <typeparamref name="TTarget" />.
     /// </exception>
+    [return: NotNullIfNotNull(nameof(argument))]
     public static Type? AssignableToOrNull<TTarget>(this Type? argument,
                                                     [CallerArgumentExpression(nameof(argument))]
                                                     string? parameterName = null) =>
