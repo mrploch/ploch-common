@@ -1,4 +1,4 @@
-// Tests asserting the netstandard2.0 partial of Guard semantics.
+﻿// Tests asserting the netstandard2.0 partial of Guard semantics.
 // Compiled only on the net8.0 leg of Common.Tests (which loads the netstandard2.0 binary
 // of Ploch.Common via SetTargetFramework on the ProjectReference).
 // The corresponding net7+ semantics are covered in GuardNet7Tests.cs.
@@ -117,4 +117,158 @@ public class GuardNetStandard2Tests
 
         result.Should().Be(argument);
     }
+}
+
+/// <summary>
+///     Covers the assignability guards on the netstandard2.0 partial, which cannot auto-capture the
+///     parameter name and so takes it explicitly. Mirrors GuardAssignableToNet7Tests so both partials
+///     are held to the same behaviour (#347).
+/// </summary>
+[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules",
+                                                 "SA1106:Code should not contain empty statements",
+                                                 Justification = "Empty interfaces and classes are intentional test fixtures; matches the ported DawnGuard tests.")]
+public class GuardAssignableToNetStandard2Tests
+{
+    [Fact]
+    public void AssignableTo_should_not_throw_when_type_implements_the_target_interface()
+    {
+        var serviceType = typeof(TestService12);
+
+        var act = () => serviceType.AssignableTo(typeof(ITestService1), nameof(serviceType));
+
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public void AssignableTo_should_return_the_validated_argument_so_it_can_be_chained()
+    {
+        var serviceType = typeof(TestService12);
+
+        var result = serviceType.AssignableTo(typeof(ITestService2), nameof(serviceType));
+
+        result.Should().BeSameAs(serviceType);
+    }
+
+    [Fact]
+    public void AssignableTo_should_not_throw_when_the_argument_is_the_target_type_itself()
+    {
+        // Reflexive, matching Type.IsAssignableFrom - see the net7 counterpart for the rationale.
+        var serviceType = typeof(TestService1);
+
+        var act = () => serviceType.AssignableTo(typeof(TestService1), nameof(serviceType));
+
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public void AssignableTo_should_throw_ArgumentException_naming_the_parameter_and_target_type_when_not_assignable()
+    {
+        var serviceType = typeof(TestService12);
+
+        var act = () => serviceType.AssignableTo(typeof(TestService1), nameof(serviceType));
+
+        act.Should()
+           .Throw<ArgumentException>()
+           .Which.Message.Should()
+           .Contain(typeof(TestService1).FullName)
+           .And.Contain(nameof(serviceType));
+    }
+
+    [Fact]
+    public void AssignableTo_generic_should_throw_ArgumentException_when_not_assignable()
+    {
+        var serviceType = typeof(TestService12);
+
+        var act = () => serviceType.AssignableTo<TestService1>(nameof(serviceType));
+
+        act.Should().Throw<ArgumentException>().Which.Message.Should().Contain(typeof(TestService1).FullName).And.Contain(nameof(serviceType));
+    }
+
+    [Fact]
+    public void AssignableTo_generic_should_not_throw_when_type_implements_the_target_interface()
+    {
+        var serviceType = typeof(TestService12);
+
+        var act = () => serviceType.AssignableTo<ITestService2>(nameof(serviceType));
+
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public void AssignableTo_should_throw_ArgumentNullException_naming_the_parameter_when_argument_is_null()
+    {
+        Type? nullType = null;
+
+        var act = () => nullType.AssignableTo(typeof(ITestService1), nameof(nullType));
+
+        act.Should().Throw<ArgumentNullException>().Which.ParamName.Should().Be(nameof(nullType));
+    }
+
+    [Fact]
+    public void AssignableTo_should_throw_ArgumentNullException_when_the_target_type_is_null()
+    {
+        var serviceType = typeof(TestService12);
+
+        var act = () => serviceType.AssignableTo(null!, nameof(serviceType));
+
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void AssignableToOrNull_should_not_throw_when_argument_is_null()
+    {
+        Type? nullType = null;
+
+        var act = () => nullType.AssignableToOrNull(typeof(ITestService1), nameof(nullType));
+
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public void AssignableToOrNull_generic_should_not_throw_when_argument_is_null()
+    {
+        Type? nullType = null;
+
+        var act = () => nullType.AssignableToOrNull<ITestService1>(nameof(nullType));
+
+        act.Should().NotThrow();
+    }
+
+    [Fact]
+    public void AssignableToOrNull_should_still_throw_when_a_non_null_argument_is_not_assignable()
+    {
+        var serviceType = typeof(TestService12);
+
+        var act = () => serviceType.AssignableToOrNull(typeof(TestService1), nameof(serviceType));
+
+        act.Should().Throw<ArgumentException>().Which.Message.Should().Contain(nameof(serviceType));
+    }
+
+    [Fact]
+    public void AssignableToOrNull_should_return_null_when_argument_is_null()
+    {
+        Type? nullType = null;
+
+        // Static-form invocation: extension-method syntax on a variable known to be null reads as a
+        // null dereference to CodeQL/DeepSource, even though extension methods never dereference the
+        // receiver. The call and the assertion are otherwise identical.
+        var result = Guard.AssignableToOrNull(nullType, typeof(ITestService1), nameof(nullType));
+
+        result.Should().BeNull();
+    }
+
+#pragma warning disable SA1201 // Test fixture types are declared after the tests that use them.
+    private interface ITestService1;
+
+    private interface ITestService2;
+
+    private class TestService1 : ITestService1;
+
+    // Not abstract: an abstract class with no members is an anti-pattern (DeepSource CS-R1078),
+    // and abstractness is not load-bearing here - the fixture exists to give TestService12 a
+    // class-inheritance leg alongside its interface, which a concrete base provides equally well.
+    private class TestService2 : ITestService2;
+
+    private sealed class TestService12 : TestService2, ITestService1;
+#pragma warning restore SA1201
 }

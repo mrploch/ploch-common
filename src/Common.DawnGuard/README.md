@@ -1,4 +1,4 @@
-# Ploch.Common.DawnGuard
+﻿# Ploch.Common.DawnGuard
 
 > [!WARNING]
 > **This package is deprecated and will not receive further development.**
@@ -37,10 +37,10 @@ itself rather than on a `Guard.Argument(...)` wrapper:
 | Path is well-formed and the file must already exist | `path.EnsureFileExists()` — throws `ArgumentException` |
 | Same, but as a required state | `path.RequiredFileExists()` — throws `InvalidOperationException` (net7.0+ only) |
 
-### `AssignableTo` / `AssignableToOrNull` — no direct replacement yet
+### `AssignableTo` / `AssignableToOrNull`
 
-**These two methods have no equivalent guard in `ArgumentChecking`.** Until one is added
-(tracked in the repository's issue list), replace them by hand:
+`ArgumentChecking` provides both, as extension methods on the `Type` itself. The semantics are
+unchanged, so the migration is mechanical:
 
 ```csharp
 // Before
@@ -48,27 +48,59 @@ using Dawn;
 using Ploch.Common.DawnGuard;
 
 Guard.Argument(myType, nameof(myType)).AssignableTo(typeof(IMyService));
-
-// After
-using Ploch.Common.ArgumentChecking;
-
-myType.NotNull(nameof(myType));
-if (!typeof(IMyService).IsAssignableFrom(myType))
-{
-    throw new ArgumentException(
-        $"Instance of type specified in {nameof(myType)} - {myType.FullName} cannot be assigned to an instance of {typeof(IMyService).FullName}.",
-        nameof(myType));
-}
+Guard.Argument(myType, nameof(myType)).AssignableTo<IMyService>();
+Guard.Argument(myType, nameof(myType)).AssignableToOrNull<IMyService>();
 ```
 
-`AssignableToOrNull` is the same check without the null guard — it accepts a null argument
-and only validates when a value is present.
+`Ploch.Common` ships two assets, `netstandard2.0` and `net8.0`, and which one you get decides
+whether the parameter name has to be passed. **Pick the block that matches the asset your
+project resolves to.**
+
+```csharp
+// After - projects resolving the net8.0 asset (target net8.0 or later).
+// CallerArgumentExpression captures the name, so it can be omitted.
+using Ploch.Common.ArgumentChecking;
+
+myType.AssignableTo(typeof(IMyService));
+myType.AssignableTo<IMyService>();
+myType.AssignableToOrNull<IMyService>();
+```
+
+```csharp
+// After - projects resolving the netstandard2.0 asset. That includes net7.0 and earlier,
+// which have no dedicated asset here, plus netstandard2.0 consumers themselves.
+// There is no CallerArgumentExpression, so the name is required.
+using Ploch.Common.ArgumentChecking;
+
+myType.AssignableTo(typeof(IMyService), nameof(myType));
+myType.AssignableTo<IMyService>(nameof(myType));
+myType.AssignableToOrNull<IMyService>(nameof(myType));
+```
+
+Passing the name explicitly is valid on both assets, so it is the safe form if you multi-target.
+This is the same split every other guard in the namespace uses.
+
+Behaviour, unchanged from this package:
+
+- `AssignableTo` throws `ArgumentNullException` when the argument is null, and
+  `ArgumentException` when the type is not assignable.
+- `AssignableToOrNull` accepts a null argument and validates only when a value is present.
+- Both are **reflexive** — passing the target type itself succeeds, matching
+  `Type.IsAssignableFrom`.
+- Both return the argument, so they compose.
+- The `ArgumentException` message for a non-assignable type is unchanged.
+
+The one difference: a null argument now produces `ArgumentNullException` with the framework's
+default message rather than this package's custom `Argument {name} is null.` text. The
+**exception type and `ParamName` are unchanged**, so code branching on either is unaffected —
+but code that matches on the message text will need updating. The new wording matches every
+other guard in `ArgumentChecking`.
 
 > [!NOTE]
-> `Ploch.Common.Reflection.TypeExtensions.IsImplementing` looks like a replacement but is
-> **not** a drop-in: it returns a `bool` rather than throwing, and it returns `false` when the
-> type *is* the target type, whereas `AssignableTo` succeeds in that case because
-> `Type.IsAssignableFrom` is reflexive.
+> `Ploch.Common.Reflection.TypeExtensions.IsImplementing` is **not** an equivalent, despite the
+> similar name: it returns a `bool` rather than throwing, and it returns `false` when the type
+> *is* the target type. Use the guards above rather than that predicate when you want an
+> argument check.
 
 ## Support
 
