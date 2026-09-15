@@ -1,0 +1,64 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.AppServices.Security
+  commentId: N:Ploch.Common.AppServices.Security
+  id: Security
+  parent: Ploch.Common.AppServices
+  children:
+  - Ploch.Common.AppServices.Security.IUserInfoProvider
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.AppServices.Security
+  nameWithType: Ploch.Common.AppServices.Security
+  fullName: Ploch.Common.AppServices.Security
+  type: Namespace
+  assemblies:
+  - Ploch.Common.AppServices
+references:
+- uid: Ploch.Common.AppServices.Security.IUserInfoProvider
+  commentId: T:Ploch.Common.AppServices.Security.IUserInfoProvider
+  parent: Ploch.Common.AppServices.Security
+  href: Ploch.Common.AppServices.Security.IUserInfoProvider.html
+  name: IUserInfoProvider
+  nameWithType: IUserInfoProvider
+  fullName: Ploch.Common.AppServices.Security.IUserInfoProvider
+- uid: Ploch.Common.AppServices.Security
+  commentId: N:Ploch.Common.AppServices.Security
+  href: Ploch.html
+  name: Ploch.Common.AppServices.Security
+  nameWithType: Ploch.Common.AppServices.Security
+  fullName: Ploch.Common.AppServices.Security
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AppServices
+    name: AppServices
+    href: Ploch.Common.AppServices.html
+  - name: .
+  - uid: Ploch.Common.AppServices.Security
+    name: Security
+    href: Ploch.Common.AppServices.Security.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AppServices
+    name: AppServices
+    href: Ploch.Common.AppServices.html
+  - name: .
+  - uid: Ploch.Common.AppServices.Security
+    name: Security
+    href: Ploch.Common.AppServices.Security.html
+memberLayout: SeparatePages

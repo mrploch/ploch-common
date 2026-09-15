@@ -1,0 +1,676 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  commentId: T:Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  id: SelectListHelper
+  parent: Ploch.Common.WebUI.TagUtilities
+  children:
+  - Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Object},System.Func{``0,System.Object},System.Boolean,System.String)
+  langs:
+  - csharp
+  - vb
+  name: SelectListHelper
+  nameWithType: SelectListHelper
+  fullName: Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  type: Class
+  source:
+    remote:
+      path: src/Common.WebUI/TagUtilities/SelectListHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: SelectListHelper
+    path: ../src/Common.WebUI/TagUtilities/SelectListHelper.cs
+    startLine: 8
+  assemblies:
+  - Ploch.Common.WebUI
+  namespace: Ploch.Common.WebUI.TagUtilities
+  summary: Helper class for creating <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem" data-throw-if-not-resolved="false"></xref> collections.
+  example: []
+  syntax:
+    content: public static class SelectListHelper
+    content.vb: Public Module SelectListHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Object},System.Func{``0,System.Object},System.Boolean,System.String)
+  commentId: M:Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Object},System.Func{``0,System.Object},System.Boolean,System.String)
+  id: CreateFor``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Object},System.Func{``0,System.Object},System.Boolean,System.String)
+  parent: Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  langs:
+  - csharp
+  - vb
+  name: CreateFor<TModel>(IEnumerable<TModel>, Func<TModel, object>, Func<TModel, object>, bool, string)
+  nameWithType: SelectListHelper.CreateFor<TModel>(IEnumerable<TModel>, Func<TModel, object>, Func<TModel, object>, bool, string)
+  fullName: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor<TModel>(System.Collections.Generic.IEnumerable<TModel>, System.Func<TModel, object>, System.Func<TModel, object>, bool, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common.WebUI/TagUtilities/SelectListHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CreateFor
+    path: ../src/Common.WebUI/TagUtilities/SelectListHelper.cs
+    startLine: 34
+  assemblies:
+  - Ploch.Common.WebUI
+  namespace: Ploch.Common.WebUI.TagUtilities
+  summary: Creates a list of <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem" data-throw-if-not-resolved="false"></xref> from the <code class="paramref">items</code> collection.
+  remarks: >-
+    Maps items from the <code class="paramref">items</code> to <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem" data-throw-if-not-resolved="false"></xref> using the
+
+    <code class="paramref">textFunc</code> and
+
+    <code class="paramref">valueFunc</code> functions.
+  example: []
+  syntax:
+    content: public static IList<SelectListItem> CreateFor<TModel>(IEnumerable<TModel> items, Func<TModel, object> textFunc, Func<TModel, object> valueFunc, bool includeNull = false, string nullText = "--- Select ---")
+    parameters:
+    - id: items
+      type: System.Collections.Generic.IEnumerable{{TModel}}
+      description: The source collection.
+    - id: textFunc
+      type: System.Func{{TModel},System.Object}
+      description: >-
+        Function mapping an item to the <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Text" data-throw-if-not-resolved="false"></xref> property of a
+
+        <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem" data-throw-if-not-resolved="false"></xref>. A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> result maps to <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>.
+    - id: valueFunc
+      type: System.Func{{TModel},System.Object}
+      description: >-
+        Function mapping an item to the <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Value" data-throw-if-not-resolved="false"></xref> property of a
+
+        <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem" data-throw-if-not-resolved="false"></xref>. A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> result maps to <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>.
+    - id: includeNull
+      type: System.Boolean
+      description: >-
+        If <code>True</code> then <code>string.Empty</code> value entry will be added to the result
+
+        collection. Optional, defaults to <code>False</code>.
+    - id: nullText
+      type: System.String
+      description: The <code>string.Empty</code> item text.
+    typeParameters:
+    - id: TModel
+      description: The <code class="paramref">items</code> collection item type.
+    return:
+      type: System.Collections.Generic.IList{Microsoft.AspNetCore.Mvc.Rendering.SelectListItem}
+      description: a list of <xref href="Microsoft.AspNetCore.Mvc.Rendering.SelectListItem" data-throw-if-not-resolved="false"></xref> from the <code class="paramref">items</code> collection.
+    content.vb: Public Shared Function CreateFor(Of TModel)(items As IEnumerable(Of TModel), textFunc As Func(Of TModel, Object), valueFunc As Func(Of TModel, Object), includeNull As Boolean = False, nullText As String = "--- Select ---") As IList(Of SelectListItem)
+  overload: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor*
+  nameWithType.vb: SelectListHelper.CreateFor(Of TModel)(IEnumerable(Of TModel), Func(Of TModel, Object), Func(Of TModel, Object), Boolean, String)
+  fullName.vb: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor(Of TModel)(System.Collections.Generic.IEnumerable(Of TModel), System.Func(Of TModel, Object), System.Func(Of TModel, Object), Boolean, String)
+  name.vb: CreateFor(Of TModel)(IEnumerable(Of TModel), Func(Of TModel, Object), Func(Of TModel, Object), Boolean, String)
+references:
+- uid: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+  commentId: T:Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem
+  name: SelectListItem
+  nameWithType: SelectListItem
+  fullName: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+- uid: Ploch.Common.WebUI.TagUtilities
+  commentId: N:Ploch.Common.WebUI.TagUtilities
+  href: Ploch.html
+  name: Ploch.Common.WebUI.TagUtilities
+  nameWithType: Ploch.Common.WebUI.TagUtilities
+  fullName: Ploch.Common.WebUI.TagUtilities
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+  - name: .
+  - uid: Ploch.Common.WebUI.TagUtilities
+    name: TagUtilities
+    href: Ploch.Common.WebUI.TagUtilities.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+  - name: .
+  - uid: Ploch.Common.WebUI.TagUtilities
+    name: TagUtilities
+    href: Ploch.Common.WebUI.TagUtilities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Text
+  commentId: P:Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem.text
+  name: Text
+  nameWithType: SelectListItem.Text
+  fullName: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Text
+- uid: System.String.Empty
+  commentId: F:System.String.Empty
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string.empty
+  name: Empty
+  nameWithType: string.Empty
+  fullName: string.Empty
+  nameWithType.vb: String.Empty
+  fullName.vb: String.Empty
+- uid: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Value
+  commentId: P:Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Value
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem.value
+  name: Value
+  nameWithType: SelectListItem.Value
+  fullName: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem.Value
+- uid: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor*
+  commentId: Overload:Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor
+  href: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor.html#Ploch_Common_WebUI_TagUtilities_SelectListHelper_CreateFor__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Object__System_Func___0_System_Object__System_Boolean_System_String_
+  name: CreateFor
+  nameWithType: SelectListHelper.CreateFor
+  fullName: Ploch.Common.WebUI.TagUtilities.SelectListHelper.CreateFor
+- uid: System.Collections.Generic.IEnumerable{{TModel}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TModel>
+  nameWithType: IEnumerable<TModel>
+  fullName: System.Collections.Generic.IEnumerable<TModel>
+  nameWithType.vb: IEnumerable(Of TModel)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TModel)
+  name.vb: IEnumerable(Of TModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TModel
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TModel
+  - name: )
+- uid: System.Func{{TModel},System.Object}
+  commentId: T:System.Func{``0,System.Object}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TModel, object>
+  nameWithType: Func<TModel, object>
+  fullName: System.Func<TModel, object>
+  nameWithType.vb: Func(Of TModel, Object)
+  fullName.vb: System.Func(Of TModel, Object)
+  name.vb: Func(Of TModel, Object)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TModel
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TModel
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IList{Microsoft.AspNetCore.Mvc.Rendering.SelectListItem}
+  commentId: T:System.Collections.Generic.IList{Microsoft.AspNetCore.Mvc.Rendering.SelectListItem}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<SelectListItem>
+  nameWithType: IList<SelectListItem>
+  fullName: System.Collections.Generic.IList<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>
+  nameWithType.vb: IList(Of SelectListItem)
+  fullName.vb: System.Collections.Generic.IList(Of Microsoft.AspNetCore.Mvc.Rendering.SelectListItem)
+  name.vb: IList(Of SelectListItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+    name: SelectListItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+    name: SelectListItem
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlistitem
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+memberLayout: SeparatePages

@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.DependencyInjection
+  commentId: N:Ploch.Common.DependencyInjection
+  id: DependencyInjection
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.DependencyInjection.ConfigurableServicesBundle
+  - Ploch.Common.DependencyInjection.DelegatingServicesBundle
+  - Ploch.Common.DependencyInjection.Hosting
+  - Ploch.Common.DependencyInjection.IConfigurationConsumer
+  - Ploch.Common.DependencyInjection.IOptionalConfigurationProvider
+  - Ploch.Common.DependencyInjection.IScopedService
+  - Ploch.Common.DependencyInjection.IScopedService`1
+  - Ploch.Common.DependencyInjection.IServicesBundle
+  - Ploch.Common.DependencyInjection.ScopedService
+  - Ploch.Common.DependencyInjection.ScopedService`1
+  - Ploch.Common.DependencyInjection.ServicesBundle
+  - Ploch.Common.DependencyInjection.ServicesBundleRegistration
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.DependencyInjection
+  nameWithType: Ploch.Common.DependencyInjection
+  fullName: Ploch.Common.DependencyInjection
+  type: Namespace
+  assemblies:
+  - Ploch.Common.DependencyInjection
+references:
+- uid: Ploch.Common.DependencyInjection.Hosting
+  commentId: N:Ploch.Common.DependencyInjection.Hosting
+  href: Ploch.html
+  name: Ploch.Common.DependencyInjection.Hosting
+  nameWithType: Ploch.Common.DependencyInjection.Hosting
+  fullName: Ploch.Common.DependencyInjection.Hosting
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection
+    name: DependencyInjection
+    href: Ploch.Common.DependencyInjection.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection.Hosting
+    name: Hosting
+    href: Ploch.Common.DependencyInjection.Hosting.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection
+    name: DependencyInjection
+    href: Ploch.Common.DependencyInjection.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection.Hosting
+    name: Hosting
+    href: Ploch.Common.DependencyInjection.Hosting.html
+- uid: Ploch.Common.DependencyInjection.ConfigurableServicesBundle
+  commentId: T:Ploch.Common.DependencyInjection.ConfigurableServicesBundle
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.ConfigurableServicesBundle.html
+  name: ConfigurableServicesBundle
+  nameWithType: ConfigurableServicesBundle
+  fullName: Ploch.Common.DependencyInjection.ConfigurableServicesBundle
+- uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle
+  commentId: T:Ploch.Common.DependencyInjection.DelegatingServicesBundle
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.DelegatingServicesBundle.html
+  name: DelegatingServicesBundle
+  nameWithType: DelegatingServicesBundle
+  fullName: Ploch.Common.DependencyInjection.DelegatingServicesBundle
+- uid: Ploch.Common.DependencyInjection.IConfigurationConsumer
+  commentId: T:Ploch.Common.DependencyInjection.IConfigurationConsumer
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.IConfigurationConsumer.html
+  name: IConfigurationConsumer
+  nameWithType: IConfigurationConsumer
+  fullName: Ploch.Common.DependencyInjection.IConfigurationConsumer
+- uid: Ploch.Common.DependencyInjection.IOptionalConfigurationProvider
+  commentId: T:Ploch.Common.DependencyInjection.IOptionalConfigurationProvider
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.IOptionalConfigurationProvider.html
+  name: IOptionalConfigurationProvider
+  nameWithType: IOptionalConfigurationProvider
+  fullName: Ploch.Common.DependencyInjection.IOptionalConfigurationProvider
+- uid: Ploch.Common.DependencyInjection.IScopedService
+  commentId: T:Ploch.Common.DependencyInjection.IScopedService
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.IScopedService.html
+  name: IScopedService
+  nameWithType: IScopedService
+  fullName: Ploch.Common.DependencyInjection.IScopedService
+- uid: Ploch.Common.DependencyInjection.IScopedService`1
+  commentId: T:Ploch.Common.DependencyInjection.IScopedService`1
+  href: Ploch.Common.DependencyInjection.IScopedService-1.html
+  name: IScopedService<TService>
+  nameWithType: IScopedService<TService>
+  fullName: Ploch.Common.DependencyInjection.IScopedService<TService>
+  nameWithType.vb: IScopedService(Of TService)
+  fullName.vb: Ploch.Common.DependencyInjection.IScopedService(Of TService)
+  name.vb: IScopedService(Of TService)
+  spec.csharp:
+  - uid: Ploch.Common.DependencyInjection.IScopedService`1
+    name: IScopedService
+    href: Ploch.Common.DependencyInjection.IScopedService-1.html
+  - name: <
+  - name: TService
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.DependencyInjection.IScopedService`1
+    name: IScopedService
+    href: Ploch.Common.DependencyInjection.IScopedService-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TService
+  - name: )
+- uid: Ploch.Common.DependencyInjection.IServicesBundle
+  commentId: T:Ploch.Common.DependencyInjection.IServicesBundle
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.IServicesBundle.html
+  name: IServicesBundle
+  nameWithType: IServicesBundle
+  fullName: Ploch.Common.DependencyInjection.IServicesBundle
+- uid: Ploch.Common.DependencyInjection.ScopedService
+  commentId: T:Ploch.Common.DependencyInjection.ScopedService
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.ScopedService.html
+  name: ScopedService
+  nameWithType: ScopedService
+  fullName: Ploch.Common.DependencyInjection.ScopedService
+- uid: Ploch.Common.DependencyInjection.ScopedService`1
+  commentId: T:Ploch.Common.DependencyInjection.ScopedService`1
+  href: Ploch.Common.DependencyInjection.ScopedService-1.html
+  name: ScopedService<TService>
+  nameWithType: ScopedService<TService>
+  fullName: Ploch.Common.DependencyInjection.ScopedService<TService>
+  nameWithType.vb: ScopedService(Of TService)
+  fullName.vb: Ploch.Common.DependencyInjection.ScopedService(Of TService)
+  name.vb: ScopedService(Of TService)
+  spec.csharp:
+  - uid: Ploch.Common.DependencyInjection.ScopedService`1
+    name: ScopedService
+    href: Ploch.Common.DependencyInjection.ScopedService-1.html
+  - name: <
+  - name: TService
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.DependencyInjection.ScopedService`1
+    name: ScopedService
+    href: Ploch.Common.DependencyInjection.ScopedService-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TService
+  - name: )
+- uid: Ploch.Common.DependencyInjection.ServicesBundle
+  commentId: T:Ploch.Common.DependencyInjection.ServicesBundle
+  parent: Ploch.Common.DependencyInjection
+  href: Ploch.Common.DependencyInjection.ServicesBundle.html
+  name: ServicesBundle
+  nameWithType: ServicesBundle
+  fullName: Ploch.Common.DependencyInjection.ServicesBundle
+- uid: Ploch.Common.DependencyInjection.ServicesBundleRegistration
+  commentId: T:Ploch.Common.DependencyInjection.ServicesBundleRegistration
+  href: Ploch.Common.DependencyInjection.ServicesBundleRegistration.html
+  name: ServicesBundleRegistration
+  nameWithType: ServicesBundleRegistration
+  fullName: Ploch.Common.DependencyInjection.ServicesBundleRegistration
+- uid: Ploch.Common.DependencyInjection
+  commentId: N:Ploch.Common.DependencyInjection
+  href: Ploch.html
+  name: Ploch.Common.DependencyInjection
+  nameWithType: Ploch.Common.DependencyInjection
+  fullName: Ploch.Common.DependencyInjection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection
+    name: DependencyInjection
+    href: Ploch.Common.DependencyInjection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection
+    name: DependencyInjection
+    href: Ploch.Common.DependencyInjection.html
+memberLayout: SeparatePages

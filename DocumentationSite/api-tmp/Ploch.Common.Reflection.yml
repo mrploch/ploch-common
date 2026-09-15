@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Reflection
+  commentId: N:Ploch.Common.Reflection
+  id: Reflection
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Reflection.AssemblyExtensions
+  - Ploch.Common.Reflection.AssemblyListBuilder
+  - Ploch.Common.Reflection.AssemblyTypes
+  - Ploch.Common.Reflection.ByValueObjectComparator
+  - Ploch.Common.Reflection.ByValueObjectComparer`1
+  - Ploch.Common.Reflection.ITypeLoaderConfigurator
+  - Ploch.Common.Reflection.ImplementationTypes
+  - Ploch.Common.Reflection.MemberInfoExtensions
+  - Ploch.Common.Reflection.ObjectGraphHelper
+  - Ploch.Common.Reflection.ObjectHashCodeBuilder
+  - Ploch.Common.Reflection.ObjectReflectionExtensions
+  - Ploch.Common.Reflection.PropertyAccessException
+  - Ploch.Common.Reflection.PropertyAccessValidators
+  - Ploch.Common.Reflection.PropertyHelpers
+  - Ploch.Common.Reflection.PropertyIndexerMismatchException
+  - Ploch.Common.Reflection.PropertyNotFoundException
+  - Ploch.Common.Reflection.PropertyReadOnlyException
+  - Ploch.Common.Reflection.PropertyWriteOnlyException
+  - Ploch.Common.Reflection.TypeExtensions
+  - Ploch.Common.Reflection.TypeHelper
+  - Ploch.Common.Reflection.TypeLoader
+  - Ploch.Common.Reflection.TypeLoaderConfigurator
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Reflection
+  nameWithType: Ploch.Common.Reflection
+  fullName: Ploch.Common.Reflection
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Reflection.AssemblyExtensions
+  commentId: T:Ploch.Common.Reflection.AssemblyExtensions
+  href: Ploch.Common.Reflection.AssemblyExtensions.html
+  name: AssemblyExtensions
+  nameWithType: AssemblyExtensions
+  fullName: Ploch.Common.Reflection.AssemblyExtensions
+- uid: Ploch.Common.Reflection.AssemblyListBuilder
+  commentId: T:Ploch.Common.Reflection.AssemblyListBuilder
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.AssemblyListBuilder.html
+  name: AssemblyListBuilder
+  nameWithType: AssemblyListBuilder
+  fullName: Ploch.Common.Reflection.AssemblyListBuilder
+- uid: Ploch.Common.Reflection.AssemblyTypes
+  commentId: T:Ploch.Common.Reflection.AssemblyTypes
+  href: Ploch.Common.Reflection.AssemblyTypes.html
+  name: AssemblyTypes
+  nameWithType: AssemblyTypes
+  fullName: Ploch.Common.Reflection.AssemblyTypes
+- uid: Ploch.Common.Reflection.ByValueObjectComparator
+  commentId: T:Ploch.Common.Reflection.ByValueObjectComparator
+  href: Ploch.Common.Reflection.ByValueObjectComparator.html
+  name: ByValueObjectComparator
+  nameWithType: ByValueObjectComparator
+  fullName: Ploch.Common.Reflection.ByValueObjectComparator
+- uid: Ploch.Common.Reflection.ByValueObjectComparer`1
+  commentId: T:Ploch.Common.Reflection.ByValueObjectComparer`1
+  href: Ploch.Common.Reflection.ByValueObjectComparer-1.html
+  name: ByValueObjectComparer<TObject>
+  nameWithType: ByValueObjectComparer<TObject>
+  fullName: Ploch.Common.Reflection.ByValueObjectComparer<TObject>
+  nameWithType.vb: ByValueObjectComparer(Of TObject)
+  fullName.vb: Ploch.Common.Reflection.ByValueObjectComparer(Of TObject)
+  name.vb: ByValueObjectComparer(Of TObject)
+  spec.csharp:
+  - uid: Ploch.Common.Reflection.ByValueObjectComparer`1
+    name: ByValueObjectComparer
+    href: Ploch.Common.Reflection.ByValueObjectComparer-1.html
+  - name: <
+  - name: TObject
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Reflection.ByValueObjectComparer`1
+    name: ByValueObjectComparer
+    href: Ploch.Common.Reflection.ByValueObjectComparer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TObject
+  - name: )
+- uid: Ploch.Common.Reflection.ITypeLoaderConfigurator
+  commentId: T:Ploch.Common.Reflection.ITypeLoaderConfigurator
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.ITypeLoaderConfigurator.html
+  name: ITypeLoaderConfigurator
+  nameWithType: ITypeLoaderConfigurator
+  fullName: Ploch.Common.Reflection.ITypeLoaderConfigurator
+- uid: Ploch.Common.Reflection.ImplementationTypes
+  commentId: T:Ploch.Common.Reflection.ImplementationTypes
+  href: Ploch.Common.Reflection.ImplementationTypes.html
+  name: ImplementationTypes
+  nameWithType: ImplementationTypes
+  fullName: Ploch.Common.Reflection.ImplementationTypes
+- uid: Ploch.Common.Reflection.MemberInfoExtensions
+  commentId: T:Ploch.Common.Reflection.MemberInfoExtensions
+  href: Ploch.Common.Reflection.MemberInfoExtensions.html
+  name: MemberInfoExtensions
+  nameWithType: MemberInfoExtensions
+  fullName: Ploch.Common.Reflection.MemberInfoExtensions
+- uid: Ploch.Common.Reflection.ObjectGraphHelper
+  commentId: T:Ploch.Common.Reflection.ObjectGraphHelper
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.ObjectGraphHelper.html
+  name: ObjectGraphHelper
+  nameWithType: ObjectGraphHelper
+  fullName: Ploch.Common.Reflection.ObjectGraphHelper
+- uid: Ploch.Common.Reflection.ObjectHashCodeBuilder
+  commentId: T:Ploch.Common.Reflection.ObjectHashCodeBuilder
+  href: Ploch.Common.Reflection.ObjectHashCodeBuilder.html
+  name: ObjectHashCodeBuilder
+  nameWithType: ObjectHashCodeBuilder
+  fullName: Ploch.Common.Reflection.ObjectHashCodeBuilder
+- uid: Ploch.Common.Reflection.ObjectReflectionExtensions
+  commentId: T:Ploch.Common.Reflection.ObjectReflectionExtensions
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.ObjectReflectionExtensions.html
+  name: ObjectReflectionExtensions
+  nameWithType: ObjectReflectionExtensions
+  fullName: Ploch.Common.Reflection.ObjectReflectionExtensions
+- uid: Ploch.Common.Reflection.PropertyAccessException
+  commentId: T:Ploch.Common.Reflection.PropertyAccessException
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.PropertyAccessException.html
+  name: PropertyAccessException
+  nameWithType: PropertyAccessException
+  fullName: Ploch.Common.Reflection.PropertyAccessException
+- uid: Ploch.Common.Reflection.PropertyAccessValidators
+  commentId: T:Ploch.Common.Reflection.PropertyAccessValidators
+  href: Ploch.Common.Reflection.PropertyAccessValidators.html
+  name: PropertyAccessValidators
+  nameWithType: PropertyAccessValidators
+  fullName: Ploch.Common.Reflection.PropertyAccessValidators
+- uid: Ploch.Common.Reflection.PropertyHelpers
+  commentId: T:Ploch.Common.Reflection.PropertyHelpers
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.PropertyHelpers.html
+  name: PropertyHelpers
+  nameWithType: PropertyHelpers
+  fullName: Ploch.Common.Reflection.PropertyHelpers
+- uid: Ploch.Common.Reflection.PropertyIndexerMismatchException
+  commentId: T:Ploch.Common.Reflection.PropertyIndexerMismatchException
+  href: Ploch.Common.Reflection.PropertyIndexerMismatchException.html
+  name: PropertyIndexerMismatchException
+  nameWithType: PropertyIndexerMismatchException
+  fullName: Ploch.Common.Reflection.PropertyIndexerMismatchException
+- uid: Ploch.Common.Reflection.PropertyNotFoundException
+  commentId: T:Ploch.Common.Reflection.PropertyNotFoundException
+  href: Ploch.Common.Reflection.PropertyNotFoundException.html
+  name: PropertyNotFoundException
+  nameWithType: PropertyNotFoundException
+  fullName: Ploch.Common.Reflection.PropertyNotFoundException
+- uid: Ploch.Common.Reflection.PropertyReadOnlyException
+  commentId: T:Ploch.Common.Reflection.PropertyReadOnlyException
+  href: Ploch.Common.Reflection.PropertyReadOnlyException.html
+  name: PropertyReadOnlyException
+  nameWithType: PropertyReadOnlyException
+  fullName: Ploch.Common.Reflection.PropertyReadOnlyException
+- uid: Ploch.Common.Reflection.PropertyWriteOnlyException
+  commentId: T:Ploch.Common.Reflection.PropertyWriteOnlyException
+  href: Ploch.Common.Reflection.PropertyWriteOnlyException.html
+  name: PropertyWriteOnlyException
+  nameWithType: PropertyWriteOnlyException
+  fullName: Ploch.Common.Reflection.PropertyWriteOnlyException
+- uid: Ploch.Common.Reflection.TypeExtensions
+  commentId: T:Ploch.Common.Reflection.TypeExtensions
+  href: Ploch.Common.Reflection.TypeExtensions.html
+  name: TypeExtensions
+  nameWithType: TypeExtensions
+  fullName: Ploch.Common.Reflection.TypeExtensions
+- uid: Ploch.Common.Reflection.TypeHelper
+  commentId: T:Ploch.Common.Reflection.TypeHelper
+  href: Ploch.Common.Reflection.TypeHelper.html
+  name: TypeHelper
+  nameWithType: TypeHelper
+  fullName: Ploch.Common.Reflection.TypeHelper
+- uid: Ploch.Common.Reflection.TypeLoader
+  commentId: T:Ploch.Common.Reflection.TypeLoader
+  parent: Ploch.Common.Reflection
+  href: Ploch.Common.Reflection.TypeLoader.html
+  name: TypeLoader
+  nameWithType: TypeLoader
+  fullName: Ploch.Common.Reflection.TypeLoader
+- uid: Ploch.Common.Reflection.TypeLoaderConfigurator
+  commentId: T:Ploch.Common.Reflection.TypeLoaderConfigurator
+  href: Ploch.Common.Reflection.TypeLoaderConfigurator.html
+  name: TypeLoaderConfigurator
+  nameWithType: TypeLoaderConfigurator
+  fullName: Ploch.Common.Reflection.TypeLoaderConfigurator
+- uid: Ploch.Common.Reflection
+  commentId: N:Ploch.Common.Reflection
+  href: Ploch.html
+  name: Ploch.Common.Reflection
+  nameWithType: Ploch.Common.Reflection
+  fullName: Ploch.Common.Reflection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+memberLayout: SeparatePages

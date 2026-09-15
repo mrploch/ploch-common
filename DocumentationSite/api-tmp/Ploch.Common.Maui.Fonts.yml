@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.Fonts
+  commentId: N:Ploch.Common.Maui.Fonts
+  id: Fonts
+  parent: Ploch.Common.Maui
+  children:
+  - Ploch.Common.Maui.Fonts.FontMapping
+  - Ploch.Common.Maui.Fonts.IFontsProvider
+  - Ploch.Common.Maui.Fonts.IconFontMapping`1
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui.Fonts
+  nameWithType: Ploch.Common.Maui.Fonts
+  fullName: Ploch.Common.Maui.Fonts
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Common.Maui.Fonts.FontMapping
+  commentId: T:Ploch.Common.Maui.Fonts.FontMapping
+  parent: Ploch.Common.Maui.Fonts
+  href: Ploch.Common.Maui.Fonts.FontMapping.html
+  name: FontMapping
+  nameWithType: FontMapping
+  fullName: Ploch.Common.Maui.Fonts.FontMapping
+- uid: Ploch.Common.Maui.Fonts.IFontsProvider
+  commentId: T:Ploch.Common.Maui.Fonts.IFontsProvider
+  parent: Ploch.Common.Maui.Fonts
+  href: Ploch.Common.Maui.Fonts.IFontsProvider.html
+  name: IFontsProvider
+  nameWithType: IFontsProvider
+  fullName: Ploch.Common.Maui.Fonts.IFontsProvider
+- uid: Ploch.Common.Maui.Fonts.IconFontMapping`1
+  commentId: T:Ploch.Common.Maui.Fonts.IconFontMapping`1
+  href: Ploch.Common.Maui.Fonts.IconFontMapping-1.html
+  name: IconFontMapping<TFontIconNames>
+  nameWithType: IconFontMapping<TFontIconNames>
+  fullName: Ploch.Common.Maui.Fonts.IconFontMapping<TFontIconNames>
+  nameWithType.vb: IconFontMapping(Of TFontIconNames)
+  fullName.vb: Ploch.Common.Maui.Fonts.IconFontMapping(Of TFontIconNames)
+  name.vb: IconFontMapping(Of TFontIconNames)
+  spec.csharp:
+  - uid: Ploch.Common.Maui.Fonts.IconFontMapping`1
+    name: IconFontMapping
+    href: Ploch.Common.Maui.Fonts.IconFontMapping-1.html
+  - name: <
+  - name: TFontIconNames
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Maui.Fonts.IconFontMapping`1
+    name: IconFontMapping
+    href: Ploch.Common.Maui.Fonts.IconFontMapping-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TFontIconNames
+  - name: )
+- uid: Ploch.Common.Maui.Fonts
+  commentId: N:Ploch.Common.Maui.Fonts
+  href: Ploch.html
+  name: Ploch.Common.Maui.Fonts
+  nameWithType: Ploch.Common.Maui.Fonts
+  fullName: Ploch.Common.Maui.Fonts
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Fonts
+    name: Fonts
+    href: Ploch.Common.Maui.Fonts.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Fonts
+    name: Fonts
+    href: Ploch.Common.Maui.Fonts.html
+memberLayout: SeparatePages

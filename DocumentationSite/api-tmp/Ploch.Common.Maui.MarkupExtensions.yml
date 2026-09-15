@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.MarkupExtensions
+  commentId: N:Ploch.Common.Maui.MarkupExtensions
+  id: MarkupExtensions
+  parent: Ploch.Common.Maui
+  children:
+  - Ploch.Common.Maui.MarkupExtensions.NameOfExtension
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui.MarkupExtensions
+  nameWithType: Ploch.Common.Maui.MarkupExtensions
+  fullName: Ploch.Common.Maui.MarkupExtensions
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Common.Maui.MarkupExtensions.NameOfExtension
+  commentId: T:Ploch.Common.Maui.MarkupExtensions.NameOfExtension
+  href: Ploch.Common.Maui.MarkupExtensions.NameOfExtension.html
+  name: NameOfExtension
+  nameWithType: NameOfExtension
+  fullName: Ploch.Common.Maui.MarkupExtensions.NameOfExtension
+memberLayout: SeparatePages

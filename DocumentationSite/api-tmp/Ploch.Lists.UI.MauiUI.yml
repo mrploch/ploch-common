@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Lists.UI.MauiUI
+  id: UI.MauiUI
+  parent: Ploch.Lists
+  children:
+  - Ploch.Lists.UI.MauiUI.Common.Fonts
+  - Ploch.Lists.UI.MauiUI.ViewModels
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Lists.UI.MauiUI
+  type: Namespace
+references:
+- uid: Ploch.Lists.UI.MauiUI.ViewModels
+  commentId: N:Ploch.Lists.UI.MauiUI.ViewModels
+  href: Ploch.html
+  name: Ploch.Lists.UI.MauiUI.ViewModels
+  nameWithType: Ploch.Lists.UI.MauiUI.ViewModels
+  fullName: Ploch.Lists.UI.MauiUI.ViewModels
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.ViewModels
+    name: ViewModels
+    href: Ploch.Lists.UI.MauiUI.ViewModels.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.ViewModels
+    name: ViewModels
+    href: Ploch.Lists.UI.MauiUI.ViewModels.html
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+  commentId: N:Ploch.Lists.UI.MauiUI.Common.Fonts
+  href: Ploch.html
+  name: Ploch.Lists.UI.MauiUI.Common.Fonts
+  nameWithType: Ploch.Lists.UI.MauiUI.Common.Fonts
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common
+    name: Common
+    href: Ploch.Lists.UI.MauiUI.Common.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+    name: Fonts
+    href: Ploch.Lists.UI.MauiUI.Common.Fonts.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common
+    name: Common
+    href: Ploch.Lists.UI.MauiUI.Common.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+    name: Fonts
+    href: Ploch.Lists.UI.MauiUI.Common.Fonts.html
+memberLayout: SeparatePages

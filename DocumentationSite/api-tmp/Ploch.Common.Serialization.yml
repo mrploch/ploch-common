@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Serialization
+  commentId: N:Ploch.Common.Serialization
+  id: Serialization
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Serialization.AsyncSerializer`2
+  - Ploch.Common.Serialization.IAsyncSerializer
+  - Ploch.Common.Serialization.IAsyncSerializer`1
+  - Ploch.Common.Serialization.ISerializer
+  - Ploch.Common.Serialization.ISerializer`1
+  - Ploch.Common.Serialization.NewtonsoftJson
+  - Ploch.Common.Serialization.Serializer`2
+  - Ploch.Common.Serialization.SystemTextJson
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Serialization
+  nameWithType: Ploch.Common.Serialization
+  fullName: Ploch.Common.Serialization
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Serialization
+references:
+- uid: Ploch.Common.Serialization.NewtonsoftJson
+  commentId: N:Ploch.Common.Serialization.NewtonsoftJson
+  href: Ploch.html
+  name: Ploch.Common.Serialization.NewtonsoftJson
+  nameWithType: Ploch.Common.Serialization.NewtonsoftJson
+  fullName: Ploch.Common.Serialization.NewtonsoftJson
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.NewtonsoftJson
+    name: NewtonsoftJson
+    href: Ploch.Common.Serialization.NewtonsoftJson.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.NewtonsoftJson
+    name: NewtonsoftJson
+    href: Ploch.Common.Serialization.NewtonsoftJson.html
+- uid: Ploch.Common.Serialization.SystemTextJson
+  commentId: N:Ploch.Common.Serialization.SystemTextJson
+  href: Ploch.html
+  name: Ploch.Common.Serialization.SystemTextJson
+  nameWithType: Ploch.Common.Serialization.SystemTextJson
+  fullName: Ploch.Common.Serialization.SystemTextJson
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.SystemTextJson
+    name: SystemTextJson
+    href: Ploch.Common.Serialization.SystemTextJson.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.SystemTextJson
+    name: SystemTextJson
+    href: Ploch.Common.Serialization.SystemTextJson.html
+- uid: Ploch.Common.Serialization.AsyncSerializer`2
+  commentId: T:Ploch.Common.Serialization.AsyncSerializer`2
+  href: Ploch.Common.Serialization.AsyncSerializer-2.html
+  name: AsyncSerializer<TSettings, TDataJsonObject>
+  nameWithType: AsyncSerializer<TSettings, TDataJsonObject>
+  fullName: Ploch.Common.Serialization.AsyncSerializer<TSettings, TDataJsonObject>
+  nameWithType.vb: AsyncSerializer(Of TSettings, TDataJsonObject)
+  fullName.vb: Ploch.Common.Serialization.AsyncSerializer(Of TSettings, TDataJsonObject)
+  name.vb: AsyncSerializer(Of TSettings, TDataJsonObject)
+  spec.csharp:
+  - uid: Ploch.Common.Serialization.AsyncSerializer`2
+    name: AsyncSerializer
+    href: Ploch.Common.Serialization.AsyncSerializer-2.html
+  - name: <
+  - name: TSettings
+  - name: ','
+  - name: " "
+  - name: TDataJsonObject
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Serialization.AsyncSerializer`2
+    name: AsyncSerializer
+    href: Ploch.Common.Serialization.AsyncSerializer-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSettings
+  - name: ','
+  - name: " "
+  - name: TDataJsonObject
+  - name: )
+- uid: Ploch.Common.Serialization.IAsyncSerializer
+  commentId: T:Ploch.Common.Serialization.IAsyncSerializer
+  parent: Ploch.Common.Serialization
+  href: Ploch.Common.Serialization.IAsyncSerializer.html
+  name: IAsyncSerializer
+  nameWithType: IAsyncSerializer
+  fullName: Ploch.Common.Serialization.IAsyncSerializer
+- uid: Ploch.Common.Serialization.IAsyncSerializer`1
+  commentId: T:Ploch.Common.Serialization.IAsyncSerializer`1
+  href: Ploch.Common.Serialization.IAsyncSerializer-1.html
+  name: IAsyncSerializer<TSettings>
+  nameWithType: IAsyncSerializer<TSettings>
+  fullName: Ploch.Common.Serialization.IAsyncSerializer<TSettings>
+  nameWithType.vb: IAsyncSerializer(Of TSettings)
+  fullName.vb: Ploch.Common.Serialization.IAsyncSerializer(Of TSettings)
+  name.vb: IAsyncSerializer(Of TSettings)
+  spec.csharp:
+  - uid: Ploch.Common.Serialization.IAsyncSerializer`1
+    name: IAsyncSerializer
+    href: Ploch.Common.Serialization.IAsyncSerializer-1.html
+  - name: <
+  - name: TSettings
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Serialization.IAsyncSerializer`1
+    name: IAsyncSerializer
+    href: Ploch.Common.Serialization.IAsyncSerializer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSettings
+  - name: )
+- uid: Ploch.Common.Serialization.ISerializer
+  commentId: T:Ploch.Common.Serialization.ISerializer
+  parent: Ploch.Common.Serialization
+  href: Ploch.Common.Serialization.ISerializer.html
+  name: ISerializer
+  nameWithType: ISerializer
+  fullName: Ploch.Common.Serialization.ISerializer
+- uid: Ploch.Common.Serialization.ISerializer`1
+  commentId: T:Ploch.Common.Serialization.ISerializer`1
+  href: Ploch.Common.Serialization.ISerializer-1.html
+  name: ISerializer<TSettings>
+  nameWithType: ISerializer<TSettings>
+  fullName: Ploch.Common.Serialization.ISerializer<TSettings>
+  nameWithType.vb: ISerializer(Of TSettings)
+  fullName.vb: Ploch.Common.Serialization.ISerializer(Of TSettings)
+  name.vb: ISerializer(Of TSettings)
+  spec.csharp:
+  - uid: Ploch.Common.Serialization.ISerializer`1
+    name: ISerializer
+    href: Ploch.Common.Serialization.ISerializer-1.html
+  - name: <
+  - name: TSettings
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Serialization.ISerializer`1
+    name: ISerializer
+    href: Ploch.Common.Serialization.ISerializer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSettings
+  - name: )
+- uid: Ploch.Common.Serialization.Serializer`2
+  commentId: T:Ploch.Common.Serialization.Serializer`2
+  href: Ploch.Common.Serialization.Serializer-2.html
+  name: Serializer<TSettings, TDataJsonObject>
+  nameWithType: Serializer<TSettings, TDataJsonObject>
+  fullName: Ploch.Common.Serialization.Serializer<TSettings, TDataJsonObject>
+  nameWithType.vb: Serializer(Of TSettings, TDataJsonObject)
+  fullName.vb: Ploch.Common.Serialization.Serializer(Of TSettings, TDataJsonObject)
+  name.vb: Serializer(Of TSettings, TDataJsonObject)
+  spec.csharp:
+  - uid: Ploch.Common.Serialization.Serializer`2
+    name: Serializer
+    href: Ploch.Common.Serialization.Serializer-2.html
+  - name: <
+  - name: TSettings
+  - name: ','
+  - name: " "
+  - name: TDataJsonObject
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Serialization.Serializer`2
+    name: Serializer
+    href: Ploch.Common.Serialization.Serializer-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSettings
+  - name: ','
+  - name: " "
+  - name: TDataJsonObject
+  - name: )
+- uid: Ploch.Common.Serialization
+  commentId: N:Ploch.Common.Serialization
+  href: Ploch.html
+  name: Ploch.Common.Serialization
+  nameWithType: Ploch.Common.Serialization
+  fullName: Ploch.Common.Serialization
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+memberLayout: SeparatePages

@@ -1,0 +1,831 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Collections.CollectionExtensions
+  commentId: T:Ploch.Common.Collections.CollectionExtensions
+  id: CollectionExtensions
+  parent: Ploch.Common.Collections
+  children:
+  - Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  - Ploch.Common.Collections.CollectionExtensions.AddMany``2(``0,Ploch.Common.Collections.DuplicateHandling,``1[])
+  - Ploch.Common.Collections.CollectionExtensions.AddMany``2(``0,System.Collections.Generic.IEnumerable{``1},Ploch.Common.Collections.DuplicateHandling)
+  - Ploch.Common.Collections.CollectionExtensions.Add``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  langs:
+  - csharp
+  - vb
+  name: CollectionExtensions
+  nameWithType: CollectionExtensions
+  fullName: Ploch.Common.Collections.CollectionExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Common/Collections/CollectionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CollectionExtensions
+    path: ../src/Common/Collections/CollectionExtensions.cs
+    startLine: 10
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Extension methods for <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class CollectionExtensions
+    content.vb: Public Module CollectionExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  commentId: M:Ploch.Common.Collections.CollectionExtensions.AddIfNotNull``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  id: AddIfNotNull``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.CollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddIfNotNull<TKey, TValue>(ICollection<KeyValuePair<TKey, TValue?>>, TKey, TValue?)
+  nameWithType: CollectionExtensions.AddIfNotNull<TKey, TValue>(ICollection<KeyValuePair<TKey, TValue?>>, TKey, TValue?)
+  fullName: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull<TKey, TValue>(System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey, TValue?>>, TKey, TValue?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/CollectionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AddIfNotNull
+    path: ../src/Common/Collections/CollectionExtensions.cs
+    startLine: 27
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Adds a pair of key / value to a collection or a dictionary if the <code class="paramref">value</code> is not null.
+  remarks: >-
+    This method also provides a fluent interface by returning the same instance of <code class="paramref">collection</code> that
+
+    values were added to.
+  example: []
+  syntax:
+    content: 'public static ICollection<KeyValuePair<TKey, TValue?>> AddIfNotNull<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection, TKey key, TValue? value) where TValue : class?'
+    parameters:
+    - id: collection
+      type: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+      description: The collection.
+    - id: key
+      type: '{TKey}'
+      description: The key.
+    - id: value
+      type: '{TValue}'
+      description: The value.
+    typeParameters:
+    - id: TKey
+      description: The key type.
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+      description: the value of <code class="paramref">collection</code>.
+    content.vb: Public Shared Function AddIfNotNull(Of TKey, TValue As Class)(collection As ICollection(Of KeyValuePair(Of TKey, TValue)), key As TKey, value As TValue) As ICollection(Of KeyValuePair(Of TKey, TValue))
+  overload: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull*
+  nameWithType.vb: CollectionExtensions.AddIfNotNull(Of TKey, TValue)(ICollection(Of KeyValuePair(Of TKey, TValue)), TKey, TValue)
+  fullName.vb: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull(Of TKey, TValue)(System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)), TKey, TValue)
+  name.vb: AddIfNotNull(Of TKey, TValue)(ICollection(Of KeyValuePair(Of TKey, TValue)), TKey, TValue)
+- uid: Ploch.Common.Collections.CollectionExtensions.Add``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  commentId: M:Ploch.Common.Collections.CollectionExtensions.Add``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  id: Add``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.CollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: Add<TKey, TValue>(ICollection<KeyValuePair<TKey, TValue?>>, TKey, TValue?)
+  nameWithType: CollectionExtensions.Add<TKey, TValue>(ICollection<KeyValuePair<TKey, TValue?>>, TKey, TValue?)
+  fullName: Ploch.Common.Collections.CollectionExtensions.Add<TKey, TValue>(System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey, TValue?>>, TKey, TValue?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/CollectionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Add
+    path: ../src/Common/Collections/CollectionExtensions.cs
+    startLine: 55
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Adds a pair of key / value to a collection or a dictionary items.
+  remarks: >-
+    This method also provides a fluent interface by returning the same instance of <code class="paramref">collection</code> that
+
+    values were added to.
+  example: []
+  syntax:
+    content: public static ICollection<KeyValuePair<TKey, TValue?>> Add<TKey, TValue>(this ICollection<KeyValuePair<TKey, TValue?>> collection, TKey key, TValue? value)
+    parameters:
+    - id: collection
+      type: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+      description: The collection or dictionary instance to add key and value to.
+    - id: key
+      type: '{TKey}'
+      description: The key.
+    - id: value
+      type: '{TValue}'
+      description: The value.
+    typeParameters:
+    - id: TKey
+      description: The type of <code class="paramref">key</code> parameter.
+    - id: TValue
+      description: The type of <code class="paramref">value</code> parameter.
+    return:
+      type: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+      description: Same instance of collection that values were added to, providing fluent interface.
+    content.vb: Public Shared Function Add(Of TKey, TValue)(collection As ICollection(Of KeyValuePair(Of TKey, TValue)), key As TKey, value As TValue) As ICollection(Of KeyValuePair(Of TKey, TValue))
+  overload: Ploch.Common.Collections.CollectionExtensions.Add*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">collection</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  nameWithType.vb: CollectionExtensions.Add(Of TKey, TValue)(ICollection(Of KeyValuePair(Of TKey, TValue)), TKey, TValue)
+  fullName.vb: Ploch.Common.Collections.CollectionExtensions.Add(Of TKey, TValue)(System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)), TKey, TValue)
+  name.vb: Add(Of TKey, TValue)(ICollection(Of KeyValuePair(Of TKey, TValue)), TKey, TValue)
+- uid: Ploch.Common.Collections.CollectionExtensions.AddMany``2(``0,Ploch.Common.Collections.DuplicateHandling,``1[])
+  commentId: M:Ploch.Common.Collections.CollectionExtensions.AddMany``2(``0,Ploch.Common.Collections.DuplicateHandling,``1[])
+  id: AddMany``2(``0,Ploch.Common.Collections.DuplicateHandling,``1[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.CollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddMany<TCollection, TItem>(TCollection, DuplicateHandling, params TItem[])
+  nameWithType: CollectionExtensions.AddMany<TCollection, TItem>(TCollection, DuplicateHandling, params TItem[])
+  fullName: Ploch.Common.Collections.CollectionExtensions.AddMany<TCollection, TItem>(TCollection, Ploch.Common.Collections.DuplicateHandling, params TItem[])
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/CollectionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AddMany
+    path: ../src/Common/Collections/CollectionExtensions.cs
+    startLine: 76
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Adds multiple items to a collection. Provides control over handling duplicates using the <code class="paramref">duplicateHandling</code> parameter.
+  example: []
+  syntax:
+    content: 'public static ICollection<TItem> AddMany<TCollection, TItem>(this TCollection collection, DuplicateHandling duplicateHandling = DuplicateHandling.Throw, params TItem[] items) where TCollection : ICollection<TItem>'
+    parameters:
+    - id: collection
+      type: '{TCollection}'
+      description: The target collection to which items are added.
+    - id: duplicateHandling
+      type: Ploch.Common.Collections.DuplicateHandling
+      description: >-
+        Specifies how duplicate items should be handled:
+
+        <xref href="Ploch.Common.Collections.DuplicateHandling.Ignore" data-throw-if-not-resolved="false"></xref>, <xref href="Ploch.Common.Collections.DuplicateHandling.Overwrite" data-throw-if-not-resolved="false"></xref>, or <xref href="Ploch.Common.Collections.DuplicateHandling.Throw" data-throw-if-not-resolved="false"></xref>.
+    - id: items
+      type: '{TItem}[]'
+      description: The items to add to the collection.
+    typeParameters:
+    - id: TCollection
+      description: The type of the collection being extended, which implements <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    - id: TItem
+      description: The type of items in the collection.
+    return:
+      type: System.Collections.Generic.ICollection{{TItem}}
+      description: The same instance of <code class="paramref">collection</code> after items have been added.
+    content.vb: Public Shared Function AddMany(Of TCollection As ICollection(Of TItem), TItem)(collection As TCollection, duplicateHandling As DuplicateHandling = DuplicateHandling.Throw, ParamArray items As TItem()) As ICollection(Of TItem)
+  overload: Ploch.Common.Collections.CollectionExtensions.AddMany*
+  nameWithType.vb: CollectionExtensions.AddMany(Of TCollection, TItem)(TCollection, DuplicateHandling, ParamArray TItem())
+  fullName.vb: Ploch.Common.Collections.CollectionExtensions.AddMany(Of TCollection, TItem)(TCollection, Ploch.Common.Collections.DuplicateHandling, ParamArray TItem())
+  name.vb: AddMany(Of TCollection, TItem)(TCollection, DuplicateHandling, ParamArray TItem())
+- uid: Ploch.Common.Collections.CollectionExtensions.AddMany``2(``0,System.Collections.Generic.IEnumerable{``1},Ploch.Common.Collections.DuplicateHandling)
+  commentId: M:Ploch.Common.Collections.CollectionExtensions.AddMany``2(``0,System.Collections.Generic.IEnumerable{``1},Ploch.Common.Collections.DuplicateHandling)
+  id: AddMany``2(``0,System.Collections.Generic.IEnumerable{``1},Ploch.Common.Collections.DuplicateHandling)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.CollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddMany<TCollection, TItem>(TCollection, IEnumerable<TItem>, DuplicateHandling)
+  nameWithType: CollectionExtensions.AddMany<TCollection, TItem>(TCollection, IEnumerable<TItem>, DuplicateHandling)
+  fullName: Ploch.Common.Collections.CollectionExtensions.AddMany<TCollection, TItem>(TCollection, System.Collections.Generic.IEnumerable<TItem>, Ploch.Common.Collections.DuplicateHandling)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/CollectionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AddMany
+    path: ../src/Common/Collections/CollectionExtensions.cs
+    startLine: 96
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Adds all items to the collection.
+  example: []
+  syntax:
+    content: 'public static TCollection AddMany<TCollection, TItem>(this TCollection collection, IEnumerable<TItem> items, DuplicateHandling duplicateHandling = DuplicateHandling.Throw) where TCollection : ICollection<TItem>'
+    parameters:
+    - id: collection
+      type: '{TCollection}'
+      description: The collection instance.
+    - id: items
+      type: System.Collections.Generic.IEnumerable{{TItem}}
+      description: Items to add to the collection.
+    - id: duplicateHandling
+      type: Ploch.Common.Collections.DuplicateHandling
+      description: Duplicate handling behavior.
+    typeParameters:
+    - id: TCollection
+      description: The collection type.
+    - id: TItem
+      description: Item type.
+    return:
+      type: '{TCollection}'
+      description: The source collection after addition, providing a fluent interface.
+    content.vb: Public Shared Function AddMany(Of TCollection As ICollection(Of TItem), TItem)(collection As TCollection, items As IEnumerable(Of TItem), duplicateHandling As DuplicateHandling = DuplicateHandling.Throw) As TCollection
+  overload: Ploch.Common.Collections.CollectionExtensions.AddMany*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: >-
+      <code class="paramref">collection</code> or <code class="paramref">items</code> is
+
+      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  nameWithType.vb: CollectionExtensions.AddMany(Of TCollection, TItem)(TCollection, IEnumerable(Of TItem), DuplicateHandling)
+  fullName.vb: Ploch.Common.Collections.CollectionExtensions.AddMany(Of TCollection, TItem)(TCollection, System.Collections.Generic.IEnumerable(Of TItem), Ploch.Common.Collections.DuplicateHandling)
+  name.vb: AddMany(Of TCollection, TItem)(TCollection, IEnumerable(Of TItem), DuplicateHandling)
+references:
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.Collections
+  commentId: N:Ploch.Common.Collections
+  href: Ploch.html
+  name: Ploch.Common.Collections
+  nameWithType: Ploch.Common.Collections
+  fullName: Ploch.Common.Collections
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull*
+  commentId: Overload:Ploch.Common.Collections.CollectionExtensions.AddIfNotNull
+  href: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull.html#Ploch_Common_Collections_CollectionExtensions_AddIfNotNull__2_System_Collections_Generic_ICollection_System_Collections_Generic_KeyValuePair___0___1_____0___1_
+  name: AddIfNotNull
+  nameWithType: CollectionExtensions.AddIfNotNull
+  fullName: Ploch.Common.Collections.CollectionExtensions.AddIfNotNull
+- uid: System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+  commentId: T:System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<KeyValuePair<TKey, TValue>>
+  nameWithType: ICollection<KeyValuePair<TKey, TValue>>
+  fullName: System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey, TValue>>
+  nameWithType.vb: ICollection(Of KeyValuePair(Of TKey, TValue))
+  fullName.vb: System.Collections.Generic.ICollection(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue))
+  name.vb: ICollection(Of KeyValuePair(Of TKey, TValue))
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: '{TKey}'
+  commentId: '!:TKey'
+  definition: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: '{TValue}'
+  commentId: '!:TValue'
+  definition: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: Ploch.Common.Collections.CollectionExtensions.Add*
+  commentId: Overload:Ploch.Common.Collections.CollectionExtensions.Add
+  href: Ploch.Common.Collections.CollectionExtensions.Add.html#Ploch_Common_Collections_CollectionExtensions_Add__2_System_Collections_Generic_ICollection_System_Collections_Generic_KeyValuePair___0___1_____0___1_
+  name: Add
+  nameWithType: CollectionExtensions.Add
+  fullName: Ploch.Common.Collections.CollectionExtensions.Add
+- uid: Ploch.Common.Collections.DuplicateHandling.Ignore
+  commentId: F:Ploch.Common.Collections.DuplicateHandling.Ignore
+  href: Ploch.Common.Collections.DuplicateHandling.html#Ploch_Common_Collections_DuplicateHandling_Ignore
+  name: Ignore
+  nameWithType: DuplicateHandling.Ignore
+  fullName: Ploch.Common.Collections.DuplicateHandling.Ignore
+- uid: Ploch.Common.Collections.DuplicateHandling.Overwrite
+  commentId: F:Ploch.Common.Collections.DuplicateHandling.Overwrite
+  href: Ploch.Common.Collections.DuplicateHandling.html#Ploch_Common_Collections_DuplicateHandling_Overwrite
+  name: Overwrite
+  nameWithType: DuplicateHandling.Overwrite
+  fullName: Ploch.Common.Collections.DuplicateHandling.Overwrite
+- uid: Ploch.Common.Collections.DuplicateHandling.Throw
+  commentId: F:Ploch.Common.Collections.DuplicateHandling.Throw
+  href: Ploch.Common.Collections.DuplicateHandling.html#Ploch_Common_Collections_DuplicateHandling_Throw
+  name: Throw
+  nameWithType: DuplicateHandling.Throw
+  fullName: Ploch.Common.Collections.DuplicateHandling.Throw
+- uid: Ploch.Common.Collections.CollectionExtensions.AddMany*
+  commentId: Overload:Ploch.Common.Collections.CollectionExtensions.AddMany
+  href: Ploch.Common.Collections.CollectionExtensions.AddMany.html#Ploch_Common_Collections_CollectionExtensions_AddMany__2___0_Ploch_Common_Collections_DuplicateHandling___1___
+  name: AddMany
+  nameWithType: CollectionExtensions.AddMany
+  fullName: Ploch.Common.Collections.CollectionExtensions.AddMany
+- uid: '{TCollection}'
+  commentId: '!:TCollection'
+  definition: TCollection
+  name: TCollection
+  nameWithType: TCollection
+  fullName: TCollection
+- uid: Ploch.Common.Collections.DuplicateHandling
+  commentId: T:Ploch.Common.Collections.DuplicateHandling
+  parent: Ploch.Common.Collections
+  href: Ploch.Common.Collections.DuplicateHandling.html
+  name: DuplicateHandling
+  nameWithType: DuplicateHandling
+  fullName: Ploch.Common.Collections.DuplicateHandling
+- uid: '{TItem}[]'
+  isExternal: true
+  name: TItem[]
+  nameWithType: TItem[]
+  fullName: TItem[]
+  nameWithType.vb: TItem()
+  fullName.vb: TItem()
+  name.vb: TItem()
+  spec.csharp:
+  - name: TItem
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: TItem
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection{{TItem}}
+  commentId: T:System.Collections.Generic.ICollection{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<TItem>
+  nameWithType: ICollection<TItem>
+  fullName: System.Collections.Generic.ICollection<TItem>
+  nameWithType.vb: ICollection(Of TItem)
+  fullName.vb: System.Collections.Generic.ICollection(Of TItem)
+  name.vb: ICollection(Of TItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: TItem
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: )
+- uid: TCollection
+  name: TCollection
+  nameWithType: TCollection
+  fullName: TCollection
+- uid: System.Collections.Generic.IEnumerable{{TItem}}
+  commentId: T:System.Collections.Generic.IEnumerable{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TItem>
+  nameWithType: IEnumerable<TItem>
+  fullName: System.Collections.Generic.IEnumerable<TItem>
+  nameWithType.vb: IEnumerable(Of TItem)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TItem)
+  name.vb: IEnumerable(Of TItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TItem
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+memberLayout: SeparatePages

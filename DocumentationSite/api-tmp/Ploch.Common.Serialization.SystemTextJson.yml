@@ -1,0 +1,72 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Serialization.SystemTextJson
+  commentId: N:Ploch.Common.Serialization.SystemTextJson
+  id: SystemTextJson
+  parent: Ploch.Common.Serialization
+  children:
+  - Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  - Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Serialization.SystemTextJson
+  nameWithType: Ploch.Common.Serialization.SystemTextJson
+  fullName: Ploch.Common.Serialization.SystemTextJson
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Serialization.SystemTextJson
+references:
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  commentId: N:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  href: Ploch.html
+  name: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  nameWithType: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.SystemTextJson
+    name: SystemTextJson
+    href: Ploch.Common.Serialization.SystemTextJson.html
+  - name: .
+  - uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+    name: ExtensionsDependencyInjection
+    href: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.SystemTextJson
+    name: SystemTextJson
+    href: Ploch.Common.Serialization.SystemTextJson.html
+  - name: .
+  - uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+    name: ExtensionsDependencyInjection
+    href: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.html
+- uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+  commentId: T:Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+  href: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer.html
+  name: SystemTextJsonSerializer
+  nameWithType: SystemTextJsonSerializer
+  fullName: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+memberLayout: SeparatePages

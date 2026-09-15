@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.IO
+  commentId: N:Ploch.Common.IO
+  id: IO
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.IO.CommandLineInfo
+  - Ploch.Common.IO.CommandLineParser
+  - Ploch.Common.IO.PathUtils
+  - Ploch.Common.IO.StreamExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.IO
+  nameWithType: Ploch.Common.IO
+  fullName: Ploch.Common.IO
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.IO.CommandLineInfo
+  commentId: T:Ploch.Common.IO.CommandLineInfo
+  parent: Ploch.Common.IO
+  href: Ploch.Common.IO.CommandLineInfo.html
+  name: CommandLineInfo
+  nameWithType: CommandLineInfo
+  fullName: Ploch.Common.IO.CommandLineInfo
+- uid: Ploch.Common.IO.CommandLineParser
+  commentId: T:Ploch.Common.IO.CommandLineParser
+  href: Ploch.Common.IO.CommandLineParser.html
+  name: CommandLineParser
+  nameWithType: CommandLineParser
+  fullName: Ploch.Common.IO.CommandLineParser
+- uid: Ploch.Common.IO.PathUtils
+  commentId: T:Ploch.Common.IO.PathUtils
+  href: Ploch.Common.IO.PathUtils.html
+  name: PathUtils
+  nameWithType: PathUtils
+  fullName: Ploch.Common.IO.PathUtils
+- uid: Ploch.Common.IO.StreamExtensions
+  commentId: T:Ploch.Common.IO.StreamExtensions
+  href: Ploch.Common.IO.StreamExtensions.html
+  name: StreamExtensions
+  nameWithType: StreamExtensions
+  fullName: Ploch.Common.IO.StreamExtensions
+- uid: Ploch.Common.IO
+  commentId: N:Ploch.Common.IO
+  href: Ploch.html
+  name: Ploch.Common.IO
+  nameWithType: Ploch.Common.IO
+  fullName: Ploch.Common.IO
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+memberLayout: SeparatePages

@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Extensions.Configuration
+  commentId: N:Ploch.Common.Extensions.Configuration
+  id: Extensions.Configuration
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Extensions.Configuration.ConfigurationOptionsExtensions
+  - Ploch.Common.Extensions.Configuration.ConfigurationSectionAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Extensions.Configuration
+  nameWithType: Ploch.Common.Extensions.Configuration
+  fullName: Ploch.Common.Extensions.Configuration
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Extensions.Configuration
+references:
+- uid: Ploch.Common.Extensions.Configuration.ConfigurationOptionsExtensions
+  commentId: T:Ploch.Common.Extensions.Configuration.ConfigurationOptionsExtensions
+  href: Ploch.Common.Extensions.Configuration.ConfigurationOptionsExtensions.html
+  name: ConfigurationOptionsExtensions
+  nameWithType: ConfigurationOptionsExtensions
+  fullName: Ploch.Common.Extensions.Configuration.ConfigurationOptionsExtensions
+- uid: Ploch.Common.Extensions.Configuration.ConfigurationSectionAttribute
+  commentId: T:Ploch.Common.Extensions.Configuration.ConfigurationSectionAttribute
+  href: Ploch.Common.Extensions.Configuration.ConfigurationSectionAttribute.html
+  name: ConfigurationSectionAttribute
+  nameWithType: ConfigurationSectionAttribute
+  fullName: Ploch.Common.Extensions.Configuration.ConfigurationSectionAttribute
+memberLayout: SeparatePages

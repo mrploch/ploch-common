@@ -1,0 +1,432 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Apps.Model
+  commentId: N:Ploch.Common.Apps.Model
+  id: Apps.Model
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Apps.Model.ActionExecutionException
+  - Ploch.Common.Apps.Model.ActionExecutionId`1
+  - Ploch.Common.Apps.Model.ActionHandlerManagerResult
+  - Ploch.Common.Apps.Model.ActionHandlerManagerResult`1
+  - Ploch.Common.Apps.Model.ActionHandlerManager`3
+  - Ploch.Common.Apps.Model.ActionHandlerResult
+  - Ploch.Common.Apps.Model.ActionHandlerResult`1
+  - Ploch.Common.Apps.Model.ActionHandler`2
+  - Ploch.Common.Apps.Model.ActionHandler`3
+  - Ploch.Common.Apps.Model.ActionInfo`1
+  - Ploch.Common.Apps.Model.IActionHandlerManager`2
+  - Ploch.Common.Apps.Model.IActionHandler`2
+  - Ploch.Common.Apps.Model.IActionHandler`3
+  - Ploch.Common.Apps.Model.IActionInfo
+  - Ploch.Common.Apps.Model.IActionInfo`1
+  - Ploch.Common.Apps.Model.IActionTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Apps.Model
+  nameWithType: Ploch.Common.Apps.Model
+  fullName: Ploch.Common.Apps.Model
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Apps.Actions.Model
+references:
+- uid: Ploch.Common.Apps.Model.ActionExecutionException
+  commentId: T:Ploch.Common.Apps.Model.ActionExecutionException
+  href: Ploch.Common.Apps.Model.ActionExecutionException.html
+  name: ActionExecutionException
+  nameWithType: ActionExecutionException
+  fullName: Ploch.Common.Apps.Model.ActionExecutionException
+- uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+  commentId: T:Ploch.Common.Apps.Model.ActionExecutionId`1
+  href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  name: ActionExecutionId<TSystemApplication>
+  nameWithType: ActionExecutionId<TSystemApplication>
+  fullName: Ploch.Common.Apps.Model.ActionExecutionId<TSystemApplication>
+  nameWithType.vb: ActionExecutionId(Of TSystemApplication)
+  fullName.vb: Ploch.Common.Apps.Model.ActionExecutionId(Of TSystemApplication)
+  name.vb: ActionExecutionId(Of TSystemApplication)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+    name: ActionExecutionId
+    href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  - name: <
+  - name: TSystemApplication
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+    name: ActionExecutionId
+    href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandlerManagerResult
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerManagerResult
+  href: Ploch.Common.Apps.Model.ActionHandlerManagerResult.html
+  name: ActionHandlerManagerResult
+  nameWithType: ActionHandlerManagerResult
+  fullName: Ploch.Common.Apps.Model.ActionHandlerManagerResult
+- uid: Ploch.Common.Apps.Model.ActionHandlerManagerResult`1
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerManagerResult`1
+  href: Ploch.Common.Apps.Model.ActionHandlerManagerResult-1.html
+  name: ActionHandlerManagerResult<TSystemApplication>
+  nameWithType: ActionHandlerManagerResult<TSystemApplication>
+  fullName: Ploch.Common.Apps.Model.ActionHandlerManagerResult<TSystemApplication>
+  nameWithType.vb: ActionHandlerManagerResult(Of TSystemApplication)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerManagerResult(Of TSystemApplication)
+  name.vb: ActionHandlerManagerResult(Of TSystemApplication)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerManagerResult`1
+    name: ActionHandlerManagerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerManagerResult-1.html
+  - name: <
+  - name: TSystemApplication
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerManagerResult`1
+    name: ActionHandlerManagerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerManagerResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandlerManager`3
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerManager`3
+  href: Ploch.Common.Apps.Model.ActionHandlerManager-3.html
+  name: ActionHandlerManager<TSystemApplication, TActionInfo, TSystemActionHandler>
+  nameWithType: ActionHandlerManager<TSystemApplication, TActionInfo, TSystemActionHandler>
+  fullName: Ploch.Common.Apps.Model.ActionHandlerManager<TSystemApplication, TActionInfo, TSystemActionHandler>
+  nameWithType.vb: ActionHandlerManager(Of TSystemApplication, TActionInfo, TSystemActionHandler)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerManager(Of TSystemApplication, TActionInfo, TSystemActionHandler)
+  name.vb: ActionHandlerManager(Of TSystemApplication, TActionInfo, TSystemActionHandler)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerManager`3
+    name: ActionHandlerManager
+    href: Ploch.Common.Apps.Model.ActionHandlerManager-3.html
+  - name: <
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: ','
+  - name: " "
+  - name: TSystemActionHandler
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerManager`3
+    name: ActionHandlerManager
+    href: Ploch.Common.Apps.Model.ActionHandlerManager-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: ','
+  - name: " "
+  - name: TSystemActionHandler
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerResult
+  href: Ploch.Common.Apps.Model.ActionHandlerResult.html
+  name: ActionHandlerResult
+  nameWithType: ActionHandlerResult
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerResult`1
+  href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  name: ActionHandlerResult<TActionTargetDescriptor>
+  nameWithType: ActionHandlerResult<TActionTargetDescriptor>
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult<TActionTargetDescriptor>
+  nameWithType.vb: ActionHandlerResult(Of TActionTargetDescriptor)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult(Of TActionTargetDescriptor)
+  name.vb: ActionHandlerResult(Of TActionTargetDescriptor)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+    name: ActionHandlerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+    name: ActionHandlerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandler`2
+  commentId: T:Ploch.Common.Apps.Model.ActionHandler`2
+  href: Ploch.Common.Apps.Model.ActionHandler-2.html
+  name: ActionHandler<TSystemApplication, TActionInfo>
+  nameWithType: ActionHandler<TSystemApplication, TActionInfo>
+  fullName: Ploch.Common.Apps.Model.ActionHandler<TSystemApplication, TActionInfo>
+  nameWithType.vb: ActionHandler(Of TSystemApplication, TActionInfo)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandler(Of TSystemApplication, TActionInfo)
+  name.vb: ActionHandler(Of TSystemApplication, TActionInfo)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandler`2
+    name: ActionHandler
+    href: Ploch.Common.Apps.Model.ActionHandler-2.html
+  - name: <
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandler`2
+    name: ActionHandler
+    href: Ploch.Common.Apps.Model.ActionHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandler`3
+  commentId: T:Ploch.Common.Apps.Model.ActionHandler`3
+  href: Ploch.Common.Apps.Model.ActionHandler-3.html
+  name: ActionHandler<TSystemApplication, TActionInfo, TSystemApplicationActionResult>
+  nameWithType: ActionHandler<TSystemApplication, TActionInfo, TSystemApplicationActionResult>
+  fullName: Ploch.Common.Apps.Model.ActionHandler<TSystemApplication, TActionInfo, TSystemApplicationActionResult>
+  nameWithType.vb: ActionHandler(Of TSystemApplication, TActionInfo, TSystemApplicationActionResult)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandler(Of TSystemApplication, TActionInfo, TSystemApplicationActionResult)
+  name.vb: ActionHandler(Of TSystemApplication, TActionInfo, TSystemApplicationActionResult)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandler`3
+    name: ActionHandler
+    href: Ploch.Common.Apps.Model.ActionHandler-3.html
+  - name: <
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: ','
+  - name: " "
+  - name: TSystemApplicationActionResult
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandler`3
+    name: ActionHandler
+    href: Ploch.Common.Apps.Model.ActionHandler-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: ','
+  - name: " "
+  - name: TSystemApplicationActionResult
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionInfo`1
+  commentId: T:Ploch.Common.Apps.Model.ActionInfo`1
+  href: Ploch.Common.Apps.Model.ActionInfo-1.html
+  name: ActionInfo<TActionTargetDescriptor>
+  nameWithType: ActionInfo<TActionTargetDescriptor>
+  fullName: Ploch.Common.Apps.Model.ActionInfo<TActionTargetDescriptor>
+  nameWithType.vb: ActionInfo(Of TActionTargetDescriptor)
+  fullName.vb: Ploch.Common.Apps.Model.ActionInfo(Of TActionTargetDescriptor)
+  name.vb: ActionInfo(Of TActionTargetDescriptor)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionInfo`1
+    name: ActionInfo
+    href: Ploch.Common.Apps.Model.ActionInfo-1.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionInfo`1
+    name: ActionInfo
+    href: Ploch.Common.Apps.Model.ActionInfo-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: )
+- uid: Ploch.Common.Apps.Model.IActionHandlerManager`2
+  commentId: T:Ploch.Common.Apps.Model.IActionHandlerManager`2
+  href: Ploch.Common.Apps.Model.IActionHandlerManager-2.html
+  name: IActionHandlerManager<TSystemApplication, TActionInfo>
+  nameWithType: IActionHandlerManager<TSystemApplication, TActionInfo>
+  fullName: Ploch.Common.Apps.Model.IActionHandlerManager<TSystemApplication, TActionInfo>
+  nameWithType.vb: IActionHandlerManager(Of TSystemApplication, TActionInfo)
+  fullName.vb: Ploch.Common.Apps.Model.IActionHandlerManager(Of TSystemApplication, TActionInfo)
+  name.vb: IActionHandlerManager(Of TSystemApplication, TActionInfo)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.IActionHandlerManager`2
+    name: IActionHandlerManager
+    href: Ploch.Common.Apps.Model.IActionHandlerManager-2.html
+  - name: <
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.IActionHandlerManager`2
+    name: IActionHandlerManager
+    href: Ploch.Common.Apps.Model.IActionHandlerManager-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: )
+- uid: Ploch.Common.Apps.Model.IActionHandler`2
+  commentId: T:Ploch.Common.Apps.Model.IActionHandler`2
+  href: Ploch.Common.Apps.Model.IActionHandler-2.html
+  name: IActionHandler<TSystemApplication, TActionInfo>
+  nameWithType: IActionHandler<TSystemApplication, TActionInfo>
+  fullName: Ploch.Common.Apps.Model.IActionHandler<TSystemApplication, TActionInfo>
+  nameWithType.vb: IActionHandler(Of TSystemApplication, TActionInfo)
+  fullName.vb: Ploch.Common.Apps.Model.IActionHandler(Of TSystemApplication, TActionInfo)
+  name.vb: IActionHandler(Of TSystemApplication, TActionInfo)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.IActionHandler`2
+    name: IActionHandler
+    href: Ploch.Common.Apps.Model.IActionHandler-2.html
+  - name: <
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.IActionHandler`2
+    name: IActionHandler
+    href: Ploch.Common.Apps.Model.IActionHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: )
+- uid: Ploch.Common.Apps.Model.IActionHandler`3
+  commentId: T:Ploch.Common.Apps.Model.IActionHandler`3
+  href: Ploch.Common.Apps.Model.IActionHandler-3.html
+  name: IActionHandler<TActionTargetDescriptor, TActionInfo, TResult>
+  nameWithType: IActionHandler<TActionTargetDescriptor, TActionInfo, TResult>
+  fullName: Ploch.Common.Apps.Model.IActionHandler<TActionTargetDescriptor, TActionInfo, TResult>
+  nameWithType.vb: IActionHandler(Of TActionTargetDescriptor, TActionInfo, TResult)
+  fullName.vb: Ploch.Common.Apps.Model.IActionHandler(Of TActionTargetDescriptor, TActionInfo, TResult)
+  name.vb: IActionHandler(Of TActionTargetDescriptor, TActionInfo, TResult)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.IActionHandler`3
+    name: IActionHandler
+    href: Ploch.Common.Apps.Model.IActionHandler-3.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.IActionHandler`3
+    name: IActionHandler
+    href: Ploch.Common.Apps.Model.IActionHandler-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: ','
+  - name: " "
+  - name: TActionInfo
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Ploch.Common.Apps.Model.IActionInfo
+  commentId: T:Ploch.Common.Apps.Model.IActionInfo
+  parent: Ploch.Common.Apps.Model
+  href: Ploch.Common.Apps.Model.IActionInfo.html
+  name: IActionInfo
+  nameWithType: IActionInfo
+  fullName: Ploch.Common.Apps.Model.IActionInfo
+- uid: Ploch.Common.Apps.Model.IActionInfo`1
+  commentId: T:Ploch.Common.Apps.Model.IActionInfo`1
+  href: Ploch.Common.Apps.Model.IActionInfo-1.html
+  name: IActionInfo<TActionTargetDescriptor>
+  nameWithType: IActionInfo<TActionTargetDescriptor>
+  fullName: Ploch.Common.Apps.Model.IActionInfo<TActionTargetDescriptor>
+  nameWithType.vb: IActionInfo(Of TActionTargetDescriptor)
+  fullName.vb: Ploch.Common.Apps.Model.IActionInfo(Of TActionTargetDescriptor)
+  name.vb: IActionInfo(Of TActionTargetDescriptor)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.IActionInfo`1
+    name: IActionInfo
+    href: Ploch.Common.Apps.Model.IActionInfo-1.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.IActionInfo`1
+    name: IActionInfo
+    href: Ploch.Common.Apps.Model.IActionInfo-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: )
+- uid: Ploch.Common.Apps.Model.IActionTargetDescriptor
+  commentId: T:Ploch.Common.Apps.Model.IActionTargetDescriptor
+  href: Ploch.Common.Apps.Model.IActionTargetDescriptor.html
+  name: IActionTargetDescriptor
+  nameWithType: IActionTargetDescriptor
+  fullName: Ploch.Common.Apps.Model.IActionTargetDescriptor
+- uid: Ploch.Common.Apps.Model
+  commentId: N:Ploch.Common.Apps.Model
+  href: Ploch.html
+  name: Ploch.Common.Apps.Model
+  nameWithType: Ploch.Common.Apps.Model
+  fullName: Ploch.Common.Apps.Model
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Apps
+    name: Apps
+    href: Ploch.Common.Apps.html
+  - name: .
+  - uid: Ploch.Common.Apps.Model
+    name: Model
+    href: Ploch.Common.Apps.Model.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Apps
+    name: Apps
+    href: Ploch.Common.Apps.html
+  - name: .
+  - uid: Ploch.Common.Apps.Model
+    name: Model
+    href: Ploch.Common.Apps.Model.html
+memberLayout: SeparatePages

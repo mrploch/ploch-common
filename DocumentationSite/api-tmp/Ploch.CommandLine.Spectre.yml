@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.CommandLine.Spectre
+  commentId: N:Ploch.CommandLine.Spectre
+  id: CommandLine.Spectre
+  parent: Ploch
+  children:
+  - Ploch.CommandLine.Spectre.AppInfo
+  langs:
+  - csharp
+  - vb
+  name: Ploch.CommandLine.Spectre
+  nameWithType: Ploch.CommandLine.Spectre
+  fullName: Ploch.CommandLine.Spectre
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Apps.Shared
+references:
+- uid: Ploch.CommandLine.Spectre.AppInfo
+  commentId: T:Ploch.CommandLine.Spectre.AppInfo
+  href: Ploch.CommandLine.Spectre.AppInfo.html
+  name: AppInfo
+  nameWithType: AppInfo
+  fullName: Ploch.CommandLine.Spectre.AppInfo
+memberLayout: SeparatePages

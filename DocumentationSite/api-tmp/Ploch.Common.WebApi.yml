@@ -1,0 +1,71 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebApi
+  commentId: N:Ploch.Common.WebApi
+  id: WebApi
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.WebApi.Endpoints
+  - Ploch.Common.WebApi.OpenApiConfigurator
+  - Ploch.Common.WebApi.QueryStringBinder
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.WebApi
+  nameWithType: Ploch.Common.WebApi
+  fullName: Ploch.Common.WebApi
+  type: Namespace
+  assemblies:
+  - Ploch.Common.WebApi
+references:
+- uid: Ploch.Common.WebApi.Endpoints
+  commentId: N:Ploch.Common.WebApi.Endpoints
+  href: Ploch.html
+  name: Ploch.Common.WebApi.Endpoints
+  nameWithType: Ploch.Common.WebApi.Endpoints
+  fullName: Ploch.Common.WebApi.Endpoints
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+  - name: .
+  - uid: Ploch.Common.WebApi.Endpoints
+    name: Endpoints
+    href: Ploch.Common.WebApi.Endpoints.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+  - name: .
+  - uid: Ploch.Common.WebApi.Endpoints
+    name: Endpoints
+    href: Ploch.Common.WebApi.Endpoints.html
+- uid: Ploch.Common.WebApi.OpenApiConfigurator
+  commentId: T:Ploch.Common.WebApi.OpenApiConfigurator
+  href: Ploch.Common.WebApi.OpenApiConfigurator.html
+  name: OpenApiConfigurator
+  nameWithType: OpenApiConfigurator
+  fullName: Ploch.Common.WebApi.OpenApiConfigurator
+- uid: Ploch.Common.WebApi.QueryStringBinder
+  commentId: T:Ploch.Common.WebApi.QueryStringBinder
+  href: Ploch.Common.WebApi.QueryStringBinder.html
+  name: QueryStringBinder
+  nameWithType: QueryStringBinder
+  fullName: Ploch.Common.WebApi.QueryStringBinder
+memberLayout: SeparatePages

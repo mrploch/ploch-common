@@ -1,0 +1,1700 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Reflection.PropertyHelpers
+  commentId: T:Ploch.Common.Reflection.PropertyHelpers
+  id: PropertyHelpers
+  parent: Ploch.Common.Reflection
+  children:
+  - Ploch.Common.Reflection.PropertyHelpers.GetProperties(System.Object,System.Boolean,System.Type[])
+  - Ploch.Common.Reflection.PropertyHelpers.GetProperties``1(System.Object,System.Boolean)
+  - Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo(System.Type,System.String,System.Boolean)
+  - Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.Reflection.PropertyInfo,System.Object[])
+  - Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.String,System.Object[])
+  - Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``2(``0,System.String,System.Object[])
+  - Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``2(``1,System.Linq.Expressions.Expression{System.Func{``1,``0}})
+  - Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues(System.Object)
+  - Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type,System.String)
+  - Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue``1(System.Type,System.String)
+  - Ploch.Common.Reflection.PropertyHelpers.HasProperty(System.Object,System.String)
+  - Ploch.Common.Reflection.PropertyHelpers.IndexerPropertyName
+  - Ploch.Common.Reflection.PropertyHelpers.IsStatic(System.Reflection.PropertyInfo)
+  - Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue``1(``0,System.String,System.Object)
+  - Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type,System.String,System.Object@)
+  langs:
+  - csharp
+  - vb
+  name: PropertyHelpers
+  nameWithType: PropertyHelpers
+  fullName: Ploch.Common.Reflection.PropertyHelpers
+  type: Class
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PropertyHelpers
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 13
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Common reflection tasks convenience object extensions.
+  example: []
+  syntax:
+    content: public static class PropertyHelpers
+    content.vb: Public Module PropertyHelpers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Reflection.PropertyHelpers.IndexerPropertyName
+  commentId: F:Ploch.Common.Reflection.PropertyHelpers.IndexerPropertyName
+  id: IndexerPropertyName
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: IndexerPropertyName
+  nameWithType: PropertyHelpers.IndexerPropertyName
+  fullName: Ploch.Common.Reflection.PropertyHelpers.IndexerPropertyName
+  type: Field
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IndexerPropertyName
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 34
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: >-
+    Represents the default name for an indexer property in .NET, i.e., "Item".
+
+    This constant is commonly used in reflection-based operations to reference
+
+    indexer properties implemented in classes.
+  remarks: >-
+    In .NET, indexers are special properties that allow instances of a class
+
+    or struct to be indexed like arrays. The default name for indexers is "Item",
+
+    but the actual usage can vary based on the language or implementation.
+
+    This constant provides a strongly typed reference to that default name
+
+    to avoid hardcoded strings in reflection utilities.
+  example:
+  - >-
+    <pre><code class="lang-csharp">// Example usage of the `IndexerPropertyName` constant in reflection.
+
+    var propertyValue = someObject.GetPropertyValue(PropertyHelpers.IndexerPropertyName, new object[] { 0 });
+
+    Console.WriteLine(propertyValue);</code></pre>
+  syntax:
+    content: public const string IndexerPropertyName = "Item"
+    return:
+      type: System.String
+    content.vb: Public Const IndexerPropertyName As String = "Item"
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetProperties``1(System.Object,System.Boolean)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetProperties``1(System.Object,System.Boolean)
+  id: GetProperties``1(System.Object,System.Boolean)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetProperties<TPropertyType>(object, bool)
+  nameWithType: PropertyHelpers.GetProperties<TPropertyType>(object, bool)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetProperties<TPropertyType>(object, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetProperties
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 54
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets the <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/public">public</a> properties of a specific type.
+  example: []
+  syntax:
+    content: public static IEnumerable<PropertyInfo> GetProperties<TPropertyType>(this object obj, bool includeAssignableOrInheritedTypes = true)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object.
+    - id: includeAssignableOrInheritedTypes
+      type: System.Boolean
+      description: >-
+        Include subtypes of <code class="typeparamref">TPropertyType</code> and types that are assignable to in
+
+        results.
+    typeParameters:
+    - id: TPropertyType
+      description: The type of the properties to return.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo}
+      description: >-
+        List of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/public">public</a> properties of a specific type.(
+
+        <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> s).
+    content.vb: Public Shared Function GetProperties(Of TPropertyType)(obj As Object, includeAssignableOrInheritedTypes As Boolean = True) As IEnumerable(Of PropertyInfo)
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetProperties*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">obj</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  nameWithType.vb: PropertyHelpers.GetProperties(Of TPropertyType)(Object, Boolean)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetProperties(Of TPropertyType)(Object, Boolean)
+  name.vb: GetProperties(Of TPropertyType)(Object, Boolean)
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetProperties(System.Object,System.Boolean,System.Type[])
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetProperties(System.Object,System.Boolean,System.Type[])
+  id: GetProperties(System.Object,System.Boolean,System.Type[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetProperties(object, bool, params Type[])
+  nameWithType: PropertyHelpers.GetProperties(object, bool, params Type[])
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetProperties(object, bool, params System.Type[])
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetProperties
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 82
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: >-
+    Retrieves public properties of a specified object based on a set of property types,
+
+    optionally including assignable or inherited types.
+  example: []
+  syntax:
+    content: public static IEnumerable<PropertyInfo> GetProperties(this object obj, bool includeAssignableOrInheritedTypes, params Type[] propertyTypes)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object whose properties are to be retrieved. Must not be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    - id: includeAssignableOrInheritedTypes
+      type: System.Boolean
+      description: >-
+        A value indicating whether subtypes of the specified property types or types assignable
+
+        to them should be included in the results.
+    - id: propertyTypes
+      type: System.Type[]
+      description: The types of the properties to retrieve. This can include one or more target property types.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo}
+      description: >-
+        A collection of <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> objects corresponding to the properties
+
+        of the specified type(s) that belong to the given object.
+    content.vb: Public Shared Function GetProperties(obj As Object, includeAssignableOrInheritedTypes As Boolean, ParamArray propertyTypes As Type()) As IEnumerable(Of PropertyInfo)
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetProperties*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">obj</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  nameWithType.vb: PropertyHelpers.GetProperties(Object, Boolean, ParamArray Type())
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetProperties(Object, Boolean, ParamArray System.Type())
+  name.vb: GetProperties(Object, Boolean, ParamArray Type())
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo(System.Type,System.String,System.Boolean)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo(System.Type,System.String,System.Boolean)
+  id: GetPropertyInfo(System.Type,System.String,System.Boolean)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyInfo(Type, string, bool)
+  nameWithType: PropertyHelpers.GetPropertyInfo(Type, string, bool)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo(System.Type, string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetPropertyInfo
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 118
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets the property information.
+  example: []
+  syntax:
+    content: public static PropertyInfo? GetPropertyInfo(this Type type, string propertyName, bool throwIfNotFound)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    - id: throwIfNotFound
+      type: System.Boolean
+      description: >-
+        if set to <code>true</code> throws
+
+        <xref href="Ploch.Common.Reflection.PropertyNotFoundException" data-throw-if-not-resolved="false"></xref> if property is not found.
+    return:
+      type: System.Reflection.PropertyInfo
+      description: Property information.
+    content.vb: Public Shared Function GetPropertyInfo(type As Type, propertyName As String, throwIfNotFound As Boolean) As PropertyInfo
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo*
+  exceptions:
+  - type: Ploch.Common.Reflection.PropertyNotFoundException
+    commentId: T:Ploch.Common.Reflection.PropertyNotFoundException
+    description: >-
+      if <code class="paramref">throwIfNotFound</code> is <code>true</code> and property
+
+      is not found.
+  nameWithType.vb: PropertyHelpers.GetPropertyInfo(Type, String, Boolean)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo(System.Type, String, Boolean)
+  name.vb: GetPropertyInfo(Type, String, Boolean)
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues(System.Object)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues(System.Object)
+  id: GetPropertyValues(System.Object)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyValues(object)
+  nameWithType: PropertyHelpers.GetPropertyValues(object)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues(object)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetPropertyValues
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 164
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets all property names and their values from the specified object.
+  remarks: >-
+    This method uses reflection to retrieve all public properties of the object's type
+
+    and returns their names paired with their current values. Properties that cannot
+
+    be read or throw exceptions during value retrieval may cause this method to fail.
+  example:
+  - >-
+    <pre><code class="lang-csharp">var person = new { Name = "John", Age = 30, City = "New York" };
+
+    var propertyValues = person.GetPropertyValues();
+
+
+    foreach (var (name, value) in propertyValues)
+
+    {
+        Console.WriteLine($"{name}: {value}");
+    }
+
+    // Output:
+
+    // Name: John
+
+    // Age: 30
+
+    // City: New York</code></pre>
+  syntax:
+    content: public static IEnumerable<(string Name, object? Value)> GetPropertyValues(this object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object from which to retrieve property values.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}}
+      description: >-
+        An enumerable collection of tuples containing property names and their corresponding values.
+
+        Each tuple contains the property name as a string and the property value as an object (which may be null).
+    content.vb: Public Shared Function GetPropertyValues(obj As Object) As IEnumerable(Of (Name As String, Value As Object))
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">obj</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  nameWithType.vb: PropertyHelpers.GetPropertyValues(Object)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues(Object)
+  name.vb: GetPropertyValues(Object)
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.String,System.Object[])
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.String,System.Object[])
+  id: GetPropertyValue``1(``0,System.String,System.Object[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyValue<T>(T, string, object?[]?)
+  nameWithType: PropertyHelpers.GetPropertyValue<T>(T, string, object?[]?)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue<T>(T, string, object?[]?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 190
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets the property value.
+  example: []
+  syntax:
+    content: public static object? GetPropertyValue<T>(this T obj, string propertyName, object?[]? index = null)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The object.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    - id: index
+      type: System.Object[]
+      description: Optional index value.
+    typeParameters:
+    - id: T
+      description: Object type.
+    return:
+      type: System.Object
+      description: Property value.
+    content.vb: Public Shared Function GetPropertyValue(Of T)(obj As T, propertyName As String, index As Object() = Nothing) As Object
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue*
+  exceptions:
+  - type: System.Reflection.AmbiguousMatchException
+    commentId: T:System.Reflection.AmbiguousMatchException
+    description: >-
+      More than one property is found with the specified name. See
+
+      Remarks.
+  - type: Ploch.Common.Reflection.PropertyNotFoundException
+    commentId: T:Ploch.Common.Reflection.PropertyNotFoundException
+    description: If <code class="paramref">propertyName</code> property is not found.
+  nameWithType.vb: PropertyHelpers.GetPropertyValue(Of T)(T, String, Object())
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue(Of T)(T, String, Object())
+  name.vb: GetPropertyValue(Of T)(T, String, Object())
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``2(``0,System.String,System.Object[])
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``2(``0,System.String,System.Object[])
+  id: GetPropertyValue``2(``0,System.String,System.Object[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyValue<T, TValue>(T, string, object?[]?)
+  nameWithType: PropertyHelpers.GetPropertyValue<T, TValue>(T, string, object?[]?)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue<T, TValue>(T, string, object?[]?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 219
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets the property value.
+  example: []
+  syntax:
+    content: public static TValue? GetPropertyValue<T, TValue>(this T obj, string propertyName, object?[]? index = null)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The object.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    - id: index
+      type: System.Object[]
+      description: Optional index value.
+    typeParameters:
+    - id: T
+      description: Object type.
+    - id: TValue
+      description: The type of the retrieved property value.
+    return:
+      type: '{TValue}'
+      description: Property value.
+    content.vb: Public Shared Function GetPropertyValue(Of T, TValue)(obj As T, propertyName As String, index As Object() = Nothing) As TValue
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue*
+  exceptions:
+  - type: System.Reflection.AmbiguousMatchException
+    commentId: T:System.Reflection.AmbiguousMatchException
+    description: >-
+      More than one property is found with the specified name. See
+
+      Remarks.
+  - type: Ploch.Common.Reflection.PropertyNotFoundException
+    commentId: T:Ploch.Common.Reflection.PropertyNotFoundException
+    description: If <code class="paramref">propertyName</code> property is not found.
+  nameWithType.vb: PropertyHelpers.GetPropertyValue(Of T, TValue)(T, String, Object())
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue(Of T, TValue)(T, String, Object())
+  name.vb: GetPropertyValue(Of T, TValue)(T, String, Object())
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.Reflection.PropertyInfo,System.Object[])
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``1(``0,System.Reflection.PropertyInfo,System.Object[])
+  id: GetPropertyValue``1(``0,System.Reflection.PropertyInfo,System.Object[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyValue<T>(T?, PropertyInfo, object?[]?)
+  nameWithType: PropertyHelpers.GetPropertyValue<T>(T?, PropertyInfo, object?[]?)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue<T>(T?, System.Reflection.PropertyInfo, object?[]?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 230
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets the property value.
+  example: []
+  syntax:
+    content: public static object? GetPropertyValue<T>(this T? obj, PropertyInfo propertyInfo, object?[]? index = null)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The object to get the property from.
+    - id: propertyInfo
+      type: System.Reflection.PropertyInfo
+      description: The property info of the property to get the value from.
+    - id: index
+      type: System.Object[]
+      description: Optional index value.
+    typeParameters:
+    - id: T
+      description: The type of the object.
+    return:
+      type: System.Object
+      description: The property value.
+    content.vb: Public Shared Function GetPropertyValue(Of T)(obj As T, propertyInfo As PropertyInfo, index As Object() = Nothing) As Object
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue*
+  nameWithType.vb: PropertyHelpers.GetPropertyValue(Of T)(T, PropertyInfo, Object())
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue(Of T)(T, System.Reflection.PropertyInfo, Object())
+  name.vb: GetPropertyValue(Of T)(T, PropertyInfo, Object())
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``2(``1,System.Linq.Expressions.Expression{System.Func{``1,``0}})
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue``2(``1,System.Linq.Expressions.Expression{System.Func{``1,``0}})
+  id: GetPropertyValue``2(``1,System.Linq.Expressions.Expression{System.Func{``1,``0}})
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyValue<TProperty, T>(T, Expression<Func<T, TProperty>>)
+  nameWithType: PropertyHelpers.GetPropertyValue<TProperty, T>(T, Expression<Func<T, TProperty>>)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue<TProperty, T>(T, System.Linq.Expressions.Expression<System.Func<T, TProperty>>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 250
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Gets the value of a property from an object using a lambda expression to specify the property.
+  example: []
+  syntax:
+    content: public static TProperty? GetPropertyValue<TProperty, T>(this T obj, Expression<Func<T, TProperty>> propertySelector)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The object from which to retrieve the property value.
+    - id: propertySelector
+      type: System.Linq.Expressions.Expression{System.Func{{T},{TProperty}}}
+      description: A lambda expression specifying the property to retrieve (e.g., x =&gt; x.PropertyName).
+    typeParameters:
+    - id: TProperty
+      description: The type of the property to retrieve.
+    - id: T
+      description: The type of the object containing the property.
+    return:
+      type: '{TProperty}'
+      description: >-
+        The value of the specified property, or null if the property doesn't exist or its value is null.
+
+        The return type matches the type of the property specified in the expression.
+    content.vb: Public Shared Function GetPropertyValue(Of TProperty, T)(obj As T, propertySelector As Expression(Of Func(Of T, TProperty))) As TProperty
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue*
+  nameWithType.vb: PropertyHelpers.GetPropertyValue(Of TProperty, T)(T, Expression(Of Func(Of T, TProperty)))
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue(Of TProperty, T)(T, System.Linq.Expressions.Expression(Of System.Func(Of T, TProperty)))
+  name.vb: GetPropertyValue(Of TProperty, T)(T, Expression(Of Func(Of T, TProperty)))
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type,System.String)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type,System.String)
+  id: GetStaticPropertyValue(System.Type,System.String)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetStaticPropertyValue(Type, string)
+  nameWithType: PropertyHelpers.GetStaticPropertyValue(Type, string)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetStaticPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 267
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Retrieves the value of a static property of a given type.
+  example: []
+  syntax:
+    content: public static object? GetStaticPropertyValue(this Type type, string propertyName)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type that contains the static property.
+    - id: propertyName
+      type: System.String
+      description: The name of the static property.
+    return:
+      type: System.Object
+      description: The value of the static property.
+    content.vb: Public Shared Function GetStaticPropertyValue(type As Type, propertyName As String) As Object
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: If property was not found in the provided type.
+  nameWithType.vb: PropertyHelpers.GetStaticPropertyValue(Type, String)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(System.Type, String)
+  name.vb: GetStaticPropertyValue(Type, String)
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue``1(System.Type,System.String)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue``1(System.Type,System.String)
+  id: GetStaticPropertyValue``1(System.Type,System.String)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: GetStaticPropertyValue<TValue>(Type, string)
+  nameWithType: PropertyHelpers.GetStaticPropertyValue<TValue>(Type, string)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue<TValue>(System.Type, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetStaticPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 288
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Retrieves the value of a static property from the specified type.
+  example: []
+  syntax:
+    content: public static TValue? GetStaticPropertyValue<TValue>(this Type type, string propertyName)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type that contains the static property.
+    - id: propertyName
+      type: System.String
+      description: The name of the static property.
+    typeParameters:
+    - id: TValue
+      description: The type of the property value.
+    return:
+      type: '{TValue}'
+      description: >-
+        The value of the static property, if it exists and is of type TValue;
+
+        otherwise, null is returned if the property does not exist,
+
+        or an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> is thrown if the property exists but is not of type TValue.
+    content.vb: Public Shared Function GetStaticPropertyValue(Of TValue)(type As Type, propertyName As String) As TValue
+  overload: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue*
+  nameWithType.vb: PropertyHelpers.GetStaticPropertyValue(Of TValue)(Type, String)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue(Of TValue)(System.Type, String)
+  name.vb: GetStaticPropertyValue(Of TValue)(Type, String)
+- uid: Ploch.Common.Reflection.PropertyHelpers.HasProperty(System.Object,System.String)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.HasProperty(System.Object,System.String)
+  id: HasProperty(System.Object,System.String)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: HasProperty(object, string)
+  nameWithType: PropertyHelpers.HasProperty(object, string)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.HasProperty(object, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: HasProperty
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 316
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Determines whether the specified property name has property.
+  example: []
+  syntax:
+    content: public static bool HasProperty(this object obj, string propertyName)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the specified property name has property; otherwise,
+
+        <code>false</code> .
+    content.vb: Public Shared Function HasProperty(obj As Object, propertyName As String) As Boolean
+  overload: Ploch.Common.Reflection.PropertyHelpers.HasProperty*
+  exceptions:
+  - type: System.Reflection.AmbiguousMatchException
+    commentId: T:System.Reflection.AmbiguousMatchException
+    description: >-
+      More than one property is found with the specified name. See
+
+      Remarks.
+  nameWithType.vb: PropertyHelpers.HasProperty(Object, String)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.HasProperty(Object, String)
+  name.vb: HasProperty(Object, String)
+- uid: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue``1(``0,System.String,System.Object)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue``1(``0,System.String,System.Object)
+  id: SetPropertyValue``1(``0,System.String,System.Object)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: SetPropertyValue<T>(T, string, object?)
+  nameWithType: PropertyHelpers.SetPropertyValue<T>(T, string, object?)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue<T>(T, string, object?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: SetPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 351
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Sets the property.
+  example: []
+  syntax:
+    content: public static void SetPropertyValue<T>(this T obj, string propertyName, object? value)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The object type.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    - id: value
+      type: System.Object
+      description: The value to set.
+    typeParameters:
+    - id: T
+      description: The type of property.
+    content.vb: Public Shared Sub SetPropertyValue(Of T)(obj As T, propertyName As String, value As Object)
+  overload: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue*
+  exceptions:
+  - type: System.Reflection.AmbiguousMatchException
+    commentId: T:System.Reflection.AmbiguousMatchException
+    description: >-
+      More than one property is found with the specified name. See
+
+      Remarks.
+  - type: System.Reflection.TargetException
+    commentId: T:System.Reflection.TargetException
+    description: >-
+      In the .NET for Windows Store apps or the Portable Class Library,
+
+      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch">catch</a> <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> instead. The type
+
+      of <code class="paramref">obj</code> does not match the target type, or a
+
+      property is an instance property but <code class="paramref">obj</code> is
+
+      null.
+  - type: System.MethodAccessException
+    commentId: T:System.MethodAccessException
+    description: >-
+      In the .NET for Windows Store apps or the Portable Class Library,
+
+      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch">catch</a> the base class exception,
+
+      <xref href="System.MemberAccessException" data-throw-if-not-resolved="false"></xref> , instead. There was an illegal
+
+      attempt to access a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/private">private</a> or
+
+      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/protected">protected</a> method inside a class.
+  - type: System.Reflection.TargetInvocationException
+    commentId: T:System.Reflection.TargetInvocationException
+    description: >-
+      An error occurred while setting the property value. The
+
+      <xref href="System.Exception.InnerException" data-throw-if-not-resolved="false"></xref> property indicates
+
+      the reason for the error.
+  - type: Ploch.Common.Reflection.PropertyNotFoundException
+    commentId: T:Ploch.Common.Reflection.PropertyNotFoundException
+    description: If <code class="paramref">propertyName</code> property is not found.
+  nameWithType.vb: PropertyHelpers.SetPropertyValue(Of T)(T, String, Object)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue(Of T)(T, String, Object)
+  name.vb: SetPropertyValue(Of T)(T, String, Object)
+- uid: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type,System.String,System.Object@)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type,System.String,System.Object@)
+  id: TryGetStaticPropertyValue(System.Type,System.String,System.Object@)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: TryGetStaticPropertyValue(Type, string, out object?)
+  nameWithType: PropertyHelpers.TryGetStaticPropertyValue(Type, string, out object?)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type, string, out object?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TryGetStaticPropertyValue
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 373
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Tries to get the value of a static property from a type.
+  example: []
+  syntax:
+    content: public static bool TryGetStaticPropertyValue(this Type type, string propertyName, out object? value)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type from which to get the static property value.
+    - id: propertyName
+      type: System.String
+      description: The name of the static property to get.
+    - id: value
+      type: System.Object
+      description: The value of the static property, if it exists.
+    return:
+      type: System.Boolean
+      description: True if the static property exists and its value can be retrieved, false otherwise.
+    content.vb: Public Shared Function TryGetStaticPropertyValue(type As Type, propertyName As String, value As Object) As Boolean
+  overload: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue*
+  nameWithType.vb: PropertyHelpers.TryGetStaticPropertyValue(Type, String, Object)
+  fullName.vb: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue(System.Type, String, Object)
+  name.vb: TryGetStaticPropertyValue(Type, String, Object)
+- uid: Ploch.Common.Reflection.PropertyHelpers.IsStatic(System.Reflection.PropertyInfo)
+  commentId: M:Ploch.Common.Reflection.PropertyHelpers.IsStatic(System.Reflection.PropertyInfo)
+  id: IsStatic(System.Reflection.PropertyInfo)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.PropertyHelpers
+  langs:
+  - csharp
+  - vb
+  name: IsStatic(PropertyInfo)
+  nameWithType: PropertyHelpers.IsStatic(PropertyInfo)
+  fullName: Ploch.Common.Reflection.PropertyHelpers.IsStatic(System.Reflection.PropertyInfo)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/PropertyHelpers.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsStatic
+    path: ../src/Common/Reflection/PropertyHelpers.cs
+    startLine: 404
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Determines whether the specified <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> represents a static property.
+  example: []
+  syntax:
+    content: public static bool IsStatic(this PropertyInfo propertyInfo)
+    parameters:
+    - id: propertyInfo
+      type: System.Reflection.PropertyInfo
+      description: The <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> instance to evaluate.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the property is static; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Shared Function IsStatic(propertyInfo As PropertyInfo) As Boolean
+  overload: Ploch.Common.Reflection.PropertyHelpers.IsStatic*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">propertyInfo</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+references:
+- uid: Ploch.Common.Reflection
+  commentId: N:Ploch.Common.Reflection
+  href: Ploch.html
+  name: Ploch.Common.Reflection
+  nameWithType: Ploch.Common.Reflection
+  fullName: Ploch.Common.Reflection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Reflection.PropertyInfo
+  commentId: T:System.Reflection.PropertyInfo
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo
+  name: PropertyInfo
+  nameWithType: PropertyInfo
+  fullName: System.Reflection.PropertyInfo
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetProperties*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.GetProperties
+  href: Ploch.Common.Reflection.PropertyHelpers.GetProperties.html#Ploch_Common_Reflection_PropertyHelpers_GetProperties__1_System_Object_System_Boolean_
+  name: GetProperties
+  nameWithType: PropertyHelpers.GetProperties
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetProperties
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<PropertyInfo>
+  nameWithType: IEnumerable<PropertyInfo>
+  fullName: System.Collections.Generic.IEnumerable<System.Reflection.PropertyInfo>
+  nameWithType.vb: IEnumerable(Of PropertyInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Reflection.PropertyInfo)
+  name.vb: IEnumerable(Of PropertyInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Reflection.PropertyInfo
+    name: PropertyInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.PropertyInfo
+    name: PropertyInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo
+  - name: )
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Type[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type[]
+  nameWithType: Type[]
+  fullName: System.Type[]
+  nameWithType.vb: Type()
+  fullName.vb: System.Type()
+  name.vb: Type()
+  spec.csharp:
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: (
+  - name: )
+- uid: Ploch.Common.Reflection.PropertyNotFoundException
+  commentId: T:Ploch.Common.Reflection.PropertyNotFoundException
+  href: Ploch.Common.Reflection.PropertyNotFoundException.html
+  name: PropertyNotFoundException
+  nameWithType: PropertyNotFoundException
+  fullName: Ploch.Common.Reflection.PropertyNotFoundException
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo
+  href: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo.html#Ploch_Common_Reflection_PropertyHelpers_GetPropertyInfo_System_Type_System_String_System_Boolean_
+  name: GetPropertyInfo
+  nameWithType: PropertyHelpers.GetPropertyInfo
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyInfo
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues
+  href: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues.html#Ploch_Common_Reflection_PropertyHelpers_GetPropertyValues_System_Object_
+  name: GetPropertyValues
+  nameWithType: PropertyHelpers.GetPropertyValues
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValues
+- uid: System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<(string Name, object Value)>
+  nameWithType: IEnumerable<(string Name, object Value)>
+  fullName: System.Collections.Generic.IEnumerable<(string Name, object Value)>
+  nameWithType.vb: IEnumerable(Of (Name As String, Value As Object))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of (Name As String, Value As Object))
+  name.vb: IEnumerable(Of (Name As String, Value As Object))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.Object}.Name
+    name: Name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.object-.name
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.Object}.Value
+    name: Value
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.object-.value
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.String,System.Object}.Name
+    name: Name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.object-.name
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.Object}.Value
+    name: Value
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.object-.value
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: System.Reflection.AmbiguousMatchException
+  commentId: T:System.Reflection.AmbiguousMatchException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.ambiguousmatchexception
+  name: AmbiguousMatchException
+  nameWithType: AmbiguousMatchException
+  fullName: System.Reflection.AmbiguousMatchException
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue
+  href: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue.html#Ploch_Common_Reflection_PropertyHelpers_GetPropertyValue__1___0_System_String_System_Object___
+  name: GetPropertyValue
+  nameWithType: PropertyHelpers.GetPropertyValue
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetPropertyValue
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: '{TValue}'
+  commentId: '!:TValue'
+  definition: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: System.Linq.Expressions.Expression{System.Func{{T},{TProperty}}}
+  commentId: T:System.Linq.Expressions.Expression{System.Func{``1,``0}}
+  parent: System.Linq.Expressions
+  definition: System.Linq.Expressions.Expression`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<Func<T, TProperty>>
+  nameWithType: Expression<Func<T, TProperty>>
+  fullName: System.Linq.Expressions.Expression<System.Func<T, TProperty>>
+  nameWithType.vb: Expression(Of Func(Of T, TProperty))
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of T, TProperty))
+  name.vb: Expression(Of Func(Of T, TProperty))
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TProperty
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TProperty
+  - name: )
+  - name: )
+- uid: '{TProperty}'
+  commentId: '!:TProperty'
+  definition: TProperty
+  name: TProperty
+  nameWithType: TProperty
+  fullName: TProperty
+- uid: System.Linq.Expressions.Expression`1
+  commentId: T:System.Linq.Expressions.Expression`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<TDelegate>
+  nameWithType: Expression<TDelegate>
+  fullName: System.Linq.Expressions.Expression<TDelegate>
+  nameWithType.vb: Expression(Of TDelegate)
+  fullName.vb: System.Linq.Expressions.Expression(Of TDelegate)
+  name.vb: Expression(Of TDelegate)
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - name: TDelegate
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDelegate
+  - name: )
+- uid: System.Linq.Expressions
+  commentId: N:System.Linq.Expressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq.Expressions
+  nameWithType: System.Linq.Expressions
+  fullName: System.Linq.Expressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+- uid: TProperty
+  name: TProperty
+  nameWithType: TProperty
+  fullName: TProperty
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue
+  href: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue.html#Ploch_Common_Reflection_PropertyHelpers_GetStaticPropertyValue_System_Type_System_String_
+  name: GetStaticPropertyValue
+  nameWithType: PropertyHelpers.GetStaticPropertyValue
+  fullName: Ploch.Common.Reflection.PropertyHelpers.GetStaticPropertyValue
+- uid: Ploch.Common.Reflection.PropertyHelpers.HasProperty*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.HasProperty
+  href: Ploch.Common.Reflection.PropertyHelpers.HasProperty.html#Ploch_Common_Reflection_PropertyHelpers_HasProperty_System_Object_System_String_
+  name: HasProperty
+  nameWithType: PropertyHelpers.HasProperty
+  fullName: Ploch.Common.Reflection.PropertyHelpers.HasProperty
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System.MemberAccessException
+  commentId: T:System.MemberAccessException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.memberaccessexception
+  name: MemberAccessException
+  nameWithType: MemberAccessException
+  fullName: System.MemberAccessException
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Reflection.TargetException
+  commentId: T:System.Reflection.TargetException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.targetexception
+  name: TargetException
+  nameWithType: TargetException
+  fullName: System.Reflection.TargetException
+- uid: System.MethodAccessException
+  commentId: T:System.MethodAccessException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.methodaccessexception
+  name: MethodAccessException
+  nameWithType: MethodAccessException
+  fullName: System.MethodAccessException
+- uid: System.Reflection.TargetInvocationException
+  commentId: T:System.Reflection.TargetInvocationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.targetinvocationexception
+  name: TargetInvocationException
+  nameWithType: TargetInvocationException
+  fullName: System.Reflection.TargetInvocationException
+- uid: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue
+  href: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue.html#Ploch_Common_Reflection_PropertyHelpers_SetPropertyValue__1___0_System_String_System_Object_
+  name: SetPropertyValue
+  nameWithType: PropertyHelpers.SetPropertyValue
+  fullName: Ploch.Common.Reflection.PropertyHelpers.SetPropertyValue
+- uid: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue
+  href: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue.html#Ploch_Common_Reflection_PropertyHelpers_TryGetStaticPropertyValue_System_Type_System_String_System_Object__
+  name: TryGetStaticPropertyValue
+  nameWithType: PropertyHelpers.TryGetStaticPropertyValue
+  fullName: Ploch.Common.Reflection.PropertyHelpers.TryGetStaticPropertyValue
+- uid: Ploch.Common.Reflection.PropertyHelpers.IsStatic*
+  commentId: Overload:Ploch.Common.Reflection.PropertyHelpers.IsStatic
+  href: Ploch.Common.Reflection.PropertyHelpers.IsStatic.html#Ploch_Common_Reflection_PropertyHelpers_IsStatic_System_Reflection_PropertyInfo_
+  name: IsStatic
+  nameWithType: PropertyHelpers.IsStatic
+  fullName: Ploch.Common.Reflection.PropertyHelpers.IsStatic
+memberLayout: SeparatePages

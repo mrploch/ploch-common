@@ -1,0 +1,663 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  commentId: T:Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  id: StringAssertionExtensions
+  parent: Ploch.TestingSupport.FluentAssertions
+  children:
+  - Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.Collections.Generic.IEnumerable{System.String},System.String,System.Object[])
+  - Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.String[])
+  langs:
+  - csharp
+  - vb
+  name: StringAssertionExtensions
+  nameWithType: StringAssertionExtensions
+  fullName: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  type: Class
+  source:
+    remote:
+      path: src/TestingSupport.FluentAssertions/StringAssertionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: StringAssertionExtensions
+    path: ../src/TestingSupport.FluentAssertions/StringAssertionExtensions.cs
+    startLine: 12
+  assemblies:
+  - Ploch.TestingSupport.FluentAssertions
+  namespace: Ploch.TestingSupport.FluentAssertions
+  summary: Provides extension methods for <xref href="FluentAssertions.Primitives.StringAssertions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class StringAssertionExtensions
+    content.vb: Public Module StringAssertionExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.String[])
+  commentId: M:Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.String[])
+  id: ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.String[])
+  isExtensionMethod: true
+  parent: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  langs:
+  - csharp
+  - vb
+  name: ContainAllEquivalentOf(StringAssertions, params string?[])
+  nameWithType: StringAssertionExtensions.ContainAllEquivalentOf(StringAssertions, params string?[])
+  fullName: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions, params string?[])
+  type: Method
+  source:
+    remote:
+      path: src/TestingSupport.FluentAssertions/StringAssertionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ContainAllEquivalentOf
+    path: ../src/TestingSupport.FluentAssertions/StringAssertionExtensions.cs
+    startLine: 20
+  assemblies:
+  - Ploch.TestingSupport.FluentAssertions
+  namespace: Ploch.TestingSupport.FluentAssertions
+  summary: Asserts that the subject string contains all of the specified values ignoring case.
+  example: []
+  syntax:
+    content: public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions, params string?[] values)
+    parameters:
+    - id: assertions
+      type: FluentAssertions.Primitives.StringAssertions
+      description: The assertions.
+    - id: values
+      type: System.String[]
+      description: Values to check.
+    return:
+      type: FluentAssertions.AndConstraint{FluentAssertions.Primitives.StringAssertions}
+      description: The assertion constraint.
+    content.vb: Public Shared Function ContainAllEquivalentOf(assertions As StringAssertions, ParamArray values As String()) As AndConstraint(Of StringAssertions)
+  overload: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf*
+  nameWithType.vb: StringAssertionExtensions.ContainAllEquivalentOf(StringAssertions, ParamArray String())
+  fullName.vb: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions, ParamArray String())
+  name.vb: ContainAllEquivalentOf(StringAssertions, ParamArray String())
+- uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.Collections.Generic.IEnumerable{System.String},System.String,System.Object[])
+  commentId: M:Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.Collections.Generic.IEnumerable{System.String},System.String,System.Object[])
+  id: ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions,System.Collections.Generic.IEnumerable{System.String},System.String,System.Object[])
+  isExtensionMethod: true
+  parent: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  langs:
+  - csharp
+  - vb
+  name: ContainAllEquivalentOf(StringAssertions, IEnumerable<string?>, string, params object[])
+  nameWithType: StringAssertionExtensions.ContainAllEquivalentOf(StringAssertions, IEnumerable<string?>, string, params object[])
+  fullName: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions, System.Collections.Generic.IEnumerable<string?>, string, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/TestingSupport.FluentAssertions/StringAssertionExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ContainAllEquivalentOf
+    path: ../src/TestingSupport.FluentAssertions/StringAssertionExtensions.cs
+    startLine: 31
+  assemblies:
+  - Ploch.TestingSupport.FluentAssertions
+  namespace: Ploch.TestingSupport.FluentAssertions
+  summary: Asserts that the subject string contains all of the specified values ignoring case.
+  example: []
+  syntax:
+    content: public static AndConstraint<StringAssertions> ContainAllEquivalentOf(this StringAssertions assertions, IEnumerable<string?> values, string because = "", params object[] becauseArgs)
+    parameters:
+    - id: assertions
+      type: FluentAssertions.Primitives.StringAssertions
+      description: The assertions.
+    - id: values
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Values to check.
+    - id: because
+      type: System.String
+      description: The because string.
+    - id: becauseArgs
+      type: System.Object[]
+      description: The because string arguments.
+    return:
+      type: FluentAssertions.AndConstraint{FluentAssertions.Primitives.StringAssertions}
+      description: The assertion constraint.
+    content.vb: Public Shared Function ContainAllEquivalentOf(assertions As StringAssertions, values As IEnumerable(Of String), because As String = "", ParamArray becauseArgs As Object()) As AndConstraint(Of StringAssertions)
+  overload: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf*
+  nameWithType.vb: StringAssertionExtensions.ContainAllEquivalentOf(StringAssertions, IEnumerable(Of String), String, ParamArray Object())
+  fullName.vb: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf(FluentAssertions.Primitives.StringAssertions, System.Collections.Generic.IEnumerable(Of String), String, ParamArray Object())
+  name.vb: ContainAllEquivalentOf(StringAssertions, IEnumerable(Of String), String, ParamArray Object())
+references:
+- uid: FluentAssertions.Primitives.StringAssertions
+  commentId: T:FluentAssertions.Primitives.StringAssertions
+  parent: FluentAssertions.Primitives
+  isExternal: true
+  href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/Primitives/StringAssertions.cs
+  name: StringAssertions
+  nameWithType: StringAssertions
+  fullName: FluentAssertions.Primitives.StringAssertions
+- uid: Ploch.TestingSupport.FluentAssertions
+  commentId: N:Ploch.TestingSupport.FluentAssertions
+  href: Ploch.html
+  name: Ploch.TestingSupport.FluentAssertions
+  nameWithType: Ploch.TestingSupport.FluentAssertions
+  fullName: Ploch.TestingSupport.FluentAssertions
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.FluentAssertions
+    name: FluentAssertions
+    href: Ploch.TestingSupport.FluentAssertions.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.FluentAssertions
+    name: FluentAssertions
+    href: Ploch.TestingSupport.FluentAssertions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: FluentAssertions.Primitives
+  commentId: N:FluentAssertions.Primitives
+  isExternal: true
+  name: FluentAssertions.Primitives
+  nameWithType: FluentAssertions.Primitives
+  fullName: FluentAssertions.Primitives
+  spec.csharp:
+  - uid: FluentAssertions
+    name: FluentAssertions
+    isExternal: true
+  - name: .
+  - uid: FluentAssertions.Primitives
+    name: Primitives
+    isExternal: true
+  spec.vb:
+  - uid: FluentAssertions
+    name: FluentAssertions
+    isExternal: true
+  - name: .
+  - uid: FluentAssertions.Primitives
+    name: Primitives
+    isExternal: true
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf*
+  commentId: Overload:Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf
+  href: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf.html#Ploch_TestingSupport_FluentAssertions_StringAssertionExtensions_ContainAllEquivalentOf_FluentAssertions_Primitives_StringAssertions_System_String___
+  name: ContainAllEquivalentOf
+  nameWithType: StringAssertionExtensions.ContainAllEquivalentOf
+  fullName: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.ContainAllEquivalentOf
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: FluentAssertions.AndConstraint{FluentAssertions.Primitives.StringAssertions}
+  commentId: T:FluentAssertions.AndConstraint{FluentAssertions.Primitives.StringAssertions}
+  parent: FluentAssertions
+  definition: FluentAssertions.AndConstraint`1
+  href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/AndConstraint.cs
+  name: AndConstraint<StringAssertions>
+  nameWithType: AndConstraint<StringAssertions>
+  fullName: FluentAssertions.AndConstraint<FluentAssertions.Primitives.StringAssertions>
+  nameWithType.vb: AndConstraint(Of StringAssertions)
+  fullName.vb: FluentAssertions.AndConstraint(Of FluentAssertions.Primitives.StringAssertions)
+  name.vb: AndConstraint(Of StringAssertions)
+  spec.csharp:
+  - uid: FluentAssertions.AndConstraint`1
+    name: AndConstraint
+    isExternal: true
+    href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/AndConstraint.cs
+  - name: <
+  - uid: FluentAssertions.Primitives.StringAssertions
+    name: StringAssertions
+    isExternal: true
+    href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/Primitives/StringAssertions.cs
+  - name: '>'
+  spec.vb:
+  - uid: FluentAssertions.AndConstraint`1
+    name: AndConstraint
+    isExternal: true
+    href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/AndConstraint.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: FluentAssertions.Primitives.StringAssertions
+    name: StringAssertions
+    isExternal: true
+    href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/Primitives/StringAssertions.cs
+  - name: )
+- uid: FluentAssertions.AndConstraint`1
+  commentId: T:FluentAssertions.AndConstraint`1
+  isExternal: true
+  href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/AndConstraint.cs
+  name: AndConstraint<TParent>
+  nameWithType: AndConstraint<TParent>
+  fullName: FluentAssertions.AndConstraint<TParent>
+  nameWithType.vb: AndConstraint(Of TParent)
+  fullName.vb: FluentAssertions.AndConstraint(Of TParent)
+  name.vb: AndConstraint(Of TParent)
+  spec.csharp:
+  - uid: FluentAssertions.AndConstraint`1
+    name: AndConstraint
+    isExternal: true
+    href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/AndConstraint.cs
+  - name: <
+  - name: TParent
+  - name: '>'
+  spec.vb:
+  - uid: FluentAssertions.AndConstraint`1
+    name: AndConstraint
+    isExternal: true
+    href: https://github.com/fluentassertions/fluentassertions/blob/0954811776a71005283221b91aabafc5fec332b7/Src/FluentAssertions/AndConstraint.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TParent
+  - name: )
+- uid: FluentAssertions
+  commentId: N:FluentAssertions
+  isExternal: true
+  name: FluentAssertions
+  nameWithType: FluentAssertions
+  fullName: FluentAssertions
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+memberLayout: SeparatePages

@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.AppServices.Web
+  commentId: N:Ploch.Common.AppServices.Web
+  id: Web
+  parent: Ploch.Common.AppServices
+  children:
+  - Ploch.Common.AppServices.Web.HttpContextUserInfoProvider
+  - Ploch.Common.AppServices.Web.ServiceCollectionRegistrations
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.AppServices.Web
+  nameWithType: Ploch.Common.AppServices.Web
+  fullName: Ploch.Common.AppServices.Web
+  type: Namespace
+  assemblies:
+  - Ploch.Common.AppServices.Web
+references:
+- uid: Ploch.Common.AppServices.Web.HttpContextUserInfoProvider
+  commentId: T:Ploch.Common.AppServices.Web.HttpContextUserInfoProvider
+  href: Ploch.Common.AppServices.Web.HttpContextUserInfoProvider.html
+  name: HttpContextUserInfoProvider
+  nameWithType: HttpContextUserInfoProvider
+  fullName: Ploch.Common.AppServices.Web.HttpContextUserInfoProvider
+- uid: Ploch.Common.AppServices.Web.ServiceCollectionRegistrations
+  commentId: T:Ploch.Common.AppServices.Web.ServiceCollectionRegistrations
+  href: Ploch.Common.AppServices.Web.ServiceCollectionRegistrations.html
+  name: ServiceCollectionRegistrations
+  nameWithType: ServiceCollectionRegistrations
+  fullName: Ploch.Common.AppServices.Web.ServiceCollectionRegistrations
+memberLayout: SeparatePages

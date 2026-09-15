@@ -1,0 +1,72 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Serialization.NewtonsoftJson
+  commentId: N:Ploch.Common.Serialization.NewtonsoftJson
+  id: NewtonsoftJson
+  parent: Ploch.Common.Serialization
+  children:
+  - Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  - Ploch.Common.Serialization.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Serialization.NewtonsoftJson
+  nameWithType: Ploch.Common.Serialization.NewtonsoftJson
+  fullName: Ploch.Common.Serialization.NewtonsoftJson
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Serialization.NewtonsoftJson
+references:
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  commentId: N:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  href: Ploch.html
+  name: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  nameWithType: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.NewtonsoftJson
+    name: NewtonsoftJson
+    href: Ploch.Common.Serialization.NewtonsoftJson.html
+  - name: .
+  - uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+    name: ExtensionsDependencyInjection
+    href: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  - name: .
+  - uid: Ploch.Common.Serialization.NewtonsoftJson
+    name: NewtonsoftJson
+    href: Ploch.Common.Serialization.NewtonsoftJson.html
+  - name: .
+  - uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+    name: ExtensionsDependencyInjection
+    href: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.html
+- uid: Ploch.Common.Serialization.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+  commentId: T:Ploch.Common.Serialization.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+  href: Ploch.Common.Serialization.NewtonsoftJson.NewtonsoftJsonObjectSerializer.html
+  name: NewtonsoftJsonObjectSerializer
+  nameWithType: NewtonsoftJsonObjectSerializer
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+memberLayout: SeparatePages

@@ -1,0 +1,71 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.XUnit3.Moq
+  commentId: N:Ploch.TestingSupport.XUnit3.Moq
+  id: Moq
+  parent: Ploch.TestingSupport.XUnit3
+  children:
+  - Ploch.TestingSupport.XUnit3.Moq.FluentVerifier
+  - Ploch.TestingSupport.XUnit3.Moq.MockingExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.XUnit3.Moq
+  nameWithType: Ploch.TestingSupport.XUnit3.Moq
+  fullName: Ploch.TestingSupport.XUnit3.Moq
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport.XUnit3
+references:
+- uid: Ploch.TestingSupport.XUnit3.Moq.FluentVerifier
+  commentId: T:Ploch.TestingSupport.XUnit3.Moq.FluentVerifier
+  href: Ploch.TestingSupport.XUnit3.Moq.FluentVerifier.html
+  name: FluentVerifier
+  nameWithType: FluentVerifier
+  fullName: Ploch.TestingSupport.XUnit3.Moq.FluentVerifier
+- uid: Ploch.TestingSupport.XUnit3.Moq.MockingExtensions
+  commentId: T:Ploch.TestingSupport.XUnit3.Moq.MockingExtensions
+  parent: Ploch.TestingSupport.XUnit3.Moq
+  href: Ploch.TestingSupport.XUnit3.Moq.MockingExtensions.html
+  name: MockingExtensions
+  nameWithType: MockingExtensions
+  fullName: Ploch.TestingSupport.XUnit3.Moq.MockingExtensions
+- uid: Ploch.TestingSupport.XUnit3.Moq
+  commentId: N:Ploch.TestingSupport.XUnit3.Moq
+  href: Ploch.html
+  name: Ploch.TestingSupport.XUnit3.Moq
+  nameWithType: Ploch.TestingSupport.XUnit3.Moq
+  fullName: Ploch.TestingSupport.XUnit3.Moq
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3
+    name: XUnit3
+    href: Ploch.TestingSupport.XUnit3.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3.Moq
+    name: Moq
+    href: Ploch.TestingSupport.XUnit3.Moq.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3
+    name: XUnit3
+    href: Ploch.TestingSupport.XUnit3.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3.Moq
+    name: Moq
+    href: Ploch.TestingSupport.XUnit3.Moq.html
+memberLayout: SeparatePages

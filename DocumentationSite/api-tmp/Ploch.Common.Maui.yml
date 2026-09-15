@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui
+  id: Maui
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Maui.Configuration
+  - Ploch.Common.Maui.Controls
+  - Ploch.Common.Maui.Fonts
+  - Ploch.Common.Maui.MarkupExtensions
+  - Ploch.Common.Maui.ViewModels
+  - Ploch.Common.Maui.Views
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui
+  type: Namespace
+references:
+- uid: Ploch.Common.Maui.Configuration
+  commentId: N:Ploch.Common.Maui.Configuration
+  href: Ploch.html
+  name: Ploch.Common.Maui.Configuration
+  nameWithType: Ploch.Common.Maui.Configuration
+  fullName: Ploch.Common.Maui.Configuration
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Configuration
+    name: Configuration
+    href: Ploch.Common.Maui.Configuration.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Configuration
+    name: Configuration
+    href: Ploch.Common.Maui.Configuration.html
+- uid: Ploch.Common.Maui.Controls
+  commentId: N:Ploch.Common.Maui.Controls
+  href: Ploch.html
+  name: Ploch.Common.Maui.Controls
+  nameWithType: Ploch.Common.Maui.Controls
+  fullName: Ploch.Common.Maui.Controls
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Controls
+    name: Controls
+    href: Ploch.Common.Maui.Controls.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Controls
+    name: Controls
+    href: Ploch.Common.Maui.Controls.html
+- uid: Ploch.Common.Maui.Fonts
+  commentId: N:Ploch.Common.Maui.Fonts
+  href: Ploch.html
+  name: Ploch.Common.Maui.Fonts
+  nameWithType: Ploch.Common.Maui.Fonts
+  fullName: Ploch.Common.Maui.Fonts
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Fonts
+    name: Fonts
+    href: Ploch.Common.Maui.Fonts.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Fonts
+    name: Fonts
+    href: Ploch.Common.Maui.Fonts.html
+- uid: Ploch.Common.Maui.MarkupExtensions
+  commentId: N:Ploch.Common.Maui.MarkupExtensions
+  href: Ploch.html
+  name: Ploch.Common.Maui.MarkupExtensions
+  nameWithType: Ploch.Common.Maui.MarkupExtensions
+  fullName: Ploch.Common.Maui.MarkupExtensions
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.MarkupExtensions
+    name: MarkupExtensions
+    href: Ploch.Common.Maui.MarkupExtensions.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.MarkupExtensions
+    name: MarkupExtensions
+    href: Ploch.Common.Maui.MarkupExtensions.html
+- uid: Ploch.Common.Maui.ViewModels
+  commentId: N:Ploch.Common.Maui.ViewModels
+  href: Ploch.html
+  name: Ploch.Common.Maui.ViewModels
+  nameWithType: Ploch.Common.Maui.ViewModels
+  fullName: Ploch.Common.Maui.ViewModels
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.ViewModels
+    name: ViewModels
+    href: Ploch.Common.Maui.ViewModels.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.ViewModels
+    name: ViewModels
+    href: Ploch.Common.Maui.ViewModels.html
+- uid: Ploch.Common.Maui.Views
+  commentId: N:Ploch.Common.Maui.Views
+  href: Ploch.html
+  name: Ploch.Common.Maui.Views
+  nameWithType: Ploch.Common.Maui.Views
+  fullName: Ploch.Common.Maui.Views
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Views
+    name: Views
+    href: Ploch.Common.Maui.Views.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Views
+    name: Views
+    href: Ploch.Common.Maui.Views.html
+memberLayout: SeparatePages

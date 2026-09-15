@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Matchers
+  commentId: N:Ploch.Common.Matchers
+  id: Matchers
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Matchers.GlobEvaluator
+  - Ploch.Common.Matchers.GlobMatcherExtensions
+  - Ploch.Common.Matchers.IMatcher`1
+  - Ploch.Common.Matchers.IStringMatcher
+  - Ploch.Common.Matchers.PropertyMatcher`1
+  - Ploch.Common.Matchers.RegexListEvaluator
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Matchers
+  nameWithType: Ploch.Common.Matchers
+  fullName: Ploch.Common.Matchers
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Matchers.GlobEvaluator
+  commentId: T:Ploch.Common.Matchers.GlobEvaluator
+  href: Ploch.Common.Matchers.GlobEvaluator.html
+  name: GlobEvaluator
+  nameWithType: GlobEvaluator
+  fullName: Ploch.Common.Matchers.GlobEvaluator
+- uid: Ploch.Common.Matchers.GlobMatcherExtensions
+  commentId: T:Ploch.Common.Matchers.GlobMatcherExtensions
+  href: Ploch.Common.Matchers.GlobMatcherExtensions.html
+  name: GlobMatcherExtensions
+  nameWithType: GlobMatcherExtensions
+  fullName: Ploch.Common.Matchers.GlobMatcherExtensions
+- uid: Ploch.Common.Matchers.IMatcher`1
+  commentId: T:Ploch.Common.Matchers.IMatcher`1
+  href: Ploch.Common.Matchers.IMatcher-1.html
+  name: IMatcher<T>
+  nameWithType: IMatcher<T>
+  fullName: Ploch.Common.Matchers.IMatcher<T>
+  nameWithType.vb: IMatcher(Of T)
+  fullName.vb: Ploch.Common.Matchers.IMatcher(Of T)
+  name.vb: IMatcher(Of T)
+  spec.csharp:
+  - uid: Ploch.Common.Matchers.IMatcher`1
+    name: IMatcher
+    href: Ploch.Common.Matchers.IMatcher-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Matchers.IMatcher`1
+    name: IMatcher
+    href: Ploch.Common.Matchers.IMatcher-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.Matchers.IStringMatcher
+  commentId: T:Ploch.Common.Matchers.IStringMatcher
+  parent: Ploch.Common.Matchers
+  href: Ploch.Common.Matchers.IStringMatcher.html
+  name: IStringMatcher
+  nameWithType: IStringMatcher
+  fullName: Ploch.Common.Matchers.IStringMatcher
+- uid: Ploch.Common.Matchers.PropertyMatcher`1
+  commentId: T:Ploch.Common.Matchers.PropertyMatcher`1
+  href: Ploch.Common.Matchers.PropertyMatcher-1.html
+  name: PropertyMatcher<TSourceType>
+  nameWithType: PropertyMatcher<TSourceType>
+  fullName: Ploch.Common.Matchers.PropertyMatcher<TSourceType>
+  nameWithType.vb: PropertyMatcher(Of TSourceType)
+  fullName.vb: Ploch.Common.Matchers.PropertyMatcher(Of TSourceType)
+  name.vb: PropertyMatcher(Of TSourceType)
+  spec.csharp:
+  - uid: Ploch.Common.Matchers.PropertyMatcher`1
+    name: PropertyMatcher
+    href: Ploch.Common.Matchers.PropertyMatcher-1.html
+  - name: <
+  - name: TSourceType
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Matchers.PropertyMatcher`1
+    name: PropertyMatcher
+    href: Ploch.Common.Matchers.PropertyMatcher-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSourceType
+  - name: )
+- uid: Ploch.Common.Matchers.RegexListEvaluator
+  commentId: T:Ploch.Common.Matchers.RegexListEvaluator
+  href: Ploch.Common.Matchers.RegexListEvaluator.html
+  name: RegexListEvaluator
+  nameWithType: RegexListEvaluator
+  fullName: Ploch.Common.Matchers.RegexListEvaluator
+- uid: Ploch.Common.Matchers
+  commentId: N:Ploch.Common.Matchers
+  href: Ploch.html
+  name: Ploch.Common.Matchers
+  nameWithType: Ploch.Common.Matchers
+  fullName: Ploch.Common.Matchers
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Matchers
+    name: Matchers
+    href: Ploch.Common.Matchers.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Matchers
+    name: Matchers
+    href: Ploch.Common.Matchers.html
+memberLayout: SeparatePages

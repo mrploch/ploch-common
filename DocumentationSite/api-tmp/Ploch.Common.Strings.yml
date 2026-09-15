@@ -1,0 +1,623 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Strings
+  commentId: T:Ploch.Common.Strings
+  id: Strings
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Strings.Dash
+  - Ploch.Common.Strings.Dashes(System.Int32)
+  - Ploch.Common.Strings.Dot
+  - Ploch.Common.Strings.Dots(System.Int32)
+  - Ploch.Common.Strings.Space
+  - Ploch.Common.Strings.Spaces(System.Int32)
+  - Ploch.Common.Strings.Underscore
+  - Ploch.Common.Strings.Underscores(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: Strings
+  nameWithType: Strings
+  fullName: Ploch.Common.Strings
+  type: Class
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Strings
+    path: ../src/Common/Strings.cs
+    startLine: 7
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Provides a collection of commonly used string constants.
+  example: []
+  syntax:
+    content: public static class Strings
+    content.vb: Public Module Strings
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Strings.Space
+  commentId: F:Ploch.Common.Strings.Space
+  id: Space
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Space
+  nameWithType: Strings.Space
+  fullName: Ploch.Common.Strings.Space
+  type: Field
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Space
+    path: ../src/Common/Strings.cs
+    startLine: 12
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Represents a space character as a string (" ").
+  example: []
+  syntax:
+    content: public static readonly string Space
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Space As String
+- uid: Ploch.Common.Strings.Underscore
+  commentId: F:Ploch.Common.Strings.Underscore
+  id: Underscore
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Underscore
+  nameWithType: Strings.Underscore
+  fullName: Ploch.Common.Strings.Underscore
+  type: Field
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Underscore
+    path: ../src/Common/Strings.cs
+    startLine: 17
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Represents an underscore character as a string ("_").
+  example: []
+  syntax:
+    content: public static readonly string Underscore
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Underscore As String
+- uid: Ploch.Common.Strings.Dash
+  commentId: F:Ploch.Common.Strings.Dash
+  id: Dash
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Dash
+  nameWithType: Strings.Dash
+  fullName: Ploch.Common.Strings.Dash
+  type: Field
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Dash
+    path: ../src/Common/Strings.cs
+    startLine: 22
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Represents a dash/hyphen character as a string ("-").
+  example: []
+  syntax:
+    content: public static readonly string Dash
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Dash As String
+- uid: Ploch.Common.Strings.Dot
+  commentId: F:Ploch.Common.Strings.Dot
+  id: Dot
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Dot
+  nameWithType: Strings.Dot
+  fullName: Ploch.Common.Strings.Dot
+  type: Field
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Dot
+    path: ../src/Common/Strings.cs
+    startLine: 27
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Represents a dot/period character as a string (".").
+  example: []
+  syntax:
+    content: public static readonly string Dot
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Dot As String
+- uid: Ploch.Common.Strings.Spaces(System.Int32)
+  commentId: M:Ploch.Common.Strings.Spaces(System.Int32)
+  id: Spaces(System.Int32)
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Spaces(int)
+  nameWithType: Strings.Spaces(int)
+  fullName: Ploch.Common.Strings.Spaces(int)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Spaces
+    path: ../src/Common/Strings.cs
+    startLine: 34
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Generates a string consisting of the specified number of space (' ') characters.
+  example: []
+  syntax:
+    content: public static string Spaces(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: The number of space characters to include in the string. Must be non-negative.
+    return:
+      type: System.String
+      description: A string containing the specified number of space characters.
+    content.vb: Public Shared Function Spaces(count As Integer) As String
+  overload: Ploch.Common.Strings.Spaces*
+  nameWithType.vb: Strings.Spaces(Integer)
+  fullName.vb: Ploch.Common.Strings.Spaces(Integer)
+  name.vb: Spaces(Integer)
+- uid: Ploch.Common.Strings.Underscores(System.Int32)
+  commentId: M:Ploch.Common.Strings.Underscores(System.Int32)
+  id: Underscores(System.Int32)
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Underscores(int)
+  nameWithType: Strings.Underscores(int)
+  fullName: Ploch.Common.Strings.Underscores(int)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Underscores
+    path: ../src/Common/Strings.cs
+    startLine: 41
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Generates a string consisting of the specified number of underscore ('_') characters.
+  example: []
+  syntax:
+    content: public static string Underscores(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: The number of underscore characters to include in the string. Must be non-negative.
+    return:
+      type: System.String
+      description: A string containing the specified number of underscore characters.
+    content.vb: Public Shared Function Underscores(count As Integer) As String
+  overload: Ploch.Common.Strings.Underscores*
+  nameWithType.vb: Strings.Underscores(Integer)
+  fullName.vb: Ploch.Common.Strings.Underscores(Integer)
+  name.vb: Underscores(Integer)
+- uid: Ploch.Common.Strings.Dashes(System.Int32)
+  commentId: M:Ploch.Common.Strings.Dashes(System.Int32)
+  id: Dashes(System.Int32)
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Dashes(int)
+  nameWithType: Strings.Dashes(int)
+  fullName: Ploch.Common.Strings.Dashes(int)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Dashes
+    path: ../src/Common/Strings.cs
+    startLine: 48
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Generates a string consisting of the specified number of dash ('-') characters.
+  example: []
+  syntax:
+    content: public static string Dashes(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: The number of dash characters to include in the string. Must be non-negative.
+    return:
+      type: System.String
+      description: A string containing the specified number of dash characters.
+    content.vb: Public Shared Function Dashes(count As Integer) As String
+  overload: Ploch.Common.Strings.Dashes*
+  nameWithType.vb: Strings.Dashes(Integer)
+  fullName.vb: Ploch.Common.Strings.Dashes(Integer)
+  name.vb: Dashes(Integer)
+- uid: Ploch.Common.Strings.Dots(System.Int32)
+  commentId: M:Ploch.Common.Strings.Dots(System.Int32)
+  id: Dots(System.Int32)
+  parent: Ploch.Common.Strings
+  langs:
+  - csharp
+  - vb
+  name: Dots(int)
+  nameWithType: Strings.Dots(int)
+  fullName: Ploch.Common.Strings.Dots(int)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Strings.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Dots
+    path: ../src/Common/Strings.cs
+    startLine: 55
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Generates a string consisting of the specified number of dot/period ('.') characters.
+  example: []
+  syntax:
+    content: public static string Dots(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: The number of dot/period characters to include in the string. Must be non-negative.
+    return:
+      type: System.String
+      description: A string containing the specified number of dot/period characters.
+    content.vb: Public Shared Function Dots(count As Integer) As String
+  overload: Ploch.Common.Strings.Dots*
+  nameWithType.vb: Strings.Dots(Integer)
+  fullName.vb: Ploch.Common.Strings.Dots(Integer)
+  name.vb: Dots(Integer)
+references:
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  href: Ploch.html
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ploch.Common.Strings.Spaces*
+  commentId: Overload:Ploch.Common.Strings.Spaces
+  href: Ploch.Common.Strings.Spaces.html#Ploch_Common_Strings_Spaces_System_Int32_
+  name: Spaces
+  nameWithType: Strings.Spaces
+  fullName: Ploch.Common.Strings.Spaces
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Ploch.Common.Strings.Underscores*
+  commentId: Overload:Ploch.Common.Strings.Underscores
+  href: Ploch.Common.Strings.Underscores.html#Ploch_Common_Strings_Underscores_System_Int32_
+  name: Underscores
+  nameWithType: Strings.Underscores
+  fullName: Ploch.Common.Strings.Underscores
+- uid: Ploch.Common.Strings.Dashes*
+  commentId: Overload:Ploch.Common.Strings.Dashes
+  href: Ploch.Common.Strings.Dashes.html#Ploch_Common_Strings_Dashes_System_Int32_
+  name: Dashes
+  nameWithType: Strings.Dashes
+  fullName: Ploch.Common.Strings.Dashes
+- uid: Ploch.Common.Strings.Dots*
+  commentId: Overload:Ploch.Common.Strings.Dots
+  href: Ploch.Common.Strings.Dots.html#Ploch_Common_Strings_Dots_System_Int32_
+  name: Dots
+  nameWithType: Strings.Dots
+  fullName: Ploch.Common.Strings.Dots
+memberLayout: SeparatePages

@@ -1,0 +1,4990 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  id: MauiMaterialAssets
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts
+  children:
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Adjustment
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignCenter
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignLeft
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignRight
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowDown
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowLeft
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowRightUp
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowUp
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Attachment
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Audio
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bold
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bookmark
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkAdd
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkRemove
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Brightness
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Calendar
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckLarge
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckTick
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDown
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDownFill
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeft
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeftFill
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRight
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightDouble
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightFill
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUp
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUpFill
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Circle
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheck
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheckFill
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleClose
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleError
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Clock
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Close
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Cloud
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ColorPalette
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ContinuousPage
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Contrast
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Copy
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CornerRadius
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Crop
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CustomBookmark
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateRange
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateTime
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DefaultBookmark
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Description
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedArrow
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedDoubleHeadArrow
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedLine
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DoubleHeadArrow
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DragAndDrop
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Edit
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Ellipse
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Email
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Erase
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ErrorTreeView
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportAnnotation
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportExcel
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportPdf
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Eye
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.EyeSlash
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Fade
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileDocument
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileNew
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filter
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterActive
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterClear
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filters
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FirstPage
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitHeight
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitSize
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitWidth
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipHorizontal
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipVertical
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Folder
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontFamily
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize1
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame1
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame2
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame3
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame4
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame5
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame6
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame7
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FrameCustom
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FreeDraw
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Grain
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Help
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.HighlightColor
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Hue
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Image
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ImportAnnotation
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.IntermediateState2
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Italic
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Justify
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Key
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LastPage
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Line
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LineSpacing
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Link
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Location
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lock
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lunch
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Menu
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreHorizontal1
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreVertical
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MousePointer
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.NewParagraph
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.None
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Notes
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Opacity
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageByPage
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageFit
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageSetup
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PaintBucket
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Pan
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Paragraph
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PathDraw
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PdfFile
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.People
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Phone
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Plus
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polygon
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polyline
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Print
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rectangle
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.RecurrenceEdit
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Redo
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Refresh
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rename
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Repeat
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Reset
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Saturation
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Save
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.SaveAs
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Search
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Send
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Settings
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Shapes
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sharpness
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Signature
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sorting
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Squiggly
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Stamp
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StopRectangle
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Strikethrough
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StrokeWidth
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TableOfContent
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TextAnnotation
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsDown
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsUp
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TimeZone
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Tint
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Title
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformLeft
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformRight
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Trash
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Triangle
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Underline
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Undo
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Unlock
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.User
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Warning
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomIn
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomOut
+  langs:
+  - csharp
+  - vb
+  name: MauiMaterialAssets
+  nameWithType: MauiMaterialAssets
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  type: Class
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: MauiMaterialAssets
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 8
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public static class MauiMaterialAssets
+    content.vb: Public Module MauiMaterialAssets
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightDouble
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightDouble
+  id: ChevronRightDouble
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronRightDouble
+  nameWithType: MauiMaterialAssets.ChevronRightDouble
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightDouble
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronRightDouble
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 11
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronRightDouble = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronRightDouble As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDownFill
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDownFill
+  id: ChevronDownFill
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronDownFill
+  nameWithType: MauiMaterialAssets.ChevronDownFill
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDownFill
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronDownFill
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 12
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronDownFill = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronDownFill As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUpFill
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUpFill
+  id: ChevronUpFill
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronUpFill
+  nameWithType: MauiMaterialAssets.ChevronUpFill
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUpFill
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronUpFill
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 13
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronUpFill = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronUpFill As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeftFill
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeftFill
+  id: ChevronLeftFill
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronLeftFill
+  nameWithType: MauiMaterialAssets.ChevronLeftFill
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeftFill
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronLeftFill
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 14
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronLeftFill = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronLeftFill As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightFill
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightFill
+  id: ChevronRightFill
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronRightFill
+  nameWithType: MauiMaterialAssets.ChevronRightFill
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRightFill
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronRightFill
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 15
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronRightFill = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronRightFill As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDown
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDown
+  id: ChevronDown
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronDown
+  nameWithType: MauiMaterialAssets.ChevronDown
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronDown
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronDown
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 16
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronDown = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronDown As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRight
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRight
+  id: ChevronRight
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronRight
+  nameWithType: MauiMaterialAssets.ChevronRight
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronRight
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronRight
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 17
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronRight = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronRight As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeft
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeft
+  id: ChevronLeft
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronLeft
+  nameWithType: MauiMaterialAssets.ChevronLeft
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronLeft
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronLeft
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 18
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronLeft = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronLeft As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUp
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUp
+  id: ChevronUp
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ChevronUp
+  nameWithType: MauiMaterialAssets.ChevronUp
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ChevronUp
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ChevronUp
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 19
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ChevronUp = ""
+    return:
+      type: System.String
+    content.vb: Public Const ChevronUp As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FirstPage
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FirstPage
+  id: FirstPage
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FirstPage
+  nameWithType: MauiMaterialAssets.FirstPage
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FirstPage
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FirstPage
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 20
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FirstPage = ""
+    return:
+      type: System.String
+    content.vb: Public Const FirstPage As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LastPage
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LastPage
+  id: LastPage
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: LastPage
+  nameWithType: MauiMaterialAssets.LastPage
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LastPage
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: LastPage
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 21
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string LastPage = ""
+    return:
+      type: System.String
+    content.vb: Public Const LastPage As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Close
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Close
+  id: Close
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Close
+  nameWithType: MauiMaterialAssets.Close
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Close
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Close
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 22
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Close = ""
+    return:
+      type: System.String
+    content.vb: Public Const Close As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckTick
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckTick
+  id: CheckTick
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CheckTick
+  nameWithType: MauiMaterialAssets.CheckTick
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckTick
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CheckTick
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 23
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CheckTick = ""
+    return:
+      type: System.String
+    content.vb: Public Const CheckTick As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Plus
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Plus
+  id: Plus
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Plus
+  nameWithType: MauiMaterialAssets.Plus
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Plus
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Plus
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 24
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Plus = ""
+    return:
+      type: System.String
+    content.vb: Public Const Plus As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleClose
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleClose
+  id: CircleClose
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CircleClose
+  nameWithType: MauiMaterialAssets.CircleClose
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleClose
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CircleClose
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 25
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CircleClose = ""
+    return:
+      type: System.String
+    content.vb: Public Const CircleClose As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Trash
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Trash
+  id: Trash
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Trash
+  nameWithType: MauiMaterialAssets.Trash
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Trash
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Trash
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 26
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Trash = ""
+    return:
+      type: System.String
+    content.vb: Public Const Trash As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Edit
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Edit
+  id: Edit
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Edit
+  nameWithType: MauiMaterialAssets.Edit
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Edit
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Edit
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 27
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Edit = ""
+    return:
+      type: System.String
+    content.vb: Public Const Edit As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Description
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Description
+  id: Description
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: MauiMaterialAssets.Description
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Description
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Description
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 28
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Description = ""
+    return:
+      type: System.String
+    content.vb: Public Const Description As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Folder
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Folder
+  id: Folder
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Folder
+  nameWithType: MauiMaterialAssets.Folder
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Folder
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Folder
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 29
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Folder = ""
+    return:
+      type: System.String
+    content.vb: Public Const Folder As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomIn
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomIn
+  id: ZoomIn
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ZoomIn
+  nameWithType: MauiMaterialAssets.ZoomIn
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomIn
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ZoomIn
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 30
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ZoomIn = ""
+    return:
+      type: System.String
+    content.vb: Public Const ZoomIn As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomOut
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomOut
+  id: ZoomOut
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ZoomOut
+  nameWithType: MauiMaterialAssets.ZoomOut
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ZoomOut
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ZoomOut
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 31
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ZoomOut = ""
+    return:
+      type: System.String
+    content.vb: Public Const ZoomOut As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Search
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Search
+  id: Search
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Search
+  nameWithType: MauiMaterialAssets.Search
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Search
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Search
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 32
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Search = ""
+    return:
+      type: System.String
+    content.vb: Public Const Search As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Settings
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Settings
+  id: Settings
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Settings
+  nameWithType: MauiMaterialAssets.Settings
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Settings
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Settings
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 33
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Settings = ""
+    return:
+      type: System.String
+    content.vb: Public Const Settings As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Email
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Email
+  id: Email
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: MauiMaterialAssets.Email
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Email
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Email
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 34
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Email = ""
+    return:
+      type: System.String
+    content.vb: Public Const Email As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Phone
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Phone
+  id: Phone
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Phone
+  nameWithType: MauiMaterialAssets.Phone
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Phone
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Phone
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 35
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Phone = ""
+    return:
+      type: System.String
+    content.vb: Public Const Phone As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Menu
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Menu
+  id: Menu
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Menu
+  nameWithType: MauiMaterialAssets.Menu
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Menu
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Menu
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 36
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Menu = ""
+    return:
+      type: System.String
+    content.vb: Public Const Menu As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.People
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.People
+  id: People
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: People
+  nameWithType: MauiMaterialAssets.People
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.People
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: People
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 37
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string People = ""
+    return:
+      type: System.String
+    content.vb: Public Const People As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.User
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.User
+  id: User
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: MauiMaterialAssets.User
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.User
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: User
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 38
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string User = ""
+    return:
+      type: System.String
+    content.vb: Public Const User As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Location
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Location
+  id: Location
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: MauiMaterialAssets.Location
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Location
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Location
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 39
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Location = ""
+    return:
+      type: System.String
+    content.vb: Public Const Location As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Calendar
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Calendar
+  id: Calendar
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Calendar
+  nameWithType: MauiMaterialAssets.Calendar
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Calendar
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Calendar
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 40
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Calendar = ""
+    return:
+      type: System.String
+    content.vb: Public Const Calendar As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Clock
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Clock
+  id: Clock
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Clock
+  nameWithType: MauiMaterialAssets.Clock
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Clock
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Clock
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 41
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Clock = ""
+    return:
+      type: System.String
+    content.vb: Public Const Clock As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TimeZone
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TimeZone
+  id: TimeZone
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: TimeZone
+  nameWithType: MauiMaterialAssets.TimeZone
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TimeZone
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TimeZone
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 42
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string TimeZone = ""
+    return:
+      type: System.String
+    content.vb: Public Const TimeZone As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sorting
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sorting
+  id: Sorting
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Sorting
+  nameWithType: MauiMaterialAssets.Sorting
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sorting
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Sorting
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 43
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Sorting = ""
+    return:
+      type: System.String
+    content.vb: Public Const Sorting As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filter
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filter
+  id: Filter
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Filter
+  nameWithType: MauiMaterialAssets.Filter
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filter
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Filter
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 44
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Filter = ""
+    return:
+      type: System.String
+    content.vb: Public Const Filter As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterClear
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterClear
+  id: FilterClear
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FilterClear
+  nameWithType: MauiMaterialAssets.FilterClear
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterClear
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FilterClear
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 45
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FilterClear = ""
+    return:
+      type: System.String
+    content.vb: Public Const FilterClear As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterActive
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterActive
+  id: FilterActive
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FilterActive
+  nameWithType: MauiMaterialAssets.FilterActive
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FilterActive
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FilterActive
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 46
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FilterActive = ""
+    return:
+      type: System.String
+    content.vb: Public Const FilterActive As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DragAndDrop
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DragAndDrop
+  id: DragAndDrop
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DragAndDrop
+  nameWithType: MauiMaterialAssets.DragAndDrop
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DragAndDrop
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DragAndDrop
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 47
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DragAndDrop = ""
+    return:
+      type: System.String
+    content.vb: Public Const DragAndDrop As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreHorizontal1
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreHorizontal1
+  id: MoreHorizontal1
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: MoreHorizontal1
+  nameWithType: MauiMaterialAssets.MoreHorizontal1
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreHorizontal1
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: MoreHorizontal1
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 48
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string MoreHorizontal1 = ""
+    return:
+      type: System.String
+    content.vb: Public Const MoreHorizontal1 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Repeat
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Repeat
+  id: Repeat
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: MauiMaterialAssets.Repeat
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Repeat
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Repeat
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 49
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Repeat = ""
+    return:
+      type: System.String
+    content.vb: Public Const Repeat As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.RecurrenceEdit
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.RecurrenceEdit
+  id: RecurrenceEdit
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: RecurrenceEdit
+  nameWithType: MauiMaterialAssets.RecurrenceEdit
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.RecurrenceEdit
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: RecurrenceEdit
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 50
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string RecurrenceEdit = ""
+    return:
+      type: System.String
+    content.vb: Public Const RecurrenceEdit As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bookmark
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bookmark
+  id: Bookmark
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Bookmark
+  nameWithType: MauiMaterialAssets.Bookmark
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bookmark
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Bookmark
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 51
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Bookmark = ""
+    return:
+      type: System.String
+    content.vb: Public Const Bookmark As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkAdd
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkAdd
+  id: BookmarkAdd
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: BookmarkAdd
+  nameWithType: MauiMaterialAssets.BookmarkAdd
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkAdd
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: BookmarkAdd
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 52
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string BookmarkAdd = ""
+    return:
+      type: System.String
+    content.vb: Public Const BookmarkAdd As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkRemove
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkRemove
+  id: BookmarkRemove
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: BookmarkRemove
+  nameWithType: MauiMaterialAssets.BookmarkRemove
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.BookmarkRemove
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: BookmarkRemove
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 53
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string BookmarkRemove = ""
+    return:
+      type: System.String
+    content.vb: Public Const BookmarkRemove As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.IntermediateState2
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.IntermediateState2
+  id: IntermediateState2
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: IntermediateState2
+  nameWithType: MauiMaterialAssets.IntermediateState2
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.IntermediateState2
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IntermediateState2
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 54
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string IntermediateState2 = ""
+    return:
+      type: System.String
+    content.vb: Public Const IntermediateState2 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TableOfContent
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TableOfContent
+  id: TableOfContent
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: TableOfContent
+  nameWithType: MauiMaterialAssets.TableOfContent
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TableOfContent
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TableOfContent
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 55
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string TableOfContent = ""
+    return:
+      type: System.String
+    content.vb: Public Const TableOfContent As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowLeft
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowLeft
+  id: ArrowLeft
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ArrowLeft
+  nameWithType: MauiMaterialAssets.ArrowLeft
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowLeft
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ArrowLeft
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 56
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ArrowLeft = ""
+    return:
+      type: System.String
+    content.vb: Public Const ArrowLeft As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Title
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Title
+  id: Title
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: MauiMaterialAssets.Title
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Title
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Title
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 57
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Title = ""
+    return:
+      type: System.String
+    content.vb: Public Const Title As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Crop
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Crop
+  id: Crop
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Crop
+  nameWithType: MauiMaterialAssets.Crop
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Crop
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Crop
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 58
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Crop = ""
+    return:
+      type: System.String
+    content.vb: Public Const Crop As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FrameCustom
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FrameCustom
+  id: FrameCustom
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FrameCustom
+  nameWithType: MauiMaterialAssets.FrameCustom
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FrameCustom
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FrameCustom
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 59
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FrameCustom = ""
+    return:
+      type: System.String
+    content.vb: Public Const FrameCustom As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame1
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame1
+  id: Frame1
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame1
+  nameWithType: MauiMaterialAssets.Frame1
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame1
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame1
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 60
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame1 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame1 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame2
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame2
+  id: Frame2
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame2
+  nameWithType: MauiMaterialAssets.Frame2
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame2
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame2
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 61
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame2 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame2 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame3
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame3
+  id: Frame3
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame3
+  nameWithType: MauiMaterialAssets.Frame3
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame3
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame3
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 62
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame3 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame3 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame4
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame4
+  id: Frame4
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame4
+  nameWithType: MauiMaterialAssets.Frame4
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame4
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame4
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 63
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame4 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame4 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame5
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame5
+  id: Frame5
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame5
+  nameWithType: MauiMaterialAssets.Frame5
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame5
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame5
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 64
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame5 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame5 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame6
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame6
+  id: Frame6
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame6
+  nameWithType: MauiMaterialAssets.Frame6
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame6
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame6
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 65
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame6 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame6 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Signature
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Signature
+  id: Signature
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Signature
+  nameWithType: MauiMaterialAssets.Signature
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Signature
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Signature
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 66
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Signature = ""
+    return:
+      type: System.String
+    content.vb: Public Const Signature As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MousePointer
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MousePointer
+  id: MousePointer
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: MousePointer
+  nameWithType: MauiMaterialAssets.MousePointer
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MousePointer
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: MousePointer
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 67
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string MousePointer = ""
+    return:
+      type: System.String
+    content.vb: Public Const MousePointer As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Pan
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Pan
+  id: Pan
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Pan
+  nameWithType: MauiMaterialAssets.Pan
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Pan
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Pan
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 68
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Pan = ""
+    return:
+      type: System.String
+    content.vb: Public Const Pan As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PaintBucket
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PaintBucket
+  id: PaintBucket
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: PaintBucket
+  nameWithType: MauiMaterialAssets.PaintBucket
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PaintBucket
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PaintBucket
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 69
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string PaintBucket = ""
+    return:
+      type: System.String
+    content.vb: Public Const PaintBucket As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Shapes
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Shapes
+  id: Shapes
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Shapes
+  nameWithType: MauiMaterialAssets.Shapes
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Shapes
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Shapes
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 70
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Shapes = ""
+    return:
+      type: System.String
+    content.vb: Public Const Shapes As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowRightUp
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowRightUp
+  id: ArrowRightUp
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ArrowRightUp
+  nameWithType: MauiMaterialAssets.ArrowRightUp
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowRightUp
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ArrowRightUp
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 71
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ArrowRightUp = ""
+    return:
+      type: System.String
+    content.vb: Public Const ArrowRightUp As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Line
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Line
+  id: Line
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: MauiMaterialAssets.Line
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Line
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Line
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 72
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Line = ""
+    return:
+      type: System.String
+    content.vb: Public Const Line As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rectangle
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rectangle
+  id: Rectangle
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Rectangle
+  nameWithType: MauiMaterialAssets.Rectangle
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rectangle
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Rectangle
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 73
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Rectangle = ""
+    return:
+      type: System.String
+    content.vb: Public Const Rectangle As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Circle
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Circle
+  id: Circle
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Circle
+  nameWithType: MauiMaterialAssets.Circle
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Circle
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Circle
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 74
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Circle = ""
+    return:
+      type: System.String
+    content.vb: Public Const Circle As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipVertical
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipVertical
+  id: FlipVertical
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FlipVertical
+  nameWithType: MauiMaterialAssets.FlipVertical
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipVertical
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FlipVertical
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 75
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FlipVertical = ""
+    return:
+      type: System.String
+    content.vb: Public Const FlipVertical As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipHorizontal
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipHorizontal
+  id: FlipHorizontal
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FlipHorizontal
+  nameWithType: MauiMaterialAssets.FlipHorizontal
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FlipHorizontal
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FlipHorizontal
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 76
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FlipHorizontal = ""
+    return:
+      type: System.String
+    content.vb: Public Const FlipHorizontal As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformLeft
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformLeft
+  id: TransformLeft
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: TransformLeft
+  nameWithType: MauiMaterialAssets.TransformLeft
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformLeft
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TransformLeft
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 77
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string TransformLeft = ""
+    return:
+      type: System.String
+    content.vb: Public Const TransformLeft As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformRight
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformRight
+  id: TransformRight
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: TransformRight
+  nameWithType: MauiMaterialAssets.TransformRight
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TransformRight
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TransformRight
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 78
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string TransformRight = ""
+    return:
+      type: System.String
+    content.vb: Public Const TransformRight As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Undo
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Undo
+  id: Undo
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Undo
+  nameWithType: MauiMaterialAssets.Undo
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Undo
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Undo
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 79
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Undo = ""
+    return:
+      type: System.String
+    content.vb: Public Const Undo As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Redo
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Redo
+  id: Redo
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Redo
+  nameWithType: MauiMaterialAssets.Redo
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Redo
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Redo
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 80
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Redo = ""
+    return:
+      type: System.String
+    content.vb: Public Const Redo As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Reset
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Reset
+  id: Reset
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Reset
+  nameWithType: MauiMaterialAssets.Reset
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Reset
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Reset
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 81
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Reset = ""
+    return:
+      type: System.String
+    content.vb: Public Const Reset As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filters
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filters
+  id: Filters
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Filters
+  nameWithType: MauiMaterialAssets.Filters
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Filters
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Filters
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 82
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Filters = ""
+    return:
+      type: System.String
+    content.vb: Public Const Filters As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Adjustment
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Adjustment
+  id: Adjustment
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Adjustment
+  nameWithType: MauiMaterialAssets.Adjustment
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Adjustment
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Adjustment
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 83
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Adjustment = ""
+    return:
+      type: System.String
+    content.vb: Public Const Adjustment As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Tint
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Tint
+  id: Tint
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Tint
+  nameWithType: MauiMaterialAssets.Tint
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Tint
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Tint
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 84
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Tint = ""
+    return:
+      type: System.String
+    content.vb: Public Const Tint As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Brightness
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Brightness
+  id: Brightness
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Brightness
+  nameWithType: MauiMaterialAssets.Brightness
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Brightness
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Brightness
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 85
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Brightness = ""
+    return:
+      type: System.String
+    content.vb: Public Const Brightness As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Contrast
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Contrast
+  id: Contrast
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Contrast
+  nameWithType: MauiMaterialAssets.Contrast
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Contrast
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Contrast
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 86
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Contrast = ""
+    return:
+      type: System.String
+    content.vb: Public Const Contrast As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Saturation
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Saturation
+  id: Saturation
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Saturation
+  nameWithType: MauiMaterialAssets.Saturation
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Saturation
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Saturation
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 87
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Saturation = ""
+    return:
+      type: System.String
+    content.vb: Public Const Saturation As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Fade
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Fade
+  id: Fade
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Fade
+  nameWithType: MauiMaterialAssets.Fade
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Fade
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Fade
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 88
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Fade = ""
+    return:
+      type: System.String
+    content.vb: Public Const Fade As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StrokeWidth
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StrokeWidth
+  id: StrokeWidth
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: StrokeWidth
+  nameWithType: MauiMaterialAssets.StrokeWidth
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StrokeWidth
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: StrokeWidth
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 89
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string StrokeWidth = ""
+    return:
+      type: System.String
+    content.vb: Public Const StrokeWidth As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Justify
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Justify
+  id: Justify
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Justify
+  nameWithType: MauiMaterialAssets.Justify
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Justify
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Justify
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 90
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Justify = ""
+    return:
+      type: System.String
+    content.vb: Public Const Justify As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LineSpacing
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LineSpacing
+  id: LineSpacing
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: LineSpacing
+  nameWithType: MauiMaterialAssets.LineSpacing
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.LineSpacing
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: LineSpacing
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 91
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string LineSpacing = ""
+    return:
+      type: System.String
+    content.vb: Public Const LineSpacing As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignLeft
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignLeft
+  id: AlignLeft
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: AlignLeft
+  nameWithType: MauiMaterialAssets.AlignLeft
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignLeft
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AlignLeft
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 92
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string AlignLeft = ""
+    return:
+      type: System.String
+    content.vb: Public Const AlignLeft As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignCenter
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignCenter
+  id: AlignCenter
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: AlignCenter
+  nameWithType: MauiMaterialAssets.AlignCenter
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignCenter
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AlignCenter
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 93
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string AlignCenter = ""
+    return:
+      type: System.String
+    content.vb: Public Const AlignCenter As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignRight
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignRight
+  id: AlignRight
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: AlignRight
+  nameWithType: MauiMaterialAssets.AlignRight
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.AlignRight
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AlignRight
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 94
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string AlignRight = ""
+    return:
+      type: System.String
+    content.vb: Public Const AlignRight As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontFamily
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontFamily
+  id: FontFamily
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FontFamily
+  nameWithType: MauiMaterialAssets.FontFamily
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontFamily
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FontFamily
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 95
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FontFamily = ""
+    return:
+      type: System.String
+    content.vb: Public Const FontFamily As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize
+  id: FontSize
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FontSize
+  nameWithType: MauiMaterialAssets.FontSize
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FontSize
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 96
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FontSize = ""
+    return:
+      type: System.String
+    content.vb: Public Const FontSize As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rename
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rename
+  id: Rename
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Rename
+  nameWithType: MauiMaterialAssets.Rename
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Rename
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Rename
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 97
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Rename = ""
+    return:
+      type: System.String
+    content.vb: Public Const Rename As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CornerRadius
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CornerRadius
+  id: CornerRadius
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CornerRadius
+  nameWithType: MauiMaterialAssets.CornerRadius
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CornerRadius
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CornerRadius
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 98
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CornerRadius = ""
+    return:
+      type: System.String
+    content.vb: Public Const CornerRadius As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.EyeSlash
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.EyeSlash
+  id: EyeSlash
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: EyeSlash
+  nameWithType: MauiMaterialAssets.EyeSlash
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.EyeSlash
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: EyeSlash
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 99
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string EyeSlash = ""
+    return:
+      type: System.String
+    content.vb: Public Const EyeSlash As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreVertical
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreVertical
+  id: MoreVertical
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: MoreVertical
+  nameWithType: MauiMaterialAssets.MoreVertical
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.MoreVertical
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: MoreVertical
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 100
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string MoreVertical = ""
+    return:
+      type: System.String
+    content.vb: Public Const MoreVertical As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Grain
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Grain
+  id: Grain
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Grain
+  nameWithType: MauiMaterialAssets.Grain
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Grain
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Grain
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 101
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Grain = ""
+    return:
+      type: System.String
+    content.vb: Public Const Grain As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckLarge
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckLarge
+  id: CheckLarge
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CheckLarge
+  nameWithType: MauiMaterialAssets.CheckLarge
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CheckLarge
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CheckLarge
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 102
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CheckLarge = ""
+    return:
+      type: System.String
+    content.vb: Public Const CheckLarge As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sharpness
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sharpness
+  id: Sharpness
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Sharpness
+  nameWithType: MauiMaterialAssets.Sharpness
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Sharpness
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Sharpness
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 103
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Sharpness = ""
+    return:
+      type: System.String
+    content.vb: Public Const Sharpness As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lunch
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lunch
+  id: Lunch
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Lunch
+  nameWithType: MauiMaterialAssets.Lunch
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lunch
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Lunch
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 104
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Lunch = ""
+    return:
+      type: System.String
+    content.vb: Public Const Lunch As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateRange
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateRange
+  id: DateRange
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DateRange
+  nameWithType: MauiMaterialAssets.DateRange
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateRange
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DateRange
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 105
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DateRange = ""
+    return:
+      type: System.String
+    content.vb: Public Const DateRange As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Save
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Save
+  id: Save
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Save
+  nameWithType: MauiMaterialAssets.Save
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Save
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Save
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 106
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Save = ""
+    return:
+      type: System.String
+    content.vb: Public Const Save As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.HighlightColor
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.HighlightColor
+  id: HighlightColor
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: HighlightColor
+  nameWithType: MauiMaterialAssets.HighlightColor
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.HighlightColor
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: HighlightColor
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 107
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string HighlightColor = ""
+    return:
+      type: System.String
+    content.vb: Public Const HighlightColor As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Stamp
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Stamp
+  id: Stamp
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Stamp
+  nameWithType: MauiMaterialAssets.Stamp
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Stamp
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Stamp
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 108
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Stamp = ""
+    return:
+      type: System.String
+    content.vb: Public Const Stamp As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Underline
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Underline
+  id: Underline
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Underline
+  nameWithType: MauiMaterialAssets.Underline
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Underline
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Underline
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 109
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Underline = ""
+    return:
+      type: System.String
+    content.vb: Public Const Underline As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Strikethrough
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Strikethrough
+  id: Strikethrough
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Strikethrough
+  nameWithType: MauiMaterialAssets.Strikethrough
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Strikethrough
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Strikethrough
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 110
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Strikethrough = ""
+    return:
+      type: System.String
+    content.vb: Public Const Strikethrough As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Erase
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Erase
+  id: Erase
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Erase
+  nameWithType: MauiMaterialAssets.Erase
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Erase
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Erase
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 111
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Erase = ""
+    return:
+      type: System.String
+    content.vb: Public Const Erase As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Squiggly
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Squiggly
+  id: Squiggly
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Squiggly
+  nameWithType: MauiMaterialAssets.Squiggly
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Squiggly
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Squiggly
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 112
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Squiggly = ""
+    return:
+      type: System.String
+    content.vb: Public Const Squiggly As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FreeDraw
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FreeDraw
+  id: FreeDraw
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FreeDraw
+  nameWithType: MauiMaterialAssets.FreeDraw
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FreeDraw
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FreeDraw
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 113
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FreeDraw = ""
+    return:
+      type: System.String
+    content.vb: Public Const FreeDraw As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ColorPalette
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ColorPalette
+  id: ColorPalette
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ColorPalette
+  nameWithType: MauiMaterialAssets.ColorPalette
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ColorPalette
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ColorPalette
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 114
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ColorPalette = ""
+    return:
+      type: System.String
+    content.vb: Public Const ColorPalette As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DoubleHeadArrow
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DoubleHeadArrow
+  id: DoubleHeadArrow
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DoubleHeadArrow
+  nameWithType: MauiMaterialAssets.DoubleHeadArrow
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DoubleHeadArrow
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DoubleHeadArrow
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 115
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DoubleHeadArrow = ""
+    return:
+      type: System.String
+    content.vb: Public Const DoubleHeadArrow As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedArrow
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedArrow
+  id: DottedArrow
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DottedArrow
+  nameWithType: MauiMaterialAssets.DottedArrow
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedArrow
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DottedArrow
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 116
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DottedArrow = ""
+    return:
+      type: System.String
+    content.vb: Public Const DottedArrow As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedDoubleHeadArrow
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedDoubleHeadArrow
+  id: DottedDoubleHeadArrow
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DottedDoubleHeadArrow
+  nameWithType: MauiMaterialAssets.DottedDoubleHeadArrow
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedDoubleHeadArrow
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DottedDoubleHeadArrow
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 117
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DottedDoubleHeadArrow = ""
+    return:
+      type: System.String
+    content.vb: Public Const DottedDoubleHeadArrow As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedLine
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedLine
+  id: DottedLine
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DottedLine
+  nameWithType: MauiMaterialAssets.DottedLine
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DottedLine
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DottedLine
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 118
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DottedLine = ""
+    return:
+      type: System.String
+    content.vb: Public Const DottedLine As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Image
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Image
+  id: Image
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: MauiMaterialAssets.Image
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Image
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Image
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 119
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Image = ""
+    return:
+      type: System.String
+    content.vb: Public Const Image As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Opacity
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Opacity
+  id: Opacity
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Opacity
+  nameWithType: MauiMaterialAssets.Opacity
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Opacity
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Opacity
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 120
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Opacity = ""
+    return:
+      type: System.String
+    content.vb: Public Const Opacity As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame7
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame7
+  id: Frame7
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Frame7
+  nameWithType: MauiMaterialAssets.Frame7
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Frame7
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Frame7
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 121
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Frame7 = ""
+    return:
+      type: System.String
+    content.vb: Public Const Frame7 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Ellipse
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Ellipse
+  id: Ellipse
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Ellipse
+  nameWithType: MauiMaterialAssets.Ellipse
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Ellipse
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Ellipse
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 122
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Ellipse = ""
+    return:
+      type: System.String
+    content.vb: Public Const Ellipse As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bold
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bold
+  id: Bold
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Bold
+  nameWithType: MauiMaterialAssets.Bold
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Bold
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Bold
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 123
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Bold = ""
+    return:
+      type: System.String
+    content.vb: Public Const Bold As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Italic
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Italic
+  id: Italic
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Italic
+  nameWithType: MauiMaterialAssets.Italic
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Italic
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Italic
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 124
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Italic = ""
+    return:
+      type: System.String
+    content.vb: Public Const Italic As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.None
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.None
+  id: None
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MauiMaterialAssets.None
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.None
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: None
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 125
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string None = ""
+    return:
+      type: System.String
+    content.vb: Public Const None As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Hue
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Hue
+  id: Hue
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Hue
+  nameWithType: MauiMaterialAssets.Hue
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Hue
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Hue
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 126
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Hue = ""
+    return:
+      type: System.String
+    content.vb: Public Const Hue As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateTime
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateTime
+  id: DateTime
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DateTime
+  nameWithType: MauiMaterialAssets.DateTime
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DateTime
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DateTime
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 127
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DateTime = ""
+    return:
+      type: System.String
+    content.vb: Public Const DateTime As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Notes
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Notes
+  id: Notes
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Notes
+  nameWithType: MauiMaterialAssets.Notes
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Notes
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Notes
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 128
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Notes = ""
+    return:
+      type: System.String
+    content.vb: Public Const Notes As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Paragraph
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Paragraph
+  id: Paragraph
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Paragraph
+  nameWithType: MauiMaterialAssets.Paragraph
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Paragraph
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Paragraph
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 129
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Paragraph = ""
+    return:
+      type: System.String
+    content.vb: Public Const Paragraph As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Key
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Key
+  id: Key
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: MauiMaterialAssets.Key
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Key
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Key
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 130
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Key = ""
+    return:
+      type: System.String
+    content.vb: Public Const Key As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Help
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Help
+  id: Help
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Help
+  nameWithType: MauiMaterialAssets.Help
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Help
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Help
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 131
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Help = ""
+    return:
+      type: System.String
+    content.vb: Public Const Help As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Triangle
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Triangle
+  id: Triangle
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Triangle
+  nameWithType: MauiMaterialAssets.Triangle
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Triangle
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Triangle
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 132
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Triangle = ""
+    return:
+      type: System.String
+    content.vb: Public Const Triangle As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.NewParagraph
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.NewParagraph
+  id: NewParagraph
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: NewParagraph
+  nameWithType: MauiMaterialAssets.NewParagraph
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.NewParagraph
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: NewParagraph
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 133
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string NewParagraph = ""
+    return:
+      type: System.String
+    content.vb: Public Const NewParagraph As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lock
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lock
+  id: Lock
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Lock
+  nameWithType: MauiMaterialAssets.Lock
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Lock
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Lock
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 134
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Lock = ""
+    return:
+      type: System.String
+    content.vb: Public Const Lock As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Unlock
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Unlock
+  id: Unlock
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Unlock
+  nameWithType: MauiMaterialAssets.Unlock
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Unlock
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Unlock
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 135
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Unlock = ""
+    return:
+      type: System.String
+    content.vb: Public Const Unlock As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileNew
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileNew
+  id: FileNew
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FileNew
+  nameWithType: MauiMaterialAssets.FileNew
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileNew
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FileNew
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 136
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FileNew = ""
+    return:
+      type: System.String
+    content.vb: Public Const FileNew As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.SaveAs
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.SaveAs
+  id: SaveAs
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: SaveAs
+  nameWithType: MauiMaterialAssets.SaveAs
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.SaveAs
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: SaveAs
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 137
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string SaveAs = ""
+    return:
+      type: System.String
+    content.vb: Public Const SaveAs As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Print
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Print
+  id: Print
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Print
+  nameWithType: MauiMaterialAssets.Print
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Print
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Print
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 138
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Print = ""
+    return:
+      type: System.String
+    content.vb: Public Const Print As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PdfFile
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PdfFile
+  id: PdfFile
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: PdfFile
+  nameWithType: MauiMaterialAssets.PdfFile
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PdfFile
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PdfFile
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 139
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string PdfFile = ""
+    return:
+      type: System.String
+    content.vb: Public Const PdfFile As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportAnnotation
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportAnnotation
+  id: ExportAnnotation
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ExportAnnotation
+  nameWithType: MauiMaterialAssets.ExportAnnotation
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportAnnotation
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ExportAnnotation
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 140
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ExportAnnotation = ""
+    return:
+      type: System.String
+    content.vb: Public Const ExportAnnotation As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ImportAnnotation
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ImportAnnotation
+  id: ImportAnnotation
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ImportAnnotation
+  nameWithType: MauiMaterialAssets.ImportAnnotation
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ImportAnnotation
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ImportAnnotation
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 141
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ImportAnnotation = ""
+    return:
+      type: System.String
+    content.vb: Public Const ImportAnnotation As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Cloud
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Cloud
+  id: Cloud
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Cloud
+  nameWithType: MauiMaterialAssets.Cloud
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Cloud
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Cloud
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 142
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Cloud = ""
+    return:
+      type: System.String
+    content.vb: Public Const Cloud As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Send
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Send
+  id: Send
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Send
+  nameWithType: MauiMaterialAssets.Send
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Send
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Send
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 143
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Send = ""
+    return:
+      type: System.String
+    content.vb: Public Const Send As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Attachment
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Attachment
+  id: Attachment
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Attachment
+  nameWithType: MauiMaterialAssets.Attachment
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Attachment
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Attachment
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 144
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Attachment = ""
+    return:
+      type: System.String
+    content.vb: Public Const Attachment As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polyline
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polyline
+  id: Polyline
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Polyline
+  nameWithType: MauiMaterialAssets.Polyline
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polyline
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Polyline
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 145
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Polyline = ""
+    return:
+      type: System.String
+    content.vb: Public Const Polyline As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize1
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize1
+  id: FontSize1
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FontSize1
+  nameWithType: MauiMaterialAssets.FontSize1
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FontSize1
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FontSize1
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 146
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FontSize1 = ""
+    return:
+      type: System.String
+    content.vb: Public Const FontSize1 As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TextAnnotation
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TextAnnotation
+  id: TextAnnotation
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: TextAnnotation
+  nameWithType: MauiMaterialAssets.TextAnnotation
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.TextAnnotation
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TextAnnotation
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 147
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string TextAnnotation = ""
+    return:
+      type: System.String
+    content.vb: Public Const TextAnnotation As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polygon
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polygon
+  id: Polygon
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Polygon
+  nameWithType: MauiMaterialAssets.Polygon
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Polygon
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Polygon
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 148
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Polygon = ""
+    return:
+      type: System.String
+    content.vb: Public Const Polygon As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PathDraw
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PathDraw
+  id: PathDraw
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: PathDraw
+  nameWithType: MauiMaterialAssets.PathDraw
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PathDraw
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PathDraw
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 149
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string PathDraw = ""
+    return:
+      type: System.String
+    content.vb: Public Const PathDraw As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheck
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheck
+  id: CircleCheck
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CircleCheck
+  nameWithType: MauiMaterialAssets.CircleCheck
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheck
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CircleCheck
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 150
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CircleCheck = ""
+    return:
+      type: System.String
+    content.vb: Public Const CircleCheck As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheckFill
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheckFill
+  id: CircleCheckFill
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CircleCheckFill
+  nameWithType: MauiMaterialAssets.CircleCheckFill
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleCheckFill
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CircleCheckFill
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 151
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CircleCheckFill = ""
+    return:
+      type: System.String
+    content.vb: Public Const CircleCheckFill As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Link
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Link
+  id: Link
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Link
+  nameWithType: MauiMaterialAssets.Link
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Link
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Link
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 152
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Link = ""
+    return:
+      type: System.String
+    content.vb: Public Const Link As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Eye
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Eye
+  id: Eye
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Eye
+  nameWithType: MauiMaterialAssets.Eye
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Eye
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Eye
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 153
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Eye = ""
+    return:
+      type: System.String
+    content.vb: Public Const Eye As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleError
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleError
+  id: CircleError
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CircleError
+  nameWithType: MauiMaterialAssets.CircleError
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CircleError
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CircleError
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 154
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CircleError = ""
+    return:
+      type: System.String
+    content.vb: Public Const CircleError As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Warning
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Warning
+  id: Warning
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: MauiMaterialAssets.Warning
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Warning
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Warning
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 155
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Warning = ""
+    return:
+      type: System.String
+    content.vb: Public Const Warning As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowUp
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowUp
+  id: ArrowUp
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ArrowUp
+  nameWithType: MauiMaterialAssets.ArrowUp
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowUp
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ArrowUp
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 156
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ArrowUp = ""
+    return:
+      type: System.String
+    content.vb: Public Const ArrowUp As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowDown
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowDown
+  id: ArrowDown
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ArrowDown
+  nameWithType: MauiMaterialAssets.ArrowDown
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ArrowDown
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ArrowDown
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 157
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ArrowDown = ""
+    return:
+      type: System.String
+    content.vb: Public Const ArrowDown As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DefaultBookmark
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DefaultBookmark
+  id: DefaultBookmark
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: DefaultBookmark
+  nameWithType: MauiMaterialAssets.DefaultBookmark
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.DefaultBookmark
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DefaultBookmark
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 158
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string DefaultBookmark = ""
+    return:
+      type: System.String
+    content.vb: Public Const DefaultBookmark As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CustomBookmark
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CustomBookmark
+  id: CustomBookmark
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: CustomBookmark
+  nameWithType: MauiMaterialAssets.CustomBookmark
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.CustomBookmark
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CustomBookmark
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 159
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string CustomBookmark = ""
+    return:
+      type: System.String
+    content.vb: Public Const CustomBookmark As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageSetup
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageSetup
+  id: PageSetup
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: PageSetup
+  nameWithType: MauiMaterialAssets.PageSetup
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageSetup
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PageSetup
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 160
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string PageSetup = ""
+    return:
+      type: System.String
+    content.vb: Public Const PageSetup As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ContinuousPage
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ContinuousPage
+  id: ContinuousPage
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ContinuousPage
+  nameWithType: MauiMaterialAssets.ContinuousPage
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ContinuousPage
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ContinuousPage
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 161
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ContinuousPage = ""
+    return:
+      type: System.String
+    content.vb: Public Const ContinuousPage As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileDocument
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileDocument
+  id: FileDocument
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FileDocument
+  nameWithType: MauiMaterialAssets.FileDocument
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FileDocument
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FileDocument
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 162
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FileDocument = ""
+    return:
+      type: System.String
+    content.vb: Public Const FileDocument As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageByPage
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageByPage
+  id: PageByPage
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: PageByPage
+  nameWithType: MauiMaterialAssets.PageByPage
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageByPage
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PageByPage
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 163
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string PageByPage = ""
+    return:
+      type: System.String
+    content.vb: Public Const PageByPage As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportPdf
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportPdf
+  id: ExportPdf
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ExportPdf
+  nameWithType: MauiMaterialAssets.ExportPdf
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportPdf
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ExportPdf
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 164
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ExportPdf = ""
+    return:
+      type: System.String
+    content.vb: Public Const ExportPdf As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportExcel
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportExcel
+  id: ExportExcel
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ExportExcel
+  nameWithType: MauiMaterialAssets.ExportExcel
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ExportExcel
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ExportExcel
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 165
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ExportExcel = ""
+    return:
+      type: System.String
+    content.vb: Public Const ExportExcel As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageFit
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageFit
+  id: PageFit
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: PageFit
+  nameWithType: MauiMaterialAssets.PageFit
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.PageFit
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PageFit
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 166
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string PageFit = ""
+    return:
+      type: System.String
+    content.vb: Public Const PageFit As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitWidth
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitWidth
+  id: FitWidth
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FitWidth
+  nameWithType: MauiMaterialAssets.FitWidth
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitWidth
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FitWidth
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 167
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FitWidth = ""
+    return:
+      type: System.String
+    content.vb: Public Const FitWidth As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitHeight
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitHeight
+  id: FitHeight
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FitHeight
+  nameWithType: MauiMaterialAssets.FitHeight
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitHeight
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FitHeight
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 168
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FitHeight = ""
+    return:
+      type: System.String
+    content.vb: Public Const FitHeight As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ErrorTreeView
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ErrorTreeView
+  id: ErrorTreeView
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ErrorTreeView
+  nameWithType: MauiMaterialAssets.ErrorTreeView
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ErrorTreeView
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ErrorTreeView
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 169
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ErrorTreeView = ""
+    return:
+      type: System.String
+    content.vb: Public Const ErrorTreeView As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitSize
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitSize
+  id: FitSize
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: FitSize
+  nameWithType: MauiMaterialAssets.FitSize
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.FitSize
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: FitSize
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 170
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string FitSize = ""
+    return:
+      type: System.String
+    content.vb: Public Const FitSize As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Copy
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Copy
+  id: Copy
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Copy
+  nameWithType: MauiMaterialAssets.Copy
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Copy
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Copy
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 171
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Copy = ""
+    return:
+      type: System.String
+    content.vb: Public Const Copy As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Audio
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Audio
+  id: Audio
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Audio
+  nameWithType: MauiMaterialAssets.Audio
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Audio
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Audio
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 172
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Audio = ""
+    return:
+      type: System.String
+    content.vb: Public Const Audio As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Refresh
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Refresh
+  id: Refresh
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Refresh
+  nameWithType: MauiMaterialAssets.Refresh
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.Refresh
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Refresh
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 173
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string Refresh = ""
+    return:
+      type: System.String
+    content.vb: Public Const Refresh As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsUp
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsUp
+  id: ThumbsUp
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ThumbsUp
+  nameWithType: MauiMaterialAssets.ThumbsUp
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsUp
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ThumbsUp
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 174
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ThumbsUp = ""
+    return:
+      type: System.String
+    content.vb: Public Const ThumbsUp As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsDown
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsDown
+  id: ThumbsDown
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: ThumbsDown
+  nameWithType: MauiMaterialAssets.ThumbsDown
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.ThumbsDown
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ThumbsDown
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 175
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string ThumbsDown = ""
+    return:
+      type: System.String
+    content.vb: Public Const ThumbsDown As String = ""
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StopRectangle
+  commentId: F:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StopRectangle
+  id: StopRectangle
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: StopRectangle
+  nameWithType: MauiMaterialAssets.StopRectangle
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.StopRectangle
+  type: Field
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: StopRectangle
+    path: ../src/Common.Maui/Common.Maui.Fonts/IconFonts/MauiMaterialAssets.cs
+    startLine: 176
+  assemblies:
+  - Ploch.Common.Maui.Fonts
+  namespace: Ploch.Lists.UI.MauiUI.Common.Fonts
+  syntax:
+    content: public const string StopRectangle = ""
+    return:
+      type: System.String
+    content.vb: Public Const StopRectangle As String = ""
+references:
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+  commentId: N:Ploch.Lists.UI.MauiUI.Common.Fonts
+  href: Ploch.html
+  name: Ploch.Lists.UI.MauiUI.Common.Fonts
+  nameWithType: Ploch.Lists.UI.MauiUI.Common.Fonts
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common
+    name: Common
+    href: Ploch.Lists.UI.MauiUI.Common.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+    name: Fonts
+    href: Ploch.Lists.UI.MauiUI.Common.Fonts.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common
+    name: Common
+    href: Ploch.Lists.UI.MauiUI.Common.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+    name: Fonts
+    href: Ploch.Lists.UI.MauiUI.Common.Fonts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+memberLayout: SeparatePages

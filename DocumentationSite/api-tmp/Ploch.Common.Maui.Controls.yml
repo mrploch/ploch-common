@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.Controls
+  commentId: N:Ploch.Common.Maui.Controls
+  id: Controls
+  parent: Ploch.Common.Maui
+  children:
+  - Ploch.Common.Maui.Controls.ResourceDictionaryExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui.Controls
+  nameWithType: Ploch.Common.Maui.Controls
+  fullName: Ploch.Common.Maui.Controls
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Common.Maui.Controls.ResourceDictionaryExtensions
+  commentId: T:Ploch.Common.Maui.Controls.ResourceDictionaryExtensions
+  href: Ploch.Common.Maui.Controls.ResourceDictionaryExtensions.html
+  name: ResourceDictionaryExtensions
+  nameWithType: ResourceDictionaryExtensions
+  fullName: Ploch.Common.Maui.Controls.ResourceDictionaryExtensions
+memberLayout: SeparatePages

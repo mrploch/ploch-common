@@ -1,0 +1,274 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.TypeConversion
+  commentId: N:Ploch.Common.TypeConversion
+  id: TypeConversion
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.TypeConversion.CaseSensitivity
+  - Ploch.Common.TypeConversion.CaseSensitivityExtensions
+  - Ploch.Common.TypeConversion.EnumConversionAttribute
+  - Ploch.Common.TypeConversion.EnumConverter
+  - Ploch.Common.TypeConversion.EnumMappingAttribute
+  - Ploch.Common.TypeConversion.EnumName
+  - Ploch.Common.TypeConversion.EnumNameEnumerableExtensions
+  - Ploch.Common.TypeConversion.EnumNameValueComparer
+  - Ploch.Common.TypeConversion.EnumerationFieldValueCache
+  - Ploch.Common.TypeConversion.EnumerationMapExtractor
+  - Ploch.Common.TypeConversion.ISourceTypeConverter`1
+  - Ploch.Common.TypeConversion.ITargetTypeConverter`1
+  - Ploch.Common.TypeConversion.ITypeConverter
+  - Ploch.Common.TypeConversion.ITypeConverter`2
+  - Ploch.Common.TypeConversion.ObjectPropertyAttribute
+  - Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter`2
+  - Ploch.Common.TypeConversion.TypeConversionException
+  - Ploch.Common.TypeConversion.TypeConverter
+  - Ploch.Common.TypeConversion.TypeConverterHelper
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.TypeConversion
+  nameWithType: Ploch.Common.TypeConversion
+  fullName: Ploch.Common.TypeConversion
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.TypeConversion.CaseSensitivity
+  commentId: T:Ploch.Common.TypeConversion.CaseSensitivity
+  parent: Ploch.Common.TypeConversion
+  href: Ploch.Common.TypeConversion.CaseSensitivity.html
+  name: CaseSensitivity
+  nameWithType: CaseSensitivity
+  fullName: Ploch.Common.TypeConversion.CaseSensitivity
+- uid: Ploch.Common.TypeConversion.CaseSensitivityExtensions
+  commentId: T:Ploch.Common.TypeConversion.CaseSensitivityExtensions
+  parent: Ploch.Common.TypeConversion
+  href: Ploch.Common.TypeConversion.CaseSensitivityExtensions.html
+  name: CaseSensitivityExtensions
+  nameWithType: CaseSensitivityExtensions
+  fullName: Ploch.Common.TypeConversion.CaseSensitivityExtensions
+- uid: Ploch.Common.TypeConversion.EnumConversionAttribute
+  commentId: T:Ploch.Common.TypeConversion.EnumConversionAttribute
+  href: Ploch.Common.TypeConversion.EnumConversionAttribute.html
+  name: EnumConversionAttribute
+  nameWithType: EnumConversionAttribute
+  fullName: Ploch.Common.TypeConversion.EnumConversionAttribute
+- uid: Ploch.Common.TypeConversion.EnumConverter
+  commentId: T:Ploch.Common.TypeConversion.EnumConverter
+  href: Ploch.Common.TypeConversion.EnumConverter.html
+  name: EnumConverter
+  nameWithType: EnumConverter
+  fullName: Ploch.Common.TypeConversion.EnumConverter
+- uid: Ploch.Common.TypeConversion.EnumMappingAttribute
+  commentId: T:Ploch.Common.TypeConversion.EnumMappingAttribute
+  href: Ploch.Common.TypeConversion.EnumMappingAttribute.html
+  name: EnumMappingAttribute
+  nameWithType: EnumMappingAttribute
+  fullName: Ploch.Common.TypeConversion.EnumMappingAttribute
+- uid: Ploch.Common.TypeConversion.EnumName
+  commentId: T:Ploch.Common.TypeConversion.EnumName
+  parent: Ploch.Common.TypeConversion
+  href: Ploch.Common.TypeConversion.EnumName.html
+  name: EnumName
+  nameWithType: EnumName
+  fullName: Ploch.Common.TypeConversion.EnumName
+- uid: Ploch.Common.TypeConversion.EnumNameEnumerableExtensions
+  commentId: T:Ploch.Common.TypeConversion.EnumNameEnumerableExtensions
+  href: Ploch.Common.TypeConversion.EnumNameEnumerableExtensions.html
+  name: EnumNameEnumerableExtensions
+  nameWithType: EnumNameEnumerableExtensions
+  fullName: Ploch.Common.TypeConversion.EnumNameEnumerableExtensions
+- uid: Ploch.Common.TypeConversion.EnumNameValueComparer
+  commentId: T:Ploch.Common.TypeConversion.EnumNameValueComparer
+  href: Ploch.Common.TypeConversion.EnumNameValueComparer.html
+  name: EnumNameValueComparer
+  nameWithType: EnumNameValueComparer
+  fullName: Ploch.Common.TypeConversion.EnumNameValueComparer
+- uid: Ploch.Common.TypeConversion.EnumerationFieldValueCache
+  commentId: T:Ploch.Common.TypeConversion.EnumerationFieldValueCache
+  href: Ploch.Common.TypeConversion.EnumerationFieldValueCache.html
+  name: EnumerationFieldValueCache
+  nameWithType: EnumerationFieldValueCache
+  fullName: Ploch.Common.TypeConversion.EnumerationFieldValueCache
+- uid: Ploch.Common.TypeConversion.EnumerationMapExtractor
+  commentId: T:Ploch.Common.TypeConversion.EnumerationMapExtractor
+  href: Ploch.Common.TypeConversion.EnumerationMapExtractor.html
+  name: EnumerationMapExtractor
+  nameWithType: EnumerationMapExtractor
+  fullName: Ploch.Common.TypeConversion.EnumerationMapExtractor
+- uid: Ploch.Common.TypeConversion.ISourceTypeConverter`1
+  commentId: T:Ploch.Common.TypeConversion.ISourceTypeConverter`1
+  href: Ploch.Common.TypeConversion.ISourceTypeConverter-1.html
+  name: ISourceTypeConverter<TSourceType>
+  nameWithType: ISourceTypeConverter<TSourceType>
+  fullName: Ploch.Common.TypeConversion.ISourceTypeConverter<TSourceType>
+  nameWithType.vb: ISourceTypeConverter(Of TSourceType)
+  fullName.vb: Ploch.Common.TypeConversion.ISourceTypeConverter(Of TSourceType)
+  name.vb: ISourceTypeConverter(Of TSourceType)
+  spec.csharp:
+  - uid: Ploch.Common.TypeConversion.ISourceTypeConverter`1
+    name: ISourceTypeConverter
+    href: Ploch.Common.TypeConversion.ISourceTypeConverter-1.html
+  - name: <
+  - name: TSourceType
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.TypeConversion.ISourceTypeConverter`1
+    name: ISourceTypeConverter
+    href: Ploch.Common.TypeConversion.ISourceTypeConverter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSourceType
+  - name: )
+- uid: Ploch.Common.TypeConversion.ITargetTypeConverter`1
+  commentId: T:Ploch.Common.TypeConversion.ITargetTypeConverter`1
+  href: Ploch.Common.TypeConversion.ITargetTypeConverter-1.html
+  name: ITargetTypeConverter<TTargetType>
+  nameWithType: ITargetTypeConverter<TTargetType>
+  fullName: Ploch.Common.TypeConversion.ITargetTypeConverter<TTargetType>
+  nameWithType.vb: ITargetTypeConverter(Of TTargetType)
+  fullName.vb: Ploch.Common.TypeConversion.ITargetTypeConverter(Of TTargetType)
+  name.vb: ITargetTypeConverter(Of TTargetType)
+  spec.csharp:
+  - uid: Ploch.Common.TypeConversion.ITargetTypeConverter`1
+    name: ITargetTypeConverter
+    href: Ploch.Common.TypeConversion.ITargetTypeConverter-1.html
+  - name: <
+  - name: TTargetType
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.TypeConversion.ITargetTypeConverter`1
+    name: ITargetTypeConverter
+    href: Ploch.Common.TypeConversion.ITargetTypeConverter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTargetType
+  - name: )
+- uid: Ploch.Common.TypeConversion.ITypeConverter
+  commentId: T:Ploch.Common.TypeConversion.ITypeConverter
+  parent: Ploch.Common.TypeConversion
+  href: Ploch.Common.TypeConversion.ITypeConverter.html
+  name: ITypeConverter
+  nameWithType: ITypeConverter
+  fullName: Ploch.Common.TypeConversion.ITypeConverter
+- uid: Ploch.Common.TypeConversion.ITypeConverter`2
+  commentId: T:Ploch.Common.TypeConversion.ITypeConverter`2
+  href: Ploch.Common.TypeConversion.ITypeConverter-2.html
+  name: ITypeConverter<TSourceType, TTargetType>
+  nameWithType: ITypeConverter<TSourceType, TTargetType>
+  fullName: Ploch.Common.TypeConversion.ITypeConverter<TSourceType, TTargetType>
+  nameWithType.vb: ITypeConverter(Of TSourceType, TTargetType)
+  fullName.vb: Ploch.Common.TypeConversion.ITypeConverter(Of TSourceType, TTargetType)
+  name.vb: ITypeConverter(Of TSourceType, TTargetType)
+  spec.csharp:
+  - uid: Ploch.Common.TypeConversion.ITypeConverter`2
+    name: ITypeConverter
+    href: Ploch.Common.TypeConversion.ITypeConverter-2.html
+  - name: <
+  - name: TSourceType
+  - name: ','
+  - name: " "
+  - name: TTargetType
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.TypeConversion.ITypeConverter`2
+    name: ITypeConverter
+    href: Ploch.Common.TypeConversion.ITypeConverter-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSourceType
+  - name: ','
+  - name: " "
+  - name: TTargetType
+  - name: )
+- uid: Ploch.Common.TypeConversion.ObjectPropertyAttribute
+  commentId: T:Ploch.Common.TypeConversion.ObjectPropertyAttribute
+  href: Ploch.Common.TypeConversion.ObjectPropertyAttribute.html
+  name: ObjectPropertyAttribute
+  nameWithType: ObjectPropertyAttribute
+  fullName: Ploch.Common.TypeConversion.ObjectPropertyAttribute
+- uid: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter`2
+  commentId: T:Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter`2
+  href: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter-2.html
+  name: SingleSourceTargetTypeConverter<TSourceType, TTargetType>
+  nameWithType: SingleSourceTargetTypeConverter<TSourceType, TTargetType>
+  fullName: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter<TSourceType, TTargetType>
+  nameWithType.vb: SingleSourceTargetTypeConverter(Of TSourceType, TTargetType)
+  fullName.vb: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter(Of TSourceType, TTargetType)
+  name.vb: SingleSourceTargetTypeConverter(Of TSourceType, TTargetType)
+  spec.csharp:
+  - uid: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter`2
+    name: SingleSourceTargetTypeConverter
+    href: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter-2.html
+  - name: <
+  - name: TSourceType
+  - name: ','
+  - name: " "
+  - name: TTargetType
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter`2
+    name: SingleSourceTargetTypeConverter
+    href: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSourceType
+  - name: ','
+  - name: " "
+  - name: TTargetType
+  - name: )
+- uid: Ploch.Common.TypeConversion.TypeConversionException
+  commentId: T:Ploch.Common.TypeConversion.TypeConversionException
+  href: Ploch.Common.TypeConversion.TypeConversionException.html
+  name: TypeConversionException
+  nameWithType: TypeConversionException
+  fullName: Ploch.Common.TypeConversion.TypeConversionException
+- uid: Ploch.Common.TypeConversion.TypeConverter
+  commentId: T:Ploch.Common.TypeConversion.TypeConverter
+  parent: Ploch.Common.TypeConversion
+  href: Ploch.Common.TypeConversion.TypeConverter.html
+  name: TypeConverter
+  nameWithType: TypeConverter
+  fullName: Ploch.Common.TypeConversion.TypeConverter
+- uid: Ploch.Common.TypeConversion.TypeConverterHelper
+  commentId: T:Ploch.Common.TypeConversion.TypeConverterHelper
+  href: Ploch.Common.TypeConversion.TypeConverterHelper.html
+  name: TypeConverterHelper
+  nameWithType: TypeConverterHelper
+  fullName: Ploch.Common.TypeConversion.TypeConverterHelper
+- uid: Ploch.Common.TypeConversion
+  commentId: N:Ploch.Common.TypeConversion
+  href: Ploch.html
+  name: Ploch.Common.TypeConversion
+  nameWithType: Ploch.Common.TypeConversion
+  fullName: Ploch.Common.TypeConversion
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.TypeConversion
+    name: TypeConversion
+    href: Ploch.Common.TypeConversion.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.TypeConversion
+    name: TypeConversion
+    href: Ploch.Common.TypeConversion.html
+memberLayout: SeparatePages

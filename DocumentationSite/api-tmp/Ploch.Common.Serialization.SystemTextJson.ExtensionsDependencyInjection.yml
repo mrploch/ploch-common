@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  commentId: N:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  id: ExtensionsDependencyInjection
+  parent: Ploch.Common.Serialization.SystemTextJson
+  children:
+  - Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+  - Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerServicesBundle
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  nameWithType: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+references:
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+  commentId: T:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+  href: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration.html
+  name: SystemTextJsonSerializerRegistration
+  nameWithType: SystemTextJsonSerializerRegistration
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+- uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerServicesBundle
+  commentId: T:Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerServicesBundle
+  href: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerServicesBundle.html
+  name: SystemTextJsonSerializerServicesBundle
+  nameWithType: SystemTextJsonSerializerServicesBundle
+  fullName: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerServicesBundle
+memberLayout: SeparatePages

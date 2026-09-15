@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.XUnit3.TestOrdering
+  commentId: N:Ploch.TestingSupport.XUnit3.TestOrdering
+  id: TestOrdering
+  parent: Ploch.TestingSupport.XUnit3
+  children:
+  - Ploch.TestingSupport.XUnit3.TestOrdering.AlphabeticalOrderer
+  - Ploch.TestingSupport.XUnit3.TestOrdering.TestPriorityAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.XUnit3.TestOrdering
+  nameWithType: Ploch.TestingSupport.XUnit3.TestOrdering
+  fullName: Ploch.TestingSupport.XUnit3.TestOrdering
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport.XUnit3
+references:
+- uid: Ploch.TestingSupport.XUnit3.TestOrdering.AlphabeticalOrderer
+  commentId: T:Ploch.TestingSupport.XUnit3.TestOrdering.AlphabeticalOrderer
+  href: Ploch.TestingSupport.XUnit3.TestOrdering.AlphabeticalOrderer.html
+  name: AlphabeticalOrderer
+  nameWithType: AlphabeticalOrderer
+  fullName: Ploch.TestingSupport.XUnit3.TestOrdering.AlphabeticalOrderer
+- uid: Ploch.TestingSupport.XUnit3.TestOrdering.TestPriorityAttribute
+  commentId: T:Ploch.TestingSupport.XUnit3.TestOrdering.TestPriorityAttribute
+  href: Ploch.TestingSupport.XUnit3.TestOrdering.TestPriorityAttribute.html
+  name: TestPriorityAttribute
+  nameWithType: TestPriorityAttribute
+  fullName: Ploch.TestingSupport.XUnit3.TestOrdering.TestPriorityAttribute
+memberLayout: SeparatePages

@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.XUnit3.TestData
+  commentId: N:Ploch.TestingSupport.XUnit3.TestData
+  id: TestData
+  parent: Ploch.TestingSupport.XUnit3
+  children:
+  - Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute
+  - Ploch.TestingSupport.XUnit3.TestData.TextFileDataAttribute
+  - Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.XUnit3.TestData
+  nameWithType: Ploch.TestingSupport.XUnit3.TestData
+  fullName: Ploch.TestingSupport.XUnit3.TestData
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport.XUnit3
+references:
+- uid: Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute
+  commentId: T:Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute
+  href: Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute.html
+  name: JsonFileDataAttribute
+  nameWithType: JsonFileDataAttribute
+  fullName: Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute
+- uid: Ploch.TestingSupport.XUnit3.TestData.TextFileDataAttribute
+  commentId: T:Ploch.TestingSupport.XUnit3.TestData.TextFileDataAttribute
+  parent: Ploch.TestingSupport.XUnit3.TestData
+  href: Ploch.TestingSupport.XUnit3.TestData.TextFileDataAttribute.html
+  name: TextFileDataAttribute
+  nameWithType: TextFileDataAttribute
+  fullName: Ploch.TestingSupport.XUnit3.TestData.TextFileDataAttribute
+- uid: Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute
+  commentId: T:Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute
+  href: Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute.html
+  name: TextFileLinesDataAttribute
+  nameWithType: TextFileLinesDataAttribute
+  fullName: Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute
+- uid: Ploch.TestingSupport.XUnit3.TestData
+  commentId: N:Ploch.TestingSupport.XUnit3.TestData
+  href: Ploch.html
+  name: Ploch.TestingSupport.XUnit3.TestData
+  nameWithType: Ploch.TestingSupport.XUnit3.TestData
+  fullName: Ploch.TestingSupport.XUnit3.TestData
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3
+    name: XUnit3
+    href: Ploch.TestingSupport.XUnit3.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3.TestData
+    name: TestData
+    href: Ploch.TestingSupport.XUnit3.TestData.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3
+    name: XUnit3
+    href: Ploch.TestingSupport.XUnit3.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3.TestData
+    name: TestData
+    href: Ploch.TestingSupport.XUnit3.TestData.html
+memberLayout: SeparatePages

@@ -1,0 +1,730 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.IO.PathUtils
+  commentId: T:Ploch.Common.IO.PathUtils
+  id: PathUtils
+  parent: Ploch.Common.IO
+  children:
+  - Ploch.Common.IO.PathUtils.GetDirectoryName(System.String)
+  - Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension(System.String)
+  - Ploch.Common.IO.PathUtils.GetRelativePath(System.String,System.String)
+  - Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator(System.String)
+  - Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator(System.String)
+  - Ploch.Common.IO.PathUtils.ToSafeFileName(System.String)
+  - Ploch.Common.IO.PathUtils.WithExtension(System.String,System.String,System.Boolean,System.StringComparison)
+  langs:
+  - csharp
+  - vb
+  name: PathUtils
+  nameWithType: PathUtils
+  fullName: Ploch.Common.IO.PathUtils
+  type: Class
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: PathUtils
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 11
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Utility class for manipulating path-related operations.
+  example: []
+  syntax:
+    content: public static class PathUtils
+    content.vb: Public Module PathUtils
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.IO.PathUtils.GetDirectoryName(System.String)
+  commentId: M:Ploch.Common.IO.PathUtils.GetDirectoryName(System.String)
+  id: GetDirectoryName(System.String)
+  isExtensionMethod: true
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: GetDirectoryName(string)
+  nameWithType: PathUtils.GetDirectoryName(string)
+  fullName: Ploch.Common.IO.PathUtils.GetDirectoryName(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetDirectoryName
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 18
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Gets the (short) name of the directory.
+  example: []
+  syntax:
+    content: public static string GetDirectoryName(this string directoryPath)
+    parameters:
+    - id: directoryPath
+      type: System.String
+      description: Directory path.
+    return:
+      type: System.String
+      description: The name of the directory.
+    content.vb: Public Shared Function GetDirectoryName(directoryPath As String) As String
+  overload: Ploch.Common.IO.PathUtils.GetDirectoryName*
+  nameWithType.vb: PathUtils.GetDirectoryName(String)
+  fullName.vb: Ploch.Common.IO.PathUtils.GetDirectoryName(String)
+  name.vb: GetDirectoryName(String)
+- uid: Ploch.Common.IO.PathUtils.ToSafeFileName(System.String)
+  commentId: M:Ploch.Common.IO.PathUtils.ToSafeFileName(System.String)
+  id: ToSafeFileName(System.String)
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: ToSafeFileName(string)
+  nameWithType: PathUtils.ToSafeFileName(string)
+  fullName: Ploch.Common.IO.PathUtils.ToSafeFileName(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ToSafeFileName
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 32
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Converts the input string to a safe file name by replacing invalid characters with an underscore.
+  example: []
+  syntax:
+    content: public static string ToSafeFileName(string input)
+    parameters:
+    - id: input
+      type: System.String
+      description: The input string to be transformed into a safe file name. Must not be null or empty.
+    return:
+      type: System.String
+      description: The transformed string that is safe to use as a file name.
+    content.vb: Public Shared Function ToSafeFileName(input As String) As String
+  overload: Ploch.Common.IO.PathUtils.ToSafeFileName*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">input</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when <code class="paramref">input</code> is empty.
+  nameWithType.vb: PathUtils.ToSafeFileName(String)
+  fullName.vb: Ploch.Common.IO.PathUtils.ToSafeFileName(String)
+  name.vb: ToSafeFileName(String)
+- uid: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator(System.String)
+  commentId: M:Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator(System.String)
+  id: NormalizePathWithTrailingSeparator(System.String)
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: NormalizePathWithTrailingSeparator(string)
+  nameWithType: PathUtils.NormalizePathWithTrailingSeparator(string)
+  fullName: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: NormalizePathWithTrailingSeparator
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 51
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Normalizes a given path and ensures it includes a trailing directory separator.
+  example: []
+  syntax:
+    content: public static string NormalizePathWithTrailingSeparator(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path to normalize, which must not be null or empty.
+    return:
+      type: System.String
+      description: The normalized path, always ending with a trailing directory separator.
+    content.vb: Public Shared Function NormalizePathWithTrailingSeparator(path As String) As String
+  overload: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator*
+  nameWithType.vb: PathUtils.NormalizePathWithTrailingSeparator(String)
+  fullName.vb: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator(String)
+  name.vb: NormalizePathWithTrailingSeparator(String)
+- uid: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator(System.String)
+  commentId: M:Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator(System.String)
+  id: NormalizePathWithoutTrailingSeparator(System.String)
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: NormalizePathWithoutTrailingSeparator(string)
+  nameWithType: PathUtils.NormalizePathWithoutTrailingSeparator(string)
+  fullName: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: NormalizePathWithoutTrailingSeparator
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 79
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Normalizes the given path and removes any trailing directory separator characters.
+  remarks: >-
+    Besides removing the trailing directory separator, on a Windows platform, it would also normalize separators to the backslash,
+
+    in case they are mixed in the path.
+
+    For example, on Windows it would change:
+
+
+    <pre><code class="lang-csharp">c:\mypath/somefolder\some-other-folder</code></pre>
+
+
+    to:
+
+
+    <pre><code class="lang-csharp">c:\mypath\somefolder\some-other-folder</code></pre>
+
+
+    On a platform like macOS, forward slash (<code>/</code>) is a legal character in directory or file names, which means
+
+    they would not be changed.
+  example: []
+  syntax:
+    content: public static string NormalizePathWithoutTrailingSeparator(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path to normalize.
+    return:
+      type: System.String
+      description: The normalized path without trailing directory separator characters.
+    content.vb: Public Shared Function NormalizePathWithoutTrailingSeparator(path As String) As String
+  overload: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator*
+  nameWithType.vb: PathUtils.NormalizePathWithoutTrailingSeparator(String)
+  fullName.vb: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator(String)
+  name.vb: NormalizePathWithoutTrailingSeparator(String)
+- uid: Ploch.Common.IO.PathUtils.GetRelativePath(System.String,System.String)
+  commentId: M:Ploch.Common.IO.PathUtils.GetRelativePath(System.String,System.String)
+  id: GetRelativePath(System.String,System.String)
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: GetRelativePath(string, string)
+  nameWithType: PathUtils.GetRelativePath(string, string)
+  fullName: Ploch.Common.IO.PathUtils.GetRelativePath(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetRelativePath
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 94
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Creates a relative path from one file or folder to another.
+  example: []
+  syntax:
+    content: public static string GetRelativePath(string fromPath, string toPath)
+    parameters:
+    - id: fromPath
+      type: System.String
+      description: Contains the directory that defines the start of the relative path.
+    - id: toPath
+      type: System.String
+      description: Contains the path that defines the endpoint of the relative path.
+    return:
+      type: System.String
+      description: The relative path from the start directory to the end path.
+    content.vb: Public Shared Function GetRelativePath(fromPath As String, toPath As String) As String
+  overload: Ploch.Common.IO.PathUtils.GetRelativePath*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">fromPath</code> or <code class="paramref">toPath</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: <code class="paramref">fromPath</code> or <code class="paramref">toPath</code> is empty or not a valid path string.
+  nameWithType.vb: PathUtils.GetRelativePath(String, String)
+  fullName.vb: Ploch.Common.IO.PathUtils.GetRelativePath(String, String)
+  name.vb: GetRelativePath(String, String)
+- uid: Ploch.Common.IO.PathUtils.WithExtension(System.String,System.String,System.Boolean,System.StringComparison)
+  commentId: M:Ploch.Common.IO.PathUtils.WithExtension(System.String,System.String,System.Boolean,System.StringComparison)
+  id: WithExtension(System.String,System.String,System.Boolean,System.StringComparison)
+  isExtensionMethod: true
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: WithExtension(string, string, bool, StringComparison)
+  nameWithType: PathUtils.WithExtension(string, string, bool, StringComparison)
+  fullName: Ploch.Common.IO.PathUtils.WithExtension(string, string, bool, System.StringComparison)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: WithExtension
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 129
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Appends or replaces the file extension of the specified path.
+  example: []
+  syntax:
+    content: public static string WithExtension(this string path, string extension, bool replaceExistingExtension = true, StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+    parameters:
+    - id: path
+      type: System.String
+      description: The file path for which the extension will be appended or replaced.
+    - id: extension
+      type: System.String
+      description: >-
+        The extension to append. This should include a leading dot (e.g., ".txt"). If the leading dot is omitted, it will be added
+
+        automatically.
+    - id: replaceExistingExtension
+      type: System.Boolean
+      description: Indicates whether to replace the existing file extension, if present. Defaults to <code>false</code>.
+    - id: comparison
+      type: System.StringComparison
+      description: A <xref href="System.StringComparison" data-throw-if-not-resolved="false"></xref> value used for extension matching. Defaults to <code>StringComparison.OrdinalIgnoreCase</code>.
+    return:
+      type: System.String
+      description: The modified file path with the specified extension appended or replaced.
+    content.vb: Public Shared Function WithExtension(path As String, extension As String, replaceExistingExtension As Boolean = True, comparison As StringComparison = StringComparison.OrdinalIgnoreCase) As String
+  overload: Ploch.Common.IO.PathUtils.WithExtension*
+  nameWithType.vb: PathUtils.WithExtension(String, String, Boolean, StringComparison)
+  fullName.vb: Ploch.Common.IO.PathUtils.WithExtension(String, String, Boolean, System.StringComparison)
+  name.vb: WithExtension(String, String, Boolean, StringComparison)
+- uid: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension(System.String)
+  commentId: M:Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension(System.String)
+  id: GetFullPathWithoutExtension(System.String)
+  parent: Ploch.Common.IO.PathUtils
+  langs:
+  - csharp
+  - vb
+  name: GetFullPathWithoutExtension(string)
+  nameWithType: PathUtils.GetFullPathWithoutExtension(string)
+  fullName: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/PathUtils.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetFullPathWithoutExtension
+    path: ../src/Common/IO/PathUtils.cs
+    startLine: 185
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Gets the full path of a file without its extension.
+  remarks: >-
+    The result contains a full directory name (path) and the file name without the extension.
+
+    If provided path is null or empty, the result will be the same.
+  example: []
+  syntax:
+    content: public static string GetFullPathWithoutExtension(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The full path of the file. Must not be null or empty.
+    return:
+      type: System.String
+      description: The full path of the file without its extension.
+    content.vb: Public Shared Function GetFullPathWithoutExtension(path As String) As String
+  overload: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">path</code> is <code>null</code>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when <code class="paramref">path</code> is empty.
+  nameWithType.vb: PathUtils.GetFullPathWithoutExtension(String)
+  fullName.vb: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension(String)
+  name.vb: GetFullPathWithoutExtension(String)
+references:
+- uid: Ploch.Common.IO
+  commentId: N:Ploch.Common.IO
+  href: Ploch.html
+  name: Ploch.Common.IO
+  nameWithType: Ploch.Common.IO
+  fullName: Ploch.Common.IO
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.IO.PathUtils.GetDirectoryName*
+  commentId: Overload:Ploch.Common.IO.PathUtils.GetDirectoryName
+  href: Ploch.Common.IO.PathUtils.GetDirectoryName.html#Ploch_Common_IO_PathUtils_GetDirectoryName_System_String_
+  name: GetDirectoryName
+  nameWithType: PathUtils.GetDirectoryName
+  fullName: Ploch.Common.IO.PathUtils.GetDirectoryName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: Ploch.Common.IO.PathUtils.ToSafeFileName*
+  commentId: Overload:Ploch.Common.IO.PathUtils.ToSafeFileName
+  href: Ploch.Common.IO.PathUtils.ToSafeFileName.html#Ploch_Common_IO_PathUtils_ToSafeFileName_System_String_
+  name: ToSafeFileName
+  nameWithType: PathUtils.ToSafeFileName
+  fullName: Ploch.Common.IO.PathUtils.ToSafeFileName
+- uid: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator*
+  commentId: Overload:Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator
+  href: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator.html#Ploch_Common_IO_PathUtils_NormalizePathWithTrailingSeparator_System_String_
+  name: NormalizePathWithTrailingSeparator
+  nameWithType: PathUtils.NormalizePathWithTrailingSeparator
+  fullName: Ploch.Common.IO.PathUtils.NormalizePathWithTrailingSeparator
+- uid: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator*
+  commentId: Overload:Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator
+  href: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator.html#Ploch_Common_IO_PathUtils_NormalizePathWithoutTrailingSeparator_System_String_
+  name: NormalizePathWithoutTrailingSeparator
+  nameWithType: PathUtils.NormalizePathWithoutTrailingSeparator
+  fullName: Ploch.Common.IO.PathUtils.NormalizePathWithoutTrailingSeparator
+- uid: Ploch.Common.IO.PathUtils.GetRelativePath*
+  commentId: Overload:Ploch.Common.IO.PathUtils.GetRelativePath
+  href: Ploch.Common.IO.PathUtils.GetRelativePath.html#Ploch_Common_IO_PathUtils_GetRelativePath_System_String_System_String_
+  name: GetRelativePath
+  nameWithType: PathUtils.GetRelativePath
+  fullName: Ploch.Common.IO.PathUtils.GetRelativePath
+- uid: System.StringComparison
+  commentId: T:System.StringComparison
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.stringcomparison
+  name: StringComparison
+  nameWithType: StringComparison
+  fullName: System.StringComparison
+- uid: Ploch.Common.IO.PathUtils.WithExtension*
+  commentId: Overload:Ploch.Common.IO.PathUtils.WithExtension
+  href: Ploch.Common.IO.PathUtils.WithExtension.html#Ploch_Common_IO_PathUtils_WithExtension_System_String_System_String_System_Boolean_System_StringComparison_
+  name: WithExtension
+  nameWithType: PathUtils.WithExtension
+  fullName: Ploch.Common.IO.PathUtils.WithExtension
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension*
+  commentId: Overload:Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension
+  href: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension.html#Ploch_Common_IO_PathUtils_GetFullPathWithoutExtension_System_String_
+  name: GetFullPathWithoutExtension
+  nameWithType: PathUtils.GetFullPathWithoutExtension
+  fullName: Ploch.Common.IO.PathUtils.GetFullPathWithoutExtension
+memberLayout: SeparatePages

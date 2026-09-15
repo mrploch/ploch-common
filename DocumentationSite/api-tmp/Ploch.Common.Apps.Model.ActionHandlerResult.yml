@@ -1,0 +1,786 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerResult
+  id: ActionHandlerResult
+  parent: Ploch.Common.Apps.Model
+  children:
+  - Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo})
+  - Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Exception)
+  - Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.String)
+  - Ploch.Common.Apps.Model.ActionHandlerResult.Success``1(Ploch.Common.Apps.Model.ActionExecutionId{``0})
+  langs:
+  - csharp
+  - vb
+  name: ActionHandlerResult
+  nameWithType: ActionHandlerResult
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult
+  type: Class
+  source:
+    remote:
+      path: src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ActionHandlerResult
+    path: ../src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+    startLine: 62
+  assemblies:
+  - Ploch.Common.Apps.Actions.Model
+  namespace: Ploch.Common.Apps.Model
+  summary: >-
+    Provides a mechanism to encapsulate the result of an action handler execution,
+
+    including information about success, associated errors, and the identifier for the execution context.
+  example: []
+  syntax:
+    content: public static class ActionHandlerResult
+    content.vb: Public Module ActionHandlerResult
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult.Success``1(Ploch.Common.Apps.Model.ActionExecutionId{``0})
+  commentId: M:Ploch.Common.Apps.Model.ActionHandlerResult.Success``1(Ploch.Common.Apps.Model.ActionExecutionId{``0})
+  id: Success``1(Ploch.Common.Apps.Model.ActionExecutionId{``0})
+  parent: Ploch.Common.Apps.Model.ActionHandlerResult
+  langs:
+  - csharp
+  - vb
+  name: Success<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>)
+  nameWithType: ActionHandlerResult.Success<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>)
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult.Success<TActionTargetDescriptor>(Ploch.Common.Apps.Model.ActionExecutionId<TActionTargetDescriptor>)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Success
+    path: ../src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+    startLine: 77
+  assemblies:
+  - Ploch.Common.Apps.Actions.Model
+  namespace: Ploch.Common.Apps.Model
+  summary: Creates an action handler result indicating a successful action execution.
+  example: []
+  syntax:
+    content: 'public static ActionHandlerResult<TActionTargetDescriptor> Success<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor> executionId) where TActionTargetDescriptor : IActionTargetDescriptor'
+    parameters:
+    - id: executionId
+      type: Ploch.Common.Apps.Model.ActionExecutionId{{TActionTargetDescriptor}}
+      description: The identifier for the execution context of the action, which contains information about the executed action and its handler.
+    typeParameters:
+    - id: TActionTargetDescriptor
+      description: Specifies the type of the action target descriptor, representing the context or entity on which the action is executed.
+    return:
+      type: Ploch.Common.Apps.Model.ActionHandlerResult{{TActionTargetDescriptor}}
+      description: >-
+        Returns an instance of <xref href="Ploch.Common.Apps.Model.ActionHandlerResult%601" data-throw-if-not-resolved="false"></xref> representing a successful action execution,
+
+        with no associated errors.
+    content.vb: Public Shared Function Success(Of TActionTargetDescriptor As IActionTargetDescriptor)(executionId As ActionExecutionId(Of TActionTargetDescriptor)) As ActionHandlerResult(Of TActionTargetDescriptor)
+  overload: Ploch.Common.Apps.Model.ActionHandlerResult.Success*
+  nameWithType.vb: ActionHandlerResult.Success(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor))
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult.Success(Of TActionTargetDescriptor)(Ploch.Common.Apps.Model.ActionExecutionId(Of TActionTargetDescriptor))
+  name.vb: Success(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor))
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.String)
+  commentId: M:Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.String)
+  id: Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.String)
+  parent: Ploch.Common.Apps.Model.ActionHandlerResult
+  langs:
+  - csharp
+  - vb
+  name: Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>, string)
+  nameWithType: ActionHandlerResult.Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>, string)
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult.Failure<TActionTargetDescriptor>(Ploch.Common.Apps.Model.ActionExecutionId<TActionTargetDescriptor>, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Failure
+    path: ../src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+    startLine: 91
+  assemblies:
+  - Ploch.Common.Apps.Actions.Model
+  namespace: Ploch.Common.Apps.Model
+  summary: >-
+    Creates an instance of <xref href="Ploch.Common.Apps.Model.ActionHandlerResult%601" data-throw-if-not-resolved="false"></xref> representing a failure
+
+    along with the provided <code class="paramref">executionId</code> and an error message.
+  example: []
+  syntax:
+    content: 'public static ActionHandlerResult<TActionTargetDescriptor> Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor> executionId, string message) where TActionTargetDescriptor : IActionTargetDescriptor'
+    parameters:
+    - id: executionId
+      type: Ploch.Common.Apps.Model.ActionExecutionId{{TActionTargetDescriptor}}
+      description: The identifier associated with the execution of an action.
+    - id: message
+      type: System.String
+      description: The error message describing the failure.
+    typeParameters:
+    - id: TActionTargetDescriptor
+      description: The type of the action target descriptor that implements <xref href="Ploch.Common.Apps.Model.IActionTargetDescriptor" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: Ploch.Common.Apps.Model.ActionHandlerResult{{TActionTargetDescriptor}}
+      description: >-
+        An <xref href="Ploch.Common.Apps.Model.ActionHandlerResult%601" data-throw-if-not-resolved="false"></xref> indicating a failed action execution,
+
+        containing the provided <code class="paramref">executionId</code> and the error message wrapped in an <xref href="Ploch.Common.Results.ErrorInfo" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function Failure(Of TActionTargetDescriptor As IActionTargetDescriptor)(executionId As ActionExecutionId(Of TActionTargetDescriptor), message As String) As ActionHandlerResult(Of TActionTargetDescriptor)
+  overload: Ploch.Common.Apps.Model.ActionHandlerResult.Failure*
+  nameWithType.vb: ActionHandlerResult.Failure(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor), String)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult.Failure(Of TActionTargetDescriptor)(Ploch.Common.Apps.Model.ActionExecutionId(Of TActionTargetDescriptor), String)
+  name.vb: Failure(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor), String)
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Exception)
+  commentId: M:Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Exception)
+  id: Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Exception)
+  parent: Ploch.Common.Apps.Model.ActionHandlerResult
+  langs:
+  - csharp
+  - vb
+  name: Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>, Exception)
+  nameWithType: ActionHandlerResult.Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>, Exception)
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult.Failure<TActionTargetDescriptor>(Ploch.Common.Apps.Model.ActionExecutionId<TActionTargetDescriptor>, System.Exception)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Failure
+    path: ../src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+    startLine: 111
+  assemblies:
+  - Ploch.Common.Apps.Actions.Model
+  namespace: Ploch.Common.Apps.Model
+  summary: Creates an action handler result indicating a failed action execution.
+  example: []
+  syntax:
+    content: 'public static ActionHandlerResult<TActionTargetDescriptor> Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor> executionId, Exception exception) where TActionTargetDescriptor : IActionTargetDescriptor'
+    parameters:
+    - id: executionId
+      type: Ploch.Common.Apps.Model.ActionExecutionId{{TActionTargetDescriptor}}
+      description: The identifier for the execution context of the action, which contains information about the executed action and its handler.
+    - id: exception
+      type: System.Exception
+      description: The exception representing the details of the failure that occurred during the action execution.
+    typeParameters:
+    - id: TActionTargetDescriptor
+      description: Specifies the type of the action target descriptor, representing the context or entity on which the action is executed.
+    return:
+      type: Ploch.Common.Apps.Model.ActionHandlerResult{{TActionTargetDescriptor}}
+      description: >-
+        Returns an instance of <xref href="Ploch.Common.Apps.Model.ActionHandlerResult%601" data-throw-if-not-resolved="false"></xref> representing a failed action execution,
+
+        with the associated exception wrapped in an <xref href="Ploch.Common.Results.ErrorInfo" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Public Shared Function Failure(Of TActionTargetDescriptor As IActionTargetDescriptor)(executionId As ActionExecutionId(Of TActionTargetDescriptor), exception As Exception) As ActionHandlerResult(Of TActionTargetDescriptor)
+  overload: Ploch.Common.Apps.Model.ActionHandlerResult.Failure*
+  nameWithType.vb: ActionHandlerResult.Failure(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor), Exception)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult.Failure(Of TActionTargetDescriptor)(Ploch.Common.Apps.Model.ActionExecutionId(Of TActionTargetDescriptor), System.Exception)
+  name.vb: Failure(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor), Exception)
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo})
+  commentId: M:Ploch.Common.Apps.Model.ActionHandlerResult.Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo})
+  id: Failure``1(Ploch.Common.Apps.Model.ActionExecutionId{``0},System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo})
+  parent: Ploch.Common.Apps.Model.ActionHandlerResult
+  langs:
+  - csharp
+  - vb
+  name: Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>, params IEnumerable<ErrorInfo>?)
+  nameWithType: ActionHandlerResult.Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor>, params IEnumerable<ErrorInfo>?)
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult.Failure<TActionTargetDescriptor>(Ploch.Common.Apps.Model.ActionExecutionId<TActionTargetDescriptor>, params System.Collections.Generic.IEnumerable<Ploch.Common.Results.ErrorInfo>?)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Failure
+    path: ../src/Common.Apps/Apps.Actions/Actions.Model/ActionHandlerResult.cs
+    startLine: 131
+  assemblies:
+  - Ploch.Common.Apps.Actions.Model
+  namespace: Ploch.Common.Apps.Model
+  summary: Creates an action handler result indicating a failed action execution.
+  example: []
+  syntax:
+    content: 'public static ActionHandlerResult<TActionTargetDescriptor> Failure<TActionTargetDescriptor>(ActionExecutionId<TActionTargetDescriptor> executionId, params IEnumerable<ErrorInfo>? errors) where TActionTargetDescriptor : IActionTargetDescriptor'
+    parameters:
+    - id: executionId
+      type: Ploch.Common.Apps.Model.ActionExecutionId{{TActionTargetDescriptor}}
+      description: The identifier for the execution context of the action, which contains information about the executed action and its handler.
+    - id: errors
+      type: System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo}
+      description: A collection of error details that provides information about issues encountered during the action execution.
+    typeParameters:
+    - id: TActionTargetDescriptor
+      description: Specifies the type of the action target descriptor, representing the context or entity on which the action is executed.
+    return:
+      type: Ploch.Common.Apps.Model.ActionHandlerResult{{TActionTargetDescriptor}}
+      description: >-
+        Returns an instance of <xref href="Ploch.Common.Apps.Model.ActionHandlerResult%601" data-throw-if-not-resolved="false"></xref> representing a failed action execution,
+
+        with the specified errors included.
+    content.vb: Public Shared Function Failure(Of TActionTargetDescriptor As IActionTargetDescriptor)(executionId As ActionExecutionId(Of TActionTargetDescriptor), errors As IEnumerable(Of ErrorInfo)) As ActionHandlerResult(Of TActionTargetDescriptor)
+  overload: Ploch.Common.Apps.Model.ActionHandlerResult.Failure*
+  nameWithType.vb: ActionHandlerResult.Failure(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor), IEnumerable(Of ErrorInfo))
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult.Failure(Of TActionTargetDescriptor)(Ploch.Common.Apps.Model.ActionExecutionId(Of TActionTargetDescriptor), System.Collections.Generic.IEnumerable(Of Ploch.Common.Results.ErrorInfo))
+  name.vb: Failure(Of TActionTargetDescriptor)(ActionExecutionId(Of TActionTargetDescriptor), IEnumerable(Of ErrorInfo))
+references:
+- uid: Ploch.Common.Apps.Model
+  commentId: N:Ploch.Common.Apps.Model
+  href: Ploch.html
+  name: Ploch.Common.Apps.Model
+  nameWithType: Ploch.Common.Apps.Model
+  fullName: Ploch.Common.Apps.Model
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Apps
+    name: Apps
+    href: Ploch.Common.Apps.html
+  - name: .
+  - uid: Ploch.Common.Apps.Model
+    name: Model
+    href: Ploch.Common.Apps.Model.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Apps
+    name: Apps
+    href: Ploch.Common.Apps.html
+  - name: .
+  - uid: Ploch.Common.Apps.Model
+    name: Model
+    href: Ploch.Common.Apps.Model.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerResult`1
+  href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  name: ActionHandlerResult<TActionTargetDescriptor>
+  nameWithType: ActionHandlerResult<TActionTargetDescriptor>
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult<TActionTargetDescriptor>
+  nameWithType.vb: ActionHandlerResult(Of TActionTargetDescriptor)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult(Of TActionTargetDescriptor)
+  name.vb: ActionHandlerResult(Of TActionTargetDescriptor)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+    name: ActionHandlerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+    name: ActionHandlerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult.Success*
+  commentId: Overload:Ploch.Common.Apps.Model.ActionHandlerResult.Success
+  href: Ploch.Common.Apps.Model.ActionHandlerResult.Success.html#Ploch_Common_Apps_Model_ActionHandlerResult_Success__1_Ploch_Common_Apps_Model_ActionExecutionId___0__
+  name: Success
+  nameWithType: ActionHandlerResult.Success
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult.Success
+- uid: Ploch.Common.Apps.Model.ActionExecutionId{{TActionTargetDescriptor}}
+  commentId: T:Ploch.Common.Apps.Model.ActionExecutionId{`0}
+  parent: Ploch.Common.Apps.Model
+  definition: Ploch.Common.Apps.Model.ActionExecutionId`1
+  href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  name: ActionExecutionId<TActionTargetDescriptor>
+  nameWithType: ActionExecutionId<TActionTargetDescriptor>
+  fullName: Ploch.Common.Apps.Model.ActionExecutionId<TActionTargetDescriptor>
+  nameWithType.vb: ActionExecutionId(Of TActionTargetDescriptor)
+  fullName.vb: Ploch.Common.Apps.Model.ActionExecutionId(Of TActionTargetDescriptor)
+  name.vb: ActionExecutionId(Of TActionTargetDescriptor)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+    name: ActionExecutionId
+    href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+    name: ActionExecutionId
+    href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult{{TActionTargetDescriptor}}
+  commentId: T:Ploch.Common.Apps.Model.ActionHandlerResult{``0}
+  parent: Ploch.Common.Apps.Model
+  definition: Ploch.Common.Apps.Model.ActionHandlerResult`1
+  href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  name: ActionHandlerResult<TActionTargetDescriptor>
+  nameWithType: ActionHandlerResult<TActionTargetDescriptor>
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult<TActionTargetDescriptor>
+  nameWithType.vb: ActionHandlerResult(Of TActionTargetDescriptor)
+  fullName.vb: Ploch.Common.Apps.Model.ActionHandlerResult(Of TActionTargetDescriptor)
+  name.vb: ActionHandlerResult(Of TActionTargetDescriptor)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+    name: ActionHandlerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  - name: <
+  - name: TActionTargetDescriptor
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+    name: ActionHandlerResult
+    href: Ploch.Common.Apps.Model.ActionHandlerResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TActionTargetDescriptor
+  - name: )
+- uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+  commentId: T:Ploch.Common.Apps.Model.ActionExecutionId`1
+  href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  name: ActionExecutionId<TSystemApplication>
+  nameWithType: ActionExecutionId<TSystemApplication>
+  fullName: Ploch.Common.Apps.Model.ActionExecutionId<TSystemApplication>
+  nameWithType.vb: ActionExecutionId(Of TSystemApplication)
+  fullName.vb: Ploch.Common.Apps.Model.ActionExecutionId(Of TSystemApplication)
+  name.vb: ActionExecutionId(Of TSystemApplication)
+  spec.csharp:
+  - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+    name: ActionExecutionId
+    href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  - name: <
+  - name: TSystemApplication
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+    name: ActionExecutionId
+    href: Ploch.Common.Apps.Model.ActionExecutionId-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSystemApplication
+  - name: )
+- uid: Ploch.Common.Apps.Model.IActionTargetDescriptor
+  commentId: T:Ploch.Common.Apps.Model.IActionTargetDescriptor
+  href: Ploch.Common.Apps.Model.IActionTargetDescriptor.html
+  name: IActionTargetDescriptor
+  nameWithType: IActionTargetDescriptor
+  fullName: Ploch.Common.Apps.Model.IActionTargetDescriptor
+- uid: Ploch.Common.Results.ErrorInfo
+  commentId: T:Ploch.Common.Results.ErrorInfo
+  parent: Ploch.Common.Results
+  href: Ploch.Common.Results.ErrorInfo.html
+  name: ErrorInfo
+  nameWithType: ErrorInfo
+  fullName: Ploch.Common.Results.ErrorInfo
+- uid: Ploch.Common.Apps.Model.ActionHandlerResult.Failure*
+  commentId: Overload:Ploch.Common.Apps.Model.ActionHandlerResult.Failure
+  href: Ploch.Common.Apps.Model.ActionHandlerResult.Failure.html#Ploch_Common_Apps_Model_ActionHandlerResult_Failure__1_Ploch_Common_Apps_Model_ActionExecutionId___0__System_String_
+  name: Failure
+  nameWithType: ActionHandlerResult.Failure
+  fullName: Ploch.Common.Apps.Model.ActionHandlerResult.Failure
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ploch.Common.Results
+  commentId: N:Ploch.Common.Results
+  href: Ploch.html
+  name: Ploch.Common.Results
+  nameWithType: Ploch.Common.Results
+  fullName: Ploch.Common.Results
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Results
+    name: Results
+    href: Ploch.Common.Results.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Results
+    name: Results
+    href: Ploch.Common.Results.html
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{Ploch.Common.Results.ErrorInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ErrorInfo>
+  nameWithType: IEnumerable<ErrorInfo>
+  fullName: System.Collections.Generic.IEnumerable<Ploch.Common.Results.ErrorInfo>
+  nameWithType.vb: IEnumerable(Of ErrorInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Ploch.Common.Results.ErrorInfo)
+  name.vb: IEnumerable(Of ErrorInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Ploch.Common.Results.ErrorInfo
+    name: ErrorInfo
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Ploch.Common.Results.ErrorInfo
+    name: ErrorInfo
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+memberLayout: SeparatePages

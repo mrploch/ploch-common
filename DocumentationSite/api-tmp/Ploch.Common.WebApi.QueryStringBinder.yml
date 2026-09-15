@@ -1,0 +1,625 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebApi.QueryStringBinder
+  commentId: T:Ploch.Common.WebApi.QueryStringBinder
+  id: QueryStringBinder
+  parent: Ploch.Common.WebApi
+  children:
+  - Ploch.Common.WebApi.QueryStringBinder.Bind``1(Microsoft.AspNetCore.Http.HttpContext)
+  - Ploch.Common.WebApi.QueryStringBinder.TryParse``1(System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues},``0@)
+  langs:
+  - csharp
+  - vb
+  name: QueryStringBinder
+  nameWithType: QueryStringBinder
+  fullName: Ploch.Common.WebApi.QueryStringBinder
+  type: Class
+  source:
+    remote:
+      path: src/Common.WebApi/WebApi/QueryStringBinder.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: QueryStringBinder
+    path: ../src/Common.WebApi/WebApi/QueryStringBinder.cs
+    startLine: 9
+  assemblies:
+  - Ploch.Common.WebApi
+  namespace: Ploch.Common.WebApi
+  summary: A static helper class for binding HTTP query string parameters to an instance of a specified type.
+  example: []
+  syntax:
+    content: public static class QueryStringBinder
+    content.vb: Public Module QueryStringBinder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.WebApi.QueryStringBinder.Bind``1(Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:Ploch.Common.WebApi.QueryStringBinder.Bind``1(Microsoft.AspNetCore.Http.HttpContext)
+  id: Bind``1(Microsoft.AspNetCore.Http.HttpContext)
+  parent: Ploch.Common.WebApi.QueryStringBinder
+  langs:
+  - csharp
+  - vb
+  name: Bind<TQuery>(HttpContext)
+  nameWithType: QueryStringBinder.Bind<TQuery>(HttpContext)
+  fullName: Ploch.Common.WebApi.QueryStringBinder.Bind<TQuery>(Microsoft.AspNetCore.Http.HttpContext)
+  type: Method
+  source:
+    remote:
+      path: src/Common.WebApi/WebApi/QueryStringBinder.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Bind
+    path: ../src/Common.WebApi/WebApi/QueryStringBinder.cs
+    startLine: 44
+  assemblies:
+  - Ploch.Common.WebApi
+  namespace: Ploch.Common.WebApi
+  summary: Binds HTTP query string parameters from the given HttpContext to a new instance of the specified type.
+  example: []
+  syntax:
+    content: 'public static TQuery Bind<TQuery>(HttpContext httpContext) where TQuery : new()'
+    parameters:
+    - id: httpContext
+      type: Microsoft.AspNetCore.Http.HttpContext
+      description: The HTTP context containing the query string parameters to bind.
+    typeParameters:
+    - id: TQuery
+      description: The type to which the query string parameters will be bound. Must have a parameterless constructor.
+    return:
+      type: '{TQuery}'
+      description: An instance of type <code class="typeparamref">TQuery</code> populated with values from the query string.
+    content.vb: Public Shared Function Bind(Of TQuery As New)(httpContext As HttpContext) As TQuery
+  overload: Ploch.Common.WebApi.QueryStringBinder.Bind*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: Thrown when a property of type <code class="typeparamref">TQuery</code> has a type that is not supported for query string binding.
+  - type: System.FormatException
+    commentId: T:System.FormatException
+    description: Thrown when a query string value cannot be converted to its target property type.
+  nameWithType.vb: QueryStringBinder.Bind(Of TQuery)(HttpContext)
+  fullName.vb: Ploch.Common.WebApi.QueryStringBinder.Bind(Of TQuery)(Microsoft.AspNetCore.Http.HttpContext)
+  name.vb: Bind(Of TQuery)(HttpContext)
+- uid: Ploch.Common.WebApi.QueryStringBinder.TryParse``1(System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues},``0@)
+  commentId: M:Ploch.Common.WebApi.QueryStringBinder.TryParse``1(System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues},``0@)
+  id: TryParse``1(System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues},``0@)
+  parent: Ploch.Common.WebApi.QueryStringBinder
+  langs:
+  - csharp
+  - vb
+  name: TryParse<TQuery>(IDictionary<string, StringValues>, out TQuery)
+  nameWithType: QueryStringBinder.TryParse<TQuery>(IDictionary<string, StringValues>, out TQuery)
+  fullName: Ploch.Common.WebApi.QueryStringBinder.TryParse<TQuery>(System.Collections.Generic.IDictionary<string, Microsoft.Extensions.Primitives.StringValues>, out TQuery)
+  type: Method
+  source:
+    remote:
+      path: src/Common.WebApi/WebApi/QueryStringBinder.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TryParse
+    path: ../src/Common.WebApi/WebApi/QueryStringBinder.cs
+    startLine: 74
+  assemblies:
+  - Ploch.Common.WebApi
+  namespace: Ploch.Common.WebApi
+  summary: Attempts to parse the specified query string parameters into an instance of the given type.
+  example: []
+  syntax:
+    content: 'public static bool TryParse<TQuery>(IDictionary<string, StringValues> query, out TQuery queryInstance) where TQuery : new()'
+    parameters:
+    - id: query
+      type: System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues}
+      description: A dictionary containing the query string parameters, using the property names as keys.
+    - id: queryInstance
+      type: '{TQuery}'
+      description: >-
+        When this method returns, contains an instance of type <code class="typeparamref">TQuery</code>
+
+        populated with the values from the query string if parsing was successful, or the default value if parsing failed.
+    typeParameters:
+    - id: TQuery
+      description: The type into which the query string parameters will be parsed. Must have a parameterless constructor.
+    return:
+      type: System.Boolean
+      description: True if the query string parameters were successfully parsed into an instance of <code class="typeparamref">TQuery</code>; otherwise, false.
+    content.vb: Public Shared Function TryParse(Of TQuery As New)(query As IDictionary(Of String, StringValues), queryInstance As TQuery) As Boolean
+  overload: Ploch.Common.WebApi.QueryStringBinder.TryParse*
+  exceptions:
+  - type: System.FormatException
+    commentId: T:System.FormatException
+    description: >-
+      Thrown when a query string value cannot be converted to its target property type. A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+
+      return value means the type itself is not bindable; a malformed <em>value</em> for an otherwise supported type
+
+      is reported as an exception naming the property and the expected type.
+  nameWithType.vb: QueryStringBinder.TryParse(Of TQuery)(IDictionary(Of String, StringValues), TQuery)
+  fullName.vb: Ploch.Common.WebApi.QueryStringBinder.TryParse(Of TQuery)(System.Collections.Generic.IDictionary(Of String, Microsoft.Extensions.Primitives.StringValues), TQuery)
+  name.vb: TryParse(Of TQuery)(IDictionary(Of String, StringValues), TQuery)
+references:
+- uid: Ploch.Common.WebApi
+  commentId: N:Ploch.Common.WebApi
+  href: Ploch.html
+  name: Ploch.Common.WebApi
+  nameWithType: Ploch.Common.WebApi
+  fullName: Ploch.Common.WebApi
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notsupportedexception
+  name: NotSupportedException
+  nameWithType: NotSupportedException
+  fullName: System.NotSupportedException
+- uid: System.FormatException
+  commentId: T:System.FormatException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  name: FormatException
+  nameWithType: FormatException
+  fullName: System.FormatException
+- uid: Ploch.Common.WebApi.QueryStringBinder.Bind*
+  commentId: Overload:Ploch.Common.WebApi.QueryStringBinder.Bind
+  href: Ploch.Common.WebApi.QueryStringBinder.Bind.html#Ploch_Common_WebApi_QueryStringBinder_Bind__1_Microsoft_AspNetCore_Http_HttpContext_
+  name: Bind
+  nameWithType: QueryStringBinder.Bind
+  fullName: Ploch.Common.WebApi.QueryStringBinder.Bind
+- uid: Microsoft.AspNetCore.Http.HttpContext
+  commentId: T:Microsoft.AspNetCore.Http.HttpContext
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext
+  name: HttpContext
+  nameWithType: HttpContext
+  fullName: Microsoft.AspNetCore.Http.HttpContext
+- uid: '{TQuery}'
+  commentId: '!:TQuery'
+  definition: TQuery
+  name: TQuery
+  nameWithType: TQuery
+  fullName: TQuery
+- uid: Microsoft.AspNetCore.Http
+  commentId: N:Microsoft.AspNetCore.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Http
+  nameWithType: Microsoft.AspNetCore.Http
+  fullName: Microsoft.AspNetCore.Http
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
+- uid: TQuery
+  name: TQuery
+  nameWithType: TQuery
+  fullName: TQuery
+- uid: Ploch.Common.WebApi.QueryStringBinder.TryParse*
+  commentId: Overload:Ploch.Common.WebApi.QueryStringBinder.TryParse
+  href: Ploch.Common.WebApi.QueryStringBinder.TryParse.html#Ploch_Common_WebApi_QueryStringBinder_TryParse__1_System_Collections_Generic_IDictionary_System_String_Microsoft_Extensions_Primitives_StringValues____0__
+  name: TryParse
+  nameWithType: QueryStringBinder.TryParse
+  fullName: Ploch.Common.WebApi.QueryStringBinder.TryParse
+- uid: System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, StringValues>
+  nameWithType: IDictionary<string, StringValues>
+  fullName: System.Collections.Generic.IDictionary<string, Microsoft.Extensions.Primitives.StringValues>
+  nameWithType.vb: IDictionary(Of String, StringValues)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, Microsoft.Extensions.Primitives.StringValues)
+  name.vb: IDictionary(Of String, StringValues)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Primitives.StringValues
+    name: StringValues
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.primitives.stringvalues
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Primitives.StringValues
+    name: StringValues
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.primitives.stringvalues
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+memberLayout: SeparatePages

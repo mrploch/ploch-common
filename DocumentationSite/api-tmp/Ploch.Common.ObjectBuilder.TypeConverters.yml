@@ -1,0 +1,90 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.ObjectBuilder.TypeConverters
+  commentId: N:Ploch.Common.ObjectBuilder.TypeConverters
+  id: TypeConverters
+  parent: Ploch.Common.ObjectBuilder
+  children:
+  - Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeOffsetTypeConverter
+  - Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeTypeConverter
+  - Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter`1
+  - Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter`2
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.ObjectBuilder.TypeConverters
+  nameWithType: Ploch.Common.ObjectBuilder.TypeConverters
+  fullName: Ploch.Common.ObjectBuilder.TypeConverters
+  type: Namespace
+  assemblies:
+  - Ploch.Common.ObjectBuilder
+references:
+- uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeOffsetTypeConverter
+  commentId: T:Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeOffsetTypeConverter
+  href: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeOffsetTypeConverter.html
+  name: ManagementObjectDateTimeOffsetTypeConverter
+  nameWithType: ManagementObjectDateTimeOffsetTypeConverter
+  fullName: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeOffsetTypeConverter
+- uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeTypeConverter
+  commentId: T:Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeTypeConverter
+  href: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeTypeConverter.html
+  name: ManagementObjectDateTimeTypeConverter
+  nameWithType: ManagementObjectDateTimeTypeConverter
+  fullName: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeTypeConverter
+- uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter`1
+  commentId: T:Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter`1
+  href: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter-1.html
+  name: ManagementObjectDateTypeConverter<T>
+  nameWithType: ManagementObjectDateTypeConverter<T>
+  fullName: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter<T>
+  nameWithType.vb: ManagementObjectDateTypeConverter(Of T)
+  fullName.vb: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter(Of T)
+  name.vb: ManagementObjectDateTypeConverter(Of T)
+  spec.csharp:
+  - uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter`1
+    name: ManagementObjectDateTypeConverter
+    href: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter`1
+    name: ManagementObjectDateTypeConverter
+    href: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter`2
+  commentId: T:Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter`2
+  href: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter-2.html
+  name: NullabeTypeConverter<TSource, TTarget>
+  nameWithType: NullabeTypeConverter<TSource, TTarget>
+  fullName: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter<TSource, TTarget>
+  nameWithType.vb: NullabeTypeConverter(Of TSource, TTarget)
+  fullName.vb: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter(Of TSource, TTarget)
+  name.vb: NullabeTypeConverter(Of TSource, TTarget)
+  spec.csharp:
+  - uid: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter`2
+    name: NullabeTypeConverter
+    href: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter-2.html
+  - name: <
+  - name: TSource
+  - name: ','
+  - name: " "
+  - name: TTarget
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter`2
+    name: NullabeTypeConverter
+    href: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: ','
+  - name: " "
+  - name: TTarget
+  - name: )
+memberLayout: SeparatePages

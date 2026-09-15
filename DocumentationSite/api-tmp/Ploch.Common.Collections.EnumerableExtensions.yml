@@ -1,0 +1,2089 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Collections.EnumerableExtensions
+  commentId: T:Ploch.Common.Collections.EnumerableExtensions
+  id: EnumerableExtensions
+  parent: Ploch.Common.Collections
+  children:
+  - Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int32})
+  - Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int64})
+  - Ploch.Common.Collections.EnumerableExtensions.ExceptItems``1(System.Collections.Generic.IEnumerable{``0},``0[])
+  - Ploch.Common.Collections.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  - Ploch.Common.Collections.EnumerableExtensions.If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})
+  - Ploch.Common.Collections.EnumerableExtensions.IsEmpty(System.Collections.IEnumerable)
+  - Ploch.Common.Collections.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  - Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  - Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)
+  - Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Func{``0,``1})
+  - Ploch.Common.Collections.EnumerableExtensions.Join``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  - Ploch.Common.Collections.EnumerableExtensions.Join``2(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,``1})
+  - Ploch.Common.Collections.EnumerableExtensions.None``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})
+  - Ploch.Common.Collections.EnumerableExtensions.Second``1(System.Collections.Generic.IEnumerable{``0})
+  - Ploch.Common.Collections.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})
+  - Ploch.Common.Collections.EnumerableExtensions.TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  - Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})
+  - Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])
+  - Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,``0[])
+  langs:
+  - csharp
+  - vb
+  name: EnumerableExtensions
+  nameWithType: EnumerableExtensions
+  fullName: Ploch.Common.Collections.EnumerableExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: EnumerableExtensions
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 17
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: IEnumerable (and related) extensions.
+  example: []
+  syntax:
+    content: public static class EnumerableExtensions
+    content.vb: Public Module EnumerableExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])
+  id: ValueIn``1(``0,System.Collections.Generic.IEqualityComparer{``0},``0[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: ValueIn<TValue>(TValue, IEqualityComparer<TValue>?, params TValue[])
+  nameWithType: EnumerableExtensions.ValueIn<TValue>(TValue, IEqualityComparer<TValue>?, params TValue[])
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ValueIn<TValue>(TValue, System.Collections.Generic.IEqualityComparer<TValue>?, params TValue[])
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ValueIn
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 27
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Checks if a set of values the value using provided comparer.
+  example: []
+  syntax:
+    content: public static bool ValueIn<TValue>(this TValue value, IEqualityComparer<TValue>? comparer, params TValue[] values)
+    parameters:
+    - id: value
+      type: '{TValue}'
+      description: The value.
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{TValue}}
+      description: The comparer.
+    - id: values
+      type: '{TValue}[]'
+      description: The set of values.
+    typeParameters:
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the set of values contains the value, <code>false</code> otherwise.
+    content.vb: Public Shared Function ValueIn(Of TValue)(value As TValue, comparer As IEqualityComparer(Of TValue), ParamArray values As TValue()) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.ValueIn*
+  nameWithType.vb: EnumerableExtensions.ValueIn(Of TValue)(TValue, IEqualityComparer(Of TValue), ParamArray TValue())
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ValueIn(Of TValue)(TValue, System.Collections.Generic.IEqualityComparer(Of TValue), ParamArray TValue())
+  name.vb: ValueIn(Of TValue)(TValue, IEqualityComparer(Of TValue), ParamArray TValue())
+- uid: Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,``0[])
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,``0[])
+  id: ValueIn``1(``0,``0[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: ValueIn<TValue>(TValue, params TValue[])
+  nameWithType: EnumerableExtensions.ValueIn<TValue>(TValue, params TValue[])
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ValueIn<TValue>(TValue, params TValue[])
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ValueIn
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 36
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Checks if a set of values the value using default comparer.
+  example: []
+  syntax:
+    content: public static bool ValueIn<TValue>(this TValue value, params TValue[] values)
+    parameters:
+    - id: value
+      type: '{TValue}'
+      description: The value.
+    - id: values
+      type: '{TValue}[]'
+      description: The set of values.
+    typeParameters:
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the set of values contains the value, <code>false</code> otherwise.
+    content.vb: Public Shared Function ValueIn(Of TValue)(value As TValue, ParamArray values As TValue()) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.ValueIn*
+  nameWithType.vb: EnumerableExtensions.ValueIn(Of TValue)(TValue, ParamArray TValue())
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ValueIn(Of TValue)(TValue, ParamArray TValue())
+  name.vb: ValueIn(Of TValue)(TValue, ParamArray TValue())
+- uid: Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.ValueIn``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})
+  id: ValueIn``1(``0,System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: ValueIn<TValue>(TValue, IEnumerable<TValue>, IEqualityComparer<TValue>?)
+  nameWithType: EnumerableExtensions.ValueIn<TValue>(TValue, IEnumerable<TValue>, IEqualityComparer<TValue>?)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ValueIn<TValue>(TValue, System.Collections.Generic.IEnumerable<TValue>, System.Collections.Generic.IEqualityComparer<TValue>?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ValueIn
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 46
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Checks if a set of values the value using provided comparer (or default comparer if null).
+  example: []
+  syntax:
+    content: public static bool ValueIn<TValue>(this TValue value, IEnumerable<TValue> values, IEqualityComparer<TValue>? comparer = null)
+    parameters:
+    - id: value
+      type: '{TValue}'
+      description: The value.
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The set of values.
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{TValue}}
+      description: The comparer or null to use the default comparer.
+    typeParameters:
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the set of values contains the value, <code>false</code> otherwise.
+    content.vb: Public Shared Function ValueIn(Of TValue)(value As TValue, values As IEnumerable(Of TValue), comparer As IEqualityComparer(Of TValue) = Nothing) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.ValueIn*
+  nameWithType.vb: EnumerableExtensions.ValueIn(Of TValue)(TValue, IEnumerable(Of TValue), IEqualityComparer(Of TValue))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ValueIn(Of TValue)(TValue, System.Collections.Generic.IEnumerable(Of TValue), System.Collections.Generic.IEqualityComparer(Of TValue))
+  name.vb: ValueIn(Of TValue)(TValue, IEnumerable(Of TValue), IEqualityComparer(Of TValue))
+- uid: Ploch.Common.Collections.EnumerableExtensions.None``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.None``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})
+  id: None``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: None<TSource>(IEnumerable<TSource>, Func<TSource, bool>)
+  nameWithType: EnumerableExtensions.None<TSource>(IEnumerable<TSource>, Func<TSource, bool>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.None<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: None
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 68
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Verifies that none of the items in the collection matches the predicate.
+  example: []
+  syntax:
+    content: public static bool None<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+      description: The source collection.
+    - id: predicate
+      type: System.Func{{TSource},System.Boolean}
+      description: The predicate.
+    typeParameters:
+    - id: TSource
+      description: Collection item type.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if none of the items matched the predicate,otherwise <code>false</code>.
+    content.vb: Public Shared Function None(Of TSource)(source As IEnumerable(Of TSource), predicate As Func(Of TSource, Boolean)) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.None*
+  nameWithType.vb: EnumerableExtensions.None(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, Boolean))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.None(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, Boolean))
+  name.vb: None(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, Boolean))
+- uid: Ploch.Common.Collections.EnumerableExtensions.Join``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.Join``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  id: Join``1(System.Collections.Generic.IEnumerable{``0},System.String)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: Join<TValue>(IEnumerable<TValue>, string)
+  nameWithType: EnumerableExtensions.Join<TValue>(IEnumerable<TValue>, string)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Join<TValue>(System.Collections.Generic.IEnumerable<TValue>, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Join
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 84
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: >-
+    Joins the elements of the collection using the provided separator, calling <code>ToString</code> on each element of the
+
+    collection.
+  example: []
+  syntax:
+    content: public static string Join<TValue>(this IEnumerable<TValue> source, string separator)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The source collection.
+    - id: separator
+      type: System.String
+      description: The separator.
+    typeParameters:
+    - id: TValue
+      description: The type of the collection element.
+    return:
+      type: System.String
+      description: String from joined elements.
+    content.vb: Public Shared Function Join(Of TValue)(source As IEnumerable(Of TValue), separator As String) As String
+  overload: Ploch.Common.Collections.EnumerableExtensions.Join*
+  nameWithType.vb: EnumerableExtensions.Join(Of TValue)(IEnumerable(Of TValue), String)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.Join(Of TValue)(System.Collections.Generic.IEnumerable(Of TValue), String)
+  name.vb: Join(Of TValue)(IEnumerable(Of TValue), String)
+- uid: Ploch.Common.Collections.EnumerableExtensions.Join``2(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,``1})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.Join``2(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,``1})
+  id: Join``2(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,``1})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: Join<TValue, TResult>(IEnumerable<TValue>, string, Func<TValue, TResult>)
+  nameWithType: EnumerableExtensions.Join<TValue, TResult>(IEnumerable<TValue>, string, Func<TValue, TResult>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Join<TValue, TResult>(System.Collections.Generic.IEnumerable<TValue>, string, System.Func<TValue, TResult>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Join
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 99
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: >-
+    Joins the elements of the collection using the provided separator, calling <code class="paramref">valueSelector</code> on
+
+    each element.
+  example: []
+  syntax:
+    content: public static string Join<TValue, TResult>(this IEnumerable<TValue> source, string separator, Func<TValue, TResult> valueSelector)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The source collection.
+    - id: separator
+      type: System.String
+      description: The separator.
+    - id: valueSelector
+      type: System.Func{{TValue},{TResult}}
+      description: The selector of <code class="typeparamref">TValue</code> object property or an expression.
+    typeParameters:
+    - id: TValue
+      description: The type of the collection element.
+    - id: TResult
+      description: The resulting.
+    return:
+      type: System.String
+      description: String from joined elements.
+    content.vb: Public Shared Function Join(Of TValue, TResult)(source As IEnumerable(Of TValue), separator As String, valueSelector As Func(Of TValue, TResult)) As String
+  overload: Ploch.Common.Collections.EnumerableExtensions.Join*
+  nameWithType.vb: EnumerableExtensions.Join(Of TValue, TResult)(IEnumerable(Of TValue), String, Func(Of TValue, TResult))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.Join(Of TValue, TResult)(System.Collections.Generic.IEnumerable(Of TValue), String, System.Func(Of TValue, TResult))
+  name.vb: Join(Of TValue, TResult)(IEnumerable(Of TValue), String, Func(Of TValue, TResult))
+- uid: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)
+  id: JoinWithFinalSeparator``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: JoinWithFinalSeparator<TValue>(IEnumerable<TValue>, string, string)
+  nameWithType: EnumerableExtensions.JoinWithFinalSeparator<TValue>(IEnumerable<TValue>, string, string)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator<TValue>(System.Collections.Generic.IEnumerable<TValue>, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: JoinWithFinalSeparator
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 114
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: >-
+    Joins the elements of the collection using the provided separator, calling <code>ToString</code> on each element of the
+
+    collection. The last element is joined using the <code class="paramref">finalSeparator</code>.
+  example: []
+  syntax:
+    content: public static string JoinWithFinalSeparator<TValue>(this IEnumerable<TValue> source, string separator, string finalSeparator)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The source collection.
+    - id: separator
+      type: System.String
+      description: The separator.
+    - id: finalSeparator
+      type: System.String
+      description: The final separator.
+    typeParameters:
+    - id: TValue
+      description: The type of the collection element.
+    return:
+      type: System.String
+      description: >-
+        String from joined elements. An empty source yields <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>; a single-element
+
+        source yields that element without any separator.
+    content.vb: Public Shared Function JoinWithFinalSeparator(Of TValue)(source As IEnumerable(Of TValue), separator As String, finalSeparator As String) As String
+  overload: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator*
+  nameWithType.vb: EnumerableExtensions.JoinWithFinalSeparator(Of TValue)(IEnumerable(Of TValue), String, String)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator(Of TValue)(System.Collections.Generic.IEnumerable(Of TValue), String, String)
+  name.vb: JoinWithFinalSeparator(Of TValue)(IEnumerable(Of TValue), String, String)
+- uid: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Func{``0,``1})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Func{``0,``1})
+  id: JoinWithFinalSeparator``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Func{``0,``1})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: JoinWithFinalSeparator<TValue, TResult>(IEnumerable<TValue>, string, string, Func<TValue, TResult>)
+  nameWithType: EnumerableExtensions.JoinWithFinalSeparator<TValue, TResult>(IEnumerable<TValue>, string, string, Func<TValue, TResult>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator<TValue, TResult>(System.Collections.Generic.IEnumerable<TValue>, string, string, System.Func<TValue, TResult>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: JoinWithFinalSeparator
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 132
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Joins the elements of a sequence by a separator, with a final separator for the last two elements.
+  example: []
+  syntax:
+    content: public static string JoinWithFinalSeparator<TValue, TResult>(this IEnumerable<TValue> source, string separator, string finalSeparator, Func<TValue, TResult> valueSelector)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The sequence to join.
+    - id: separator
+      type: System.String
+      description: The separator to be used between elements.
+    - id: finalSeparator
+      type: System.String
+      description: The separator to be used between the last two elements.
+    - id: valueSelector
+      type: System.Func{{TValue},{TResult}}
+      description: A function to select a result value from each element.
+    typeParameters:
+    - id: TValue
+      description: The type of the elements in the sequence.
+    - id: TResult
+      description: The type of the result after applying the valueSelector function.
+    return:
+      type: System.String
+      description: >-
+        A string that consists of the joined elements with the separators. An empty source yields
+
+        <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>; a single-element source yields that element without any separator.
+    content.vb: Public Shared Function JoinWithFinalSeparator(Of TValue, TResult)(source As IEnumerable(Of TValue), separator As String, finalSeparator As String, valueSelector As Func(Of TValue, TResult)) As String
+  overload: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator*
+  nameWithType.vb: EnumerableExtensions.JoinWithFinalSeparator(Of TValue, TResult)(IEnumerable(Of TValue), String, String, Func(Of TValue, TResult))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator(Of TValue, TResult)(System.Collections.Generic.IEnumerable(Of TValue), String, String, System.Func(Of TValue, TResult))
+  name.vb: JoinWithFinalSeparator(Of TValue, TResult)(IEnumerable(Of TValue), String, String, Func(Of TValue, TResult))
+- uid: Ploch.Common.Collections.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})
+  id: Shuffle``1(System.Collections.Generic.IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: Shuffle<TValue>(IEnumerable<TValue>)
+  nameWithType: EnumerableExtensions.Shuffle<TValue>(IEnumerable<TValue>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Shuffle<TValue>(System.Collections.Generic.IEnumerable<TValue>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Shuffle
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 158
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Randomly shuffles the elements of the source enumerable.
+  example: []
+  syntax:
+    content: >-
+      [SuppressMessage("Security", "CA5394:Do not use insecure randomness", Justification = "Shuffling a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
+
+      public static IEnumerable<TValue> Shuffle<TValue>(this IEnumerable<TValue> source)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The collection to shuffle.
+    typeParameters:
+    - id: TValue
+      description: The type of values in the enumerable.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: Randomly shuffled enumerable.
+    content.vb: >-
+      <SuppressMessage("Security", "CA5394:Do not use insecure randomness", Justification:="Shuffling a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")>
+
+      Public Shared Function Shuffle(Of TValue)(source As IEnumerable(Of TValue)) As IEnumerable(Of TValue)
+  overload: Ploch.Common.Collections.EnumerableExtensions.Shuffle*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Security
+    - type: System.String
+      value: CA5394:Do not use insecure randomness
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: Shuffling a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.
+  nameWithType.vb: EnumerableExtensions.Shuffle(Of TValue)(IEnumerable(Of TValue))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.Shuffle(Of TValue)(System.Collections.Generic.IEnumerable(Of TValue))
+  name.vb: Shuffle(Of TValue)(IEnumerable(Of TValue))
+- uid: Ploch.Common.Collections.EnumerableExtensions.TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  id: TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: TakeRandom<TValue>(IEnumerable<TValue>, int)
+  nameWithType: EnumerableExtensions.TakeRandom<TValue>(IEnumerable<TValue>, int)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.TakeRandom<TValue>(System.Collections.Generic.IEnumerable<TValue>, int)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TakeRandom
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 191
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Takes random <code class="paramref">count</code> amount of items from the <code class="paramref">source</code> enumerable.
+  remarks: >-
+    Selection is performed with a partial Fisher-Yates shuffle over a copy of the source, giving O(n) setup and
+
+    O(<code class="paramref">count</code>) selection with uniform selection probability and no duplicate picks. A
+
+    non-positive <code class="paramref">count</code> returns without enumerating <code class="paramref">source</code>.
+  example: []
+  syntax:
+    content: >-
+      [SuppressMessage("Security", "CA5394:Do not use insecure randomness", Justification = "Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")]
+
+      public static IEnumerable<TValue> TakeRandom<TValue>(this IEnumerable<TValue> source, int count)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The source enumerable.
+    - id: count
+      type: System.Int32
+      description: >-
+        The number of values to take. When greater than the source size, all items are returned; when zero or
+
+        negative, an empty sequence is returned (matching <xref href="System.Linq.Enumerable.Take%60%601(System.Collections.Generic.IEnumerable%7b%60%600%7d%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> semantics).
+    typeParameters:
+    - id: TValue
+      description: The enumerable value type.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TValue}}
+      description: The random items from the source enumerable.
+    content.vb: >-
+      <SuppressMessage("Security", "CA5394:Do not use insecure randomness", Justification:="Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.")>
+
+      Public Shared Function TakeRandom(Of TValue)(source As IEnumerable(Of TValue), count As Integer) As IEnumerable(Of TValue)
+  overload: Ploch.Common.Collections.EnumerableExtensions.TakeRandom*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">source</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Security
+    - type: System.String
+      value: CA5394:Do not use insecure randomness
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: Selecting random items from a collection is not a security-sensitive operation; cryptographic randomness is unnecessary and would degrade performance.
+  nameWithType.vb: EnumerableExtensions.TakeRandom(Of TValue)(IEnumerable(Of TValue), Integer)
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.TakeRandom(Of TValue)(System.Collections.Generic.IEnumerable(Of TValue), Integer)
+  name.vb: TakeRandom(Of TValue)(IEnumerable(Of TValue), Integer)
+- uid: Ploch.Common.Collections.EnumerableExtensions.If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})
+  id: If``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: If<T>(IEnumerable<T>, bool, Func<IEnumerable<T>, IEnumerable<T>>)
+  nameWithType: EnumerableExtensions.If<T>(IEnumerable<T>, bool, Func<IEnumerable<T>, IEnumerable<T>>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.If<T>(System.Collections.Generic.IEnumerable<T>, bool, System.Func<System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IEnumerable<T>>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: If
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 244
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Creates an enumerable query if the condition is true.
+  remarks: This method is useful when you want to conditionally add a where clause to a query.
+  example:
+  - >-
+    Method below returns a list of cars ordered by creation date.
+
+    If the <code>createdAfter</code> is not null, the query will be filtered by the creation date.
+
+    If the <code>createdBefore</code> is not null, the query will be further filtered by the creation date.
+
+    If the <code>first</code> is not null, the query will be limited to the first <code>first</code> items.
+
+
+    <pre><code class="lang-csharp">var carsList = GetCars();
+
+    carsList.OrderBy(x =&gt; x.Created)
+
+    .If(createdAfter.HasValue, x =&gt; x.Where(y =&gt; y.Created &gt; createdAfter!.Value))
+
+    .If(createdBefore.HasValue, x =&gt; x.Where(y =&gt; y.Created &lt; createdBefore!.Value))
+
+    .If(first.HasValue, x =&gt; x.Take(first!.Value))</code></pre>
+  syntax:
+    content: public static IEnumerable<T> If<T>(this IEnumerable<T> enumerable, bool condition, Func<IEnumerable<T>, IEnumerable<T>> action)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The source enumerable.
+    - id: condition
+      type: System.Boolean
+      description: The condition.
+    - id: action
+      type: System.Func{System.Collections.Generic.IEnumerable{{T}},System.Collections.Generic.IEnumerable{{T}}}
+      description: The query action to perform on <code class="paramref">enumerable</code>.
+    typeParameters:
+    - id: T
+      description: The enumerable value type.
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The resulting enumerable.
+    content.vb: Public Shared Function [If](Of T)(enumerable As IEnumerable(Of T), condition As Boolean, action As Func(Of IEnumerable(Of T), IEnumerable(Of T))) As IEnumerable(Of T)
+  overload: Ploch.Common.Collections.EnumerableExtensions.If*
+  nameWithType.vb: EnumerableExtensions.If(Of T)(IEnumerable(Of T), Boolean, Func(Of IEnumerable(Of T), IEnumerable(Of T)))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.If(Of T)(System.Collections.Generic.IEnumerable(Of T), Boolean, System.Func(Of System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEnumerable(Of T)))
+  name.vb: If(Of T)(IEnumerable(Of T), Boolean, Func(Of IEnumerable(Of T), IEnumerable(Of T)))
+- uid: Ploch.Common.Collections.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  id: ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: ForEach<T>(IEnumerable<T>, Action<T>)
+  nameWithType: EnumerableExtensions.ForEach<T>(IEnumerable<T>, Action<T>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ForEach<T>(System.Collections.Generic.IEnumerable<T>, System.Action<T>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ForEach
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 259
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Performs the specified action on each element of the <code class="paramref">enumerable</code>.
+  example: []
+  syntax:
+    content: public static IEnumerable<T> ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The enumerable.
+    - id: action
+      type: System.Action{{T}}
+      description: The action to perform on each element.
+    typeParameters:
+    - id: T
+      description: The enumerable type.
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The same enumerable.
+    content.vb: Public Shared Function ForEach(Of T)(enumerable As IEnumerable(Of T), action As Action(Of T)) As IEnumerable(Of T)
+  overload: Ploch.Common.Collections.EnumerableExtensions.ForEach*
+  nameWithType.vb: EnumerableExtensions.ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ForEach(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Action(Of T))
+  name.vb: ForEach(Of T)(IEnumerable(Of T), Action(Of T))
+- uid: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int64})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int64})
+  id: AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int64})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: AreIntegersSequentialInOrder(IEnumerable<long>)
+  nameWithType: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable<long>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable<long>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AreIntegersSequentialInOrder
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 284
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Determines whether the elements in the given enumerable are sequential.
+  example: []
+  syntax:
+    content: public static bool AreIntegersSequentialInOrder(this IEnumerable<long> enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{System.Int64}
+      description: The enumerable to check for sequentiality. Must not be null.
+    return:
+      type: System.Boolean
+      description: True if the elements in the enumerable are sequential; otherwise, false.
+    content.vb: Public Shared Function AreIntegersSequentialInOrder(enumerable As IEnumerable(Of Long)) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder*
+  nameWithType.vb: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable(Of Long))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable(Of Long))
+  name.vb: AreIntegersSequentialInOrder(IEnumerable(Of Long))
+- uid: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int32})
+  id: AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable{System.Int32})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: AreIntegersSequentialInOrder(IEnumerable<int>)
+  nameWithType: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable<int>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable<int>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AreIntegersSequentialInOrder
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 301
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Determines whether the elements in the given enumerable are sequential.
+  example: []
+  syntax:
+    content: public static bool AreIntegersSequentialInOrder(this IEnumerable<int> enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: The enumerable to check for sequentiality. Must not be null.
+    return:
+      type: System.Boolean
+      description: True if the elements in the enumerable are sequential; otherwise, false.
+    content.vb: Public Shared Function AreIntegersSequentialInOrder(enumerable As IEnumerable(Of Integer)) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder*
+  nameWithType.vb: EnumerableExtensions.AreIntegersSequentialInOrder(IEnumerable(Of Integer))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder(System.Collections.Generic.IEnumerable(Of Integer))
+  name.vb: AreIntegersSequentialInOrder(IEnumerable(Of Integer))
+- uid: Ploch.Common.Collections.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  id: IsEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty<T>(IEnumerable<T>)
+  nameWithType: EnumerableExtensions.IsEmpty<T>(IEnumerable<T>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.IsEmpty<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsEmpty
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 315
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Determines whether the specified enumerable is empty.
+  example: []
+  syntax:
+    content: public static bool IsEmpty<T>(this IEnumerable<T> enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The enumerable to check.
+    typeParameters:
+    - id: T
+      description: The type of the elements in the enumerable.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the enumerable is empty; otherwise, <code>false</code>.
+    content.vb: Public Shared Function IsEmpty(Of T)(enumerable As IEnumerable(Of T)) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.IsEmpty*
+  nameWithType.vb: EnumerableExtensions.IsEmpty(Of T)(IEnumerable(Of T))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.IsEmpty(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IsEmpty(Of T)(IEnumerable(Of T))
+- uid: Ploch.Common.Collections.EnumerableExtensions.IsEmpty(System.Collections.IEnumerable)
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.IsEmpty(System.Collections.IEnumerable)
+  id: IsEmpty(System.Collections.IEnumerable)
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty(IEnumerable)
+  nameWithType: EnumerableExtensions.IsEmpty(IEnumerable)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.IsEmpty(System.Collections.IEnumerable)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsEmpty
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 323
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Determines whether the specified non-generic enumerable is empty.
+  example: []
+  syntax:
+    content: public static bool IsEmpty(this IEnumerable enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.IEnumerable
+      description: The enumerable to check. Must not be null.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the enumerable is empty (contains no elements); otherwise, <code>false</code>.
+    content.vb: Public Shared Function IsEmpty(enumerable As IEnumerable) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.IsEmpty*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">enumerable</code> is null.
+- uid: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  id: IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsNullOrEmpty<T>(IEnumerable<T>?)
+  nameWithType: EnumerableExtensions.IsNullOrEmpty<T>(IEnumerable<T>?)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty<T>(System.Collections.Generic.IEnumerable<T>?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsNullOrEmpty
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 338
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Checks if the specified collection is null or empty.
+  example: []
+  syntax:
+    content: public static bool IsNullOrEmpty<T>(this IEnumerable<T>? enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The collection to check.
+    typeParameters:
+    - id: T
+      description: The type of the elements in the collection.
+    return:
+      type: System.Boolean
+      description: true if the collection is null or empty; otherwise, false.
+    content.vb: Public Shared Function IsNullOrEmpty(Of T)(enumerable As IEnumerable(Of T)) As Boolean
+  overload: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty*
+  nameWithType.vb: EnumerableExtensions.IsNullOrEmpty(Of T)(IEnumerable(Of T))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IsNullOrEmpty(Of T)(IEnumerable(Of T))
+- uid: Ploch.Common.Collections.EnumerableExtensions.Second``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.Second``1(System.Collections.Generic.IEnumerable{``0})
+  id: Second``1(System.Collections.Generic.IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: Second<T>(IEnumerable<T>)
+  nameWithType: EnumerableExtensions.Second<T>(IEnumerable<T>)
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Second<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Second
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 347
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Returns the second element of a sequence.
+  example: []
+  syntax:
+    content: public static T Second<T>(this IEnumerable<T> enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The sequence to return the second element from.
+    typeParameters:
+    - id: T
+      description: The type of the elements in the sequence.
+    return:
+      type: '{T}'
+      description: The second element in the specified sequence.
+    content.vb: Public Shared Function Second(Of T)(enumerable As IEnumerable(Of T)) As T
+  overload: Ploch.Common.Collections.EnumerableExtensions.Second*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The source sequence contains fewer than two elements.
+  nameWithType.vb: EnumerableExtensions.Second(Of T)(IEnumerable(Of T))
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.Second(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: Second(Of T)(IEnumerable(Of T))
+- uid: Ploch.Common.Collections.EnumerableExtensions.ExceptItems``1(System.Collections.Generic.IEnumerable{``0},``0[])
+  commentId: M:Ploch.Common.Collections.EnumerableExtensions.ExceptItems``1(System.Collections.Generic.IEnumerable{``0},``0[])
+  id: ExceptItems``1(System.Collections.Generic.IEnumerable{``0},``0[])
+  isExtensionMethod: true
+  parent: Ploch.Common.Collections.EnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: ExceptItems<TItem>(IEnumerable<TItem>, params TItem[])
+  nameWithType: EnumerableExtensions.ExceptItems<TItem>(IEnumerable<TItem>, params TItem[])
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ExceptItems<TItem>(System.Collections.Generic.IEnumerable<TItem>, params TItem[])
+  type: Method
+  source:
+    remote:
+      path: src/Common/Collections/EnumerableExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ExceptItems
+    path: ../src/Common/Collections/EnumerableExtensions.cs
+    startLine: 365
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Collections
+  summary: Excludes the specified items from the source enumerable.
+  example: []
+  syntax:
+    content: public static IEnumerable<TItem> ExceptItems<TItem>(this IEnumerable<TItem> source, params TItem[] itemsToRemove)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TItem}}
+      description: The source enumerable from which items will be excluded.
+    - id: itemsToRemove
+      type: '{TItem}[]'
+      description: An array of items to exclude from the source enumerable.
+    typeParameters:
+    - id: TItem
+      description: The type of elements in the enumerable.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TItem}}
+      description: >-
+        An <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> that contains elements from the source enumerable
+
+        except for those elements that are present in <code class="paramref">itemsToRemove</code>.
+    content.vb: Public Shared Function ExceptItems(Of TItem)(source As IEnumerable(Of TItem), ParamArray itemsToRemove As TItem()) As IEnumerable(Of TItem)
+  overload: Ploch.Common.Collections.EnumerableExtensions.ExceptItems*
+  nameWithType.vb: EnumerableExtensions.ExceptItems(Of TItem)(IEnumerable(Of TItem), ParamArray TItem())
+  fullName.vb: Ploch.Common.Collections.EnumerableExtensions.ExceptItems(Of TItem)(System.Collections.Generic.IEnumerable(Of TItem), ParamArray TItem())
+  name.vb: ExceptItems(Of TItem)(IEnumerable(Of TItem), ParamArray TItem())
+references:
+- uid: Ploch.Common.Collections
+  commentId: N:Ploch.Common.Collections
+  href: Ploch.html
+  name: Ploch.Common.Collections
+  nameWithType: Ploch.Common.Collections
+  fullName: Ploch.Common.Collections
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Collections.EnumerableExtensions.ValueIn*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.ValueIn
+  href: Ploch.Common.Collections.EnumerableExtensions.ValueIn.html#Ploch_Common_Collections_EnumerableExtensions_ValueIn__1___0_System_Collections_Generic_IEqualityComparer___0____0___
+  name: ValueIn
+  nameWithType: EnumerableExtensions.ValueIn
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ValueIn
+- uid: '{TValue}'
+  commentId: '!:TValue'
+  definition: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: System.Collections.Generic.IEqualityComparer{{TValue}}
+  commentId: T:System.Collections.Generic.IEqualityComparer{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEqualityComparer`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
+  name: IEqualityComparer<TValue>
+  nameWithType: IEqualityComparer<TValue>
+  fullName: System.Collections.Generic.IEqualityComparer<TValue>
+  nameWithType.vb: IEqualityComparer(Of TValue)
+  fullName.vb: System.Collections.Generic.IEqualityComparer(Of TValue)
+  name.vb: IEqualityComparer(Of TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEqualityComparer`1
+    name: IEqualityComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEqualityComparer`1
+    name: IEqualityComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: '{TValue}[]'
+  isExternal: true
+  name: TValue[]
+  nameWithType: TValue[]
+  fullName: TValue[]
+  nameWithType.vb: TValue()
+  fullName.vb: TValue()
+  name.vb: TValue()
+  spec.csharp:
+  - name: TValue
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: TValue
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: System.Collections.Generic.IEqualityComparer`1
+  commentId: T:System.Collections.Generic.IEqualityComparer`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
+  name: IEqualityComparer<T>
+  nameWithType: IEqualityComparer<T>
+  fullName: System.Collections.Generic.IEqualityComparer<T>
+  nameWithType.vb: IEqualityComparer(Of T)
+  fullName.vb: System.Collections.Generic.IEqualityComparer(Of T)
+  name.vb: IEqualityComparer(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEqualityComparer`1
+    name: IEqualityComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEqualityComparer`1
+    name: IEqualityComparer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{{TValue}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TValue>
+  nameWithType: IEnumerable<TValue>
+  fullName: System.Collections.Generic.IEnumerable<TValue>
+  nameWithType.vb: IEnumerable(Of TValue)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TValue)
+  name.vb: IEnumerable(Of TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.Collections.EnumerableExtensions.None*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.None
+  href: Ploch.Common.Collections.EnumerableExtensions.None.html#Ploch_Common_Collections_EnumerableExtensions_None__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__
+  name: None
+  nameWithType: EnumerableExtensions.None
+  fullName: Ploch.Common.Collections.EnumerableExtensions.None
+- uid: System.Collections.Generic.IEnumerable{{TSource}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TSource>
+  nameWithType: IEnumerable<TSource>
+  fullName: System.Collections.Generic.IEnumerable<TSource>
+  nameWithType.vb: IEnumerable(Of TSource)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TSource)
+  name.vb: IEnumerable(Of TSource)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: System.Func{{TSource},System.Boolean}
+  commentId: T:System.Func{``0,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TSource, bool>
+  nameWithType: Func<TSource, bool>
+  fullName: System.Func<TSource, bool>
+  nameWithType.vb: Func(Of TSource, Boolean)
+  fullName.vb: System.Func(Of TSource, Boolean)
+  name.vb: Func(Of TSource, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TSource
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Ploch.Common.Collections.EnumerableExtensions.Join*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.Join
+  href: Ploch.Common.Collections.EnumerableExtensions.Join.html#Ploch_Common_Collections_EnumerableExtensions_Join__1_System_Collections_Generic_IEnumerable___0__System_String_
+  name: Join
+  nameWithType: EnumerableExtensions.Join
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Join
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Func{{TValue},{TResult}}
+  commentId: T:System.Func{``0,``1}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TValue, TResult>
+  nameWithType: Func<TValue, TResult>
+  fullName: System.Func<TValue, TResult>
+  nameWithType.vb: Func(Of TValue, TResult)
+  fullName.vb: System.Func(Of TValue, TResult)
+  name.vb: Func(Of TValue, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TValue
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.String.Empty
+  commentId: F:System.String.Empty
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string.empty
+  name: Empty
+  nameWithType: string.Empty
+  fullName: string.Empty
+  nameWithType.vb: String.Empty
+  fullName.vb: String.Empty
+- uid: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator
+  href: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator.html#Ploch_Common_Collections_EnumerableExtensions_JoinWithFinalSeparator__1_System_Collections_Generic_IEnumerable___0__System_String_System_String_
+  name: JoinWithFinalSeparator
+  nameWithType: EnumerableExtensions.JoinWithFinalSeparator
+  fullName: Ploch.Common.Collections.EnumerableExtensions.JoinWithFinalSeparator
+- uid: Ploch.Common.Collections.EnumerableExtensions.Shuffle*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.Shuffle
+  href: Ploch.Common.Collections.EnumerableExtensions.Shuffle.html#Ploch_Common_Collections_EnumerableExtensions_Shuffle__1_System_Collections_Generic_IEnumerable___0__
+  name: Shuffle
+  nameWithType: EnumerableExtensions.Shuffle
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Shuffle
+- uid: System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  commentId: M:System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.take
+  name: Take<TSource>(IEnumerable<TSource>, int)
+  nameWithType: Enumerable.Take<TSource>(IEnumerable<TSource>, int)
+  fullName: System.Linq.Enumerable.Take<TSource>(System.Collections.Generic.IEnumerable<TSource>, int)
+  nameWithType.vb: Enumerable.Take(Of TSource)(IEnumerable(Of TSource), Integer)
+  fullName.vb: System.Linq.Enumerable.Take(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), Integer)
+  name.vb: Take(Of TSource)(IEnumerable(Of TSource), Integer)
+  spec.csharp:
+  - uid: System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+    name: Take
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.take
+  - name: <
+  - name: TSource
+  - name: '>'
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Linq.Enumerable.Take``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+    name: Take
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.take
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: Ploch.Common.Collections.EnumerableExtensions.TakeRandom*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.TakeRandom
+  href: Ploch.Common.Collections.EnumerableExtensions.TakeRandom.html#Ploch_Common_Collections_EnumerableExtensions_TakeRandom__1_System_Collections_Generic_IEnumerable___0__System_Int32_
+  name: TakeRandom
+  nameWithType: EnumerableExtensions.TakeRandom
+  fullName: Ploch.Common.Collections.EnumerableExtensions.TakeRandom
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Ploch.Common.Collections.EnumerableExtensions.If*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.If
+  href: Ploch.Common.Collections.EnumerableExtensions.If.html#Ploch_Common_Collections_EnumerableExtensions_If__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Func_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0___
+  name: If
+  nameWithType: EnumerableExtensions.If
+  fullName: Ploch.Common.Collections.EnumerableExtensions.If
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func{System.Collections.Generic.IEnumerable{{T}},System.Collections.Generic.IEnumerable{{T}}}
+  commentId: T:System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<IEnumerable<T>, IEnumerable<T>>
+  nameWithType: Func<IEnumerable<T>, IEnumerable<T>>
+  fullName: System.Func<System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IEnumerable<T>>
+  nameWithType.vb: Func(Of IEnumerable(Of T), IEnumerable(Of T))
+  fullName.vb: System.Func(Of System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEnumerable(Of T))
+  name.vb: Func(Of IEnumerable(Of T), IEnumerable(Of T))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Ploch.Common.Collections.EnumerableExtensions.ForEach*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.ForEach
+  href: Ploch.Common.Collections.EnumerableExtensions.ForEach.html#Ploch_Common_Collections_EnumerableExtensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__
+  name: ForEach
+  nameWithType: EnumerableExtensions.ForEach
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ForEach
+- uid: System.Action{{T}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder
+  href: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder.html#Ploch_Common_Collections_EnumerableExtensions_AreIntegersSequentialInOrder_System_Collections_Generic_IEnumerable_System_Int64__
+  name: AreIntegersSequentialInOrder
+  nameWithType: EnumerableExtensions.AreIntegersSequentialInOrder
+  fullName: Ploch.Common.Collections.EnumerableExtensions.AreIntegersSequentialInOrder
+- uid: System.Collections.Generic.IEnumerable{System.Int64}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int64}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<long>
+  nameWithType: IEnumerable<long>
+  fullName: System.Collections.Generic.IEnumerable<long>
+  nameWithType.vb: IEnumerable(Of Long)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Long)
+  name.vb: IEnumerable(Of Long)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<int>
+  nameWithType: IEnumerable<int>
+  fullName: System.Collections.Generic.IEnumerable<int>
+  nameWithType.vb: IEnumerable(Of Integer)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Integer)
+  name.vb: IEnumerable(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Ploch.Common.Collections.EnumerableExtensions.IsEmpty*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.IsEmpty
+  href: Ploch.Common.Collections.EnumerableExtensions.IsEmpty.html#Ploch_Common_Collections_EnumerableExtensions_IsEmpty__1_System_Collections_Generic_IEnumerable___0__
+  name: IsEmpty
+  nameWithType: EnumerableExtensions.IsEmpty
+  fullName: Ploch.Common.Collections.EnumerableExtensions.IsEmpty
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty
+  href: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty.html#Ploch_Common_Collections_EnumerableExtensions_IsNullOrEmpty__1_System_Collections_Generic_IEnumerable___0__
+  name: IsNullOrEmpty
+  nameWithType: EnumerableExtensions.IsNullOrEmpty
+  fullName: Ploch.Common.Collections.EnumerableExtensions.IsNullOrEmpty
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Ploch.Common.Collections.EnumerableExtensions.Second*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.Second
+  href: Ploch.Common.Collections.EnumerableExtensions.Second.html#Ploch_Common_Collections_EnumerableExtensions_Second__1_System_Collections_Generic_IEnumerable___0__
+  name: Second
+  nameWithType: EnumerableExtensions.Second
+  fullName: Ploch.Common.Collections.EnumerableExtensions.Second
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Ploch.Common.Collections.EnumerableExtensions.ExceptItems*
+  commentId: Overload:Ploch.Common.Collections.EnumerableExtensions.ExceptItems
+  href: Ploch.Common.Collections.EnumerableExtensions.ExceptItems.html#Ploch_Common_Collections_EnumerableExtensions_ExceptItems__1_System_Collections_Generic_IEnumerable___0____0___
+  name: ExceptItems
+  nameWithType: EnumerableExtensions.ExceptItems
+  fullName: Ploch.Common.Collections.EnumerableExtensions.ExceptItems
+- uid: System.Collections.Generic.IEnumerable{{TItem}}
+  commentId: T:System.Collections.Generic.IEnumerable{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TItem>
+  nameWithType: IEnumerable<TItem>
+  fullName: System.Collections.Generic.IEnumerable<TItem>
+  nameWithType.vb: IEnumerable(Of TItem)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TItem)
+  name.vb: IEnumerable(Of TItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TItem
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: )
+- uid: '{TItem}[]'
+  isExternal: true
+  name: TItem[]
+  nameWithType: TItem[]
+  fullName: TItem[]
+  nameWithType.vb: TItem()
+  fullName.vb: TItem()
+  name.vb: TItem()
+  spec.csharp:
+  - name: TItem
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: TItem
+  - name: (
+  - name: )
+memberLayout: SeparatePages

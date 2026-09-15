@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Ardalis.Result
+  commentId: N:Ploch.Common.Ardalis.Result
+  id: Ardalis.Result
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Ardalis.Result.ResultStatusExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Ardalis.Result
+  nameWithType: Ploch.Common.Ardalis.Result
+  fullName: Ploch.Common.Ardalis.Result
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Ardalis.Result
+references:
+- uid: Ploch.Common.Ardalis.Result.ResultStatusExtensions
+  commentId: T:Ploch.Common.Ardalis.Result.ResultStatusExtensions
+  href: Ploch.Common.Ardalis.Result.ResultStatusExtensions.html
+  name: ResultStatusExtensions
+  nameWithType: ResultStatusExtensions
+  fullName: Ploch.Common.Ardalis.Result.ResultStatusExtensions
+memberLayout: SeparatePages

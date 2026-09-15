@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.DawnGuard
+  commentId: N:Ploch.Common.DawnGuard
+  id: DawnGuard
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.DawnGuard.TypeGuards
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.DawnGuard
+  nameWithType: Ploch.Common.DawnGuard
+  fullName: Ploch.Common.DawnGuard
+  type: Namespace
+  assemblies:
+  - Ploch.Common.DawnGuard
+references:
+- uid: Ploch.Common.DawnGuard.TypeGuards
+  commentId: T:Ploch.Common.DawnGuard.TypeGuards
+  href: Ploch.Common.DawnGuard.TypeGuards.html
+  name: TypeGuards
+  nameWithType: TypeGuards
+  fullName: Ploch.Common.DawnGuard.TypeGuards
+memberLayout: SeparatePages

@@ -1,0 +1,484 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  commentId: T:Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  id: JsonConfigurationResourceFileRegistrations
+  parent: Ploch.Common.Maui.Configuration
+  children:
+  - Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions``1(Microsoft.Maui.Hosting.MauiAppBuilder,System.String,System.Boolean)
+  - Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: JsonConfigurationResourceFileRegistrations
+  nameWithType: JsonConfigurationResourceFileRegistrations
+  fullName: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  type: Class
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/Configuration/JsonConfigurationResourceFileRegistrations.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: JsonConfigurationResourceFileRegistrations
+    path: ../src/Common.Maui/Common.Maui/Configuration/JsonConfigurationResourceFileRegistrations.cs
+    startLine: 7
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.Configuration
+  syntax:
+    content: public static class JsonConfigurationResourceFileRegistrations
+    content.vb: Public Module JsonConfigurationResourceFileRegistrations
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration``1(``0)
+  commentId: M:Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration``1(``0)
+  id: AddResourceJsonFileConfiguration``1(``0)
+  isExtensionMethod: true
+  parent: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  langs:
+  - csharp
+  - vb
+  name: AddResourceJsonFileConfiguration<TConfigurationBuilder>(TConfigurationBuilder)
+  nameWithType: JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration<TConfigurationBuilder>(TConfigurationBuilder)
+  fullName: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration<TConfigurationBuilder>(TConfigurationBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/Configuration/JsonConfigurationResourceFileRegistrations.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AddResourceJsonFileConfiguration
+    path: ../src/Common.Maui/Common.Maui/Configuration/JsonConfigurationResourceFileRegistrations.cs
+    startLine: 9
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.Configuration
+  syntax:
+    content: 'public static TConfigurationBuilder AddResourceJsonFileConfiguration<TConfigurationBuilder>(this TConfigurationBuilder builder) where TConfigurationBuilder : IConfigurationBuilder'
+    parameters:
+    - id: builder
+      type: '{TConfigurationBuilder}'
+    typeParameters:
+    - id: TConfigurationBuilder
+    return:
+      type: '{TConfigurationBuilder}'
+    content.vb: Public Shared Function AddResourceJsonFileConfiguration(Of TConfigurationBuilder As IConfigurationBuilder)(builder As TConfigurationBuilder) As TConfigurationBuilder
+  overload: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration*
+  nameWithType.vb: JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration(Of TConfigurationBuilder)(TConfigurationBuilder)
+  fullName.vb: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration(Of TConfigurationBuilder)(TConfigurationBuilder)
+  name.vb: AddResourceJsonFileConfiguration(Of TConfigurationBuilder)(TConfigurationBuilder)
+- uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions``1(Microsoft.Maui.Hosting.MauiAppBuilder,System.String,System.Boolean)
+  commentId: M:Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions``1(Microsoft.Maui.Hosting.MauiAppBuilder,System.String,System.Boolean)
+  id: AddOptions``1(Microsoft.Maui.Hosting.MauiAppBuilder,System.String,System.Boolean)
+  isExtensionMethod: true
+  parent: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  langs:
+  - csharp
+  - vb
+  name: AddOptions<TOptions>(MauiAppBuilder, string?, bool)
+  nameWithType: JsonConfigurationResourceFileRegistrations.AddOptions<TOptions>(MauiAppBuilder, string?, bool)
+  fullName: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions<TOptions>(Microsoft.Maui.Hosting.MauiAppBuilder, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/Configuration/JsonConfigurationResourceFileRegistrations.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: AddOptions
+    path: ../src/Common.Maui/Common.Maui/Configuration/JsonConfigurationResourceFileRegistrations.cs
+    startLine: 19
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.Configuration
+  syntax:
+    content: 'public static MauiAppBuilder AddOptions<TOptions>(this MauiAppBuilder builder, string? sectionName = null, bool optional = false) where TOptions : class'
+    parameters:
+    - id: builder
+      type: Microsoft.Maui.Hosting.MauiAppBuilder
+    - id: sectionName
+      type: System.String
+    - id: optional
+      type: System.Boolean
+    typeParameters:
+    - id: TOptions
+    return:
+      type: Microsoft.Maui.Hosting.MauiAppBuilder
+    content.vb: Public Shared Function AddOptions(Of TOptions As Class)(builder As MauiAppBuilder, sectionName As String = Nothing, [optional] As Boolean = False) As MauiAppBuilder
+  overload: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions*
+  nameWithType.vb: JsonConfigurationResourceFileRegistrations.AddOptions(Of TOptions)(MauiAppBuilder, String, Boolean)
+  fullName.vb: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions(Of TOptions)(Microsoft.Maui.Hosting.MauiAppBuilder, String, Boolean)
+  name.vb: AddOptions(Of TOptions)(MauiAppBuilder, String, Boolean)
+references:
+- uid: Ploch.Common.Maui.Configuration
+  commentId: N:Ploch.Common.Maui.Configuration
+  href: Ploch.html
+  name: Ploch.Common.Maui.Configuration
+  nameWithType: Ploch.Common.Maui.Configuration
+  fullName: Ploch.Common.Maui.Configuration
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Configuration
+    name: Configuration
+    href: Ploch.Common.Maui.Configuration.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Configuration
+    name: Configuration
+    href: Ploch.Common.Maui.Configuration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration*
+  commentId: Overload:Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration
+  href: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration.html#Ploch_Common_Maui_Configuration_JsonConfigurationResourceFileRegistrations_AddResourceJsonFileConfiguration__1___0_
+  name: AddResourceJsonFileConfiguration
+  nameWithType: JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration
+  fullName: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddResourceJsonFileConfiguration
+- uid: '{TConfigurationBuilder}'
+  commentId: '!:TConfigurationBuilder'
+  definition: TConfigurationBuilder
+  name: TConfigurationBuilder
+  nameWithType: TConfigurationBuilder
+  fullName: TConfigurationBuilder
+- uid: TConfigurationBuilder
+  name: TConfigurationBuilder
+  nameWithType: TConfigurationBuilder
+  fullName: TConfigurationBuilder
+- uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions*
+  commentId: Overload:Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions
+  href: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions.html#Ploch_Common_Maui_Configuration_JsonConfigurationResourceFileRegistrations_AddOptions__1_Microsoft_Maui_Hosting_MauiAppBuilder_System_String_System_Boolean_
+  name: AddOptions
+  nameWithType: JsonConfigurationResourceFileRegistrations.AddOptions
+  fullName: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.AddOptions
+- uid: Microsoft.Maui.Hosting.MauiAppBuilder
+  commentId: T:Microsoft.Maui.Hosting.MauiAppBuilder
+  parent: Microsoft.Maui.Hosting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.maui.hosting.mauiappbuilder
+  name: MauiAppBuilder
+  nameWithType: MauiAppBuilder
+  fullName: Microsoft.Maui.Hosting.MauiAppBuilder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Microsoft.Maui.Hosting
+  commentId: N:Microsoft.Maui.Hosting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Maui.Hosting
+  nameWithType: Microsoft.Maui.Hosting
+  fullName: Microsoft.Maui.Hosting
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Maui
+    name: Maui
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.maui
+  - name: .
+  - uid: Microsoft.Maui.Hosting
+    name: Hosting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.maui.hosting
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Maui
+    name: Maui
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.maui
+  - name: .
+  - uid: Microsoft.Maui.Hosting
+    name: Hosting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.maui.hosting
+memberLayout: SeparatePages

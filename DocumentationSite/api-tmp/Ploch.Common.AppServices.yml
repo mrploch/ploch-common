@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.AppServices
+  id: AppServices
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.AppServices.Security
+  - Ploch.Common.AppServices.Web
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.AppServices
+  type: Namespace
+references:
+- uid: Ploch.Common.AppServices.Security
+  commentId: N:Ploch.Common.AppServices.Security
+  href: Ploch.html
+  name: Ploch.Common.AppServices.Security
+  nameWithType: Ploch.Common.AppServices.Security
+  fullName: Ploch.Common.AppServices.Security
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AppServices
+    name: AppServices
+    href: Ploch.Common.AppServices.html
+  - name: .
+  - uid: Ploch.Common.AppServices.Security
+    name: Security
+    href: Ploch.Common.AppServices.Security.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AppServices
+    name: AppServices
+    href: Ploch.Common.AppServices.html
+  - name: .
+  - uid: Ploch.Common.AppServices.Security
+    name: Security
+    href: Ploch.Common.AppServices.Security.html
+- uid: Ploch.Common.AppServices.Web
+  commentId: N:Ploch.Common.AppServices.Web
+  href: Ploch.html
+  name: Ploch.Common.AppServices.Web
+  nameWithType: Ploch.Common.AppServices.Web
+  fullName: Ploch.Common.AppServices.Web
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AppServices
+    name: AppServices
+    href: Ploch.Common.AppServices.html
+  - name: .
+  - uid: Ploch.Common.AppServices.Web
+    name: Web
+    href: Ploch.Common.AppServices.Web.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AppServices
+    name: AppServices
+    href: Ploch.Common.AppServices.html
+  - name: .
+  - uid: Ploch.Common.AppServices.Web
+    name: Web
+    href: Ploch.Common.AppServices.Web.html
+memberLayout: SeparatePages

@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.ObjectBuilder
+  commentId: N:Ploch.Common.ObjectBuilder
+  id: ObjectBuilder
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.ObjectBuilder.DefaultConverter
+  - Ploch.Common.ObjectBuilder.DotNetTypeConverterWrapper
+  - Ploch.Common.ObjectBuilder.IObjectTypeConverter
+  - Ploch.Common.ObjectBuilder.ISourceObject
+  - Ploch.Common.ObjectBuilder.ObjectConverter
+  - Ploch.Common.ObjectBuilder.TypeConverters
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.ObjectBuilder
+  nameWithType: Ploch.Common.ObjectBuilder
+  fullName: Ploch.Common.ObjectBuilder
+  type: Namespace
+  assemblies:
+  - Ploch.Common.ObjectBuilder
+references:
+- uid: Ploch.Common.ObjectBuilder.TypeConverters
+  commentId: N:Ploch.Common.ObjectBuilder.TypeConverters
+  href: Ploch.html
+  name: Ploch.Common.ObjectBuilder.TypeConverters
+  nameWithType: Ploch.Common.ObjectBuilder.TypeConverters
+  fullName: Ploch.Common.ObjectBuilder.TypeConverters
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder
+    name: ObjectBuilder
+    href: Ploch.Common.ObjectBuilder.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder.TypeConverters
+    name: TypeConverters
+    href: Ploch.Common.ObjectBuilder.TypeConverters.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder
+    name: ObjectBuilder
+    href: Ploch.Common.ObjectBuilder.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder.TypeConverters
+    name: TypeConverters
+    href: Ploch.Common.ObjectBuilder.TypeConverters.html
+- uid: Ploch.Common.ObjectBuilder.DefaultConverter
+  commentId: T:Ploch.Common.ObjectBuilder.DefaultConverter
+  href: Ploch.Common.ObjectBuilder.DefaultConverter.html
+  name: DefaultConverter
+  nameWithType: DefaultConverter
+  fullName: Ploch.Common.ObjectBuilder.DefaultConverter
+- uid: Ploch.Common.ObjectBuilder.DotNetTypeConverterWrapper
+  commentId: T:Ploch.Common.ObjectBuilder.DotNetTypeConverterWrapper
+  href: Ploch.Common.ObjectBuilder.DotNetTypeConverterWrapper.html
+  name: DotNetTypeConverterWrapper
+  nameWithType: DotNetTypeConverterWrapper
+  fullName: Ploch.Common.ObjectBuilder.DotNetTypeConverterWrapper
+- uid: Ploch.Common.ObjectBuilder.IObjectTypeConverter
+  commentId: T:Ploch.Common.ObjectBuilder.IObjectTypeConverter
+  href: Ploch.Common.ObjectBuilder.IObjectTypeConverter.html
+  name: IObjectTypeConverter
+  nameWithType: IObjectTypeConverter
+  fullName: Ploch.Common.ObjectBuilder.IObjectTypeConverter
+- uid: Ploch.Common.ObjectBuilder.ISourceObject
+  commentId: T:Ploch.Common.ObjectBuilder.ISourceObject
+  parent: Ploch.Common.ObjectBuilder
+  href: Ploch.Common.ObjectBuilder.ISourceObject.html
+  name: ISourceObject
+  nameWithType: ISourceObject
+  fullName: Ploch.Common.ObjectBuilder.ISourceObject
+- uid: Ploch.Common.ObjectBuilder.ObjectConverter
+  commentId: T:Ploch.Common.ObjectBuilder.ObjectConverter
+  href: Ploch.Common.ObjectBuilder.ObjectConverter.html
+  name: ObjectConverter
+  nameWithType: ObjectConverter
+  fullName: Ploch.Common.ObjectBuilder.ObjectConverter
+- uid: Ploch.Common.ObjectBuilder
+  commentId: N:Ploch.Common.ObjectBuilder
+  href: Ploch.html
+  name: Ploch.Common.ObjectBuilder
+  nameWithType: Ploch.Common.ObjectBuilder
+  fullName: Ploch.Common.ObjectBuilder
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder
+    name: ObjectBuilder
+    href: Ploch.Common.ObjectBuilder.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder
+    name: ObjectBuilder
+    href: Ploch.Common.ObjectBuilder.html
+memberLayout: SeparatePages

@@ -1,0 +1,731 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Reflection.TypeExtensions
+  commentId: T:Ploch.Common.Reflection.TypeExtensions
+  id: TypeExtensions
+  parent: Ploch.Common.Reflection
+  children:
+  - Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName(System.Type)
+  - Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation(System.Type,System.Type)
+  - Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation``1(System.Type)
+  - Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  - Ploch.Common.Reflection.TypeExtensions.IsImplementing(System.Type,System.Type,System.Boolean)
+  - Ploch.Common.Reflection.TypeExtensions.IsNullable(System.Type)
+  - Ploch.Common.Reflection.TypeExtensions.IsSimpleType(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: TypeExtensions
+  nameWithType: TypeExtensions
+  fullName: Ploch.Common.Reflection.TypeExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TypeExtensions
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 12
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: <xref href="System.Type" data-throw-if-not-resolved="false"></xref> extension methods.
+  example: []
+  syntax:
+    content: public static class TypeExtensions
+    content.vb: Public Module TypeExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation``1(System.Type)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation``1(System.Type)
+  id: IsConcreteImplementation``1(System.Type)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsConcreteImplementation<TBaseType>(Type)
+  nameWithType: TypeExtensions.IsConcreteImplementation<TBaseType>(Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation<TBaseType>(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsConcreteImplementation
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 23
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Checks if the specified type is a concrete implementation of the provided generic base type.
+  example: []
+  syntax:
+    content: public static bool IsConcreteImplementation<TBaseType>(this Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to check.
+    typeParameters:
+    - id: TBaseType
+      description: The generic base type against which to validate the implementation.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the <code class="paramref">type</code> is a concrete implementation of <code class="typeparamref">TBaseType</code>,
+
+        otherwise <code>false</code>.
+    content.vb: Public Shared Function IsConcreteImplementation(Of TBaseType)(type As Type) As Boolean
+  overload: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation*
+  nameWithType.vb: TypeExtensions.IsConcreteImplementation(Of TBaseType)(Type)
+  fullName.vb: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation(Of TBaseType)(System.Type)
+  name.vb: IsConcreteImplementation(Of TBaseType)(Type)
+- uid: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation(System.Type,System.Type)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation(System.Type,System.Type)
+  id: IsConcreteImplementation(System.Type,System.Type)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsConcreteImplementation(Type, Type)
+  nameWithType: TypeExtensions.IsConcreteImplementation(Type, Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation(System.Type, System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsConcreteImplementation
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 34
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Checks if the specified type is a concrete implementation of the provided interface.
+  example: []
+  syntax:
+    content: public static bool IsConcreteImplementation(this Type type, Type baseType)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to check.
+    - id: baseType
+      type: System.Type
+      description: The base type against which to validate the implementation.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the <code class="paramref">type</code> is a concrete implementation of the <code class="paramref">baseType</code>,
+
+        otherwise <code>false</code>.
+    content.vb: Public Shared Function IsConcreteImplementation(type As Type, baseType As Type) As Boolean
+  overload: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation*
+- uid: Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  id: IsEnumerable(System.Type)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsEnumerable(Type)
+  nameWithType: TypeExtensions.IsEnumerable(Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsEnumerable(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsEnumerable
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 47
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Checks if the type provided is an <xref href="System.Collections.IEnumerable" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool IsEnumerable(this Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to check.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the provided type is <xref href="System.Collections.IEnumerable" data-throw-if-not-resolved="false"></xref>, otherwise false.
+    content.vb: Public Shared Function IsEnumerable(type As Type) As Boolean
+  overload: Ploch.Common.Reflection.TypeExtensions.IsEnumerable*
+- uid: Ploch.Common.Reflection.TypeExtensions.IsImplementing(System.Type,System.Type,System.Boolean)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsImplementing(System.Type,System.Type,System.Boolean)
+  id: IsImplementing(System.Type,System.Type,System.Boolean)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsImplementing(Type, Type, bool)
+  nameWithType: TypeExtensions.IsImplementing(Type, Type, bool)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsImplementing(System.Type, System.Type, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsImplementing
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 67
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Checks if the type provided is implementing the specified interface.
+  example: []
+  syntax:
+    content: public static bool IsImplementing(this Type type, Type baseType, bool concreteOnly = false)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type.
+    - id: baseType
+      type: System.Type
+      description: The type of interface.
+    - id: concreteOnly
+      type: System.Boolean
+      description: >-
+        Specify <code>true</code> to return <code>true</code> only if the <code class="paramref">type</code> is not an
+
+        interface or an abstract class.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the <code class="paramref">type</code> is implementing <code class="paramref">baseType</code>, false
+
+        otherwise.
+    content.vb: Public Shared Function IsImplementing(type As Type, baseType As Type, concreteOnly As Boolean = False) As Boolean
+  overload: Ploch.Common.Reflection.TypeExtensions.IsImplementing*
+  nameWithType.vb: TypeExtensions.IsImplementing(Type, Type, Boolean)
+  fullName.vb: Ploch.Common.Reflection.TypeExtensions.IsImplementing(System.Type, System.Type, Boolean)
+  name.vb: IsImplementing(Type, Type, Boolean)
+- uid: Ploch.Common.Reflection.TypeExtensions.IsNullable(System.Type)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsNullable(System.Type)
+  id: IsNullable(System.Type)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsNullable(Type)
+  nameWithType: TypeExtensions.IsNullable(Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsNullable(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsNullable
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 95
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: Determines whether the specified type is a nullable type.
+  example: []
+  syntax:
+    content: public static bool IsNullable(this Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to check.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the specified <code class="paramref">type</code> is a nullable type; otherwise, <code>false</code>.
+    content.vb: Public Shared Function IsNullable(type As Type) As Boolean
+  overload: Ploch.Common.Reflection.TypeExtensions.IsNullable*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if the <code class="paramref">type</code> is <code>null</code>.
+- uid: Ploch.Common.Reflection.TypeExtensions.IsSimpleType(System.Type)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.IsSimpleType(System.Type)
+  id: IsSimpleType(System.Type)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsSimpleType(Type)
+  nameWithType: TypeExtensions.IsSimpleType(Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsSimpleType(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: IsSimpleType
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 111
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: >-
+    Determines whether the specified type is a "simple" type.
+
+    A "simple" type is a primitive type, an enumeration, <xref href="System.String" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>, or a nullable version of a simple type.
+  example: []
+  syntax:
+    content: public static bool IsSimpleType(this Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to evaluate.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the <code class="paramref">type</code> is considered simple; otherwise, <code>false</code>.
+    content.vb: Public Shared Function IsSimpleType(type As Type) As Boolean
+  overload: Ploch.Common.Reflection.TypeExtensions.IsSimpleType*
+- uid: Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName(System.Type)
+  commentId: M:Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName(System.Type)
+  id: GetReadableTypeName(System.Type)
+  isExtensionMethod: true
+  parent: Ploch.Common.Reflection.TypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetReadableTypeName(Type)
+  nameWithType: TypeExtensions.GetReadableTypeName(Type)
+  fullName: Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Reflection/TypeExtensions.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetReadableTypeName
+    path: ../src/Common/Reflection/TypeExtensions.cs
+    startLine: 135
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Reflection
+  summary: >-
+    Retrieves a human-readable name for the specified <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, including details
+
+    about generic type arguments and array dimensions if applicable.
+  example: []
+  syntax:
+    content: public static string GetReadableTypeName(this Type t)
+    parameters:
+    - id: t
+      type: System.Type
+      description: The type for which to generate a readable name.
+    return:
+      type: System.String
+      description: >-
+        A string representing the readable name of the type, including generic arguments and array indicators
+
+        (e.g., <code>List&lt;int&gt;</code>, <code>int[]</code>, or <code>Dictionary&lt;string, List&lt;int&gt;&gt;</code>).
+    content.vb: Public Shared Function GetReadableTypeName(t As Type) As String
+  overload: Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName*
+references:
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Ploch.Common.Reflection
+  commentId: N:Ploch.Common.Reflection
+  href: Ploch.html
+  name: Ploch.Common.Reflection
+  nameWithType: Ploch.Common.Reflection
+  fullName: Ploch.Common.Reflection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation*
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation
+  href: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation.html#Ploch_Common_Reflection_TypeExtensions_IsConcreteImplementation__1_System_Type_
+  name: IsConcreteImplementation
+  nameWithType: TypeExtensions.IsConcreteImplementation
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsConcreteImplementation
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: Ploch.Common.Reflection.TypeExtensions.IsEnumerable*
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.IsEnumerable
+  href: Ploch.Common.Reflection.TypeExtensions.IsEnumerable.html#Ploch_Common_Reflection_TypeExtensions_IsEnumerable_System_Type_
+  name: IsEnumerable
+  nameWithType: TypeExtensions.IsEnumerable
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsEnumerable
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Ploch.Common.Reflection.TypeExtensions.IsImplementing*
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.IsImplementing
+  href: Ploch.Common.Reflection.TypeExtensions.IsImplementing.html#Ploch_Common_Reflection_TypeExtensions_IsImplementing_System_Type_System_Type_System_Boolean_
+  name: IsImplementing
+  nameWithType: TypeExtensions.IsImplementing
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsImplementing
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: Ploch.Common.Reflection.TypeExtensions.IsNullable*
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.IsNullable
+  href: Ploch.Common.Reflection.TypeExtensions.IsNullable.html#Ploch_Common_Reflection_TypeExtensions_IsNullable_System_Type_
+  name: IsNullable
+  nameWithType: TypeExtensions.IsNullable
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsNullable
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: Ploch.Common.Reflection.TypeExtensions.IsSimpleType*
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.IsSimpleType
+  href: Ploch.Common.Reflection.TypeExtensions.IsSimpleType.html#Ploch_Common_Reflection_TypeExtensions_IsSimpleType_System_Type_
+  name: IsSimpleType
+  nameWithType: TypeExtensions.IsSimpleType
+  fullName: Ploch.Common.Reflection.TypeExtensions.IsSimpleType
+- uid: Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName*
+  commentId: Overload:Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName
+  href: Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName.html#Ploch_Common_Reflection_TypeExtensions_GetReadableTypeName_System_Type_
+  name: GetReadableTypeName
+  nameWithType: TypeExtensions.GetReadableTypeName
+  fullName: Ploch.Common.Reflection.TypeExtensions.GetReadableTypeName
+memberLayout: SeparatePages

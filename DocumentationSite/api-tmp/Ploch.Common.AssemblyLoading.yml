@@ -1,0 +1,63 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.AssemblyLoading
+  commentId: N:Ploch.Common.AssemblyLoading
+  id: AssemblyLoading
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.AssemblyLoading.AppDomainTypesLoader
+  - Ploch.Common.AssemblyLoading.TypeLoadingConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.AssemblyLoading
+  nameWithType: Ploch.Common.AssemblyLoading
+  fullName: Ploch.Common.AssemblyLoading
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Net9
+references:
+- uid: Ploch.Common.AssemblyLoading.AppDomainTypesLoader
+  commentId: T:Ploch.Common.AssemblyLoading.AppDomainTypesLoader
+  href: Ploch.Common.AssemblyLoading.AppDomainTypesLoader.html
+  name: AppDomainTypesLoader
+  nameWithType: AppDomainTypesLoader
+  fullName: Ploch.Common.AssemblyLoading.AppDomainTypesLoader
+- uid: Ploch.Common.AssemblyLoading.TypeLoadingConfiguration
+  commentId: T:Ploch.Common.AssemblyLoading.TypeLoadingConfiguration
+  parent: Ploch.Common.AssemblyLoading
+  href: Ploch.Common.AssemblyLoading.TypeLoadingConfiguration.html
+  name: TypeLoadingConfiguration
+  nameWithType: TypeLoadingConfiguration
+  fullName: Ploch.Common.AssemblyLoading.TypeLoadingConfiguration
+- uid: Ploch.Common.AssemblyLoading
+  commentId: N:Ploch.Common.AssemblyLoading
+  href: Ploch.html
+  name: Ploch.Common.AssemblyLoading
+  nameWithType: Ploch.Common.AssemblyLoading
+  fullName: Ploch.Common.AssemblyLoading
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AssemblyLoading
+    name: AssemblyLoading
+    href: Ploch.Common.AssemblyLoading.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AssemblyLoading
+    name: AssemblyLoading
+    href: Ploch.Common.AssemblyLoading.html
+memberLayout: SeparatePages

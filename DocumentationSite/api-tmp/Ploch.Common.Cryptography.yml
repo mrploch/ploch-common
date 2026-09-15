@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Cryptography
+  commentId: N:Ploch.Common.Cryptography
+  id: Cryptography
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Cryptography.Hashing
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Cryptography
+  nameWithType: Ploch.Common.Cryptography
+  fullName: Ploch.Common.Cryptography
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Cryptography.Hashing
+  commentId: T:Ploch.Common.Cryptography.Hashing
+  href: Ploch.Common.Cryptography.Hashing.html
+  name: Hashing
+  nameWithType: Hashing
+  fullName: Ploch.Common.Cryptography.Hashing
+memberLayout: SeparatePages

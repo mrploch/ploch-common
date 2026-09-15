@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebApi.Endpoints.Models
+  commentId: N:Ploch.Common.WebApi.Endpoints.Models
+  id: Models
+  parent: Ploch.Common.WebApi.Endpoints
+  children:
+  - Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest`1
+  - Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse`1
+  - Ploch.Common.WebApi.Endpoints.Models.EmptyResponse
+  - Ploch.Common.WebApi.Endpoints.Models.IdRequest`1
+  - Ploch.Common.WebApi.Endpoints.Models.PaginatedRequest
+  - Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse`1
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.WebApi.Endpoints.Models
+  nameWithType: Ploch.Common.WebApi.Endpoints.Models
+  fullName: Ploch.Common.WebApi.Endpoints.Models
+  type: Namespace
+  assemblies:
+  - Ploch.Common.WebApi.Endpoints
+references:
+- uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest`1
+  commentId: T:Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest`1
+  href: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest-1.html
+  name: DataTransferObjectRequest<TDataTransferObject>
+  nameWithType: DataTransferObjectRequest<TDataTransferObject>
+  fullName: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest<TDataTransferObject>
+  nameWithType.vb: DataTransferObjectRequest(Of TDataTransferObject)
+  fullName.vb: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest(Of TDataTransferObject)
+  name.vb: DataTransferObjectRequest(Of TDataTransferObject)
+  spec.csharp:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest`1
+    name: DataTransferObjectRequest
+    href: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest-1.html
+  - name: <
+  - name: TDataTransferObject
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest`1
+    name: DataTransferObjectRequest
+    href: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDataTransferObject
+  - name: )
+- uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse`1
+  commentId: T:Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse`1
+  href: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse-1.html
+  name: DataTransferObjectResponse<TDataTransferObject>
+  nameWithType: DataTransferObjectResponse<TDataTransferObject>
+  fullName: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse<TDataTransferObject>
+  nameWithType.vb: DataTransferObjectResponse(Of TDataTransferObject)
+  fullName.vb: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse(Of TDataTransferObject)
+  name.vb: DataTransferObjectResponse(Of TDataTransferObject)
+  spec.csharp:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse`1
+    name: DataTransferObjectResponse
+    href: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse-1.html
+  - name: <
+  - name: TDataTransferObject
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse`1
+    name: DataTransferObjectResponse
+    href: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDataTransferObject
+  - name: )
+- uid: Ploch.Common.WebApi.Endpoints.Models.EmptyResponse
+  commentId: T:Ploch.Common.WebApi.Endpoints.Models.EmptyResponse
+  href: Ploch.Common.WebApi.Endpoints.Models.EmptyResponse.html
+  name: EmptyResponse
+  nameWithType: EmptyResponse
+  fullName: Ploch.Common.WebApi.Endpoints.Models.EmptyResponse
+- uid: Ploch.Common.WebApi.Endpoints.Models.IdRequest`1
+  commentId: T:Ploch.Common.WebApi.Endpoints.Models.IdRequest`1
+  href: Ploch.Common.WebApi.Endpoints.Models.IdRequest-1.html
+  name: IdRequest<TId>
+  nameWithType: IdRequest<TId>
+  fullName: Ploch.Common.WebApi.Endpoints.Models.IdRequest<TId>
+  nameWithType.vb: IdRequest(Of TId)
+  fullName.vb: Ploch.Common.WebApi.Endpoints.Models.IdRequest(Of TId)
+  name.vb: IdRequest(Of TId)
+  spec.csharp:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.IdRequest`1
+    name: IdRequest
+    href: Ploch.Common.WebApi.Endpoints.Models.IdRequest-1.html
+  - name: <
+  - name: TId
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.IdRequest`1
+    name: IdRequest
+    href: Ploch.Common.WebApi.Endpoints.Models.IdRequest-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TId
+  - name: )
+- uid: Ploch.Common.WebApi.Endpoints.Models.PaginatedRequest
+  commentId: T:Ploch.Common.WebApi.Endpoints.Models.PaginatedRequest
+  href: Ploch.Common.WebApi.Endpoints.Models.PaginatedRequest.html
+  name: PaginatedRequest
+  nameWithType: PaginatedRequest
+  fullName: Ploch.Common.WebApi.Endpoints.Models.PaginatedRequest
+- uid: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse`1
+  commentId: T:Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse`1
+  href: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse-1.html
+  name: PaginatedResponse<TDataTransferObject>
+  nameWithType: PaginatedResponse<TDataTransferObject>
+  fullName: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse<TDataTransferObject>
+  nameWithType.vb: PaginatedResponse(Of TDataTransferObject)
+  fullName.vb: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse(Of TDataTransferObject)
+  name.vb: PaginatedResponse(Of TDataTransferObject)
+  spec.csharp:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse`1
+    name: PaginatedResponse
+    href: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse-1.html
+  - name: <
+  - name: TDataTransferObject
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse`1
+    name: PaginatedResponse
+    href: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDataTransferObject
+  - name: )
+memberLayout: SeparatePages

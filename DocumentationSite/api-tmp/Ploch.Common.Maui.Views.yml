@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.Views
+  commentId: N:Ploch.Common.Maui.Views
+  id: Views
+  parent: Ploch.Common.Maui
+  children:
+  - Ploch.Common.Maui.Views.BaseContentPage
+  - Ploch.Common.Maui.Views.BaseContentView
+  - Ploch.Common.Maui.Views.IView
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui.Views
+  nameWithType: Ploch.Common.Maui.Views
+  fullName: Ploch.Common.Maui.Views
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Common.Maui.Views.BaseContentPage
+  commentId: T:Ploch.Common.Maui.Views.BaseContentPage
+  href: Ploch.Common.Maui.Views.BaseContentPage.html
+  name: BaseContentPage
+  nameWithType: BaseContentPage
+  fullName: Ploch.Common.Maui.Views.BaseContentPage
+- uid: Ploch.Common.Maui.Views.BaseContentView
+  commentId: T:Ploch.Common.Maui.Views.BaseContentView
+  href: Ploch.Common.Maui.Views.BaseContentView.html
+  name: BaseContentView
+  nameWithType: BaseContentView
+  fullName: Ploch.Common.Maui.Views.BaseContentView
+- uid: Ploch.Common.Maui.Views.IView
+  commentId: T:Ploch.Common.Maui.Views.IView
+  parent: Ploch.Common.Maui.Views
+  href: Ploch.Common.Maui.Views.IView.html
+  name: IView
+  nameWithType: IView
+  fullName: Ploch.Common.Maui.Views.IView
+- uid: Ploch.Common.Maui.Views
+  commentId: N:Ploch.Common.Maui.Views
+  href: Ploch.html
+  name: Ploch.Common.Maui.Views
+  nameWithType: Ploch.Common.Maui.Views
+  fullName: Ploch.Common.Maui.Views
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Views
+    name: Views
+    href: Ploch.Common.Maui.Views.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Views
+    name: Views
+    href: Ploch.Common.Maui.Views.html
+memberLayout: SeparatePages

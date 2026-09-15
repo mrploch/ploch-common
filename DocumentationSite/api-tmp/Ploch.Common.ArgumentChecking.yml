@@ -1,0 +1,63 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.ArgumentChecking
+  commentId: N:Ploch.Common.ArgumentChecking
+  id: ArgumentChecking
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.ArgumentChecking.Guard
+  - Ploch.Common.ArgumentChecking.PathGuard
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.ArgumentChecking
+  nameWithType: Ploch.Common.ArgumentChecking
+  fullName: Ploch.Common.ArgumentChecking
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.ArgumentChecking.Guard
+  commentId: T:Ploch.Common.ArgumentChecking.Guard
+  parent: Ploch.Common.ArgumentChecking
+  href: Ploch.Common.ArgumentChecking.Guard.html
+  name: Guard
+  nameWithType: Guard
+  fullName: Ploch.Common.ArgumentChecking.Guard
+- uid: Ploch.Common.ArgumentChecking.PathGuard
+  commentId: T:Ploch.Common.ArgumentChecking.PathGuard
+  href: Ploch.Common.ArgumentChecking.PathGuard.html
+  name: PathGuard
+  nameWithType: PathGuard
+  fullName: Ploch.Common.ArgumentChecking.PathGuard
+- uid: Ploch.Common.ArgumentChecking
+  commentId: N:Ploch.Common.ArgumentChecking
+  href: Ploch.html
+  name: Ploch.Common.ArgumentChecking
+  nameWithType: Ploch.Common.ArgumentChecking
+  fullName: Ploch.Common.ArgumentChecking
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ArgumentChecking
+    name: ArgumentChecking
+    href: Ploch.Common.ArgumentChecking.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ArgumentChecking
+    name: ArgumentChecking
+    href: Ploch.Common.ArgumentChecking.html
+memberLayout: SeparatePages

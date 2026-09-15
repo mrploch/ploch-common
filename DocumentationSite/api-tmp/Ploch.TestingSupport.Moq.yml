@@ -1,0 +1,63 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.Moq
+  commentId: N:Ploch.TestingSupport.Moq
+  id: Moq
+  parent: Ploch.TestingSupport
+  children:
+  - Ploch.TestingSupport.Moq.FluentVerifier
+  - Ploch.TestingSupport.Moq.MockingExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.Moq
+  nameWithType: Ploch.TestingSupport.Moq
+  fullName: Ploch.TestingSupport.Moq
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport
+references:
+- uid: Ploch.TestingSupport.Moq.FluentVerifier
+  commentId: T:Ploch.TestingSupport.Moq.FluentVerifier
+  href: Ploch.TestingSupport.Moq.FluentVerifier.html
+  name: FluentVerifier
+  nameWithType: FluentVerifier
+  fullName: Ploch.TestingSupport.Moq.FluentVerifier
+- uid: Ploch.TestingSupport.Moq.MockingExtensions
+  commentId: T:Ploch.TestingSupport.Moq.MockingExtensions
+  parent: Ploch.TestingSupport.Moq
+  href: Ploch.TestingSupport.Moq.MockingExtensions.html
+  name: MockingExtensions
+  nameWithType: MockingExtensions
+  fullName: Ploch.TestingSupport.Moq.MockingExtensions
+- uid: Ploch.TestingSupport.Moq
+  commentId: N:Ploch.TestingSupport.Moq
+  href: Ploch.html
+  name: Ploch.TestingSupport.Moq
+  nameWithType: Ploch.TestingSupport.Moq
+  fullName: Ploch.TestingSupport.Moq
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.Moq
+    name: Moq
+    href: Ploch.TestingSupport.Moq.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.Moq
+    name: Moq
+    href: Ploch.TestingSupport.Moq.html
+memberLayout: SeparatePages

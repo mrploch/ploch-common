@@ -1,0 +1,50 @@
+### YamlMime:ManagedReference
+items:
+- uid: TestingSupport.FluentAssertions.IOAbstractions
+  commentId: N:TestingSupport.FluentAssertions.IOAbstractions
+  id: TestingSupport.FluentAssertions.IOAbstractions
+  children:
+  - TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions`1
+  - TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions
+  langs:
+  - csharp
+  - vb
+  name: TestingSupport.FluentAssertions.IOAbstractions
+  nameWithType: TestingSupport.FluentAssertions.IOAbstractions
+  fullName: TestingSupport.FluentAssertions.IOAbstractions
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport.FluentAssertions.IOAbstractions
+references:
+- uid: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions`1
+  commentId: T:TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions`1
+  href: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.html
+  name: FileSystemInfoAssertions<TItems>
+  nameWithType: FileSystemInfoAssertions<TItems>
+  fullName: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions<TItems>
+  nameWithType.vb: FileSystemInfoAssertions(Of TItems)
+  fullName.vb: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions(Of TItems)
+  name.vb: FileSystemInfoAssertions(Of TItems)
+  spec.csharp:
+  - uid: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions`1
+    name: FileSystemInfoAssertions
+    href: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.html
+  - name: <
+  - name: TItems
+  - name: '>'
+  spec.vb:
+  - uid: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions`1
+    name: FileSystemInfoAssertions
+    href: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItems
+  - name: )
+- uid: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions
+  commentId: T:TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions
+  href: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions.html
+  name: FileSystemInfoEnumerableExtensions
+  nameWithType: FileSystemInfoEnumerableExtensions
+  fullName: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions
+memberLayout: SeparatePages

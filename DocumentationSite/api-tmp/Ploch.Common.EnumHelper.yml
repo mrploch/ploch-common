@@ -1,0 +1,538 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.EnumHelper
+  commentId: T:Ploch.Common.EnumHelper
+  id: EnumHelper
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.EnumHelper.GetEnumEntries``1
+  - Ploch.Common.EnumHelper.GetFlags``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: EnumHelper
+  nameWithType: EnumHelper
+  fullName: Ploch.Common.EnumHelper
+  type: Class
+  source:
+    remote:
+      path: src/Common/EnumHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: EnumHelper
+    path: ../src/Common/EnumHelper.cs
+    startLine: 10
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Provides helper methods for working with enums.
+  example: []
+  syntax:
+    content: public static class EnumHelper
+    content.vb: Public Module EnumHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.EnumHelper.GetEnumEntries``1
+  commentId: M:Ploch.Common.EnumHelper.GetEnumEntries``1
+  id: GetEnumEntries``1
+  parent: Ploch.Common.EnumHelper
+  langs:
+  - csharp
+  - vb
+  name: GetEnumEntries<TEnum>()
+  nameWithType: EnumHelper.GetEnumEntries<TEnum>()
+  fullName: Ploch.Common.EnumHelper.GetEnumEntries<TEnum>()
+  type: Method
+  source:
+    remote:
+      path: src/Common/EnumHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetEnumEntries
+    path: ../src/Common/EnumHelper.cs
+    startLine: 17
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Gets all enum entries.
+  example: []
+  syntax:
+    content: 'public static IEnumerable<TEnum> GetEnumEntries<TEnum>() where TEnum : Enum'
+    typeParameters:
+    - id: TEnum
+      description: The enum type.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TEnum}}
+      description: All enum entries.
+    content.vb: Public Shared Function GetEnumEntries(Of TEnum As [Enum])() As IEnumerable(Of TEnum)
+  overload: Ploch.Common.EnumHelper.GetEnumEntries*
+  nameWithType.vb: EnumHelper.GetEnumEntries(Of TEnum)()
+  fullName.vb: Ploch.Common.EnumHelper.GetEnumEntries(Of TEnum)()
+  name.vb: GetEnumEntries(Of TEnum)()
+- uid: Ploch.Common.EnumHelper.GetFlags``1(``0)
+  commentId: M:Ploch.Common.EnumHelper.GetFlags``1(``0)
+  id: GetFlags``1(``0)
+  isExtensionMethod: true
+  parent: Ploch.Common.EnumHelper
+  langs:
+  - csharp
+  - vb
+  name: GetFlags<TEnum>(TEnum)
+  nameWithType: EnumHelper.GetFlags<TEnum>(TEnum)
+  fullName: Ploch.Common.EnumHelper.GetFlags<TEnum>(TEnum)
+  type: Method
+  source:
+    remote:
+      path: src/Common/EnumHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetFlags
+    path: ../src/Common/EnumHelper.cs
+    startLine: 29
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Returns all enumeration flags of the specified value.
+  remarks: >-
+    Uses <xref href="System.Enum.HasFlag(System.Enum)" data-throw-if-not-resolved="false"></xref> to determine which flags are set and excludes the zero value.
+
+    Useful for working with enums marked with the <xref href="System.FlagsAttribute" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public static IEnumerable<TEnum> GetFlags<TEnum>(this TEnum value) where TEnum : Enum'
+    parameters:
+    - id: value
+      type: '{TEnum}'
+      description: The enum value to extract flags from.
+    typeParameters:
+    - id: TEnum
+      description: The enum type.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TEnum}}
+      description: A collection of all non-zero flags present in the given value.
+    content.vb: Public Shared Function GetFlags(Of TEnum As [Enum])(value As TEnum) As IEnumerable(Of TEnum)
+  overload: Ploch.Common.EnumHelper.GetFlags*
+  nameWithType.vb: EnumHelper.GetFlags(Of TEnum)(TEnum)
+  fullName.vb: Ploch.Common.EnumHelper.GetFlags(Of TEnum)(TEnum)
+  name.vb: GetFlags(Of TEnum)(TEnum)
+references:
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  href: Ploch.html
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.EnumHelper.GetEnumEntries*
+  commentId: Overload:Ploch.Common.EnumHelper.GetEnumEntries
+  href: Ploch.Common.EnumHelper.GetEnumEntries.html#Ploch_Common_EnumHelper_GetEnumEntries__1
+  name: GetEnumEntries
+  nameWithType: EnumHelper.GetEnumEntries
+  fullName: Ploch.Common.EnumHelper.GetEnumEntries
+- uid: System.Collections.Generic.IEnumerable{{TEnum}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TEnum>
+  nameWithType: IEnumerable<TEnum>
+  fullName: System.Collections.Generic.IEnumerable<TEnum>
+  nameWithType.vb: IEnumerable(Of TEnum)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TEnum)
+  name.vb: IEnumerable(Of TEnum)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEnum
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnum
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Enum.HasFlag(System.Enum)
+  commentId: M:System.Enum.HasFlag(System.Enum)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.enum.hasflag
+  name: HasFlag(Enum)
+  nameWithType: Enum.HasFlag(Enum)
+  fullName: System.Enum.HasFlag(System.Enum)
+  spec.csharp:
+  - uid: System.Enum.HasFlag(System.Enum)
+    name: HasFlag
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum.hasflag
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: System.Enum.HasFlag(System.Enum)
+    name: HasFlag
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum.hasflag
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: System.FlagsAttribute
+  commentId: T:System.FlagsAttribute
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.flagsattribute
+  name: FlagsAttribute
+  nameWithType: FlagsAttribute
+  fullName: System.FlagsAttribute
+- uid: Ploch.Common.EnumHelper.GetFlags*
+  commentId: Overload:Ploch.Common.EnumHelper.GetFlags
+  href: Ploch.Common.EnumHelper.GetFlags.html#Ploch_Common_EnumHelper_GetFlags__1___0_
+  name: GetFlags
+  nameWithType: EnumHelper.GetFlags
+  fullName: Ploch.Common.EnumHelper.GetFlags
+- uid: '{TEnum}'
+  commentId: '!:TEnum'
+  definition: TEnum
+  name: TEnum
+  nameWithType: TEnum
+  fullName: TEnum
+- uid: TEnum
+  name: TEnum
+  nameWithType: TEnum
+  fullName: TEnum
+memberLayout: SeparatePages

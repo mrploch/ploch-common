@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.DataAnnotations
+  commentId: N:Ploch.Common.DataAnnotations
+  id: DataAnnotations
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.DataAnnotations
+  nameWithType: Ploch.Common.DataAnnotations
+  fullName: Ploch.Common.DataAnnotations
+  type: Namespace
+  assemblies:
+  - Ploch.Common.DataAnnotations
+references:
+- uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+  commentId: T:Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+  href: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute.html
+  name: RequiredNotDefaultDateAttribute
+  nameWithType: RequiredNotDefaultDateAttribute
+  fullName: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+memberLayout: SeparatePages

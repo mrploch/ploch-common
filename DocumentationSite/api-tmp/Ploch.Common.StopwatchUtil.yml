@@ -1,0 +1,689 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.StopwatchUtil
+  commentId: T:Ploch.Common.StopwatchUtil
+  id: StopwatchUtil
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.StopwatchUtil.Time(System.Action)
+  - Ploch.Common.StopwatchUtil.TimeAsync(System.Func{System.Threading.Tasks.Task})
+  - Ploch.Common.StopwatchUtil.TimeAsync(System.Threading.Tasks.Task)
+  langs:
+  - csharp
+  - vb
+  name: StopwatchUtil
+  nameWithType: StopwatchUtil
+  fullName: Ploch.Common.StopwatchUtil
+  type: Class
+  source:
+    remote:
+      path: src/Common/StopwatchUtil.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: StopwatchUtil
+    path: ../src/Common/StopwatchUtil.cs
+    startLine: 10
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Represents a utility class for measuring the execution time of an action using a <xref href="System.Diagnostics.Stopwatch" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class StopwatchUtil
+    content.vb: Public Module StopwatchUtil
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.StopwatchUtil.TimeAsync(System.Func{System.Threading.Tasks.Task})
+  commentId: M:Ploch.Common.StopwatchUtil.TimeAsync(System.Func{System.Threading.Tasks.Task})
+  id: TimeAsync(System.Func{System.Threading.Tasks.Task})
+  parent: Ploch.Common.StopwatchUtil
+  langs:
+  - csharp
+  - vb
+  name: TimeAsync(Func<Task>)
+  nameWithType: StopwatchUtil.TimeAsync(Func<Task>)
+  fullName: Ploch.Common.StopwatchUtil.TimeAsync(System.Func<System.Threading.Tasks.Task>)
+  type: Method
+  source:
+    remote:
+      path: src/Common/StopwatchUtil.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TimeAsync
+    path: ../src/Common/StopwatchUtil.cs
+    startLine: 39
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Measures the time it takes to execute the specified asynchronous action.
+  example:
+  - >-
+    <pre><code class="lang-csharp">// Example: Measure the execution time of an asynchronous method
+
+    // This is a synchronous call that blocks until the async operation completes
+
+    TimeSpan elapsed = StopwatchUtil.Time(async () =&gt;
+
+    {
+        await Task.Delay(500);
+        // do some work here...
+    });
+
+    Console.WriteLine($"Operation took {elapsed.TotalMilliseconds} ms");
+
+
+    // Example: Measuring an existing async method
+
+    async Task SomeAsyncOperation()
+
+    {
+        await Task.Delay(250);
+        // do some work here...
+    }
+
+
+    TimeSpan methodElapsed = StopwatchUtil.Time(SomeAsyncOperation);
+
+    Console.WriteLine($"Method took {methodElapsed.TotalMilliseconds} ms");</code></pre>
+  syntax:
+    content: public static Task<TimeSpan> TimeAsync(Func<Task> asyncAction)
+    parameters:
+    - id: asyncAction
+      type: System.Func{System.Threading.Tasks.Task}
+      description: The asynchronous action to measure the time for.
+    return:
+      type: System.Threading.Tasks.Task{System.TimeSpan}
+      description: The time elapsed for the action to complete.
+    content.vb: Public Shared Function TimeAsync(asyncAction As Func(Of Task)) As Task(Of TimeSpan)
+  overload: Ploch.Common.StopwatchUtil.TimeAsync*
+  nameWithType.vb: StopwatchUtil.TimeAsync(Func(Of Task))
+  fullName.vb: Ploch.Common.StopwatchUtil.TimeAsync(System.Func(Of System.Threading.Tasks.Task))
+  name.vb: TimeAsync(Func(Of Task))
+- uid: Ploch.Common.StopwatchUtil.TimeAsync(System.Threading.Tasks.Task)
+  commentId: M:Ploch.Common.StopwatchUtil.TimeAsync(System.Threading.Tasks.Task)
+  id: TimeAsync(System.Threading.Tasks.Task)
+  parent: Ploch.Common.StopwatchUtil
+  langs:
+  - csharp
+  - vb
+  name: TimeAsync(Task)
+  nameWithType: StopwatchUtil.TimeAsync(Task)
+  fullName: Ploch.Common.StopwatchUtil.TimeAsync(System.Threading.Tasks.Task)
+  type: Method
+  source:
+    remote:
+      path: src/Common/StopwatchUtil.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TimeAsync
+    path: ../src/Common/StopwatchUtil.cs
+    startLine: 73
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Measures the time it takes for a task to complete.
+  example:
+  - >-
+    <pre><code class="lang-csharp">// Example 1: Measure an existing Task
+
+    // Assume this code is inside an async method
+
+    Task work = Task.Delay(500);
+
+    TimeSpan elapsed = await StopwatchUtil.TimeAsync(work);
+
+    Console.WriteLine($"Work took {elapsed.TotalMilliseconds} ms");
+
+
+    // Example 2: Measure an operation created inline
+
+    TimeSpan inlineElapsed = await StopwatchUtil.TimeAsync(Task.Run(async () =&gt;
+
+    {
+        await Task.Delay(250);
+        // do some work here...
+    }));
+
+    Console.WriteLine($"Inline work took {inlineElapsed.TotalMilliseconds} ms");</code></pre>
+  syntax:
+    content: public static Task<TimeSpan> TimeAsync(Task task)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.Task
+      description: The task to measure the time for.
+    return:
+      type: System.Threading.Tasks.Task{System.TimeSpan}
+      description: The time elapsed for the task to complete.
+    content.vb: Public Shared Function TimeAsync(task As Task) As Task(Of TimeSpan)
+  overload: Ploch.Common.StopwatchUtil.TimeAsync*
+- uid: Ploch.Common.StopwatchUtil.Time(System.Action)
+  commentId: M:Ploch.Common.StopwatchUtil.Time(System.Action)
+  id: Time(System.Action)
+  parent: Ploch.Common.StopwatchUtil
+  langs:
+  - csharp
+  - vb
+  name: Time(Action)
+  nameWithType: StopwatchUtil.Time(Action)
+  fullName: Ploch.Common.StopwatchUtil.Time(System.Action)
+  type: Method
+  source:
+    remote:
+      path: src/Common/StopwatchUtil.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Time
+    path: ../src/Common/StopwatchUtil.cs
+    startLine: 99
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Measures the time it takes to execute the specified action.
+  example:
+  - >-
+    <pre><code class="lang-csharp">// Measure the time it takes to execute a method
+
+    TimeSpan executionTime = StopwatchUtil.Time(() =&gt;
+
+    {
+
+    // Code to be executed
+
+    });</code></pre>
+  syntax:
+    content: public static TimeSpan Time(Action action)
+    parameters:
+    - id: action
+      type: System.Action
+      description: The action to be executed.
+    return:
+      type: System.TimeSpan
+      description: The time it took to execute the action.
+    content.vb: Public Shared Function Time(action As Action) As TimeSpan
+  overload: Ploch.Common.StopwatchUtil.Time*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when the action is null.
+references:
+- uid: System.Diagnostics.Stopwatch
+  commentId: T:System.Diagnostics.Stopwatch
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch
+  name: Stopwatch
+  nameWithType: Stopwatch
+  fullName: System.Diagnostics.Stopwatch
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  href: Ploch.html
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.StopwatchUtil.TimeAsync*
+  commentId: Overload:Ploch.Common.StopwatchUtil.TimeAsync
+  href: Ploch.Common.StopwatchUtil.TimeAsync.html#Ploch_Common_StopwatchUtil_TimeAsync_System_Func_System_Threading_Tasks_Task__
+  name: TimeAsync
+  nameWithType: StopwatchUtil.TimeAsync
+  fullName: Ploch.Common.StopwatchUtil.TimeAsync
+- uid: System.Func{System.Threading.Tasks.Task}
+  commentId: T:System.Func{System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<Task>
+  nameWithType: Func<Task>
+  fullName: System.Func<System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of Task)
+  fullName.vb: System.Func(Of System.Threading.Tasks.Task)
+  name.vb: Func(Of Task)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: )
+- uid: System.Threading.Tasks.Task{System.TimeSpan}
+  commentId: T:System.Threading.Tasks.Task{System.TimeSpan}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TimeSpan>
+  nameWithType: Task<TimeSpan>
+  fullName: System.Threading.Tasks.Task<System.TimeSpan>
+  nameWithType.vb: Task(Of TimeSpan)
+  fullName.vb: System.Threading.Tasks.Task(Of System.TimeSpan)
+  name.vb: Task(Of TimeSpan)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: Ploch.Common.StopwatchUtil.Time*
+  commentId: Overload:Ploch.Common.StopwatchUtil.Time
+  href: Ploch.Common.StopwatchUtil.Time.html#Ploch_Common_StopwatchUtil_Time_System_Action_
+  name: Time
+  nameWithType: StopwatchUtil.Time
+  fullName: Ploch.Common.StopwatchUtil.Time
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+memberLayout: SeparatePages

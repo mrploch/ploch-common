@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.ViewModels
+  commentId: N:Ploch.Common.Maui.ViewModels
+  id: ViewModels
+  parent: Ploch.Common.Maui
+  children:
+  - Ploch.Common.Maui.ViewModels.BaseViewModel
+  - Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui.ViewModels
+  nameWithType: Ploch.Common.Maui.ViewModels
+  fullName: Ploch.Common.Maui.ViewModels
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Common.Maui.ViewModels.BaseViewModel
+  commentId: T:Ploch.Common.Maui.ViewModels.BaseViewModel
+  href: Ploch.Common.Maui.ViewModels.BaseViewModel.html
+  name: BaseViewModel
+  nameWithType: BaseViewModel
+  fullName: Ploch.Common.Maui.ViewModels.BaseViewModel
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  commentId: T:Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  href: Ploch.Common.Maui.ViewModels.TypeDiscoverer.html
+  name: TypeDiscoverer
+  nameWithType: TypeDiscoverer
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+memberLayout: SeparatePages

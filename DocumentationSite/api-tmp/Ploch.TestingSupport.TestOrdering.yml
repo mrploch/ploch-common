@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.TestOrdering
+  commentId: N:Ploch.TestingSupport.TestOrdering
+  id: TestOrdering
+  parent: Ploch.TestingSupport
+  children:
+  - Ploch.TestingSupport.TestOrdering.AlphabeticalOrderer
+  - Ploch.TestingSupport.TestOrdering.TestPriorityAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.TestOrdering
+  nameWithType: Ploch.TestingSupport.TestOrdering
+  fullName: Ploch.TestingSupport.TestOrdering
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport
+references:
+- uid: Ploch.TestingSupport.TestOrdering.AlphabeticalOrderer
+  commentId: T:Ploch.TestingSupport.TestOrdering.AlphabeticalOrderer
+  href: Ploch.TestingSupport.TestOrdering.AlphabeticalOrderer.html
+  name: AlphabeticalOrderer
+  nameWithType: AlphabeticalOrderer
+  fullName: Ploch.TestingSupport.TestOrdering.AlphabeticalOrderer
+- uid: Ploch.TestingSupport.TestOrdering.TestPriorityAttribute
+  commentId: T:Ploch.TestingSupport.TestOrdering.TestPriorityAttribute
+  href: Ploch.TestingSupport.TestOrdering.TestPriorityAttribute.html
+  name: TestPriorityAttribute
+  nameWithType: TestPriorityAttribute
+  fullName: Ploch.TestingSupport.TestOrdering.TestPriorityAttribute
+memberLayout: SeparatePages

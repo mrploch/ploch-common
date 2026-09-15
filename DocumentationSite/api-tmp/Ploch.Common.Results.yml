@@ -1,0 +1,56 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Results
+  commentId: N:Ploch.Common.Results
+  id: Results
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Results.ErrorInfo
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Results
+  nameWithType: Ploch.Common.Results
+  fullName: Ploch.Common.Results
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Results.ErrorInfo
+  commentId: T:Ploch.Common.Results.ErrorInfo
+  parent: Ploch.Common.Results
+  href: Ploch.Common.Results.ErrorInfo.html
+  name: ErrorInfo
+  nameWithType: ErrorInfo
+  fullName: Ploch.Common.Results.ErrorInfo
+- uid: Ploch.Common.Results
+  commentId: N:Ploch.Common.Results
+  href: Ploch.html
+  name: Ploch.Common.Results
+  nameWithType: Ploch.Common.Results
+  fullName: Ploch.Common.Results
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Results
+    name: Results
+    href: Ploch.Common.Results.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Results
+    name: Results
+    href: Ploch.Common.Results.html
+memberLayout: SeparatePages

@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.DependencyInjection.Hosting
+  commentId: N:Ploch.Common.DependencyInjection.Hosting
+  id: Hosting
+  parent: Ploch.Common.DependencyInjection
+  children:
+  - Ploch.Common.DependencyInjection.Hosting.HostBuilderBundleRegistrationExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.DependencyInjection.Hosting
+  nameWithType: Ploch.Common.DependencyInjection.Hosting
+  fullName: Ploch.Common.DependencyInjection.Hosting
+  type: Namespace
+  assemblies:
+  - Ploch.Common.DependencyInjection.Hosting
+references:
+- uid: Ploch.Common.DependencyInjection.Hosting.HostBuilderBundleRegistrationExtensions
+  commentId: T:Ploch.Common.DependencyInjection.Hosting.HostBuilderBundleRegistrationExtensions
+  href: Ploch.Common.DependencyInjection.Hosting.HostBuilderBundleRegistrationExtensions.html
+  name: HostBuilderBundleRegistrationExtensions
+  nameWithType: HostBuilderBundleRegistrationExtensions
+  fullName: Ploch.Common.DependencyInjection.Hosting.HostBuilderBundleRegistrationExtensions
+memberLayout: SeparatePages

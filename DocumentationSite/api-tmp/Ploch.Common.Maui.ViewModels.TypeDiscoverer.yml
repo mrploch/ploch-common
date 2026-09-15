@@ -1,0 +1,590 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  commentId: T:Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  id: TypeDiscoverer
+  parent: Ploch.Common.Maui.ViewModels
+  children:
+  - Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels
+  - Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  - Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews
+  - Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  langs:
+  - csharp
+  - vb
+  name: TypeDiscoverer
+  nameWithType: TypeDiscoverer
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  type: Class
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TypeDiscoverer
+    path: ../src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+    startLine: 7
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.ViewModels
+  syntax:
+    content: public static class TypeDiscoverer
+    content.vb: Public Module TypeDiscoverer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels
+  commentId: M:Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels
+  id: DiscoverViewModels
+  parent: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  langs:
+  - csharp
+  - vb
+  name: DiscoverViewModels()
+  nameWithType: TypeDiscoverer.DiscoverViewModels()
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels()
+  type: Method
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DiscoverViewModels
+    path: ../src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+    startLine: 9
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.ViewModels
+  syntax:
+    content: public static IEnumerable<Type> DiscoverViewModels()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Type}
+    content.vb: Public Shared Function DiscoverViewModels() As IEnumerable(Of Type)
+  overload: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels*
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  commentId: M:Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  id: DiscoverViewModels(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  parent: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  langs:
+  - csharp
+  - vb
+  name: DiscoverViewModels(params IEnumerable<Assembly?>)
+  nameWithType: TypeDiscoverer.DiscoverViewModels(params IEnumerable<Assembly?>)
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels(params System.Collections.Generic.IEnumerable<System.Reflection.Assembly?>)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DiscoverViewModels
+    path: ../src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+    startLine: 11
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.ViewModels
+  syntax:
+    content: public static IEnumerable<Type> DiscoverViewModels(params IEnumerable<Assembly?> assemblies)
+    parameters:
+    - id: assemblies
+      type: System.Collections.Generic.IEnumerable{System.Reflection.Assembly}
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Type}
+    content.vb: Public Shared Function DiscoverViewModels(assemblies As IEnumerable(Of Assembly)) As IEnumerable(Of Type)
+  overload: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels*
+  nameWithType.vb: TypeDiscoverer.DiscoverViewModels(IEnumerable(Of Assembly))
+  fullName.vb: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels(System.Collections.Generic.IEnumerable(Of System.Reflection.Assembly))
+  name.vb: DiscoverViewModels(IEnumerable(Of Assembly))
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews
+  commentId: M:Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews
+  id: DiscoverViews
+  parent: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  langs:
+  - csharp
+  - vb
+  name: DiscoverViews()
+  nameWithType: TypeDiscoverer.DiscoverViews()
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews()
+  type: Method
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DiscoverViews
+    path: ../src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+    startLine: 13
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.ViewModels
+  syntax:
+    content: public static IEnumerable<Type> DiscoverViews()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Type}
+    content.vb: Public Shared Function DiscoverViews() As IEnumerable(Of Type)
+  overload: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews*
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  commentId: M:Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  id: DiscoverViews(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  parent: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+  langs:
+  - csharp
+  - vb
+  name: DiscoverViews(params IEnumerable<Assembly?>)
+  nameWithType: TypeDiscoverer.DiscoverViews(params IEnumerable<Assembly?>)
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews(params System.Collections.Generic.IEnumerable<System.Reflection.Assembly?>)
+  type: Method
+  source:
+    remote:
+      path: src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: DiscoverViews
+    path: ../src/Common.Maui/Common.Maui/ViewModels/TypeDiscoverer.cs
+    startLine: 15
+  assemblies:
+  - Ploch.Common.Maui
+  namespace: Ploch.Common.Maui.ViewModels
+  syntax:
+    content: public static IEnumerable<Type> DiscoverViews(params IEnumerable<Assembly?> assemblies)
+    parameters:
+    - id: assemblies
+      type: System.Collections.Generic.IEnumerable{System.Reflection.Assembly}
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Type}
+    content.vb: Public Shared Function DiscoverViews(assemblies As IEnumerable(Of Assembly)) As IEnumerable(Of Type)
+  overload: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews*
+  nameWithType.vb: TypeDiscoverer.DiscoverViews(IEnumerable(Of Assembly))
+  fullName.vb: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews(System.Collections.Generic.IEnumerable(Of System.Reflection.Assembly))
+  name.vb: DiscoverViews(IEnumerable(Of Assembly))
+references:
+- uid: Ploch.Common.Maui.ViewModels
+  commentId: N:Ploch.Common.Maui.ViewModels
+  href: Ploch.html
+  name: Ploch.Common.Maui.ViewModels
+  nameWithType: Ploch.Common.Maui.ViewModels
+  fullName: Ploch.Common.Maui.ViewModels
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.ViewModels
+    name: ViewModels
+    href: Ploch.Common.Maui.ViewModels.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.ViewModels
+    name: ViewModels
+    href: Ploch.Common.Maui.ViewModels.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels*
+  commentId: Overload:Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels
+  href: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels.html#Ploch_Common_Maui_ViewModels_TypeDiscoverer_DiscoverViewModels
+  name: DiscoverViewModels
+  nameWithType: TypeDiscoverer.DiscoverViewModels
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViewModels
+- uid: System.Collections.Generic.IEnumerable{System.Type}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Type>
+  nameWithType: IEnumerable<Type>
+  fullName: System.Collections.Generic.IEnumerable<System.Type>
+  nameWithType.vb: IEnumerable(Of Type)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Type)
+  name.vb: IEnumerable(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{System.Reflection.Assembly}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Reflection.Assembly}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Assembly>
+  nameWithType: IEnumerable<Assembly>
+  fullName: System.Collections.Generic.IEnumerable<System.Reflection.Assembly>
+  nameWithType.vb: IEnumerable(Of Assembly)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Reflection.Assembly)
+  name.vb: IEnumerable(Of Assembly)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: )
+- uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews*
+  commentId: Overload:Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews
+  href: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews.html#Ploch_Common_Maui_ViewModels_TypeDiscoverer_DiscoverViews
+  name: DiscoverViews
+  nameWithType: TypeDiscoverer.DiscoverViews
+  fullName: Ploch.Common.Maui.ViewModels.TypeDiscoverer.DiscoverViews
+memberLayout: SeparatePages

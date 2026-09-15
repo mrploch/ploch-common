@@ -1,0 +1,929 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  id: Common
+  parent: Ploch
+  children:
+  - Ploch.Common.AppServices
+  - Ploch.Common.Apps.Model
+  - Ploch.Common.Ardalis.Result
+  - Ploch.Common.ArgumentChecking
+  - Ploch.Common.AssemblyInformation
+  - Ploch.Common.AssemblyInformationProvider
+  - Ploch.Common.AssemblyLoading
+  - Ploch.Common.Chars
+  - Ploch.Common.Collections
+  - Ploch.Common.ComparisonUtils
+  - Ploch.Common.ContentSizes
+  - Ploch.Common.Cryptography
+  - Ploch.Common.DataAnnotations
+  - Ploch.Common.DateTimeExtensions
+  - Ploch.Common.DateTimeFormats
+  - Ploch.Common.DateTimeFormats.DateOnly
+  - Ploch.Common.DawnGuard
+  - Ploch.Common.DependencyInjection
+  - Ploch.Common.Diagnostics
+  - Ploch.Common.EnumHelper
+  - Ploch.Common.EnumerationConverter
+  - Ploch.Common.EnvironmentUtilities
+  - Ploch.Common.EnvironmentVariables
+  - Ploch.Common.Extensions.Configuration
+  - Ploch.Common.IO
+  - Ploch.Common.IfNullHelpers
+  - Ploch.Common.IsInExtensions
+  - Ploch.Common.Linq
+  - Ploch.Common.Matchers
+  - Ploch.Common.Maui
+  - Ploch.Common.ObjectBuilder
+  - Ploch.Common.ObjectCloningHelpers
+  - Ploch.Common.OperatingSystemExtensions
+  - Ploch.Common.Randomizers
+  - Ploch.Common.Reflection
+  - Ploch.Common.Results
+  - Ploch.Common.Serialization
+  - Ploch.Common.StopwatchUtil
+  - Ploch.Common.StringBuilderExtensions
+  - Ploch.Common.StringExtensions
+  - Ploch.Common.StringParsingExtensions
+  - Ploch.Common.Strings
+  - Ploch.Common.ThreadSafeRandom
+  - Ploch.Common.TypeConversion
+  - Ploch.Common.WebApi
+  - Ploch.Common.WebUI
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.AppServices
+  isExternal: true
+- uid: Ploch.Common.ArgumentChecking
+  commentId: N:Ploch.Common.ArgumentChecking
+  href: Ploch.html
+  name: Ploch.Common.ArgumentChecking
+  nameWithType: Ploch.Common.ArgumentChecking
+  fullName: Ploch.Common.ArgumentChecking
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ArgumentChecking
+    name: ArgumentChecking
+    href: Ploch.Common.ArgumentChecking.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ArgumentChecking
+    name: ArgumentChecking
+    href: Ploch.Common.ArgumentChecking.html
+- uid: Ploch.Common.AssemblyLoading
+  commentId: N:Ploch.Common.AssemblyLoading
+  href: Ploch.html
+  name: Ploch.Common.AssemblyLoading
+  nameWithType: Ploch.Common.AssemblyLoading
+  fullName: Ploch.Common.AssemblyLoading
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AssemblyLoading
+    name: AssemblyLoading
+    href: Ploch.Common.AssemblyLoading.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.AssemblyLoading
+    name: AssemblyLoading
+    href: Ploch.Common.AssemblyLoading.html
+- uid: Ploch.Common.Collections
+  commentId: N:Ploch.Common.Collections
+  href: Ploch.html
+  name: Ploch.Common.Collections
+  nameWithType: Ploch.Common.Collections
+  fullName: Ploch.Common.Collections
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+- uid: Ploch.Common.Cryptography
+  commentId: N:Ploch.Common.Cryptography
+  href: Ploch.html
+  name: Ploch.Common.Cryptography
+  nameWithType: Ploch.Common.Cryptography
+  fullName: Ploch.Common.Cryptography
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Cryptography
+    name: Cryptography
+    href: Ploch.Common.Cryptography.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Cryptography
+    name: Cryptography
+    href: Ploch.Common.Cryptography.html
+- uid: Ploch.Common.DataAnnotations
+  commentId: N:Ploch.Common.DataAnnotations
+  href: Ploch.html
+  name: Ploch.Common.DataAnnotations
+  nameWithType: Ploch.Common.DataAnnotations
+  fullName: Ploch.Common.DataAnnotations
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DataAnnotations
+    name: DataAnnotations
+    href: Ploch.Common.DataAnnotations.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DataAnnotations
+    name: DataAnnotations
+    href: Ploch.Common.DataAnnotations.html
+- uid: Ploch.Common.DawnGuard
+  commentId: N:Ploch.Common.DawnGuard
+  href: Ploch.html
+  name: Ploch.Common.DawnGuard
+  nameWithType: Ploch.Common.DawnGuard
+  fullName: Ploch.Common.DawnGuard
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DawnGuard
+    name: DawnGuard
+    href: Ploch.Common.DawnGuard.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DawnGuard
+    name: DawnGuard
+    href: Ploch.Common.DawnGuard.html
+- uid: Ploch.Common.DependencyInjection
+  commentId: N:Ploch.Common.DependencyInjection
+  href: Ploch.html
+  name: Ploch.Common.DependencyInjection
+  nameWithType: Ploch.Common.DependencyInjection
+  fullName: Ploch.Common.DependencyInjection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection
+    name: DependencyInjection
+    href: Ploch.Common.DependencyInjection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.DependencyInjection
+    name: DependencyInjection
+    href: Ploch.Common.DependencyInjection.html
+- uid: Ploch.Common.Diagnostics
+  commentId: N:Ploch.Common.Diagnostics
+  href: Ploch.html
+  name: Ploch.Common.Diagnostics
+  nameWithType: Ploch.Common.Diagnostics
+  fullName: Ploch.Common.Diagnostics
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Diagnostics
+    name: Diagnostics
+    href: Ploch.Common.Diagnostics.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Diagnostics
+    name: Diagnostics
+    href: Ploch.Common.Diagnostics.html
+- uid: Ploch.Common.IO
+  commentId: N:Ploch.Common.IO
+  href: Ploch.html
+  name: Ploch.Common.IO
+  nameWithType: Ploch.Common.IO
+  fullName: Ploch.Common.IO
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+- uid: Ploch.Common.Linq
+  commentId: N:Ploch.Common.Linq
+  href: Ploch.html
+  name: Ploch.Common.Linq
+  nameWithType: Ploch.Common.Linq
+  fullName: Ploch.Common.Linq
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Linq
+    name: Linq
+    href: Ploch.Common.Linq.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Linq
+    name: Linq
+    href: Ploch.Common.Linq.html
+- uid: Ploch.Common.Matchers
+  commentId: N:Ploch.Common.Matchers
+  href: Ploch.html
+  name: Ploch.Common.Matchers
+  nameWithType: Ploch.Common.Matchers
+  fullName: Ploch.Common.Matchers
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Matchers
+    name: Matchers
+    href: Ploch.Common.Matchers.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Matchers
+    name: Matchers
+    href: Ploch.Common.Matchers.html
+- uid: Ploch.Common.Maui
+  isExternal: true
+- uid: Ploch.Common.ObjectBuilder
+  commentId: N:Ploch.Common.ObjectBuilder
+  href: Ploch.html
+  name: Ploch.Common.ObjectBuilder
+  nameWithType: Ploch.Common.ObjectBuilder
+  fullName: Ploch.Common.ObjectBuilder
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder
+    name: ObjectBuilder
+    href: Ploch.Common.ObjectBuilder.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.ObjectBuilder
+    name: ObjectBuilder
+    href: Ploch.Common.ObjectBuilder.html
+- uid: Ploch.Common.Randomizers
+  commentId: N:Ploch.Common.Randomizers
+  href: Ploch.html
+  name: Ploch.Common.Randomizers
+  nameWithType: Ploch.Common.Randomizers
+  fullName: Ploch.Common.Randomizers
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Randomizers
+    name: Randomizers
+    href: Ploch.Common.Randomizers.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Randomizers
+    name: Randomizers
+    href: Ploch.Common.Randomizers.html
+- uid: Ploch.Common.Reflection
+  commentId: N:Ploch.Common.Reflection
+  href: Ploch.html
+  name: Ploch.Common.Reflection
+  nameWithType: Ploch.Common.Reflection
+  fullName: Ploch.Common.Reflection
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Reflection
+    name: Reflection
+    href: Ploch.Common.Reflection.html
+- uid: Ploch.Common.Results
+  commentId: N:Ploch.Common.Results
+  href: Ploch.html
+  name: Ploch.Common.Results
+  nameWithType: Ploch.Common.Results
+  fullName: Ploch.Common.Results
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Results
+    name: Results
+    href: Ploch.Common.Results.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Results
+    name: Results
+    href: Ploch.Common.Results.html
+- uid: Ploch.Common.Serialization
+  commentId: N:Ploch.Common.Serialization
+  href: Ploch.html
+  name: Ploch.Common.Serialization
+  nameWithType: Ploch.Common.Serialization
+  fullName: Ploch.Common.Serialization
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Serialization
+    name: Serialization
+    href: Ploch.Common.Serialization.html
+- uid: Ploch.Common.TypeConversion
+  commentId: N:Ploch.Common.TypeConversion
+  href: Ploch.html
+  name: Ploch.Common.TypeConversion
+  nameWithType: Ploch.Common.TypeConversion
+  fullName: Ploch.Common.TypeConversion
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.TypeConversion
+    name: TypeConversion
+    href: Ploch.Common.TypeConversion.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.TypeConversion
+    name: TypeConversion
+    href: Ploch.Common.TypeConversion.html
+- uid: Ploch.Common.WebApi
+  commentId: N:Ploch.Common.WebApi
+  href: Ploch.html
+  name: Ploch.Common.WebApi
+  nameWithType: Ploch.Common.WebApi
+  fullName: Ploch.Common.WebApi
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+- uid: Ploch.Common.WebUI
+  commentId: N:Ploch.Common.WebUI
+  href: Ploch.html
+  name: Ploch.Common.WebUI
+  nameWithType: Ploch.Common.WebUI
+  fullName: Ploch.Common.WebUI
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+- uid: Ploch.Common.AssemblyInformation
+  commentId: T:Ploch.Common.AssemblyInformation
+  parent: Ploch.Common
+  href: Ploch.Common.AssemblyInformation.html
+  name: AssemblyInformation
+  nameWithType: AssemblyInformation
+  fullName: Ploch.Common.AssemblyInformation
+- uid: Ploch.Common.AssemblyInformationProvider
+  commentId: T:Ploch.Common.AssemblyInformationProvider
+  parent: Ploch.Common
+  href: Ploch.Common.AssemblyInformationProvider.html
+  name: AssemblyInformationProvider
+  nameWithType: AssemblyInformationProvider
+  fullName: Ploch.Common.AssemblyInformationProvider
+- uid: Ploch.Common.Chars
+  commentId: T:Ploch.Common.Chars
+  href: Ploch.Common.Chars.html
+  name: Chars
+  nameWithType: Chars
+  fullName: Ploch.Common.Chars
+- uid: Ploch.Common.ComparisonUtils
+  commentId: T:Ploch.Common.ComparisonUtils
+  parent: Ploch.Common
+  href: Ploch.Common.ComparisonUtils.html
+  name: ComparisonUtils
+  nameWithType: ComparisonUtils
+  fullName: Ploch.Common.ComparisonUtils
+- uid: Ploch.Common.ContentSizes
+  commentId: T:Ploch.Common.ContentSizes
+  href: Ploch.Common.ContentSizes.html
+  name: ContentSizes
+  nameWithType: ContentSizes
+  fullName: Ploch.Common.ContentSizes
+- uid: Ploch.Common.DateTimeExtensions
+  commentId: T:Ploch.Common.DateTimeExtensions
+  href: Ploch.Common.DateTimeExtensions.html
+  name: DateTimeExtensions
+  nameWithType: DateTimeExtensions
+  fullName: Ploch.Common.DateTimeExtensions
+- uid: Ploch.Common.DateTimeFormats
+  commentId: T:Ploch.Common.DateTimeFormats
+  href: Ploch.Common.DateTimeFormats.html
+  name: DateTimeFormats
+  nameWithType: DateTimeFormats
+  fullName: Ploch.Common.DateTimeFormats
+- uid: Ploch.Common.DateTimeFormats.DateOnly
+  commentId: T:Ploch.Common.DateTimeFormats.DateOnly
+  href: Ploch.Common.DateTimeFormats.html
+  name: DateTimeFormats.DateOnly
+  nameWithType: DateTimeFormats.DateOnly
+  fullName: Ploch.Common.DateTimeFormats.DateOnly
+  spec.csharp:
+  - uid: Ploch.Common.DateTimeFormats
+    name: DateTimeFormats
+    href: Ploch.Common.DateTimeFormats.html
+  - name: .
+  - uid: Ploch.Common.DateTimeFormats.DateOnly
+    name: DateOnly
+    href: Ploch.Common.DateTimeFormats.DateOnly.html
+  spec.vb:
+  - uid: Ploch.Common.DateTimeFormats
+    name: DateTimeFormats
+    href: Ploch.Common.DateTimeFormats.html
+  - name: .
+  - uid: Ploch.Common.DateTimeFormats.DateOnly
+    name: DateOnly
+    href: Ploch.Common.DateTimeFormats.DateOnly.html
+- uid: Ploch.Common.EnumHelper
+  commentId: T:Ploch.Common.EnumHelper
+  parent: Ploch.Common
+  href: Ploch.Common.EnumHelper.html
+  name: EnumHelper
+  nameWithType: EnumHelper
+  fullName: Ploch.Common.EnumHelper
+- uid: Ploch.Common.EnumerationConverter
+  commentId: T:Ploch.Common.EnumerationConverter
+  href: Ploch.Common.EnumerationConverter.html
+  name: EnumerationConverter
+  nameWithType: EnumerationConverter
+  fullName: Ploch.Common.EnumerationConverter
+- uid: Ploch.Common.EnvironmentUtilities
+  commentId: T:Ploch.Common.EnvironmentUtilities
+  href: Ploch.Common.EnvironmentUtilities.html
+  name: EnvironmentUtilities
+  nameWithType: EnvironmentUtilities
+  fullName: Ploch.Common.EnvironmentUtilities
+- uid: Ploch.Common.EnvironmentVariables
+  commentId: T:Ploch.Common.EnvironmentVariables
+  href: Ploch.Common.EnvironmentVariables.html
+  name: EnvironmentVariables
+  nameWithType: EnvironmentVariables
+  fullName: Ploch.Common.EnvironmentVariables
+- uid: Ploch.Common.IfNullHelpers
+  commentId: T:Ploch.Common.IfNullHelpers
+  parent: Ploch.Common
+  href: Ploch.Common.IfNullHelpers.html
+  name: IfNullHelpers
+  nameWithType: IfNullHelpers
+  fullName: Ploch.Common.IfNullHelpers
+- uid: Ploch.Common.IsInExtensions
+  commentId: T:Ploch.Common.IsInExtensions
+  parent: Ploch.Common
+  href: Ploch.Common.IsInExtensions.html
+  name: IsInExtensions
+  nameWithType: IsInExtensions
+  fullName: Ploch.Common.IsInExtensions
+- uid: Ploch.Common.ObjectCloningHelpers
+  commentId: T:Ploch.Common.ObjectCloningHelpers
+  parent: Ploch.Common
+  href: Ploch.Common.ObjectCloningHelpers.html
+  name: ObjectCloningHelpers
+  nameWithType: ObjectCloningHelpers
+  fullName: Ploch.Common.ObjectCloningHelpers
+- uid: Ploch.Common.OperatingSystemExtensions
+  commentId: T:Ploch.Common.OperatingSystemExtensions
+  href: Ploch.Common.OperatingSystemExtensions.html
+  name: OperatingSystemExtensions
+  nameWithType: OperatingSystemExtensions
+  fullName: Ploch.Common.OperatingSystemExtensions
+- uid: Ploch.Common.StopwatchUtil
+  commentId: T:Ploch.Common.StopwatchUtil
+  href: Ploch.Common.StopwatchUtil.html
+  name: StopwatchUtil
+  nameWithType: StopwatchUtil
+  fullName: Ploch.Common.StopwatchUtil
+- uid: Ploch.Common.StringBuilderExtensions
+  commentId: T:Ploch.Common.StringBuilderExtensions
+  href: Ploch.Common.StringBuilderExtensions.html
+  name: StringBuilderExtensions
+  nameWithType: StringBuilderExtensions
+  fullName: Ploch.Common.StringBuilderExtensions
+- uid: Ploch.Common.StringExtensions
+  commentId: T:Ploch.Common.StringExtensions
+  href: Ploch.Common.StringExtensions.html
+  name: StringExtensions
+  nameWithType: StringExtensions
+  fullName: Ploch.Common.StringExtensions
+- uid: Ploch.Common.StringParsingExtensions
+  commentId: T:Ploch.Common.StringParsingExtensions
+  href: Ploch.Common.StringParsingExtensions.html
+  name: StringParsingExtensions
+  nameWithType: StringParsingExtensions
+  fullName: Ploch.Common.StringParsingExtensions
+- uid: Ploch.Common.Strings
+  commentId: T:Ploch.Common.Strings
+  href: Ploch.Common.Strings.html
+  name: Strings
+  nameWithType: Strings
+  fullName: Ploch.Common.Strings
+- uid: Ploch.Common.ThreadSafeRandom
+  commentId: T:Ploch.Common.ThreadSafeRandom
+  href: Ploch.Common.ThreadSafeRandom.html
+  name: ThreadSafeRandom
+  nameWithType: ThreadSafeRandom
+  fullName: Ploch.Common.ThreadSafeRandom
+- uid: Ploch.Common.Apps.Model
+  commentId: N:Ploch.Common.Apps.Model
+  href: Ploch.html
+  name: Ploch.Common.Apps.Model
+  nameWithType: Ploch.Common.Apps.Model
+  fullName: Ploch.Common.Apps.Model
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Apps
+    name: Apps
+    href: Ploch.Common.Apps.html
+  - name: .
+  - uid: Ploch.Common.Apps.Model
+    name: Model
+    href: Ploch.Common.Apps.Model.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Apps
+    name: Apps
+    href: Ploch.Common.Apps.html
+  - name: .
+  - uid: Ploch.Common.Apps.Model
+    name: Model
+    href: Ploch.Common.Apps.Model.html
+- uid: Ploch.Common.Ardalis.Result
+  commentId: N:Ploch.Common.Ardalis.Result
+  href: Ploch.html
+  name: Ploch.Common.Ardalis.Result
+  nameWithType: Ploch.Common.Ardalis.Result
+  fullName: Ploch.Common.Ardalis.Result
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Ardalis
+    name: Ardalis
+    href: Ploch.Common.Ardalis.html
+  - name: .
+  - uid: Ploch.Common.Ardalis.Result
+    name: Result
+    href: Ploch.Common.Ardalis.Result.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Ardalis
+    name: Ardalis
+    href: Ploch.Common.Ardalis.html
+  - name: .
+  - uid: Ploch.Common.Ardalis.Result
+    name: Result
+    href: Ploch.Common.Ardalis.Result.html
+- uid: Ploch.Common.Extensions.Configuration
+  commentId: N:Ploch.Common.Extensions.Configuration
+  href: Ploch.html
+  name: Ploch.Common.Extensions.Configuration
+  nameWithType: Ploch.Common.Extensions.Configuration
+  fullName: Ploch.Common.Extensions.Configuration
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Extensions
+    name: Extensions
+    href: Ploch.Common.Extensions.html
+  - name: .
+  - uid: Ploch.Common.Extensions.Configuration
+    name: Configuration
+    href: Ploch.Common.Extensions.Configuration.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Extensions
+    name: Extensions
+    href: Ploch.Common.Extensions.html
+  - name: .
+  - uid: Ploch.Common.Extensions.Configuration
+    name: Configuration
+    href: Ploch.Common.Extensions.Configuration.html
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  href: Ploch.html
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+memberLayout: SeparatePages

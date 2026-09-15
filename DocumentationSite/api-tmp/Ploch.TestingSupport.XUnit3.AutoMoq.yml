@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq
+  commentId: N:Ploch.TestingSupport.XUnit3.AutoMoq
+  id: AutoMoq
+  parent: Ploch.TestingSupport.XUnit3
+  children:
+  - Ploch.TestingSupport.XUnit3.AutoMoq.AutoDataCommonCustomization
+  - Ploch.TestingSupport.XUnit3.AutoMoq.AutoMockDataAttribute
+  - Ploch.TestingSupport.XUnit3.AutoMoq.DoNotThrowOnRecursionCustomization
+  - Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersCustomization
+  - Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersSpecimenBuilder
+  - Ploch.TestingSupport.XUnit3.AutoMoq.OmitOnRecursionCustomization
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.XUnit3.AutoMoq
+  nameWithType: Ploch.TestingSupport.XUnit3.AutoMoq
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport.XUnit3.AutoMoq
+references:
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq.AutoDataCommonCustomization
+  commentId: T:Ploch.TestingSupport.XUnit3.AutoMoq.AutoDataCommonCustomization
+  href: Ploch.TestingSupport.XUnit3.AutoMoq.AutoDataCommonCustomization.html
+  name: AutoDataCommonCustomization
+  nameWithType: AutoDataCommonCustomization
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq.AutoDataCommonCustomization
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq.AutoMockDataAttribute
+  commentId: T:Ploch.TestingSupport.XUnit3.AutoMoq.AutoMockDataAttribute
+  href: Ploch.TestingSupport.XUnit3.AutoMoq.AutoMockDataAttribute.html
+  name: AutoMockDataAttribute
+  nameWithType: AutoMockDataAttribute
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq.AutoMockDataAttribute
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq.DoNotThrowOnRecursionCustomization
+  commentId: T:Ploch.TestingSupport.XUnit3.AutoMoq.DoNotThrowOnRecursionCustomization
+  href: Ploch.TestingSupport.XUnit3.AutoMoq.DoNotThrowOnRecursionCustomization.html
+  name: DoNotThrowOnRecursionCustomization
+  nameWithType: DoNotThrowOnRecursionCustomization
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq.DoNotThrowOnRecursionCustomization
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersCustomization
+  commentId: T:Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersCustomization
+  href: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersCustomization.html
+  name: IgnoreVirtualMembersCustomization
+  nameWithType: IgnoreVirtualMembersCustomization
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersCustomization
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersSpecimenBuilder
+  commentId: T:Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersSpecimenBuilder
+  href: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersSpecimenBuilder.html
+  name: IgnoreVirtualMembersSpecimenBuilder
+  nameWithType: IgnoreVirtualMembersSpecimenBuilder
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersSpecimenBuilder
+- uid: Ploch.TestingSupport.XUnit3.AutoMoq.OmitOnRecursionCustomization
+  commentId: T:Ploch.TestingSupport.XUnit3.AutoMoq.OmitOnRecursionCustomization
+  href: Ploch.TestingSupport.XUnit3.AutoMoq.OmitOnRecursionCustomization.html
+  name: OmitOnRecursionCustomization
+  nameWithType: OmitOnRecursionCustomization
+  fullName: Ploch.TestingSupport.XUnit3.AutoMoq.OmitOnRecursionCustomization
+memberLayout: SeparatePages

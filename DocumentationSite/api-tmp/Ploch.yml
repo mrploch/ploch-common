@@ -1,0 +1,72 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch
+  id: Ploch
+  children:
+  - Ploch.CommandLine.Spectre
+  - Ploch.Common
+  - Ploch.Lists
+  - Ploch.TestingSupport
+  langs:
+  - csharp
+  - vb
+  name: Ploch
+  type: Namespace
+references:
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  href: Ploch.html
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+- uid: Ploch.Lists
+  isExternal: true
+- uid: Ploch.TestingSupport
+  isExternal: true
+- uid: Ploch.CommandLine.Spectre
+  commentId: N:Ploch.CommandLine.Spectre
+  href: Ploch.html
+  name: Ploch.CommandLine.Spectre
+  nameWithType: Ploch.CommandLine.Spectre
+  fullName: Ploch.CommandLine.Spectre
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.CommandLine
+    name: CommandLine
+    href: Ploch.CommandLine.html
+  - name: .
+  - uid: Ploch.CommandLine.Spectre
+    name: Spectre
+    href: Ploch.CommandLine.Spectre.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.CommandLine
+    name: CommandLine
+    href: Ploch.CommandLine.html
+  - name: .
+  - uid: Ploch.CommandLine.Spectre
+    name: Spectre
+    href: Ploch.CommandLine.Spectre.html
+memberLayout: SeparatePages

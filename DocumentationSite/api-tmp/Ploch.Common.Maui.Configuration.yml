@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Maui.Configuration
+  commentId: N:Ploch.Common.Maui.Configuration
+  id: Configuration
+  parent: Ploch.Common.Maui
+  children:
+  - Ploch.Common.Maui.Configuration.AppConfigurator
+  - Ploch.Common.Maui.Configuration.AppFonts
+  - Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  - Ploch.Common.Maui.Configuration.PreferencesConfigurationProvider
+  - Ploch.Common.Maui.Configuration.PreferencesConfigurationSource
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Maui.Configuration
+  nameWithType: Ploch.Common.Maui.Configuration
+  fullName: Ploch.Common.Maui.Configuration
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Common.Maui.Configuration.AppConfigurator
+  commentId: T:Ploch.Common.Maui.Configuration.AppConfigurator
+  href: Ploch.Common.Maui.Configuration.AppConfigurator.html
+  name: AppConfigurator
+  nameWithType: AppConfigurator
+  fullName: Ploch.Common.Maui.Configuration.AppConfigurator
+- uid: Ploch.Common.Maui.Configuration.AppFonts
+  commentId: T:Ploch.Common.Maui.Configuration.AppFonts
+  parent: Ploch.Common.Maui.Configuration
+  href: Ploch.Common.Maui.Configuration.AppFonts.html
+  name: AppFonts
+  nameWithType: AppFonts
+  fullName: Ploch.Common.Maui.Configuration.AppFonts
+- uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  commentId: T:Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+  href: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations.html
+  name: JsonConfigurationResourceFileRegistrations
+  nameWithType: JsonConfigurationResourceFileRegistrations
+  fullName: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+- uid: Ploch.Common.Maui.Configuration.PreferencesConfigurationProvider
+  commentId: T:Ploch.Common.Maui.Configuration.PreferencesConfigurationProvider
+  href: Ploch.Common.Maui.Configuration.PreferencesConfigurationProvider.html
+  name: PreferencesConfigurationProvider
+  nameWithType: PreferencesConfigurationProvider
+  fullName: Ploch.Common.Maui.Configuration.PreferencesConfigurationProvider
+- uid: Ploch.Common.Maui.Configuration.PreferencesConfigurationSource
+  commentId: T:Ploch.Common.Maui.Configuration.PreferencesConfigurationSource
+  href: Ploch.Common.Maui.Configuration.PreferencesConfigurationSource.html
+  name: PreferencesConfigurationSource
+  nameWithType: PreferencesConfigurationSource
+  fullName: Ploch.Common.Maui.Configuration.PreferencesConfigurationSource
+- uid: Ploch.Common.Maui.Configuration
+  commentId: N:Ploch.Common.Maui.Configuration
+  href: Ploch.html
+  name: Ploch.Common.Maui.Configuration
+  nameWithType: Ploch.Common.Maui.Configuration
+  fullName: Ploch.Common.Maui.Configuration
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Configuration
+    name: Configuration
+    href: Ploch.Common.Maui.Configuration.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Maui
+    name: Maui
+    href: Ploch.Common.Maui.html
+  - name: .
+  - uid: Ploch.Common.Maui.Configuration
+    name: Configuration
+    href: Ploch.Common.Maui.Configuration.html
+memberLayout: SeparatePages

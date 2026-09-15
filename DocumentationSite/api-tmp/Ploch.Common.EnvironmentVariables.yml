@@ -1,0 +1,537 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.EnvironmentVariables
+  commentId: T:Ploch.Common.EnvironmentVariables
+  id: EnvironmentVariables
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.EnvironmentVariables.GetBool(System.String)
+  - Ploch.Common.EnvironmentVariables.GetEnumValue``1(System.String,System.Boolean)
+  - Ploch.Common.EnvironmentVariables.GetString(System.String)
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentVariables
+  nameWithType: EnvironmentVariables
+  fullName: Ploch.Common.EnvironmentVariables
+  type: Class
+  source:
+    remote:
+      path: src/Common/EnvironmentVariables.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: EnvironmentVariables
+    path: ../src/Common/EnvironmentVariables.cs
+    startLine: 7
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Provides methods for retrieving and converting environment variable values.
+  example: []
+  syntax:
+    content: public static class EnvironmentVariables
+    content.vb: Public Module EnvironmentVariables
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.EnvironmentVariables.GetString(System.String)
+  commentId: M:Ploch.Common.EnvironmentVariables.GetString(System.String)
+  id: GetString(System.String)
+  parent: Ploch.Common.EnvironmentVariables
+  langs:
+  - csharp
+  - vb
+  name: GetString(string)
+  nameWithType: EnvironmentVariables.GetString(string)
+  fullName: Ploch.Common.EnvironmentVariables.GetString(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/EnvironmentVariables.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetString
+    path: ../src/Common/EnvironmentVariables.cs
+    startLine: 17
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Retrieves the value of the specified environment variable as a string.
+  example: []
+  syntax:
+    content: public static string? GetString(string variableName)
+    parameters:
+    - id: variableName
+      type: System.String
+      description: The name of the environment variable to retrieve.
+    return:
+      type: System.String
+      description: >-
+        A string containing the value of the environment variable,
+
+        or <code>null</code> if the environment variable is not found.
+    content.vb: Public Shared Function GetString(variableName As String) As String
+  overload: Ploch.Common.EnvironmentVariables.GetString*
+  nameWithType.vb: EnvironmentVariables.GetString(String)
+  fullName.vb: Ploch.Common.EnvironmentVariables.GetString(String)
+  name.vb: GetString(String)
+- uid: Ploch.Common.EnvironmentVariables.GetBool(System.String)
+  commentId: M:Ploch.Common.EnvironmentVariables.GetBool(System.String)
+  id: GetBool(System.String)
+  parent: Ploch.Common.EnvironmentVariables
+  langs:
+  - csharp
+  - vb
+  name: GetBool(string)
+  nameWithType: EnvironmentVariables.GetBool(string)
+  fullName: Ploch.Common.EnvironmentVariables.GetBool(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/EnvironmentVariables.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetBool
+    path: ../src/Common/EnvironmentVariables.cs
+    startLine: 27
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Retrieves the value of the specified environment variable as a boolean.
+  example: []
+  syntax:
+    content: public static bool? GetBool(string variableName)
+    parameters:
+    - id: variableName
+      type: System.String
+      description: The name of the environment variable to retrieve.
+    return:
+      type: System.Nullable{System.Boolean}
+      description: >-
+        A nullable boolean containing the value of the environment variable if it can be successfully parsed as a boolean,
+
+        or <code>null</code> if the environment variable is not found, not set, or cannot be parsed as a boolean.
+    content.vb: Public Shared Function GetBool(variableName As String) As Boolean?
+  overload: Ploch.Common.EnvironmentVariables.GetBool*
+  nameWithType.vb: EnvironmentVariables.GetBool(String)
+  fullName.vb: Ploch.Common.EnvironmentVariables.GetBool(String)
+  name.vb: GetBool(String)
+- uid: Ploch.Common.EnvironmentVariables.GetEnumValue``1(System.String,System.Boolean)
+  commentId: M:Ploch.Common.EnvironmentVariables.GetEnumValue``1(System.String,System.Boolean)
+  id: GetEnumValue``1(System.String,System.Boolean)
+  parent: Ploch.Common.EnvironmentVariables
+  langs:
+  - csharp
+  - vb
+  name: GetEnumValue<TEnum>(string, bool)
+  nameWithType: EnvironmentVariables.GetEnumValue<TEnum>(string, bool)
+  fullName: Ploch.Common.EnvironmentVariables.GetEnumValue<TEnum>(string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Common/EnvironmentVariables.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetEnumValue
+    path: ../src/Common/EnvironmentVariables.cs
+    startLine: 41
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common
+  summary: Retrieves the value of the specified environment variable and converts it to an enumeration of the specified type.
+  example: []
+  syntax:
+    content: 'public static TEnum? GetEnumValue<TEnum>(string variableName, bool ignoreCase = true) where TEnum : struct, Enum'
+    parameters:
+    - id: variableName
+      type: System.String
+      description: The name of the environment variable to retrieve and convert.
+    - id: ignoreCase
+      type: System.Boolean
+      description: A boolean value indicating whether the case of the environment variable value should be ignored during conversion. Defaults to <code>true</code>.
+    typeParameters:
+    - id: TEnum
+      description: The enumeration type to which the environment variable value should be converted.
+    return:
+      type: System.Nullable{{TEnum}}
+      description: >-
+        An instance of the specified enumeration type if the environment variable value was successfully converted;
+
+        otherwise, <code>null</code> if the environment variable value is not found or cannot be converted.
+    content.vb: Public Shared Function GetEnumValue(Of TEnum As {Structure, [Enum]})(variableName As String, ignoreCase As Boolean = True) As TEnum?
+  overload: Ploch.Common.EnvironmentVariables.GetEnumValue*
+  nameWithType.vb: EnvironmentVariables.GetEnumValue(Of TEnum)(String, Boolean)
+  fullName.vb: Ploch.Common.EnvironmentVariables.GetEnumValue(Of TEnum)(String, Boolean)
+  name.vb: GetEnumValue(Of TEnum)(String, Boolean)
+references:
+- uid: Ploch.Common
+  commentId: N:Ploch.Common
+  href: Ploch.html
+  name: Ploch.Common
+  nameWithType: Ploch.Common
+  fullName: Ploch.Common
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.EnvironmentVariables.GetString*
+  commentId: Overload:Ploch.Common.EnvironmentVariables.GetString
+  href: Ploch.Common.EnvironmentVariables.GetString.html#Ploch_Common_EnvironmentVariables_GetString_System_String_
+  name: GetString
+  nameWithType: EnvironmentVariables.GetString
+  fullName: Ploch.Common.EnvironmentVariables.GetString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ploch.Common.EnvironmentVariables.GetBool*
+  commentId: Overload:Ploch.Common.EnvironmentVariables.GetBool
+  href: Ploch.Common.EnvironmentVariables.GetBool.html#Ploch_Common_EnvironmentVariables_GetBool_System_String_
+  name: GetBool
+  nameWithType: EnvironmentVariables.GetBool
+  fullName: Ploch.Common.EnvironmentVariables.GetBool
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.EnvironmentVariables.GetEnumValue*
+  commentId: Overload:Ploch.Common.EnvironmentVariables.GetEnumValue
+  href: Ploch.Common.EnvironmentVariables.GetEnumValue.html#Ploch_Common_EnvironmentVariables_GetEnumValue__1_System_String_System_Boolean_
+  name: GetEnumValue
+  nameWithType: EnvironmentVariables.GetEnumValue
+  fullName: Ploch.Common.EnvironmentVariables.GetEnumValue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Nullable{{TEnum}}
+  commentId: T:System.Nullable{``0}
+  parent: System
+  definition: System.Nullable`1
+  name: TEnum?
+  nameWithType: TEnum?
+  fullName: TEnum?
+  spec.csharp:
+  - name: TEnum
+  - name: '?'
+  spec.vb:
+  - name: TEnum
+  - name: '?'
+memberLayout: SeparatePages

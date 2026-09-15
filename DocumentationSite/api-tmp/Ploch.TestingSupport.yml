@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport
+  id: TestingSupport
+  parent: Ploch
+  children:
+  - Ploch.TestingSupport.FluentAssertions
+  - Ploch.TestingSupport.Moq
+  - Ploch.TestingSupport.TestData
+  - Ploch.TestingSupport.TestOrdering
+  - Ploch.TestingSupport.XUnit3
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport
+  type: Namespace
+references:
+- uid: Ploch.TestingSupport.FluentAssertions
+  commentId: N:Ploch.TestingSupport.FluentAssertions
+  href: Ploch.html
+  name: Ploch.TestingSupport.FluentAssertions
+  nameWithType: Ploch.TestingSupport.FluentAssertions
+  fullName: Ploch.TestingSupport.FluentAssertions
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.FluentAssertions
+    name: FluentAssertions
+    href: Ploch.TestingSupport.FluentAssertions.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.FluentAssertions
+    name: FluentAssertions
+    href: Ploch.TestingSupport.FluentAssertions.html
+- uid: Ploch.TestingSupport.Moq
+  commentId: N:Ploch.TestingSupport.Moq
+  href: Ploch.html
+  name: Ploch.TestingSupport.Moq
+  nameWithType: Ploch.TestingSupport.Moq
+  fullName: Ploch.TestingSupport.Moq
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.Moq
+    name: Moq
+    href: Ploch.TestingSupport.Moq.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.Moq
+    name: Moq
+    href: Ploch.TestingSupport.Moq.html
+- uid: Ploch.TestingSupport.TestData
+  commentId: N:Ploch.TestingSupport.TestData
+  href: Ploch.html
+  name: Ploch.TestingSupport.TestData
+  nameWithType: Ploch.TestingSupport.TestData
+  fullName: Ploch.TestingSupport.TestData
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.TestData
+    name: TestData
+    href: Ploch.TestingSupport.TestData.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.TestData
+    name: TestData
+    href: Ploch.TestingSupport.TestData.html
+- uid: Ploch.TestingSupport.TestOrdering
+  commentId: N:Ploch.TestingSupport.TestOrdering
+  href: Ploch.html
+  name: Ploch.TestingSupport.TestOrdering
+  nameWithType: Ploch.TestingSupport.TestOrdering
+  fullName: Ploch.TestingSupport.TestOrdering
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.TestOrdering
+    name: TestOrdering
+    href: Ploch.TestingSupport.TestOrdering.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.TestOrdering
+    name: TestOrdering
+    href: Ploch.TestingSupport.TestOrdering.html
+- uid: Ploch.TestingSupport.XUnit3
+  commentId: N:Ploch.TestingSupport.XUnit3
+  href: Ploch.html
+  name: Ploch.TestingSupport.XUnit3
+  nameWithType: Ploch.TestingSupport.XUnit3
+  fullName: Ploch.TestingSupport.XUnit3
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3
+    name: XUnit3
+    href: Ploch.TestingSupport.XUnit3.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.XUnit3
+    name: XUnit3
+    href: Ploch.TestingSupport.XUnit3.html
+memberLayout: SeparatePages

@@ -1,0 +1,97 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebApi.Endpoints
+  commentId: N:Ploch.Common.WebApi.Endpoints
+  id: Endpoints
+  parent: Ploch.Common.WebApi
+  children:
+  - Ploch.Common.WebApi.Endpoints.IEndpointHandler`2
+  - Ploch.Common.WebApi.Endpoints.Models
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.WebApi.Endpoints
+  nameWithType: Ploch.Common.WebApi.Endpoints
+  fullName: Ploch.Common.WebApi.Endpoints
+  type: Namespace
+  assemblies:
+  - Ploch.Common.WebApi.Endpoints
+references:
+- uid: Ploch.Common.WebApi.Endpoints.Models
+  commentId: N:Ploch.Common.WebApi.Endpoints.Models
+  href: Ploch.html
+  name: Ploch.Common.WebApi.Endpoints.Models
+  nameWithType: Ploch.Common.WebApi.Endpoints.Models
+  fullName: Ploch.Common.WebApi.Endpoints.Models
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+  - name: .
+  - uid: Ploch.Common.WebApi.Endpoints
+    name: Endpoints
+    href: Ploch.Common.WebApi.Endpoints.html
+  - name: .
+  - uid: Ploch.Common.WebApi.Endpoints.Models
+    name: Models
+    href: Ploch.Common.WebApi.Endpoints.Models.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebApi
+    name: WebApi
+    href: Ploch.Common.WebApi.html
+  - name: .
+  - uid: Ploch.Common.WebApi.Endpoints
+    name: Endpoints
+    href: Ploch.Common.WebApi.Endpoints.html
+  - name: .
+  - uid: Ploch.Common.WebApi.Endpoints.Models
+    name: Models
+    href: Ploch.Common.WebApi.Endpoints.Models.html
+- uid: Ploch.Common.WebApi.Endpoints.IEndpointHandler`2
+  commentId: T:Ploch.Common.WebApi.Endpoints.IEndpointHandler`2
+  href: Ploch.Common.WebApi.Endpoints.IEndpointHandler-2.html
+  name: IEndpointHandler<TRequest, TResponse>
+  nameWithType: IEndpointHandler<TRequest, TResponse>
+  fullName: Ploch.Common.WebApi.Endpoints.IEndpointHandler<TRequest, TResponse>
+  nameWithType.vb: IEndpointHandler(Of TRequest, TResponse)
+  fullName.vb: Ploch.Common.WebApi.Endpoints.IEndpointHandler(Of TRequest, TResponse)
+  name.vb: IEndpointHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Ploch.Common.WebApi.Endpoints.IEndpointHandler`2
+    name: IEndpointHandler
+    href: Ploch.Common.WebApi.Endpoints.IEndpointHandler-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.WebApi.Endpoints.IEndpointHandler`2
+    name: IEndpointHandler
+    href: Ploch.Common.WebApi.Endpoints.IEndpointHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+memberLayout: SeparatePages

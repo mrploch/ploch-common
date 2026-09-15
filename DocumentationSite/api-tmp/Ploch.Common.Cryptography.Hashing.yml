@@ -1,0 +1,489 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Cryptography.Hashing
+  commentId: T:Ploch.Common.Cryptography.Hashing
+  id: Hashing
+  parent: Ploch.Common.Cryptography
+  children:
+  - Ploch.Common.Cryptography.Hashing.ToHashString(System.IO.Stream,System.Security.Cryptography.HashAlgorithm)
+  - Ploch.Common.Cryptography.Hashing.ToMD5HashString(System.IO.Stream)
+  langs:
+  - csharp
+  - vb
+  name: Hashing
+  nameWithType: Hashing
+  fullName: Ploch.Common.Cryptography.Hashing
+  type: Class
+  source:
+    remote:
+      path: src/Common/Cryptography/Hashing.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: Hashing
+    path: ../src/Common/Cryptography/Hashing.cs
+    startLine: 10
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Cryptography
+  summary: Provides hashing utility methods for strings.
+  example: []
+  syntax:
+    content: public static class Hashing
+    content.vb: Public Module Hashing
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.Cryptography.Hashing.ToHashString(System.IO.Stream,System.Security.Cryptography.HashAlgorithm)
+  commentId: M:Ploch.Common.Cryptography.Hashing.ToHashString(System.IO.Stream,System.Security.Cryptography.HashAlgorithm)
+  id: ToHashString(System.IO.Stream,System.Security.Cryptography.HashAlgorithm)
+  isExtensionMethod: true
+  parent: Ploch.Common.Cryptography.Hashing
+  langs:
+  - csharp
+  - vb
+  name: ToHashString(Stream, HashAlgorithm)
+  nameWithType: Hashing.ToHashString(Stream, HashAlgorithm)
+  fullName: Ploch.Common.Cryptography.Hashing.ToHashString(System.IO.Stream, System.Security.Cryptography.HashAlgorithm)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Cryptography/Hashing.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ToHashString
+    path: ../src/Common/Cryptography/Hashing.cs
+    startLine: 18
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Cryptography
+  summary: Converts the content of a stream into a hash string using the specified hash algorithm.
+  example: []
+  syntax:
+    content: public static string ToHashString(this Stream stream, HashAlgorithm algorithm)
+    parameters:
+    - id: stream
+      type: System.IO.Stream
+      description: The stream whose content will be hashed.
+    - id: algorithm
+      type: System.Security.Cryptography.HashAlgorithm
+      description: The hash algorithm to be used.
+    return:
+      type: System.String
+      description: A string representation of the computed hash.
+    content.vb: Public Shared Function ToHashString(stream As Stream, algorithm As HashAlgorithm) As String
+  overload: Ploch.Common.Cryptography.Hashing.ToHashString*
+- uid: Ploch.Common.Cryptography.Hashing.ToMD5HashString(System.IO.Stream)
+  commentId: M:Ploch.Common.Cryptography.Hashing.ToMD5HashString(System.IO.Stream)
+  id: ToMD5HashString(System.IO.Stream)
+  isExtensionMethod: true
+  parent: Ploch.Common.Cryptography.Hashing
+  langs:
+  - csharp
+  - vb
+  name: ToMD5HashString(Stream)
+  nameWithType: Hashing.ToMD5HashString(Stream)
+  fullName: Ploch.Common.Cryptography.Hashing.ToMD5HashString(System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: src/Common/Cryptography/Hashing.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: ToMD5HashString
+    path: ../src/Common/Cryptography/Hashing.cs
+    startLine: 36
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.Cryptography
+  summary: Converts the contents of a Stream into a MD5 hash string.
+  example: []
+  syntax:
+    content: public static string ToMD5HashString(this Stream stream)
+    parameters:
+    - id: stream
+      type: System.IO.Stream
+      description: The input Stream to convert.
+    return:
+      type: System.String
+      description: The MD5 hash string of the input Stream.
+    content.vb: Public Shared Function ToMD5HashString(stream As Stream) As String
+  overload: Ploch.Common.Cryptography.Hashing.ToMD5HashString*
+references:
+- uid: Ploch.Common.Cryptography
+  commentId: N:Ploch.Common.Cryptography
+  href: Ploch.html
+  name: Ploch.Common.Cryptography
+  nameWithType: Ploch.Common.Cryptography
+  fullName: Ploch.Common.Cryptography
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Cryptography
+    name: Cryptography
+    href: Ploch.Common.Cryptography.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Cryptography
+    name: Cryptography
+    href: Ploch.Common.Cryptography.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.Cryptography.Hashing.ToHashString*
+  commentId: Overload:Ploch.Common.Cryptography.Hashing.ToHashString
+  href: Ploch.Common.Cryptography.Hashing.ToHashString.html#Ploch_Common_Cryptography_Hashing_ToHashString_System_IO_Stream_System_Security_Cryptography_HashAlgorithm_
+  name: ToHashString
+  nameWithType: Hashing.ToHashString
+  fullName: Ploch.Common.Cryptography.Hashing.ToHashString
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.Security.Cryptography.HashAlgorithm
+  commentId: T:System.Security.Cryptography.HashAlgorithm
+  parent: System.Security.Cryptography
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm
+  name: HashAlgorithm
+  nameWithType: HashAlgorithm
+  fullName: System.Security.Cryptography.HashAlgorithm
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: System.Security.Cryptography
+  commentId: N:System.Security.Cryptography
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Security.Cryptography
+  nameWithType: System.Security.Cryptography
+  fullName: System.Security.Cryptography
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Security
+    name: Security
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.security
+  - name: .
+  - uid: System.Security.Cryptography
+    name: Cryptography
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.security.cryptography
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Security
+    name: Security
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.security
+  - name: .
+  - uid: System.Security.Cryptography
+    name: Cryptography
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.security.cryptography
+- uid: Ploch.Common.Cryptography.Hashing.ToMD5HashString*
+  commentId: Overload:Ploch.Common.Cryptography.Hashing.ToMD5HashString
+  href: Ploch.Common.Cryptography.Hashing.ToMD5HashString.html#Ploch_Common_Cryptography_Hashing_ToMD5HashString_System_IO_Stream_
+  name: ToMD5HashString
+  nameWithType: Hashing.ToMD5HashString
+  fullName: Ploch.Common.Cryptography.Hashing.ToMD5HashString
+memberLayout: SeparatePages

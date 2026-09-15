@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  commentId: N:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  id: ExtensionsDependencyInjection
+  parent: Ploch.Common.Serialization.NewtonsoftJson
+  children:
+  - Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  nameWithType: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+references:
+- uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+  commentId: T:Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+  href: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration.html
+  name: NewtonsoftJsonSerializerRegistration
+  nameWithType: NewtonsoftJsonSerializerRegistration
+  fullName: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+memberLayout: SeparatePages

@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Randomizers
+  commentId: N:Ploch.Common.Randomizers
+  id: Randomizers
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Randomizers.BaseRandomizer`1
+  - Ploch.Common.Randomizers.BooleanRandomizer
+  - Ploch.Common.Randomizers.DateTimeOffsetRandomizer
+  - Ploch.Common.Randomizers.DateTimeRandomizer
+  - Ploch.Common.Randomizers.IRandomizer
+  - Ploch.Common.Randomizers.IRandomizer`1
+  - Ploch.Common.Randomizers.IRangeRandomizer
+  - Ploch.Common.Randomizers.IRangedRandomizer`1
+  - Ploch.Common.Randomizers.IntRandomizer
+  - Ploch.Common.Randomizers.Randomizer
+  - Ploch.Common.Randomizers.StringRandomizer
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Randomizers
+  nameWithType: Ploch.Common.Randomizers
+  fullName: Ploch.Common.Randomizers
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Randomizers.BaseRandomizer`1
+  commentId: T:Ploch.Common.Randomizers.BaseRandomizer`1
+  href: Ploch.Common.Randomizers.BaseRandomizer-1.html
+  name: BaseRandomizer<TValue>
+  nameWithType: BaseRandomizer<TValue>
+  fullName: Ploch.Common.Randomizers.BaseRandomizer<TValue>
+  nameWithType.vb: BaseRandomizer(Of TValue)
+  fullName.vb: Ploch.Common.Randomizers.BaseRandomizer(Of TValue)
+  name.vb: BaseRandomizer(Of TValue)
+  spec.csharp:
+  - uid: Ploch.Common.Randomizers.BaseRandomizer`1
+    name: BaseRandomizer
+    href: Ploch.Common.Randomizers.BaseRandomizer-1.html
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Randomizers.BaseRandomizer`1
+    name: BaseRandomizer
+    href: Ploch.Common.Randomizers.BaseRandomizer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Ploch.Common.Randomizers.BooleanRandomizer
+  commentId: T:Ploch.Common.Randomizers.BooleanRandomizer
+  href: Ploch.Common.Randomizers.BooleanRandomizer.html
+  name: BooleanRandomizer
+  nameWithType: BooleanRandomizer
+  fullName: Ploch.Common.Randomizers.BooleanRandomizer
+- uid: Ploch.Common.Randomizers.DateTimeOffsetRandomizer
+  commentId: T:Ploch.Common.Randomizers.DateTimeOffsetRandomizer
+  href: Ploch.Common.Randomizers.DateTimeOffsetRandomizer.html
+  name: DateTimeOffsetRandomizer
+  nameWithType: DateTimeOffsetRandomizer
+  fullName: Ploch.Common.Randomizers.DateTimeOffsetRandomizer
+- uid: Ploch.Common.Randomizers.DateTimeRandomizer
+  commentId: T:Ploch.Common.Randomizers.DateTimeRandomizer
+  href: Ploch.Common.Randomizers.DateTimeRandomizer.html
+  name: DateTimeRandomizer
+  nameWithType: DateTimeRandomizer
+  fullName: Ploch.Common.Randomizers.DateTimeRandomizer
+- uid: Ploch.Common.Randomizers.IRandomizer
+  commentId: T:Ploch.Common.Randomizers.IRandomizer
+  parent: Ploch.Common.Randomizers
+  href: Ploch.Common.Randomizers.IRandomizer.html
+  name: IRandomizer
+  nameWithType: IRandomizer
+  fullName: Ploch.Common.Randomizers.IRandomizer
+- uid: Ploch.Common.Randomizers.IRandomizer`1
+  commentId: T:Ploch.Common.Randomizers.IRandomizer`1
+  href: Ploch.Common.Randomizers.IRandomizer-1.html
+  name: IRandomizer<TValue>
+  nameWithType: IRandomizer<TValue>
+  fullName: Ploch.Common.Randomizers.IRandomizer<TValue>
+  nameWithType.vb: IRandomizer(Of TValue)
+  fullName.vb: Ploch.Common.Randomizers.IRandomizer(Of TValue)
+  name.vb: IRandomizer(Of TValue)
+  spec.csharp:
+  - uid: Ploch.Common.Randomizers.IRandomizer`1
+    name: IRandomizer
+    href: Ploch.Common.Randomizers.IRandomizer-1.html
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Randomizers.IRandomizer`1
+    name: IRandomizer
+    href: Ploch.Common.Randomizers.IRandomizer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Ploch.Common.Randomizers.IRangeRandomizer
+  commentId: T:Ploch.Common.Randomizers.IRangeRandomizer
+  parent: Ploch.Common.Randomizers
+  href: Ploch.Common.Randomizers.IRangeRandomizer.html
+  name: IRangeRandomizer
+  nameWithType: IRangeRandomizer
+  fullName: Ploch.Common.Randomizers.IRangeRandomizer
+- uid: Ploch.Common.Randomizers.IRangedRandomizer`1
+  commentId: T:Ploch.Common.Randomizers.IRangedRandomizer`1
+  href: Ploch.Common.Randomizers.IRangedRandomizer-1.html
+  name: IRangedRandomizer<TValue>
+  nameWithType: IRangedRandomizer<TValue>
+  fullName: Ploch.Common.Randomizers.IRangedRandomizer<TValue>
+  nameWithType.vb: IRangedRandomizer(Of TValue)
+  fullName.vb: Ploch.Common.Randomizers.IRangedRandomizer(Of TValue)
+  name.vb: IRangedRandomizer(Of TValue)
+  spec.csharp:
+  - uid: Ploch.Common.Randomizers.IRangedRandomizer`1
+    name: IRangedRandomizer
+    href: Ploch.Common.Randomizers.IRangedRandomizer-1.html
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Ploch.Common.Randomizers.IRangedRandomizer`1
+    name: IRangedRandomizer
+    href: Ploch.Common.Randomizers.IRangedRandomizer-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Ploch.Common.Randomizers.IntRandomizer
+  commentId: T:Ploch.Common.Randomizers.IntRandomizer
+  href: Ploch.Common.Randomizers.IntRandomizer.html
+  name: IntRandomizer
+  nameWithType: IntRandomizer
+  fullName: Ploch.Common.Randomizers.IntRandomizer
+- uid: Ploch.Common.Randomizers.Randomizer
+  commentId: T:Ploch.Common.Randomizers.Randomizer
+  href: Ploch.Common.Randomizers.Randomizer.html
+  name: Randomizer
+  nameWithType: Randomizer
+  fullName: Ploch.Common.Randomizers.Randomizer
+- uid: Ploch.Common.Randomizers.StringRandomizer
+  commentId: T:Ploch.Common.Randomizers.StringRandomizer
+  href: Ploch.Common.Randomizers.StringRandomizer.html
+  name: StringRandomizer
+  nameWithType: StringRandomizer
+  fullName: Ploch.Common.Randomizers.StringRandomizer
+- uid: Ploch.Common.Randomizers
+  commentId: N:Ploch.Common.Randomizers
+  href: Ploch.html
+  name: Ploch.Common.Randomizers
+  nameWithType: Ploch.Common.Randomizers
+  fullName: Ploch.Common.Randomizers
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Randomizers
+    name: Randomizers
+    href: Ploch.Common.Randomizers.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Randomizers
+    name: Randomizers
+    href: Ploch.Common.Randomizers.html
+memberLayout: SeparatePages

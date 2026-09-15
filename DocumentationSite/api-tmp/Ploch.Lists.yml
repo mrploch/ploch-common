@@ -1,0 +1,55 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Lists
+  id: Lists
+  parent: Ploch
+  children:
+  - Ploch.Lists.Api.WebApi
+  - Ploch.Lists.UI.MauiUI
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Lists
+  type: Namespace
+references:
+- uid: Ploch.Lists.Api.WebApi
+  commentId: N:Ploch.Lists.Api.WebApi
+  href: Ploch.html
+  name: Ploch.Lists.Api.WebApi
+  nameWithType: Ploch.Lists.Api.WebApi
+  fullName: Ploch.Lists.Api.WebApi
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.Api
+    name: Api
+    href: Ploch.Lists.Api.html
+  - name: .
+  - uid: Ploch.Lists.Api.WebApi
+    name: WebApi
+    href: Ploch.Lists.Api.WebApi.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.Api
+    name: Api
+    href: Ploch.Lists.Api.html
+  - name: .
+  - uid: Ploch.Lists.Api.WebApi
+    name: WebApi
+    href: Ploch.Lists.Api.WebApi.html
+- uid: Ploch.Lists.UI.MauiUI
+  isExternal: true
+memberLayout: SeparatePages

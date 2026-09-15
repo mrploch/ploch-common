@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.TestData
+  commentId: N:Ploch.TestingSupport.TestData
+  id: TestData
+  parent: Ploch.TestingSupport
+  children:
+  - Ploch.TestingSupport.TestData.JsonFileDataAttribute
+  - Ploch.TestingSupport.TestData.TextFileDataAttribute
+  - Ploch.TestingSupport.TestData.TextFileLinesDataAttribute
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.TestData
+  nameWithType: Ploch.TestingSupport.TestData
+  fullName: Ploch.TestingSupport.TestData
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport
+references:
+- uid: Ploch.TestingSupport.TestData.JsonFileDataAttribute
+  commentId: T:Ploch.TestingSupport.TestData.JsonFileDataAttribute
+  href: Ploch.TestingSupport.TestData.JsonFileDataAttribute.html
+  name: JsonFileDataAttribute
+  nameWithType: JsonFileDataAttribute
+  fullName: Ploch.TestingSupport.TestData.JsonFileDataAttribute
+- uid: Ploch.TestingSupport.TestData.TextFileDataAttribute
+  commentId: T:Ploch.TestingSupport.TestData.TextFileDataAttribute
+  parent: Ploch.TestingSupport.TestData
+  href: Ploch.TestingSupport.TestData.TextFileDataAttribute.html
+  name: TextFileDataAttribute
+  nameWithType: TextFileDataAttribute
+  fullName: Ploch.TestingSupport.TestData.TextFileDataAttribute
+- uid: Ploch.TestingSupport.TestData.TextFileLinesDataAttribute
+  commentId: T:Ploch.TestingSupport.TestData.TextFileLinesDataAttribute
+  href: Ploch.TestingSupport.TestData.TextFileLinesDataAttribute.html
+  name: TextFileLinesDataAttribute
+  nameWithType: TextFileLinesDataAttribute
+  fullName: Ploch.TestingSupport.TestData.TextFileLinesDataAttribute
+- uid: Ploch.TestingSupport.TestData
+  commentId: N:Ploch.TestingSupport.TestData
+  href: Ploch.html
+  name: Ploch.TestingSupport.TestData
+  nameWithType: Ploch.TestingSupport.TestData
+  fullName: Ploch.TestingSupport.TestData
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.TestData
+    name: TestData
+    href: Ploch.TestingSupport.TestData.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.TestData
+    name: TestData
+    href: Ploch.TestingSupport.TestData.html
+memberLayout: SeparatePages

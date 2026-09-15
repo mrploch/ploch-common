@@ -1,0 +1,921 @@
+### YamlMime:TableOfContent
+items:
+- uid: Ploch
+  name: Ploch
+  type: Namespace
+  items:
+  - uid: Ploch.CommandLine.Spectre
+    name: CommandLine.Spectre
+    type: Namespace
+    items:
+    - uid: Ploch.CommandLine.Spectre.AppInfo
+      name: AppInfo
+      type: Class
+  - uid: Ploch.Common
+    name: Common
+    type: Namespace
+    items:
+    - uid: Ploch.Common.AppServices
+      name: AppServices
+      type: Namespace
+      items:
+      - uid: Ploch.Common.AppServices.Security
+        name: Security
+        type: Namespace
+        items:
+        - uid: Ploch.Common.AppServices.Security.IUserInfoProvider
+          name: IUserInfoProvider
+          type: Interface
+      - uid: Ploch.Common.AppServices.Web
+        name: Web
+        type: Namespace
+        items:
+        - uid: Ploch.Common.AppServices.Web.HttpContextUserInfoProvider
+          name: HttpContextUserInfoProvider
+          type: Class
+        - uid: Ploch.Common.AppServices.Web.ServiceCollectionRegistrations
+          name: ServiceCollectionRegistrations
+          type: Class
+    - uid: Ploch.Common.Apps.Model
+      name: Apps.Model
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Apps.Model.ActionExecutionException
+        name: ActionExecutionException
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionExecutionId`1
+        name: ActionExecutionId<TSystemApplication>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandlerManagerResult
+        name: ActionHandlerManagerResult
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandlerManagerResult`1
+        name: ActionHandlerManagerResult<TSystemApplication>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandlerManager`3
+        name: ActionHandlerManager<TSystemApplication, TActionInfo, TSystemActionHandler>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandlerResult
+        name: ActionHandlerResult
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandlerResult`1
+        name: ActionHandlerResult<TActionTargetDescriptor>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandler`2
+        name: ActionHandler<TSystemApplication, TActionInfo>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionHandler`3
+        name: ActionHandler<TSystemApplication, TActionInfo, TSystemApplicationActionResult>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.ActionInfo`1
+        name: ActionInfo<TActionTargetDescriptor>
+        type: Class
+      - uid: Ploch.Common.Apps.Model.IActionHandlerManager`2
+        name: IActionHandlerManager<TSystemApplication, TActionInfo>
+        type: Interface
+      - uid: Ploch.Common.Apps.Model.IActionHandler`2
+        name: IActionHandler<TSystemApplication, TActionInfo>
+        type: Interface
+      - uid: Ploch.Common.Apps.Model.IActionHandler`3
+        name: IActionHandler<TActionTargetDescriptor, TActionInfo, TResult>
+        type: Interface
+      - uid: Ploch.Common.Apps.Model.IActionInfo
+        name: IActionInfo
+        type: Interface
+      - uid: Ploch.Common.Apps.Model.IActionInfo`1
+        name: IActionInfo<TActionTargetDescriptor>
+        type: Interface
+      - uid: Ploch.Common.Apps.Model.IActionTargetDescriptor
+        name: IActionTargetDescriptor
+        type: Interface
+    - uid: Ploch.Common.Ardalis.Result
+      name: Ardalis.Result
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Ardalis.Result.ResultStatusExtensions
+        name: ResultStatusExtensions
+        type: Class
+    - uid: Ploch.Common.ArgumentChecking
+      name: ArgumentChecking
+      type: Namespace
+      items:
+      - uid: Ploch.Common.ArgumentChecking.Guard
+        name: Guard
+        type: Class
+      - uid: Ploch.Common.ArgumentChecking.PathGuard
+        name: PathGuard
+        type: Class
+    - uid: Ploch.Common.AssemblyLoading
+      name: AssemblyLoading
+      type: Namespace
+      items:
+      - uid: Ploch.Common.AssemblyLoading.AppDomainTypesLoader
+        name: AppDomainTypesLoader
+        type: Class
+      - uid: Ploch.Common.AssemblyLoading.TypeLoadingConfiguration
+        name: TypeLoadingConfiguration
+        type: Class
+    - uid: Ploch.Common.Collections
+      name: Collections
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Collections.ArrayExtensions
+        name: ArrayExtensions
+        type: Class
+      - uid: Ploch.Common.Collections.CollectionExtensions
+        name: CollectionExtensions
+        type: Class
+      - uid: Ploch.Common.Collections.DictionaryExtensions
+        name: DictionaryExtensions
+        type: Class
+      - uid: Ploch.Common.Collections.DuplicateHandling
+        name: DuplicateHandling
+        type: Enum
+      - uid: Ploch.Common.Collections.EnumerableExtensions
+        name: EnumerableExtensions
+        type: Class
+      - uid: Ploch.Common.Collections.EnumerableQueries
+        name: EnumerableQueries
+        type: Class
+      - uid: Ploch.Common.Collections.QueryableExtensions
+        name: QueryableExtensions
+        type: Class
+    - uid: Ploch.Common.Cryptography
+      name: Cryptography
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Cryptography.Hashing
+        name: Hashing
+        type: Class
+    - uid: Ploch.Common.DataAnnotations
+      name: DataAnnotations
+      type: Namespace
+      items:
+      - uid: Ploch.Common.DataAnnotations.RequiredNotDefaultDateAttribute
+        name: RequiredNotDefaultDateAttribute
+        type: Class
+    - uid: Ploch.Common.DawnGuard
+      name: DawnGuard
+      type: Namespace
+      items:
+      - uid: Ploch.Common.DawnGuard.TypeGuards
+        name: TypeGuards
+        type: Class
+    - uid: Ploch.Common.DependencyInjection
+      name: DependencyInjection
+      type: Namespace
+      items:
+      - uid: Ploch.Common.DependencyInjection.Hosting
+        name: Hosting
+        type: Namespace
+        items:
+        - uid: Ploch.Common.DependencyInjection.Hosting.HostBuilderBundleRegistrationExtensions
+          name: HostBuilderBundleRegistrationExtensions
+          type: Class
+      - uid: Ploch.Common.DependencyInjection.ConfigurableServicesBundle
+        name: ConfigurableServicesBundle
+        type: Class
+      - uid: Ploch.Common.DependencyInjection.DelegatingServicesBundle
+        name: DelegatingServicesBundle
+        type: Class
+      - uid: Ploch.Common.DependencyInjection.IConfigurationConsumer
+        name: IConfigurationConsumer
+        type: Interface
+      - uid: Ploch.Common.DependencyInjection.IOptionalConfigurationProvider
+        name: IOptionalConfigurationProvider
+        type: Interface
+      - uid: Ploch.Common.DependencyInjection.IScopedService
+        name: IScopedService
+        type: Interface
+      - uid: Ploch.Common.DependencyInjection.IScopedService`1
+        name: IScopedService<TService>
+        type: Interface
+      - uid: Ploch.Common.DependencyInjection.IServicesBundle
+        name: IServicesBundle
+        type: Interface
+      - uid: Ploch.Common.DependencyInjection.ScopedService
+        name: ScopedService
+        type: Class
+      - uid: Ploch.Common.DependencyInjection.ScopedService`1
+        name: ScopedService<TService>
+        type: Class
+      - uid: Ploch.Common.DependencyInjection.ServicesBundle
+        name: ServicesBundle
+        type: Class
+      - uid: Ploch.Common.DependencyInjection.ServicesBundleRegistration
+        name: ServicesBundleRegistration
+        type: Class
+    - uid: Ploch.Common.Diagnostics
+      name: Diagnostics
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Diagnostics.ProcessExtensions
+        name: ProcessExtensions
+        type: Class
+    - uid: Ploch.Common.Extensions.Configuration
+      name: Extensions.Configuration
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Extensions.Configuration.ConfigurationOptionsExtensions
+        name: ConfigurationOptionsExtensions
+        type: Class
+      - uid: Ploch.Common.Extensions.Configuration.ConfigurationSectionAttribute
+        name: ConfigurationSectionAttribute
+        type: Class
+    - uid: Ploch.Common.IO
+      name: IO
+      type: Namespace
+      items:
+      - uid: Ploch.Common.IO.CommandLineInfo
+        name: CommandLineInfo
+        type: Struct
+      - uid: Ploch.Common.IO.CommandLineParser
+        name: CommandLineParser
+        type: Class
+      - uid: Ploch.Common.IO.PathUtils
+        name: PathUtils
+        type: Class
+      - uid: Ploch.Common.IO.StreamExtensions
+        name: StreamExtensions
+        type: Class
+    - uid: Ploch.Common.Linq
+      name: Linq
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Linq.ExpressionExtensions
+        name: ExpressionExtensions
+        type: Class
+      - uid: Ploch.Common.Linq.IOwnedPropertyInfo
+        name: IOwnedPropertyInfo
+        type: Interface
+      - uid: Ploch.Common.Linq.IOwnedPropertyInfo`1
+        name: IOwnedPropertyInfo<TProperty>
+        type: Interface
+      - uid: Ploch.Common.Linq.IOwnedPropertyInfo`2
+        name: IOwnedPropertyInfo<TType, TProperty>
+        type: Interface
+      - uid: Ploch.Common.Linq.OwnedPropertyInfo
+        name: OwnedPropertyInfo
+        type: Class
+      - uid: Ploch.Common.Linq.OwnedPropertyInfo`1
+        name: OwnedPropertyInfo<TProperty>
+        type: Class
+      - uid: Ploch.Common.Linq.OwnedPropertyInfo`2
+        name: OwnedPropertyInfo<TType, TProperty>
+        type: Class
+    - uid: Ploch.Common.Matchers
+      name: Matchers
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Matchers.GlobEvaluator
+        name: GlobEvaluator
+        type: Class
+      - uid: Ploch.Common.Matchers.GlobMatcherExtensions
+        name: GlobMatcherExtensions
+        type: Class
+      - uid: Ploch.Common.Matchers.IMatcher`1
+        name: IMatcher<T>
+        type: Interface
+      - uid: Ploch.Common.Matchers.IStringMatcher
+        name: IStringMatcher
+        type: Interface
+      - uid: Ploch.Common.Matchers.PropertyMatcher`1
+        name: PropertyMatcher<TSourceType>
+        type: Class
+      - uid: Ploch.Common.Matchers.RegexListEvaluator
+        name: RegexListEvaluator
+        type: Class
+    - uid: Ploch.Common.Maui
+      name: Maui
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Maui.Configuration
+        name: Configuration
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Maui.Configuration.AppConfigurator
+          name: AppConfigurator
+          type: Class
+        - uid: Ploch.Common.Maui.Configuration.AppFonts
+          name: AppFonts
+          type: Class
+        - uid: Ploch.Common.Maui.Configuration.JsonConfigurationResourceFileRegistrations
+          name: JsonConfigurationResourceFileRegistrations
+          type: Class
+        - uid: Ploch.Common.Maui.Configuration.PreferencesConfigurationProvider
+          name: PreferencesConfigurationProvider
+          type: Class
+        - uid: Ploch.Common.Maui.Configuration.PreferencesConfigurationSource
+          name: PreferencesConfigurationSource
+          type: Class
+      - uid: Ploch.Common.Maui.Controls
+        name: Controls
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Maui.Controls.ResourceDictionaryExtensions
+          name: ResourceDictionaryExtensions
+          type: Class
+      - uid: Ploch.Common.Maui.Fonts
+        name: Fonts
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Maui.Fonts.FontMapping
+          name: FontMapping
+          type: Class
+        - uid: Ploch.Common.Maui.Fonts.IFontsProvider
+          name: IFontsProvider
+          type: Interface
+        - uid: Ploch.Common.Maui.Fonts.IconFontMapping`1
+          name: IconFontMapping<TFontIconNames>
+          type: Class
+      - uid: Ploch.Common.Maui.MarkupExtensions
+        name: MarkupExtensions
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Maui.MarkupExtensions.NameOfExtension
+          name: NameOfExtension
+          type: Class
+      - uid: Ploch.Common.Maui.ViewModels
+        name: ViewModels
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Maui.ViewModels.BaseViewModel
+          name: BaseViewModel
+          type: Class
+        - uid: Ploch.Common.Maui.ViewModels.TypeDiscoverer
+          name: TypeDiscoverer
+          type: Class
+      - uid: Ploch.Common.Maui.Views
+        name: Views
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Maui.Views.BaseContentPage
+          name: BaseContentPage
+          type: Class
+        - uid: Ploch.Common.Maui.Views.BaseContentView
+          name: BaseContentView
+          type: Class
+        - uid: Ploch.Common.Maui.Views.IView
+          name: IView
+          type: Interface
+    - uid: Ploch.Common.ObjectBuilder
+      name: ObjectBuilder
+      type: Namespace
+      items:
+      - uid: Ploch.Common.ObjectBuilder.TypeConverters
+        name: TypeConverters
+        type: Namespace
+        items:
+        - uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeOffsetTypeConverter
+          name: ManagementObjectDateTimeOffsetTypeConverter
+          type: Class
+        - uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTimeTypeConverter
+          name: ManagementObjectDateTimeTypeConverter
+          type: Class
+        - uid: Ploch.Common.ObjectBuilder.TypeConverters.ManagementObjectDateTypeConverter`1
+          name: ManagementObjectDateTypeConverter<T>
+          type: Class
+        - uid: Ploch.Common.ObjectBuilder.TypeConverters.NullabeTypeConverter`2
+          name: NullabeTypeConverter<TSource, TTarget>
+          type: Class
+      - uid: Ploch.Common.ObjectBuilder.DefaultConverter
+        name: DefaultConverter
+        type: Class
+      - uid: Ploch.Common.ObjectBuilder.DotNetTypeConverterWrapper
+        name: DotNetTypeConverterWrapper
+        type: Class
+      - uid: Ploch.Common.ObjectBuilder.IObjectTypeConverter
+        name: IObjectTypeConverter
+        type: Interface
+      - uid: Ploch.Common.ObjectBuilder.ISourceObject
+        name: ISourceObject
+        type: Interface
+      - uid: Ploch.Common.ObjectBuilder.ObjectConverter
+        name: ObjectConverter
+        type: Class
+    - uid: Ploch.Common.Randomizers
+      name: Randomizers
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Randomizers.BaseRandomizer`1
+        name: BaseRandomizer<TValue>
+        type: Class
+      - uid: Ploch.Common.Randomizers.BooleanRandomizer
+        name: BooleanRandomizer
+        type: Class
+      - uid: Ploch.Common.Randomizers.DateTimeOffsetRandomizer
+        name: DateTimeOffsetRandomizer
+        type: Class
+      - uid: Ploch.Common.Randomizers.DateTimeRandomizer
+        name: DateTimeRandomizer
+        type: Class
+      - uid: Ploch.Common.Randomizers.IRandomizer
+        name: IRandomizer
+        type: Interface
+      - uid: Ploch.Common.Randomizers.IRandomizer`1
+        name: IRandomizer<TValue>
+        type: Interface
+      - uid: Ploch.Common.Randomizers.IRangeRandomizer
+        name: IRangeRandomizer
+        type: Interface
+      - uid: Ploch.Common.Randomizers.IRangedRandomizer`1
+        name: IRangedRandomizer<TValue>
+        type: Interface
+      - uid: Ploch.Common.Randomizers.IntRandomizer
+        name: IntRandomizer
+        type: Class
+      - uid: Ploch.Common.Randomizers.Randomizer
+        name: Randomizer
+        type: Class
+      - uid: Ploch.Common.Randomizers.StringRandomizer
+        name: StringRandomizer
+        type: Class
+    - uid: Ploch.Common.Reflection
+      name: Reflection
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Reflection.AssemblyExtensions
+        name: AssemblyExtensions
+        type: Class
+      - uid: Ploch.Common.Reflection.AssemblyListBuilder
+        name: AssemblyListBuilder
+        type: Class
+      - uid: Ploch.Common.Reflection.AssemblyTypes
+        name: AssemblyTypes
+        type: Class
+      - uid: Ploch.Common.Reflection.ByValueObjectComparator
+        name: ByValueObjectComparator
+        type: Class
+      - uid: Ploch.Common.Reflection.ByValueObjectComparer`1
+        name: ByValueObjectComparer<TObject>
+        type: Class
+      - uid: Ploch.Common.Reflection.ITypeLoaderConfigurator
+        name: ITypeLoaderConfigurator
+        type: Interface
+      - uid: Ploch.Common.Reflection.ImplementationTypes
+        name: ImplementationTypes
+        type: Class
+      - uid: Ploch.Common.Reflection.MemberInfoExtensions
+        name: MemberInfoExtensions
+        type: Class
+      - uid: Ploch.Common.Reflection.ObjectGraphHelper
+        name: ObjectGraphHelper
+        type: Class
+      - uid: Ploch.Common.Reflection.ObjectHashCodeBuilder
+        name: ObjectHashCodeBuilder
+        type: Class
+      - uid: Ploch.Common.Reflection.ObjectReflectionExtensions
+        name: ObjectReflectionExtensions
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyAccessException
+        name: PropertyAccessException
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyAccessValidators
+        name: PropertyAccessValidators
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyHelpers
+        name: PropertyHelpers
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyIndexerMismatchException
+        name: PropertyIndexerMismatchException
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyNotFoundException
+        name: PropertyNotFoundException
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyReadOnlyException
+        name: PropertyReadOnlyException
+        type: Class
+      - uid: Ploch.Common.Reflection.PropertyWriteOnlyException
+        name: PropertyWriteOnlyException
+        type: Class
+      - uid: Ploch.Common.Reflection.TypeExtensions
+        name: TypeExtensions
+        type: Class
+      - uid: Ploch.Common.Reflection.TypeHelper
+        name: TypeHelper
+        type: Class
+      - uid: Ploch.Common.Reflection.TypeLoader
+        name: TypeLoader
+        type: Class
+      - uid: Ploch.Common.Reflection.TypeLoaderConfigurator
+        name: TypeLoaderConfigurator
+        type: Class
+    - uid: Ploch.Common.Results
+      name: Results
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Results.ErrorInfo
+        name: ErrorInfo
+        type: Class
+    - uid: Ploch.Common.Serialization
+      name: Serialization
+      type: Namespace
+      items:
+      - uid: Ploch.Common.Serialization.NewtonsoftJson
+        name: NewtonsoftJson
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection
+          name: ExtensionsDependencyInjection
+          type: Namespace
+          items:
+          - uid: Ploch.Common.Serialization.NewtonsoftJson.ExtensionsDependencyInjection.NewtonsoftJsonSerializerRegistration
+            name: NewtonsoftJsonSerializerRegistration
+            type: Class
+        - uid: Ploch.Common.Serialization.NewtonsoftJson.NewtonsoftJsonObjectSerializer
+          name: NewtonsoftJsonObjectSerializer
+          type: Class
+      - uid: Ploch.Common.Serialization.SystemTextJson
+        name: SystemTextJson
+        type: Namespace
+        items:
+        - uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection
+          name: ExtensionsDependencyInjection
+          type: Namespace
+          items:
+          - uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerRegistration
+            name: SystemTextJsonSerializerRegistration
+            type: Class
+          - uid: Ploch.Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.SystemTextJsonSerializerServicesBundle
+            name: SystemTextJsonSerializerServicesBundle
+            type: Class
+        - uid: Ploch.Common.Serialization.SystemTextJson.SystemTextJsonSerializer
+          name: SystemTextJsonSerializer
+          type: Class
+      - uid: Ploch.Common.Serialization.AsyncSerializer`2
+        name: AsyncSerializer<TSettings, TDataJsonObject>
+        type: Class
+      - uid: Ploch.Common.Serialization.IAsyncSerializer
+        name: IAsyncSerializer
+        type: Interface
+      - uid: Ploch.Common.Serialization.IAsyncSerializer`1
+        name: IAsyncSerializer<TSettings>
+        type: Interface
+      - uid: Ploch.Common.Serialization.ISerializer
+        name: ISerializer
+        type: Interface
+      - uid: Ploch.Common.Serialization.ISerializer`1
+        name: ISerializer<TSettings>
+        type: Interface
+      - uid: Ploch.Common.Serialization.Serializer`2
+        name: Serializer<TSettings, TDataJsonObject>
+        type: Class
+    - uid: Ploch.Common.TypeConversion
+      name: TypeConversion
+      type: Namespace
+      items:
+      - uid: Ploch.Common.TypeConversion.CaseSensitivity
+        name: CaseSensitivity
+        type: Enum
+      - uid: Ploch.Common.TypeConversion.CaseSensitivityExtensions
+        name: CaseSensitivityExtensions
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumConversionAttribute
+        name: EnumConversionAttribute
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumConverter
+        name: EnumConverter
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumMappingAttribute
+        name: EnumMappingAttribute
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumName
+        name: EnumName
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumNameEnumerableExtensions
+        name: EnumNameEnumerableExtensions
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumNameValueComparer
+        name: EnumNameValueComparer
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumerationFieldValueCache
+        name: EnumerationFieldValueCache
+        type: Class
+      - uid: Ploch.Common.TypeConversion.EnumerationMapExtractor
+        name: EnumerationMapExtractor
+        type: Class
+      - uid: Ploch.Common.TypeConversion.ISourceTypeConverter`1
+        name: ISourceTypeConverter<TSourceType>
+        type: Interface
+      - uid: Ploch.Common.TypeConversion.ITargetTypeConverter`1
+        name: ITargetTypeConverter<TTargetType>
+        type: Interface
+      - uid: Ploch.Common.TypeConversion.ITypeConverter
+        name: ITypeConverter
+        type: Interface
+      - uid: Ploch.Common.TypeConversion.ITypeConverter`2
+        name: ITypeConverter<TSourceType, TTargetType>
+        type: Interface
+      - uid: Ploch.Common.TypeConversion.ObjectPropertyAttribute
+        name: ObjectPropertyAttribute
+        type: Class
+      - uid: Ploch.Common.TypeConversion.SingleSourceTargetTypeConverter`2
+        name: SingleSourceTargetTypeConverter<TSourceType, TTargetType>
+        type: Class
+      - uid: Ploch.Common.TypeConversion.TypeConversionException
+        name: TypeConversionException
+        type: Class
+      - uid: Ploch.Common.TypeConversion.TypeConverter
+        name: TypeConverter
+        type: Class
+      - uid: Ploch.Common.TypeConversion.TypeConverterHelper
+        name: TypeConverterHelper
+        type: Class
+    - uid: Ploch.Common.WebApi
+      name: WebApi
+      type: Namespace
+      items:
+      - uid: Ploch.Common.WebApi.Endpoints
+        name: Endpoints
+        type: Namespace
+        items:
+        - uid: Ploch.Common.WebApi.Endpoints.Models
+          name: Models
+          type: Namespace
+          items:
+          - uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectRequest`1
+            name: DataTransferObjectRequest<TDataTransferObject>
+            type: Class
+          - uid: Ploch.Common.WebApi.Endpoints.Models.DataTransferObjectResponse`1
+            name: DataTransferObjectResponse<TDataTransferObject>
+            type: Class
+          - uid: Ploch.Common.WebApi.Endpoints.Models.EmptyResponse
+            name: EmptyResponse
+            type: Class
+          - uid: Ploch.Common.WebApi.Endpoints.Models.IdRequest`1
+            name: IdRequest<TId>
+            type: Class
+          - uid: Ploch.Common.WebApi.Endpoints.Models.PaginatedRequest
+            name: PaginatedRequest
+            type: Class
+          - uid: Ploch.Common.WebApi.Endpoints.Models.PaginatedResponse`1
+            name: PaginatedResponse<TDataTransferObject>
+            type: Class
+        - uid: Ploch.Common.WebApi.Endpoints.IEndpointHandler`2
+          name: IEndpointHandler<TRequest, TResponse>
+          type: Interface
+      - uid: Ploch.Common.WebApi.OpenApiConfigurator
+        name: OpenApiConfigurator
+        type: Class
+      - uid: Ploch.Common.WebApi.QueryStringBinder
+        name: QueryStringBinder
+        type: Class
+    - uid: Ploch.Common.WebUI
+      name: WebUI
+      type: Namespace
+      items:
+      - uid: Ploch.Common.WebUI.TagUtilities
+        name: TagUtilities
+        type: Namespace
+        items:
+        - uid: Ploch.Common.WebUI.TagUtilities.SelectListHelper
+          name: SelectListHelper
+          type: Class
+      - uid: Ploch.Common.WebUI.AppPage
+        name: AppPage
+        type: Class
+      - uid: Ploch.Common.WebUI.AppPageViewDataExtensions
+        name: AppPageViewDataExtensions
+        type: Class
+    - uid: Ploch.Common.AssemblyInformation
+      name: AssemblyInformation
+      type: Class
+    - uid: Ploch.Common.AssemblyInformationProvider
+      name: AssemblyInformationProvider
+      type: Class
+    - uid: Ploch.Common.Chars
+      name: Chars
+      type: Class
+    - uid: Ploch.Common.ComparisonUtils
+      name: ComparisonUtils
+      type: Class
+    - uid: Ploch.Common.ContentSizes
+      name: ContentSizes
+      type: Class
+    - uid: Ploch.Common.DateTimeExtensions
+      name: DateTimeExtensions
+      type: Class
+    - uid: Ploch.Common.DateTimeFormats
+      name: DateTimeFormats
+      type: Class
+    - uid: Ploch.Common.DateTimeFormats.DateOnly
+      name: DateTimeFormats.DateOnly
+      type: Class
+    - uid: Ploch.Common.EnumHelper
+      name: EnumHelper
+      type: Class
+    - uid: Ploch.Common.EnumerationConverter
+      name: EnumerationConverter
+      type: Class
+    - uid: Ploch.Common.EnvironmentUtilities
+      name: EnvironmentUtilities
+      type: Class
+    - uid: Ploch.Common.EnvironmentVariables
+      name: EnvironmentVariables
+      type: Class
+    - uid: Ploch.Common.IfNullHelpers
+      name: IfNullHelpers
+      type: Class
+    - uid: Ploch.Common.IsInExtensions
+      name: IsInExtensions
+      type: Class
+    - uid: Ploch.Common.ObjectCloningHelpers
+      name: ObjectCloningHelpers
+      type: Class
+    - uid: Ploch.Common.OperatingSystemExtensions
+      name: OperatingSystemExtensions
+      type: Class
+    - uid: Ploch.Common.StopwatchUtil
+      name: StopwatchUtil
+      type: Class
+    - uid: Ploch.Common.StringBuilderExtensions
+      name: StringBuilderExtensions
+      type: Class
+    - uid: Ploch.Common.StringExtensions
+      name: StringExtensions
+      type: Class
+    - uid: Ploch.Common.StringParsingExtensions
+      name: StringParsingExtensions
+      type: Class
+    - uid: Ploch.Common.Strings
+      name: Strings
+      type: Class
+    - uid: Ploch.Common.ThreadSafeRandom
+      name: ThreadSafeRandom
+      type: Class
+  - uid: Ploch.Lists
+    name: Lists
+    type: Namespace
+    items:
+    - uid: Ploch.Lists.Api.WebApi
+      name: Api.WebApi
+      type: Namespace
+      items:
+      - uid: Ploch.Lists.Api.WebApi.CustomNameGenrator
+        name: CustomNameGenrator
+        type: Class
+    - uid: Ploch.Lists.UI.MauiUI
+      name: UI.MauiUI
+      type: Namespace
+      items:
+      - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+        name: Common.Fonts
+        type: Namespace
+        items:
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeBrands
+          name: FontAwesomeBrands
+          type: Class
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeRegular
+          name: FontAwesomeRegular
+          type: Class
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeSolid
+          name: FontAwesomeSolid
+          type: Class
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.IFontsBuilder
+          name: IFontsBuilder
+          type: Interface
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignRegularFont
+          name: MaterialDesignRegularFont
+          type: Class
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignWebFont
+          name: MaterialDesignWebFont
+          type: Class
+        - uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+          name: MauiMaterialAssets
+          type: Class
+      - uid: Ploch.Lists.UI.MauiUI.ViewModels
+        name: ViewModels
+        type: Namespace
+        items:
+        - uid: Ploch.Lists.UI.MauiUI.ViewModels.IViewModel
+          name: IViewModel
+          type: Interface
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    type: Namespace
+    items:
+    - uid: Ploch.TestingSupport.FluentAssertions
+      name: FluentAssertions
+      type: Namespace
+      items:
+      - uid: Ploch.TestingSupport.FluentAssertions.NullEmptyCollectionEquivalencyStep
+        name: NullEmptyCollectionEquivalencyStep
+        type: Class
+      - uid: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionAssertions
+        name: PropertyInfoCollectionAssertions
+        type: Class
+      - uid: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionExtensions
+        name: PropertyInfoCollectionExtensions
+        type: Class
+      - uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+        name: StringAssertionExtensions
+        type: Class
+    - uid: Ploch.TestingSupport.Moq
+      name: Moq
+      type: Namespace
+      items:
+      - uid: Ploch.TestingSupport.Moq.FluentVerifier
+        name: FluentVerifier
+        type: Class
+      - uid: Ploch.TestingSupport.Moq.MockingExtensions
+        name: MockingExtensions
+        type: Class
+    - uid: Ploch.TestingSupport.TestData
+      name: TestData
+      type: Namespace
+      items:
+      - uid: Ploch.TestingSupport.TestData.JsonFileDataAttribute
+        name: JsonFileDataAttribute
+        type: Class
+      - uid: Ploch.TestingSupport.TestData.TextFileDataAttribute
+        name: TextFileDataAttribute
+        type: Class
+      - uid: Ploch.TestingSupport.TestData.TextFileLinesDataAttribute
+        name: TextFileLinesDataAttribute
+        type: Class
+    - uid: Ploch.TestingSupport.TestOrdering
+      name: TestOrdering
+      type: Namespace
+      items:
+      - uid: Ploch.TestingSupport.TestOrdering.AlphabeticalOrderer
+        name: AlphabeticalOrderer
+        type: Class
+      - uid: Ploch.TestingSupport.TestOrdering.TestPriorityAttribute
+        name: TestPriorityAttribute
+        type: Class
+    - uid: Ploch.TestingSupport.XUnit3
+      name: XUnit3
+      type: Namespace
+      items:
+      - uid: Ploch.TestingSupport.XUnit3.AutoMoq
+        name: AutoMoq
+        type: Namespace
+        items:
+        - uid: Ploch.TestingSupport.XUnit3.AutoMoq.AutoDataCommonCustomization
+          name: AutoDataCommonCustomization
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.AutoMoq.AutoMockDataAttribute
+          name: AutoMockDataAttribute
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.AutoMoq.DoNotThrowOnRecursionCustomization
+          name: DoNotThrowOnRecursionCustomization
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersCustomization
+          name: IgnoreVirtualMembersCustomization
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.AutoMoq.IgnoreVirtualMembersSpecimenBuilder
+          name: IgnoreVirtualMembersSpecimenBuilder
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.AutoMoq.OmitOnRecursionCustomization
+          name: OmitOnRecursionCustomization
+          type: Class
+      - uid: Ploch.TestingSupport.XUnit3.Moq
+        name: Moq
+        type: Namespace
+        items:
+        - uid: Ploch.TestingSupport.XUnit3.Moq.FluentVerifier
+          name: FluentVerifier
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.Moq.MockingExtensions
+          name: MockingExtensions
+          type: Class
+      - uid: Ploch.TestingSupport.XUnit3.TestData
+        name: TestData
+        type: Namespace
+        items:
+        - uid: Ploch.TestingSupport.XUnit3.TestData.JsonFileDataAttribute
+          name: JsonFileDataAttribute
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.TestData.TextFileDataAttribute
+          name: TextFileDataAttribute
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.TestData.TextFileLinesDataAttribute
+          name: TextFileLinesDataAttribute
+          type: Class
+      - uid: Ploch.TestingSupport.XUnit3.TestOrdering
+        name: TestOrdering
+        type: Namespace
+        items:
+        - uid: Ploch.TestingSupport.XUnit3.TestOrdering.AlphabeticalOrderer
+          name: AlphabeticalOrderer
+          type: Class
+        - uid: Ploch.TestingSupport.XUnit3.TestOrdering.TestPriorityAttribute
+          name: TestPriorityAttribute
+          type: Class
+      - uid: Ploch.TestingSupport.XUnit3.SupportedOS
+        name: SupportedOS
+        type: Enum
+      - uid: Ploch.TestingSupport.XUnit3.SupportedOSPlatformAttribute
+        name: SupportedOSPlatformAttribute
+        type: Class
+- uid: TestingSupport.FluentAssertions.IOAbstractions
+  name: TestingSupport.FluentAssertions.IOAbstractions
+  type: Namespace
+  items:
+  - uid: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoAssertions`1
+    name: FileSystemInfoAssertions<TItems>
+    type: Class
+  - uid: TestingSupport.FluentAssertions.IOAbstractions.FileSystemInfoEnumerableExtensions
+    name: FileSystemInfoEnumerableExtensions
+    type: Class
+memberLayout: SeparatePages

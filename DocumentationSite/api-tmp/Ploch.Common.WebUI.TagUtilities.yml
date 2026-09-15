@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebUI.TagUtilities
+  commentId: N:Ploch.Common.WebUI.TagUtilities
+  id: TagUtilities
+  parent: Ploch.Common.WebUI
+  children:
+  - Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.WebUI.TagUtilities
+  nameWithType: Ploch.Common.WebUI.TagUtilities
+  fullName: Ploch.Common.WebUI.TagUtilities
+  type: Namespace
+  assemblies:
+  - Ploch.Common.WebUI
+references:
+- uid: Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  commentId: T:Ploch.Common.WebUI.TagUtilities.SelectListHelper
+  href: Ploch.Common.WebUI.TagUtilities.SelectListHelper.html
+  name: SelectListHelper
+  nameWithType: SelectListHelper
+  fullName: Ploch.Common.WebUI.TagUtilities.SelectListHelper
+memberLayout: SeparatePages

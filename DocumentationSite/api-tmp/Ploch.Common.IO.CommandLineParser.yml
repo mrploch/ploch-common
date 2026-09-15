@@ -1,0 +1,508 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.IO.CommandLineParser
+  commentId: T:Ploch.Common.IO.CommandLineParser
+  id: CommandLineParser
+  parent: Ploch.Common.IO
+  children:
+  - Ploch.Common.IO.CommandLineParser.GetApplicationPath(System.String)
+  - Ploch.Common.IO.CommandLineParser.GetAsArguments(System.String)
+  - Ploch.Common.IO.CommandLineParser.GetCommandLine(System.String)
+  langs:
+  - csharp
+  - vb
+  name: CommandLineParser
+  nameWithType: CommandLineParser
+  fullName: Ploch.Common.IO.CommandLineParser
+  type: Class
+  source:
+    remote:
+      path: src/Common/IO/CommandLineParser.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CommandLineParser
+    path: ../src/Common/IO/CommandLineParser.cs
+    startLine: 10
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Provides functionality for parsing command line strings into application paths and arguments.
+  example: []
+  syntax:
+    content: public static class CommandLineParser
+    content.vb: Public Module CommandLineParser
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.IO.CommandLineParser.GetApplicationPath(System.String)
+  commentId: M:Ploch.Common.IO.CommandLineParser.GetApplicationPath(System.String)
+  id: GetApplicationPath(System.String)
+  parent: Ploch.Common.IO.CommandLineParser
+  langs:
+  - csharp
+  - vb
+  name: GetApplicationPath(string)
+  nameWithType: CommandLineParser.GetApplicationPath(string)
+  fullName: Ploch.Common.IO.CommandLineParser.GetApplicationPath(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/CommandLineParser.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetApplicationPath
+    path: ../src/Common/IO/CommandLineParser.cs
+    startLine: 17
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Extracts the application path from a command line string.
+  example: []
+  syntax:
+    content: public static string? GetApplicationPath(string commandLineString)
+    parameters:
+    - id: commandLineString
+      type: System.String
+      description: The command line string to parse.
+    return:
+      type: System.String
+      description: The application path if found; otherwise, null.
+    content.vb: Public Shared Function GetApplicationPath(commandLineString As String) As String
+  overload: Ploch.Common.IO.CommandLineParser.GetApplicationPath*
+  nameWithType.vb: CommandLineParser.GetApplicationPath(String)
+  fullName.vb: Ploch.Common.IO.CommandLineParser.GetApplicationPath(String)
+  name.vb: GetApplicationPath(String)
+- uid: Ploch.Common.IO.CommandLineParser.GetAsArguments(System.String)
+  commentId: M:Ploch.Common.IO.CommandLineParser.GetAsArguments(System.String)
+  id: GetAsArguments(System.String)
+  parent: Ploch.Common.IO.CommandLineParser
+  langs:
+  - csharp
+  - vb
+  name: GetAsArguments(string)
+  nameWithType: CommandLineParser.GetAsArguments(string)
+  fullName: Ploch.Common.IO.CommandLineParser.GetAsArguments(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/CommandLineParser.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetAsArguments
+    path: ../src/Common/IO/CommandLineParser.cs
+    startLine: 29
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Parses a command line string treating the first part as an argument rather than the application path.
+  example: []
+  syntax:
+    content: public static CommandLineInfo? GetAsArguments(string commandLineString)
+    parameters:
+    - id: commandLineString
+      type: System.String
+      description: The command line string to parse.
+    return:
+      type: System.Nullable{Ploch.Common.IO.CommandLineInfo}
+      description: A <xref href="Ploch.Common.IO.CommandLineInfo" data-throw-if-not-resolved="false"></xref> object containing the parsed command line information; or null if parsing fails.
+    content.vb: Public Shared Function GetAsArguments(commandLineString As String) As CommandLineInfo?
+  overload: Ploch.Common.IO.CommandLineParser.GetAsArguments*
+  nameWithType.vb: CommandLineParser.GetAsArguments(String)
+  fullName.vb: Ploch.Common.IO.CommandLineParser.GetAsArguments(String)
+  name.vb: GetAsArguments(String)
+- uid: Ploch.Common.IO.CommandLineParser.GetCommandLine(System.String)
+  commentId: M:Ploch.Common.IO.CommandLineParser.GetCommandLine(System.String)
+  id: GetCommandLine(System.String)
+  parent: Ploch.Common.IO.CommandLineParser
+  langs:
+  - csharp
+  - vb
+  name: GetCommandLine(string)
+  nameWithType: CommandLineParser.GetCommandLine(string)
+  fullName: Ploch.Common.IO.CommandLineParser.GetCommandLine(string)
+  type: Method
+  source:
+    remote:
+      path: src/Common/IO/CommandLineParser.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: GetCommandLine
+    path: ../src/Common/IO/CommandLineParser.cs
+    startLine: 43
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.IO
+  summary: Parses a command line string into application path and arguments.
+  example: []
+  syntax:
+    content: public static CommandLineInfo? GetCommandLine(string commandLineString)
+    parameters:
+    - id: commandLineString
+      type: System.String
+      description: The command line string to parse.
+    return:
+      type: System.Nullable{Ploch.Common.IO.CommandLineInfo}
+      description: A <xref href="Ploch.Common.IO.CommandLineInfo" data-throw-if-not-resolved="false"></xref> object containing the parsed command line information; or null if parsing fails.
+    content.vb: Public Shared Function GetCommandLine(commandLineString As String) As CommandLineInfo?
+  overload: Ploch.Common.IO.CommandLineParser.GetCommandLine*
+  nameWithType.vb: CommandLineParser.GetCommandLine(String)
+  fullName.vb: Ploch.Common.IO.CommandLineParser.GetCommandLine(String)
+  name.vb: GetCommandLine(String)
+references:
+- uid: Ploch.Common.IO
+  commentId: N:Ploch.Common.IO
+  href: Ploch.html
+  name: Ploch.Common.IO
+  nameWithType: Ploch.Common.IO
+  fullName: Ploch.Common.IO
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.IO
+    name: IO
+    href: Ploch.Common.IO.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.IO.CommandLineParser.GetApplicationPath*
+  commentId: Overload:Ploch.Common.IO.CommandLineParser.GetApplicationPath
+  href: Ploch.Common.IO.CommandLineParser.GetApplicationPath.html#Ploch_Common_IO_CommandLineParser_GetApplicationPath_System_String_
+  name: GetApplicationPath
+  nameWithType: CommandLineParser.GetApplicationPath
+  fullName: Ploch.Common.IO.CommandLineParser.GetApplicationPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Ploch.Common.IO.CommandLineInfo
+  commentId: T:Ploch.Common.IO.CommandLineInfo
+  parent: Ploch.Common.IO
+  href: Ploch.Common.IO.CommandLineInfo.html
+  name: CommandLineInfo
+  nameWithType: CommandLineInfo
+  fullName: Ploch.Common.IO.CommandLineInfo
+- uid: Ploch.Common.IO.CommandLineParser.GetAsArguments*
+  commentId: Overload:Ploch.Common.IO.CommandLineParser.GetAsArguments
+  href: Ploch.Common.IO.CommandLineParser.GetAsArguments.html#Ploch_Common_IO_CommandLineParser_GetAsArguments_System_String_
+  name: GetAsArguments
+  nameWithType: CommandLineParser.GetAsArguments
+  fullName: Ploch.Common.IO.CommandLineParser.GetAsArguments
+- uid: System.Nullable{Ploch.Common.IO.CommandLineInfo}
+  commentId: T:System.Nullable{Ploch.Common.IO.CommandLineInfo}
+  parent: System
+  definition: System.Nullable`1
+  href: Ploch.Common.IO.CommandLineInfo.html
+  name: CommandLineInfo?
+  nameWithType: CommandLineInfo?
+  fullName: Ploch.Common.IO.CommandLineInfo?
+  spec.csharp:
+  - uid: Ploch.Common.IO.CommandLineInfo
+    name: CommandLineInfo
+    href: Ploch.Common.IO.CommandLineInfo.html
+  - name: '?'
+  spec.vb:
+  - uid: Ploch.Common.IO.CommandLineInfo
+    name: CommandLineInfo
+    href: Ploch.Common.IO.CommandLineInfo.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Ploch.Common.IO.CommandLineParser.GetCommandLine*
+  commentId: Overload:Ploch.Common.IO.CommandLineParser.GetCommandLine
+  href: Ploch.Common.IO.CommandLineParser.GetCommandLine.html#Ploch_Common_IO_CommandLineParser_GetCommandLine_System_String_
+  name: GetCommandLine
+  nameWithType: CommandLineParser.GetCommandLine
+  fullName: Ploch.Common.IO.CommandLineParser.GetCommandLine
+memberLayout: SeparatePages

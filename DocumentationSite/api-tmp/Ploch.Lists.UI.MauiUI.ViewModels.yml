@@ -1,0 +1,72 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Lists.UI.MauiUI.ViewModels
+  commentId: N:Ploch.Lists.UI.MauiUI.ViewModels
+  id: ViewModels
+  parent: Ploch.Lists.UI.MauiUI
+  children:
+  - Ploch.Lists.UI.MauiUI.ViewModels.IViewModel
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Lists.UI.MauiUI.ViewModels
+  nameWithType: Ploch.Lists.UI.MauiUI.ViewModels
+  fullName: Ploch.Lists.UI.MauiUI.ViewModels
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Lists.UI.MauiUI.ViewModels.IViewModel
+  commentId: T:Ploch.Lists.UI.MauiUI.ViewModels.IViewModel
+  parent: Ploch.Lists.UI.MauiUI.ViewModels
+  href: Ploch.Lists.UI.MauiUI.ViewModels.IViewModel.html
+  name: IViewModel
+  nameWithType: IViewModel
+  fullName: Ploch.Lists.UI.MauiUI.ViewModels.IViewModel
+- uid: Ploch.Lists.UI.MauiUI.ViewModels
+  commentId: N:Ploch.Lists.UI.MauiUI.ViewModels
+  href: Ploch.html
+  name: Ploch.Lists.UI.MauiUI.ViewModels
+  nameWithType: Ploch.Lists.UI.MauiUI.ViewModels
+  fullName: Ploch.Lists.UI.MauiUI.ViewModels
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.ViewModels
+    name: ViewModels
+    href: Ploch.Lists.UI.MauiUI.ViewModels.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.ViewModels
+    name: ViewModels
+    href: Ploch.Lists.UI.MauiUI.ViewModels.html
+memberLayout: SeparatePages

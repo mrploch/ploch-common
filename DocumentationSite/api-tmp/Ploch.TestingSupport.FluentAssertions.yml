@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.TestingSupport.FluentAssertions
+  commentId: N:Ploch.TestingSupport.FluentAssertions
+  id: FluentAssertions
+  parent: Ploch.TestingSupport
+  children:
+  - Ploch.TestingSupport.FluentAssertions.NullEmptyCollectionEquivalencyStep
+  - Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionAssertions
+  - Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionExtensions
+  - Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.TestingSupport.FluentAssertions
+  nameWithType: Ploch.TestingSupport.FluentAssertions
+  fullName: Ploch.TestingSupport.FluentAssertions
+  type: Namespace
+  assemblies:
+  - Ploch.TestingSupport.FluentAssertions
+references:
+- uid: Ploch.TestingSupport.FluentAssertions.NullEmptyCollectionEquivalencyStep
+  commentId: T:Ploch.TestingSupport.FluentAssertions.NullEmptyCollectionEquivalencyStep
+  href: Ploch.TestingSupport.FluentAssertions.NullEmptyCollectionEquivalencyStep.html
+  name: NullEmptyCollectionEquivalencyStep
+  nameWithType: NullEmptyCollectionEquivalencyStep
+  fullName: Ploch.TestingSupport.FluentAssertions.NullEmptyCollectionEquivalencyStep
+- uid: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionAssertions
+  commentId: T:Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionAssertions
+  parent: Ploch.TestingSupport.FluentAssertions
+  href: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionAssertions.html
+  name: PropertyInfoCollectionAssertions
+  nameWithType: PropertyInfoCollectionAssertions
+  fullName: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionAssertions
+- uid: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionExtensions
+  commentId: T:Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionExtensions
+  href: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionExtensions.html
+  name: PropertyInfoCollectionExtensions
+  nameWithType: PropertyInfoCollectionExtensions
+  fullName: Ploch.TestingSupport.FluentAssertions.PropertyInfoCollectionExtensions
+- uid: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  commentId: T:Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+  href: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions.html
+  name: StringAssertionExtensions
+  nameWithType: StringAssertionExtensions
+  fullName: Ploch.TestingSupport.FluentAssertions.StringAssertionExtensions
+- uid: Ploch.TestingSupport.FluentAssertions
+  commentId: N:Ploch.TestingSupport.FluentAssertions
+  href: Ploch.html
+  name: Ploch.TestingSupport.FluentAssertions
+  nameWithType: Ploch.TestingSupport.FluentAssertions
+  fullName: Ploch.TestingSupport.FluentAssertions
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.FluentAssertions
+    name: FluentAssertions
+    href: Ploch.TestingSupport.FluentAssertions.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.TestingSupport
+    name: TestingSupport
+    href: Ploch.TestingSupport.html
+  - name: .
+  - uid: Ploch.TestingSupport.FluentAssertions
+    name: FluentAssertions
+    href: Ploch.TestingSupport.FluentAssertions.html
+memberLayout: SeparatePages

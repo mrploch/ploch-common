@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Collections
+  commentId: N:Ploch.Common.Collections
+  id: Collections
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Collections.ArrayExtensions
+  - Ploch.Common.Collections.CollectionExtensions
+  - Ploch.Common.Collections.DictionaryExtensions
+  - Ploch.Common.Collections.DuplicateHandling
+  - Ploch.Common.Collections.EnumerableExtensions
+  - Ploch.Common.Collections.EnumerableQueries
+  - Ploch.Common.Collections.QueryableExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Collections
+  nameWithType: Ploch.Common.Collections
+  fullName: Ploch.Common.Collections
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Collections.ArrayExtensions
+  commentId: T:Ploch.Common.Collections.ArrayExtensions
+  href: Ploch.Common.Collections.ArrayExtensions.html
+  name: ArrayExtensions
+  nameWithType: ArrayExtensions
+  fullName: Ploch.Common.Collections.ArrayExtensions
+- uid: Ploch.Common.Collections.CollectionExtensions
+  commentId: T:Ploch.Common.Collections.CollectionExtensions
+  parent: Ploch.Common.Collections
+  href: Ploch.Common.Collections.CollectionExtensions.html
+  name: CollectionExtensions
+  nameWithType: CollectionExtensions
+  fullName: Ploch.Common.Collections.CollectionExtensions
+- uid: Ploch.Common.Collections.DictionaryExtensions
+  commentId: T:Ploch.Common.Collections.DictionaryExtensions
+  parent: Ploch.Common.Collections
+  href: Ploch.Common.Collections.DictionaryExtensions.html
+  name: DictionaryExtensions
+  nameWithType: DictionaryExtensions
+  fullName: Ploch.Common.Collections.DictionaryExtensions
+- uid: Ploch.Common.Collections.DuplicateHandling
+  commentId: T:Ploch.Common.Collections.DuplicateHandling
+  parent: Ploch.Common.Collections
+  href: Ploch.Common.Collections.DuplicateHandling.html
+  name: DuplicateHandling
+  nameWithType: DuplicateHandling
+  fullName: Ploch.Common.Collections.DuplicateHandling
+- uid: Ploch.Common.Collections.EnumerableExtensions
+  commentId: T:Ploch.Common.Collections.EnumerableExtensions
+  parent: Ploch.Common.Collections
+  href: Ploch.Common.Collections.EnumerableExtensions.html
+  name: EnumerableExtensions
+  nameWithType: EnumerableExtensions
+  fullName: Ploch.Common.Collections.EnumerableExtensions
+- uid: Ploch.Common.Collections.EnumerableQueries
+  commentId: T:Ploch.Common.Collections.EnumerableQueries
+  href: Ploch.Common.Collections.EnumerableQueries.html
+  name: EnumerableQueries
+  nameWithType: EnumerableQueries
+  fullName: Ploch.Common.Collections.EnumerableQueries
+- uid: Ploch.Common.Collections.QueryableExtensions
+  commentId: T:Ploch.Common.Collections.QueryableExtensions
+  href: Ploch.Common.Collections.QueryableExtensions.html
+  name: QueryableExtensions
+  nameWithType: QueryableExtensions
+  fullName: Ploch.Common.Collections.QueryableExtensions
+- uid: Ploch.Common.Collections
+  commentId: N:Ploch.Common.Collections
+  href: Ploch.html
+  name: Ploch.Common.Collections
+  nameWithType: Ploch.Common.Collections
+  fullName: Ploch.Common.Collections
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.Collections
+    name: Collections
+    href: Ploch.Common.Collections.html
+memberLayout: SeparatePages

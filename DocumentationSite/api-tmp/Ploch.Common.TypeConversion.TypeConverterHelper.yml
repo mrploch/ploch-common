@@ -1,0 +1,593 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.TypeConversion.TypeConverterHelper
+  commentId: T:Ploch.Common.TypeConversion.TypeConverterHelper
+  id: TypeConverterHelper
+  parent: Ploch.Common.TypeConversion
+  children:
+  - Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType(System.Boolean,System.Type,System.Type)
+  - Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes``1(System.Collections.Generic.IEnumerable{System.Type})
+  langs:
+  - csharp
+  - vb
+  name: TypeConverterHelper
+  nameWithType: TypeConverterHelper
+  fullName: Ploch.Common.TypeConversion.TypeConverterHelper
+  type: Class
+  source:
+    remote:
+      path: src/Common/TypeConversion/TypeConverterHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: TypeConverterHelper
+    path: ../src/Common/TypeConversion/TypeConverterHelper.cs
+    startLine: 10
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.TypeConversion
+  summary: Provides helper methods for type conversion operations.
+  example: []
+  syntax:
+    content: public static class TypeConverterHelper
+    content.vb: Public Module TypeConverterHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType(System.Boolean,System.Type,System.Type)
+  commentId: M:Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType(System.Boolean,System.Type,System.Type)
+  id: CanHandleType(System.Boolean,System.Type,System.Type)
+  parent: Ploch.Common.TypeConversion.TypeConverterHelper
+  langs:
+  - csharp
+  - vb
+  name: CanHandleType(bool, Type, Type)
+  nameWithType: TypeConverterHelper.CanHandleType(bool, Type, Type)
+  fullName: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType(bool, System.Type, System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Common/TypeConversion/TypeConverterHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CanHandleType
+    path: ../src/Common/TypeConversion/TypeConverterHelper.cs
+    startLine: 22
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.TypeConversion
+  summary: Determines whether a converter can handle a specific type based on type compatibility.
+  example: []
+  syntax:
+    content: public static bool CanHandleType(bool canHandleDerivedValue, Type type, Type actualType)
+    parameters:
+    - id: canHandleDerivedValue
+      type: System.Boolean
+      description: If true, derived types are considered compatible with the base type.
+    - id: type
+      type: System.Type
+      description: The type that the converter is designed to handle.
+    - id: actualType
+      type: System.Type
+      description: The actual type to check compatibility with.
+    return:
+      type: System.Boolean
+      description: >-
+        True if the actual type is exactly the same as the specified type, or if derived types are allowed
+
+        and the actual type is derived from or implements the specified type; otherwise, false.
+    content.vb: Public Shared Function CanHandleType(canHandleDerivedValue As Boolean, type As Type, actualType As Type) As Boolean
+  overload: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType*
+  nameWithType.vb: TypeConverterHelper.CanHandleType(Boolean, Type, Type)
+  fullName.vb: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType(Boolean, System.Type, System.Type)
+  name.vb: CanHandleType(Boolean, Type, Type)
+- uid: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes``1(System.Collections.Generic.IEnumerable{System.Type})
+  commentId: M:Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes``1(System.Collections.Generic.IEnumerable{System.Type})
+  id: CombinedTypes``1(System.Collections.Generic.IEnumerable{System.Type})
+  parent: Ploch.Common.TypeConversion.TypeConverterHelper
+  langs:
+  - csharp
+  - vb
+  name: CombinedTypes<TType>(params IEnumerable<Type>?)
+  nameWithType: TypeConverterHelper.CombinedTypes<TType>(params IEnumerable<Type>?)
+  fullName: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes<TType>(params System.Collections.Generic.IEnumerable<System.Type>?)
+  type: Method
+  source:
+    remote:
+      path: src/Common/TypeConversion/TypeConverterHelper.cs
+      branch: master
+      repo: https://github.com/mrploch/ploch-common.git
+    id: CombinedTypes
+    path: ../src/Common/TypeConversion/TypeConverterHelper.cs
+    startLine: 31
+  assemblies:
+  - Ploch.Common
+  namespace: Ploch.Common.TypeConversion
+  summary: Creates a HashSet containing a specified type and optionally combines it with additional types.
+  example: []
+  syntax:
+    content: public static ISet<Type> CombinedTypes<TType>(params IEnumerable<Type>? types)
+    parameters:
+    - id: types
+      type: System.Collections.Generic.IEnumerable{System.Type}
+      description: Additional collections of types to include in the resulting HashSet.
+    typeParameters:
+    - id: TType
+      description: The primary type to include in the resulting HashSet.
+    return:
+      type: System.Collections.Generic.ISet{System.Type}
+      description: A HashSet containing the primary type and all additional types.
+    content.vb: Public Shared Function CombinedTypes(Of TType)(types As IEnumerable(Of Type)) As ISet(Of Type)
+  overload: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes*
+  nameWithType.vb: TypeConverterHelper.CombinedTypes(Of TType)(IEnumerable(Of Type))
+  fullName.vb: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes(Of TType)(System.Collections.Generic.IEnumerable(Of System.Type))
+  name.vb: CombinedTypes(Of TType)(IEnumerable(Of Type))
+references:
+- uid: Ploch.Common.TypeConversion
+  commentId: N:Ploch.Common.TypeConversion
+  href: Ploch.html
+  name: Ploch.Common.TypeConversion
+  nameWithType: Ploch.Common.TypeConversion
+  fullName: Ploch.Common.TypeConversion
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.TypeConversion
+    name: TypeConversion
+    href: Ploch.Common.TypeConversion.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.TypeConversion
+    name: TypeConversion
+    href: Ploch.Common.TypeConversion.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType*
+  commentId: Overload:Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType
+  href: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType.html#Ploch_Common_TypeConversion_TypeConverterHelper_CanHandleType_System_Boolean_System_Type_System_Type_
+  name: CanHandleType
+  nameWithType: TypeConverterHelper.CanHandleType
+  fullName: Ploch.Common.TypeConversion.TypeConverterHelper.CanHandleType
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes*
+  commentId: Overload:Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes
+  href: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes.html#Ploch_Common_TypeConversion_TypeConverterHelper_CombinedTypes__1_System_Collections_Generic_IEnumerable_System_Type__
+  name: CombinedTypes
+  nameWithType: TypeConverterHelper.CombinedTypes
+  fullName: Ploch.Common.TypeConversion.TypeConverterHelper.CombinedTypes
+- uid: System.Collections.Generic.IEnumerable{System.Type}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Type>
+  nameWithType: IEnumerable<Type>
+  fullName: System.Collections.Generic.IEnumerable<System.Type>
+  nameWithType.vb: IEnumerable(Of Type)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Type)
+  name.vb: IEnumerable(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.ISet{System.Type}
+  commentId: T:System.Collections.Generic.ISet{System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ISet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iset-1
+  name: ISet<Type>
+  nameWithType: ISet<Type>
+  fullName: System.Collections.Generic.ISet<System.Type>
+  nameWithType.vb: ISet(Of Type)
+  fullName.vb: System.Collections.Generic.ISet(Of System.Type)
+  name.vb: ISet(Of Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.ISet`1
+    name: ISet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iset-1
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ISet`1
+    name: ISet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.ISet`1
+  commentId: T:System.Collections.Generic.ISet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iset-1
+  name: ISet<T>
+  nameWithType: ISet<T>
+  fullName: System.Collections.Generic.ISet<T>
+  nameWithType.vb: ISet(Of T)
+  fullName.vb: System.Collections.Generic.ISet(Of T)
+  name.vb: ISet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ISet`1
+    name: ISet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ISet`1
+    name: ISet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+memberLayout: SeparatePages

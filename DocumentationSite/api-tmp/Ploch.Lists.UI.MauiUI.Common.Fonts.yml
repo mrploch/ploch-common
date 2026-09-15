@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+  commentId: N:Ploch.Lists.UI.MauiUI.Common.Fonts
+  id: Common.Fonts
+  parent: Ploch.Lists.UI.MauiUI
+  children:
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeBrands
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeRegular
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeSolid
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.IFontsBuilder
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignRegularFont
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignWebFont
+  - Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Lists.UI.MauiUI.Common.Fonts
+  nameWithType: Ploch.Lists.UI.MauiUI.Common.Fonts
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts
+  type: Namespace
+  assemblies:
+  - Ploch.Common.Maui
+references:
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeBrands
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeBrands
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeBrands.html
+  name: FontAwesomeBrands
+  nameWithType: FontAwesomeBrands
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeBrands
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeRegular
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeRegular
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeRegular.html
+  name: FontAwesomeRegular
+  nameWithType: FontAwesomeRegular
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeRegular
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeSolid
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeSolid
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeSolid.html
+  name: FontAwesomeSolid
+  nameWithType: FontAwesomeSolid
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.FontAwesomeSolid
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.IFontsBuilder
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.IFontsBuilder
+  parent: Ploch.Lists.UI.MauiUI.Common.Fonts
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.IFontsBuilder.html
+  name: IFontsBuilder
+  nameWithType: IFontsBuilder
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.IFontsBuilder
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignRegularFont
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignRegularFont
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignRegularFont.html
+  name: MaterialDesignRegularFont
+  nameWithType: MaterialDesignRegularFont
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignRegularFont
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignWebFont
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignWebFont
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignWebFont.html
+  name: MaterialDesignWebFont
+  nameWithType: MaterialDesignWebFont
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MaterialDesignWebFont
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  commentId: T:Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+  href: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets.html
+  name: MauiMaterialAssets
+  nameWithType: MauiMaterialAssets
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts.MauiMaterialAssets
+- uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+  commentId: N:Ploch.Lists.UI.MauiUI.Common.Fonts
+  href: Ploch.html
+  name: Ploch.Lists.UI.MauiUI.Common.Fonts
+  nameWithType: Ploch.Lists.UI.MauiUI.Common.Fonts
+  fullName: Ploch.Lists.UI.MauiUI.Common.Fonts
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common
+    name: Common
+    href: Ploch.Lists.UI.MauiUI.Common.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+    name: Fonts
+    href: Ploch.Lists.UI.MauiUI.Common.Fonts.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Lists
+    name: Lists
+    href: Ploch.Lists.html
+  - name: .
+  - uid: Ploch.Lists.UI
+    name: UI
+    href: Ploch.Lists.UI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI
+    name: MauiUI
+    href: Ploch.Lists.UI.MauiUI.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common
+    name: Common
+    href: Ploch.Lists.UI.MauiUI.Common.html
+  - name: .
+  - uid: Ploch.Lists.UI.MauiUI.Common.Fonts
+    name: Fonts
+    href: Ploch.Lists.UI.MauiUI.Common.Fonts.html
+memberLayout: SeparatePages

@@ -1,0 +1,25 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.Diagnostics
+  commentId: N:Ploch.Common.Diagnostics
+  id: Diagnostics
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.Diagnostics.ProcessExtensions
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.Diagnostics
+  nameWithType: Ploch.Common.Diagnostics
+  fullName: Ploch.Common.Diagnostics
+  type: Namespace
+  assemblies:
+  - Ploch.Common
+references:
+- uid: Ploch.Common.Diagnostics.ProcessExtensions
+  commentId: T:Ploch.Common.Diagnostics.ProcessExtensions
+  href: Ploch.Common.Diagnostics.ProcessExtensions.html
+  name: ProcessExtensions
+  nameWithType: ProcessExtensions
+  fullName: Ploch.Common.Diagnostics.ProcessExtensions
+memberLayout: SeparatePages

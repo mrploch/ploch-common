@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: Ploch.Common.WebUI
+  commentId: N:Ploch.Common.WebUI
+  id: WebUI
+  parent: Ploch.Common
+  children:
+  - Ploch.Common.WebUI.AppPage
+  - Ploch.Common.WebUI.AppPageViewDataExtensions
+  - Ploch.Common.WebUI.TagUtilities
+  langs:
+  - csharp
+  - vb
+  name: Ploch.Common.WebUI
+  nameWithType: Ploch.Common.WebUI
+  fullName: Ploch.Common.WebUI
+  type: Namespace
+  assemblies:
+  - Ploch.Common.WebUI
+references:
+- uid: Ploch.Common.WebUI.TagUtilities
+  commentId: N:Ploch.Common.WebUI.TagUtilities
+  href: Ploch.html
+  name: Ploch.Common.WebUI.TagUtilities
+  nameWithType: Ploch.Common.WebUI.TagUtilities
+  fullName: Ploch.Common.WebUI.TagUtilities
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+  - name: .
+  - uid: Ploch.Common.WebUI.TagUtilities
+    name: TagUtilities
+    href: Ploch.Common.WebUI.TagUtilities.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+  - name: .
+  - uid: Ploch.Common.WebUI.TagUtilities
+    name: TagUtilities
+    href: Ploch.Common.WebUI.TagUtilities.html
+- uid: Ploch.Common.WebUI.AppPage
+  commentId: T:Ploch.Common.WebUI.AppPage
+  parent: Ploch.Common.WebUI
+  href: Ploch.Common.WebUI.AppPage.html
+  name: AppPage
+  nameWithType: AppPage
+  fullName: Ploch.Common.WebUI.AppPage
+- uid: Ploch.Common.WebUI.AppPageViewDataExtensions
+  commentId: T:Ploch.Common.WebUI.AppPageViewDataExtensions
+  href: Ploch.Common.WebUI.AppPageViewDataExtensions.html
+  name: AppPageViewDataExtensions
+  nameWithType: AppPageViewDataExtensions
+  fullName: Ploch.Common.WebUI.AppPageViewDataExtensions
+- uid: Ploch.Common.WebUI
+  commentId: N:Ploch.Common.WebUI
+  href: Ploch.html
+  name: Ploch.Common.WebUI
+  nameWithType: Ploch.Common.WebUI
+  fullName: Ploch.Common.WebUI
+  spec.csharp:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+  spec.vb:
+  - uid: Ploch
+    name: Ploch
+    href: Ploch.html
+  - name: .
+  - uid: Ploch.Common
+    name: Common
+    href: Ploch.Common.html
+  - name: .
+  - uid: Ploch.Common.WebUI
+    name: WebUI
+    href: Ploch.Common.WebUI.html
+memberLayout: SeparatePages
