@@ -16,7 +16,8 @@
         <AnalysisLevel>latest-Recommended</AnalysisLevel>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <!-- Versioning is handled by Nerdbank.GitVersioning (version.json) -->
-        <!-- SourceLink: enables source debugging for consumers -->
+        <!-- SourceLink: the .NET 8+ SDK includes it, so no package reference is needed.
+             These properties make the packed .nupkg/.snupkg record the repository URL and commit. -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <IncludeSymbols>true</IncludeSymbols>
@@ -125,10 +126,9 @@
         <Nullable>enable</Nullable>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
-    <!-- Nerdbank.GitVersioning and SourceLink for all projects -->
+    <!-- Nerdbank.GitVersioning for all projects -->
     <ItemGroup>
         <PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
     </ItemGroup>
     <!--
         Inject Coverlet's MSBuild instrumentation into every test project so
