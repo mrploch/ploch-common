@@ -25,3 +25,11 @@ and will be published as `Ploch.Endpoints.*`.
 
 The API reference site no longer shows `Ploch.Common.WebApi`, `Ploch.Common.WebApi.Endpoints` or
 `Ploch.Common.Ardalis.Result`. Their documentation moves to the new repository.
+
+## Build: dropped `Microsoft.SourceLink.GitHub` 8.0.0
+
+The central `Microsoft.SourceLink.GitHub` 8.0.0 reference has been removed. Its
+`Microsoft.Build.Tasks.Git` 8.0.0 dependency carries advisory GHSA-23fw-v26w-5fgq. That
+produced an NU1902 warning on every restore and failed the DocFX metadata step. The .NET 8+ SDK
+includes SourceLink, so source debugging is unchanged: packed `.nupkg`/`.snupkg` files still
+record the repository URL and commit, and the PDBs keep their SourceLink map.
