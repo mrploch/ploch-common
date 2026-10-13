@@ -6,11 +6,11 @@
 
 `Ploch.Common.Web` is a thin utility package that provides extension methods for wiring up Swagger/OpenAPI documentation in an ASP.NET Core application. It wraps Swashbuckle configuration with sensible defaults and keeps the setup in a single, reusable call pair.
 
-The package is intentionally narrow: it does not introduce middleware beyond what Swashbuckle requires, and it does not duplicate the more advanced `OpenApiConfigurator` in `Ploch.Common.WebApi`. Use this package when you have a standard MVC controller API and want Swagger UI configured with minimal ceremony.
+The package is intentionally narrow: it does not introduce middleware beyond what Swashbuckle requires, and it does not duplicate the more advanced `OpenApiConfigurator` in [Ploch.Endpoints](https://github.com/mrploch/ploch-endpoints) (formerly `Ploch.Common.WebApi`). Use this package when you have a standard MVC controller API and want Swagger UI configured with minimal ceremony.
 
 ## Installation
 
-> **Note:** This module does not have its own `.csproj` or NuGet package. The source files live under `src/Common.Web/` and are compiled as part of the consuming project or a parent package. Reference the source directly or use `Ploch.Common.WebApi` for a packaged alternative.
+> **Note:** This module does not have its own `.csproj` or NuGet package. The source files live under `src/Common.Web/` and are compiled as part of the consuming project or a parent package. Reference the source directly or see [Ploch.Endpoints](https://github.com/mrploch/ploch-endpoints) for the richer OpenAPI helpers.
 
 ## Key Types
 
@@ -50,5 +50,5 @@ app.Run();
 
 ## Related Libraries
 
-- [Ploch.Common.WebApi](common-webapi.md) — Advanced OpenAPI configuration (`OpenApiConfigurator`) and CRUD endpoint infrastructure for Minimal API and FastEndpoints
+- [Ploch.Endpoints](https://github.com/mrploch/ploch-endpoints) (formerly `Ploch.Common.WebApi`, now in its own repository) — Advanced OpenAPI configuration (`OpenApiConfigurator`) and CRUD endpoint infrastructure for Minimal API and FastEndpoints
 - [Ploch.Common.NSwag](common-nswag.md) — NSwag-based name generation utilities

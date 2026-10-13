@@ -71,5 +71,5 @@ ViewBag.Categories = SelectListHelper.CreateFor(
 
 ## Related Libraries
 
-- [Ploch.Common.WebApi](common-webapi.md) — CRUD endpoint infrastructure for API layers
+- [Ploch.Endpoints](https://github.com/mrploch/ploch-endpoints) — CRUD endpoint infrastructure for API layers (moved to its own repository)
 - [Ploch.Common.Web](common-web.md) — Swagger configuration helpers
