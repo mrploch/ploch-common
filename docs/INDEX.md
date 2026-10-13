@@ -24,7 +24,6 @@ Per-library documentation with overviews, key types, usage examples, and configu
 | Ploch.Common.Net9            | .NET 9+ specific extensions (AppDomainTypesLoader)                                   | [common-net9.md](libraries/common-net9.md)                         |
 | Ploch.Common.DataAnnotations | Custom validation attributes (RequiredNotDefaultDate)                                | [common-data-annotations.md](libraries/common-data-annotations.md) |
 | Ploch.Common.ObjectBuilder   | WMI/COM object-to-POCO conversion pipeline                                           | [common-object-builder.md](libraries/common-object-builder.md)     |
-| Ploch.Common.Ardalis.Result  | Result-to-HTTP status code mapping extensions                                        | [common-ardalis-result.md](libraries/common-ardalis-result.md)     |
 
 ### Serialization
 
@@ -49,7 +48,6 @@ Per-library documentation with overviews, key types, usage examples, and configu
 
 | Library                                  | Description                                                     | Docs                                                             |
 |------------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------|
-| Ploch.Common.WebApi                      | CRUD endpoint builders, AutoMapper integration, FastEndpoints   | [common-webapi.md](libraries/common-webapi.md)                   |
 | Ploch.Common.Web                         | Swagger/OpenAPI configuration helpers                           | [common-web.md](libraries/common-web.md)                         |
 | Ploch.Common.WebUI                       | Razor/MVC page utilities (AppPage, SelectListHelper)            | [common-webui.md](libraries/common-webui.md)                     |
 | Ploch.Common.AppServices                 | Application service abstractions (IUserInfoProvider)            | [common-appservices.md](libraries/common-appservices.md)         |
