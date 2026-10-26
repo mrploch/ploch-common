@@ -34,8 +34,8 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 
 | Path | Size | Content | Read by | Verdict |
 |---|---:|---|---|---|
-| `CLAUDE.md` | 38,665 → 6,895 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 102-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
-| `AGENTS.md` | 14,372 | Verbatim copy of the old `CLAUDE.md` knowledge under a "Codex" heading, preceded by a generated block that links to Windows absolute paths | Codex and other `AGENTS.md` readers | **Deduplicate** — replace with a short pointer to `CLAUDE.md` |
+| `CLAUDE.md` | 38,665 → 7,035 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 103-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
+| `AGENTS.md` | 14,372 → 1,125 | Before: a verbatim copy of the old `CLAUDE.md` knowledge under a "Codex" heading, preceded by a generated block that linked to Windows absolute paths. After this change: a short, portable pointer to `CLAUDE.md` and `docs/ai/` | Codex and other `AGENTS.md` readers | **Deduplicate** — done in this change |
 | `GEMINI.md` | 33,958 | 100% generated ContextStream block; no repository knowledge | Gemini CLI | **Fix or Remove** (decision 1) |
 | `.cursorrules` | 22,720 | 100% generated ContextStream block | Cursor (legacy rules file) | **Fix or Remove** (decision 1) |
 | `.windsurf/rules/contextstream.md` | 23,264 | 100% generated block, `trigger: always_on` | Windsurf | **Fix or Remove** (decision 1) |
@@ -53,7 +53,7 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 | `.claude/worktrees/*` (2 gitlinks) | — | Commit pointers to agent worktrees with no `.gitmodules` | — | **Remove** from the index and ignore them |
 
 Total of the committed agent-facing files: about 196,200 B (about 49k tokens), of which **Claude Code loads
-automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 9,017 B (about
+automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 9,157 B (about
 2.3k tokens) after it. About 138,500 B of the 196,200 are the generated ContextStream block, spread over five files.
 
 **Not committed:** `settings.json`, `settings.local.json`, `.mcp.json`, agent definitions and skills. Permissions,
@@ -124,9 +124,9 @@ remains.
 
 | # | Change | Where (layer) | Effect |
 |---|---|---|---|
-| 1 | Replace `CLAUDE.md` with the 102-line entry point and index (**done in this change**) | repository | −31.8 KB (about 7.9k tokens) per session; the real knowledge moved to `docs/ai/` and the ContextStream block is dropped. Kept by: `docs/ai/` and the index |
+| 1 | Replace `CLAUDE.md` with the 103-line entry point and index (**done in this change**) | repository | −31.6 KB (about 7.9k tokens) per session; the real knowledge moved to `docs/ai/` and the ContextStream block is dropped. Kept by: `docs/ai/` and the index |
 | 2 | After decision 1: reduce `GEMINI.md`, `.cursorrules`, `.windsurf/rules/contextstream.md` and the first 470 lines of `.github/copilot-instructions.md` to a pointer to `CLAUDE.md`, and remove the ContextStream entry from `opencode.json` if the service is retired | repository | −113 KB of dead instructions for other tools; removes calls to unregistered tools. Kept by: `CLAUDE.md` for every tool |
-| 3 | Replace `AGENTS.md` with the three-line pointer shape and correct the `net9.0` line in the Copilot overview | repository | removes drift and Windows-only links. Kept by: `CLAUDE.md` |
+| 3 | Replace `AGENTS.md` with a short pointer (**done in this change**) and correct the `net9.0` line in the Copilot overview | repository | removes drift and Windows-only links. Kept by: `CLAUDE.md` |
 | 4 | Reword `todo-tasks-execution.md` and `change-log.md` to the repository's practice; drop the `/execute-todo` pointer | repository | stops contradicting practice. Kept by: the same files |
 | 5 | Make the deployed rule copies keep their `paths:` frontmatter, or deploy only the rules a library repository needs | the maintainer's configuration source (workspace) | up to about 48.9k tokens per session in a developer checkout. Kept by: rules still load when matching files are read |
 | 6 | Remove the five byte-identical rule copies from repository scope and keep the workspace originals | repository (ignored copies) | −24,761 B (about 6.2k tokens). Kept by: the workspace copies |

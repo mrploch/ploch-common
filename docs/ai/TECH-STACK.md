@@ -107,7 +107,7 @@ Serilog is not used by any project in this repository, although a Serilog props 
 | `Microsoft.NET.Test.Sdk` | 18.6.0 | `Testing.Packages.props:18` |
 | `coverlet.msbuild` 8.0.0 / `coverlet.collector` 10.0.1 | as stated | `Common.Packages.props:14` / `Testing.Packages.props:10` |
 | `Nerdbank.GitVersioning` | 3.7.115 (package and tool) | `Directory.Packages.props:11`; `.config/dotnet-tools.json:6` |
-| `Microsoft.SourceLink.GitHub` | 8.0.0 | `Directory.Packages.props:12` |
+| `Microsoft.SourceLink.GitHub` | 10.0.114 | `Directory.Packages.props:12` |
 | `docfx` (tool) | 2.78.5 | `.config/dotnet-tools.json` |
 | Global analysers | codecracker.CSharp 1.1.0, Microsoft.CodeAnalysis.NetAnalyzers 10.0.201, Roslynator.Analyzers 4.15.0, SonarAnalyzer.CSharp 10.21.0.135717, StyleCop.Analyzers 1.1.118, Microsoft.VisualStudio.Threading.Analyzers 17.14.15 | `Analyzers.Global.Packages.props` (as `GlobalPackageReference`) |
 | Analysers only in `Ploch.Common.csproj` | ErrorProne.NET.CoreAnalyzers 0.1.2, Philips.CodeAnalysis.DuplicateCodeAnalyzer 1.6.4, PrimaryConstructorAnalyzer 1.0.6, ReflectionAnalyzers 0.3.1 | `Common.Packages.props:18,28-30` |
@@ -120,8 +120,7 @@ Serilog is not used by any project in this repository, although a Serilog props 
   15 use `$(TargetFrameworkVersion)`.
 - **Newer versions exist for 28 packages** (nuget.org, 2026-10-10). Notable: `xunit.v3` 3.2.2 → 4.0.2,
   `xunit.runner.visualstudio` 3.1.5 → 4.0.1, `xunit.analyzers` 1.27.0 → 2.2.0, `Roslynator.Analyzers` 4.15.0 → 5.0.1,
-  `Philips.CodeAnalysis.DuplicateCodeAnalyzer` 1.6.4 → 2.0.0, `Microsoft.SourceLink.GitHub` 8.0.0 → 10.0.401,
-  `coverlet.msbuild` 8.0.0 → 10.1.0, `Nerdbank.GitVersioning` 3.7.115 → 3.10.94, `SonarAnalyzer.CSharp` 10.21 → 10.35,
+  `Philips.CodeAnalysis.DuplicateCodeAnalyzer` 1.6.4 → 2.0.0, `coverlet.msbuild` 8.0.0 → 10.1.0, `Nerdbank.GitVersioning` 3.7.115 → 3.10.94, `SonarAnalyzer.CSharp` 10.21 → 10.35,
   `Microsoft.Extensions.*` 10.0.5 → 10.0.12, `FluentAssertions` 8.10.0 → 8.11.0, `Moq` 4.20.72 → 4.21.0.
 - **Deprecated:** `Dawn.Guard` 1.12.0 (marked legacy). The repository's own `Ploch.Common.DawnGuard` package is
   deprecated in its metadata and carries `[Obsolete]`.
@@ -164,11 +163,11 @@ Facts worth knowing:
   date), one approving review, **code-owner review** and resolved conversations; administrators are not subject to it
   (`enforce_admins: false`). The only repository ruleset is disabled. **No `CODEOWNERS` file exists**, so the code-owner
   requirement has nothing to match. The Build job, Qodana, Publish Docs and CodeQL are not required checks.
-- **Publish Docs is failing on `main` at the verified commit**, so the Pages deploy is not happening. Its metadata step
-  fails because a NuGet audit warning (`NU1902`) from a build-time package is printed as a `warning:` line and the guard
-  in `publish-docs.yml:125-130` whitelists only one message. Run locally, `docfx metadata` and `docfx build` both exit
-  0; only the guard fails. Pull request [#352](https://github.com/mrploch/ploch-common/pull/352) is red on the same
-  step.
+- **Publish Docs was failing on `main` at the verified commit**, so the Pages deploy was not happening. The metadata
+  step failed because a NuGet audit warning (`NU1902`) from the `Microsoft.SourceLink.GitHub` 8.0.0 pin was printed as
+  a `warning:` line, and the guard in `publish-docs.yml:125-130` whitelists only one message. The knowledge-base pull
+  request moved the pin to 10.0.114, the newest release outside the advisory's ranges that adds no `System.IO.Hashing`
+  dependency (10.0.303 and later add one, which warns on `net6.0` targets and trips the same guard).
 - **Secrets, by name:** `SONAR_TOKEN`, `CODACY_PROJECT_TOKEN`, `GH_TOKEN` (a personal access token used for tags, pushes
   and the release pull request), `QODANA_TOKEN`, `GH_PACKAGES_TOKEN` (not a repository-level secret; presumably
   organisation level, `UNVERIFIED`). **Variables:** `NUGET_USER` and `SONAR_ORGANIZATION` (also not repository-level).
@@ -240,7 +239,6 @@ Tooling and delivery only; code debt is in [`ARCHITECTURE.md`](ARCHITECTURE.md) 
 
 | Item | Detail |
 |---|---|
-| Docs deploy stalled | Publish Docs fails on `main` (section 6) |
 | 22 of 62 projects unbuilt by CI | They sit outside `Ploch.Common.slnx`; two do not compile and nothing notices |
 | Unpinned inputs | The sibling repository is cloned at its default branch; no `global.json`; CI requests SDK `9.0.x` while projects target net10.0 (how the runner supplies net10.0 is `UNVERIFIED`) |
 | Branch protection mismatches | Code-owner review is required but no `CODEOWNERS` exists; the Actions Build job is not a required check; two commits on `main` are direct pushes without a pull request number (how, given the protection, is `UNVERIFIED`) |

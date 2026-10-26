@@ -22,7 +22,7 @@ section 6 also records findings from this review of the code.
 | Tags / releases | Tags `rel-2.0.1`, `v3.0.0`, `v4.0.47`; the same three GitHub Releases, none a draft or prerelease; `v4.0.47` (2026-09-03) is the latest |
 | Published packages | 21 package ids on nuget.org, all at 4.0.47 and none a prerelease; 13 packable projects are unpublished ([`TECH-STACK.md`](TECH-STACK.md) section 7) |
 | Development version | `version.json` is `4.1-prerelease`; four change-log entries (2026-09-03 and 2026-09-04) are waiting for the next release |
-| Delivery health | The Publish Docs workflow fails on `main`, so the documentation site is not being deployed ([`TECH-STACK.md`](TECH-STACK.md) section 6) |
+| Delivery health | The Publish Docs workflow failed on `main`, so the documentation site was not being deployed; fixed by the knowledge-base pull request ([`TECH-STACK.md`](TECH-STACK.md) section 6) |
 
 ## 2. In progress
 
@@ -114,7 +114,7 @@ filed**: the review ran without authority to write to any tracker. This list is 
 | Finding | Where |
 |---|---|
 | The System.Text.Json serializer mutates shared options and throws once they have been used; with `AddSystemTextJsonSerializer()` every configuration overload throws | `src/Common.Serialization.SystemTextJson/SystemTextJsonSerializer.cs:85` |
-| Publish Docs fails on `main` (the warning guard trips on a NuGet audit warning); the Pages deploy is stalled | `.github/workflows/publish-docs.yml:125-130` |
+| Publish Docs failed on `main` (the warning guard tripped on a NuGet audit warning) and the Pages deploy stalled; fixed by the knowledge-base pull request | `.github/workflows/publish-docs.yml:125-130` |
 | `GetListEndpointHandler` compares `PageNumber * PageNumber`; FastEndpoints maps Create to `PUT` and Update to `POST`; `MapCrudEndpoints` doubles the base path and hard-codes `{id:int}` | `src/Common.WebApi/WebApi.Endpoints.CrudEndpoints*/` |
 | `Common.NSwag` and `TestingSupport.FluentAssertions.IOAbstractions` do not compile and nothing builds them; their published-looking documentation remains | `src/Common.NSwag/`, `src/TestingSupport.FluentAssertions.IOAbstractions/` |
 | Which unpublished libraries ship: ObjectBuilder, Extensions.Configuration, Dependencies, DependencyInjection.Hosting, Ardalis.Result, Maui, the Endpoints family | `Ploch.Common.slnx`, `docs/libraries/` |

@@ -82,8 +82,9 @@ dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet 
 - The System.Text.Json serializer's per-call configuration mutates shared options and throws once they are in use.
 - `Ploch.Common.Net9` ships net10.0 and its namespace is `Ploch.Common.AssemblyLoading`.
 - Several pages in `docs/libraries/` describe packages that do not exist on nuget.org.
-- The merge gate is four external checks (Codacy, CodeFactor, SonarCloud, `Test Results`), not the Actions Build job;
-  the Publish Docs workflow currently fails on `main`.
+- The merge gate is four external checks (Codacy, CodeFactor, SonarCloud, `Test Results`), not the Actions Build job.
+- The Publish Docs guard fails on **any** new `warning:` line from `docfx metadata`, including NuGet audit warnings from
+  build-time packages: keep `Directory.Packages.props` pins free of them.
 - Tag `v4.0.47` is not an ancestor of `main`; `git describe` on `main` reports `rel-2.0.1`.
 
 ## Workflow
