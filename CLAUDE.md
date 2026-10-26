@@ -52,15 +52,23 @@ dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet 
 
 ## Rules that break the build or the release
 
-- Versions are central: never write a `Version` in a `.csproj`; pins live in
-  `../mrploch-development/dependencies/*.props`.
+- Versions are central: never put a `Version` on a `<PackageReference>`. Most pins live in
+  `../mrploch-development/dependencies/*.props`; the exceptions are two pins in `Directory.Packages.props` and
+  project-scoped `<PackageVersion Update="…" Version="…" />` overrides in a few project files (for example
+  `src/Common.WebApi/WebApi/Ploch.Common.WebApi.csproj`). Keep such an override where it is; moving it to the sibling
+  repository changes every consumer.
 - Nullable diagnostics (`CS86xx`) are errors via `.editorconfig`; other warnings are not errors but add none. Do not add
   `_ =` discards to silence IDE0058 (it is disabled in `.editorconfig`).
-- Public API needs XML documentation (British English). Guards live in two files: change both `Guard.cs`
-  (`netstandard2.0`) and `GuardNet7.cs` (`net7+`) unless the difference is deliberate.
-- A library not listed in `Ploch.Common.slnx` is never built, tested or packed by CI. Anything under `src/` is packable
-  by default; anything under `tests/` is not.
-- Every change adds a `change-log/YYYY-MM-DD-<issue>-<slug>.md` file; the release workflow builds the notes from them.
+- Public API needs XML documentation (British English). A missing comment is a warning (`CS1591`), not a build error,
+  but review expects none. Guards come in two pairs, one file per target: `Guard.cs` / `GuardNet7.cs` and
+  `PathGuard.cs` / `PathGuardNet7.cs` (`netstandard2.0` / `net7+`). Change both files of a pair unless the difference
+  is deliberate.
+- CI builds, tests and packs only what `Ploch.Common.slnx` reaches. A project the solution does not list is still
+  compiled when a listed project references it (`Ploch.Common.WebApi` through `tests/Common.WebApi.Tests`), but it is
+  not tested or packed in its own right. Under `src/`, projects are packable by default unless their name ends in
+  `Tests`; nothing under `tests/` is packable.
+- Every change adds a `change-log/*.md` file named as `.claude/rules/change-log.md` describes. The release workflow
+  concatenates every `change-log/*.md` into the notes, so it does not parse the name.
 - Do not rename `release.yml`: the nuget.org Trusted Publishing policy matches the workflow file name.
 - Never commit credentials or conversation databases; stage named files, not whole directories.
 
@@ -80,10 +88,11 @@ dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet 
 
 ## Workflow
 
-- **Identifiers.** The repository's history uses GitHub issue and pull-request numbers (`Refs: #290`, `Closes #329`,
-  branch `feature/347-assignableto-guards`). A newer maintainer convention (`plo-<n>` branches, `PLO-<n>` footers)
-  appears nowhere in this repository's history; where the two disagree follow the history unless the owner says
-  otherwise.
+- **Identifiers.** Work is tracked in Linear. New work uses its identifier: branch `<type>/plo-<n>-<slug>`, commit
+  footer `Refs: PLO-<n>`, pull-request keyword `Closes PLO-<n>`; this knowledge base (`PLO-820`) is the first change to
+  do so. History before it uses GitHub issue and pull-request numbers (`Refs: #290`, `Closes #329`, branch
+  `feature/347-assignableto-guards`); those references stay valid. Add `Closes #<n>` only for a synced GitHub issue in
+  this repository.
 - **Commits** are Conventional Commits (`type(scope): Subject`, imperative, `BREAKING CHANGE:` footer and `!` when
   breaking) with a `Refs:` footer. Never amend; create new commits.
 - **Pull requests** follow `.github/pull_request_template.md`, are squash-merged, and are done when all checks are green

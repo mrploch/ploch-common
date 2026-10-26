@@ -3,15 +3,13 @@
 | Field | Value |
 |---|---|
 | Snapshot | 2026-10-10, against commit `1f1764b166dabfad4a01b166b94a1115b88e7c6d` |
-| Sources | The repository's public GitHub issues (138), pull requests (211), tags (3) and releases (3); nuget.org; the findings of this review. It does not count any pull request that adds this knowledge base (none had been opened) |
+| Sources | The repository's public GitHub issues (138), pull requests (211), tags (3) and releases (3); nuget.org; the findings of this review. It does not count the pull request that adds this knowledge base (at snapshot time, none had been opened) |
 | Verified by | Re-running each list command and checking that the result count is below the cap (`--limit 3000` against 138 issues and 211 pull requests) |
 | Entry point | [`CLAUDE.md`](../../CLAUDE.md) |
 
-The maintainer plans work in a tracker with a narrower audience than this public repository, and publishing from it was
-not approved. **Kept in a tracker with a narrower audience; not published here:** its counts, themes, priorities,
-milestones and roadmap. Everything below comes from the public GitHub issue list, pull requests, tags and releases,
-which any reader can see. The public issue list mirrors most of the planned work, but its open/closed state can lag the
-tracker's.
+This backlog is limited to public sources. Planning detail (priorities, milestones and roadmap) is not published here.
+The counts and lists below come from the public GitHub issues, pull requests, tags and releases, and from nuget.org;
+section 6 also records findings from this review of the code.
 
 ## 1. Snapshot
 
@@ -161,6 +159,9 @@ gh issue list -R mrploch/ploch-common --state all --limit 3000 --json number,tit
 gh pr list -R mrploch/ploch-common --state all --limit 3000 --json number,state,mergedAt,headRefName
 gh release list -R mrploch/ploch-common --exclude-drafts --limit 100
 git ls-remote --tags --refs origin
+# nuget.org: published Ploch.* package ids and versions (compare them with the packable projects for section 1)
+curl -s 'https://azuresearch-usnc.nuget.org/query?q=Ploch.&take=200&prerelease=true' \
+  | jq -r '.data[] | select(.id | startswith("Ploch.")) | "\(.id) \(.version)"'
 ```
 
 Then re-derive section 3 from the open issues and section 4 from the closed ones. A full refresh uses the

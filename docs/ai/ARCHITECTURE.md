@@ -11,8 +11,10 @@
 A family of small, independently packaged .NET libraries: extension methods and guard clauses (`Ploch.Common`),
 serialization and dependency-injection abstractions with concrete implementations, a priority-based action-handler
 framework, web helpers (OpenAPI configuration, query-string binding, CRUD endpoints), a MAUI helper library, and a
-test-support family (xUnit v3, FluentAssertions, AutoFixture/Moq helpers). The core has no project references; every
-other family depends on it, never the reverse.
+test-support family (xUnit v3, FluentAssertions, AutoFixture/Moq helpers). The core has no project references and
+nothing in it points back to another family. Most families build on the core, but not all: `Common.Serialization`,
+`Common.AppServices`, `Common.DataAnnotations`, `Common.WebUI`, `Common.WebApi.Endpoints` and `Common.Ardalis.Result`,
+among others, have no project reference at all. Do not add a core dependency to a package that does not have one.
 
 The repository has **no database, no application host and no UI of its own**. Nothing here is an executable product:
 `OutputType=Exe` appears only on test projects, on the three xUnit v3 support libraries (xUnit v3 requires it) and on

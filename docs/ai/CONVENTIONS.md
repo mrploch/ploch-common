@@ -15,9 +15,11 @@ differences.
    status checks and branch protection on `main` ([`TECH-STACK.md`](TECH-STACK.md) section 6).
 2. The pull-request template (`.github/pull_request_template.md`) and the short `Contributing` paragraph in `README.md`.
    There is no `CONTRIBUTING.md`.
-3. This document, then `CLAUDE.md`.
-4. Agent rules (`.claude/rules/`). Only two are committed (`change-log.md`, `todo-tasks-execution.md`); a developer
-   checkout may also hold copies of a wider workspace rule set, which is not part of this repository.
+3. Agent rules (`.claude/rules/`) and `CLAUDE.md`. Only two rules are committed (`change-log.md`,
+   `todo-tasks-execution.md`); a developer checkout may also hold copies of a wider workspace rule set, which is not
+   part of this repository.
+4. This document. It records observed practice; where practice and a rule disagree it flags the conflict (section 11)
+   but does not override the rule.
 
 ## 2. Repository layout and naming
 
@@ -88,7 +90,8 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
   `docs`, `webui`, `webapi`, `maui`, `solution`.
 - **Footers:** `Refs: #<GitHub issue number>` (118 occurrences in those 40 commits); `BREAKING CHANGE:` with `!` in the
   header (4 of 40 headers).
-- **Merge style is squash**: every merge commit has one parent and 38 of 40 subjects end in `(#<PR number>)`.
+- **Merge style is squash**: every commit that landed a pull request is a single-parent squash commit, and 38 of 40
+  subjects end in `(#<PR number>)`.
 - AI-assistant `Co-Authored-By` trailers are present on most recent commits (195 trailer lines in the whole history).
 
 ## 7. Branches and worktrees
@@ -134,7 +137,7 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
 | `CLAUDE.md`: `ActionHandlerManager` "dependency resolution" | First-success-wins fallback chain, no resolution | — |
 | `CLAUDE.md`: `[TextFileData]` reads a file; `[JsonFileData(file, "propertyPath")]` | `TextFileDataAttribute` is abstract; `JsonFileData` takes one `propertyName` | — |
 | `CLAUDE.md` Git workflow: branches `#<issue>-description` | `<type>/<number>-<slug>` | — |
-| Maintainer workspace rules (not in this repository): branches `<type>/plo-<n>-<slug>`, commit footer `Refs: PLO-<n>`, pull-request keyword `Closes PLO-<n>` | `PLO-` appears nowhere in the history or pull-request bodies; the last merged pull request predates the rule | **Unresolved.** For a change in this repository follow the history (GitHub numbers) unless the owner instructs otherwise, and mention the other scheme in the pull-request body only if asked |
+| Maintainer workspace rules (not in this repository): branches `<type>/plo-<n>-<slug>`, commit footer `Refs: PLO-<n>`, pull-request keyword `Closes PLO-<n>` | At the snapshot, `PLO-` appeared nowhere in the history or pull-request bodies; the knowledge-base pull request (`PLO-820`) is the first to use it | **Resolved:** new work uses the Linear identifier; earlier GitHub-number references stay valid (see `CLAUDE.md`, Workflow) |
 | `change-log.md`: file name contains `#taskid` | No `#` after the two oldest files; some files have no id at all | The rule file is also stale on the tracker |
 | `todo-tasks-execution.md`: record follow-ups as GitHub issues, run `/execute-todo` | That skill does not exist | Stale |
 | Tests live under `tests/` | `Common.WebUI.Tests`, `Common.Maui.Tests` (+2 fixtures), `WebApi.Endpoints.Tests`, `CrudEndpoints.IntegrationTests` are under `src/` | The two MAUI fixtures are consequently packable |

@@ -34,7 +34,7 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 
 | Path | Size | Content | Read by | Verdict |
 |---|---:|---|---|---|
-| `CLAUDE.md` | 38,665 → 5,945 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: an 88-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change (pending commit) |
+| `CLAUDE.md` | 38,665 → 6,895 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 102-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
 | `AGENTS.md` | 14,372 | Verbatim copy of the old `CLAUDE.md` knowledge under a "Codex" heading, preceded by a generated block that links to Windows absolute paths | Codex and other `AGENTS.md` readers | **Deduplicate** — replace with a short pointer to `CLAUDE.md` |
 | `GEMINI.md` | 33,958 | 100% generated ContextStream block; no repository knowledge | Gemini CLI | **Fix or Remove** (decision 1) |
 | `.cursorrules` | 22,720 | 100% generated ContextStream block | Cursor (legacy rules file) | **Fix or Remove** (decision 1) |
@@ -48,13 +48,13 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 | `.swm/swimm.json`, `.ai/mcp/mcp.json` | 74 / 0 | A Swimm id; an empty file | — | **Remove** the empty file |
 | `.claude/rules/change-log.md` | 655 | Real rule; names a `#taskid` file format | Claude Code; loads | **Fix** (the practised format has no `#`) |
 | `.claude/rules/todo-tasks-execution.md` | 1,467 | Mostly pointers; tells the agent to file follow-ups as GitHub issues and to use `/execute-todo`, a skill that does not exist | Claude Code; loads | **Fix** (stale tracker vocabulary, dead reference) |
-| `.claude/hooks/sonar-secrets/build-scripts/{pretool,prompt}-secrets.ps1` | 179 / 180 | Pipe hook input to the `sonar` CLI; exit 0 when it is absent | **Nothing**: no committed settings file registers them | **Fix** — register them portably or delete them (they are a safety control: do not make them asynchronous) |
+| `.claude/hooks/sonar-secrets/build-scripts/{pretool,prompt}-secrets.ps1` | 179 / 180 | Secret-scanning hook scripts | See proposal 7 | **Fix** (proposal 7) |
 | `.claude/.notion-current-task.json` | 518 | Hook-written session state | Nothing | **Remove** from the index and ignore it |
 | `.claude/worktrees/*` (2 gitlinks) | — | Commit pointers to agent worktrees with no `.gitmodules` | — | **Remove** from the index and ignore them |
 
 Total of the committed agent-facing files: about 196,200 B (about 49k tokens), of which **Claude Code loads
-automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 8,067 B (about
-2.0k tokens) after it. About 138,500 B of the 196,200 are the generated ContextStream block, spread over five files.
+automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 9,017 B (about
+2.3k tokens) after it. About 138,500 B of the 196,200 are the generated ContextStream block, spread over five files.
 
 **Not committed:** `settings.json`, `settings.local.json`, `.mcp.json`, agent definitions and skills. Permissions,
 hooks, plugins and MCP servers therefore cannot be reviewed from the repository at all; they exist only as per-machine
@@ -124,7 +124,7 @@ remains.
 
 | # | Change | Where (layer) | Effect |
 |---|---|---|---|
-| 1 | Replace `CLAUDE.md` with the 88-line entry point and index (**done in this change, uncommitted**) | repository | −32.7 KB (about 8.2k tokens) per session; the real knowledge moved to `docs/ai/` and the ContextStream block is dropped. Kept by: `docs/ai/` and the index |
+| 1 | Replace `CLAUDE.md` with the 102-line entry point and index (**done in this change**) | repository | −31.8 KB (about 7.9k tokens) per session; the real knowledge moved to `docs/ai/` and the ContextStream block is dropped. Kept by: `docs/ai/` and the index |
 | 2 | After decision 1: reduce `GEMINI.md`, `.cursorrules`, `.windsurf/rules/contextstream.md` and the first 470 lines of `.github/copilot-instructions.md` to a pointer to `CLAUDE.md`, and remove the ContextStream entry from `opencode.json` if the service is retired | repository | −113 KB of dead instructions for other tools; removes calls to unregistered tools. Kept by: `CLAUDE.md` for every tool |
 | 3 | Replace `AGENTS.md` with the three-line pointer shape and correct the `net9.0` line in the Copilot overview | repository | removes drift and Windows-only links. Kept by: `CLAUDE.md` |
 | 4 | Reword `todo-tasks-execution.md` and `change-log.md` to the repository's practice; drop the `/execute-todo` pointer | repository | stops contradicting practice. Kept by: the same files |
@@ -135,7 +135,7 @@ remains.
 
 | # | Change | Where (layer) | Effect |
 |---|---|---|---|
-| 7 | Commit a minimal `.claude/settings.json` that registers the two secret-scan hooks portably (or delete the scripts), and that carries a read-only allow-list: view, list, status, diff and check commands (for example `git status`, `git diff`, `git log`, `gh pr view`, `gh pr checks`, plus `dotnet restore`, `dotnet build` and `dotnet test`), never `git push`, `git merge`, `gh api`, `curl`, `rm` or a whole command family | repository | scanning runs from a clean clone; fewer prompts without a blanket allow. Kept by: unchanged interactive approval for anything that writes |
+| 7 | Commit a minimal `.claude/settings.json` that wires up the secret-scan hook scripts portably (or delete them), and that carries a read-only allow-list of inspection commands only (for example `git status`, `git diff`, `git log`, `gh pr view`, `gh pr checks`). Never allow `dotnet restore`, `dotnet build` or `dotnet test` (they run repository-controlled MSBuild targets and test code), `git push`, `git merge`, `gh api`, `curl`, `rm` or a whole command family | repository | the scan works from a clean clone; fewer prompts without a blanket allow. Kept by: unchanged interactive approval for anything that writes or executes repository code |
 | 8 | Add a `CODEOWNERS` file, or drop the code-owner requirement; consider making the Actions Build job a required check | code host | the review rule becomes real. Kept by: the four existing required checks |
 | 9 | Ignore `.claude/.notion-current-task.json`, `.claude/worktrees/`, `.agents/` and `.agentbridge/`, and untrack the first two | repository | no session state or conversation database can be committed. Kept by: the files stay on disk |
 | 10 | Pin the Junie server versions and the model names in `.github/agents/*.agent.md` | repository | reproducible reviewer set-up. Kept by: the same files |

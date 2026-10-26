@@ -11,9 +11,9 @@
 | Item | Value | Defined in |
 |---|---|---|
 | Language | C#, `LangVersion=default`, nullable reference types on | `Directory.Build.props:125-126` |
-| Target frameworks | Mixed, per project: `netstandard2.0`, `netstandard2.0;net8.0` (the core), `net8.0`, `netstandard2.0;net6.0`, and net10.0 through `$(TargetFrameworkVersion)` (19 of the 41 `src` projects). Counts are in section 4.3 | each `.csproj`; `Directory.Build.props:42` |
+| Target frameworks | Mixed, per project: `netstandard2.0`, `netstandard2.0;net8.0` (the core), `net8.0`, `netstandard2.0;net6.0`, and net10.0 through `$(TargetFrameworkVersion)` (19 of the 41 `src` projects use it alone, 20 in total). Counts are in section 4.3 | each `.csproj`; `Directory.Build.props:42` |
 | SDK | Not pinned: no `global.json`. CI asks `setup-dotnet` for `9.0.x` although the projects target net10.0 | `.github/workflows/*.yml` |
-| Package management | Central Package Management. Versions are **not in this repository**: they come from `../mrploch-development/dependencies/*.props` | `Directory.Packages.props:3-9` |
+| Package management | Central Package Management. Most versions come from `../mrploch-development/dependencies/*.props`; the exceptions are two pins in `Directory.Packages.props` and project-scoped `PackageVersion Update` overrides (section 4) | `Directory.Packages.props:3-9` |
 | Versioning | Nerdbank.GitVersioning; base `4.1-prerelease` | `version.json:3`, `.config/dotnet-tools.json` |
 | Test stack | xUnit v3 3.2.2 (xUnit v2 2.9.3 still in a few projects), FluentAssertions 8.10.0, AutoFixture 4.18.1, Moq 4.20.72 (transitive) | `mrploch-development/dependencies/Testing.Packages.props` |
 | Analysers | StyleCop, Roslynator, SonarAnalyzer, .NET analysers and others, all as global package references from the sibling repository; four more only in `Ploch.Common.csproj` | `mrploch-development/dependencies/Analyzers.Global.Packages.props`; `src/Common/Ploch.Common.csproj` |
@@ -114,7 +114,7 @@ Serilog is not used by any project in this repository, although a Serilog props 
 
 ### 4.3 Notes
 
-- **Target frameworks of the 41 `src` projects**, from the project files: 19 use `$(TargetFrameworkVersion)` (net10.0),
+- **Target frameworks of the 41 `src` projects**, from the project files: 19 use `$(TargetFrameworkVersion)` alone (net10.0),
   11 are `netstandard2.0` only, 6 are `net8.0` only, and one each are `netstandard2.0;net8.0` (the core),
   `netstandard2.0;net6.0`, `net10.0;net8.0`, `net10.0` and `$(TargetFrameworkVersion);net8.0`. Of the 21 test projects,
   15 use `$(TargetFrameworkVersion)`.
@@ -173,8 +173,6 @@ Facts worth knowing:
   and the release pull request), `QODANA_TOKEN`, `GH_PACKAGES_TOKEN` (not a repository-level secret; presumably
   organisation level, `UNVERIFIED`). **Variables:** `NUGET_USER` and `SONAR_ORGANIZATION` (also not repository-level).
   NuGet publishing uses Trusted Publishing, with no API-key secret.
-- **Action pins:** mostly floating tags (`actions/checkout@v4` and similar). Pinned by commit SHA: `NuGet/login`, the
-  Qodana action, and two artifact actions in `publish-docs.yml`. The Build job declares no `permissions` block.
 - **Cross-repository input:** every workflow clones `mrploch-development` at its default branch. A change there changes
   this repository's build without any commit here.
 - **Bots on pull requests:** five to twelve per pull request (CodeRabbit, Sourcery, Codacy, CodeAnt, Codex, Bito, Qodo,
