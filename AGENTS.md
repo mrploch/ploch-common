@@ -355,3 +355,32 @@ Core library (`Ploch.Common`) targets both:
 - `net8.0` - Modern .NET features
 
 Most other libraries target `netstandard2.0` only.
+
+## Cursor Cloud specific instructions
+
+This repository is a .NET library suite, not a hosted application. There is no long-running
+dev server. Agents should restore, build, and run tests.
+
+Central Package Management imports live in the sibling clone
+`../mrploch-development` (public: `https://github.com/mrploch/mrploch-development`). Clone it
+if it is missing:
+
+```bash
+test -d ../mrploch-development/.git || git clone --depth 1 https://github.com/mrploch/mrploch-development.git ../mrploch-development
+```
+
+Required toolchains on PATH: `dotnet` SDK 10 (tests use `TargetFrameworkVersion` = `net10.0`)
+plus the .NET 8 runtime for `net8.0` targets. Restore local tools (`nbgv`, `docfx`) with
+`dotnet tool restore`.
+
+Canonical commands:
+
+```bash
+dotnet restore ./Ploch.Common.slnx
+dotnet build ./Ploch.Common.slnx --no-restore
+dotnet test ./Ploch.Common.slnx --no-build
+dotnet nbgv get-version
+```
+
+Nerdbank.GitVersioning needs git history. Do not use a shallow clone of this repo when
+inspecting package versions.
