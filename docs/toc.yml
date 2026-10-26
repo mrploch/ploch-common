@@ -12,8 +12,6 @@
       href: libraries/common-data-annotations.md
     - name: Ploch.Common.ObjectBuilder
       href: libraries/common-object-builder.md
-    - name: Ploch.Common.Ardalis.Result
-      href: libraries/common-ardalis-result.md
 - name: Serialization
   items:
     - name: Ploch.Common.Serialization
@@ -38,8 +36,6 @@
       href: libraries/common-dependencies.md
 - name: Web, API & Applications
   items:
-    - name: Ploch.Common.WebApi
-      href: libraries/common-webapi.md
     - name: Ploch.Common.Web
       href: libraries/common-web.md
     - name: Ploch.Common.WebUI

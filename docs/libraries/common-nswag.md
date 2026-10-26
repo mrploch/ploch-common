@@ -51,4 +51,4 @@ Given an operation `GET /api/blogpost/{id}` tagged `BlogPost`, the generator pro
 ## Related Libraries
 
 - [Ploch.Common.Web](common-web.md) — Swagger/OpenAPI configuration for ASP.NET Core hosts
-- [Ploch.Common.WebApi](common-webapi.md) — Server-side OpenAPI configuration and CRUD endpoint infrastructure
+- [Ploch.Endpoints](https://github.com/mrploch/ploch-endpoints) — Server-side OpenAPI configuration and CRUD endpoint infrastructure (moved to its own repository)

@@ -474,8 +474,8 @@ dotnet nbgv get-version --variable NuGetPackageVersion
 |-----------------------------|--------------------------------------------------------------------------------|
 | `version.json`              | NBGV configuration (base version, prerelease tag, public release refs)         |
 | `.config/dotnet-tools.json` | Registers `nbgv` as a local dotnet tool                                        |
-| `Directory.Build.props`     | References `Nerdbank.GitVersioning` and `Microsoft.SourceLink.GitHub` packages |
-| `Directory.Packages.props`  | Pins NBGV and SourceLink package versions                                      |
+| `Directory.Build.props`     | References `Nerdbank.GitVersioning`; sets SourceLink properties (the SDK includes SourceLink) |
+| `Directory.Packages.props`  | Pins the NBGV package version                                                  |
 
 ### Migration Note
 
