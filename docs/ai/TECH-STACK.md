@@ -26,7 +26,8 @@
 - **A sibling checkout named `mrploch-development`** next to the repository (`../mrploch-development`). Restore fails at
   project-import time without it. CI clones its default branch, unpinned (`build-dotnet.yml`, `release.yml`,
   `publish-docs.yml`, `qodana_code_quality.yml`). `scripts/prepare-repo.ps1` clones or updates it.
-- **No `ploch-data` checkout.** The only projects that referenced it, the CRUD web-endpoint libraries, were moved to [ploch-endpoints](https://github.com/mrploch/ploch-endpoints) by #353.
+- **No `ploch-data` checkout.** The only projects that referenced it, the CRUD web-endpoint libraries, were moved to
+  [ploch-endpoints](https://github.com/mrploch/ploch-endpoints) by #353.
 - **.NET 10 SDK.** `global.json` does not exist, so the newest installed SDK is used.
 - **A .NET 8 runtime**, to run the net8.0 legs of three test projects (`Common.Tests`,
   `Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests`, `TestingSupport.XUnit3.Dependencies`). On a
@@ -108,14 +109,15 @@ Serilog is not used by any project in this repository, although a Serilog props 
 
 ### 4.3 Notes
 
-- **Target frameworks of the 33 `src` projects**, from the project files: 12 use `$(TargetFrameworkVersion)` alone (net10.0),
-  10 are `netstandard2.0` only, 6 are `net8.0` only, and one each are `netstandard2.0;net8.0` (the core),
+- **Target frameworks of the 33 `src` projects**, from the project files: 12 use `$(TargetFrameworkVersion)` alone
+  (net10.0), 10 are `netstandard2.0` only, 6 are `net8.0` only, and one each are `netstandard2.0;net8.0` (the core),
   `netstandard2.0;net6.0`, `net10.0;net8.0`, `net10.0` and `$(TargetFrameworkVersion);net8.0`. Of the 20 test projects,
   15 use `$(TargetFrameworkVersion)`.
 - **Newer versions exist for 28 packages** (nuget.org, 2026-10-10). Notable: `xunit.v3` 3.2.2 → 4.0.2,
   `xunit.runner.visualstudio` 3.1.5 → 4.0.1, `xunit.analyzers` 1.27.0 → 2.2.0, `Roslynator.Analyzers` 4.15.0 → 5.0.1,
-  `Philips.CodeAnalysis.DuplicateCodeAnalyzer` 1.6.4 → 2.0.0, `coverlet.msbuild` 8.0.0 → 10.1.0, `Nerdbank.GitVersioning` 3.7.115 → 3.10.94, `SonarAnalyzer.CSharp` 10.21 → 10.35,
-  `Microsoft.Extensions.*` 10.0.5 → 10.0.12, `FluentAssertions` 8.10.0 → 8.11.0, `Moq` 4.20.72 → 4.21.0.
+  `Philips.CodeAnalysis.DuplicateCodeAnalyzer` 1.6.4 → 2.0.0, `coverlet.msbuild` 8.0.0 → 10.1.0,
+  `Nerdbank.GitVersioning` 3.7.115 → 3.10.94, `SonarAnalyzer.CSharp` 10.21 → 10.35, `Microsoft.Extensions.*` 10.0.5 →
+  10.0.12, `FluentAssertions` 8.10.0 → 8.11.0, `Moq` 4.20.72 → 4.21.0.
 - **Deprecated:** `Dawn.Guard` 1.12.0 (marked legacy). The repository's own `Ploch.Common.DawnGuard` package is
   deprecated in its metadata and carries `[Obsolete]`.
 - **Where updates are made:** nearly all pins live in the sibling repository, so a bump there affects every consumer.

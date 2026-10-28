@@ -113,10 +113,10 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
 - A pull request normally adds a change-log file and updates the affected `docs/libraries/` page.
 - Five to twelve review bots comment on each pull request; in the sampled ten, every inline thread was resolved before
   merge (conversation resolution is required).
-- **Merge requires** the four status checks, an approving review and resolved conversations. Branch protection also
-  sets `require_code_owner_reviews`, but no `CODEOWNERS` file exists, so no review can satisfy it: GitHub reports
-  `REVIEW_REQUIRED` and merging needs an administrator bypass (`enforce_admins` is off). Definition of done in practice: all checks green on the latest commit, every thread answered
-  or resolved, change log and docs updated.
+- **Merge requires** the four status checks, an approving review and resolved conversations. Branch protection also sets
+  `require_code_owner_reviews`, but no `CODEOWNERS` file exists, so no review can satisfy it: GitHub reports
+  `REVIEW_REQUIRED` and merging needs an administrator bypass (`enforce_admins` is off). Definition of done in practice:
+  all checks green on the latest commit, every thread answered or resolved, change log and docs updated.
 
 ## 9. Issues
 

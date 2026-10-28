@@ -7,11 +7,12 @@
 | Entry point | [`CLAUDE.md`](../../CLAUDE.md) |
 
 Sizes are bytes; tokens are estimated as bytes ÷ 4. "Measured" figures come from the files; anything read off a session
-listing is labelled an estimate. **Section 6 is a list of proposals; proposals 1 and 3 were applied in this change, the rest have not been.** The proposals come from
-a static `agent-config-optimizer plan` pass. Usage mining and runtime probes were **not** run (they read session
-transcripts and start Claude Code, which runs the repository's hooks), so usage evidence is `UNVERIFIED` and every
-"remove" or "disable" proposal is weaker than it would be with it. This repository is public: machine-level detail (a
-developer's settings, permission lists, plugin set, local paths) is deliberately not recorded here.
+listing is labelled an estimate. **Section 6 is a list of proposals; proposals 1 and 3 were applied in this change, the
+rest have not been.** The proposals come from a static `agent-config-optimizer plan` pass. Usage mining and runtime
+probes were **not** run (they read session transcripts and start Claude Code, which runs the repository's hooks), so
+usage evidence is `UNVERIFIED` and every "remove" or "disable" proposal is weaker than it would be with it. This
+repository is public: machine-level detail (a developer's settings, permission lists, plugin set, local paths) is
+deliberately not recorded here.
 
 ## 1. Scope and layers
 
@@ -53,8 +54,10 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 | `.claude/worktrees/*` (2 gitlinks) | — | Commit pointers to agent worktrees with no `.gitmodules` | — | **Remove** from the index and ignore them |
 
 Total of the committed agent-facing files: about 196,200 B (about 49k tokens) before this change and about 151,400 B
-(about 38k tokens) after it. Of these, **Claude Code loads automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 9,193 B (about
-2.3k tokens) after it. Before this change, about 138,500 B of the 196,200 were the generated ContextStream block, spread over five files.
+(about 38k tokens) after it. Of these, **Claude Code loads automatically only `CLAUDE.md` and the two rules**: 40,787 B
+(about 10.2k tokens) before this change, 9,193 B (about
+2.3k tokens) after it. Before this change, about 138,500 B of the 196,200 were the generated ContextStream block, spread
+  over five files.
 
 **Not committed:** `settings.json`, `settings.local.json`, `.mcp.json`, agent definitions and skills. Permissions,
 hooks, plugins and MCP servers therefore cannot be reviewed from the repository at all; they exist only as per-machine
