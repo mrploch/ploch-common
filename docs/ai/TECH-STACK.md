@@ -109,7 +109,7 @@ Serilog is not used by any project in this repository, although a Serilog props 
 ### 4.3 Notes
 
 - **Target frameworks of the 33 `src` projects**, from the project files: 12 use `$(TargetFrameworkVersion)` alone (net10.0),
-  11 are `netstandard2.0` only, 6 are `net8.0` only, and one each are `netstandard2.0;net8.0` (the core),
+  10 are `netstandard2.0` only, 6 are `net8.0` only, and one each are `netstandard2.0;net8.0` (the core),
   `netstandard2.0;net6.0`, `net10.0;net8.0`, `net10.0` and `$(TargetFrameworkVersion);net8.0`. Of the 20 test projects,
   15 use `$(TargetFrameworkVersion)`.
 - **Newer versions exist for 28 packages** (nuget.org, 2026-10-10). Notable: `xunit.v3` 3.2.2 → 4.0.2,

@@ -46,7 +46,7 @@ Ploch.Common.slnx    the only solution CI builds, tests and packs (Ploch.Common.
 dotnet restore Ploch.Common.slnx
 dotnet build Ploch.Common.slnx -c Release --no-restore          # 0 errors, ~7 s
 DOTNET_ROLL_FORWARD=Major dotnet test Ploch.Common.slnx -c Release --no-build   # 2,220 passed, 38 skipped
-dotnet test Ploch.Common.slnx --filter "FullyQualifiedName~Ploch.Common.Tests.Collections"
+DOTNET_ROLL_FORWARD=Major dotnet test Ploch.Common.slnx --filter "FullyQualifiedName~Ploch.Common.Tests.Collections"
 dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet tool restore`
 ```
 

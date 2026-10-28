@@ -171,8 +171,6 @@ assemblies), `Common.NSwag`, `Common.ObjectBuilder` (+ its tests), `TestingSuppo
 | Add a services bundle | Derive from `ServicesBundle` (`DoConfigure()`) or `ConfigurableServicesBundle` (`Configure(IConfiguration)`); list prerequisite bundles in `Dependencies` |
 | Add a serializer | Derive from `Serializer<,>`/`AsyncSerializer<,>` and subclass the abstract contract tests in `tests/Common.Serialization.Tests` |
 | Add an action handler | Implement `IActionHandler<,>` with a `Priority`; supply the collection to `ActionHandlerManager` yourself (no DI wiring ships) |
-| Change a CRUD entity's behaviour | Subclass the handler base and register it, or pass `EntityQueryOperations<TEntity>` delegates for `Include`s |
-| Add an OpenAPI customisation | `OpenApiConfigurator.ConfigureOpenApiOptions` (`BuildOperationId` is `internal`, tested through `InternalsVisibleTo`) |
 | Add a test data source | A concrete `DataAttribute` in both `TestingSupport` packages, or accept divergence (section 7) |
 
 ## 7. Known gaps and sharp edges

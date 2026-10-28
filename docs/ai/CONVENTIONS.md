@@ -113,8 +113,9 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
 - A pull request normally adds a change-log file and updates the affected `docs/libraries/` page.
 - Five to twelve review bots comment on each pull request; in the sampled ten, every inline thread was resolved before
   merge (conversation resolution is required).
-- **Merge requires** the four status checks, an approving review, a code-owner review (no `CODEOWNERS` file exists) and
-  resolved conversations. Definition of done in practice: all checks green on the latest commit, every thread answered
+- **Merge requires** the four status checks, an approving review and resolved conversations. Branch protection also
+  sets `require_code_owner_reviews`, but no `CODEOWNERS` file exists, so no review can satisfy it: GitHub reports
+  `REVIEW_REQUIRED` and merging needs an administrator bypass (`enforce_admins` is off). Definition of done in practice: all checks green on the latest commit, every thread answered
   or resolved, change log and docs updated.
 
 ## 9. Issues
@@ -129,7 +130,7 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
 
 | Rule says | Practice | Note |
 |---|---|---|
-| `CLAUDE.md` (before this knowledge base): "Most other libraries target `netstandard2.0` only" | 15 of 33 `src` projects use net10.0, 11 are `netstandard2.0` only | Corrected in `TECH-STACK.md` section 4.3 |
+| `CLAUDE.md` (before this knowledge base): "Most other libraries target `netstandard2.0` only" | 15 of 33 `src` projects use net10.0, 10 are `netstandard2.0` only | Corrected in `TECH-STACK.md` section 4.3 |
 | `CLAUDE.md`: "27+ source projects" | 33 under `src/`, 20 under `tests/` | — |
 | `CLAUDE.md`: "Warnings as errors for Nullable and NU1605" | `TreatWarningsAsErrors=false`; the setting is in three projects; the `.editorconfig` makes about 50 nullable rules errors | — |
 | `CLAUDE.md`: the four extra analysers apply to the repository | They are referenced only by `Ploch.Common.csproj` | — |

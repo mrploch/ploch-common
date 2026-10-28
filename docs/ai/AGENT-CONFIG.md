@@ -7,7 +7,7 @@
 | Entry point | [`CLAUDE.md`](../../CLAUDE.md) |
 
 Sizes are bytes; tokens are estimated as bytes ÷ 4. "Measured" figures come from the files; anything read off a session
-listing is labelled an estimate. **Section 6 is proposals only; nothing here has been applied.** The proposals come from
+listing is labelled an estimate. **Section 6 is a list of proposals; proposals 1 and 3 were applied in this change, the rest have not been.** The proposals come from
 a static `agent-config-optimizer plan` pass. Usage mining and runtime probes were **not** run (they read session
 transcripts and start Claude Code, which runs the repository's hooks), so usage evidence is `UNVERIFIED` and every
 "remove" or "disable" proposal is weaker than it would be with it. This repository is public: machine-level detail (a
@@ -34,7 +34,7 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 
 | Path | Size | Content | Read by | Verdict |
 |---|---:|---|---|---|
-| `CLAUDE.md` | 38,665 → 7,045 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 104-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
+| `CLAUDE.md` | 38,665 → 7,071 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 104-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
 | `AGENTS.md` | 14,372 → 1,125 | Before: a verbatim copy of the old `CLAUDE.md` knowledge under a "Codex" heading, preceded by a generated block that linked to Windows absolute paths. After this change: a short, portable pointer to `CLAUDE.md` and `docs/ai/` | Codex and other `AGENTS.md` readers | **Deduplicate** — done in this change |
 | `GEMINI.md` | 33,958 | 100% generated ContextStream block; no repository knowledge | Gemini CLI | **Fix or Remove** (decision 1) |
 | `.cursorrules` | 22,720 | 100% generated ContextStream block | Cursor (legacy rules file) | **Fix or Remove** (decision 1) |
@@ -52,9 +52,9 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 | `.claude/.notion-current-task.json` | 518 | Hook-written session state | Nothing | **Remove** from the index and ignore it |
 | `.claude/worktrees/*` (2 gitlinks) | — | Commit pointers to agent worktrees with no `.gitmodules` | — | **Remove** from the index and ignore them |
 
-Total of the committed agent-facing files: about 196,200 B (about 49k tokens), of which **Claude Code loads
-automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 9,167 B (about
-2.3k tokens) after it. About 138,500 B of the 196,200 are the generated ContextStream block, spread over five files.
+Total of the committed agent-facing files: about 196,200 B (about 49k tokens) before this change and about 151,400 B
+(about 38k tokens) after it. Of these, **Claude Code loads automatically only `CLAUDE.md` and the two rules**: 40,787 B (about 10.2k tokens) before this change, 9,193 B (about
+2.3k tokens) after it. Before this change, about 138,500 B of the 196,200 were the generated ContextStream block, spread over five files.
 
 **Not committed:** `settings.json`, `settings.local.json`, `.mcp.json`, agent definitions and skills. Permissions,
 hooks, plugins and MCP servers therefore cannot be reviewed from the repository at all; they exist only as per-machine
