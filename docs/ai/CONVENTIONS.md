@@ -66,7 +66,7 @@ endpoint types are not (the build does not fail because warnings are not errors)
 | Shared helpers | `Ploch.TestingSupport.XUnit3(.AutoMoq)`: `[JsonFileData]`, `[TextFileLinesData]`, `[AutoMockData]`, `AlphabeticalOrderer`. Data files resolve against `AppContext.BaseDirectory` and must be copied to the output directory |
 | Contract tests | `tests/Common.Serialization.Tests` holds abstract base classes (`JsonSerializerTests<T>` and others) that each implementation's test project subclasses |
 | Fixtures | `tests/TestAssemblies/*` are assemblies loaded by the `TypeLoader` tests; `TestingSupport.MockConsoleApp` is a stub program for process tests |
-| Size | 804 `[Fact]`/`[Theory]` attribute lines under `tests/` (651 in `Common.Tests`) and 15 more in test projects under `src/`; 2,266 test cases pass and 38 are skipped on a full run (`TECH-STACK.md` section 3). A `[Theory]` counts once in the attribute figure |
+| Size | 762 `[Fact]`/`[Theory]` attribute lines under `tests/` (651 in `Common.Tests`) and 7 more in test projects under `src/`; 2,220 test cases pass and 38 are skipped on a full run (`TECH-STACK.md` section 3). A `[Theory]` counts once in the attribute figure |
 
 Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal API and FastEndpoints adapters and
 `Common.ObjectBuilder` have no tests ([`ARCHITECTURE.md`](ARCHITECTURE.md) section 7).
@@ -129,8 +129,8 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
 
 | Rule says | Practice | Note |
 |---|---|---|
-| `CLAUDE.md` (before this knowledge base): "Most other libraries target `netstandard2.0` only" | 19 of 41 `src` projects use net10.0, 11 are `netstandard2.0` only | Corrected in `TECH-STACK.md` section 4.3 |
-| `CLAUDE.md`: "27+ source projects" | 41 under `src/`, 21 under `tests/` | — |
+| `CLAUDE.md` (before this knowledge base): "Most other libraries target `netstandard2.0` only" | 15 of 33 `src` projects use net10.0, 11 are `netstandard2.0` only | Corrected in `TECH-STACK.md` section 4.3 |
+| `CLAUDE.md`: "27+ source projects" | 33 under `src/`, 20 under `tests/` | — |
 | `CLAUDE.md`: "Warnings as errors for Nullable and NU1605" | `TreatWarningsAsErrors=false`; the setting is in three projects; the `.editorconfig` makes about 50 nullable rules errors | — |
 | `CLAUDE.md`: the four extra analysers apply to the repository | They are referenced only by `Ploch.Common.csproj` | — |
 | `CLAUDE.md` sample: `ConfigureServices(IServiceCollection, IConfiguration)` on a bundle | The API is `DoConfigure()` / `Configure(IConfiguration)` | — |
@@ -140,7 +140,7 @@ Gaps: handler priority and fall-through, hosting, AppServices(.Web), the Minimal
 | Maintainer workspace rules (not in this repository): branches `<type>/plo-<n>-<slug>`, commit footer `Refs: PLO-<n>`, pull-request keyword `Closes PLO-<n>` | At the snapshot, `PLO-` appeared nowhere in the history or pull-request bodies; the knowledge-base pull request (`PLO-820`) is the first to use it | **Resolved:** new work uses the Linear identifier; earlier GitHub-number references stay valid (see `CLAUDE.md`, Workflow) |
 | `change-log.md`: file name contains `#taskid` | No `#` after the two oldest files; some files have no id at all | The rule file is also stale on the tracker |
 | `todo-tasks-execution.md`: record follow-ups as GitHub issues, run `/execute-todo` | That skill does not exist | Stale |
-| Tests live under `tests/` | `Common.WebUI.Tests`, `Common.Maui.Tests` (+2 fixtures), `WebApi.Endpoints.Tests`, `CrudEndpoints.IntegrationTests` are under `src/` | The two MAUI fixtures are consequently packable |
+| Tests live under `tests/` | `Common.WebUI.Tests` and `Common.Maui.Tests` (+2 fixtures) are under `src/` | The two MAUI fixtures are consequently packable |
 | Tests use xUnit v3 | Four projects still use xUnit v2 | — |
 | Test names are `<Member>_should_<behaviour>` | 39 of 660 methods in `Common.Tests` and several in `TestingSupport` deviate (`EnrollStudent_Success`, a trailing underscore, a template test that asserts nothing) | — |
 | Never set `RootNamespace`; no target framework in a project name | `Common.Net9` and its tests override it; the name says `Net9` but it builds net10.0 | A rename to `AssemblyLoading` is planned and not done |

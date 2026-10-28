@@ -11,9 +11,9 @@
 | Item | Value | Defined in |
 |---|---|---|
 | Language | C#, `LangVersion=default`, nullable reference types on | `Directory.Build.props:125-126` |
-| Target frameworks | Mixed, per project: `netstandard2.0`, `netstandard2.0;net8.0` (the core), `net8.0`, `netstandard2.0;net6.0`, and net10.0 through `$(TargetFrameworkVersion)` (19 of the 41 `src` projects use it alone, 20 in total). Counts are in section 4.3 | each `.csproj`; `Directory.Build.props:42` |
+| Target frameworks | Mixed, per project: `netstandard2.0`, `netstandard2.0;net8.0` (the core), `net8.0`, `netstandard2.0;net6.0`, and net10.0 through `$(TargetFrameworkVersion)` (12 of the 33 `src` projects use it alone, 13 in total). Counts are in section 4.3 | each `.csproj`; `Directory.Build.props:42` |
 | SDK | Not pinned: no `global.json`. CI asks `setup-dotnet` for `9.0.x` although the projects target net10.0 | `.github/workflows/*.yml` |
-| Package management | Central Package Management. Most versions come from `../mrploch-development/dependencies/*.props`; the exceptions are two pins in `Directory.Packages.props` and project-scoped `PackageVersion Update` overrides (section 4) | `Directory.Packages.props:3-9` |
+| Package management | Central Package Management. Most versions come from `../mrploch-development/dependencies/*.props`; the exceptions are the `Nerdbank.GitVersioning` pin in `Directory.Packages.props` and project-scoped `PackageVersion Update` overrides (section 4) | `Directory.Packages.props:3-9` |
 | Versioning | Nerdbank.GitVersioning; base `4.1-prerelease` | `version.json:3`, `.config/dotnet-tools.json` |
 | Test stack | xUnit v3 3.2.2 (xUnit v2 2.9.3 still in a few projects), FluentAssertions 8.10.0, AutoFixture 4.18.1, Moq 4.20.72 (transitive) | `mrploch-development/dependencies/Testing.Packages.props` |
 | Analysers | StyleCop, Roslynator, SonarAnalyzer, .NET analysers and others, all as global package references from the sibling repository; four more only in `Ploch.Common.csproj` | `mrploch-development/dependencies/Analyzers.Global.Packages.props`; `src/Common/Ploch.Common.csproj` |
@@ -26,9 +26,7 @@
 - **A sibling checkout named `mrploch-development`** next to the repository (`../mrploch-development`). Restore fails at
   project-import time without it. CI clones its default branch, unpinned (`build-dotnet.yml`, `release.yml`,
   `publish-docs.yml`, `qodana_code_quality.yml`). `scripts/prepare-repo.ps1` clones or updates it.
-- **A sibling checkout named `ploch-data`** only for the web-endpoint projects
-  (`Common.WebApi/WebApi.Endpoints.CrudEndpoints*`) and the two secondary solutions that contain them. Neither
-  `Ploch.Common.slnx` nor CI needs it.
+- **No `ploch-data` checkout.** The only projects that referenced it, the CRUD web-endpoint libraries, were moved to [ploch-endpoints](https://github.com/mrploch/ploch-endpoints) by #353.
 - **.NET 10 SDK.** `global.json` does not exist, so the newest installed SDK is used.
 - **A .NET 8 runtime**, to run the net8.0 legs of three test projects (`Common.Tests`,
   `Common.Serialization.SystemTextJson.ExtensionsDependencyInjection.Tests`, `TestingSupport.XUnit3.Dependencies`). On a
@@ -46,13 +44,13 @@ Observed on 2026-10-10 in a clean copy, environment as in the stamp. Nothing nee
 |---|---|
 | `dotnet tool restore` | Works. `nbgv` 3.7.115, `docfx` 2.78.5 |
 | `dotnet restore Ploch.Common.slnx` | Works, about 2 s with a warm cache |
-| `dotnet build Ploch.Common.slnx -c Release --no-restore` | Works, 0 errors, about 7 s, 21 `.nupkg` files produced (`GeneratePackageOnBuild`). 126 warnings: NuGet audit warnings (`NU1902`) and SourceLink "no remote" notices that only appear because the copy has no git remote. **No analyser (CA, SA, S, RCS) warning** |
+| `dotnet build Ploch.Common.slnx -c Release --no-restore` | Works, 0 errors and 0 warnings, about 7 s, 21 `.nupkg` files produced (`GeneratePackageOnBuild`). **No analyser (CA, SA, S, RCS) warning**. Before #353 removed the `Microsoft.SourceLink.GitHub` pin, every restore also printed NuGet audit warnings (`NU1902`) |
 | `dotnet test Ploch.Common.slnx -c Release --no-build` | **Exit 1 on a machine without a .NET 8 runtime**: the three net8.0 test hosts cannot start. All net10.0 assemblies pass |
-| `DOTNET_ROLL_FORWARD=Major dotnet test Ploch.Common.slnx -c Release --no-build` | Works, exit 0: **2,266 passed, 0 failed, 38 skipped** in about 4 s. The skips are Windows- and path-specific tests |
+| `DOTNET_ROLL_FORWARD=Major dotnet test Ploch.Common.slnx -c Release --no-build` | Works, exit 0: **2,220 passed, 0 failed, 38 skipped** in about 4 s. The skips are Windows- and path-specific tests |
 | `dotnet docfx metadata DocumentationSite/docfx.json` | Exit 0, about 51 s, 35 warning lines (see section 6: this is what fails the CI guard) |
 | `dotnet docfx build DocumentationSite/docfx.json` | Exit 0, about 55 s, 2 warnings, 0 errors, about 12,850 HTML files |
 | `dotnet list Ploch.Common.slnx package --outdated` | Works, 28 packages (section 4.3). `--deprecated` works too: `Dawn.Guard` only |
-| Build of a project outside the solution, for example `dotnet build src/Common.Maui/Common.Maui/Ploch.Common.Maui.csproj -c Release` | Works for `Common.Maui`, `Common.Maui.Fonts`, `Common.Ardalis.Result`, `Common.ObjectBuilder`, `Common.Dependencies`, `Common.DependencyInjection.Hosting`, `Common.Extensions.Configuration` and `WebApi.Endpoints.CrudEndpoints`. **Does not compile:** `src/Common.NSwag` (`string.ToPascalCase` missing) and `src/TestingSupport.FluentAssertions.IOAbstractions` (FluentAssertions 8 API break). CI never notices because neither is in the solution |
+| Build of a project outside the solution, for example `dotnet build src/Common.Maui/Common.Maui/Ploch.Common.Maui.csproj -c Release` | Works for `Common.Maui`, `Common.Maui.Fonts`, `Common.ObjectBuilder`, `Common.Dependencies`, `Common.DependencyInjection.Hosting` and `Common.Extensions.Configuration`. **Does not compile:** `src/Common.NSwag` (`string.ToPascalCase` missing) and `src/TestingSupport.FluentAssertions.IOAbstractions` (FluentAssertions 8 API break). CI never notices because neither is in the solution |
 
 ```bash
 dotnet tool restore
@@ -74,21 +72,17 @@ Things that do not work as you might expect:
 ## 4. Dependencies
 
 Every `PackageReference` in the repository resolves to a central version; no project writes a `Version` or
-`VersionOverride`. The two exceptions to central pins are `Nerdbank.GitVersioning` and `Microsoft.SourceLink.GitHub`,
-pinned in `Directory.Packages.props:11-12`, and a handful of `PackageVersion Update` overrides in project files (section
+`VersionOverride`. The exceptions to central pins are `Nerdbank.GitVersioning`, pinned in
+`Directory.Packages.props:11`, and a handful of `PackageVersion Update` overrides in project files (section
 9).
 
 ### 4.1 Runtime
 
 | Package | Version | Where the version is set | Used by |
 |---|---|---|---|
-| `Microsoft.Extensions.*`, `System.Text.Json`, `System.Management`, `Microsoft.Extensions.FileSystemGlobbing`, `Microsoft.AspNetCore.OpenApi`, EF Core abstractions | 10.0.5 | `mrploch-development/dependencies/MicrosoftExtensions.Net9.Packages.props` (the file name says Net9; it also sets `TargetFrameworkVersion=net10.0`) | Core, Serialization, DI, WebApi, Maui |
+| `Microsoft.Extensions.*`, `System.Text.Json`, `System.Management`, `Microsoft.Extensions.FileSystemGlobbing`, `Microsoft.AspNetCore.OpenApi`, EF Core abstractions | 10.0.5 | `mrploch-development/dependencies/MicrosoftExtensions.Net9.Packages.props` (the file name says Net9; it also sets `TargetFrameworkVersion=net10.0`) | Core, Serialization, DI, Maui |
 | `Newtonsoft.Json` | 13.0.4 | `Common.Packages.props:26` | Newtonsoft serializer, XUnit3 |
 | `Dawn.Guard` | 1.12.0, **deprecated** | `Common.Packages.props:16` | `Common.DawnGuard`, and, unused, `Common.DependencyInjection`, `Common.Serialization`, `Common.WebUI` |
-| `Ardalis.Result` / `.AspNetCore` | 10.1.0 | `Common.Packages.props:4` | `Common.Ardalis.Result`, `WebApi.Endpoints*` |
-| `AutoMapper` | 14.0.0 | `Common.Packages.props:9` | `WebApi.Endpoints.CrudEndpoints` |
-| `FastEndpoints`, `FastEndpoints.Swagger` | 5.34.0 | `Common.Packages.props:19-20` | `CrudEndpoints.FastEndpoints` |
-| `Swashbuckle.AspNetCore.SwaggerGen` | 10.2.3 in the project file, overriding the shared 7.2.0 | `Ploch.Common.WebApi.csproj:35`; `Common.Packages.props:35` | `Ploch.Common.WebApi` |
 | `NSwag.CodeGeneration.CSharp` | 14.6.3 | `Common.Packages.props:27` | `Common.NSwag` |
 | `CommunityToolkit.Mvvm` 8.4.0, `Microsoft.Maui.Controls.Xaml` 9.0.90 | as stated | `Common.Packages.props` | `Common.Maui` |
 | `JetBrains.Annotations` | 2025.2.4 | `Common.Packages.props:22` | `Common.Dependencies`, test projects |
@@ -100,23 +94,23 @@ Serilog is not used by any project in this repository, although a Serilog props 
 | Package | Version | Where the version is set |
 |---|---|---|
 | `xunit.v3` (and `.core`, `.extensibility.core`, `.runner.msbuild`) | 3.2.2 | `Testing.Packages.props:42-48` |
-| `xunit` (v2) | 2.9.3, still referenced by `TestingSupport.FluentAssertions.IOAbstractions.Tests`, `Common.Maui.Tests`, `CrudEndpoints.IntegrationTests`, `WebApi.Endpoints.Tests` | `Testing.Packages.props:30` |
+| `xunit` (v2) | 2.9.3, still referenced by `TestingSupport.FluentAssertions.IOAbstractions.Tests`, `Common.Maui.Tests`, `Common.WebUI.Tests` | `Testing.Packages.props:30` |
 | `xunit.runner.visualstudio` | 3.1.5 | `Testing.Packages.props:37` |
 | `FluentAssertions` | 8.10.0 | `Testing.Packages.props:14` |
 | `AutoFixture` / `.AutoMoq` 4.18.1, `AutoFixture.Xunit3` 4.19.0, `Moq` 4.20.72 | as stated | `Testing.Packages.props:3-19` |
 | `Microsoft.NET.Test.Sdk` | 18.6.0 | `Testing.Packages.props:18` |
 | `coverlet.msbuild` 8.0.0 / `coverlet.collector` 10.0.1 | as stated | `Common.Packages.props:14` / `Testing.Packages.props:10` |
 | `Nerdbank.GitVersioning` | 3.7.115 (package and tool) | `Directory.Packages.props:11`; `.config/dotnet-tools.json:6` |
-| `Microsoft.SourceLink.GitHub` | 10.0.114 | `Directory.Packages.props:12` |
+| SourceLink | included in the .NET SDK; no package | `Directory.Build.props` sets `PublishRepositoryUrl` and `EmbedUntrackedSources` |
 | `docfx` (tool) | 2.78.5 | `.config/dotnet-tools.json` |
 | Global analysers | codecracker.CSharp 1.1.0, Microsoft.CodeAnalysis.NetAnalyzers 10.0.201, Roslynator.Analyzers 4.15.0, SonarAnalyzer.CSharp 10.21.0.135717, StyleCop.Analyzers 1.1.118, Microsoft.VisualStudio.Threading.Analyzers 17.14.15 | `Analyzers.Global.Packages.props` (as `GlobalPackageReference`) |
 | Analysers only in `Ploch.Common.csproj` | ErrorProne.NET.CoreAnalyzers 0.1.2, Philips.CodeAnalysis.DuplicateCodeAnalyzer 1.6.4, PrimaryConstructorAnalyzer 1.0.6, ReflectionAnalyzers 0.3.1 | `Common.Packages.props:18,28-30` |
 
 ### 4.3 Notes
 
-- **Target frameworks of the 41 `src` projects**, from the project files: 19 use `$(TargetFrameworkVersion)` alone (net10.0),
+- **Target frameworks of the 33 `src` projects**, from the project files: 12 use `$(TargetFrameworkVersion)` alone (net10.0),
   11 are `netstandard2.0` only, 6 are `net8.0` only, and one each are `netstandard2.0;net8.0` (the core),
-  `netstandard2.0;net6.0`, `net10.0;net8.0`, `net10.0` and `$(TargetFrameworkVersion);net8.0`. Of the 21 test projects,
+  `netstandard2.0;net6.0`, `net10.0;net8.0`, `net10.0` and `$(TargetFrameworkVersion);net8.0`. Of the 20 test projects,
   15 use `$(TargetFrameworkVersion)`.
 - **Newer versions exist for 28 packages** (nuget.org, 2026-10-10). Notable: `xunit.v3` 3.2.2 → 4.0.2,
   `xunit.runner.visualstudio` 3.1.5 → 4.0.1, `xunit.analyzers` 1.27.0 → 2.2.0, `Roslynator.Analyzers` 4.15.0 → 5.0.1,
@@ -165,9 +159,9 @@ Facts worth knowing:
   requirement has nothing to match. The Build job, Qodana, Publish Docs and CodeQL are not required checks.
 - **Publish Docs was failing on `main` at the verified commit**, so the Pages deploy was not happening. The metadata
   step failed because a NuGet audit warning (`NU1902`) from the `Microsoft.SourceLink.GitHub` 8.0.0 pin was printed as
-  a `warning:` line, and the guard in `publish-docs.yml:125-130` whitelists only one message. The knowledge-base pull
-  request moved the pin to 10.0.114, the newest release outside the advisory's ranges that adds no `System.IO.Hashing`
-  dependency (10.0.303 and later add one, which warns on `net6.0` targets and trips the same guard).
+  a `warning:` line, and the guard in `publish-docs.yml:125-130` whitelists only one message. #353 removed the package,
+  because the .NET SDK includes SourceLink. Any new restore warning, including a NuGet audit warning, trips the same
+  guard.
 - **Secrets, by name:** `SONAR_TOKEN`, `CODACY_PROJECT_TOKEN`, `GH_TOKEN` (a personal access token used for tags, pushes
   and the release pull request), `QODANA_TOKEN`, `GH_PACKAGES_TOKEN` (not a repository-level secret; presumably
   organisation level, `UNVERIFIED`). **Variables:** `NUGET_USER` and `SONAR_ORGANIZATION` (also not repository-level).
@@ -212,9 +206,9 @@ Facts worth knowing:
 - **The Release workflow's two most recent runs concluded `failure`**, as did the six earlier runs on the old default
   branch, although the releases exist. The workflow comments attribute this to the final bookkeeping push being
   rejected; the logs have expired, so the cause is `UNVERIFIED`.
-- **Published versus packable.** 13 packable projects have no package on nuget.org: `Common.Ardalis.Result`,
+- **Published versus packable.** 8 packable projects have no package on nuget.org:
   `Common.Dependencies`, `Common.DependencyInjection.Hosting`, `Common.Extensions.Configuration`, `Common.Maui`,
-  `Common.Maui.Fonts`, `Common.NSwag`, `Common.ObjectBuilder`, the four `WebApi.Endpoints*` libraries and
+  `Common.Maui.Fonts`, `Common.NSwag`, `Common.ObjectBuilder` and
   `TestingSupport.FluentAssertions.IOAbstractions`. All sit outside `Ploch.Common.slnx`, which is why no release packs
   them. Two MAUI fixture projects under `src/` are also packable by the default rule.
 
@@ -239,12 +233,12 @@ Tooling and delivery only; code debt is in [`ARCHITECTURE.md`](ARCHITECTURE.md) 
 
 | Item | Detail |
 |---|---|
-| 22 of 62 projects unbuilt by CI | They sit outside `Ploch.Common.slnx`; two do not compile and nothing notices |
+| 14 of 53 projects unbuilt by CI | They sit outside `Ploch.Common.slnx`; two do not compile and nothing notices |
 | Unpinned inputs | The sibling repository is cloned at its default branch; no `global.json`; CI requests SDK `9.0.x` while projects target net10.0 (how the runner supplies net10.0 is `UNVERIFIED`) |
 | Branch protection mismatches | Code-owner review is required but no `CODEOWNERS` exists; the Actions Build job is not a required check; two commits on `main` are direct pushes without a pull request number (how, given the protection, is `UNVERIFIED`) |
 | Release workflow | Every recorded run ends in `failure` even when publishing worked |
 | Floating action versions | Mostly tags, not SHAs; Build has no `permissions` block |
-| Stale per-project overrides | `PackageVersion Update` blocks for `Roslynator.Analyzers` 4.12.11 and `SonarAnalyzer.CSharp` 10.6 in several project files (`Common.NSwag`, `Common.Ardalis.Result`, the Maui and Endpoints projects) disagree with the global pins; their effect against `GlobalPackageReference` is `UNVERIFIED` |
+| Stale per-project overrides | `PackageVersion Update` blocks for `Roslynator.Analyzers` 4.12.11 and `SonarAnalyzer.CSharp` 10.6 in several project files (`Common.NSwag` and the Maui projects) disagree with the global pins; their effect against `GlobalPackageReference` is `UNVERIFIED` |
 | Stale files | `dotnet-releaser.toml` points at a `Ploch.Common.sln` that does not exist; `templates/Directory.Build.props` and `deps/` describe the pre-NBGV scheme; `scripts/Clean-DocFx.ps1` targets the legacy `docfx_project/`; every solution lists a root-level `Clean-DocFx.ps1` and `.codacy.yml` that do not exist |
 | Documentation site content | `DocumentationSite/api-tmp/` and `docfx.tmp.json` are generated leftovers that are committed |
 | Reproducing CI locally | Needs the sibling repository and, on a machine without .NET 8, `DOTNET_ROLL_FORWARD=Major` |

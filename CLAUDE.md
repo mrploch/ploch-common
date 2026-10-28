@@ -27,25 +27,25 @@ Human-facing documentation: [`README.md`](README.md), [`docs/INDEX.md`](docs/IND
 ## Layout
 
 ```text
-src/                 41 projects: Common (core), Common.* families, TestingSupport.*
-tests/               21 test projects mirroring src/ (+ TestAssemblies/ fixtures)
+src/                 33 projects: Common (core), Common.* families, TestingSupport.*
+tests/               20 test projects mirroring src/ (+ TestAssemblies/ fixtures)
 docs/                human documentation; docs/ai/ is this knowledge base (excluded from the site)
 DocumentationSite/   the DocFX site (docfx_project/ is a legacy leftover)
 change-log/          one file per change; consumed by the release workflow
 scripts/             PowerShell/Python helpers
-Ploch.Common.slnx    the only solution CI builds, tests and packs (three more .slnx exist for endpoints, MAUI, local work)
+Ploch.Common.slnx    the only solution CI builds, tests and packs (Ploch.Common.LocalDev.slnx mirrors it)
 ```
 
 ## Build and test
 
 - Needs a sibling checkout `../mrploch-development` (central package versions; restore fails without it) and the .NET 10
-  SDK. `../ploch-data` is needed only for the web-endpoint projects. No token and no private feed is needed.
+  SDK. No token and no private feed is needed.
 - On a machine without a .NET 8 runtime set `DOTNET_ROLL_FORWARD=Major` (three test projects have net8.0 legs).
 
 ```bash
 dotnet restore Ploch.Common.slnx
 dotnet build Ploch.Common.slnx -c Release --no-restore          # 0 errors, ~7 s
-DOTNET_ROLL_FORWARD=Major dotnet test Ploch.Common.slnx -c Release --no-build   # 2,266 passed, 38 skipped
+DOTNET_ROLL_FORWARD=Major dotnet test Ploch.Common.slnx -c Release --no-build   # 2,220 passed, 38 skipped
 dotnet test Ploch.Common.slnx --filter "FullyQualifiedName~Ploch.Common.Tests.Collections"
 dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet tool restore`
 ```
@@ -53,19 +53,20 @@ dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet 
 ## Rules that break the build or the release
 
 - Versions are central: never put a `Version` on a `<PackageReference>`. Most pins live in
-  `../mrploch-development/dependencies/*.props`; the exceptions are two pins in `Directory.Packages.props` and
-  project-scoped `<PackageVersion Update="…" Version="…" />` overrides in a few project files (for example
-  `src/Common.WebApi/WebApi/Ploch.Common.WebApi.csproj`). Keep such an override where it is; moving it to the sibling
-  repository changes every consumer.
+  `../mrploch-development/dependencies/*.props`; the exceptions are the `Nerdbank.GitVersioning` pin in
+  `Directory.Packages.props` and project-scoped `<PackageVersion Update="…" Version="…" />` overrides in a few project
+  files (for example `src/Common.NSwag/Ploch.Common.NSwag.csproj`). Keep such an override where it is; moving it to the
+  sibling repository changes every consumer. SourceLink comes from the .NET SDK: do not add a
+  `Microsoft.SourceLink.GitHub` reference.
 - Nullable diagnostics (`CS86xx`) are errors via `.editorconfig`; other warnings are not errors but add none. Do not add
   `_ =` discards to silence IDE0058 (it is disabled in `.editorconfig`).
 - Public API needs XML documentation (British English). A missing comment is a warning (`CS1591`), not a build error,
   but review expects none. Guards come in two pairs, one file per target: `Guard.cs` / `GuardNet7.cs` and
   `PathGuard.cs` / `PathGuardNet7.cs` (`netstandard2.0` / `net7+`). Change both files of a pair unless the difference
   is deliberate.
-- CI builds, tests and packs only what `Ploch.Common.slnx` reaches. A project the solution does not list is still
-  compiled when a listed project references it (`Ploch.Common.WebApi` through `tests/Common.WebApi.Tests`), but it is
-  not tested or packed in its own right. Under `src/`, projects are packable by default unless their name ends in
+- CI builds, tests and packs only what `Ploch.Common.slnx` reaches. A project the solution does not list is
+  compiled only if a listed project references it (none does today), and it is never tested or packed in its own
+  right. Under `src/`, projects are packable by default unless their name ends in
   `Tests`; nothing under `tests/` is packable.
 - Every change adds a `change-log/*.md` file named as `.claude/rules/change-log.md` describes. The release workflow
   concatenates every `change-log/*.md` into the notes, so it does not parse the name.
@@ -74,10 +75,10 @@ dotnet docfx DocumentationSite/docfx.json --serve               # after `dotnet 
 
 ## Behaviour that surprises people
 
-- `Ploch.Common` targets `netstandard2.0;net8.0`, but 19 of the 41 `src` projects target net10.0; "most libraries are
+- `Ploch.Common` targets `netstandard2.0;net8.0`, but 15 of the 33 `src` projects target net10.0; "most libraries are
   `netstandard2.0`" is false.
-- Ten projects are in no solution; two of them do not compile and nothing notices. 13 packable projects are not
-  published.
+- 14 projects are in no solution, including the MAUI family; two of them do not compile and nothing notices. 8
+  packable projects are not published.
 - `ActionHandlerManager` is a first-success-wins fallback chain, not a pipeline and not a dependency resolver.
 - The System.Text.Json serializer's per-call configuration mutates shared options and throws once they are in use.
 - `Ploch.Common.Net9` ships net10.0 and its namespace is `Ploch.Common.AssemblyLoading`.

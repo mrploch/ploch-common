@@ -10,23 +10,22 @@
 
 A family of small, independently packaged .NET libraries: extension methods and guard clauses (`Ploch.Common`),
 serialization and dependency-injection abstractions with concrete implementations, a priority-based action-handler
-framework, web helpers (OpenAPI configuration, query-string binding, CRUD endpoints), a MAUI helper library, and a
+framework, MVC view helpers, a MAUI helper library, and a
 test-support family (xUnit v3, FluentAssertions, AutoFixture/Moq helpers). The core has no project references and
 nothing in it points back to another family. Most families build on the core, but not all: `Common.Serialization`,
-`Common.AppServices`, `Common.DataAnnotations`, `Common.WebUI`, `Common.WebApi.Endpoints` and `Common.Ardalis.Result`,
-among others, have no project reference at all. Do not add a core dependency to a package that does not have one.
+`Common.AppServices`, `Common.DataAnnotations` and `Common.WebUI`, among others, have no project reference at all. Do not add a core dependency to a package that does not have one.
 
 The repository has **no database, no application host and no UI of its own**. Nothing here is an executable product:
 `OutputType=Exe` appears only on test projects, on the three xUnit v3 support libraries (xUnit v3 requires it) and on
 `TestingSupport.MockConsoleApp`, a stub program that tests launch.
 
 The solution split matters more than the folder layout: **only `Ploch.Common.slnx` is built, tested and packed by CI**.
-Ten projects are in no solution at all, and the web-endpoint and MAUI projects are only in secondary solutions (section
-2).
+14 projects, the MAUI family among them, are in no solution at all (section 2). The CRUD web-endpoint libraries and
+`Common.Ardalis.Result` were moved to [ploch-endpoints](https://github.com/mrploch/ploch-endpoints) by #353.
 
 ## 2. Component map
 
-Counts: 41 `.csproj` under `src/`, 21 under `tests/`, 62 in total. `Ploch.Common.slnx` lists 40 of them (22 `src`, 18
+Counts: 33 `.csproj` under `src/`, 20 under `tests/`, 53 in total. `Ploch.Common.slnx` lists 39 of them (22 `src`, 17
 `tests`). "Published" means the package id exists on nuget.org (21 ids, all at 4.0.47, checked 2026-10-10).
 
 Target framework key: **net10** is `$(TargetFrameworkVersion)`, set once in `Directory.Build.props:42`. A hard-coded
@@ -41,8 +40,6 @@ Ploch.Common (netstandard2.0;net8.0)          <- no project references
   |   +---------- Common.Serialization.SystemTextJson (uses ArgumentChecking)
   +-------------- TestingSupport.* (all use ArgumentChecking)
 Common.Serialization (no references) <- SystemTextJson, NewtonsoftJson <- *.ExtensionsDependencyInjection
-WebApi.Endpoints <- CrudEndpoints <- {CrudEndpoints.MinimalApiEndpoints, CrudEndpoints.FastEndpoints}
-CrudEndpoints --ProjectReference--> ../ploch-data (sibling repository)
 ```
 
 | Family | Projects (under `src/`) | Target | In `Ploch.Common.slnx` | Published |
@@ -59,13 +56,10 @@ CrudEndpoints --ProjectReference--> ../ploch-data (sibling repository)
 | | `Common.DependencyInjection.Hosting` | `net8.0` | **no** | no |
 | Application services | `Common.AppServices`, `Common.AppServices.Web` | `net8.0` | yes | yes |
 | Apps | `Common.Apps/Shared`, `Common.Apps/Apps.Actions/Actions.Model` | net10 | yes | yes |
-| Results | `Common.Ardalis.Result` | `netstandard2.0` | only in `Ploch.Common.WebApi.Endpoints.slnx` | no |
-| Web | `Common.WebApi/WebApi` | net10 | only transitively, through `tests/Common.WebApi.Tests` | no (`IsPackable=false`, "not shipped yet") |
-| | `Common.WebApi/WebApi.Endpoints`, `.CrudEndpoints`, `.CrudEndpoints.MinimalApiEndpoints`, `.CrudEndpoints.FastEndpoints` | net10 | secondary solutions only | no |
-| | `Common.WebUI` | net10 | yes | yes |
+| Web | `Common.WebUI` | net10 | yes | yes |
 | | `Common.NSwag` | net10 | **no** (does not compile) | no |
 | | `Common.Web` | — | **no `.csproj`**: one orphan source file | no |
-| MAUI | `Common.Maui/Common.Maui`, `.Fonts` | net10 | `Ploch.Common.Endpoints.slnx` only | no |
+| MAUI | `Common.Maui/Common.Maui`, `.Fonts` | net10 | **no** (no solution) | no |
 | Test support | `TestingSupport`, `TestingSupport.FluentAssertions` | `netstandard2.0` | yes | yes |
 | | `TestingSupport.XUnit3` | `net10;net8.0` | yes | yes |
 | | `TestingSupport.XUnit3.AutoMoq`, `.XUnit3.Dependencies` | `net8.0` | yes | yes |
@@ -74,22 +68,19 @@ CrudEndpoints --ProjectReference--> ../ploch-data (sibling repository)
 | | `TestingSupport.Dependencies.MetaPackages` | — | **no `.csproj`**: an orphan `.nuspec` | no |
 
 Test projects that live under `src/` (against the layout rule): `Common.WebUI.Tests`, `Common.Maui/Common.Maui.Tests`
-and its two fixture assemblies, `Common.WebApi/WebApi.Endpoints.Tests` (no tests), and
-`Common.WebApi/WebApi.Endpoints.CrudEndpoints.IntegrationTests`.
+and its two fixture assemblies.
 
 Solutions at the repository root (there is no `.sln`):
 
 | Solution | Projects | Role |
 |---|---|---|
-| `Ploch.Common.slnx` | 40 | The CI and release solution. `build-dotnet.yml` and `release.yml` restore, build and test only this file |
-| `Ploch.Common.Endpoints.slnx` | 52 | Web endpoints, MAUI and `../ploch-data` projects; eight of its project paths do not exist |
-| `Ploch.Common.WebApi.Endpoints.slnx` | 42 | Endpoints plus `../ploch-data` projects; two paths do not exist |
+| `Ploch.Common.slnx` | 39 | The CI and release solution. `build-dotnet.yml` and `release.yml` restore, build and test only this file |
 | `Ploch.Common.LocalDev.slnx` | 39 | Mirror of the main solution for local work; one path does not exist |
 
 Projects in **no** solution: `Common.Dependencies`, `Common.DependencyInjection.Hosting`,
-`Common.Extensions.Configuration`, `Common.NSwag`, `Common.ObjectBuilder` (+ its tests), `Common.WebApi/WebApi` (built
-only through its tests), `TestingSupport.FluentAssertions.IOAbstractions` (+ its tests),
-`tests/Common.Apps/Apps.Shared.Tests`.
+`Common.Extensions.Configuration`, `Common.Maui`, `Common.Maui.Fonts`, `Common.Maui.Tests` (+ its two fixture
+assemblies), `Common.NSwag`, `Common.ObjectBuilder` (+ its tests), `TestingSupport.FluentAssertions.IOAbstractions`
+(+ its tests), `tests/Common.Apps/Apps.Shared.Tests`.
 
 ## 3. Key types
 
@@ -117,8 +108,6 @@ only through its tests), `TestingSupport.FluentAssertions.IOAbstractions` (+ its
 | `ServicesBundle`, `ConfigurableServicesBundle`, `DelegatingServicesBundle`, `ServicesBundleRegistration` | `src/Common.DependencyInjection/` | Modular service registration (section 4, flow 2) |
 | `IScopedService<T>` / `ScopedService<T>` | `src/Common.DependencyInjection/IScopedService.cs` | Wrapper that owns a scope and one resolved service. Not registered by any extension method |
 | `ActionHandlerManager<,,>`, `IActionHandler<,,>`, `ActionHandlerResult`, `ActionExecutionId<T>` | `src/Common.Apps/Apps.Actions/Actions.Model/` | Priority-ordered fallback chain (flow 3). Namespace is `Ploch.Common.Apps.Model`, not the project name |
-| `OpenApiConfigurator`, `QueryStringBinder` | `src/Common.WebApi/WebApi/` | OpenAPI/Swagger set-up with deterministic operation ids; typed query-string binding |
-| `IEndpointHandler<,>`, `CrudEndpointsBuilder`, `EntityQueryOperations<T>` and the five CRUD handlers | `src/Common.WebApi/WebApi.Endpoints*/` | Framework-agnostic CRUD over `ploch-data` repositories, with Minimal API and FastEndpoints adapters |
 | `AppPage`, `SelectListHelper` | `src/Common.WebUI/` | MVC view helpers |
 | `BaseViewModel`, `BaseContentPage`, `AppConfigurator`, font-glyph classes | `src/Common.Maui/` | MAUI helpers; plain SDK with the XAML package, no MAUI workload needed to build |
 | `JsonFileData`, `TextFileLinesData`, `AlphabeticalOrderer`, `FluentVerifier`, `SupportedOSPlatform` | `src/TestingSupport/`, `src/TestingSupport.XUnit3/` | xUnit v3 extensibility; two near-duplicate packages (section 7) |
@@ -147,12 +136,7 @@ only through its tests), `TestingSupport.FluentAssertions.IOAbstractions` (+ its
    scans one assembly; `AppDomainTypesLoader.ProcessAllAssemblies()` scans every loaded assembly and subscribes to
    `AssemblyLoad`. A type matches when it implements **any** configured base type, then the optional type-name glob is
    applied.
-6. **CRUD endpoint for an entity.**
-   `services.AddCrudEndpoints().WithAutoMapper<P>().WithDbContext<C>().WithMemoryCache()
-   .MapEndpoints().MapType<TEntity,TId,TDto>()` registers scoped handlers and a singleton
-   `EntityQueryOperations<TEntity>`; then `app.MapCrudEndpoints<TEntity,TId,TDto>()` (Minimal API) or the open-generic
-   FastEndpoints classes expose HTTP. Handlers return `Ardalis.Result`; the adapters translate the status to HTTP.
-7. **Consume the test support.** A test project references `Ploch.TestingSupport.XUnit3.AutoMoq`; the transitive
+6. **Consume the test support.** A test project references `Ploch.TestingSupport.XUnit3.AutoMoq`; the transitive
    `XUnit3.Dependencies` supplies `xunit.v3`, FluentAssertions, AutoFixture, the test SDK and the runner. Data files
    used by `[JsonFileData]`/`[TextFileLinesData]` resolve against `AppContext.BaseDirectory`, so they must be copied to
    the output.
@@ -206,7 +190,6 @@ Cross-referenced from [`BACKLOG.md`](BACKLOG.md) section 6. Items marked `UNVERI
 | `IsSimpleType` | Returns `true` for every value type (`TypeExtensions.cs:124`), broader than "primitives, strings, decimals, enums and nullables" |
 | `EnumerationConverter` | `SafaParseToEnum` is a public typo; its XML example promises `null` for out-of-range input but the code throws. `NullabeTypeConverter` is another public typo. Renaming is a breaking change |
 | `Guard` documentation | The `netstandard2.0` remarks claim automatic argument-name capture that those overloads do not have |
-| CRUD endpoints | `GetAllIEndpointHandler.cs:38` compares `PageNumber * PageNumber` where `PageNumber * PageSize` is meant. FastEndpoints maps Create to `PUT` and Update to `POST`. `CrudEndpointsMapper` doubles the base path in the five-argument overloads and hard-codes `{id:int}`. `CreateEndpointHandler` never calls `CommitAsync` (whether `AddAsync` persists is `UNVERIFIED`). `WebApi.Endpoints.csproj` has a machine-specific `HintPath` into a Windows `Program Files` folder. The MinimalApi and FastEndpoints adapters have no tests |
 | `Common.NSwag` | Does not compile (`string.ToPascalCase` is missing); wrong namespace (`Ploch.Lists.Api.WebApi`), typo in the type name, `Console.WriteLine` in library code |
 | `Common.Web` | One source file without a project; uses a Swashbuckle-7 namespace; never compiled |
 | Test support | `Ploch.TestingSupport` and `Ploch.TestingSupport.XUnit3` duplicate seven files with drift (newline handling, discovery flags, null checks, an `Async` suffix). The XUnit3 `TextFileLinesData` splits on `Environment.NewLine` only; its `JsonFileData` has no row-length check. `TestPriorityAttribute` is not read by any orderer. `IOAbstractions` does not compile against FluentAssertions 8, and its test project is an xUnit v2 island with no reference to its subject |

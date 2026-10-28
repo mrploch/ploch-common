@@ -91,12 +91,15 @@ uses `\` on Windows and `/` on the Linux CI runners.
 
 ### Versioning and source debugging
 
-Every project automatically gets Nerdbank.GitVersioning and SourceLink references via `GlobalPackageReference`:
+Every project automatically gets a Nerdbank.GitVersioning reference via `GlobalPackageReference`:
 
 ```xml
 <PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="all" />
-<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
 ```
+
+SourceLink needs no package reference: the .NET 8+ SDK includes it. The repository used to reference
+`Microsoft.SourceLink.GitHub` 8.0.0, but its `Microsoft.Build.Tasks.Git` dependency carries advisory
+GHSA-23fw-v26w-5fgq (NU1902), so the reference was removed.
 
 SourceLink is configured to embed source information in symbols:
 
@@ -133,11 +136,10 @@ The file imports five shared version catalogues from `mrploch-development/depend
 | `Testing.Packages.props` | xUnit, FluentAssertions, Moq, AutoFixture, Coverlet |
 | `Analyzers.Global.Packages.props` | StyleCop, Roslynator, SonarAnalyzer, MS NetAnalyzers (as `GlobalPackageReference`) |
 
-The two repository-specific versions pinned directly in `Directory.Packages.props` are:
+The one repository-specific version pinned directly in `Directory.Packages.props` is:
 
 ```xml
 <PackageVersion Include="Nerdbank.GitVersioning" Version="3.7.115" />
-<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
 ```
 
 ## Nerdbank.GitVersioning (version.json)

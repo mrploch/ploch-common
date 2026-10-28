@@ -18,7 +18,6 @@ Packages are published to [NuGet.org](https://www.nuget.org/profiles/mrploch); p
 - **`Ploch.Common.Net9`** — `.NET 9+`-specific helpers (`AppDomainTypesLoader`).
 - **`Ploch.Common.DataAnnotations`** — custom validation attributes (e.g. `RequiredNotDefaultDate`).
 - **`Ploch.Common.ObjectBuilder`** — WMI/COM object-to-POCO conversion pipeline.
-- **`Ploch.Common.Ardalis.Result`** — HTTP status-code mapping for `Ardalis.Result`.
 
 ### Serialisation
 
@@ -36,7 +35,6 @@ Abstract `ISerializer` / `IAsyncSerializer` interfaces plus implementations:
 
 ### Web, API, and applications
 
-- **`Ploch.Common.WebApi`** — generic CRUD endpoint builders (EF Core + AutoMapper + FastEndpoints).
 - **`Ploch.Common.Web`** — Swagger/OpenAPI configuration helpers.
 - **`Ploch.Common.WebUI`** — Razor/MVC page utilities.
 - **`Ploch.Common.AppServices`** + **`.Web`** — application service abstractions and HTTP context providers.
