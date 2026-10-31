@@ -7,8 +7,8 @@
 | Entry point | [`CLAUDE.md`](../../CLAUDE.md) |
 
 Sizes are bytes; tokens are estimated as bytes ÷ 4. "Measured" figures come from the files; anything read off a session
-listing is labelled an estimate. **Section 6 is a list of proposals; proposals 1 and 3 were applied in this change, the
-rest have not been.** The proposals come from a static `agent-config-optimizer plan` pass. Usage mining and runtime
+listing is labelled an estimate. **Section 6 is a list of proposals; proposals 1 and 3 were applied with this knowledge
+base and proposal 2 under PLO-653; the rest have not been.** The proposals come from a static `agent-config-optimizer plan` pass. Usage mining and runtime
 probes were **not** run (they read session transcripts and start Claude Code, which runs the repository's hooks), so
 usage evidence is `UNVERIFIED` and every "remove" or "disable" proposal is weaker than it would be with it. This
 repository is public: machine-level detail (a developer's settings, permission lists, plugin set, local paths) is
@@ -37,11 +37,11 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 |---|---:|---|---|---|
 | `CLAUDE.md` | 38,665 → 7,071 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 104-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
 | `AGENTS.md` | 14,372 → 1,125 | Before: a verbatim copy of the old `CLAUDE.md` knowledge under a "Codex" heading, preceded by a generated block that linked to Windows absolute paths. After this change: a short, portable pointer to `CLAUDE.md` and `docs/ai/` | Codex and other `AGENTS.md` readers | **Deduplicate** — done in this change |
-| `GEMINI.md` | 33,958 | 100% generated ContextStream block; no repository knowledge | Gemini CLI | **Fix** — reduced to a pointer to `CLAUDE.md` (PLO-653) |
-| `.cursorrules` | 22,720 | 100% generated ContextStream block | Cursor (legacy rules file) | **Fix** — reduced to a pointer to `CLAUDE.md` (PLO-653) |
-| `.windsurf/rules/contextstream.md` | 23,264 | 100% generated block, `trigger: always_on` | Windsurf | **Remove** — done (PLO-653) |
-| `.github/copilot-instructions.md` | 35,319 | 33,477 B generated block, then 1,842 B of overview that names `net9.0` as a target (the build files say net10.0) | Copilot repository instructions | **Fix** — generated block replaced with a pointer (PLO-653); the `net9.0` line is still to correct |
-| `opencode.json` | 168 | A single remote ContextStream server | OpenCode | **Remove** — done (PLO-653) |
+| `GEMINI.md` | 33,958 → 264 | Was 100% generated ContextStream block; now a pointer to `CLAUDE.md` and `docs/ai/` | Gemini CLI | **Fix** — done (PLO-653) |
+| `.cursorrules` | 22,720 → 188 | Was 100% generated ContextStream block; now a pointer to `CLAUDE.md` and `docs/ai/` | Cursor (legacy rules file) | **Fix** — done (PLO-653) |
+| ~~`.windsurf/rules/contextstream.md`~~ | 23,264 → deleted | Was 100% generated block, `trigger: always_on` | Windsurf | **Remove** — done (PLO-653) |
+| `.github/copilot-instructions.md` | 35,319 → 2,211 | A pointer to `CLAUDE.md` and `docs/ai/`, then the repository overview; the generated block and the wrong `net9.0` target were removed | Copilot repository instructions | **Fix** — done (PLO-653) |
+| ~~`opencode.json`~~ | 168 → deleted | Was a single remote ContextStream server | OpenCode | **Remove** — done (PLO-653) |
 | `.github/agents/*.agent.md` (5) | 10,602 | Repository-specific pull-request pipeline agents for the Copilot cloud agent; pin model names | Copilot cloud agent only | **Keep**; review the pinned model names when they age |
 | `.junie/guidelines.md`, `.junie/mcp/mcp.json` | 8,569 / 500 | Test guidelines; three stdio servers started with unpinned `npx -y`/`uvx` | JetBrains Junie | **Keep**; pin the server versions |
 | `.cursor/rules/sonarqube_mcp_instructions.mdc` | 1,935 | Vendor-generated SonarQube usage text, `alwaysApply: true` | Cursor | **Scope** or Keep |
@@ -57,7 +57,8 @@ Total of the committed agent-facing files: about 196,200 B (about 49k tokens) be
 (about 38k tokens) after it. Of these, **Claude Code loads automatically only `CLAUDE.md` and the two rules**: 40,787 B
 (about 10.2k tokens) before this change, 9,193 B (about
 2.3k tokens) after it. Before this change, about 138,500 B of the 196,200 were the generated ContextStream block, spread
-  over five files.
+  over five files. PLO-653 then removed the rest of it from the five files above: they went from 115,429 B to 2,663 B,
+  so the committed agent-facing total is now about 38,500 B (about 9.6k tokens). What Claude Code loads is unchanged.
 
 **Not committed:** `settings.json`, `settings.local.json`, `.mcp.json`, agent definitions and skills. Permissions,
 hooks, plugins and MCP servers therefore cannot be reviewed from the repository at all; they exist only as per-machine
@@ -128,8 +129,8 @@ remains.
 | # | Change | Where (layer) | Effect |
 |---|---|---|---|
 | 1 | Replace `CLAUDE.md` with the 104-line entry point and index (**done in this change**) | repository | −31.6 KB (about 7.9k tokens) per session; the real knowledge moved to `docs/ai/` and the ContextStream block is dropped. Kept by: `docs/ai/` and the index |
-| 2 | After decision 1: reduce `GEMINI.md`, `.cursorrules`, `.windsurf/rules/contextstream.md` and the first 470 lines of `.github/copilot-instructions.md` to a pointer to `CLAUDE.md`, and remove the ContextStream entry from `opencode.json` if the service is retired | repository | −113 KB of dead instructions for other tools; removes calls to unregistered tools. Kept by: `CLAUDE.md` for every tool |
-| 3 | Replace `AGENTS.md` with a short pointer (**done in this change**) and correct the `net9.0` line in the Copilot overview | repository | removes drift and Windows-only links. Kept by: `CLAUDE.md` |
+| 2 | After decision 1: reduce `GEMINI.md`, `.cursorrules`, `.windsurf/rules/contextstream.md` and the first 470 lines of `.github/copilot-instructions.md` to a pointer to `CLAUDE.md`, and remove the ContextStream entry from `opencode.json` if the service is retired (**done under PLO-653**; `opencode.json` and the Windsurf rule were deleted) | repository | −113 KB of dead instructions for other tools; removes calls to unregistered tools. Kept by: `CLAUDE.md` for every tool |
+| 3 | Replace `AGENTS.md` with a short pointer (**done in this change**) and correct the `net9.0` line in the Copilot overview (**done under PLO-653**) | repository | removes drift and Windows-only links. Kept by: `CLAUDE.md` |
 | 4 | Reword `todo-tasks-execution.md` and `change-log.md` to the repository's practice; drop the `/execute-todo` pointer | repository | stops contradicting practice. Kept by: the same files |
 | 5 | Make the deployed rule copies keep their `paths:` frontmatter, or deploy only the rules a library repository needs | the maintainer's configuration source (workspace) | up to about 48.9k tokens per session in a developer checkout. Kept by: rules still load when matching files are read |
 | 6 | Remove the five byte-identical rule copies from repository scope and keep the workspace originals | repository (ignored copies) | −24,761 B (about 6.2k tokens). Kept by: the workspace copies |

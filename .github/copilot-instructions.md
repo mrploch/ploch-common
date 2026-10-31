@@ -8,7 +8,8 @@ in this repository. They are the single source of agent guidance here; the overv
 This repository contains the Ploch.Common family of .NET utility libraries.
 
 - Primary solution: `Ploch.Common.slnx`
-- Main targets: `netstandard2.0`, `net8.0`, and `net9.0` depending on the project
+- Main targets: `netstandard2.0`, `net8.0` and `net10.0` (`$(TargetFrameworkVersion)` in `Directory.Build.props`), depending
+  on the project; `Ploch.Common` itself targets `netstandard2.0;net8.0`
 - Core library: `src/Common/Ploch.Common.csproj`
 - Main patterns: extension-method utilities, serialization abstractions, `ServicesBundle` dependency injection modules,
   and modular implementation-plus-DI-extension packages
