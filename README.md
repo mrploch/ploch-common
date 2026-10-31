@@ -784,6 +784,9 @@ public class AppConfiguration
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+Before changing code, read the repository's [AI knowledge base](docs/ai/README.md): architecture, verified build and test
+commands, conventions and the open backlog. It is written for coding agents and is just as useful to new contributors.
+
 ## Support
 
 For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/mrploch/ploch-common).
