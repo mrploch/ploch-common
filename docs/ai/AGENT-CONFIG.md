@@ -37,11 +37,11 @@ Verdicts follow the rubric of the `agent-config-optimizer` skill. "Loads" means 
 |---|---:|---|---|---|
 | `CLAUDE.md` | 38,665 → 7,071 | Before: lines 1–206 (25,077 B) were a generated ContextStream "startup" block for tools no configuration registers; the rest was real repository knowledge. After this change: a 104-line entry point and index | Claude Code, every session; loads | **Fix** — done in this change |
 | `AGENTS.md` | 14,372 → 1,125 | Before: a verbatim copy of the old `CLAUDE.md` knowledge under a "Codex" heading, preceded by a generated block that linked to Windows absolute paths. After this change: a short, portable pointer to `CLAUDE.md` and `docs/ai/` | Codex and other `AGENTS.md` readers | **Deduplicate** — done in this change |
-| `GEMINI.md` | 33,958 | 100% generated ContextStream block; no repository knowledge | Gemini CLI | **Fix or Remove** (decision 1) |
-| `.cursorrules` | 22,720 | 100% generated ContextStream block | Cursor (legacy rules file) | **Fix or Remove** (decision 1) |
-| `.windsurf/rules/contextstream.md` | 23,264 | 100% generated block, `trigger: always_on` | Windsurf | **Fix or Remove** (decision 1) |
-| `.github/copilot-instructions.md` | 35,319 | 33,477 B generated block, then 1,842 B of overview that names `net9.0` as a target (the build files say net10.0) | Copilot repository instructions | **Fix** — replace with a pointer plus the corrected overview |
-| `opencode.json` | 168 | A single remote ContextStream server | OpenCode | **Fix or Remove** (decision 1) |
+| `GEMINI.md` | 33,958 | 100% generated ContextStream block; no repository knowledge | Gemini CLI | **Fix** — reduced to a pointer to `CLAUDE.md` (PLO-653) |
+| `.cursorrules` | 22,720 | 100% generated ContextStream block | Cursor (legacy rules file) | **Fix** — reduced to a pointer to `CLAUDE.md` (PLO-653) |
+| `.windsurf/rules/contextstream.md` | 23,264 | 100% generated block, `trigger: always_on` | Windsurf | **Remove** — done (PLO-653) |
+| `.github/copilot-instructions.md` | 35,319 | 33,477 B generated block, then 1,842 B of overview that names `net9.0` as a target (the build files say net10.0) | Copilot repository instructions | **Fix** — generated block replaced with a pointer (PLO-653); the `net9.0` line is still to correct |
+| `opencode.json` | 168 | A single remote ContextStream server | OpenCode | **Remove** — done (PLO-653) |
 | `.github/agents/*.agent.md` (5) | 10,602 | Repository-specific pull-request pipeline agents for the Copilot cloud agent; pin model names | Copilot cloud agent only | **Keep**; review the pinned model names when they age |
 | `.junie/guidelines.md`, `.junie/mcp/mcp.json` | 8,569 / 500 | Test guidelines; three stdio servers started with unpinned `npx -y`/`uvx` | JetBrains Junie | **Keep**; pin the server versions |
 | `.cursor/rules/sonarqube_mcp_instructions.mdc` | 1,935 | Vendor-generated SonarQube usage text, `alwaysApply: true` | Cursor | **Scope** or Keep |
@@ -158,8 +158,8 @@ maintainer's report, not in this file.
 
 ## 7. Decisions needed
 
-1. Is ContextStream retired? The answer gates proposals 1–2: either remove every reference to it, or register the server
-   and keep one generated block in one file.
+1. ~~Is ContextStream retired?~~ Decided: yes. It was removed from the workspace and from this repository under
+   PLO-653, which carried out proposal 2.
 2. Which entry file is canonical, and should the files for Gemini, Cursor, Windsurf, OpenCode and Copilot be committed
    at all or reduced to pointers?
 3. Which layer owns the shared rules — the workspace or each repository — and should the deployer preserve `paths:`?
